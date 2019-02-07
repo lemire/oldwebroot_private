@@ -1,0 +1,710 @@
+#LyX 1.1 created this file. For more info see http://www.lyx.org/
+\lyxformat 218
+\textclass article
+\begin_preamble
+%%%%%
+%%%%%
+%%%%%
+%% Welcome!
+%% if you have any question about this
+%% document, please get in touch with
+%% Daniel Lemire at lemire@ondelette.com
+%%
+%% Of course, this file was generated
+%% with LyX which means that the syntax
+%% might be weird at times, but I've found
+%% that LyX did an excellent job overall at
+%% generating clean LaTeX syntax.
+%% Why do I choose LyX? Because LyX
+%% doesn't come with its own LaTeX engine.
+%% LyX simply use whatever tex I have.
+%% There is no "proprietary gizmos" going
+%% on. Also, instead of waiting for support
+%% from some folk in California, I can find
+%% most of the answers I need on the web,
+%% for free! Oh! And LyX is free too! 
+%% Good old Open Source software!
+%%
+%% (Sorry for the propaganda!)
+%% 
+%% Thanks!
+%% Enjoy!
+%%
+%% Sept. 8th 2001
+%% Grand-Pré, NS
+%%
+%%%%%%%%%%
+%
+% Notice that this document requires quite
+% a bit of macros... 
+% Sorry about that!
+%%%%%%%%%%%%%%
+%%
+\usepackage{epsfig}
+\usepackage{amsmath,amssymb}
+\usepackage{pslatex}
+\usepackage{color}
+ 
+ \definecolor{veryblackblue}{rgb}{0.0,0.0,0.1}
+ \usepackage[pdftex,urlcolor=webblackblue,colorlinks=true,citecolor=blue]{hyperref}
+ \pdfinfo{
+            /Title      (Topics from Advanced Calculus)
+            /Author     (Daniel Lemire, Ph.D.)
+            /Subject    (Assignment 3.)
+            /Keywords   ( differential equations, Acadia)
+          }
+
+
+\topmargin  = 0pt
+\headheight = 0pt
+\headsep    = 0pt
+
+\voffset    = 0in
+\hoffset    = 0in
+\textheight = 230mm
+\textwidth  = 164mm
+
+\evensidemargin = 0pt
+\oddsidemargin  = 0pt
+
+\pagestyle{empty}
+\usepackage{float}
+
+%% Background of blue palette
+ \definecolor{webblackblue}{rgb}{0.0,0.0,0.2}
+ \definecolor{webblue}{rgb}{0.0, 0.0, 0.6}
+
+%% Background of red palette
+ \definecolor{webblackred}{rgb}{0.2,0.0,0.0}
+ \definecolor{webred}{rgb}{0.6,0.0,0.0}
+
+%% Background of green palette
+ \definecolor{webblackgreen}{rgb}{0.0,0.2,0.0}                                   
+ \definecolor{webgreen}{rgb}{0.0,0.6,0.0} 
+
+%% Background of magenta palette
+ \definecolor{webblackmagenta}{rgb}{0.14,0.0,0.14}                                   
+ \definecolor{webmagenta}{rgb}{0.42,0.0,0.42} 
+
+%% Background of cyan palette
+ \definecolor{webblackcyan}{rgb}{0.0,0.14,0.14}                                   
+ \definecolor{webcyan}{rgb}{0.0,0.42,0.42} 
+
+%% Background of yellow pallete
+ \definecolor{webblackyellow}{rgb}{0.14,0.14,0.0}                                   
+ \definecolor{webyellow}{rgb}{0.85,0.85,0.0} 
+
+ \definecolor{webdarkgray}{rgb}{0.2,0.2,0.2}
+
+ \definecolor{webgray}{rgb}{0.75,0.75,0.75}
+ \definecolor{weborange}{rgb}{1.0, 0.6, 0.0}
+
+\renewcommand\labelenumi{\textcolor{webdarkgray}{\arabic{enumi}.}}
+\newcommand{\setenumi}[1]{#1.\setcounter{enumi}{#1}}
+\usepackage{dsfont}
+
+
+%%
+%% You might need this next line... I don't for
+%% some reason... defined somewhere?
+%%
+%% \newcommand{\setenumi}[1]{#1.\setcounter{enumi}{#1}}
+%%
+%% Document should begin NOW!
+%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%
+\end_preamble
+\language american
+\inputencoding auto
+\fontscheme default
+\graphics default
+\paperfontsize 12
+\spacing single 
+\papersize Default
+\paperpackage a4
+\use_geometry 0
+\use_amsmath 0
+\paperorientation portrait
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\defskip medskip
+\quotes_language english
+\quotes_times 2
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+
+\layout Title
+
+Acadia University 
+\newline 
+
+\latex latex 
+
+\backslash 
+href{http://ace.acadiau.ca/math/}{Department of Mathematics and Statistics}
+\latex default 
+
+\newline 
+
+\latex latex 
+ 
+\backslash 
+vspace*{3mm}
+\latex default 
+ 
+\series bold 
+Topics from Advanced Calculus
+\series default 
+
+\newline 
+ (MATH 2023) 
+\newline 
+
+\latex latex 
+ 
+\backslash 
+vspace*{3mm}
+\latex default 
+ Assignment 3 - solutions
+\newline 
+(was due 
+\bar under 
+March 18th 2002)
+\layout Author
+\added_space_bottom 0.3cm 
+
+\latex latex 
+
+\backslash 
+href{http://ondelette.com/acadia/}{Daniel Lemire}
+\latex default 
+, Ph.D.
+\layout Standard
+
+For a lot of these problems, the answer was in the back of the book.
+ This was intentional.
+ Marking scheme should reflect the fact that students had the answers.
+ Students who simply give the answer without showing work when the result
+ is clearly not trivial get 0.
+\layout Section
+
+
+\latex latex 
+
+\backslash 
+texorpdfstring{
+\backslash 
+textcolor{webblackblue}{Basic Concepts}}{Basic Concepts}
+\layout Standard
+
+1.14 [3 marks] - (a) order 2 (b) 
+\begin_inset Formula \( y \)
+\end_inset 
+
+ is unknown (c) 
+\begin_inset Formula \( x \)
+\end_inset 
+
+ is the variable (raw answer is enough)
+\newline 
+1.15 [3 marks] - (a) order 4 (b) y is unknown (c) 
+\begin_inset Formula \( x \)
+\end_inset 
+
+ is the variable (raw answer is enough)
+\newline 
+1.16 [3 marks] - (a) order 2 (b) 
+\begin_inset Formula \( s \)
+\end_inset 
+
+ is unknown (c) 
+\begin_inset Formula \( t \)
+\end_inset 
+
+ is the variable (raw answer is enough)
+\newline 
+1.17 [3 marks] - (a) order 4 (b) 
+\begin_inset Formula \( y \)
+\end_inset 
+
+ is unknown (c) 
+\begin_inset Formula \( x \)
+\end_inset 
+
+ is the variable (raw answer is enough)
+\newline 
+1.24 [10 marks] - d,e (student must show work proving the result - simply
+ substitute in d.e.)
+\newline 
+1.28 [10 marks] - d only (student must show work proving the result- simply
+ substitute in d.e.)
+\layout Section
+
+
+\latex latex 
+
+\backslash 
+texorpdfstring{
+\backslash 
+textcolor{webblackblue}{Classification of First-Order Differential Equations}}{C
+lassification of First-Order Differential Equations}
+\layout Standard
+
+2.15 [2 marks] - 
+\begin_inset Formula \( y'=\frac{y^{2}}{x} \)
+\end_inset 
+
+ (simple algebra)
+\newline 
+2.25 [2 marks] - 
+\begin_inset Formula \( y'=-1 \)
+\end_inset 
+
+ (
+\begin_inset Quotes eld
+\end_inset 
+
+divide
+\begin_inset Quotes erd
+\end_inset 
+
+ by 
+\begin_inset Formula \( dx \)
+\end_inset 
+
+: abuse the notation)
+\newline 
+2.29 [5 marks] - homogeneous (student must prove homo.
+ property with 
+\begin_inset Formula \( x\rightarrow xt \)
+\end_inset 
+
+ and 
+\begin_inset Formula \( y\rightarrow yt \)
+\end_inset 
+
+), nonlinear, Bernouilli (student must justify that 
+\begin_inset Formula \( x/y^{2}=xy^{-2} \)
+\end_inset 
+
+), separable, not exact (student must show work starting at 
+\begin_inset Formula \( \frac{\partial M}{\partial y}=\frac{\partial N}{\partial x} \)
+\end_inset 
+
+).
+\newline 
+2.34 [5 marks] - not homogeneous (student must justify with with 
+\begin_inset Formula \( x\rightarrow xt \)
+\end_inset 
+
+ and 
+\begin_inset Formula \( y\rightarrow yt \)
+\end_inset 
+
+), nonlinear, Bernouilli, non separable, not exact (student must show work
+ starting at 
+\begin_inset Formula \( \frac{\partial M}{\partial y}=\frac{\partial N}{\partial x} \)
+\end_inset 
+
+).
+\newline 
+2.35 [5 marks] - not homogeneous (student must justify with with 
+\begin_inset Formula \( x\rightarrow xt \)
+\end_inset 
+
+ and 
+\begin_inset Formula \( y\rightarrow yt \)
+\end_inset 
+
+), linear, not Bernouilli, non separable, exact (student must show computation
+ for exactness 
+\begin_inset Formula \( \frac{\partial M}{\partial y}=\frac{\partial N}{\partial x} \)
+\end_inset 
+
+).
+\layout Section
+
+
+\latex latex 
+
+\backslash 
+texorpdfstring{
+\backslash 
+textcolor{webblackblue}{Separable First-Order Differential Equations}}{Separable
+ First-Order Differential Equations}
+\layout Standard
+
+3.30 [5 marks] - Integrating throughout, we get 
+\begin_inset Formula \( \frac{t^{3}}{3}+t+\frac{y^{3}}{3}+\frac{y^{2}}{2}=C \)
+\end_inset 
+
+.
+\newline 
+3.37 [5 marks] - Rewrite as 
+\begin_inset Formula \( \frac{dy}{y^{2}}=dx \)
+\end_inset 
+
+ then integrate 
+\begin_inset Formula \( -1/y=x+C \)
+\end_inset 
+
+.
+\newline 
+3.39 [10 marks] - Rewrite as 
+\begin_inset Formula \( \frac{dx}{x}=\frac{dt}{t} \)
+\end_inset 
+
+, integrate to get 
+\begin_inset Formula \( \ln |x|=\ln |t|+C \)
+\end_inset 
+
+, get 
+\begin_inset Formula \( |x|=e^{C}|t| \)
+\end_inset 
+
+ or 
+\begin_inset Formula \( x=kt \)
+\end_inset 
+
+.
+ (This problem had to be done carefully without skipping a step.) 
+\newline 
+3.42 [10 marks] - Integrate throughout to get 
+\begin_inset Formula \( \frac{x^{3}}{3}+x+\ln |y|=C \)
+\end_inset 
+
+, get 
+\begin_inset Formula \( \ln |y|=C-\frac{x^{3}}{3}-x \)
+\end_inset 
+
+ or 
+\begin_inset Formula \( |y|=e^{C}e^{-\frac{x^{3}}{3}-x} \)
+\end_inset 
+
+ or 
+\begin_inset Formula \( y=ke^{-\frac{x^{3}}{3}-x} \)
+\end_inset 
+
+.
+ Now, 
+\begin_inset Formula \( y(-1)=1 \)
+\end_inset 
+
+ implies 
+\begin_inset Formula \( 1=ke^{\frac{1^{3}}{3}+1} \)
+\end_inset 
+
+ or 
+\begin_inset Formula \( k=e^{-4/3} \)
+\end_inset 
+
+ finally, you get 
+\begin_inset Formula \( y(x)=e^{-4/3-\frac{x^{3}}{3}-x} \)
+\end_inset 
+
+.
+\newline 
+3.49 [2 marks] - Not homogeneous (student must justify with with 
+\begin_inset Formula \( x\rightarrow xt \)
+\end_inset 
+
+ and 
+\begin_inset Formula \( y\rightarrow yt \)
+\end_inset 
+
+).
+\newline 
+3.52 [10 marks] - Homogeneous (not necessary to justify) so use 
+\begin_inset Formula \( y=vx \)
+\end_inset 
+
+ and 
+\begin_inset Formula \( y'=v+xv' \)
+\end_inset 
+
+ to get 
+\begin_inset Formula \( v+xv'=\frac{vx}{x+\sqrt{vx^{2}}}=\frac{vx}{x+|x|\sqrt{v}} \)
+\end_inset 
+
+ hence for 
+\begin_inset Formula \( x\neq 0 \)
+\end_inset 
+
+, 
+\begin_inset Formula \( (v+xv')(1+sign(x)\sqrt{v})=v \)
+\end_inset 
+
+ or 
+\begin_inset Formula \( sign(x)v^{3/2}+xv'+|x|\sqrt{v}v'=0 \)
+\end_inset 
+
+ or 
+\begin_inset Formula \( v^{3/2}+|x|v'+x\sqrt{v}v'=0 \)
+\end_inset 
+
+.
+ For simplicity, assume 
+\begin_inset Formula \( x>0 \)
+\end_inset 
+
+, then 
+\begin_inset Formula \( \frac{dx}{x}+\frac{1+\sqrt{v}}{v^{3/2}}dv=0 \)
+\end_inset 
+
+ hence 
+\begin_inset Formula \( \ln |x|+\ln |v|-\frac{2}{\sqrt{v}}=C \)
+\end_inset 
+
+ or 
+\begin_inset Formula \( \ln |xv|-\frac{2}{\sqrt{v}}=C \)
+\end_inset 
+
+ or 
+\begin_inset Formula \( \frac{1}{\sqrt{x}}\ln |y|-\frac{2}{\sqrt{y}}=C \)
+\end_inset 
+
+.
+ 
+\newline 
+3.53 [2 marks] - Not homogeneous (student must justify with with 
+\begin_inset Formula \( x\rightarrow xt \)
+\end_inset 
+
+ and 
+\begin_inset Formula \( y\rightarrow yt \)
+\end_inset 
+
+).
+\newline 
+3.54 [10 marks] - Homogeneous.
+ 
+\begin_inset Formula \( xv'+v=\frac{x^{4}+3v^{2}x^{4}+v^{4}x^{4}}{x^{4}v}=\frac{1+3v^{2}+v^{4}}{v} \)
+\end_inset 
+
+ or 
+\begin_inset Formula \( \frac{vdv}{1+2v^{2}+v^{4}}=\frac{dx}{x} \)
+\end_inset 
+
+ or 
+\begin_inset Formula \( \frac{-1}{2v^{2}+2}=\ln |x|+C \)
+\end_inset 
+
+ or 
+\begin_inset Formula \( \frac{-x^{2}}{2y^{2}+2x^{2}}=\ln |kx| \)
+\end_inset 
+
+.
+ The book solves for 
+\begin_inset Formula \( y^{2} \)
+\end_inset 
+
+ at this point.
+\layout Section
+
+
+\latex latex 
+
+\backslash 
+texorpdfstring{
+\backslash 
+textcolor{webblackblue}{Exact First-Order Differential Equations}}{Exact
+ First-Order Differential Equations}
+\layout Standard
+
+4.24 [10 marks] - Yes, it is exact, solve 
+\begin_inset Formula \( \frac{\partial g}{\partial x}=y+2xy^{3} \)
+\end_inset 
+
+ and 
+\begin_inset Formula \( \frac{\partial g}{\partial y}=1+3x^{2}y^{2}+x \)
+\end_inset 
+
+ to get 
+\begin_inset Formula \( g(x,y)=xy+x^{2}y^{3}+y=c \)
+\end_inset 
+
+.
+\newline 
+4.32 [10 marks] - Yes, it is exact, solve 
+\begin_inset Formula \( \frac{\partial g}{\partial t}=-2y/t^{3} \)
+\end_inset 
+
+ and 
+\begin_inset Formula \( \frac{\partial g}{\partial y}=1/t^{2} \)
+\end_inset 
+
+ to get 
+\begin_inset Formula \( g(t,y)=y/t^{2}=c \)
+\end_inset 
+
+
+\newline 
+4.33 [2 marks] - Not exact, demonstrate using
+\begin_inset Formula \( \frac{\partial M}{\partial y}\neq \frac{\partial N}{\partial x} \)
+\end_inset 
+
+.
+\newline 
+4.36 [10 marks] - Yes, it is exact, solve 
+\begin_inset Formula \( \frac{\partial g}{\partial t}=t^{2}-x \)
+\end_inset 
+
+ and 
+\begin_inset Formula \( \frac{\partial g}{\partial x}=-t \)
+\end_inset 
+
+ to get 
+\begin_inset Formula \( g(t,x)=-xt-t^{3}/3=c \)
+\end_inset 
+
+ or 
+\begin_inset Formula \( x=t^{2}/3-c/t \)
+\end_inset 
+
+.
+\newline 
+4.37 [10 marks] - Yes, it is exact, solve 
+\begin_inset Formula \( \frac{\partial g}{\partial t}=t^{2}+x^{2} \)
+\end_inset 
+
+ and 
+\begin_inset Formula \( \frac{\partial g}{\partial x}=2tx-x \)
+\end_inset 
+
+ to get 
+\begin_inset Formula \( g(t,x)=t^{3}/3+tx^{2}-x^{2}/2=c \)
+\end_inset 
+
+ or
+\begin_inset Formula \( 2t^{3}+6tx^{2}-3x^{2}=c' \)
+\end_inset 
+
+.
+\newline 
+4.38 [10 marks] - Yes, it is exact, solve 
+\begin_inset Formula \( \frac{\partial g}{\partial t}=2xe^{2t} \)
+\end_inset 
+
+ and 
+\begin_inset Formula \( \frac{\partial g}{\partial x}=1+e^{2t} \)
+\end_inset 
+
+ to get 
+\begin_inset Formula \( g(t,x)=x+xe^{2t}=c \)
+\end_inset 
+
+ or 
+\begin_inset Formula \( x=\frac{k}{1+e^{2t}} \)
+\end_inset 
+
+.
+\newline 
+4.45 [20 marks] - Using the integrating factor 
+\begin_inset Formula \( I(x,y)=\frac{1}{(xy)^{2}} \)
+\end_inset 
+
+, the differential form becomes exact and we get 
+\begin_inset Formula \( g(x,y)=\frac{x^{4}}{3}-\frac{1}{xy}=c \)
+\end_inset 
+
+ or 
+\begin_inset Formula \( \frac{1}{y}=\frac{1}{3}x^{4}-cx \)
+\end_inset 
+
+.
+\newline 
+4.47 [20 marks] - Using the integrating factor 
+\begin_inset Formula \( I(x,y)=e^{-y^{2}} \)
+\end_inset 
+
+, the differential form becomes exact and we get \i \c{ }
+
+\begin_inset Formula \( g(x,y)=xe^{-y^{2}}=c \)
+\end_inset 
+
+ or 
+\begin_inset Formula \( y^{2}=\ln |kx| \)
+\end_inset 
+
+.
+\newline 
+4.51 [20 marks] - Using the integrating factor 
+\begin_inset Formula \( I(x,y)=\frac{1}{(xy)^{2}} \)
+\end_inset 
+
+, the differential form becomes exact and we get 
+\begin_inset Formula \( g(x,y)=y+\ln |x|+\ln |y|=c \)
+\end_inset 
+
+ or 
+\begin_inset Formula \( \ln |xy|=c-y \)
+\end_inset 
+
+.
+\newline 
+4.65 [5 marks] - We had 
+\begin_inset Formula \( x=\frac{k}{1+e^{2t}} \)
+\end_inset 
+
+, solve for 
+\begin_inset Formula \( k \)
+\end_inset 
+
+ to get 
+\begin_inset Formula \( x(t)=\frac{-2(1+e^{2})}{1+e^{2t}} \)
+\end_inset 
+
+.
+\layout Section
+\noindent 
+
+\latex latex 
+
+\backslash 
+texorpdfstring{
+\backslash 
+textcolor{webblue}{Linear First-Order Differential Equations}}{Linear First-Orde
+r Differential Equations}
+\layout Standard
+
+5.22 [5 marks] - Separable, simply integrate throughout 
+\begin_inset Formula \( y=e^{0.01x} \)
+\end_inset 
+
+.
+\newline 
+5.33 [15 marks] - Integrating factor is 
+\begin_inset Formula \( e^{-7x} \)
+\end_inset 
+
+ so we have 
+\begin_inset Formula \( \frac{d}{dx}\left( e^{-7x}y\right) =e^{-7x}\sin 2x \)
+\end_inset 
+
+ use integration by parts to get 
+\begin_inset Formula \( y=ce^{7x}-\frac{2}{53}\cos 2x-\frac{7}{53}\sin 2x \)
+\end_inset 
+
+.
+ (Student must do the integration by parts in full!)
+\newline 
+5.51 [10 marks] - The integrating factor is 
+\begin_inset Formula \( e^{3x^{2}} \)
+\end_inset 
+
+ and so the general solution is 
+\begin_inset Formula \( y(x)=ce^{-3x^{2}} \)
+\end_inset 
+
+ solve for 
+\begin_inset Formula \( c \)
+\end_inset 
+
+ to get 
+\begin_inset Formula \( y=e^{-3(x^{2}-\pi ^{2})} \)
+\end_inset 
+
+.
+\the_end

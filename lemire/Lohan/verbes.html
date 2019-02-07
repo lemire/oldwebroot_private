@@ -1,0 +1,755 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<script type="text/javascript">
+function getRandomKey(o) {
+    var tmpList = Object.keys(o);
+    return tmpList[Math.floor(Math.random() * tmpList.length)];
+}
+
+
+var succes;
+var echec;
+var total;
+
+function getStarted() {
+    total = 25;
+    echec = 0;
+    succes = 0;
+    var donnees = {
+"paraître": {
+"présent": ["parais","parais","paraît","paraissons","paraissez","paraissent"],
+"passé composé": ["ai paru", "as paru", "a paru","avons paru", "avez paru", "ont paru"],
+"imparfait": ["paraissais", "paraissais", "paraissait", "paraissions", "paraissiez", "paraissaient"],
+"plus-que-parfait": ["avais paru", "avais paru", "avait paru", "avions paru", "aviez paru", "avaient paru"],
+"future": ["paraîtrai", "paraîtras", "paraîtra", "paraîtrons", "paraîtrez", "paraîtront"],
+"conditionnel": ["paraîtrais", "paraîtrais", "paraîtrait", "paraîtrions", "paraîtriez", "paraîtraient"],
+"subjonctif présent": ["paraisse", "paraisses", "paraisse","paraissions", "paraissiez", "paraissent"],
+"future proche" :["vais paraître", "vas paraître", "va paraître", "allons paraître", "allez paraître","vont paraître"]
+},
+"asseoir":{
+"présent": ["assois","assois","assoit","assoyons","assoyez","assoient"],
+"imparfait": ["assoyais","assoyais","assoyait","assoyions","assoyiez","assoyaient"],
+"passé simple":{
+"2":"assit",
+"5":"assirent"
+},
+"futur simple":["assoirai","assoiras","assoira","assoirons","assoirez","assoiront"],
+"passé composé":["ai assis","as assis","a assis","avons assis","avez assis","ont assis"],
+"plus-que-parfait":["avais assis","avais assis","avait assis","avions assis","aviez assis", "avaient assis"],
+"conditionnel":["assoirais","assoirais","assoirait","assoirions","assoiriez","assoiraient"],
+            "futur antérieur": ["aurai assis", "auras assis", "aura assis", "aurons assis", "aurez assis", "auront assis"],
+            "impératif":  {
+                "1": "jette",
+                "3": "jetons",
+                "4": "jetez"
+            },
+            "subjonctif présent": ["assoie", "assoies", "assoie", "assoyions", "assoyiez", "assoient"],
+
+},
+
+         "jeter": {
+            "présent": ["jette", "jettes", "jette", "jetons", "jetez", "jettent"],
+            "imparfait": ["jetais", "jetais", "jetait", "jetions", "jetiez", "jetaient"],
+            "futur simple": ["jetterai", "jetteras", "jettera", "jetterons", "jetterez", "jetteront"],
+            "conditionnel": ["jetterais", "jetterais", "jetterait", "jetterions", "jetteriez", "jetteraient"],
+            "passé simple": {
+                "2": "jeta",
+                "5": "jetèrent"
+            },
+            "passé composé": ["ai jeté", "as jeté", "a jeté", "avons jeté", "avez jeté", "ont jeté"],
+            "futur proche": ["vais jeter", "vas jeter", "va jeter", "allons jeter", "allez jeter", "vont jeter"],
+            "futur antérieur": ["aurai jeté", "auras jeté", "aura jeté", "aurons jeté", "aurez jeté", "auront jeté"],
+            "plus-que-parfait": ["avais jeté", "avais jeté", "avait jeté", "avions jeté", "aviez jeté", "avaient jeté"],
+
+            "impératif":  {
+                "1": "jette",
+                "3": "jetons",
+                "4": "jetez"
+            },
+            "subjonctif présent": ["jette", "jettes", "jette", "jetions", "jetiez", "jettent"],
+        },
+          "employer": {
+            "présent": ["emploie", "emploies", "emploie", "employons", "employez", "emploient"],
+            "imparfait": ["employais", "employais", "employait", "employions", "employiez", "employaient"],
+            "futur simple": ["emploierai", "emploieras", "emploiera", "emploierons", "emploierez", "emploieront"],
+            "conditionnel": ["emploierais", "emploierais", "emploierait", "emploierions", "emploieriez", "emploieraient"],
+            "passé simple": {
+                "2": "employa",
+                "5": "employèrent"
+            },
+            "passé composé": ["ai employé", "as employé", "a employé", "avons employé", "avez employé", "ont employé"],
+            "futur proche": ["vais employer", "vas employer", "va employer", "allons employer", "allez employer", "vont employer"],
+            "futur antérieur": ["aurai employé", "auras employé", "aura employé", "aurons employé", "aurez employé", "auront employé"],
+            "plus-que-parfait": ["avais employé", "avais employé", "avait employé", "avions employé", "aviez employé", "avaient employé"],
+
+            "impératif":  {
+                "1": "emploie",
+                "3": "employons",
+                "4": "employez"
+            },
+            "subjonctif présent": ["emploie", "emploies", "emploie", "employions", "employiez", "emploient"],
+        },
+          "céder": {
+            "présent": ["cède", "cèdes", "cède", "cédons", "cédez", "cèdent"],
+            "imparfait": ["cédais", "cédais", "cédait", "cédions", "cédiez", "cédaient"],
+            "futur simple": ["céderai", "céderas", "cédera", "céderons", "céderez", "céderont"],
+            "conditionnel": ["céderais", "céderais", "céderait", "céderions", "céderiez", "céderaient"],
+            "passé simple": {
+                "2": "céda",
+                "5": "cédèrent"
+            },
+            "passé composé": ["ai cédé", "as cédé", "a cédé", "avons cédé", "avez cédé", "ont cédé"],
+            "futur proche": ["vais céder", "vas céder", "va céder", "allons céder", "allez céder", "vont céder"],
+            "futur antérieur": ["aurai cédé", "auras cédé", "aura cédé", "aurons cédé", "aurez cédé", "auront cédé"],
+            "plus-que-parfait": ["avais cédé", "avais cédé", "avait cédé", "avions cédé", "aviez cédé", "avaient cédé"],
+
+            "impératif":  {
+                "1": "cède",
+                "3": "cédons",
+                "4": "cédez"
+            },
+            "subjonctif présent": ["cède", "cèdes", "cède", "cédions", "cédiez", "cèdent"],
+        },
+          "appeler": {
+            "présent": ["appelle", "appelles", "appelle", "appelons", "appelez", "appellent"],
+            "imparfait": ["appelais", "appelais", "appelait", "appelions", "appeliez", "appelaient"],
+            "futur simple": ["appellerai", "appelleras", "appellera", "appellerons", "appellerez", "appelleront"],
+            "conditionnel": ["appellerais", "appellerais", "appellerait", "appellerions", "appelleriez", "appelleraient"],
+            "passé simple": {
+                "2": "appela",
+                "5": "appelèrent"
+            },
+            "passé composé": ["ai appelé", "as appelé", "a appelé", "avons appelé", "avez appelé", "ont appelé"],
+            "futur proche": ["vais appeler", "vas appeler", "va appeler", "allons appeler", "allez appeler", "vont appeler"],
+            "futur antérieur": ["aurai appelé", "auras appelé", "aura appeler", "aurons appelé", "aurez appelé", "auront appelé"],
+            "plus-que-parfait": ["avais appelé", "avais appelé", "avait appelé", "avions appelé", "aviez appelé", "avaient appelé"],
+
+            "impératif":  {
+                "1": "appelle",
+                "3": "appelons",
+                "4": "appelez"
+            },
+            "subjonctif présent": ["appelle", "appelles", "appelle", "appelions", "appeliez", "appellent"],
+        },
+         "acheter": {
+            "présent": ["achète", "achètes", "achète", "achetons", "achetez", "achètent"],
+            "imparfait": ["achetais", "achetais", "achetait", "achetions", "achetiez", "achetaient"],
+            "futur simple": ["achèterai", "achèteras", "achètera", "achèterons", "achèterez", "achèteront"],
+            "conditionnel": ["achèterais", "achèterais", "achèterait", "achèterions", "achèteriez", "achèteraient"],
+            "passé simple": {
+                "2": "acheta",
+                "5": "achetèrent"
+            },
+            "passé composé": ["ai acheté", "as acheté", "a acheté", "avons acheté", "avez acheté", "ont acheté"],
+            "futur proche": ["vais acheter", "vas acheter", "va acheter", "allons acheter", "allez acheter", "vont acheter"],
+            "futur antérieur": ["aurai acheté", "auras acheté", "aura acheter", "aurons acheté", "aurez acheté", "auront acheté"],
+            "plus-que-parfait": ["avais acheté", "avais acheté", "avait acheté", "avions acheté", "aviez acheté", "avaient acheté"],
+
+            "impératif":  {
+                "1": "achète",
+                "3": "achetons",
+                "4": "achetez"
+            },
+            "subjonctif présent": ["achète", "achètes", "achète", "achetions", "achetiez", "achètent"],
+        },
+          "courir": {
+            "présent": ["cours", "cours", "court", "courons", "courez", "courent"],
+            "imparfait": ["courais", "courais", "courait", "courions", "couriez", "couraient"],
+            "futur simple": ["courrai", "courras", "courra", "courrons", "courrez", "courront"],
+            "conditionnel": ["courrais", "courrais", "courrait", "courrions", "courriez", "courraient"],
+            "passé simple": {
+                "2": "courut",
+                "5": "coururent"
+            },
+            "passé composé": ["ai couru", "as couru", "a couru", "avons couru", "avez couru", "ont couru"],
+            "futur proche": ["vais courir", "vas courir", "va courir", "allons courir", "allez courir", "vont courir"],
+            "futur antérieur": ["aurai couru", "auras couru", "aura couru", "aurons couru", "aurez couru", "auront couru"],
+            "plus-que-parfait": ["avais couru", "avais couru", "avait couru", "avions couru", "aviez couru", "avaient couru"],
+            "impératif":  {
+                "1": "cours",
+                "3": "courons",
+                "4": "courez"
+            },
+            "subjonctif présent": ["coure", "coures", "coure", "courions", "couriez", "courent"],
+        },
+         "mourir": {
+            "présent": ["meurs", "meurs", "meurt", "mourons", "mourez", "meurent"],
+            "imparfait": ["mourais", "mourais", "mourait", "mourions", "mouriez", "mouraient"],
+            "futur simple": ["mourrai", "mourras", "mourra", "mourrons", "mourrez", "mourront"],
+            "conditionnel": ["mourrais", "mourrais", "mourrait", "mourrions", "mourriez", "mourraient"],
+            "passé simple": {
+                "2": "mourut",
+                "5": "moururent"
+            },
+            "passé composé": ["suis mort", "es mort", "est mort", "sommes morts", "êtes morts", "sont morts"],
+            "futur proche": ["vais mourir", "vas mourir", "va mourir", "allons mourir", "allez mourir", "vont mourir"],
+            "futur antérieur": ["serai mort", "seras mort", "sera mort", "serons morts", "serez morts", "seront morts"],
+            "plus-que-parfait": ["étais mort", "étais mort", "était mort", "étions morts", "étiez morts", "étaient morts"],
+            "impératif":  {
+                "1": "meurs",
+                "3": "mourons",
+                "4": "mourez"
+            },
+            "subjonctif présent": ["meure", "meures", "meure", "mourions", "mouriez", "meurent"],
+        },
+        "être": {
+            "présent": ["suis", "es", "est", "sommes", "êtes", "sont"],
+            "imparfait": ["étais", "étais", "était", "étions", "étiez", "étaient"],
+            "futur simple": ["serai", "seras", "sera", "serons", "serez", "seront"],
+            "conditionnel": ["serais", "serais", "serait", "serions", "seriez", "seraient"],
+            "passé simple": {
+                "2": "fut",
+                "5": "furent"
+            },
+            "passé composé": ["ai été", "as été", "a été", "avons été", "avez été", "ont été"],
+            "futur proche": ["vais être", "vas être", "va être", "allons être", "allez être", "vont être"],
+            "futur antérieur": ["aurai été", "auras été", "aura été", "aurons été", "aurez été", "auront été"],
+            "plus-que-parfait": ["avais été", "avais été", "avait été", "avions été", "aviez été", "avaient été"],
+            "impératif":  {
+                "1": "sois",
+                "3": "soyons",
+                "4": "soyez"
+            },
+            "subjonctif présent": ["sois", "sois", "soit", "soyons", "soyez", "soient"],
+        },
+        "venir": {
+            "présent": ["viens", "viens", "vient", "venons", "venez", "viennent"],
+            "imparfait": ["venais", "venais", "venait", "venions", "veniez", "venaient"],
+            "futur simple": ["viendrai", "viendras", "viendra", "viendrons", "viendrez", "viendront"],
+            "conditionnel": ["viendrais", "viendrais", "viendrait", "viendrions", "viendriez", "viendraient"],
+            "passé simple": {
+                "2": "vint",
+                "5": "vinrent"
+            },
+            "passé composé": ["suis venu", "es venu", "est venu", "sommes venus", "êtes venus", "sont venus"],
+            "futur proche": ["vais venir", "vas venir", "va venir", "allons venir", "allez venir", "vont venir"],
+            "futur antérieur": ["serai venu", "seras venu", "sera venu", "serons venus", "serez venus", "seront venus"],
+            "plus-que-parfait": ["étais venu", "étais venu", "était venu", "étions venus", "étiez venus", "étaient venus"],
+            "impératif":  {
+                "1": "viens",
+                "3": "venons",
+                "4": "venez"
+            },
+            "subjonctif présent": ["vienne", "viennes", "vienne", "venions", "veniez", "viennent"],
+        },
+                "tenir": {
+            "présent": ["tiens", "tiens", "tient", "tenons", "tenez", "tiennent"],
+            "imparfait": ["tenais", "tenais", "tenait", "tenions", "teniez", "tenaient"],
+            "futur simple": ["tiendrai", "tiendras", "tiendra", "tiendrons", "tiendrez", "tiendront"],
+            "conditionnel": ["tiendrais", "tiendrais", "tiendrait", "tiendrions", "tiendriez", "tiendraient"],
+            "passé simple": {
+                "2": "tint",
+                "5": "tinrent"
+            },
+            "passé composé": ["ai tenu", "as tenu", "a tenu", "avons tenu", "avez tenu", "ont tenu"],
+            "futur proche": ["vais tenir", "vas tenir", "va tenir", "allons tenir", "allez tenir", "vont tenir"],
+            "futur antérieur": ["aurai tenu", "auras tenu", "aura tenu", "aurons tenu", "aurez tenu", "auront tenu"],
+            "plus-que-parfait": ["avais tenu", "avais tenu", "avait tenu", "avions tenu", "aviez tenu", "avaient tenu"],
+            "impératif":  {
+                "1": "tiens",
+                "3": "tenons",
+                "4": "tenez"
+            },
+            "subjonctif présent": ["tienne", "tiennes", "tienne", "tenions", "teniez", "tiennent"],
+        },
+        "avoir": {
+            "présent": ["ai", "as", "a", "avons", "avez", "ont"],
+            "imparfait": ["avais", "avais", "avait", "avions", "aviez", "avaient"],
+            "futur simple": ["aurai", "auras", "aura", "aurons", "aurez", "auront"],
+            "conditionnel": ["aurais", "aurais", "aurait", "aurions", "auriez", "auraient"],
+            "passé simple": {
+                "2": "eut",
+                "5": "eurent"
+            },
+            "passé composé": ["ai eu", "as eu", "a eu", "avons eu", "avez eu", "ont eu"],
+            "futur proche": ["vais avoir", "vas avoir", "va avoir", "allons avoir", "allez avoir", "vont avoir"],
+            "futur antérieur": ["aurai eu", "auras eu", "aura eu", "aurons eu", "aurez eu", "auront eu"],
+            "plus-que-parfait": ["avais eu", "avais eu", "avait eu", "avions eu", "aviez eu", "avaient eu"],
+            "impératif":  {
+                "1": "aie",
+                "3": "ayons",
+                "4": "ayez"
+            },
+            "subjonctif présent": ["aie", "aies", "ait", "ayons", "ayez", "aient"],
+        },
+        "finir": {
+            "présent": ["finis", "finis", "finit", "finissons", "finissez", "finissent"],
+            "imparfait": ["finissais", "finissais", "finissait", "finissions", "finissiez", "finissaient"],
+            "futur simple": ["finirai", "finiras", "finira", "finirons", "finirez", "finiront"],
+            "conditionnel": ["finirais", "finirais", "finirait", "finirions", "finiriez", "finiraient"],
+            "passé simple": {
+                "2": "finit",
+                "5": "finirent"
+            },
+            "passé composé": ["ai fini", "as fini", "a fini", "avons fini", "avez fini", "ont fini"],
+            "futur proche": ["vais finir", "vas finir", "va finir", "allons finir", "allez finir", "vont finir"],
+            "futur antérieur": ["aurai fini", "auras fini", "aura fini", "aurons fini", "aurez fini", "auront fini"],
+            "plus-que-parfait": ["avais fini", "avais fini", "avait fini", "avions fini", "aviez fini", "avaient fini"],
+            "impératif":  {
+                "1": "finis",
+                "3": "finissons",
+                "4": "finissez"
+            },
+            "subjonctif présent": ["finisse", "finisses", "finisse", "finissions", "finissiez", "finissent"],
+        },
+        "ouvrir": {
+            "présent": ["ouvre", "ouvres", "ouvre", "ouvrons", "ouvrez", "ouvrent"],
+            "imparfait": ["ouvrais", "ouvrais", "ouvrait", "ouvrions", "ouvriez", "ouvraient"],
+            "futur simple": ["ouvrirai", "ouvriras", "ouvrira", "ouvrirons", "ouvrirez", "ouvriront"],
+            "conditionnel": ["ouvrirais", "ouvrirais", "ouvrirait", "ouvririons", "ouvririez", "ouvriraient"],
+            "passé simple": {
+                "2": "ouvrit",
+                "5": "ouvrirent"
+            },
+            "passé composé": ["ai ouvert", "as ouvert", "a ouvert", "avons ouvert", "avez ouvert", "ont ouvert"],
+            "futur proche": ["vais ouvrir", "vas ouvrir", "va ouvrir", "allons ouvrir", "allez ouvrir", "vont ouvrir"],
+            "futur antérieur": ["aurai ouvert", "auras ouvert", "aura ouvert", "aurons ouvert", "aurez ouvert", "auront ouvert"],
+            "plus-que-parfait": ["avais ouvert", "avais ouvert", "avait ouvert", "avions ouvert", "aviez ouvert", "avaient ouvert"],
+            "impératif":  {
+                "1": "ouvre",
+                "3": "ouvrons",
+                "4": "ouvrez"
+            },
+            "subjonctif présent": ["ouvre", "ouvres", "ouvre", "ouvrions", "ouvriez", "ouvrent"],
+        },
+        "rendre": {
+            "présent": ["rends", "rends", "rend", "rendons", "rendez", "rendent"],
+            "imparfait": ["rendais", "rendais", "rendait", "rendions", "rendiez", "rendaient"],
+            "futur simple": ["rendrai", "rendras", "rendra", "rendrons", "rendrez", "rendront"],
+            "conditionnel": ["rendrais", "rendrais", "rendrait", "rendrions", "rendriez", "rendraient"],
+            "passé simple": {
+                "2": "rendit",
+                "5": "rendirent"
+            },
+            "passé composé": ["ai rendu", "as rendu", "a rendu", "avons rendu", "avez rendu", "ont rendu"],
+            "futur proche": ["vais rendre", "vas rendre", "va rendre", "allons rendre", "allez rendre", "vont rendre"],
+            "futur antérieur": ["aurai rendu", "auras rendu", "aura rendu", "aurons rendu", "aurez rendu", "auront rendu"],
+            "plus-que-parfait": ["avais rendu", "avais rendu", "avait rendu", "avions rendu", "aviez rendu", "avaient rendu"],
+            "impératif":  {
+                "1": "rends",
+                "3": "rendons",
+                "4": "rendez"
+            },
+            "subjonctif présent": ["rende", "rendes", "rende", "rendions", "rendiez", "rendent"],
+        },
+        "prendre": {
+            "présent": ["prends", "prends", "prend", "prenons", "prenez", "prennent"],
+            "imparfait": ["prenais", "prenais", "prenait", "prenions", "preniez", "prenaient"],
+            "futur simple": ["prendrai", "prendras", "prendra", "prendrons", "prendrez", "prendront"],
+            "conditionnel": ["prendrais", "prendrais", "prendrait", "prendrions", "prendriez", "prendraient"],
+            "passé simple": {
+                "2": "prit",
+                "5": "prirent"
+            },
+            "passé composé": ["ai pris", "as pris", "a pris", "avons pris", "avez pris", "ont pris"],
+            "futur proche": ["vais prendre", "vas prendre", "va prendre", "allons prendre", "allez prendre", "vont prendre"],
+            "futur antérieur": ["aurai pris", "auras pris", "aura pris", "aurons pris", "aurez pris", "auront pris"],
+            "plus-que-parfait": ["avais pris", "avais pris", "avait pris", "avions pris", "aviez pris", "avaient pris"],
+            "impératif":  {
+                "1": "prends",
+                "3": "prenons",
+                "4": "prenez"
+            },
+            "subjonctif présent": ["prenne", "prennes", "prenne", "prenions", "preniez", "prennent"],
+        },
+        "commencer": {
+            "présent": ["commence", "commences", "commence", "commençons", "commencez", "commencent"],
+            "imparfait": ["commençais", "commençais", "commençait", "commencions", "commenciez", "commençaient"],
+            "futur simple": ["commencerai", "commenceras", "commencera", "commencerons", "commencerez", "prendront"],
+            "conditionnel": ["commencerais", "commencerais", "commencerait", "commencerions", "commenceriez", "commenceraient"],
+            "passé simple": {
+                "2": "commença",
+                "5": "commencèrent"
+            },
+            "passé composé": ["ai commencé", "as commencé", "a commencé", "avons commencé", "avez commencé", "ont commencé"],
+            "futur proche": ["vais commencer", "vas commencer", "va commencer", "allons commencer", "allez commencer", "vont commencer"],
+            "futur antérieur": ["aurai commencé", "auras commencé", "aura commencé", "aurons commencé", "aurez commencé", "auront commencé"],
+            "plus-que-parfait": ["avais commencé", "avais commencé", "avait commencé", "avions commencé", "aviez commencé", "avaient commencé"],
+            "impératif":  {
+                "1": "commence",
+                "3": "commençons",
+                "4": "commencez"
+            },
+            "subjonctif présent": ["commence", "commences", "commence", "commencions", "commenciez", "commencent"],
+        },
+        "nager": {
+            "présent": ["nage", "nages", "nage", "nageons", "nagez", "nagent"],
+            "imparfait": ["nageais", "nageais", "nageait", "nagions", "nagiez", "nageaient"],
+            "futur simple": ["nagerai", "nageras", "nagera", "nagerons", "nagerez", "nageront"],
+            "conditionnel": ["nagerais", "nagerais", "nagerait", "nagerions", "nageriez", "nageraient"],
+            "passé simple": {
+                "2": "nagea",
+                "5": "nagèrent"
+            },
+            "passé composé": ["ai nagé", "as nagé", "a nagé", "avons nagé", "avez nagé", "ont nagé"],
+            "futur proche": ["vais nager", "vas nager", "va nager", "allons nager", "allez nager", "vont nager"],
+            "futur antérieur": ["aurai nagé", "auras nagé", "aura nagé", "aurons nagé", "aurez nagé", "auront nagé"],
+            "plus-que-parfait": ["avais nagé", "avais nagé", "avait nagé", "avions nagé", "aviez nagé", "avaient nagé"],
+            "impératif":  {
+                "1": "nage",
+                "3": "nageons",
+                "4": "nagez"
+            },
+            "subjonctif présent": ["nage", "nages", "nage", "nagions", "nagiez", "nagent"],
+        },
+        "manger": {
+            "présent": ["mange", "manges", "mange", "mangeons", "mangez", "mangent"],
+            "imparfait": ["mangeais", "mangeais", "mangeait", "mangions", "mangiez", "mangeaient"],
+            "futur simple": ["mangerai", "mangeras", "mangera", "mangerons", "mangerez", "mangeront"],
+            "conditionnel": ["mangerais", "mangerais", "mangerait", "mangerions", "mangeriez", "mangeraient"],
+            "passé simple": {
+                "2": "mangea",
+                "5": "mangèrent"
+            },
+            "passé composé": ["ai mangé", "as mangé", "a mangé", "avons mangé", "avez mangé", "ont mangé"],
+            "futur proche": ["vais manger", "vas manger", "va manger", "allons manger", "allez manger", "vont manger"],
+            "futur antérieur": ["aurai mangé", "auras mangé", "aura mangé", "aurons mangé", "aurez mangé", "auront mangé"],
+            "plus-que-parfait": ["avais mangé", "avais mangé", "avait mangé", "avions mangé", "aviez mangé", "avaient mangé"],
+            "impératif":  {
+                "1": "mange",
+                "3": "mangeons",
+                "4": "mangez"
+            },
+            "subjonctif présent": ["mange", "manges", "mange", "mangions", "mangiez", "mangent"],
+        },
+        "aimer": {
+            "présent": ["aime", "aimes", "aime", "aimons", "aimez", "aiment"],
+            "imparfait": ["aimais", "aimais", "aimait", "aimions", "aimiez", "aimaient"],
+            "futur simple": ["aimerai", "aimeras", "aimera", "aimerons", "aimerez", "aimeront"],
+            "conditionnel": ["aimerais", "aimerais", "aimerait", "aimerions", "aimeriez", "aimeraient"],
+            "passé simple": {
+                "2": "aima",
+                "5": "aimèrent"
+            },
+            "passé composé": ["ai aimé", "as aimé", "a aimé", "avons aimé", "avez aimé", "ont aimé"],
+            "futur proche": ["vais aimer", "vas aimer", "va aimer", "allons aimer", "allez aimer", "vont aimer"],
+            "futur antérieur": ["aurai aimé", "auras aimé", "aura aimé", "aurons aimé", "aurez aimé", "auront aimé"],
+            "plus-que-parfait": ["avais aimé", "avais aimé", "avait aimé", "avions aimé", "aviez aimé", "avaient aimé"],
+            "impératif":  {
+                "1": "aime",
+                "3": "aimons",
+                "4": "aimez"
+            },
+            "subjonctif présent": ["aime", "aimes", "aime", "aimions", "aimiez", "aiment"],
+        },
+        "continuer": {
+            "présent": ["continue", "continues", "continue", "continuons", "continuez", "continuent"],
+            "imparfait": ["continuais", "continuais", "continuait", "continuions", "continuiez", "continuaient"],
+            "futur simple": ["continuerai", "continueras", "continuera", "continuerons", "continuerez", "continueront"],
+            "conditionnel": ["continuerais", "continuerais", "continuerait", "continuerions", "continueriez", "continueraient"],
+            "passé simple": {
+                "2": "continua",
+                "5": "continuèrent"
+            },
+            "passé composé": ["ai continué", "as continué", "a continué", "avons continué", "avez continué", "ont continué"],
+            "futur proche": ["vais continuer", "vas continuer", "va continuer", "allons continuer", "allez continuer", "vont continuer"],
+            "futur antérieur": ["aurai continué", "auras continué", "aura continué", "aurons continué", "aurez continué", "auront continué"],
+            "plus-que-parfait": ["avais continué", "avais continué", "avait continué", "avions continué", "aviez continué", "avaient continué"],
+            "impératif":  {
+                "1": "continue",
+                "3": "continuons",
+                "4": "continuez"
+            },
+            "subjonctif présent": ["continue", "continues", "continue", "continuions", "continuiez", "continuent"],
+        },
+        "faire": {
+            "présent": ["fais", "fais", "fait", "faisons", "faites", "font"],
+            "imparfait": ["faisais", "faisais", "faisait", "faisions", "faisiez", "faisaient"],
+            "futur simple": ["ferai", "feras", "fera", "ferons", "ferez", "feront"],
+            "conditionnel": ["ferais", "ferais", "ferait", "ferions", "feriez", "feraient"],
+            "passé simple": {
+                "2": "fit",
+                "5": "firent"
+            },
+            "passé composé": ["ai fait", "as fait", "a fait", "avons fait", "avez fait", "ont fait"],
+            "futur proche": ["vais faire", "vas faire", "va faire", "allons faire", "allez faire", "vont faire"],
+            "futur antérieur": ["aurai fait", "auras fait", "aura fait", "aurons fait", "aurez fait", "auront fait"],
+            "plus-que-parfait": ["avais fait", "avais fait", "avait fait", "avions fait", "aviez fait", "avaient fait"],
+            "impératif":  {
+                "1": "fais",
+                "3": "faisons",
+                "4": "faites"
+            },
+            "subjonctif présent": ["fasse", "fasses", "fasse", "fassions", "fassiez", "fassent"],
+        },
+        "aller": {
+            "présent": ["vais", "vas", "va", "allons", "allez", "vont"],
+            "imparfait": ["allais", "allais", "allait", "allions", "alliez", "allaient"],
+            "futur simple": ["irai", "iras", "ira", "irons", "irez", "iront"],
+            "conditionnel": ["irais", "irais", "irait", "irions", "iriez", "iraient"],
+            "passé simple": {
+                "2": "alla",
+                "5": "allèrent"
+            },
+            "passé composé": ["suis allé", "es allé", "est allé", "sommes allés", "êtes allés", "sont allés"],
+            "futur proche": ["vais aller", "vas aller", "va aller", "allons aller", "allez aller", "vont aller"],
+            "futur antérieur": ["serai allé", "seras allé", "sera allé", "serons allés", "serez allés", "seront allés"],
+            "plus-que-parfait": ["étais allé", "étais allé", "était allé", "étions allés", "étiez allés", "étaient allés"],
+            "impératif":  {
+                "1": "va",
+                "3": "allons",
+                "4": "allez"
+            },
+            "subjonctif présent": ["aille", "ailles", "aille", "allions", "alliez", "aillent"],
+        },
+        "dire": {
+            "présent": ["dis", "dis", "dit", "disons", "dites", "disent"],
+            "imparfait": ["disais", "disais", "disait", "disions", "disiez", "disaient"],
+            "futur simple": ["dirai", "diras", "dira", "dirons", "direz", "diront"],
+            "conditionnel": ["dirais", "dirais", "dirait", "dirions", "diriez", "diraient"],
+            "passé simple": {
+                "2": "dit",
+                "5": "dirent"
+            },
+            "passé composé": ["ai dit", "as dit", "a dit", "avons dit", "avez dit", "ont dit"],
+            "futur proche": ["vais dire", "vas dire", "va dire", "allons dire", "allez dire", "vont dire"],
+            "futur antérieur": ["aurai dit", "auras dit", "aura dit", "aurons dit", "aurez dit", "auront dit"],
+            "plus-que-parfait": ["avais dit", "avais dit", "avait dit", "avions dit", "aviez dit", "avaient dit"],
+            "impératif":  {
+                "1": "dis",
+                "3": "disons",
+                "4": "dites"
+            },
+            "subjonctif présent": ["dise", "dises", "dise", "disions", "disiez", "disent"],
+        },
+        "mettre": {
+            "présent": ["mets", "mets", "met", "mettons", "mettez", "mettent"],
+            "imparfait": ["mettais", "mettais", "mettait", "mettions", "mettiez", "mettaient"],
+            "futur simple": ["mettrai", "mettras", "mettra", "mettrons", "mettrez", "mettront"],
+            "conditionnel": ["mettrais", "mettrais", "mettrait", "mettrions", "mettriez", "mettraient"],
+            "passé simple": {
+                "2": "mit",
+                "5": "mirent"
+            },
+            "passé composé": ["ai mis", "as mis", "a mis", "avons mis", "avez mis", "ont mis"],
+            "futur proche": ["vais mettre", "vas mettre", "va mettre", "allons mettre", "allez mettre", "vont mettre"],
+            "futur antérieur": ["aurai mis", "auras mis", "aura mis", "aurons mis", "aurez mis", "auront mis"],
+            "plus-que-parfait": ["avais mis", "avais mis", "avait mis", "avions mis", "aviez mis", "avaient mis"],
+            "impératif":  {
+                "1": "mets",
+                "3": "mettons",
+                "4": "mettez"
+            },
+            "subjonctif présent": ["mette", "mettes", "mette", "mettions", "mettiez", "mettent"],
+        },
+        "partir": {
+            "présent": ["pars", "pars", "part", "partons", "partez", "partent"],
+            "imparfait": ["partais", "partais", "partait", "partions", "partiez", "partaient"],
+            "futur simple": ["partirai", "partiras", "partira", "partirons", "partirez", "partiront"],
+            "conditionnel": ["partirais", "partirais", "partirait", "partirions", "partiriez", "partiraient"],
+            "passé simple": {
+                "2": "partit",
+                "5": "partirent"
+            },
+            "passé composé": ["suis parti", "es parti", "est parti", "sommes partis", "êtes partis", "sont partis"],
+            "futur proche": ["vais partir", "vas partir", "va partir", "allons partir", "allez partir", "vont partir"],
+            "futur antérieur": ["serai parti", "seras parti", "sera parti", "serons partis", "serez partis", "seront partis"],
+            "plus-que-parfait": ["étais parti", "étais parti", "était parti", "étions partis", "étiez partis", "étaient partis"],
+            "impératif":  {
+                "1": "pars",
+                "3": "partons",
+                "4": "partez"
+            },
+            "subjonctif présent": ["parte", "partes", "parte", "partions", "partiez", "partent"],
+        },
+        "savoir": {
+            "présent": ["sais", "sais", "sait", "savons", "savez", "savent"],
+            "imparfait": ["savais", "savais", "savait", "savions", "saviez", "savaient"],
+            "futur simple": ["saurai", "sauras", "saura", "saurons", "saurez", "sauront"],
+            "conditionnel": ["saurais", "saurais", "saurait", "saurions", "sauriez", "sauraient"],
+            "passé simple": {
+                "2": "sut",
+                "5": "surent"
+            },
+            "passé composé": ["ai su", "as su", "a su", "avons su", "avez su", "ont su"],
+            "futur proche": ["vais savoir", "vas savoir", "va savoir", "allons savoir", "allez savoir", "vont savoir"],
+            "futur antérieur": ["aurai su", "auras su", "aura su", "aurons su", "aurez su", "auront su"],
+            "plus-que-parfait": ["avais su", "avais su", "avait su", "avions su", "aviez su", "avaient su"],
+            "impératif":  {
+                "1": "sache",
+                "3": "sachons",
+                "4": "sachez"
+            },
+            "subjonctif présent": ["sache", "saches", "sache", "sachions", "sachiez", "sachent"],
+        },
+        "pouvoir": {
+            "présent": ["peux", "peux", "peut", "pouvons", "pouvez", "peuvent"],
+            "imparfait": ["pouvais", "pouvais", "pouvait", "pouvions", "pouviez", "pouvaient"],
+            "futur simple": ["pourrai", "pourras", "pourra", "pourrons", "pourrez", "pourront"],
+            "conditionnel": ["pourrais", "pourrais", "pourrait", "pourrions", "pourriez", "pourraient"],
+            "passé simple": {
+                "2": "put",
+                "5": "purent"
+            },
+            "passé composé": ["ai pu", "as pu", "a pu", "avons pu", "avez pu", "ont pu"],
+            "futur proche": ["vais pouvoir", "vas pouvoir", "va pouvoir", "allons pouvoir", "allez pouvoir", "vont pouvoir"],
+            "futur antérieur": ["aurai pu", "auras pu", "aura pu", "aurons pu", "aurez pu", "auront pu"],
+            "plus-que-parfait": ["avais pu", "avais pu", "avait pu", "avions pu", "aviez pu", "avaient pu"],
+            "subjonctif présent": ["puisse", "puisses", "puisse", "puissions", "puissiez", "puissent"],
+        },
+        "devoir": {
+            "présent": ["dois", "dois", "doit", "devons", "devez", "doivent"],
+            "imparfait": ["devais", "devais", "devait", "devions", "deviez", "devaient"],
+            "futur simple": ["devrai", "devras", "devra", "devrons", "devrez", "devront"],
+            "conditionnel": ["devrais", "devrais", "devrait", "devrions", "devriez", "devraient"],
+            "passé simple": {
+                "2": "dut",
+                "5": "durent"
+            },
+            "passé composé": ["ai dû", "as dû", "a dû", "avons dû", "avez dû", "ont dû"],
+            "futur proche": ["vais devoir", "vas devoir", "va devoir", "allons devoir", "allez devoir", "vont devoir"],
+            "futur antérieur": ["aurai dû", "auras dû", "aura dû", "aurons dû", "aurez dû", "auront dû"],
+            "plus-que-parfait": ["avais dû", "avais dû", "avait dû", "avions dû", "aviez dû", "avaient dû"],
+            "impératif":  {
+                "1": "dois",
+                "3": "devons",
+                "4": "devez"
+            },
+            "subjonctif présent": ["doive", "doives", "doive", "devions", "deviez", "doivent"],
+        },
+        "voir": {
+            "présent": ["vois", "vois", "voit", "voyons", "voyez", "voient"],
+            "imparfait": ["voyais", "voyais", "voyait", "voyions", "voyiez", "voyaient"],
+            "futur simple": ["verrai", "verras", "verra", "verrons", "verrez", "verront"],
+            "conditionnel": ["verrais", "verrais", "verrait", "verrions", "verriez", "verraient"],
+            "passé simple": {
+                "2": "vit",
+                "5": "virent"
+            },
+            "passé composé": ["ai vu", "as vu", "a vu", "avons vu", "avez vu", "ont vu"],
+            "futur proche": ["vais voir", "vas voir", "va voir", "allons voir", "allez voir", "vont voir"],
+            "futur antérieur": ["aurai vu", "auras vu", "aura vu", "aurons vu", "aurez vu", "auront vu"],
+            "plus-que-parfait": ["avais vu", "avais vu", "avait vu", "avions vu", "aviez vu", "avaient vu"],
+            "impératif":  {
+                "1": "vois",
+                "3": "voyons",
+                "4": "voyez"
+            },
+            "subjonctif présent": ["voie", "voies", "voie", "voyions", "voyiez", "voient"],
+        },
+        "vouloir": {
+            "présent": ["veux", "veux", "veut", "voulons", "voulez", "veulent"],
+            "imparfait": ["voulais", "voulais", "voulait", "voulions", "vouliez", "voulaient"],
+            "futur simple": ["voudrai", "voudras", "voudra", "voudrons", "voudrez", "voudront"],
+            "conditionnel": ["voudrais", "voudrais", "voudrait", "voudrions", "voudriez", "voudraient"],
+            "passé simple": {
+                "2": "voulut",
+                "5": "voulurent"
+            },
+            "passé composé": ["ai voulu", "as voulu", "a voulu", "avons voulu", "avez voulu", "ont voulu"],
+            "futur proche": ["vais vouloir", "vas vouloir", "va vouloir", "allons vouloir", "allez vouloir", "vont vouloir"],
+            "futur antérieur": ["aurai voulu", "auras voulu", "aura voulu", "aurons voulu", "aurez voulu", "auront voulu"],
+            "plus-que-parfait": ["avais voulu", "avais voulu", "avait voulu", "avions voulu", "aviez voulu", "avaient voulu"],
+            "impératif":  {
+                "1": "veuille",
+                "3": "voulons",
+                "4": "veuillez"
+            },
+            "subjonctif présent": ["veuille", "veuilles", "veuille", "voulions", "vouliez", "veuillent"],
+        },
+        "essayer": {
+            "présent": ["essaie", "essaies", "essaie", "essayons", "essayez", "essaient"],
+            "imparfait": ["essayais", "essayais", "essayait", "essayions", "essayiez", "essayaient"],
+            "futur simple": ["essaierai", "essaieras", "essaiera", "essaierons", "essaierez", "essaieront"],
+            "conditionnel": ["essaierais", "essaierais", "essaierait", "essaierions", "essaieriez", "essaieraient"],
+            "passé simple": {
+                "2": "essaya",
+                "5": "essayèrent"
+            },
+"ennuyer": {
+            "présent": ["ennuie", "ennuies", "ennuie", "ennuyons", "ennuyez", "ennuient"],
+            "imparfait": ["ennuyais", "ennuyais", "ennuyait", "ennuyions", "ennuyiez", "ennuyaient"],
+            "futur simple": ["ennuierai", "ennuieras", "ennuiera", "ennuierons", "ennuierez", "ennuieront"],
+            "conditionnel": ["ennuierais", "ennuierais", "ennuierait", "ennuierions", "ennuieriez", "ennuieraient"],
+            "passé simple": {
+                "2": "ennuya",
+                "5": "ennuyèrent"
+            },
+},
+            "passé composé": ["ai essayé", "as essayé", "a essayé", "avons essayé", "avez essayé", "ont essayé"],
+            "futur proche": ["vais essayer", "vas essayer", "va essayer", "allons essayer", "allez essayer", "vont essayer"],
+            "futur antérieur": ["aurai essayé", "auras essayé", "aura essayé", "aurons essayé", "aurez essayé", "auront essayé"],
+
+            "plus-que-parfait": ["avais essayé", "avais essayé", "avait essayé", "avions essayé", "aviez essayé", "avaient essayé"],
+              "impératif":  {
+                "1": "essaie",
+                "3": "essayons",
+                "4": "essayez"
+            },
+            "subjonctif présent": ["essaie", "essaies", "essaie", "essayions",  "essayiez", "essaient"],
+        }
+
+    };
+    var personnenames = ["première personne du singulier", "deuxième personne du singulier", "troisième personne du singulier", "première personne du pluriel", "deuxième personne du pluriel", "troisième personne du pluriel"];
+
+    var pronom = ["je (ou j')", "tu", "il", "nous", "vous", "ils"];
+    var i;
+    var out = document.getElementById("verbes");
+    out.innerHTML = "";
+    var mycontent ='<table border="0" style="border-spacing: 10px 10px;"> ';
+    for (i = 0; i < total; i++) {
+        var v = getRandomKey(donnees);
+        var dv = donnees[v];
+        var t = getRandomKey(dv);
+        var tv = dv[t];
+        var personne = getRandomKey(tv);
+        var pname = personnenames[personne];
+        var answer = tv[personne];
+        mycontent = mycontent + '<tr><td> ' + (i+1) + '.</td><td><strong> ' + v + '</strong></td><td>' + t + '</td><td> '+pronom[personne]+' </td><td><input autocorrect="off" autocomplete="off" spellcheck="false"  type="text" name="lname" id="rep' + i + '" onkeypress="javascript:if(event.keyCode==13){checkval(\'' + answer + '\',' + i + ');}"/> <input type="submit" id="but' + i + '" value="Soumettre" onclick="javascript:checkval(\'' + answer + '\',' + i + ');" /></td></tr>';
+    }
+    mycontent = mycontent + '</table> ';
+    out.innerHTML = mycontent;
+}
+
+function compare(str1, str2) {
+    return str1.trim().replace(/\s+/g, " ") === str2.trim().replace(/\s+/g, " ");
+}
+
+function checkval(answer, i) {
+    if (parseInt(document.getElementById("rep" + i).value.trim().length === 0)) {
+        return;
+    }
+    if (compare(document.getElementById("rep" + i).value, answer)) {
+        document.getElementById("rep" + i).value = "C'est bon: " + document.getElementById("rep" + i).value;
+        document.getElementById("rep" + i).disabled = true;
+        document.getElementById("but" + i).disabled = true;
+        if(document.getElementById("rep" + (i+1))) {
+            document.getElementById("rep" + (i+1)).focus();
+        }
+        succes = succes + 1;
+    } else {
+        document.getElementById("rep" + i).style.background = 'red';       
+        document.getElementById("rep" + i).value = "Ce n'est pas " + document.getElementById("rep" + i).value;
+        document.getElementById("rep" + i).disabled = true;
+        document.getElementById("but" + i).disabled = true;
+        echec = echec + 1;
+    }
+    document.getElementById("status").innerHTML= succes +" sur " + (succes + echec);
+    if( echec + succes == total)
+      alert("Tu as obtenu "+succes+" sur " + total);
+}
+
+
+window.onbeforeunload = function() {
+    return "Si tu quittes la page, ton travail sera perdu.";
+};
+</script>
+
+
+<title>Le champion des verbes</title>
+
+<body  onload="getStarted()" style="width:600px;margin-left:auto;margin-right:auto;">
+
+
+<h1>Conjugue les verbes suivants</h1>
+
+<p>Tous les verbes et temps du 3e cycle sont inclus.</p>
+
+<div id="verbes" />
+
+
+
+</body>
+
+</html>

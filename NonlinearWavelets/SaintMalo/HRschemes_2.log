@@ -1,0 +1,730 @@
+This is pdfTeX, Version 3.14159-13d (Web2C 7.3.1) (format=pdflatex 2000.7.19)  25 MAY 2002 16:33
+**HRschemes_2.tex
+(HRschemes_2.tex[/usr/share/texmf/pdftex/config/pdftex.cfg]
+LaTeX2e <1999/12/01> patch level 1
+Babel <v3.6Z> and hyphenation patterns for american, french, german, ngerman, i
+talian, nohyphenation, loaded.
+(/usr/share/texmf/tex/latex/amscls/amsart.cls
+Document Class: amsart 2000/01/17 v2.03
+\linespacing=\dimen102
+\normalparindent=\dimen103
+\normaltopskip=\skip41
+(/usr/share/texmf/tex/latex/amsmath/amsmath.sty
+Package: amsmath 2000/01/15 v2.05 AMS math features
+\@mathmargin=\skip42
+
+For additional information on amsmath, use the `?' option.
+(/usr/share/texmf/tex/latex/amsmath/amstext.sty
+Package: amstext 1999/11/15 v2.0
+
+(/usr/share/texmf/tex/latex/amsmath/amsgen.sty
+File: amsgen.sty 1999/11/30 v2.0
+\@emptytoks=\toks14
+\ex@=\dimen104
+))
+(/usr/share/texmf/tex/latex/amsmath/amsbsy.sty
+Package: amsbsy 1999/11/29 v1.2d
+\pmbraise@=\dimen105
+)
+(/usr/share/texmf/tex/latex/amsmath/amsopn.sty
+Package: amsopn 1999/12/14 v2.01 operator names
+)
+\inf@bad=\count79
+LaTeX Info: Redefining \frac on input line 198.
+\uproot@=\count80
+\leftroot@=\count81
+LaTeX Info: Redefining \overline on input line 302.
+\classnum@=\count82
+\DOTSCASE@=\count83
+LaTeX Info: Redefining \ldots on input line 376.
+LaTeX Info: Redefining \dots on input line 379.
+LaTeX Info: Redefining \cdots on input line 464.
+\Mathstrutbox@=\box26
+\strutbox@=\box27
+\big@size=\dimen106
+LaTeX Font Info:    Redeclaring font encoding OML on input line 563.
+LaTeX Font Info:    Redeclaring font encoding OMS on input line 564.
+\macc@skew=\dimen107
+\c@MaxMatrixCols=\count84
+\dotsspace@=\muskip10
+\c@parentequation=\count85
+\dspbrk@lvl=\count86
+\tag@help=\toks15
+\row@=\count87
+\column@=\count88
+\maxfields@=\count89
+\andhelp@=\toks16
+\eqnshift@=\dimen108
+\alignsep@=\dimen109
+\tagshift@=\dimen110
+\tagwidth@=\dimen111
+\totwidth@=\dimen112
+\lineht@=\dimen113
+\@envbody=\toks17
+\multlinegap=\skip43
+\multlinetaggap=\skip44
+LaTeX Info: Redefining \[ on input line 2594.
+LaTeX Info: Redefining \] on input line 2595.
+)
+LaTeX Font Info:    Try loading font information for U+msa on input line 395.
+
+(/usr/share/texmf/tex/latex/amsfonts/umsa.fd
+File: umsa.fd 1995/01/05 v2.2e AMS font definitions
+)
+(/usr/share/texmf/tex/latex/amsfonts/amsfonts.sty
+Package: amsfonts 1997/09/17 v2.2e
+\symAMSa=\mathgroup4
+\symAMSb=\mathgroup5
+LaTeX Font Info:    Overwriting math alphabet `\mathfrak' in version `bold'
+(Font)                  U/euf/m/n --> U/euf/b/n on input line 133.
+)
+\copyins=\insert233
+\abstractbox=\box28
+\listisep=\skip45
+\c@part=\count90
+\c@section=\count91
+\c@subsection=\count92
+\c@subsubsection=\count93
+\c@paragraph=\count94
+\c@subparagraph=\count95
+\c@figure=\count96
+\c@table=\count97
+\abovecaptionskip=\skip46
+\belowcaptionskip=\skip47
+\captionindent=\dimen114
+\thm@style=\toks18
+\thm@bodyfont=\toks19
+\thm@headfont=\toks20
+\thm@notefont=\toks21
+\thm@headpunct=\toks22
+\thm@preskip=\skip48
+\thm@postskip=\skip49
+\thm@headsep=\skip50
+\dth@everypar=\toks23
+)
+(/usr/share/texmf/tex/latex/base/fontenc.sty
+Package: fontenc 1999/12/08 v1.9x Standard LaTeX package
+
+(/usr/share/texmf/tex/latex/base/t1enc.def
+File: t1enc.def 1999/12/08 v1.9x Standard LaTeX file
+LaTeX Font Info:    Redeclaring font encoding T1 on input line 38.
+))
+(/usr/share/texmf/tex/latex/base/inputenc.sty
+Package: inputenc 1999/09/17 v0.992 Input encoding file 
+
+(/usr/share/texmf/tex/latex/base/latin1.def
+File: latin1.def 1999/09/17 v0.992 Input encoding file 
+))
+(/usr/share/texmf/tex/latex/graphics/graphicx.sty
+Package: graphicx 1999/02/16 v1.0f Enhanced LaTeX Graphics (DPC,SPQR)
+
+(/usr/share/texmf/tex/latex/graphics/keyval.sty
+Package: keyval 1999/03/16 v1.13 key=value parser (DPC)
+\KV@toks@=\toks24
+)
+(/usr/share/texmf/tex/latex/graphics/graphics.sty
+Package: graphics 1999/02/16 v1.0l Standard LaTeX Graphics (DPC,SPQR)
+
+(/usr/share/texmf/tex/latex/graphics/trig.sty
+Package: trig 1999/03/16 v1.09 sin cos tan (DPC)
+)
+(/usr/share/texmf/tex/latex/config/graphics.cfg)
+Package graphics Info: Driver file: dvips.def on input line 80.
+
+(/usr/share/texmf/tex/latex/graphics/dvips.def
+File: dvips.def 1999/02/16 v3.0i Driver-dependant file (DPC,SPQR)
+))
+\Gin@req@height=\dimen115
+\Gin@req@width=\dimen116
+)
+\c@thm=\count98
+
+(/usr/share/texmf/tex/latex/tools/verbatim.sty
+Package: verbatim 2000/01/07 v1.5m LaTeX2e package for verbatim enhancements
+\every@verbatim=\toks25
+\verbatim@line=\toks26
+\verbatim@in@stream=\read1
+)
+(/usr/share/texmf/tex/latex/graphics/epsfig.sty
+Package: epsfig 1999/02/16 v1.7a (e)psfig emulation (SPQR)
+\epsfxsize=\dimen117
+\epsfysize=\dimen118
+)
+(/usr/share/texmf/tex/latex/amsfonts/amssymb.sty
+Package: amssymb 1996/11/03 v2.2b
+)
+(/usr/share/texmf/tex/latex/misc/pslatex.sty
+Package: pslatex 1996/07/24 v1.2 pslatex emulation (DPC)
+LaTeX Font Info:    Redeclaring symbol font `operators' on input line 65.
+LaTeX Font Info:    Overwriting symbol font `operators' in version `normal'
+(Font)                  OT1/cmr/m/n --> OT1/ptmcm/m/n on input line 65.
+LaTeX Font Info:    Overwriting symbol font `operators' in version `bold'
+(Font)                  OT1/cmr/bx/n --> OT1/ptmcm/m/n on input line 65.
+LaTeX Font Info:    Redeclaring symbol font `letters' on input line 66.
+LaTeX Font Info:    Overwriting symbol font `letters' in version `normal'
+(Font)                  OML/cmm/m/it --> OML/ptmcm/m/it on input line 66.
+LaTeX Font Info:    Overwriting symbol font `letters' in version `bold'
+(Font)                  OML/cmm/b/it --> OML/ptmcm/m/it on input line 66.
+LaTeX Font Info:    Redeclaring symbol font `symbols' on input line 67.
+LaTeX Font Info:    Overwriting symbol font `symbols' in version `normal'
+(Font)                  OMS/cmsy/m/n --> OMS/pzccm/m/n on input line 67.
+LaTeX Font Info:    Overwriting symbol font `symbols' in version `bold'
+(Font)                  OMS/cmsy/b/n --> OMS/pzccm/m/n on input line 67.
+LaTeX Font Info:    Redeclaring symbol font `largesymbols' on input line 68.
+LaTeX Font Info:    Overwriting symbol font `largesymbols' in version `normal'
+(Font)                  OMX/cmex/m/n --> OMX/psycm/m/n on input line 68.
+LaTeX Font Info:    Overwriting symbol font `largesymbols' in version `bold'
+(Font)                  OMX/cmex/m/n --> OMX/psycm/m/n on input line 68.
+\symbold=\mathgroup6
+\symitalic=\mathgroup7
+LaTeX Font Info:    Redeclaring math alphabet \mathbf on input line 74.
+LaTeX Font Info:    Overwriting math alphabet `\mathbf' in version `normal'
+(Font)                  OT1/cmr/bx/n --> OT1/ptm/bx/n on input line 74.
+LaTeX Font Info:    Overwriting math alphabet `\mathbf' in version `bold'
+(Font)                  OT1/cmr/bx/n --> OT1/ptm/bx/n on input line 74.
+LaTeX Font Info:    Redeclaring math alphabet \mathit on input line 75.
+LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `normal'
+(Font)                  OT1/cmr/m/it --> OT1/ptm/m/it on input line 75.
+LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `bold'
+(Font)                  OT1/cmr/bx/it --> OT1/ptm/m/it on input line 75.
+)
+(/usr/share/texmf/tex/latex/graphics/color.sty
+Package: color 1999/02/16 v1.0i Standard LaTeX Color (DPC)
+
+(/usr/share/texmf/tex/latex/config/color.cfg)
+Package color Info: Driver file: pdftex.def on input line 125.
+
+(/usr/share/texmf/tex/latex/graphics/pdftex.def
+File: pdftex.def 1999/10/13 v0.02r graphics/color for pdftex
+\Gread@gobject=\count99
+))
+(/usr/share/texmf/tex/generic/thumbpdf/thumbpdf.sty
+Package: thumbpdf 2000/01/19 v1.11 Inclusion of thumbnails (HO)
+
+
+Package thumbpdf Warning: No file 'thumbdta.tex'.
+
+) (/usr/share/texmf/tex/latex/hyperref/hyperref.sty
+Package: hyperref 2000/01/22 v6.69c Hypertext links for LaTeX
+\@linkdim=\dimen119
+\Hy@linkcounter=\count100
+\Hy@pagecounter=\count101
+
+(/usr/share/texmf/tex/latex/hyperref/pd1enc.def
+File: pd1enc.def 1999/10/05 v0.6 PDFDocEncoding (Heiko Oberdiek)
+)
+Package hyperref Info: Option `colorlinks' set `false' on input line 1408.
+Package hyperref Info: Bookmarks ON on input line 1459.
+Package hyperref Info: Hyper figures OFF on input line 1478.
+Package hyperref Info: Link nesting OFF on input line 1483.
+Package hyperref Info: Hyper index ON on input line 1486.
+Package hyperref Info: Plain pages ON on input line 1491.
+Package hyperref Info: Backreferencing OFF on input line 1498.
+
+Implicit mode ON; LaTeX internals redefined
+(/usr/share/texmf/tex/latex/latex2html/url.sty
+Package: url 1999/03/02  ver 1.4  Verb mode for urls, email addresses, and file
+ names
+)
+\Fld@menulength=\count102
+\Field@Width=\dimen120
+\Fld@charsize=\dimen121
+\Choice@toks=\toks27
+\Field@toks=\toks28
+Package hyperref Info: Hyper figures OFF on input line 2108.
+Package hyperref Info: Link nesting OFF on input line 2113.
+Package hyperref Info: Hyper index ON on input line 2116.
+Package hyperref Info: backreferencing OFF on input line 2123.
+Package hyperref Info: Link coloring OFF on input line 2128.
+\c@Item=\count103
+\c@Hfootnote=\count104
+)
+*hyperref using driver hpdftex*
+(/usr/share/texmf/tex/latex/hyperref/hpdftex.def
+(/usr/share/texmf/tex/latex/psnfss/pifont.sty
+Package: pifont 1999/03/29 PSNFSS v.7.2 Pi font support : S Rahtz
+LaTeX Font Info:    Try loading font information for U+pzd on input line 63.
+
+(/usr/share/texmf/tex/latex/psnfss/upzd.fd
+File: upzd.fd 1998/07/06 font definitions for U/pzd.
+)
+LaTeX Font Info:    Try loading font information for U+psy on input line 64.
+
+(/usr/share/texmf/tex/latex/psnfss/upsy.fd
+File: upsy.fd 1998/07/06 font definitions for U/psy.
+))
+\Fld@listcount=\count105
+\@outlinefile=\write3
+)
+(/usr/share/texmf/tex/latex/misc/float.sty
+Package: float 1999/05/29 v1.2d Float enhancements (AL)
+\c@float@type=\count106
+\float@box=\box29
+\@floatcapt=\box30
+)
+(/usr/share/texmf/tex/latex/dstroke/dsfont.sty
+Package: dsfont 1995/08/01 v0.1 Double stroke roman fonts
+)
+(/usr/share/texmf/tex/generic/pstricks/pstricks.sty
+Package: pstricks 1997/03/25 package wrapper for PSTricks pstricks.tex
+
+(/usr/share/texmf/tex/generic/pstricks/pstricks.tex
+`PSTricks' v97 patch 10  <1999/03/24> (tvz)
+\pst@dima=\dimen122
+\pst@dimb=\dimen123
+\pst@dimc=\dimen124
+\pst@dimd=\dimen125
+\pst@dimg=\dimen126
+\pst@dimh=\dimen127
+\pst@hbox=\box31
+\pst@boxg=\box32
+\pst@cnta=\count107
+\pst@cntb=\count108
+\pst@cntc=\count109
+\pst@cntd=\count110
+\pst@cntg=\count111
+\pst@cnth=\count112
+\pst@toks=\toks29
+(/usr/share/texmf/tex/generic/pstricks/pstricks.con)
+\psunit=\dimen128
+\psxunit=\dimen129
+\psyunit=\dimen130
+\pslinewidth=\dimen131
+\pst@customdefs=\toks30
+\pslinearc=\dimen132
+\everypsbox=\toks31
+\psframesep=\dimen133
+\pslabelsep=\dimen134
+\theoverlaybox=\box33
+))
+(/usr/share/texmf/tex/generic/babel/babel.sty
+Package: babel 1999/09/09 v3.6Z The Babel package
+
+(/usr/share/texmf/tex/generic/babel/english.ldf
+Language: english 1999/04/11 v3.3i English support from the babel system
+
+(/usr/share/texmf/tex/generic/babel/babel.def
+File: babel.def 1999/09/09 v3.6Z Babel common definitions
+\babel@savecnt=\count113
+\U@D=\dimen135
+)))
+No file HRschemes_2.aux.
+\openout1 = `HRschemes_2.aux'.
+
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 121.
+LaTeX Font Info:    ... okay on input line 121.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 121.
+LaTeX Font Info:    ... okay on input line 121.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 121.
+LaTeX Font Info:    ... okay on input line 121.
+LaTeX Font Info:    Checking defaults for OMS/pzccm/m/n on input line 121.
+LaTeX Font Info:    Try loading font information for OMS+pzccm on input line 12
+1.
+(/usr/share/texmf/tex/latex/mathptm/omspzccm.fd
+File: omspzccm.fd 1998/07/01 Fontinst v1.800 font definitions for OMS/pzccm.
+)
+LaTeX Font Info:    ... okay on input line 121.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 121.
+LaTeX Font Info:    ... okay on input line 121.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 121.
+LaTeX Font Info:    ... okay on input line 121.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 121.
+LaTeX Font Info:    ... okay on input line 121.
+LaTeX Font Info:    Try loading font information for OT1+ptmcm on input line 12
+1.
+
+(/usr/share/texmf/tex/latex/mathptm/ot1ptmcm.fd
+File: ot1ptmcm.fd 1998/07/01 Fontinst v1.800 font definitions for OT1/ptmcm.
+)
+LaTeX Font Info:    Try loading font information for OML+ptmcm on input line 12
+1.
+
+(/usr/share/texmf/tex/latex/mathptm/omlptmcm.fd
+File: omlptmcm.fd 1998/07/01 Fontinst v1.800 font definitions for OML/ptmcm.
+)
+LaTeX Font Info:    Try loading font information for OMX+psycm on input line 12
+1.
+
+(/usr/share/texmf/tex/latex/mathptm/omxpsycm.fd
+File: omxpsycm.fd 1998/07/01 Fontinst v1.800 font definitions for OMX/psycm.
+)
+LaTeX Font Info:    Try loading font information for U+msa on input line 121.
+
+(/usr/share/texmf/tex/latex/amsfonts/umsa.fd
+File: umsa.fd 1995/01/05 v2.2e AMS font definitions
+)
+LaTeX Font Info:    Try loading font information for U+msb on input line 121.
+
+(/usr/share/texmf/tex/latex/amsfonts/umsb.fd
+File: umsb.fd 1995/01/05 v2.2e AMS font definitions
+)
+LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <8> not available
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 121.
+LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <6> not available
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 121.
+LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <5> not available
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 121.
+
+(/usr/share/texmf/tex/context/base/supp-pdf.tex
+(/usr/share/texmf/tex/context/base/supp-mis.tex
+loading : Context Support Macros / Missing
+\protectiondepth=\count114
+\scratchcounter=\count115
+\scratchdimen=\dimen136
+\scratchskip=\skip51
+\scratchmuskip=\muskip11
+\scratchbox=\box34
+\scratchread=\read2
+\scratchwrite=\write4
+\nextbox=\box35
+\nextdepth=\dimen137
+\everyline=\toks32
+\!!counta=\count116
+\!!countb=\count117
+\recursecounter=\count118
+)
+loading : Context Support Macros / PDF
+\nofMPsegments=\count119
+\nofMParguments=\count120
+)
+Package hyperref Info: Link coloring OFF on input line 121.
+ (/usr/share/texmf/tex/latex/hyperref/nameref.sty
+Package: nameref 2000/01/19 v2.17 Cross-referencing by name of section
+\c@section@level=\count121
+)
+\openout3 = `HRschemes_2.out'.
+
+LaTeX Info: Redefining \ref on input line 121.
+LaTeX Info: Redefining \pageref on input line 121.
+LaTeX Font Info:    Font shape `T1/ptm/bx/n' in size <10> not available
+(Font)              Font shape `T1/ptm/b/n' tried instead on input line 140.
+
+
+LaTeX Warning: Citation `Du' on page 1 undefined on input line 147.
+
+
+LaTeX Warning: Citation `DeDu' on page 1 undefined on input line 147.
+
+LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <10> not available
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 148.
+LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <7.4> not available
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 148.
+
+LaTeX Warning: Citation `Dau' on page 1 undefined on input line 155.
+
+
+LaTeX Warning: Citation `DeDuLe' on page 1 undefined on input line 155.
+
+
+LaTeX Warning: Citation `Me92' on page 1 undefined on input line 157.
+
+
+LaTeX Warning: Citation `Me99' on page 1 undefined on input line 157.
+
+
+LaTeX Warning: Citation `DuLeMe' on page 1 undefined on input line 157.
+
+
+LaTeX Warning: Citation `DuGe' on page 1 undefined on input line 169.
+
+
+LaTeX Warning: Reference `cap:Comparaison-between-some' on page 1 undefined on 
+input line 190.
+
+(HRSdiagram.tex)
+
+LaTeX Warning: Citation `Du' on page 1 undefined on input line 213.
+
+
+LaTeX Warning: Citation `DeDu' on page 1 undefined on input line 218.
+
+
+LaTeX Warning: Citation `DyGrLe' on page 1 undefined on input line 223.
+
+
+LaTeX Warning: Citation `HaIvDoSa' on page 1 undefined on input line 228.
+
+[1
+Non-PDF special ignored!
+Non-PDF special ignored![/usr/share/texmf/dvips/config/pdftex.map]] [2
+Non-PDF special ignored!
+Non-PDF special ignored!
+Non-PDF special ignored!
+Non-PDF special ignored!
+Non-PDF special ignored!]
+
+LaTeX Warning: Reference `lemmecubic' on page 3 undefined on input line 339.
+
+
+LaTeX Warning: Reference `basicsubdivision' on page 3 undefined on input line 3
+73.
+
+
+LaTeX Warning: Reference `hrgeneral' on page 3 undefined on input line 382.
+
+[3]
+
+LaTeX Warning: Reference `4pointhrssalgo' on page 4 undefined on input line 390
+.
+
+
+LaTeX Warning: Reference `N2highres' on page 4 undefined on input line 398.
+
+
+LaTeX Warning: Reference `hrsinterpole' on page 4 undefined on input line 413.
+
+
+LaTeX Warning: Reference `hrsricharson' on page 4 undefined on input line 413.
+
+
+LaTeX Warning: Reference `hrswidguess' on page 4 undefined on input line 413.
+
+
+LaTeX Warning: Reference `hrsinterpole' on page 4 undefined on input line 415.
+
+
+LaTeX Warning: Reference `hrswidguess' on page 4 undefined on input line 415.
+
+
+LaTeX Warning: Reference `hrsricharson' on page 4 undefined on input line 417.
+
+
+LaTeX Warning: Reference `N2highres' on page 4 undefined on input line 422.
+
+
+LaTeX Warning: Reference `N2highresalpha0' on page 4 undefined on input line 42
+8.
+
+
+LaTeX Warning: Reference `4pointhrssalgo' on page 4 undefined on input line 440
+.
+
+
+LaTeX Warning: Citation `Du' on page 4 undefined on input line 444.
+
+
+LaTeX Warning: Citation `DeDu' on page 4 undefined on input line 444.
+
+[4]
+
+LaTeX Warning: Reference `hrsricharson' on page 5 undefined on input line 484.
+
+
+LaTeX Warning: Reference `hrswidguess' on page 5 undefined on input line 485.
+
+
+LaTeX Warning: Reference `N2highres' on page 5 undefined on input line 489.
+
+
+LaTeX Warning: Reference `4pointhrssalgo' on page 5 undefined on input line 496
+.
+
+
+LaTeX Warning: Reference `4pointhrssalgo' on page 5 undefined on input line 497
+.
+
+
+LaTeX Warning: Reference `4pointhrssalgo' on page 5 undefined on input line 501
+.
+
+
+LaTeX Warning: Reference `DD2_2' on page 5 undefined on input line 504.
+
+
+LaTeX Warning: Reference `hrswidguess' on page 5 undefined on input line 511.
+
+
+LaTeX Warning: Reference `hrsricharson' on page 5 undefined on input line 512.
+
+
+Overfull \hbox (10.25684pt too wide) in paragraph at lines 506--512
+\OML/ptmcm/m/it/10 a[]x[] \OT1/ptmcm/m/n/10 + \OML/ptmcm/m/it/10 p[]\OT1/ptmcm/
+m/n/10 (\OML/ptmcm/m/it/10 x\OT1/ptmcm/m/n/10 )$ \T1/ptm/m/n/10 where $\OML/ptm
+cm/m/it/10 p[]$ \T1/ptm/m/n/10 is some cu-bic poly-no-mial. Sup-pose that for s
+ome $\OML/ptmcm/m/it/10 j$\T1/ptm/m/n/10 , $\OML/ptmcm/m/it/10 y[] \OT1/ptmcm/m
+/n/10 = \OML/ptmcm/m/it/10 p[] []$ \T1/ptm/m/n/10 and $\OML/ptmcm/m/it/10 y[] \
+OT1/ptmcm/m/n/10 = \OML/ptmcm/m/it/10 p[] []  \OMS/pzccm/m/n/10 8\OML/ptmcm/m/i
+t/10 k \OMS/pzccm/m/n/10 2
+ []
+
+
+LaTeX Warning: Reference `upcomingrichardson' on page 5 undefined on input line
+ 524.
+
+[5]
+
+LaTeX Warning: Reference `upcomingrichardson' on page 6 undefined on input line
+ 533.
+
+
+LaTeX Warning: Reference `5pointalgo' on page 6 undefined on input line 564.
+
+
+LaTeX Warning: Reference `power4lagrangeextra' on page 6 undefined on input lin
+e 568.
+
+
+LaTeX Warning: Reference `105sur16' on page 6 undefined on input line 572.
+
+
+LaTeX Warning: Reference `5pointalgo' on page 6 undefined on input line 575.
+
+
+LaTeX Warning: Reference `5pointalgo' on page 6 undefined on input line 585.
+
+
+LaTeX Warning: Reference `4pointhrssalgo' on page 6 undefined on input line 586
+.
+
+
+LaTeX Warning: Reference `no4point' on page 6 undefined on input line 606.
+
+
+LaTeX Warning: Reference `prop4' on page 6 undefined on input line 614.
+
+
+LaTeX Warning: Reference `maintheorem' on page 6 undefined on input line 618.
+
+[6]
+
+LaTeX Warning: Reference `prop4' on page 7 undefined on input line 627.
+
+
+LaTeX Warning: Reference `N2highres' on page 7 undefined on input line 629.
+
+
+LaTeX Warning: Reference `DD2_2' on page 7 undefined on input line 632.
+
+
+LaTeX Warning: Reference `N2highres' on page 7 undefined on input line 642.
+
+
+LaTeX Warning: Reference `4pointhrssalgo' on page 7 undefined on input line 642
+.
+
+
+LaTeX Warning: Reference `N2highres' on page 7 undefined on input line 657.
+
+
+LaTeX Warning: Reference `propDesDuequiv' on page 7 undefined on input line 664
+.
+
+
+LaTeX Warning: Citation `Dyn' on page 7 undefined on input line 666.
+
+[7]
+
+LaTeX Warning: Reference `gammas' on page 8 undefined on input line 682.
+
+
+LaTeX Warning: Reference `notsogen' on page 8 undefined on input line 687.
+
+
+LaTeX Warning: Reference `4pointhrssalgo' on page 8 undefined on input line 697
+.
+
+
+LaTeX Warning: Reference `genh' on page 8 undefined on input line 705.
+
+
+LaTeX Warning: Citation `Dyn' on page 8 undefined on input line 710.
+
+[8]
+
+LaTeX Warning: Citation `Dyn' on page 9 undefined on input line 723.
+
+
+LaTeX Warning: Reference `lemmaenough' on page 9 undefined on input line 751.
+
+
+LaTeX Warning: Reference `gammas' on page 9 undefined on input line 757.
+
+
+LaTeX Warning: Reference `4pointhrssalgo' on page 9 undefined on input line 757
+.
+
+
+LaTeX Warning: Reference `dH' on page 9 undefined on input line 761.
+
+
+LaTeX Warning: Reference `DynTheorem' on page 9 undefined on input line 763.
+
+
+LaTeX Warning: Reference `enoughlemma' on page 9 undefined on input line 765.
+
+
+LaTeX Warning: Reference `FigLambdas' on page 9 undefined on input line 776.
+
+
+LaTeX Warning: Reference `maintheorem' on page 9 undefined on input line 778.
+
+
+LaTeX Warning: Reference `Figdifffund' on page 9 undefined on input line 778.
+
+<firstderivative_fund_-0_2_0_15_0.pdf 361.34999pt, 252.94499pt, obj 115>
+File: firstderivative_fund_-0_2_0_15_0.pdf Graphic file (type pdf)
+
+<use firstderivative_fund_-0_2_0_15_0.pdf>
+Warning (ext1): destination with the same identifier (name{figure.1}) already e
+xists!
+\new@pdflink ...Hy@SaveLastskip \pdfdest name {#1}
+                                                  \@pdfview \Hy@RestoreLasts...
+l.790 \caption
+              {\label{Figdifffund}Derivatives of the fundamental functions for
+Warning (ext1): destination with the same identifier (name{figure.1}) already e
+xists!
+\new@pdflink ...Hy@SaveLastskip \pdfdest name {#1}
+                                                  \@pdfview \Hy@RestoreLasts...
+l.798 fundamental function.}
+                            \end{figure}% <lambdas.pdf 505.89pt, 722.7pt,
+obj 116>
+File: lambdas.pdf Graphic file (type pdf)
+ <use lambdas.pdf>
+Warning (ext1): destination with the same identifier (name{figure.2}) already e
+xists!
+\new@pdflink ...Hy@SaveLastskip \pdfdest name {#1}
+                                                  \@pdfview \Hy@RestoreLasts...
+l.808 \caption
+              {\label{FigLambdas}$\lambda _{1}(\alpha )$ (continuous line) and
+Warning (ext1): destination with the same identifier (name{figure.2}) already e
+xists!
+\new@pdflink ...Hy@SaveLastskip \pdfdest name {#1}
+                                                  \@pdfview \Hy@RestoreLasts...
+l.811 ...pha ),\lambda _{2}(\alpha )\right\} <1$.}
+                                                  \end{figure}%
+
+LaTeX Warning: Reference `maintheorem' on page 9 undefined on input line 811.
+
+
+LaTeX Warning: Citation `KuDa' on page 9 undefined on input line 817.
+
+
+LaTeX Warning: Reference `4pointhrssalgo' on page 9 undefined on input line 820
+.
+
+
+LaTeX Warning: Reference `maintheorem' on page 9 undefined on input line 828.
+
+
+LaTeX Warning: Reference `hrswidguess' on page 9 undefined on input line 836.
+
+[9] [10 <./firstderivative_fund_-0_2_0_15_0.pdf> <./lambdas.pdf>] [11]
+(HRschemes_2.aux)
+
+LaTeX Warning: There were undefined references.
+
+
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+
+ ) 
+Here is how much of TeX's memory you used:
+ 5287 strings out of 20628
+ 61498 string characters out of 192662
+ 132050 words of memory out of 350001
+ 7941 multiletter control sequences out of 10000+15000
+ 64483 words of font info for 105 fonts, out of 400000 for 1000
+ 175 hyphenation exceptions out of 1000
+ 34i,10n,40p,687b,403s stack positions out of 1500i,100n,500p,50000b,4000s
+<msam10.pfb><cmss10.pfb><msbm10.pfb><cmex10.pfb><cmr10.pfb><cmmi10.pfb><8r.en
+c><cmsy10.pfb>
+Output written on HRschemes_2.pdf (11 pages, 128776 bytes).

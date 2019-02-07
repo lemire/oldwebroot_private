@@ -1,0 +1,2355 @@
+This is pdfTeX, Version 3.1415926-1.40.11 (TeX Live 2010) (format=pdflatex 2010.7.21)  15 JUL 2013 09:28
+entering extended mode
+ restricted \write18 enabled.
+ file:line:error style messages enabled.
+ %&-line parsing enabled.
+**paper.tex
+(./paper.tex
+LaTeX2e <2009/09/24>
+Babel <v3.8l> and hyphenation patterns for english, dumylang, nohyphenation, ge
+rman-x-2009-06-19, ngerman-x-2009-06-19, ancientgreek, ibycus, arabic, armenian
+, basque, bulgarian, catalan, pinyin, coptic, croatian, czech, danish, dutch, u
+kenglish, usenglishmax, esperanto, estonian, farsi, finnish, french, galician, 
+german, ngerman, swissgerman, monogreek, greek, hungarian, icelandic, assamese,
+ bengali, gujarati, hindi, kannada, malayalam, marathi, oriya, panjabi, tamil, 
+telugu, indonesian, interlingua, irish, italian, kurmanji, lao, latin, latvian,
+ lithuanian, mongolian, mongolianlmc, bokmal, nynorsk, polish, portuguese, roma
+nian, russian, sanskrit, serbian, slovak, slovenian, spanish, swedish, turkish,
+ turkmen, ukrainian, uppersorbian, welsh, loaded.
+(./malo2.tex
+./malo2.tex:13: Undefined control sequence.
+l.13 \magnification
+                   \magstep1
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+
+./malo2.tex:13: LaTeX Error: Missing \begin{document}.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.13 \magnification\magstep1
+                            
+You're in trouble here.  Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+Missing character: There is no 1 in font nullfont!
+Missing character: There is no 2 in font nullfont!
+Missing character: There is no 0 in font nullfont!
+Missing character: There is no 0 in font nullfont!
+\maboite=\box26
+./malo2.tex:265: Undefined control sequence.
+l.265 \nopagenumbers
+                    
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./malo2.tex:266: Undefined control sequence.
+l.266 \headline
+               {\ifodd\pageno\rightheadline \else\leftheadline\fi}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./malo2.tex:266: Undefined control sequence.
+l.266 \headline{\ifodd\pageno
+                             \rightheadline \else\leftheadline\fi}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./malo2.tex:266: Undefined control sequence.
+\rightheadline ->\ifnum \pageno 
+                                =\count 100 \hfill \else \it \shorttitle \hf...
+l.266 \headline{\ifodd\pageno\rightheadline
+                                            \else\leftheadline\fi}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./malo2.tex:266: Missing number, treated as zero.
+<to be read again> 
+                   =
+l.266 \headline{\ifodd\pageno\rightheadline
+                                            \else\leftheadline\fi}
+A number should have been here; I inserted `0'.
+(If you can't figure out why I needed to see a number,
+look up `weird error' in the index to The TeXbook.)
+
+./malo2.tex:266: Undefined control sequence.
+\rightheadline ...no =\count 100 \hfill \else \it 
+                                                  \shorttitle \hfil \rm \fol...
+l.266 \headline{\ifodd\pageno\rightheadline
+                                            \else\leftheadline\fi}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./malo2.tex:266: Undefined control sequence.
+\rightheadline ...00 \hfill \else \it \shorttitle 
+                                                  \hfil \rm \folio \fi 
+l.266 \headline{\ifodd\pageno\rightheadline
+                                            \else\leftheadline\fi}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./malo2.tex:266: Missing number, treated as zero.
+<to be read again> 
+                   \hfil 
+l.266 \headline{\ifodd\pageno\rightheadline
+                                            \else\leftheadline\fi}
+A number should have been here; I inserted `0'.
+(If you can't figure out why I needed to see a number,
+look up `weird error' in the index to The TeXbook.)
+
+./malo2.tex:266: Undefined control sequence.
+\leftheadline ->\ifnum \pageno 
+                               =\count 100 \hfill \else \rm \folio \hfil \it...
+l.266 ...d\pageno\rightheadline \else\leftheadline
+                                                  \fi}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./malo2.tex:266: Missing number, treated as zero.
+<to be read again> 
+                   =
+l.266 ...d\pageno\rightheadline \else\leftheadline
+                                                  \fi}
+A number should have been here; I inserted `0'.
+(If you can't figure out why I needed to see a number,
+look up `weird error' in the index to The TeXbook.)
+
+./malo2.tex:266: Undefined control sequence.
+\leftheadline ...eno =\count 100 \hfill \else \rm 
+                                                  \folio \hfil \it \shortaut...
+l.266 ...d\pageno\rightheadline \else\leftheadline
+                                                  \fi}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./malo2.tex:266: Undefined control sequence.
+\leftheadline ...ount 100 \hfill \else \rm \folio 
+                                                  \hfil \it \shortauthor \fi 
+l.266 ...d\pageno\rightheadline \else\leftheadline
+                                                  \fi}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+
+./malo2.tex:266: LaTeX Error: Missing \begin{document}.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.266 ...d\pageno\rightheadline \else\leftheadline
+                                                  \fi}
+You're in trouble here.  Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+./malo2.tex:266: Undefined control sequence.
+\leftheadline ...hfill \else \rm \folio \hfil \it 
+                                                  \shortauthor \fi 
+l.266 ...d\pageno\rightheadline \else\leftheadline
+                                                  \fi}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./malo2.tex:266: Undefined control sequence.
+\leftheadline ...rm \folio \hfil \it \shortauthor 
+                                                  \fi 
+l.266 ...d\pageno\rightheadline \else\leftheadline
+                                                  \fi}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./malo2.tex:267: Undefined control sequence.
+l.267 \footline
+               {\hfil}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./malo2.tex:270: Undefined control sequence.
+l.270 \pageno
+             =\count100
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+
+./malo2.tex:270: LaTeX Error: Missing \begin{document}.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.270 \pageno=
+              \count100
+You're in trouble here.  Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+Missing character: There is no = in font nullfont!
+Missing character: There is no = in font nullfont!
+./malo2.tex:272: Missing number, treated as zero.
+<to be read again> 
+                   \advance 
+l.272 \advance
+              \count102 by -1
+A number should have been here; I inserted `0'.
+(If you can't figure out why I needed to see a number,
+look up `weird error' in the index to The TeXbook.)
+
+./malo2.tex:281: Undefined control sequence.
+<argument> ...Malo 2002 \hfill {\fab \the \pageno 
+                                                  }
+l.281   \hfill {\fab \the\pageno}}
+                                  
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./malo2.tex:281: You can't use `end-group character }' after \the.
+<argument> ...alo 2002 \hfill {\fab \the \pageno }
+                                                  
+l.281   \hfill {\fab \the\pageno}}
+                                  
+I'm forgetting what you said and using zero instead.
+
+./malo2.tex:283: Undefined control sequence.
+<argument> XXX (eds.), pp. \the \pageno 
+                                        --\the \count 102.
+l.283     pp. \the\pageno--\the\count102.}
+                                          
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./malo2.tex:283: You can't use `the character -' after \the.
+<argument> XXX (eds.), pp. \the \pageno -
+                                         -\the \count 102.
+l.283     pp. \the\pageno--\the\count102.}
+                                          
+I'm forgetting what you said and using zero instead.
+
+\refnum=\count79
+) (./epsf.tex
+\epsffilein=\read1
+\epsfxsize=\dimen102
+\epsfysize=\dimen103
+\epsftsize=\dimen104
+\epsfrsize=\dimen105
+\epsftmp=\dimen106
+\pspoints=\dimen107
+) (./lls00.tex
+\blackmarks=\count80
+\eqnum=\count81
+\figurenum=\count82
+\proclaimnum=\count83
+\refnum=\count84
+\tablenum=\count85
+\testfl=\read2
+ (./paper.aux)
+\aux=\write3
+\openout3 = `paper.aux'.
+
+\hour=\count86
+\minutes=\count87
+ (./epsf.tex
+\epsffilein=\read3
+\epsfxsize=\dimen108
+\epsfysize=\dimen109
+\epsftsize=\dimen110
+\epsfrsize=\dimen111
+\epsftmp=\dimen112
+\pspoints=\dimen113
+)
+\lastname=\toks14
+\firstname=\toks15
+\au=\toks16
+\aut=\toks17
+\ti=\toks18
+\tit=\toks19
+\pb=\toks20
+\pub=\toks21
+\pl=\toks22
+\jr=\toks23
+\w=\write4
+\refnum=\count88
+)
+
+./paper.tex:239: LaTeX Error: Missing \begin{document}.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.239 memory requirement.}
+                          
+You're in trouble here.  Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+./paper.tex:239: Undefined control sequence.
+\abstract ...baselineskip 9pt \fab \noindent {\bf 
+                                                  Abstract.~~}\textfont 0 = ...
+l.239 memory requirement.}
+                          
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <7> on input line 239.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <5> on input line 239.
+./paper.tex:245: Undefined control sequence.
+<argument> \bf 
+               \S 1. Introduction
+l.245 \sect{1. Introduction}
+                            
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 245.
+
+(/usr/local/texlive/2010/texmf-dist/tex/latex/base/omscmr.fd
+File: omscmr.fd 1999/05/25 v2.5h Standard LaTeX font definitions
+)
+LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10> not available
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 245.
+
+
+./paper.tex:245: LaTeX Error: Missing \begin{document}.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.245 \sect{1. Introduction}
+                            
+You're in trouble here.  Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+./paper.tex:270: LaTeX Error: Missing \begin{document}.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.270 O
+       ften, interpolation schemes can be made more local by
+You're in trouble here.  Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+./paper.tex:283: LaTeX Error: Missing \begin{document}.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.283 T
+       he main result of this paper is that by summing up the 4-adic
+You're in trouble here.  Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+./paper.tex:291: LaTeX Error: Missing \begin{document}.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.291 T
+       he paper is organized as follows. We begin with a brief review of sub...
+
+You're in trouble here.  Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+./paper.tex:306: Undefined control sequence.
+l.306 \topinsert
+                
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./paper.tex:308: Undefined control sequence.
+l.308 \midinsert
+                
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+
+./paper.tex:314: LaTeX Error: Missing \begin{document}.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.314 ...placeholders recording {}``guesses'' }{0}
+                                                  
+You're in trouble here.  Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+./paper.tex:315: Undefined control sequence.
+l.315 \endinsert
+                
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./paper.tex:319: Undefined control sequence.
+l.319 \midinsert
+                
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+
+./paper.tex:357: LaTeX Error: Missing \begin{document}.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.357 ...lization by a one-step 5-point scheme}{0}
+                                                  
+You're in trouble here.  Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+./paper.tex:359: Undefined control sequence.
+l.359 \endinsert
+                
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./paper.tex:361: Undefined control sequence.
+l.361 \endinsert
+                
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+
+./paper.tex:391: LaTeX Error: Missing \begin{document}.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.391 \sect{2. Subdivision Schemes}
+                                   
+You're in trouble here.  Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+./paper.tex:394: Undefined control sequence.
+\ZZ ->{\mathop {{\rm 
+                     Z}\kern -.28em{\rm Z}}\nolimits }
+l.394 ... data $\left\{ y_{J,k}\right\} _{k\in \ZZ
+                                                   }$, we want a smooth
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./paper.tex:394: Undefined control sequence.
+\ZZ ->{\mathop {{\rm Z}\kern -.28em{\rm 
+                                        Z}}\nolimits }
+l.394 ... data $\left\{ y_{J,k}\right\} _{k\in \ZZ
+                                                   }$, we want a smooth
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./paper.tex:395: Undefined control sequence.
+\ZZ ->{\mathop {{\rm 
+                     Z}\kern -.28em{\rm Z}}\nolimits }
+l.395 ...J,k}\right)=y_{J,k}$, for every $k\in \ZZ
+                                                   $.
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./paper.tex:395: Undefined control sequence.
+\ZZ ->{\mathop {{\rm Z}\kern -.28em{\rm 
+                                        Z}}\nolimits }
+l.395 ...J,k}\right)=y_{J,k}$, for every $k\in \ZZ
+                                                   $.
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./paper.tex:396: Undefined control sequence.
+\ZZ ->{\mathop {{\rm 
+                     Z}\kern -.28em{\rm Z}}\nolimits }
+l.396 ... with $\left\{ y_{J,k}\right\} _{k\in \ZZ
+                                                   }$ and using the formula
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./paper.tex:396: Undefined control sequence.
+\ZZ ->{\mathop {{\rm Z}\kern -.28em{\rm 
+                                        Z}}\nolimits }
+l.396 ... with $\left\{ y_{J,k}\right\} _{k\in \ZZ
+                                                   }$ and using the formula
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./paper.tex:397: Undefined control sequence.
+\ZZ ->{\mathop {{\rm 
+                     Z}\kern -.28em{\rm Z}}\nolimits }
+l.397 $$y_{j+1,l}=\sum _{k\in \ZZ
+                                  }\gamma _{bk-l}y_{j,k},\en{basicsubdivisio...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./paper.tex:397: Undefined control sequence.
+\ZZ ->{\mathop {{\rm Z}\kern -.28em{\rm 
+                                        Z}}\nolimits }
+l.397 $$y_{j+1,l}=\sum _{k\in \ZZ
+                                  }\gamma _{bk-l}y_{j,k},\en{basicsubdivisio...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./paper.tex:399: Undefined control sequence.
+\RR ->{\mathop {{\rm 
+                     I}\kern -.2em{\rm R}}\nolimits }
+l.399 ...$b$-adic numbers form a dense set in $\RR
+                                                   $, there is at
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./paper.tex:399: Undefined control sequence.
+\RR ->{\mathop {{\rm I}\kern -.2em{\rm 
+                                       R}}\nolimits }
+l.399 ...$b$-adic numbers form a dense set in $\RR
+                                                   $, there is at
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./paper.tex:401: Undefined control sequence.
+\ZZ ->{\mathop {{\rm 
+                     Z}\kern -.28em{\rm Z}}\nolimits }
+l.401 for all $k\in \ZZ
+                        ,j>J$.
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./paper.tex:401: Undefined control sequence.
+\ZZ ->{\mathop {{\rm Z}\kern -.28em{\rm 
+                                        Z}}\nolimits }
+l.401 for all $k\in \ZZ
+                        ,j>J$.
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+
+./paper.tex:403: LaTeX Error: Missing \begin{document}.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.403 A
+        subdivision scheme is \dword{interpolatory} and satisfies $f\left(x_...
+
+You're in trouble here.  Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+./paper.tex:404: Undefined control sequence.
+\ZZ ->{\mathop {{\rm 
+                     Z}\kern -.28em{\rm Z}}\nolimits }
+l.404 if $\gamma _{bk}=0$, for every $k\in \ZZ
+                                               $ except for $\gamma _{0}=1$.
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./paper.tex:404: Undefined control sequence.
+\ZZ ->{\mathop {{\rm Z}\kern -.28em{\rm 
+                                        Z}}\nolimits }
+l.404 if $\gamma _{bk}=0$, for every $k\in \ZZ
+                                               $ except for $\gamma _{0}=1$.
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+
+./paper.tex:416: LaTeX Error: Missing \begin{document}.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.416 F
+       or $N=1,2,3,...$ there are corresponding interpolatory $2N-$point
+You're in trouble here.  Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+./paper.tex:424: Undefined control sequence.
+\ZZ ->{\mathop {{\rm 
+                     Z}\kern -.28em{\rm Z}}\nolimits }
+l.424 ...DD4}=\gamma _{k}^{DD2}\, \forall k\in \ZZ
+                                                   ,\, $
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./paper.tex:424: Undefined control sequence.
+\ZZ ->{\mathop {{\rm Z}\kern -.28em{\rm 
+                                        Z}}\nolimits }
+l.424 ...DD4}=\gamma _{k}^{DD2}\, \forall k\in \ZZ
+                                                   ,\, $
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+
+Overfull \hbox (14.33505pt too wide) in paragraph at lines 416--428
+[]\fab For $\tab N \fab = 1\tab ; \fab 2\tab ; \fab 3\tab ; :::$ \fab there are
+ cor-re-spond-ing in-ter-po-la-tory $2\tab N\abst ^^@$\fab point \dfont Deslaur
+iers-
+ []
+
+
+./paper.tex:429: LaTeX Error: Missing \begin{document}.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.429 B
+       ecause 4-point DD schemes are derived from cubic
+You're in trouble here.  Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+./paper.tex:431: Undefined control sequence.
+\ZZ ->{\mathop {{\rm 
+                     Z}\kern -.28em{\rm Z}}\nolimits }
+l.431 ...left(x_{j,k}\right)$, for every $k\in \ZZ
+                                                   $
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./paper.tex:431: Undefined control sequence.
+\ZZ ->{\mathop {{\rm Z}\kern -.28em{\rm 
+                                        Z}}\nolimits }
+l.431 ...left(x_{j,k}\right)$, for every $k\in \ZZ
+                                                   $
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+
+./paper.tex:482: LaTeX Error: Missing \begin{document}.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.482 \sect{3. Multistep Subdivision Schemes}
+                                             
+You're in trouble here.  Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+./paper.tex:484: Undefined control sequence.
+\ZZ ->{\mathop {{\rm 
+                     Z}\kern -.28em{\rm Z}}\nolimits }
+l.484 $$y_{j+1,l}=\sum _{m=1}^{M}\sum _{k\in \ZZ
+                                                 }\gamma _{Mbk+m-1-l}^{(m)}y...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./paper.tex:484: Undefined control sequence.
+\ZZ ->{\mathop {{\rm Z}\kern -.28em{\rm 
+                                        Z}}\nolimits }
+l.484 $$y_{j+1,l}=\sum _{m=1}^{M}\sum _{k\in \ZZ
+                                                 }\gamma _{Mbk+m-1-l}^{(m)}y...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+
+./paper.tex:500: LaTeX Error: Missing \begin{document}.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.500 F
+       or $b=M=2$, the general equation~\er{hrgeneral} becomes
+You're in trouble here.  Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+./paper.tex:501: Undefined control sequence.
+\ZZ ->{\mathop {{\rm 
+                     Z}\kern -.28em{\rm Z}}\nolimits }
+l.501 $$y_{j+1,l}=\sum _{k\in \ZZ
+                                  }\gamma _{4k-l}^{(1)}y_{j,2k}+\gamma _{4k+...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./paper.tex:501: Undefined control sequence.
+\ZZ ->{\mathop {{\rm Z}\kern -.28em{\rm 
+                                        Z}}\nolimits }
+l.501 $$y_{j+1,l}=\sum _{k\in \ZZ
+                                  }\gamma _{4k-l}^{(1)}y_{j,2k}+\gamma _{4k+...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./paper.tex:507: Undefined control sequence.
+\ZZ ->{\mathop {{\rm 
+                     Z}\kern -.28em{\rm Z}}\nolimits }
+l.507 ...y_{j,2k}=y_{j+1,4k}$, for every $k\in \ZZ
+                                                   $.
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./paper.tex:507: Undefined control sequence.
+\ZZ ->{\mathop {{\rm Z}\kern -.28em{\rm 
+                                        Z}}\nolimits }
+l.507 ...y_{j,2k}=y_{j+1,4k}$, for every $k\in \ZZ
+                                                   $.
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+
+./paper.tex:551: LaTeX Error: Missing \begin{document}.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.551 F
+       or the rest of the paper, we will consider the schemes  $MS_{\alpha }...
+
+You're in trouble here.  Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+./paper.tex:552: Undefined control sequence.
+\RR ->{\mathop {{\rm 
+                     I}\kern -.2em{\rm R}}\nolimits }
+l.552 $\alpha \in \RR
+                      $,
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./paper.tex:552: Undefined control sequence.
+\RR ->{\mathop {{\rm I}\kern -.2em{\rm 
+                                       R}}\nolimits }
+l.552 $\alpha \in \RR
+                      $,
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./paper.tex:554: Undefined control sequence.
+l.554 $$\eqalignno
+                  {
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./paper.tex:555: Misplaced alignment tab character &.
+l.555 \gamma _{2k}^{(1)} &
+                           =\gamma _{k}^{DD2} \left( 1 - \alpha \right) + \a...
+I can't figure out why you would want to use a tab mark
+here. If you just want an ampersand, the remedy is
+simple: Just type `I\&' now. But if some right brace
+up above has ended a previous alignment prematurely,
+you're probably due for more error messages, and you
+might try typing `S' now just to see what is salvageable.
+
+./paper.tex:555: Misplaced \cr.
+l.555 ...alpha \right) + \alpha \delta _{k,0}, \cr
+                                                  
+I can't figure out why you would want to use a tab mark
+or \cr or \span just now. If something like a right brace
+up above has ended a previous alignment prematurely,
+you're probably due for more error messages, and you
+might try typing `S' now just to see what is salvageable.
+
+./paper.tex:556: Misplaced alignment tab character &.
+l.556 \gamma _{2k+1}^{(1)} &
+                             =\gamma _{2k+1}^{DD4}\, , \forall k\in \ZZ, &\e...
+I can't figure out why you would want to use a tab mark
+here. If you just want an ampersand, the remedy is
+simple: Just type `I\&' now. But if some right brace
+up above has ended a previous alignment prematurely,
+you're probably due for more error messages, and you
+might try typing `S' now just to see what is salvageable.
+
+./paper.tex:556: Undefined control sequence.
+\ZZ ->{\mathop {{\rm 
+                     Z}\kern -.28em{\rm Z}}\nolimits }
+l.556 ...\gamma _{2k+1}^{DD4}\, , \forall k\in \ZZ
+                                                  , &\enn{mainHRScoefs}}$$
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./paper.tex:556: Undefined control sequence.
+\ZZ ->{\mathop {{\rm Z}\kern -.28em{\rm 
+                                        Z}}\nolimits }
+l.556 ...\gamma _{2k+1}^{DD4}\, , \forall k\in \ZZ
+                                                  , &\enn{mainHRScoefs}}$$
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./paper.tex:556: Misplaced alignment tab character &.
+l.556 ...mma _{2k+1}^{DD4}\, , \forall k\in \ZZ, &
+                                                  \enn{mainHRScoefs}}$$
+I can't figure out why you would want to use a tab mark
+here. If you just want an ampersand, the remedy is
+simple: Just type `I\&' now. But if some right brace
+up above has ended a previous alignment prematurely,
+you're probably due for more error messages, and you
+might try typing `S' now just to see what is salvageable.
+
+./paper.tex:564: Undefined control sequence.
+\ZZ ->{\mathop {{\rm 
+                     Z}\kern -.28em{\rm Z}}\nolimits }
+l.564 ...DD4}=\gamma _{k}^{DD2}\, \forall k\in \ZZ
+                                                   $,
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./paper.tex:564: Undefined control sequence.
+\ZZ ->{\mathop {{\rm Z}\kern -.28em{\rm 
+                                        Z}}\nolimits }
+l.564 ...DD4}=\gamma _{k}^{DD2}\, \forall k\in \ZZ
+                                                   $,
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./paper.tex:567: Undefined control sequence.
+\ZZ ->{\mathop {{\rm 
+                     Z}\kern -.28em{\rm Z}}\nolimits }
+l.567 $$ y_{j+1,2s}= \sum _{k\in \ZZ
+                                     }  \left((1-\alpha )\gamma _{2k-s}^{DD2...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./paper.tex:567: Undefined control sequence.
+\ZZ ->{\mathop {{\rm Z}\kern -.28em{\rm 
+                                        Z}}\nolimits }
+l.567 $$ y_{j+1,2s}= \sum _{k\in \ZZ
+                                     }  \left((1-\alpha )\gamma _{2k-s}^{DD2...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./paper.tex:582: Undefined control sequence.
+\ZZ ->{\mathop {{\rm 
+                     Z}\kern -.28em{\rm Z}}\nolimits }
+l.582 ...pha y_{j,2r+1}+(1-\alpha )\sum _{k\in \ZZ
+                                                   }\gamma _{2k-2r-1}^{DD2}y...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./paper.tex:582: Undefined control sequence.
+\ZZ ->{\mathop {{\rm Z}\kern -.28em{\rm 
+                                        Z}}\nolimits }
+l.582 ...pha y_{j,2r+1}+(1-\alpha )\sum _{k\in \ZZ
+                                                   }\gamma _{2k-2r-1}^{DD2}y...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./paper.tex:584: Undefined control sequence.
+\ZZ ->{\mathop {{\rm 
+                     Z}\kern -.28em{\rm Z}}\nolimits }
+l.584 $$ y_{j+1,2s+1} = \sum _{k\in \ZZ
+                                        }\gamma _{4k-2s-1}^{DD4}y_{j,2k}.   ...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./paper.tex:584: Undefined control sequence.
+\ZZ ->{\mathop {{\rm Z}\kern -.28em{\rm 
+                                        Z}}\nolimits }
+l.584 $$ y_{j+1,2s+1} = \sum _{k\in \ZZ
+                                        }\gamma _{4k-2s-1}^{DD4}y_{j,2k}.   ...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+
+./paper.tex:602: LaTeX Error: Missing \begin{document}.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.602 I
+       n the simplest case, $\alpha =0\Rightarrow \gamma ^{(2)}=0$, and equa...
+
+You're in trouble here.  Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+./paper.tex:603: Undefined control sequence.
+\ZZ ->{\mathop {{\rm 
+                     Z}\kern -.28em{\rm Z}}\nolimits }
+l.603 $y_{j+1,l}=\-\sum _{k\in \ZZ
+                                   }\gamma _{4k-l}^{DD4}y_{j,2k}.$
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./paper.tex:603: Undefined control sequence.
+\ZZ ->{\mathop {{\rm Z}\kern -.28em{\rm 
+                                        Z}}\nolimits }
+l.603 $y_{j+1,l}=\-\sum _{k\in \ZZ
+                                   }\gamma _{4k-l}^{DD4}y_{j,2k}.$
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./paper.tex:606: Undefined control sequence.
+\ZZ ->{\mathop {{\rm 
+                     Z}\kern -.28em{\rm Z}}\nolimits }
+l.606 $y_{j+1,2l}=\sum _{k\in \ZZ
+                                  }\gamma _{4k-2l}^{DD4}y_{j,2k}$,
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./paper.tex:606: Undefined control sequence.
+\ZZ ->{\mathop {{\rm Z}\kern -.28em{\rm 
+                                        Z}}\nolimits }
+l.606 $y_{j+1,2l}=\sum _{k\in \ZZ
+                                  }\gamma _{4k-2l}^{DD4}y_{j,2k}$,
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./paper.tex:608: Undefined control sequence.
+\ZZ ->{\mathop {{\rm 
+                     Z}\kern -.28em{\rm Z}}\nolimits }
+l.608 becomes $y_{j+1,2l}=\sum _{k\in \ZZ
+                                          }\gamma _{2k-l}^{DD2}y_{j,2k}$, an...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./paper.tex:608: Undefined control sequence.
+\ZZ ->{\mathop {{\rm Z}\kern -.28em{\rm 
+                                        Z}}\nolimits }
+l.608 becomes $y_{j+1,2l}=\sum _{k\in \ZZ
+                                          }\gamma _{2k-l}^{DD2}y_{j,2k}$, an...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+
+./paper.tex:623: LaTeX Error: Missing \begin{document}.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.623 \sect{4. Reproduced Polynomials}
+                                      
+You're in trouble here.  Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+./paper.tex:624: Undefined control sequence.
+\ZZ ->{\mathop {{\rm 
+                     Z}\kern -.28em{\rm Z}}\nolimits }
+l.624 ...left(x_{j,k}\right)$, for every $k\in \ZZ
+                                                   $,
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./paper.tex:624: Undefined control sequence.
+\ZZ ->{\mathop {{\rm Z}\kern -.28em{\rm 
+                                        Z}}\nolimits }
+l.624 ...left(x_{j,k}\right)$, for every $k\in \ZZ
+                                                   $,
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./paper.tex:627: Undefined control sequence.
+\ZZ ->{\mathop {{\rm 
+                     Z}\kern -.28em{\rm Z}}\nolimits }
+l.627 \sum _{k\in \ZZ
+                      }\gamma _{2k-2r-1}^{DD2}y_{j,2k}=y_{j,2r+1}=p_{3}\left...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./paper.tex:627: Undefined control sequence.
+\ZZ ->{\mathop {{\rm Z}\kern -.28em{\rm 
+                                        Z}}\nolimits }
+l.627 \sum _{k\in \ZZ
+                      }\gamma _{2k-2r-1}^{DD2}y_{j,2k}=y_{j,2r+1}=p_{3}\left...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./paper.tex:629: Undefined control sequence.
+\RR ->{\mathop {{\rm 
+                     I}\kern -.2em{\rm R}}\nolimits }
+l.629 for any $\alpha \in \RR
+                              $. Similarly, equation~\er{hrswidguess}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./paper.tex:629: Undefined control sequence.
+\RR ->{\mathop {{\rm I}\kern -.2em{\rm 
+                                       R}}\nolimits }
+l.629 for any $\alpha \in \RR
+                              $. Similarly, equation~\er{hrswidguess}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./paper.tex:631: Undefined control sequence.
+\ZZ ->{\mathop {{\rm 
+                     Z}\kern -.28em{\rm Z}}\nolimits }
+l.631 ...ft(x_{j+1,k}\right)$, for every $k\in \ZZ
+                                                   $ if
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./paper.tex:631: Undefined control sequence.
+\ZZ ->{\mathop {{\rm Z}\kern -.28em{\rm 
+                                        Z}}\nolimits }
+l.631 ...ft(x_{j+1,k}\right)$, for every $k\in \ZZ
+                                                   $ if
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./paper.tex:632: Undefined control sequence.
+\ZZ ->{\mathop {{\rm 
+                     Z}\kern -.28em{\rm Z}}\nolimits }
+l.632 ...left(x_{j,k}\right)$, for every $k\in \ZZ
+                                                   $, and thus $MS_{\alpha }...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./paper.tex:632: Undefined control sequence.
+\ZZ ->{\mathop {{\rm Z}\kern -.28em{\rm 
+                                        Z}}\nolimits }
+l.632 ...left(x_{j,k}\right)$, for every $k\in \ZZ
+                                                   $, and thus $MS_{\alpha }...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./paper.tex:637: Undefined control sequence.
+\ZZ ->{\mathop {{\rm 
+                     Z}\kern -.28em{\rm Z}}\nolimits }
+l.637 $$y_{j+1,l}=\sum _{k\in \ZZ
+                                  }\gamma _{2k-l}^{DD2}y_{j,2k},\en{DD2_2}$$
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./paper.tex:637: Undefined control sequence.
+\ZZ ->{\mathop {{\rm Z}\kern -.28em{\rm 
+                                        Z}}\nolimits }
+l.637 $$y_{j+1,l}=\sum _{k\in \ZZ
+                                  }\gamma _{2k-l}^{DD2}y_{j,2k},\en{DD2_2}$$
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./paper.tex:643: Undefined control sequence.
+l.643 \proclaim
+                Lemma~\pn{lemmecubic}. $MS_{\alpha}$ schemes
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+
+./paper.tex:649: LaTeX Error: Missing \begin{document}.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.649 W
+       e get a stronger result by choosing a specific $\alpha $.
+You're in trouble here.  Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+./paper.tex:661: LaTeX Error: Missing \begin{document}.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.661 S
+       uppose that for some $j$, $y_{j,2k}=p_{4}\left(x_{j,2k}\right)$
+You're in trouble here.  Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+./paper.tex:662: Undefined control sequence.
+\ZZ ->{\mathop {{\rm 
+                     Z}\kern -.28em{\rm Z}}\nolimits }
+l.662 ...eft(x_{j-1,k}\right)$ for every $k\in \ZZ
+                                                   $. We
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./paper.tex:662: Undefined control sequence.
+\ZZ ->{\mathop {{\rm Z}\kern -.28em{\rm 
+                                        Z}}\nolimits }
+l.662 ...eft(x_{j-1,k}\right)$ for every $k\in \ZZ
+                                                   $. We
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./paper.tex:663: Undefined control sequence.
+\ZZ ->{\mathop {{\rm 
+                     Z}\kern -.28em{\rm Z}}\nolimits }
+l.663 can write $y_{j+1,4r+2}$ for any $r\in \ZZ
+                                                 $ in terms of this initial
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./paper.tex:663: Undefined control sequence.
+\ZZ ->{\mathop {{\rm Z}\kern -.28em{\rm 
+                                        Z}}\nolimits }
+l.663 can write $y_{j+1,4r+2}$ for any $r\in \ZZ
+                                                 $ in terms of this initial
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./paper.tex:666: Undefined control sequence.
+\ZZ ->{\mathop {{\rm 
+                     Z}\kern -.28em{\rm Z}}\nolimits }
+l.666 $$ y_{j+1,4r+2} =  \alpha \sum _{k\in \ZZ
+                                                }\gamma _{4k-2r-1}^{DD4}y_{j...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./paper.tex:666: Undefined control sequence.
+\ZZ ->{\mathop {{\rm Z}\kern -.28em{\rm 
+                                        Z}}\nolimits }
+l.666 $$ y_{j+1,4r+2} =  \alpha \sum _{k\in \ZZ
+                                                }\gamma _{4k-2r-1}^{DD4}y_{j...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./paper.tex:666: Undefined control sequence.
+\ZZ ->{\mathop {{\rm 
+                     Z}\kern -.28em{\rm Z}}\nolimits }
+l.666 ...DD4}y_{j-1,2k}+(1-\alpha )\sum _{k\in \ZZ
+                                                   }\gamma _{2k-2r-1}^{DD2}y...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./paper.tex:666: Undefined control sequence.
+\ZZ ->{\mathop {{\rm Z}\kern -.28em{\rm 
+                                        Z}}\nolimits }
+l.666 ...DD4}y_{j-1,2k}+(1-\alpha )\sum _{k\in \ZZ
+                                                   }\gamma _{2k-2r-1}^{DD2}y...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./paper.tex:671: Undefined control sequence.
+\RR ->{\mathop {{\rm 
+                     I}\kern -.2em{\rm R}}\nolimits }
+l.671 for some $\alpha \in \RR
+                               $, and so we substitute $y_{j,2k}=p_{4}\left(...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./paper.tex:671: Undefined control sequence.
+\RR ->{\mathop {{\rm I}\kern -.2em{\rm 
+                                       R}}\nolimits }
+l.671 for some $\alpha \in \RR
+                               $, and so we substitute $y_{j,2k}=p_{4}\left(...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./paper.tex:676: Undefined control sequence.
+\ZZ ->{\mathop {{\rm 
+                     Z}\kern -.28em{\rm Z}}\nolimits }
+l.676 \sum _{k\in \ZZ
+                      }\gamma _{4k-2r-1}^{DD4}y_{j-1,2k} =  p_{4}\left(x_{j,...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./paper.tex:676: Undefined control sequence.
+\ZZ ->{\mathop {{\rm Z}\kern -.28em{\rm 
+                                        Z}}\nolimits }
+l.676 \sum _{k\in \ZZ
+                      }\gamma _{4k-2r-1}^{DD4}y_{j-1,2k} =  p_{4}\left(x_{j,...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./paper.tex:681: Undefined control sequence.
+\ZZ ->{\mathop {{\rm 
+                     Z}\kern -.28em{\rm Z}}\nolimits }
+l.681  and similarly $\sum _{k\in \ZZ
+                                      }\gamma _{2k-2r-1}^{DD2}y_{j,2k} = p_{...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./paper.tex:681: Undefined control sequence.
+\ZZ ->{\mathop {{\rm Z}\kern -.28em{\rm 
+                                        Z}}\nolimits }
+l.681  and similarly $\sum _{k\in \ZZ
+                                      }\gamma _{2k-2r-1}^{DD2}y_{j,2k} = p_{...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./paper.tex:693: Undefined control sequence.
+\ZZ ->{\mathop {{\rm 
+                     Z}\kern -.28em{\rm Z}}\nolimits }
+l.693 ...}\left(x_{j,2k}\right)$ for all $k\in \ZZ
+                                                   $, there
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./paper.tex:693: Undefined control sequence.
+\ZZ ->{\mathop {{\rm Z}\kern -.28em{\rm 
+                                        Z}}\nolimits }
+l.693 ...}\left(x_{j,2k}\right)$ for all $k\in \ZZ
+                                                   $, there
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./paper.tex:697: Undefined control sequence.
+l.697 \proclaim
+                Algorithm~\pn{5pointalgo}. %(5-point {}``Initialization'' Su...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+
+./paper.tex:697: LaTeX Error: Missing \begin{document}.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.697 \proclaim A
+                 lgorithm~\pn{5pointalgo}. %(5-point {}``Initialization'' Su...
+
+You're in trouble here.  Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+./paper.tex:699: Undefined control sequence.
+\ZZ ->{\mathop {{\rm 
+                     Z}\kern -.28em{\rm Z}}\nolimits }
+l.699 $y_{j,k}\, k\in \ZZ
+                          $ over dyadic numbers $x_{j,k}=k/2^{j}$,
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./paper.tex:699: Undefined control sequence.
+\ZZ ->{\mathop {{\rm Z}\kern -.28em{\rm 
+                                        Z}}\nolimits }
+l.699 $y_{j,k}\, k\in \ZZ
+                          $ over dyadic numbers $x_{j,k}=k/2^{j}$,
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+
+./paper.tex:701: LaTeX Error: Lonely \item--perhaps a missing list environment.
+
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.701 \ritem{1)}
+                 recopy data at $x_{j+1,2k}=x_{j,k}$: $y_{j+1,2k}=y_{j,k}\, ...
+
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+./paper.tex:701: Undefined control sequence.
+\ritem #1->\item {\rm 
+                      #1}
+l.701 \ritem{1)}
+                 recopy data at $x_{j+1,2k}=x_{j,k}$: $y_{j+1,2k}=y_{j,k}\, ...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./paper.tex:701: Undefined control sequence.
+\ZZ ->{\mathop {{\rm 
+                     Z}\kern -.28em{\rm Z}}\nolimits }
+l.701 ...$: $y_{j+1,2k}=y_{j,k}\, \forall k\in \ZZ
+                                                   $;
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./paper.tex:701: Undefined control sequence.
+\ZZ ->{\mathop {{\rm Z}\kern -.28em{\rm 
+                                        Z}}\nolimits }
+l.701 ...$: $y_{j+1,2k}=y_{j,k}\, \forall k\in \ZZ
+                                                   $;
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+
+./paper.tex:703: LaTeX Error: Lonely \item--perhaps a missing list environment.
+
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.703 \ritem{2)}
+                 extrapolate $y_{j,k+4}$ using $y_{j,k-2},y_{j,k-1},y_{j,k},...
+
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+./paper.tex:703: Undefined control sequence.
+\ritem #1->\item {\rm 
+                      #1}
+l.703 \ritem{2)}
+                 extrapolate $y_{j,k+4}$ using $y_{j,k-2},y_{j,k-1},y_{j,k},...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./paper.tex:705: Undefined control sequence.
+\ZZ ->{\mathop {{\rm 
+                     Z}\kern -.28em{\rm Z}}\nolimits }
+l.705 ...y_{j,k+1}+15y_{j,k+1}$, $\forall k\in \ZZ
+                                                   ;$
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./paper.tex:705: Undefined control sequence.
+\ZZ ->{\mathop {{\rm Z}\kern -.28em{\rm 
+                                        Z}}\nolimits }
+l.705 ...y_{j,k+1}+15y_{j,k+1}$, $\forall k\in \ZZ
+                                                   ;$
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+
+./paper.tex:707: LaTeX Error: Lonely \item--perhaps a missing list environment.
+
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.707 \ritem{3)}
+                 interpolate midpoint value using the 4-adic DD formula
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+./paper.tex:707: Undefined control sequence.
+\ritem #1->\item {\rm 
+                      #1}
+l.707 \ritem{3)}
+                 interpolate midpoint value using the 4-adic DD formula
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./paper.tex:709: Undefined control sequence.
+\ZZ ->{\mathop {{\rm 
+                     Z}\kern -.28em{\rm Z}}\nolimits }
+l.709 ...-5\gamma _{j,k}}{128}$, $\forall k\in \ZZ
+                                                  $.
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./paper.tex:709: Undefined control sequence.
+\ZZ ->{\mathop {{\rm Z}\kern -.28em{\rm 
+                                        Z}}\nolimits }
+l.709 ...-5\gamma _{j,k}}{128}$, $\forall k\in \ZZ
+                                                  $.
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+
+Overfull \hbox (95.14267pt too wide) in paragraph at lines 707--711
+[]\fab 3) in-ter-po-late mid-point value us-ing the 4-adic DD for-mula $\tab y[
+] \fab = []$,
+ []
+
+./paper.tex:723: Undefined control sequence.
+l.723 \proclaim
+                Lemma~\pn{5pointlemma}. Algorithm~\pr{5pointalgo} describes ...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./paper.tex:727: Undefined control sequence.
+\ZZ ->{\mathop {{\rm 
+                     Z}\kern -.28em{\rm Z}}\nolimits }
+l.727 ...}\left(x_{j,2k}\right)$ for all $k\in \ZZ
+                                                   $.
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./paper.tex:727: Undefined control sequence.
+\ZZ ->{\mathop {{\rm Z}\kern -.28em{\rm 
+                                        Z}}\nolimits }
+l.727 ...}\left(x_{j,2k}\right)$ for all $k\in \ZZ
+                                                   $.
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./paper.tex:734: Undefined control sequence.
+l.734 \proclaim
+                Proposition~\pn{prop4}. With Algorithm~\pr{5pointalgo}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./paper.tex:774: Undefined control sequence.
+\ZZ ->{\mathop {{\rm 
+                     Z}\kern -.28em{\rm Z}}\nolimits }
+l.774 ..._{j,k}$, define $P^{j}(z)=\sum _{k\in \ZZ
+                                                   }y_{j,k}z^{k}$.
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./paper.tex:774: Undefined control sequence.
+\ZZ ->{\mathop {{\rm Z}\kern -.28em{\rm 
+                                        Z}}\nolimits }
+l.774 ..._{j,k}$, define $P^{j}(z)=\sum _{k\in \ZZ
+                                                   }y_{j,k}z^{k}$.
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./paper.tex:775: Undefined control sequence.
+\ZZ ->{\mathop {{\rm 
+                     Z}\kern -.28em{\rm Z}}\nolimits }
+l.775 If $P_{2}(z)=\sum _{k\in \ZZ
+                                   }\gamma _{k}^{DD2}z^{k}$, then the equation
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./paper.tex:775: Undefined control sequence.
+\ZZ ->{\mathop {{\rm Z}\kern -.28em{\rm 
+                                        Z}}\nolimits }
+l.775 If $P_{2}(z)=\sum _{k\in \ZZ
+                                   }\gamma _{k}^{DD2}z^{k}$, then the equation
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./paper.tex:778: Undefined control sequence.
+\ZZ ->{\mathop {{\rm 
+                     Z}\kern -.28em{\rm Z}}\nolimits }
+l.778 $P_{4}(z)=\sum _{k\in \ZZ
+                                }\gamma _{k}^{DD4}z^{k}$, then the 4-adic
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./paper.tex:778: Undefined control sequence.
+\ZZ ->{\mathop {{\rm Z}\kern -.28em{\rm 
+                                        Z}}\nolimits }
+l.778 $P_{4}(z)=\sum _{k\in \ZZ
+                                }\gamma _{k}^{DD4}z^{k}$, then the 4-adic
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./paper.tex:794: Undefined control sequence.
+l.794 $$\eqalign
+                {
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./paper.tex:795: Misplaced alignment tab character &.
+l.795 \Gamma _{1}(z) &
+                       =  \Gamma _{2}(z)+\alpha, \cr
+I can't figure out why you would want to use a tab mark
+here. If you just want an ampersand, the remedy is
+simple: Just type `I\&' now. But if some right brace
+up above has ended a previous alignment prematurely,
+you're probably due for more error messages, and you
+might try typing `S' now just to see what is salvageable.
+
+./paper.tex:795: Misplaced \cr.
+l.795 ...a _{1}(z) & =  \Gamma _{2}(z)+\alpha, \cr
+                                                  
+I can't figure out why you would want to use a tab mark
+or \cr or \span just now. If something like a right brace
+up above has ended a previous alignment prematurely,
+you're probably due for more error messages, and you
+might try typing `S' now just to see what is salvageable.
+
+./paper.tex:796: Misplaced alignment tab character &.
+l.796 \Gamma _{2}(z) &
+                       =  \frac{P_{4}\left(z\right)-P_{4}\left(-z\right)}{4}...
+I can't figure out why you would want to use a tab mark
+here. If you just want an ampersand, the remedy is
+simple: Just type `I\&' now. But if some right brace
+up above has ended a previous alignment prematurely,
+you're probably due for more error messages, and you
+might try typing `S' now just to see what is salvageable.
+
+./paper.tex:816: Undefined control sequence.
+\ZZ ->{\mathop {{\rm 
+                     Z}\kern -.28em{\rm Z}}\nolimits }
+l.816  $\sum _{k\in \ZZ
+                        }2^{j}\left(y_{j,k+1}-y_{j,k}\right)z^{k} =  \sum _{...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./paper.tex:816: Undefined control sequence.
+\ZZ ->{\mathop {{\rm Z}\kern -.28em{\rm 
+                                        Z}}\nolimits }
+l.816  $\sum _{k\in \ZZ
+                        }2^{j}\left(y_{j,k+1}-y_{j,k}\right)z^{k} =  \sum _{...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./paper.tex:816: Undefined control sequence.
+\ZZ ->{\mathop {{\rm 
+                     Z}\kern -.28em{\rm Z}}\nolimits }
+l.816 ...1}-y_{j,k}\right)z^{k} =  \sum _{k\in \ZZ
+                                                   }2^{j}y_{j,k} \left( z^{k...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./paper.tex:816: Undefined control sequence.
+\ZZ ->{\mathop {{\rm Z}\kern -.28em{\rm 
+                                        Z}}\nolimits }
+l.816 ...1}-y_{j,k}\right)z^{k} =  \sum _{k\in \ZZ
+                                                   }2^{j}y_{j,k} \left( z^{k...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./paper.tex:834: Undefined control sequence.
+l.834 $$\eqalignno
+                  {
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./paper.tex:835: Misplaced alignment tab character &.
+l.835 H_{n}^{j+1}(z)&
+                      =\left(\frac{2z}{1+z}\right)^{n}\Gamma _{1}(z)H_{n}^{j...
+I can't figure out why you would want to use a tab mark
+here. If you just want an ampersand, the remedy is
+simple: Just type `I\&' now. But if some right brace
+up above has ended a previous alignment prematurely,
+you're probably due for more error messages, and you
+might try typing `S' now just to see what is salvageable.
+
+./paper.tex:835: Misplaced alignment tab character &.
+l.835 ...amma _{1}(z)H_{n}^{j}\left(z^{2}\right) &
+                                                   \cr
+I can't figure out why you would want to use a tab mark
+here. If you just want an ampersand, the remedy is
+simple: Just type `I\&' now. But if some right brace
+up above has ended a previous alignment prematurely,
+you're probably due for more error messages, and you
+might try typing `S' now just to see what is salvageable.
+
+./paper.tex:835: Misplaced \cr.
+l.835 ... _{1}(z)H_{n}^{j}\left(z^{2}\right) & \cr
+                                                  
+I can't figure out why you would want to use a tab mark
+or \cr or \span just now. If something like a right brace
+up above has ended a previous alignment prematurely,
+you're probably due for more error messages, and you
+might try typing `S' now just to see what is salvageable.
+
+./paper.tex:836: Misplaced alignment tab character &.
+l.836 		&
+          +\left(\frac{-2z(1-z)}{1+z^{2}}\right)^{n}\Gamma _{2}(z)H_{n}^{j}\...
+I can't figure out why you would want to use a tab mark
+here. If you just want an ampersand, the remedy is
+simple: Just type `I\&' now. But if some right brace
+up above has ended a previous alignment prematurely,
+you're probably due for more error messages, and you
+might try typing `S' now just to see what is salvageable.
+
+./paper.tex:836: Misplaced alignment tab character &.
+l.836 ...mma _{2}(z)H_{n}^{j}\left(-z^{2}\right).&
+                                                  \enn{genh}
+I can't figure out why you would want to use a tab mark
+here. If you just want an ampersand, the remedy is
+simple: Just type `I\&' now. But if some right brace
+up above has ended a previous alignment prematurely,
+you're probably due for more error messages, and you
+might try typing `S' now just to see what is salvageable.
+
+./paper.tex:864: Undefined control sequence.
+l.864 \proclaim
+                Theorem~\pn{DynTheorem}. %(Dyn-Levin)
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./paper.tex:882: Undefined control sequence.
+\ZZ ->{\mathop {{\rm 
+                     Z}\kern -.28em{\rm Z}}\nolimits }
+l.882 In general, given $y_{j+1,l}=\sum _{k\in \ZZ
+                                                   }\gamma _{2k-l}y_{j,k}$,
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./paper.tex:882: Undefined control sequence.
+\ZZ ->{\mathop {{\rm Z}\kern -.28em{\rm 
+                                        Z}}\nolimits }
+l.882 In general, given $y_{j+1,l}=\sum _{k\in \ZZ
+                                                   }\gamma _{2k-l}y_{j,k}$,
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./paper.tex:884: Undefined control sequence.
+\ZZ ->{\mathop {{\rm 
+                     Z}\kern -.28em{\rm Z}}\nolimits }
+l.884 ...bda =\max _{l=0,1}\left\{ \sum _{k\in \ZZ
+                                                   }\left|\gamma _{2k-l}\rig...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./paper.tex:884: Undefined control sequence.
+\ZZ ->{\mathop {{\rm Z}\kern -.28em{\rm 
+                                        Z}}\nolimits }
+l.884 ...bda =\max _{l=0,1}\left\{ \sum _{k\in \ZZ
+                                                   }\left|\gamma _{2k-l}\rig...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./paper.tex:889: Undefined control sequence.
+\ZZ ->{\mathop {{\rm 
+                     Z}\kern -.28em{\rm Z}}\nolimits }
+l.889 ...cheme given by $y_{j+1,l}=\sum _{k\in \ZZ
+                                                   }\gamma _{4k-l}^{(1)}y_{j...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./paper.tex:889: Undefined control sequence.
+\ZZ ->{\mathop {{\rm Z}\kern -.28em{\rm 
+                                        Z}}\nolimits }
+l.889 ...cheme given by $y_{j+1,l}=\sum _{k\in \ZZ
+                                                   }\gamma _{4k-l}^{(1)}y_{j...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./paper.tex:892: Undefined control sequence.
+\ZZ ->{\mathop {{\rm 
+                     Z}\kern -.28em{\rm Z}}\nolimits }
+l.892 ...{HR}=\max _{l=0,1}\left\{ \sum _{k\in \ZZ
+                                                   }\left|\gamma _{2k-l}^{(1...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./paper.tex:892: Undefined control sequence.
+\ZZ ->{\mathop {{\rm Z}\kern -.28em{\rm 
+                                        Z}}\nolimits }
+l.892 ...{HR}=\max _{l=0,1}\left\{ \sum _{k\in \ZZ
+                                                   }\left|\gamma _{2k-l}^{(1...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./paper.tex:893: Undefined control sequence.
+\ZZ ->{\mathop {{\rm 
+                     Z}\kern -.28em{\rm Z}}\nolimits }
+l.893 ...sup \left\{ \left|y_{j,k}\right|:k\in \ZZ
+                                                   \right\} $.
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./paper.tex:893: Undefined control sequence.
+\ZZ ->{\mathop {{\rm Z}\kern -.28em{\rm 
+                                        Z}}\nolimits }
+l.893 ...sup \left\{ \left|y_{j,k}\right|:k\in \ZZ
+                                                   \right\} $.
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./paper.tex:909: Undefined control sequence.
+l.909 \proclaim
+                Lemma~\pn{enoughlemma}. A multistep scheme given by the symb...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./paper.tex:918: Undefined control sequence.
+l.918 \proclaim
+                Theorem~\pn{maintheorem}. For $-25/56<\alpha <15/32$, $MS_{\...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./paper.tex:960: Undefined control sequence.
+l.960 \topinsert
+                
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./paper.tex:965: Undefined control sequence.
+l.965 \endinsert
+                
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+
+./paper.tex:1054: LaTeX Error: Lonely \item--perhaps a missing list environment
+.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.1054 \rn{Dau}
+               I. Daubechies, Orthonormal bases of compactly supported wavel...
+
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+./paper.tex:1056: LaTeX Error: Lonely \item--perhaps a missing list environment
+.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.1056 \rn{DekelDyn}
+                    S. Dekel and N. Dyn, Poly-scale refinability and subdivi...
+
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+./paper.tex:1058: LaTeX Error: Lonely \item--perhaps a missing list environment
+.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.1058 \rn{DeDu}
+                G. Deslauriers and S. Dubuc, Symmetric iterative interpolati...
+
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+./paper.tex:1060: LaTeX Error: Lonely \item--perhaps a missing list environment
+.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.1060 \rn{DeDuLe}
+                  G. Deslauriers, S. Dubuc, and D. Lemire, Une famille d'ond...
+
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+LaTeX Font Info:    Try loading font information for +cmr on input line 1061.
+LaTeX Font Info:    No file cmr.fd. on input line 1061.
+
+LaTeX Font Warning: Font shape `/cmr/m/n' undefined
+(Font)              using `/cmr/m/n' instead on input line 1061.
+
+./paper.tex:1061: Corrupted NFSS tables.
+wrong@fontshape ...message {Corrupted NFSS tables}
+                                                  error@fontshape else let f...
+l.1061 ...les sur l'intervalle obtenue par un sché
+                                                  ma d'interpolation
+This error message was generated by an \errmessage
+command, so I can't give any explicit help.
+Pretend that you're Hercule Poirot: Examine all clues,
+and deduce the truth by order and method.
+
+
+LaTeX Font Warning: Font shape `/cmr/m/n' undefined
+(Font)              using `OT1/cmr/m/n' instead on input line 1061.
+
+
+./paper.tex:1063: LaTeX Error: Lonely \item--perhaps a missing list environment
+.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.1063 \rn{DuGe}
+                F. Dubeau and R. Gervais, Procédures locale et non locale d'...
+
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+./paper.tex:1066: LaTeX Error: Lonely \item--perhaps a missing list environment
+.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.1066 \rn{Du}
+              S. Dubuc, Interpolation through an iterative scheme, J. Math. ...
+
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+./paper.tex:1068: LaTeX Error: Lonely \item--perhaps a missing list environment
+.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.1068 \rn{DuLeMe}
+                  S. Dubuc, D. Lemire, J.-L. Merrien, Fourier analysis of 2-...
+
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+./paper.tex:1070: LaTeX Error: Lonely \item--perhaps a missing list environment
+.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.1070 \rn{Dyn}
+               N. Dyn, Subdivision schemes in computer-aided geometric desig...
+
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+./paper.tex:1072: LaTeX Error: Lonely \item--perhaps a missing list environment
+.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.1072 \rn{DyGrLe}
+                  N. Dyn, J. A. Gregory, and D. Levin, A 4-point interpolato...
+
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+./paper.tex:1074: LaTeX Error: Lonely \item--perhaps a missing list environment
+.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.1074 \rn{DynLevin}
+                    N. Dyn, D. Levin, Subdivision schemes in geometric model...
+
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+./paper.tex:1075: LaTeX Error: Lonely \item--perhaps a missing list environment
+.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.1075 \rn{Han2001}
+                   B. Han, Approximation properties and construction of Herm...
+
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+./paper.tex:1077: LaTeX Error: Lonely \item--perhaps a missing list environment
+.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.1077 \rn{HaIvDoSa}
+                    M.~F. Hassan, I. P. Ivrissimitzis, N.~A. Dodgson, and M....
+
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+./paper.tex:1080: LaTeX Error: Lonely \item--perhaps a missing list environment
+.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.1080 \rn{HeilColella}
+                       C. Heil and D. Colella, Matrix refinement equations a...
+
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+./paper.tex:1082: LaTeX Error: Lonely \item--perhaps a missing list environment
+.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.1082 \rn{KuDa}
+                F. Kuijt and R. van Damme, Stability of subdivision schemes,...
+
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+./paper.tex:1084: LaTeX Error: Lonely \item--perhaps a missing list environment
+.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.1084 \rn{Me92}
+                J.-L. Merrien, A family of Hermite interpolants by bisection...
+
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+./paper.tex:1086: LaTeX Error: Lonely \item--perhaps a missing list environment
+.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.1086 \rn{Me99}
+                J.-L. Merrien, Interpolants d'Hermite $C^{2}$ obtenus par su...
+
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+./paper.tex:1088: LaTeX Error: Lonely \item--perhaps a missing list environment
+.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.1088 \rn{Plonka}
+                  G. Plonka, Approximation order provided by refinable funct...
+
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+./paper.tex:1097: Undefined control sequence.
+l.1097 {\tt
+            lemire@ondelette.com}, {\tt http://www.ondelette.com/acadia/}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./paper.tex:1097: Undefined control sequence.
+l.1097 {\tt lemire@ondelette.com}, {\tt
+                                        http://www.ondelette.com/acadia/}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./paper.tex:1100: Undefined control sequence.
+l.1100 \bye
+           
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+)
+! Emergency stop.
+<*> paper.tex
+             
+*** (job aborted, no legal \end found)
+
+ 
+Here is how much of TeX's memory you used:
+ 503 strings out of 493747
+ 3432 string characters out of 3143546
+ 128228 words of memory out of 3000000
+ 3856 multiletter control sequences out of 15000+200000
+ 8220 words of font info for 29 fonts, out of 3000000 for 9000
+ 715 hyphenation exceptions out of 8191
+ 21i,7n,17p,208b,731s stack positions out of 5000i,500n,10000p,200000b,50000s
+!  ==> Fatal error occurred, no output PDF file produced!

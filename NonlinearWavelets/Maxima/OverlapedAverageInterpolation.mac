@@ -1,0 +1,9 @@
+"Alpert stuff, see article by Donoho and al."
+INTMINUS1:integrate(f(x),x,k-1/2,k+1/2);
+INT0:integrate(f(x),x,k,k+1);
+INTPLUS1:integrate(f(x),x,k+1/2,k+3/2);
+solution:solve([INTMINUS1=A,INT0=B,INTPLUS1=C],[a5,a4,a3,a2,a1,a0]);
+answer:[expand(subst(solution,integrate(f(x),x,k,k+1/2))),
+expand(subst(solution,integrate(f(x),x,k+1/2,k+1))),
+expand(subst(solution,integrate(f(x)*(x-k),x,k,k+1/2))),
+expand(subst(solution,integrate(f(x)*(x-k-1/2),x,k+1/2,k+1)))];

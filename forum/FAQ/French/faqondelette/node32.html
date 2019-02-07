@@ -1,0 +1,263 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with jLaTeX2HTML 2002 (1.62) JA patch-1.4
+patched version by:  Kenshi Muto, Debian Project.
+LaTeX2HTML 2002 (1.62),
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>Pourquoi la transformée de Fourier d'une fonction ,
+, tend vers zéro quand devient grand.</TITLE>
+<META NAME="description" CONTENT="Pourquoi la transformée de Fourier d'une fonction ,
+, tend vers zéro quand devient grand.">
+<META NAME="keywords" CONTENT="faqondelette">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<META NAME="Generator" CONTENT="jLaTeX2HTML v2002 JA patch-1.4">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="faqondelette.css">
+
+<LINK REL="next" HREF="node33.html">
+<LINK REL="previous" HREF="node31.html">
+<LINK REL="up" HREF="node20.html">
+<LINK REL="next" HREF="node33.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html538"
+  HREF="node33.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html534"
+  HREF="node20.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html528"
+  HREF="node31.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
+<A NAME="tex2html536"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html539"
+  HREF="node33.html">Comment calculer la fréquence</A>
+<B> Up:</B> <A NAME="tex2html535"
+  HREF="node20.html">Un peu de théorie</A>
+<B> Previous:</B> <A NAME="tex2html529"
+  HREF="node31.html">Qu'est-ce que le nombre</A>
+ &nbsp <B>  <A NAME="tex2html537"
+  HREF="node1.html">Contents</A></B> 
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+
+<H2><A NAME="SECTION00041200000000000000000">
+Pourquoi la transform&#233;e de Fourier <IMG
+ WIDTH="41" HEIGHT="31" ALIGN="MIDDLE" BORDER="0"
+ SRC="img1.png"
+ ALT="$ F(w)$"> d'une fonction <IMG
+ WIDTH="22" HEIGHT="17" ALIGN="BOTTOM" BORDER="0"
+ SRC="img2.png"
+ ALT="$ L^{1}$">,
+<IMG
+ WIDTH="35" HEIGHT="31" ALIGN="MIDDLE" BORDER="0"
+ SRC="img3.png"
+ ALT="$ f(x)$">, tend vers z&#233;ro quand <IMG
+ WIDTH="16" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img4.png"
+ ALT="$ w$"> devient grand.</A>
+</H2>
+
+<P>
+Par d&#233;finition, <!-- MATH
+ $F(w)=\int f(x)e^{-ixw}dx$
+ -->
+<IMG
+ WIDTH="163" HEIGHT="34" ALIGN="MIDDLE" BORDER="0"
+ SRC="img68.png"
+ ALT="$ F(w)=\int f(x)e^{-ixw}dx $">. De cette &#233;quation, nous
+savons que <IMG
+ WIDTH="50" HEIGHT="31" ALIGN="MIDDLE" BORDER="0"
+ SRC="img69.png"
+ ALT="$ \vert F(w)\vert $"> satisfait <!-- MATH
+ $|F(w)|\leq\int|f(x)|dx<\infty$
+ -->
+<IMG
+ WIDTH="178" HEIGHT="33" ALIGN="MIDDLE" BORDER="0"
+ SRC="img70.png"
+ ALT="$ \vert F(w)\vert\leq \int \vert f(x)\vert dx&lt;\infty $">|.
+Si on teste la continuit&#233;, on obtient tout d'abord <!-- MATH
+ \begin{displaymath}
+F(w+\varepsilon)=\int f(x)e^{-ixw}\left(1-e^{-ix\varepsilon}\right)dx.
+\end{displaymath}
+ -->
+<P></P>
+<DIV ALIGN="CENTER">
+<IMG
+ WIDTH="283" HEIGHT="51" ALIGN="MIDDLE" BORDER="0"
+ SRC="img71.png"
+ ALT="$\displaystyle F(w+\varepsilon )=\int f(x)e^{-ixw}\left( 1-e^{-ix\varepsilon }\right) dx.$">
+</DIV><P></P>
+Puisque <!-- MATH
+ $\left(1-e^{-ix\varepsilon}\right)$
+ -->
+<IMG
+ WIDTH="82" HEIGHT="34" ALIGN="MIDDLE" BORDER="0"
+ SRC="img72.png"
+ ALT="$ \left( 1-e^{-ix\varepsilon }\right) $"> sera petit pour <IMG
+ WIDTH="13" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img73.png"
+ ALT="$ x $">
+born&#233;, et que <!-- MATH
+ $\left|1-e^{-ix\varepsilon}\right|\leq2$
+ -->
+<IMG
+ WIDTH="107" HEIGHT="34" ALIGN="MIDDLE" BORDER="0"
+ SRC="img74.png"
+ ALT="$ \left\vert 1-e^{-ix\varepsilon }\right\vert \leq 2 $">, il suffit
+donc d'avoir que <!-- MATH
+ $\int_{N}^{\infty}|f(x)|dx\rightarrow0$
+ -->
+<IMG
+ WIDTH="121" HEIGHT="35" ALIGN="MIDDLE" BORDER="0"
+ SRC="img75.png"
+ ALT="$ \int _{N}^{\infty }\vert f(x)\vert dx\rightarrow 0 $"> lorsque
+<IMG
+ WIDTH="19" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
+ SRC="img29.png"
+ ALT="$ N $"> devient grand, mais ce r&#233;sultat est certainement vrai puisque
+<IMG
+ WIDTH="14" HEIGHT="29" ALIGN="MIDDLE" BORDER="0"
+ SRC="img48.png"
+ ALT="$ f $"> est Lebesgue...
+
+<P>
+On se r&#233;sume: <IMG
+ WIDTH="16" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
+ SRC="img76.png"
+ ALT="$ F $"> est born&#233;e et continue... reste &#224; montrer que <IMG
+ WIDTH="41" HEIGHT="31" ALIGN="MIDDLE" BORDER="0"
+ SRC="img1.png"
+ ALT="$ F(w)$">
+d&#233;cro&#238;t lorsque <IMG
+ WIDTH="16" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img4.png"
+ ALT="$ w$"> augmente...ce th&#233;or&#232;me porte un nom... Riemann-Lebesgue...
+
+<P>
+Preuve du th&#233;or&#232;me (en gros) :
+
+<P>
+On sait que les fonctions de Lebesgue peuvent &#234;tre g&#233;n&#233;r&#233;es (i.e.
+c'est un ensemble &#34;dense&#34;) par les fonctions &#34;caract&#233;ristiques&#34;,
+c'est-&#224;-dire les fonctions <!-- MATH
+ $f_{X}(x)=1$
+ -->
+<IMG
+ WIDTH="75" HEIGHT="31" ALIGN="MIDDLE" BORDER="0"
+ SRC="img77.png"
+ ALT="$ f_{X}(x)=1 $"> si <IMG
+ WIDTH="47" HEIGHT="29" ALIGN="MIDDLE" BORDER="0"
+ SRC="img78.png"
+ ALT="$ x\in X $"> et 0 sinon.
+On peut voir que la transform&#233;e de Fourier de <IMG
+ WIDTH="45" HEIGHT="31" ALIGN="MIDDLE" BORDER="0"
+ SRC="img79.png"
+ ALT="$ f_{X}(x) $">, <!-- MATH
+ $\hat{f}_{X}(w)$
+ -->
+<IMG
+ WIDTH="48" HEIGHT="38" ALIGN="MIDDLE" BORDER="0"
+ SRC="img80.png"
+ ALT="$ \hat{f}_{X}(w) $">,
+ira en <IMG
+ WIDTH="32" HEIGHT="31" ALIGN="MIDDLE" BORDER="0"
+ SRC="img81.png"
+ ALT="$ 1/w $"> (pour s'en convaincre, choisir <IMG
+ WIDTH="72" HEIGHT="31" ALIGN="MIDDLE" BORDER="0"
+ SRC="img82.png"
+ ALT="$ X=[0,1] $">). Ensuite,
+il suffit de v&#233;rifier que l'ensemble des fonctions <IMG
+ WIDTH="14" HEIGHT="29" ALIGN="MIDDLE" BORDER="0"
+ SRC="img48.png"
+ ALT="$ f $"> dans <IMG
+ WIDTH="22" HEIGHT="17" ALIGN="BOTTOM" BORDER="0"
+ SRC="img2.png"
+ ALT="$ L^{1}$">
+telles que <IMG
+ WIDTH="13" HEIGHT="36" ALIGN="MIDDLE" BORDER="0"
+ SRC="img83.png"
+ ALT="$ \hat{f}$"> tend vers z&#233;ro &#224; l'infini est ferm&#233; dans la
+norme <IMG
+ WIDTH="22" HEIGHT="17" ALIGN="BOTTOM" BORDER="0"
+ SRC="img2.png"
+ ALT="$ L^{1}$">. Mais c'est pas bien compliqu&#233; puisque les <IMG
+ WIDTH="13" HEIGHT="36" ALIGN="MIDDLE" BORDER="0"
+ SRC="img83.png"
+ ALT="$ \hat{f}$">
+sont born&#233;es par la norme <IMG
+ WIDTH="22" HEIGHT="17" ALIGN="BOTTOM" BORDER="0"
+ SRC="img2.png"
+ ALT="$ L^{1}$">. En effet, soit <IMG
+ WIDTH="14" HEIGHT="29" ALIGN="MIDDLE" BORDER="0"
+ SRC="img48.png"
+ ALT="$ f $"> une fonction
+telle qu'elle peut &#234;tre approch&#233;e aussi pr&#232;s qu'on veut par des fonctions
+<IMG
+ WIDTH="12" HEIGHT="29" ALIGN="MIDDLE" BORDER="0"
+ SRC="img84.png"
+ ALT="$ g$"> telles que leur transform&#233;e de Fourier tend vers z&#233;ro... En norme
+<IMG
+ WIDTH="22" HEIGHT="17" ALIGN="BOTTOM" BORDER="0"
+ SRC="img2.png"
+ ALT="$ L^{1}$">, <!-- MATH
+ $|f-g|_{L^{1}}\rightarrow0$
+ -->
+<IMG
+ WIDTH="91" HEIGHT="31" ALIGN="MIDDLE" BORDER="0"
+ SRC="img85.png"
+ ALT="$ \vert f-g\vert _{L^{1}}\rightarrow0$">, donc <!-- MATH
+ $|\hat{f}-\hat{g}|_{L^{\infty}}\rightarrow0$
+ -->
+<IMG
+ WIDTH="93" HEIGHT="36" ALIGN="MIDDLE" BORDER="0"
+ SRC="img86.png"
+ ALT="$ \vert\hat{f}-\hat{g}\vert _{L^{\infty}}\rightarrow0$">.
+Fin de la preuve!
+
+<P>
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html538"
+  HREF="node33.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html534"
+  HREF="node20.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html528"
+  HREF="node31.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
+<A NAME="tex2html536"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html539"
+  HREF="node33.html">Comment calculer la fréquence</A>
+<B> Up:</B> <A NAME="tex2html535"
+  HREF="node20.html">Un peu de théorie</A>
+<B> Previous:</B> <A NAME="tex2html529"
+  HREF="node31.html">Qu'est-ce que le nombre</A>
+ &nbsp <B>  <A NAME="tex2html537"
+  HREF="node1.html">Contents</A></B> 
+<!--End of Navigation Panel-->
+<ADDRESS>
+Daniel Lemire
+2004-02-02
+</ADDRESS>
+</BODY>
+</HTML>

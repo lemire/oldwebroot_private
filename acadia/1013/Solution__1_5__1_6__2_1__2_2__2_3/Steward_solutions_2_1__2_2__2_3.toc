@@ -1,0 +1,5 @@
+\select@language {english}
+\contentsline {section}{\numberline {2}\leavevmode {\color {webblackblue}Limits and Derivatives}}{1}{section.2}
+\contentsline {subsection}{\numberline {2.1}\leavevmode {\color {webblue}The Tangent and Velocity Problems}}{1}{subsection.2.1}
+\contentsline {subsection}{\numberline {2.2}\leavevmode {\color {webblue}The Limit of a Function}}{5}{subsection.2.2}
+\contentsline {subsection}{\numberline {2.3}\leavevmode {\color {webblue}Calculating Limits Using the Limit Laws}}{7}{subsection.2.3}

@@ -1,0 +1,179 @@
+/*
+Copyright ACIT par Daniel Lemire
+*/
+UL {
+   font-size : 14pt; 
+   font-family : Arial, Helvetica, "sans serif"; 
+   
+}
+
+
+LI.ESPACE {
+   
+   display:block;
+   padding-top : 1em;
+   font-family:Arial,Helvetica,"sans serif";
+   list-style-type: square;
+}
+
+SMALL {
+   font-size : 0.5em; 
+}
+
+PRE {
+   font-size : 0.7em; 
+}
+
+P.PUBICON {
+   text-align : center; 
+}
+
+P.INDENTE {
+   text-align : left; 
+   margin-left : 3em; 
+}
+
+P {
+   font-size : 14pt; 
+   font-family : Arial, Helvetica, "sans serif"; 
+   color : black; 
+   background : transparent; 
+}
+
+UL.NOMS {
+   font-size : 14pt; 
+   color : blue; 
+   font-weight : bold; 
+}
+
+H2 {
+   font-weight : bold; 
+   font-size : x-large; 
+   font-family : Arial, Helvetica, "sans serif"; 
+   color : black; 
+   background : yellow; 
+   text-align :left; 
+}
+
+H1 {
+   font-weight : bold; 
+   font-size : x-large; 
+   font-family : Arial, Helvetica, "sans serif"; 
+   color : white; 
+   background : navy;
+   text-align : center; 
+}
+
+H3 {
+font-family:Arial,Helvetica,"sans serif";
+}
+
+H4 {
+font-family:Arial,Helvetica,"sans serif";
+}
+
+DIV {
+   font-size : 14pt; 
+   font-family : Arial, Helvetica, "sans serif"; 
+   color : #ffffff; 
+   background : transparent; 
+}
+
+
+BODY {
+   font-size : 1em; 
+   font-family : Arial, Helvetica, "sans serif"; 
+   color : black; 
+   background-color : white; 
+   text-align : justify; 
+}
+
+ADDRESS {
+   font-size : 10pt; 
+}
+
+A:visited {
+   font-style : normal; 
+   font-weight : normal; 
+   font-size : 14pt; 
+   font-family : Arial, Helvetica, "sans serif"; 
+   color : blue; 
+   background : transparent; 
+}
+
+A:hover {
+   font-style : normal; 
+   font-weight : normal; 
+   font-size : 14pt; 
+   font-family : Arial, Helvetica, "sans serif"; 
+   color : navy; 
+   background-color : yellow; 
+}
+
+A {
+   font-style : normal; 
+   font-weight : normal; 
+   font-size : 14pt; 
+   font-family : Arial, Helvetica, "sans serif"; 
+   color : navy; 
+   background : transparent; 
+}
+
+A.BOLD:visited {
+   font-style : normal; 
+   font-weight : bold; 
+   font-size : 14pt; 
+   font-family : Arial, Helvetica, "sans serif"; 
+   color : blue; 
+   background : transparent; 
+}
+
+A.BOLD:hover {
+   font-style : normal; 
+   font-weight : bold; 
+   font-size : 14pt; 
+   font-family : Arial, Helvetica, "sans serif"; 
+   color : navy; 
+   background-color : yellow; 
+}
+
+A.BOLD {
+   font-style : normal; 
+   font-weight : bold; 
+   font-size : 14pt; 
+   font-family : Arial, Helvetica, "sans serif"; 
+   color : navy; 
+   background : transparent; 
+}
+
+
+.DETAILADROITE {
+   font-style : italic; 
+   font-size : 0.7em; 
+   font-family : Arial, Helvetica, "sans serif"; 
+   text-align : right; 
+}
+
+.DETAIL {
+   font-style : italic; 
+   font-size : 0.7em; 
+   font-family : Arial, Helvetica, "sans serif"; 
+   text-align : left; 
+}
+
+
+
+
+form 
+{
+} 
+
+
+
+
+@media print {
+BODY {
+background-color: white;
+color:#000000;
+}
+}

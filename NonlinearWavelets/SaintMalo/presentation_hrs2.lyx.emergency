@@ -1,0 +1,1646 @@
+#LyX 1.2 created this file. For more info see http://www.lyx.org/
+\lyxformat 220
+\textclass myfoils
+\begin_preamble
+ \usepackage{pslatex}
+ \usepackage{background}
+
+
+% \usepackage[colorlinks=true]{hyperref}
+ %\newcommand{\pagetransition}[1]{%
+   %  \hypersetup{pdfpagetransition={#1}}
+ %}                                                                               
+ \usepackage{pause}
+\usepackage{pp4link}
+\usepackage{mpmulti}
+% \usepackage{backref}
+ \usepackage{pp4slide}
+%% \pagestyle{fancy}
+ %\usepackage{lastpage}  
+
+\newif \ifpdf
+    \ifx \pdfoutput \undefined
+        \pdffalse
+    \else
+        \pdftrue
+\fi
+
+
+\ifpdf
+ \usepackage{thumbpdf}
+ \usepackage{color}
+ \usepackage[pdftex,urlcolor=black,colorlinks=false,menucolor=lightgray,urlcolor=black,pagecolor=black,filecolor=black]{hyperref}
+ \pdfinfo{
+            /Title      (A family of 4-points dyadic high resolution subdivision schemes)
+            /Author     (Daniel Lemire, Ph.D.)
+            /Subject 	( By using temporary placeholders on a dense grid, we generalize the 4-point dyadic cubic Deslauriers-Dubuc scheme. Interpolated values require 2 steps to stabilize as they are first interpolated on a coarse scale through a tetradic filter and then on a finer scale using a dyadic filter. The interpolants are C^{1} and can be chosen to reproduce polynomials of degree 4. These generalized interpolatory subdivision schemes have minimal support and no additional memory requirement. This work has applications in CAGD and wavelet theory.)
+            /Keywords   (subdivision schemes, interpolation, CAGD, wavelets)
+          }
+
+\else
+\usepackage{color}
+%\let\pause=\relax
+%\usepackage{color}
+% \usepackage[monochrome]{color}
+ %  \usepackage[monochrome]{hyperref,color}
+  \usepackage[ps2pdf]{hyperref}
+%\usepackage[ps2pdf,monochrome]{color,hyperref} 
+%\usepackage[monochrome]{color}
+\fi
+
+
+\definecolor{gray}{rgb}{0.8,0.8,0.8}
+\definecolor{lightgray}{rgb}{0.9,0.9,0.9} 
+%% Background of blue palette
+ \definecolor{webblackblue}{rgb}{0.0,0.0,0.2}
+ \definecolor{webblue}{rgb}{0.0, 0.0, 0.6}
+
+%% Background of red palette
+ \definecolor{webblackred}{rgb}{0.2,0.0,0.0}
+ \definecolor{webred}{rgb}{0.6,0.0,0.0}
+
+%% Background of green palette
+ \definecolor{webblackgreen}{rgb}{0.0,0.2,0.0}                                   
+ \definecolor{webgreen}{rgb}{0.0,0.6,0.0} 
+
+%% Background of magenta palette
+ \definecolor{webblackmagenta}{rgb}{0.14,0.0,0.14}                                   
+ \definecolor{webmagenta}{rgb}{0.42,0.0,0.42} 
+
+%% Background of cyan palette
+ \definecolor{webblackcyan}{rgb}{0.0,0.14,0.14}                                   
+ \definecolor{webcyan}{rgb}{0.0,0.42,0.42} 
+
+%% Background of yellow pallete
+ \definecolor{webblackyellow}{rgb}{0.14,0.14,0.0}                                   
+ \definecolor{webyellow}{rgb}{0.85,0.85,0.0} 
+
+ \definecolor{webgray}{rgb}{0.75,0.75,0.75}
+ \definecolor{weborange}{rgb}{1.0, 0.6, 0.0}
+ \usepackage{ae}
+ \usepackage{colortbl}
+ \usepackage{amsmath}
+ \usepackage{amssymb}
+ \usepackage{amsfonts}
+ \usepackage{mathrsfs}
+ \usepackage{amsthm}
+ \usepackage{amscd}
+ \usepackage{bbm}
+ \usepackage{stmaryrd}
+ \theoremstyle{plain}    
+ \newtheorem{thm}{Theorem}
+\newtheorem{theorem}{Theorem}
+\newtheorem{proposition}{Proposition}
+\usepackage{multicol}
+%\usepackage{pp4link}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+%\hypersetup{pdfpagemode={FullScreen}} 
+\newcommand{\ControlBar}{~
+\Acrobatmenu{FirstPage}{\reflectbox{\ding{224}}}~
+\Acrobatmenu{PrevPage}{\reflectbox{\ding{225}}}~
+\Acrobatmenu{NextPage}{\ding{225}}~
+\Acrobatmenu{LastPage}{\ding{224}}~
+\Acrobatmenu{FullScreen}{\ding{110}}~
+\Acrobatmenu{Quit}{\ding{54}}}
+
+%\rfoot{ \pauselevel{=1}{\tiny{}\scalefont{0.7}\ControlBar{}}}
+\lfoot{ \pause{}}
+\cfoot{ \pauselevel{=1} {\tiny{}\textcolor{lightgray}{High Resolution Subdivision Schemes}}}
+\rfoot{  \pauselevel{=1} {\tiny{}\ControlBar{}}}
+\usepackage{times}
+\end_preamble
+\options landscape
+\language english
+\inputencoding latin1
+\fontscheme default
+\graphics default
+\float_placement !htbp
+\paperfontsize 25
+\spacing onehalf 
+\papersize Default
+\paperpackage widemarginsa4
+\use_geometry 1
+\use_amsmath 1
+\use_natbib 0
+\use_numerical_citations 0
+\paperorientation landscape
+\leftmargin 1cm
+\rightmargin 1cm
+\secnumdepth 5
+\tocdepth 5
+\paragraph_separation skip
+\defskip smallskip
+\quotes_language english
+\quotes_times 2
+\papercolumns 1
+\papersides 1
+\paperpagestyle fancy
+\bullet 0
+	0
+	17
+	-1
+\end_bullet
+\bulletLaTeX 1
+	"\textcolor{yellow}{\S}"
+\end_bullet
+\bulletLaTeX 2
+	"\textcolor{yellow}{\(\sharp\)}"
+\end_bullet
+\bullet 3
+	0
+	17
+	4
+\end_bullet
+
+\layout Standard
+
+
+\begin_inset ERT
+status Collapsed
+
+\layout Standard
+
+\backslash 
+vpagecolor[webblue]{blue} 
+\end_inset 
+
+
+\begin_inset ERT
+status Collapsed
+
+\layout Standard
+
+\backslash 
+color{white}
+\end_inset 
+
+
+\begin_inset ERT
+status Open
+
+\layout Standard
+
+\backslash 
+ifpdf
+\backslash 
+Wipe{270}
+\backslash 
+fi
+\end_inset 
+
+
+\begin_inset ERT
+status Open
+
+\layout Standard
+
+\backslash 
+ifpdf
+\backslash 
+let
+\backslash 
+pause=
+\backslash 
+relax
+\backslash 
+fi
+\end_inset 
+
+
+\layout Foilhead
+
+A Family of 4-point Dyadic High Resolution Subdivision Schemes
+\layout Standard
+\align center 
+
+\series bold 
+\noun on 
+Daniel Lemire
+\layout Standard
+\align center 
+Research Officer
+\layout Standard
+\align center 
+National Research Council of Canada (NRC) 
+\layout Standard
+\align center 
+email: lemire@ondelette.com
+\layout Comment
+
+
+\begin_inset ERT
+status Collapsed
+
+\layout Standard
+{
+\backslash 
+textcolor{weborange}{
+\end_inset 
+
+Curves and Surfaces
+\newline 
+Saint-Malo, France
+\newline 
+June-July 2002
+\begin_inset ERT
+status Collapsed
+
+\layout Standard
+}}
+\end_inset 
+
+ 
+\layout Foilhead
+
+Subdivision: why care?
+\layout TickList
+
+multiscale approach
+\begin_inset ERT
+status Collapsed
+
+\layout Standard
+
+\backslash 
+pause
+\end_inset 
+
+
+\layout TickList
+
+local interpolation
+\begin_inset ERT
+status Collapsed
+
+\layout Standard
+
+\backslash 
+pause
+\end_inset 
+
+
+\layout TickList
+
+lead to compactly supported wavelets 
+\layout Standard
+
+\SpecialChar ~
+
+\layout Foilhead
+
+How Dubuc did it! 
+\layout TickList
+
+4 points 
+\begin_inset Formula $\longrightarrow $
+\end_inset 
+
+ cubic polynomial
+\begin_inset ERT
+status Collapsed
+
+\layout Standard
+
+\backslash 
+pause
+\end_inset 
+
+
+\newline 
+
+\begin_inset Formula $\longrightarrow $
+\end_inset 
+
+midpoint value 
+\emph on 
+\color red
+(dyadic interpolation)
+\emph default 
+\color default
+
+\begin_inset ERT
+status Collapsed
+
+\layout Standard
+
+\backslash 
+pause
+\end_inset 
+
+
+\layout TickList
+
+repeat at finer scales
+\begin_inset ERT
+status Collapsed
+
+\layout Standard
+
+\backslash 
+pause
+\end_inset 
+
+
+\layout Standard
+\align center 
+
+\begin_inset Graphics FormatVersion 1
+	filename HRSdiagram.eps
+	display default
+	size_type 2
+	scale 30
+	rotateOrigin center
+	lyxsize_type 2
+	lyxscale 30
+
+\end_inset 
+
+
+\layout Foilhead
+
+One follow-up...
+\layout Standard
+
+Same story 
+\color red
+but
+\color default
+...
+ 
+\begin_inset ERT
+status Collapsed
+
+\layout Standard
+
+\backslash 
+pause
+\end_inset 
+
+
+\layout TickList
+
+4 points 
+\begin_inset Formula $\longrightarrow $
+\end_inset 
+
+ cubic polynomial
+\begin_inset ERT
+status Collapsed
+
+\layout Standard
+
+\backslash 
+pause
+\end_inset 
+
+
+\newline 
+
+\begin_inset Formula $\longrightarrow $
+\end_inset 
+
+midpoint 
+\series bold 
+\color red
+and quartile
+\series default 
+\color default
+ value 
+\emph on 
+\color red
+(tetradic interpolation)
+\emph default 
+\color default
+
+\begin_inset ERT
+status Collapsed
+
+\layout Standard
+
+\backslash 
+pause
+\end_inset 
+
+
+\layout Standard
+\align center 
+
+\begin_inset Graphics FormatVersion 1
+	filename HRSdiagram_tetradic.eps
+	display default
+	size_type 2
+	scale 30
+	rotateOrigin center
+	lyxsize_type 2
+	lyxscale 30
+
+\end_inset 
+
+
+\layout Standard
+
+\SpecialChar ~
+
+\layout Foilhead
+
+One more simple trick?
+\layout Standard
+
+
+\series bold 
+\shape italic 
+Recall Richardson's extrapolation
+\series default 
+\shape default 
+: 
+\begin_inset ERT
+status Collapsed
+
+\layout Standard
+
+\backslash 
+pause
+\end_inset 
+
+
+\layout Enumerate
+
+
+\emph on 
+\color red
+an error or order p
+\emph default 
+\color default
+
+\begin_inset ERT
+status Collapsed
+
+\layout Standard
+
+\backslash 
+pause
+\end_inset 
+
+
+\begin_inset Formula \[
+a_{\Delta x}=a_{true}+\pause \begin{array}{c}
+ \underbrace{k\left(\Delta x\right)^{p}+O\left(\Delta x^{p+1}\right)}\\
+ \textrm{some error}\end{array}
+\]
+
+\end_inset 
+
+
+\layout Enumerate
+
+
+\begin_inset Formula $\Delta x\rightarrow \Delta x/2$
+\end_inset 
+
+
+\begin_inset ERT
+status Collapsed
+
+\layout Standard
+
+\backslash 
+pause
+\end_inset 
+
+
+\begin_inset Formula \[
+a_{\frac{\Delta x}{2}}=a_{true}+\pause \begin{array}{c}
+ \underbrace{k\left(\frac{\Delta x}{2}\right)^{p}+O\left(\Delta x^{p+1}\right)}\\
+ \textrm{somewhat smaller error}\end{array}
+\]
+
+\end_inset 
+
+
+\layout Enumerate
+
+Combine 
+\begin_inset Formula $a_{\Delta x}$
+\end_inset 
+
+ and 
+\begin_inset Formula $a_{\frac{\Delta x}{2}}$
+\end_inset 
+
+,
+\begin_inset ERT
+status Collapsed
+
+\layout Standard
+
+\backslash 
+pause
+\end_inset 
+
+
+\begin_inset Formula \[
+\frac{2^{p}\times a_{\frac{\Delta x}{2}}-a_{\Delta x}}{2^{p}-1}=a_{true}+\pause \begin{array}{c}
+ \underbrace{k\left(\frac{\Delta x}{2}\right)^{p}+O\left(\Delta x^{p+1}\right)}\\
+ \textrm{much smaller error}\end{array}
+\]
+
+\end_inset 
+
+
+\layout Foilhead
+
+A recipe
+\layout Standard
+
+
+\series bold 
+Mix
+\series default 
+ cubic schemes
+\begin_inset ERT
+status Collapsed
+
+\layout Standard
+
+\backslash 
+pause
+\end_inset 
+
+
+\layout TickList
+
+
+\shape italic 
+\emph on 
+\bar under 
+coarse scale
+\shape default 
+\emph default 
+\bar default 
+ = 
+\begin_inset ERT
+status Collapsed
+
+\layout Standard
+
+\backslash 
+pause
+\end_inset 
+
+ tetradic scheme 
+\begin_inset ERT
+status Collapsed
+
+\layout Standard
+
+\backslash 
+pause
+\end_inset 
+
+
+\layout TickList
+
+
+\shape italic 
+\emph on 
+\bar under 
+fine scale
+\shape default 
+\emph default 
+\bar default 
+ = 
+\begin_inset ERT
+status Collapsed
+
+\layout Standard
+
+\backslash 
+pause
+\end_inset 
+
+ dyadic scheme 
+\begin_inset ERT
+status Collapsed
+
+\layout Standard
+
+\backslash 
+pause
+\end_inset 
+
+
+\layout Standard
+
+cubic (coarse) + cubic (fine) = cubic + 1 = quartic
+\layout Standard
+
+\SpecialChar ~
+
+\layout Foilhead
+
+Different kind of multiscale
+\layout Standard
+
+Subdivision schemes are multiscale? 
+\begin_inset ERT
+status Collapsed
+
+\layout Standard
+
+\backslash 
+pause{}
+\end_inset 
+
+ Yes! One scale at a time!
+\layout Standard
+
+
+\begin_inset ERT
+status Collapsed
+
+\layout Standard
+
+\backslash 
+pause
+\end_inset 
+
+ Now take two scales at once!
+\layout TickList
+
+
+\begin_inset Quotes erd
+\end_inset 
+
+multistep
+\begin_inset Quotes erd
+\end_inset 
+
+ subdivision scheme or
+\begin_inset ERT
+status Collapsed
+
+\layout Standard
+
+\backslash 
+pause
+\end_inset 
+
+
+\layout TickList
+
+
+\begin_inset Quotes eld
+\end_inset 
+
+High Resolution Subdivision
+\begin_inset Quotes erd
+\end_inset 
+
+ (HRS) Scheme
+\layout Standard
+
+\SpecialChar ~
+
+\layout Foilhead
+
+Guessing early or coarsing it up
+\layout Standard
+\align center 
+
+\begin_inset Graphics FormatVersion 1
+	filename HRSupcomingstorage.eps
+	display default
+	size_type 0
+	rotateOrigin center
+	lyxsize_type 0
+
+\end_inset 
+
+
+\layout TickList
+
+Ample storage: why not use it early?
+\begin_inset ERT
+status Collapsed
+
+\layout Standard
+
+\backslash 
+pause
+\end_inset 
+
+
+\layout TickList
+
+Good guesses for the quartiles 
+\layout Standard
+
+\SpecialChar ~
+
+\layout Foilhead
+
+Crunch the tetradic tree into a dyadic one
+\layout Standard
+\align center 
+
+\begin_inset Graphics FormatVersion 1
+	filename HRSdiagram2.eps
+	display default
+	size_type 1
+	width 25page%
+	scale 30
+	keepAspectRatio
+	rotateOrigin center
+	lyxsize_type 2
+	lyxscale 20
+
+\end_inset 
+
+
+\layout Standard
+
+\SpecialChar ~
+
+\layout Foilhead
+
+How does it compare to Vector Subdivision Schemes?
+\layout TickList
+
+Vector 
+\begin_inset Formula $\Rightarrow $
+\end_inset 
+
+several fixed value per node
+\begin_inset ERT
+status Collapsed
+
+\layout Standard
+
+\backslash 
+pause
+\end_inset 
+
+
+\layout TickList
+
+HRS
+\begin_inset Formula $\Rightarrow $
+\end_inset 
+
+one value per node but 
+\series bold 
+allowed to changed over time
+\layout Foilhead
+
+HRS Algorithm
+\layout Enumerate
+
+recopy stable data: 
+\begin_inset Formula $y_{j+1,4k}=y_{j,2k}$
+\end_inset 
+
+ ;
+\begin_inset ERT
+status Collapsed
+
+\layout Standard
+
+\backslash 
+pause
+\end_inset 
+
+
+\layout Enumerate
+
+Tetradic scheme on even (stable) nodes:
+\begin_inset ERT
+status Collapsed
+
+\layout Standard
+
+\backslash 
+pause
+\end_inset 
+
+ 
+\begin_inset Formula \[
+y_{j+1,4k+1}=\frac{-7y_{j,2k-2}+105y_{j,2k}+35y_{j,2k+2}-5y_{j,2k+4}}{128};\]
+
+\end_inset 
+
+
+\begin_inset ERT
+status Collapsed
+
+\layout Standard
+
+\backslash 
+pause
+\end_inset 
+
+ 
+\begin_inset Formula \[
+y_{j+1,4k+2}^{temporary}=\frac{-y_{j,2k-2}+9y_{j,2k}+9y_{j,2k+2}-y_{j,2k+4}}{128};\]
+
+\end_inset 
+
+
+\begin_inset ERT
+status Collapsed
+
+\layout Standard
+
+\backslash 
+pause
+\end_inset 
+
+
+\begin_inset Formula \[
+y_{j+1,4k+3}=\frac{-5y_{j,2k-2}+35y_{j,2k}+105y_{j,2k+2}-7y_{j,2k+4}}{128};\]
+
+\end_inset 
+
+
+\begin_deeper 
+\layout Standard
+
+\SpecialChar ~
+
+\end_deeper 
+\layout Enumerate
+
+Update midpoint :
+\begin_inset ERT
+status Collapsed
+
+\layout Standard
+
+\backslash 
+pause
+\end_inset 
+
+ 
+\begin_inset Formula \[
+y_{j+1,4k+2}=(1-\alpha )y_{j+1,4k+2}^{temporary}+\alpha y_{j,2k+1};\]
+
+\end_inset 
+
+
+\begin_inset ERT
+status Collapsed
+
+\layout Standard
+
+\backslash 
+pause
+\end_inset 
+
+ 
+\layout Standard
+
+Both 
+\begin_inset Formula $y_{j+1,4k+2}^{temporary}$
+\end_inset 
+
+ and 
+\begin_inset Formula $y_{j,2k+1}$
+\end_inset 
+
+ = good guesses (cubic)
+\begin_inset ERT
+status Collapsed
+
+\layout Standard
+
+\backslash 
+pause
+\end_inset 
+
+
+\layout TickList
+
+
+\begin_inset Formula $\alpha =0$
+\end_inset 
+
+ 
+\begin_inset Formula $\longrightarrow $
+\end_inset 
+
+
+\begin_inset Formula $y_{j+1,4k+2}^{temporary}$
+\end_inset 
+
+ 
+\begin_inset ERT
+status Collapsed
+
+\layout Standard
+
+\backslash 
+pause
+\end_inset 
+
+
+\layout TickList
+
+
+\begin_inset Formula $\alpha =1$
+\end_inset 
+
+ 
+\begin_inset Formula $\longrightarrow $
+\end_inset 
+
+only 
+\begin_inset Formula $y_{j,2k+1}$
+\end_inset 
+
+ 
+\layout Standard
+
+\SpecialChar ~
+
+\layout Foilhead
+
+Key Mathematical Argument
+\layout Standard
+
+We replace
+\layout Standard
+
+
+\begin_inset Formula \[
+P^{j+1}(z)=\Gamma (z)P^{j}\left(z^{2}\right)\]
+
+\end_inset 
+
+
+\layout Standard
+
+with
+\begin_inset ERT
+status Collapsed
+
+\layout Standard
+
+\backslash 
+pause
+\end_inset 
+
+
+\layout Standard
+
+
+\begin_inset Formula \[
+P^{j+1}(z)=\Gamma _{1}(z)P^{j}\left(z^{2}\right)+\Gamma _{2}(z)P^{j}\left(-z^{2}\right)\]
+
+\end_inset 
+
+
+\layout Foilhead
+
+Smoothness
+\layout Itemize
+
+
+\begin_inset Formula $\alpha =0\Rightarrow $
+\end_inset 
+
+Dubuc
+\begin_inset ERT
+status Collapsed
+
+\layout Standard
+
+\backslash 
+pause
+\end_inset 
+
+
+\layout Itemize
+
+Dubuc
+\begin_inset Formula $\Rightarrow $
+\end_inset 
+
+
+\begin_inset Formula $C^{1}$
+\end_inset 
+
+.
+\layout Itemize
+
+For 
+\begin_inset Formula $-25/56<\alpha <15/32$
+\end_inset 
+
+, the HRS schemes are 
+\begin_inset Formula $C^{1}$
+\end_inset 
+
+.
+\layout Standard
+
+\SpecialChar ~
+
+\layout Foilhead
+
+Reproduced polynomials
+\layout Itemize
+
+HRS always reproduce cubic polynomials.
+\begin_inset ERT
+status Collapsed
+
+\layout Standard
+
+\backslash 
+pause
+\end_inset 
+
+
+\layout Itemize
+
+Reproduce quartic polynomials when 
+\begin_inset Formula $\alpha =-3/32$
+\end_inset 
+
+.
+\begin_inset ERT
+status Collapsed
+
+\layout Standard
+
+\backslash 
+pause
+\end_inset 
+
+
+\layout Standard
+
+Gotcha! Need proper initialization!
+\layout Standard
+
+\SpecialChar ~
+
+\layout Foilhead
+
+Conclusion (a comparative table)
+\layout Standard
+
+
+\begin_inset  Tabular
+<lyxtabular version="3" rows="6" columns="3">
+<features>
+<column alignment="center" valignment="top" leftline="true" width="0pt">
+<column alignment="center" valignment="top" leftline="true" rightline="true" width="0pt">
+<column alignment="center" valignment="top" rightline="true" width="0pt">
+<row topline="true" bottomline="true">
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\layout Standard
+
+scheme
+\end_inset 
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\layout Standard
+
+regularity
+\end_inset 
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\layout Standard
+
+reproduced polynomials
+\end_inset 
+</cell>
+</row>
+<row topline="true">
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\layout Standard
+
+Dubuc
+\begin_inset LatexCommand \cite{Du}
+
+\end_inset 
+
+
+\end_inset 
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\layout Standard
+
+
+\begin_inset Formula $C^{1}$
+\end_inset 
+
+
+\end_inset 
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\layout Standard
+
+cubic
+\end_inset 
+</cell>
+</row>
+<row topline="true">
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\layout Standard
+
+Deslauriers-Dubuc
+\begin_inset LatexCommand \cite{DeDu}
+
+\end_inset 
+
+
+\end_inset 
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\layout Standard
+
+
+\begin_inset Formula $C^{1}$
+\end_inset 
+
+
+\end_inset 
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\layout Standard
+
+cubic
+\end_inset 
+</cell>
+</row>
+<row topline="true">
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\layout Standard
+
+Dyn-Gregory-Levin
+\begin_inset LatexCommand \cite{DyGrLe}
+
+\end_inset 
+
+
+\end_inset 
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\layout Standard
+
+up to 
+\begin_inset Formula $C^{1}$
+\end_inset 
+
+
+\end_inset 
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\layout Standard
+
+up to cubic
+\end_inset 
+</cell>
+</row>
+<row topline="true">
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\layout Standard
+
+Hassan et al.
+\begin_inset LatexCommand \cite{HaIvDoSa}
+
+\end_inset 
+
+
+\end_inset 
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\layout Standard
+
+
+\begin_inset Formula $C^{2}$
+\end_inset 
+
+
+\end_inset 
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\layout Standard
+
+quadratic
+\end_inset 
+</cell>
+</row>
+<row topline="true" bottomline="true">
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\layout Standard
+
+presented HRS
+\end_inset 
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\layout Standard
+
+up to 
+\begin_inset Formula $C^{1}$
+\end_inset 
+
+
+\end_inset 
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\layout Standard
+
+cubic to quartic
+\end_inset 
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset 
+
+
+\layout Standard
+
+\SpecialChar ~
+
+\layout Foilhead
+
+Bonus material 1 - nice pictures
+\layout Standard
+\align center 
+
+\begin_inset Graphics FormatVersion 1
+	filename firstderivative_fund_-0_2_0_15_0
+	display color
+	size_type 1
+	height 20page%
+	scale 50
+	keepAspectRatio
+	rotateOrigin center
+	lyxsize_type 1
+	lyxwidth 297pt
+	lyxheight 207pt
+\end_inset 
+
+
+\layout Standard
+\align center 
+Derivatives of the fundamental functions for 
+\begin_inset Formula $\alpha =-0.2$
+\end_inset 
+
+ (continuous line), 
+\begin_inset Formula $\alpha =0$
+\end_inset 
+
+ (dash-dot line), and 
+\begin_inset Formula $\alpha =0.15$
+\end_inset 
+
+ (dashed line).
+\layout Standard
+
+\SpecialChar ~
+
+\layout Foilhead
+
+Bonus material 2 - intermediate result
+\layout Itemize
+
+
+\begin_inset LatexCommand \label{DynTheorem}
+
+\end_inset 
+
+(Dyn) Given trigonometric polynomials 
+\begin_inset Formula $\Gamma _{1}(z)$
+\end_inset 
+
+ and 
+\begin_inset Formula $\Gamma _{2}(z)$
+\end_inset 
+
+, the HRS scheme defined by 
+\begin_inset Formula \[
+P^{j+1}(z)=\Gamma _{1}(z)P^{j}\left(z^{2}\right)+\Gamma _{2}(z)P^{j}\left(-z^{2}\right)\]
+
+\end_inset 
+
+ is 
+\begin_inset Formula $C^{n}$
+\end_inset 
+
+ if the symbol corresponding to finite differences of order 
+\begin_inset Formula $n+1$
+\end_inset 
+
+
+\begin_inset Formula \[
+dH_{n}^{j}(z)=\frac{2^{jn}(1-z)^{n+1}}{z^{n+1}}P^{j}(z)\]
+
+\end_inset 
+
+ is the symbol of a HRS scheme converging uniformly to zero for all bounded
+ initial data.
+\layout Standard
+
+\SpecialChar ~
+
+\layout Foilhead
+
+Bonus material 3 - more on proof
+\layout Standard
+\align center 
+
+\begin_inset Graphics FormatVersion 1
+	filename lambdas
+	display color
+	size_type 1
+	height 30page%
+	keepAspectRatio
+	rotate
+	rotateAngle 270
+	rotateOrigin center
+	lyxsize_type 1
+	lyxwidth 297pt
+	lyxheight 208pt
+\end_inset 
+
+
+\layout Standard
+\align center 
+For a given 
+\begin_inset Formula $\alpha $
+\end_inset 
+
+, an HRS scheme is differentiable if 
+\begin_inset Formula $\lambda _{HR}(\alpha )=\max \left\{ \lambda _{1}(\alpha ),\lambda _{2}(\alpha )\right\} <1$
+\end_inset 
+
+.
+\layout Standard
+
+\SpecialChar ~
+
+\layout Foilhead
+
+Bonus material 4 - proper initialization
+\layout Enumerate
+
+recopy data at 
+\begin_inset Formula $x_{j+1,2k}=x_{j,k}$
+\end_inset 
+
+: 
+\begin_inset Formula $y_{j+1,2k}=y_{j,k}$
+\end_inset 
+
+ ;
+\layout Enumerate
+
+extrapolate 
+\begin_inset Formula $y_{j,k+4}$
+\end_inset 
+
+ using 
+\begin_inset Formula $y_{j,k-2},y_{j,k-1},y_{j,k},y_{j,k+1},y_{j,k+2}$
+\end_inset 
+
+ by the formula 
+\begin_inset Formula \begin{equation}
+\gamma _{j,k}=5y_{j,k-2}-24y_{j,k-1}+45y_{j,k}-40y_{j,k+1}+15y_{j,k+1};\label{power4lagrangeextra}\end{equation}
+
+\end_inset 
+
+
+\layout Enumerate
+
+interpolate midpoint :
+\begin_inset Formula \[
+y_{j+1,2k+1}=\frac{-7y_{j,k-2}+105y_{j,k}+35y_{j,k+2}-5\gamma _{j,k}}{128}.\]
+
+\end_inset 
+
+
+\layout Standard
+
+\SpecialChar ~
+
+\layout Foilhead
+
+References
+\layout Bibliography
+\bibitem {Dau}
+
+
+\begin_inset Note
+collapsed true
+
+\layout Standard
+
+References A.
+ Cohen, N.
+ Dyn, B.
+ Matei, Quasilinear subdivision schemes with applications to ENO interpolation
+\end_inset 
+
+I.
+ Daubechies, Orthonormal bases of compactly supported wavelets, Comm.
+ Pure & Appl.
+ Math.
+ 41, pp.
+ 909--996, 1988.
+\layout Bibliography
+\bibitem {DeDu}
+
+G.
+ Deslauriers and S.
+ Dubuc, Symmetric iterative interpolation processes, Constr.
+ Approx., 5, pp.
+ 49-68, 1989.
+\layout Bibliography
+\bibitem {DeDuLe}
+
+G.
+ Deslauriers, S.
+ Dubuc, and D.
+ Lemire, Une famille d'ondelettes biorthogonales sur l'intervalle obtenue
+ par un schéma d'interpolation itérative, Ann.
+ Sci.
+ Math.
+ Québec 23 no.
+ 1, pp.
+ 37-48, 37-48, 1999.
+\layout Bibliography
+\bibitem {DuGe}
+
+F.
+ Dubeau and R.
+ Gervais, Procédures locale et non locale d'interpolation à l'aide de fonctions
+ splines quadratiques, Ann.
+ Sci.
+ Math.
+ Québec 23 no.
+ 1, pp.
+ 49-61, 1999.
+\layout Bibliography
+\bibitem {Du}
+
+S.
+ Dubuc, Interpolation through an iterative scheme, J.
+ Math.
+ Anal.
+ Appl., 114, pp.
+ 185-204,1986.
+\layout Bibliography
+\bibitem {DuLeMe}
+
+S.
+ Dubuc, D.
+ Lemire, J.-L.
+ Merrien, Fourier analysis of 2-point Hermite interpolatory subdivision
+ schemes, J.
+ of Fourier Anal.
+ Appl., 7 no.
+ 5, 2001.
+\layout Bibliography
+\bibitem {Dyn}
+
+N.
+ Dyn, Subdivision schemes in computer-aided geometric design, Advances in
+ numerical analysis (W.
+ Light, ed.), vol.
+ 2, Clarendon Press, pp.
+ 36-104, 1992.
+\layout Bibliography
+\bibitem {DyGrLe}
+
+N.
+ Dyn, J.A.
+ Gregory, and D.
+ Levin, A 4-point interpolatory subdivision scheme for curve design.
+ Comput.
+ Aided Geom.
+ Design, 4, pp.
+ 257-268, 1987.
+\layout Bibliography
+\bibitem {KuDa}
+
+F.
+ Kuijt and R.
+ van Damme, Stability of subdivision schemes, Memorandum no.
+ 1469, Faculty of Applied Mathematics, University of Twente, the Netherlands.
+\layout Bibliography
+\bibitem {HaIvDoSa}
+
+M.F.
+ Hassan, I.P.
+ Ivrissimitzis, N.A.
+ Dodgson, and M.A.
+ Sabin, An Interpolating 
+\begin_inset Formula $4-$
+\end_inset 
+
+Point 
+\begin_inset Formula $C^{2}$
+\end_inset 
+
+ Ternary Stationary Subdivision Scheme, submitted for publication to CAGD
+ (December 18, 2001).
+\layout Bibliography
+\bibitem {Me92}
+
+J.-L.
+ Merrien, A family of Hermite interpolants by bissection algorithms.
+ Numer.
+ Algorithms 2, pp.
+ 187-200, 1992.
+\layout Bibliography
+\bibitem {Me99}
+
+J.-L.
+ Merrien, Interpolants d'Hermite 
+\begin_inset Formula $C^{2}$
+\end_inset 
+
+ obtenus par subdivision.
+ M2An Math.
+ Model.
+ Numer.
+ Anal.
+ 33, pp.
+ 55-65, 1999.
+\layout Comment
+
+
+\backslash 
+Dissolve
+\layout Comment
+
+
+\backslash 
+HBlind
+\backslash 
+HOSplie
+\backslash 
+VOSplit
+\backslash 
+HISplit
+\backslash 
+OBox
+\backslash 
+IBox
+\backslash 
+Wipe{270}
+\backslash 
+pageTransitionGlitter{315}
+\backslash 
+Replace
+\backslash 
+pause
+\backslash 
+pauseDissolve
+\backslash 
+pause...
+\backslash 
+
+\the_end

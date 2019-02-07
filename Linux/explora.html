@@ -1,0 +1,112 @@
+<html>
+<body>
+
+<h1>Utilisation d'Explor@ sous Linux</h1>
+<pre>
+Daniel Lemire
+13 mai 2004
+</pre>
+
+<p>Oui, absolument, Explor@ fonctionne sous
+Linux. Par contre, parce qu'Explor@ exige le support
+LiveConnect, je ne suis pas arrivé à le faire fonctionner
+sous Konqueror même si ce dernier supporte en partie
+LiveConnect. Je pense que ça devrait
+fonctionner avec Firefox.</p>
+
+<h2>Contourner Explor@?</h2>
+
+<p>Dans la plupart des cas, il est possible de contourner Explor@ et 
+d'avoir accès directement au site du cours. Exemple:</p>
+<ul>
+<li><a href="http://www.teluq.uquebec.ca/expl_inf9002/">http://www.teluq.uquebec.ca/expl_inf9002/</a></li>
+</ul>
+
+<p>Cependant certaines choses risquent de ne pas fonctionner.</p>
+
+<h2>Préalables</h2>
+<ol>
+<li>Vous devez avoir un compte sous Explor@. </li>
+</ol>
+
+
+<h2>Configuration du fureteur</h2>
+<ol>
+<li>Il faut avoir une version récente de Mozilla: au moins 1.6. Ou alors, vous devez avoir Firefox.
+Dans mozilla (ou Firefox), faites "about:buildconfig"
+and vérifiez que mozilla a été bâti avec gcc 3.2 ou mieux.
+Vous devez aussi vérifier que Java est supporté, faites "about:plugins" si vous ne voyez pas "Java Plug-In", vous devez l'installer.
+</li>
+<li>
+Assurez-vous d'avoir une machine virtuelle Java récente.
+Il est plus simple d'avoir l'exécutable "java" dans son
+"PATH". Faites "java -version": vous devriez avoir une version
+égale ou supérieure à 1.4.2. 
+</li>
+
+<li>
+Il faut "activer" le plug-in Java sous mozilla. Pour
+ce faire, il suffit d'aller sous $HOME/.mozilla/plugins
+et de taper "
+ln -s /usr/java/j2sdk1.4.2_04/jre/plugin/i386/ns610-gcc32/libjavaplugin_oji.so"
+où "/usr/java/j2sdk1.4.2_04" est l'endroit où se trouve
+votre machine virtuelle java (faites "locate libjavaplugin_oji.so" pour trouver
+la librairie en question). Votre machine doit aussi
+avoir la librarie "libgcc_s.so.1". 
+</li>
+
+</ol>
+<h2>Installation d'Explor@</h2>
+<ol>
+<li>
+Téléchargez le fichier 
+<a href="http://explora2.licef.teluq.uquebec.ca/teluq/res/lib/Explora2Installer.jar">
+Explora2Installer.jar
+</a> du
+site de la Téluq. Vous devez maintenant exécuter le fichier
+en question en faisant "java -jar Explora2Installer.jar". Quand
+on vous dira de relancer la machine, ignorez ce commentaire:
+on ne relance jamais un PC linux. 
+</li>
+<li>Il faut maintenant rendre disponible les classes
+d'Explor@ à la machine virtuelle. Allez sous $HOME/Explora2,
+puis tapez "zip -9 -r Explora2.jar xpl symantec ress explora.txt.gz complete.vs AppletCheckVM.class com complete.vs AppletCheckVM.class com complete.vs". Cela va
+créer une libraire java sous la forme du fichier "Explora2.jar". Ensuite, il suffit de l'installer là
+où java peux la trouver. En tant que root, faites
+"cp Explora2.jar /usr/java/j2sdk1.4.2_04/jre/lib/ext/" où
+"/usr/java/j2sdk1.4.2_04" est l'endroit où se trouve
+votre machine virtuelle.
+</li>
+<li>Avant de commencer, on va empêcher Explor@ d'écrire
+dans le répertoire $HOME/Explora2. Faites
+"chmod -r $HOME/Explora2". Ça évite certains problèmes notamment avec un fichier platformlibrary qui vient se placer là et qui 
+cause un plantage.
+</li>
+
+<li>Il faut maintenant visiter le lien
+<a href="http://explora2.licef.teluq.uquebec.ca/teluq/fr/acces/cvweb.htm">
+http://explora2.licef.teluq.uquebec.ca/teluq/fr/acces/cvweb.htm
+</a>. Normalement, l'applet devrait se lancer après un court
+délai.</li>
+<li>Vous devriez avoir un formulaire de contrôle d'accès.
+Comme les auteurs d'Explor@ ont supposé que tout le monde
+utilisait Windows, vous devez saisir votre mot de passe
+et votre nom d'utilisateur à l'aveugle car les boîtes de
+saisie ne sont pas ajustée à la police de charactère, du 
+moins, sur ma machine. Qu'importe, ça marchera tout de même.</li>
+<li>Vous devriez voir apparaître le message
+"Connexion en cours" et ensuite la liste des cours.
+Ça devrait fonctionner.</li>
+
+</ul>
+
+<h2>Problèmes?</h2>
+
+<p>Comme une partie d'Explor@ dépend d'une librairie DLL,
+il est évident que certains trucs ne fonctionneront pas.
+Par contre, pour l'essentiel, ça semble être fonctionnel.
+Du moins, suffisamment pour suivre un cours... (à confirmer)</p>
+
+</body>
+</html>
+

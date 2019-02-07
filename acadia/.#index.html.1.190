@@ -1,0 +1,407 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<head>
+<meta http-equiv="Content-Language" content="en" />
+<meta name="generator" content="HTML Tidy, see www.w3.org" />
+<meta name="Author" content="Daniel Lemire" />
+<meta http-equiv="Content-Type"
+content="text/html; charset=utf-8" />
+<meta http-equiv="Content-Style-Type" content="text/css" />
+<meta http-equiv="Content-Script-Type"
+content="text/javascript" />
+<link rel="alternate" type="text/xml" title="RSS .92"
+href="publications.rss" />
+<title>Daniel Lemire, University of Quebec at Montreal
+(UQAM)</title>
+<meta name="Keywords"
+content="Time Series, Data Mining , multidimensional databases, Fourier, OLAP, subdivision, Approximation Theory, MOLAP" />
+<meta name="Description"
+content="Daniel Lemire is a researcher with interests in Data Mining, Approximation Theory, OLAP, and Collaborative Filtering." />
+<link rel="stylesheet" type="text/css" href="acadia.css" />
+<link rel="SHORTCUT ICON" href="/favicon.ico"
+type="image/x-icon" />
+<link rel="Alternate"
+href="http://www.daniel-lemire.com/fr/index.html" hreflang="fr"
+lang="fr" title="Version française" />
+</head>
+<body>
+<form action="http://www.google.com/search" method="get"
+class="SEARCHBAR">
+<div><input size="12" name="q" /> <input type="hidden"
+name="sitesearch" value="daniel-lemire.com" /><br />
+<input type="submit" value="Search" name="submit" /></div>
+</form>
+
+<p class="MENU">MAIN |  <a
+href="publications.html">PUBLICATIONS</a> | <a
+href="consulting.html">CONSULTING</a> | <a
+href="applet.html">APPLETS</a> | <a
+href="http://www.daniel-lemire.com/">BLOG</a></p>
+<div id="maincontent">
+<h1>Daniel Lemire</h1>
+
+<div>
+<img style="border: 1px solid black; margin: 5px; float: right; width: 125px;" src="http://www.daniel-lemire.com/fr/images/JPG/profile2008.jpg" alt="Daniel Lemire's picture" />
+</div>
+
+<p>I have two sons: <a
+href="http://www.daniel-lemire.com/lohan/">Lohan</a> and <a
+href="http://www.daniel-lemire.com/louka/">Louka</a>.</p>
+
+<p>
+Professor,  <a href="http://www.professeurs.uqam.ca/pages/lemire.daniel.htm"
+">UQAM</a><br />
+Adjunct Professor, <a href="http://www.unb.ca"
+rel="nofollow">University of New Brunswick</a>
+</p>
+
+<p >As a researcher, I'm interested in Multidimensional Databases
+(<a href="http://de.wikipedia.org/wiki/OLAP"><abbr
+title="On-Line Analytical Processing">OLAP</abbr></a>), Data Mining 
+over Text and Time Series and <a
+href="http://en.wikipedia.org/wiki/Collaborative_filtering">Collaborative
+Filtering</a> (see <a
+href="http://www.indiscover.net">inDiscover</a>).</p>
+
+<p>I am currently a tenured professor at the <a
+href="http://www.uqam.ca/" rel="nofollow">University of Quebec at
+Montreal</a> where I teach Computer Science. Prior to joining the
+University of Quebec, I was a researcher in the Internet Logic
+group at <abbr
+title="National Research Council of Canada">NRC</abbr> and the
+group leader of the e-Health Research Group. Before joining NRC,
+I was a professor at <a href="http://www.acadiau.ca"
+rel="nofollow">Acadia University</a>, an industry consultant, and
+an NSERC postdoctoral fellow at the <em>Institut de génie
+biomédical</em>. During my days in industry, I designed the <a
+href="http://www.waaves.com/">Waaves format</a> for the National
+Radiology Server (in France) and Signal Processing software for
+the geophysical industry&mdash;see the <a href="http://video.google.com/videoplay?docid=-4750490412418990197">video on Google Video</a>. I earned my Ph.D. from the École
+Polytechnique de Montréal and graduated from the <a
+href="http://www.toronto.edu/" rel="nofollow">University of
+Toronto</a>.</p>
+
+<ul>
+<li>In 2007, with Kamel Aouiche, I surveyed <a href="http://arxiv.org/abs/cs.DB/0703058">probabilistic view-size
+estimation algorithms</a> and showed that Adaptive Counting was the most scalable technique to date.</li>
+
+
+<li>In  2006, I showed that we can compute the <a href="http://arxiv.org/abs/cs.DS/0610046">running maximum-minimum using three&nbsp;comparisons or less per element</a>. The algorithm is simple and practical.</li>
+
+<li>In 2005, with Anna Maclachlan, I designed the rating-based collaborative filtering
+algorithm  <span style="font-variant: small-caps">Slope One</span> now used in
+several software libraries such as <a href="http://taste.sourceforge.net/">Taste</a> 
+and <a href="http://www.vogoo-api.com/">Vogoo</a>, in several
+Web sites (<a href="http://www.indiscover.net">inDiscover</a>, 
+<a href="http://www.hitflip.de">hitflip</a>) and Web tools
+(<a href="http://www.drupal.org/project/cre">Drupal</a>).</li>
+
+<li>In 2002, I won the <a
+href="http://www.daniel-lemire.com/fr/abstracts/CASCON2002.html">Best
+Paper</a> Award at the <a
+href="https://www-927.ibm.com/ibm/cas/archives/2002/papers/index.shtml">
+CASCON conference</a> organized by IBM for my work on <abbr
+title="On-Line Analytical Processing">OLAP</abbr>.</li>
+</ul>
+
+<p><strong>Keywords:</strong> Collaborative Data Management, Database Theory, Bitmap Indexes, Data Warehousing, Multidimensional
+Databases (OLAP), Data Mining, Time Series, Collaborative Filtering, Information Retrieval. - <a
+href="http://www.daniel-lemire.com/fr/documents/CV/CVdeDanielLemire_ENGLISH.pdf"
+ rel="nofollow">c.v.</a> (pdf) </p>
+
+
+<h2>Collaborators</h2>
+
+<p>I am a member of the LICEF Research Center (Cognitive Computer Science) and a collaborator at the <i>Laboratoire de Combinatoire et d'Informatique Mathématique</i> (LACIM). My <a href="http://en.wikipedia.org/wiki/Erd%C5%91s_number">Erdös number</a> is 4.</p>
+
+
+<p>Recent collaborators (excluding students and fellows):</p>
+
+<ul class="TIGHT">
+<li><a href="http://www.flydragontech.com/">Yuhong Yan</a> (was with NRC, now with Concordia University)</li>
+
+<li><a
+href="http://pizza.unbsj.ca/~owen/backup/">
+Owen Kaser</a> (UNB)</li>
+
+
+
+<li><a
+href="http://iit-iti.nrc-cnrc.gc.ca/personnel/brooks_martin_e.html">
+Martin Brooks</a> (NRC) </li>
+
+
+<li><a href="http://erdos.math.unb.ca/~dan/frame_bottom.htm">Dan
+Kucerovsky</a> (UNB)</li>
+
+
+<li><a href="http://www.labunix.uqam.ca/~godin/">Robert Godin</a> (UQAM)</li>
+<li><a href="http://www.entish.org/">Will Fitzgerald</a> (Powerset, was with QSS
+Group, Inc. and NASA Ames Research Center)</li>
+
+<li><a href="http://www.cs.unb.ca/~boley/">Harold Boley</a> (NRC)</li>
+
+<li>Anna Maclachlan (<a href="http://www.idilia.com">Idilia
+Inc.</a>, was with NRC)</li>
+
+<li><a href="http://www.dms.umontreal.ca/Professeurs/dubucs/"
+rel="nofollow">Serge Dubuc</a> (U. Montréal)</li>
+
+<li><a href="http://www.insa-rennes.fr/~jmerrien/">Jean Louis
+Merrien</a> (INSA Rennes)</li>
+</ul>
+
+<h2>Journals</h2>
+<ul class="TIGHT">
+<li>I am an associate editor-in-chief of the <a href="http://www.academypublisher.com/jetwi/index.html">Journal of Emerging Technologies in Web Intelligence</a> (JETWI).</li>
+<li>I am on the editorial board of the <a href="http://www.aejm.ca/">Atlantic Electronic Journal of Mathematics</a>.</li>
+</ul>
+
+
+<h2>Recent International Conference Program Committees</h2>
+<ul class="TIGHT">
+<li><a href="http://recsys.acm.org/">ACM Conference on Recommender Systems (RecSys) 2009</a></li>
+<li><a href="http://www.iceis.org/">International Conference on Enterprise Information Systems (ICEIS)&nbsp;2009</a></li>
+<li><a href="http://www.lirmm.fr/EDA09/">Journées francophones sur les Entrepôts de Données et l’Analyse en ligne
+(EDA)&nbsp;2009</a></li>
+<li><a href="http://www.webist.org/">Conference on Web Information Systems and Technologies (WEBIST)&nbsp;2007-2009</a></li>
+<li><a href="http://www.aaai.org/Conferences/AAAI/aaai08.php">Association for the Advancement of Artificial Intelligence (AAAI)&nbsp;2008</a></li>
+<li><a href="http://ia-cap.org/na-cap09/">North American Computing and Philosophy Conference (NA-CAP) 2008-2009</a></li>
+<li><a href="http://www.irma-international.org/conferences/2007/index.asp">Information Resources Management Association International Conference (IRMA)&nbsp;2007</a></li>
+
+</ul>
+
+<h2>Recent Workshop and Conference Organization</h2>
+<ul>
+<li>Steering chair of the
+<a href="http://isel.cs.unb.ca/~cswwc09/cswwc09/index.php/CSWWS/2009">Second Canadian Semantic Web Working Symposium 2009</a> (CSWWS 2009) </li>
+<li>Second Netflix-KDD Workshop on
+<a href="http://netflixkddworkshop2008.info/">Large-Scale Recommender Systems and the Netflix Prize Competition</a> (KDD 2008) </li>
+</ul>
+
+
+<h2>Quick Links</h2>
+
+<ul class="TIGHT">
+<li><a href="http://www.daniel-lemire.com/OLAP/">Data Warehouse
+and OLAP bibliography</a></li>
+
+<li><a
+href="http://www.cscsi.org/home/CSCSI/Members/swig">Canadian
+Semantic Web Interest Group (SWIG)</a></li>
+
+<li><a href="http://www.indiscover.net">Our Independent Music
+Rating Site</a> with on-line MP3s!</li>
+
+<li><a href="http://www.daniel-lemire.com/fr/">My French
+webpage!</a></li>
+
+<!--<li><a href="http://www.cs.sunysb.edu/~algorith/">The Stony Brook
+Algorithm Repository</a></li>-->
+
+<!--<li><a href="http://www.ondelette.com/index_en.html">The wavelet
+forum!</a></li>-->
+
+</ul>
+
+
+
+<h2>Current post-doctoral fellows and graduate students</h2>
+
+<p>I supervise graduate students at the Université de Québec à
+Montreal (UQAM) in the <a href="http://www.programmes.uqam.ca/3121">Computer Science Ph.D.</a> and 
+<a href="http://www.dic.dinfo.uqam.ca/">Cognitive Computer Science Ph.D.</a> programs,
+and co-supervise students at the University of
+New Brunswick.  </p>
+<ul>
+<!--
+<li>I supervise Mourad Kaddes  in a Ph.D. in Cognitive Computer Science (with Richard Hotte).</li>
+-->
+
+<li>I co-supervise <a href="http://www.hazel-webb.com/">Hazel Webb</a> with <a
+href="http://v5o5jotqkgfu3btr91t7w5fhzedjaoaz8igl.unbsj.ca/~kaser/">
+Owen Kaser</a> in a Ph.D. in Computer Science. There is a <a href="http://video.google.com/videoplay?docid=-36766017501950988">video</a> of  Hazel on Google Video.</li>
+
+<li><a href="http://eric.univ-lyon2.fr/~kaouiche/">Kamel Aouiche</a> is a post-doctoral fellow: data mining and warehousing. There is a <a href="http://video.google.fr/videoplay?docid=-3978530477806925436">video of a presentation by Kamel</a> on Google Video.</li>
+
+
+<li>I co-supervise Badis Merdaoui with Richard Hotte in a Ph.D. in Cognitive Computer Science.</li>
+</ul>
+<!--<h2>Past graduate students</h2>
+
+<ul>
+<li>I co-supervised Steve Keith with <a
+href="http://v5o5jotqkgfu3btr91t7w5fhzedjaoaz8igl.unbsj.ca/~kaser/">
+Owen Kaser</a> on a M.Sc. in Computer Science which he completed, ahead
+of time, in 2006. Steve now works for Innovatia as 
+an Information Systems Data Analyst.</li>
+</ul>-->
+
+<h2>Teaching (current)</h2>
+
+<ul>
+
+<li>A Computer Science perspective on Data Warehousing. Upcoming course (2010).</li>
+
+
+<li>
+CS6905 Service Computing: Foundations, Design and Implementation (University of New Brunswick),
+with
+Yuhong Yan (Winter 2008): use SOA and Web services for eBusiness system architecture design,
+    implement informational and functional Web services,
+    integrate Web services with Web 2.0 techniques for developing Web applications,
+    grasp the basic skills to analyze and model business processes.
+</li>
+
+
+<li><a href="http://benhur.teluq.uqam.ca/SPIP/inf6104/">INF 6104 - Information Retrieval and the Web</a>. A graduate
+course on Information Retrieval.</li>
+<li><a href="http://benhur.teluq.uqam.ca/SPIP/inf6460/">INF 6460 - Information Retrieval and Filtering</a>.
+ This course is a solid
+survey of Information Retrieval, from vector models to PageRank and
+including collaborative filtering (in French).</li>
+
+<li><a
+href="http://v5o5jotqkgfu3btr91t7w5fhzedjaoaz8igl.unbsj.ca/~kaser/courses/OLAP-2006/">
+CS6905 Advanced Technologies for E-Business</a> (2006 version)
+(University of New Brunswick). In this graduate course, we cover OLAP and Data Warehousing with a research perspective.</li>
+
+<li><a href="http://www.daniel-lemire.com/xml/">INF 6450 -
+Information Management with XML (in French)</a> (<a
+href="http://www.daniel-lemire.com/xml/guideetude/pdf/guidecourt.pdf">pdf</a>)
+. A standard-compliant browser (Firefox or Opera) is necessary
+to browse the course web site. Topics include DOM, DocBook, MathML, XSLT, SVG, XHTML, CSS, RDF, RSS, AJAX, REST, SOAP, and so on.</li>
+
+
+<!-- <li><a href="http://teluq.uqam.ca/expl_inf9002/"
+rel="nofollow">INF 9002 - Evaluation and Analysis of Information
+Systems (in French)</a>, course coordinator, (Téluq, UQAM). This course
+is a business-oriented introduction to information systems.</li>-->
+</ul>
+
+<!--<h2>Teaching (recent past)</h2>
+
+<ul>
+<li><a
+href="http://pizza.unbsj.ca/~owen/backup/courses/OLAP-2004/">CS6905
+Advanced Technologies for E-Business</a> (2004 version)
+(University of New Brunswick)</li>
+
+<li><a
+href="http://www.ondelette.com/NRC/UNBMath3113/wavelet.pdf">20
+Years of Wavelets (MATH 3113)</a> (University of New
+Brunswick)</li>
+
+<li><a
+href="http://pizza.unbsj.ca/~owen/backup/courses/OLAP-2003/">CS6905
+Advanced Technologies for E-Business</a> (2003 version)
+(University of New Brunswick)</li>
+
+<li><a
+href="http://www.ondelette.com/NRC/UNBMath3073/LaTeX/math3073.pdf">
+Multiscale Analysis for Nonlinear Differential Equations</a>
+(University of New Brunswick)</li>
+
+<li><a href="2023/index.html">Topics from Advanced Calculus</a>
+(Acadia University)</li>
+
+<li><a href="3423/index.html">Numerical Methods 2</a> (Acadia
+University)</li>
+
+<li><a
+href="http://www.ondelette.com/UdeS/IFT339/index.html">Data
+Structures (French)</a> (Université de Sherbrooke)</li>
+
+<li><a
+href="http://www.ondelette.com/UdeS/IFT438/index.html">Algorithms
+(French)</a> (Université de Sherbrooke)</li>
+</ul>-->
+
+<h2>Contact</h2>
+
+<address>
+Daniel Lemire, professor,
+UER Sciences et Technologies (Téluq),
+Pavillon Saint-Urbain,
+Université du Québec à Montréal (UQAM),
+100 Sherbrooke West,
+Montreal  (Quebec),
+H2X 3P2 Canada
+<br />
+Office SU-2605,
+Phone: (514) 987-3000 ext. 2835,
+Email: lemire (at) acm (dot) org
+</address>
+<img src="http://www.daniel-lemire.com/fr/images/JPG/uqamsherbrooke.jpg" width="300" alt="UQAM" title="UQAM Building on Sherbrooke by suntom"/>
+<p><a
+href="http://maps.google.com/maps?q=100,+rue+Sherbrooke+ouest,+Montr%C3%A9al,+QC,+Canada+H2X+3P2&amp;ll=45.510588,-73.569775&amp;spn=0.005871,0.020385&amp;t=h&amp;hl=fr">Google map</a>, <a href="http://www.uqam.ca/campus/pavillons/su.htm">map and picture of the building (UQAM)</a></p>
+
+
+
+
+
+
+
+
+<!--
+<pre>
+Daniel Lemire, Ph.D.
+970, rue Fabre
+Longueuil, Qc
+J4J 5A8 Canada
+
+Phone: (450)  442-0076
+</pre>
+-->
+<!--
+<h2>genealogy</h2>
+
+<pre>
+Daniel Lemire, École Polytechnique de Montréal 1998, was a student of Gilles Deslauriers
+Gilles Deslauriers, Université de Montréal 1975, was a student of Serge Dubuc
+Serge Dubuc, Cornell University 1966, was a student of James Eells
+James Eels, Harvard University 1954, was a student of Hassler Whitney
+Hassler Whitney, Harvard University 1932, was a student of George Birkhoff
+George Birkhoff, University of Chicago 1907, was a student of Eliakim Hastings Moore
+Eliakim Hastings Moore, Yale University 1885, was a student of Michel Chasles
+Michel Chasles, École Polytechnique 1814, was a student of Simeon Poisson
+Simeon Poisson was a student of Joseph Louis Lagrange
+Joseph Louis Lagrange was a student of Leonhard Euler
+Leonhard Euler, Universität Basel 1726, was a student of Johann Bernouilli
+Johann Bernouilli was a student of Jacob Bernouilli
+(Jean-Baptiste Joseph Fourier was a student of Joseph Louis Lagrange)
+</pre>
+-->
+</div>
+<p class="MENU">MAIN |  <a
+href="publications.html">PUBLICATIONS</a> 
+  | <a
+href="consulting.html">CONSULTING</a> | <a
+href="applet.html">APPLETS</a> | <a
+href="http://www.daniel-lemire.com/">BLOG</a>
+
+</p>
+
+<p class="CENTER">© 2001-2009, Daniel Lemire (lemire at acm dot
+org)</p>
+
+<p class="PUBICON"><a
+href="http://validator.w3.org/check/referer"><img
+src="http://validator.w3.org/images/vxhtml10"
+alt="Valid XHTML 1.0!" height="15" width="44" /></a> <a
+href="http://jigsaw.w3.org/css-validator"><img
+src="http://jigsaw.w3.org/css-validator/images/vcss.gif"
+alt="Valid CSS!" width="44" height="15" /></a></p>
+<script src="http://www.google-analytics.com/urchin.js" type="text/javascript">
+</script>
+<script type="text/javascript">
+_uacct = "UA-310224-1";
+urchinTracker();
+</script>
+
+</body>
+</html>
+
+

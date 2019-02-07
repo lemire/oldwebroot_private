@@ -1,0 +1,3592 @@
+#LyX 1.2 created this file. For more info see http://www.lyx.org/
+\lyxformat 220
+\textclass amsart
+\begin_preamble
+\newcommand{\R}{{\sf R\hspace*{-0.9ex}\rule{0.15ex}%
+       {1.3ex}\hspace*{0.9ex}}}
+\newcommand{\N}{{\sf N\hspace*{-1.0ex}\rule{0.15ex}%
+       {1.1ex}\hspace*{1.0ex}}}
+\newcommand{\Q}{{\sf Q\hspace*{-1ex}\rule{0.15ex}%
+       {1.3ex}\hspace*{1.1ex}}}
+\newcommand{\C}{{\sf C\hspace*{-0.9ex}\rule{0.15ex}%
+       {1.3ex}\hspace*{0.9ex}}}
+\usepackage{epsfig}
+\usepackage{amsmath,amssymb}
+\usepackage{pslatex}
+\usepackage{color}
+
+
+\newif \ifpdf
+    \ifx \pdfoutput \undefined
+        \pdffalse
+    \else
+        \pdftrue
+\fi
+
+
+\ifpdf
+ \usepackage{thumbpdf}
+ \usepackage[pdftex,plainpages=false,urlcolor=black,colorlinks=false]{hyperref}
+ \pdfinfo{
+            /Title      (A family of 4-points dyadic high resolution subdivision schemes)
+            /Author     (Daniel Lemire, Ph.D.)
+            /Subject ( By using temporary placeholders on a dense grid, we generalize the 4-point dyadic cubic Deslauriers-Dubuc scheme. Interpolated values require 2 steps to stabilize as they are first interpolated on a coarse scale through a tetradic filter and then on a finer scale using a dyadic filter. The interpolants are C^{1} and can be chosen to reproduce polynomials of degree 4. These generalized interpolatory subdivision schemes have minimal support and no additional memory requirement. This work has applications in CAGD and wavelet theory.)
+            /Keywords   (subdivision schemes, interpolation, CAGD, wavelets)
+          }
+
+\else
+    \usepackage[ps2pdf]{hyperref}
+\fi
+
+\topmargin  = 0pt
+\headheight = 0pt
+\headsep    = 0pt
+
+\voffset    = 0in
+\hoffset    = 0in
+\textheight = 230mm
+\textwidth  = 164mm
+
+\evensidemargin = 0pt
+\oddsidemargin  = 0pt
+
+\pagestyle{empty}
+%\usepackage{float}
+
+\definecolor{veryblackblue}{rgb}{0.0,0.0,0.1}
+
+%% Background of blue palette
+ \definecolor{webblackblue}{rgb}{0.0,0.0,0.2}
+ \definecolor{webblue}{rgb}{0.0, 0.0, 0.6}
+
+%% Background of red palette
+ \definecolor{webblackred}{rgb}{0.2,0.0,0.0}
+ \definecolor{webred}{rgb}{0.6,0.0,0.0}
+
+%% Background of green palette
+ \definecolor{webblackgreen}{rgb}{0.0,0.2,0.0}                                   
+ \definecolor{webgreen}{rgb}{0.0,0.6,0.0} 
+
+%% Background of magenta palette
+ \definecolor{webblackmagenta}{rgb}{0.14,0.0,0.14}                                   
+ \definecolor{webmagenta}{rgb}{0.42,0.0,0.42} 
+
+%% Background of cyan palette
+ \definecolor{webblackcyan}{rgb}{0.0,0.14,0.14}                                   
+ \definecolor{webcyan}{rgb}{0.0,0.42,0.42} 
+
+%% Background of yellow pallete
+ \definecolor{webblackyellow}{rgb}{0.14,0.14,0.0}                                   
+ \definecolor{webyellow}{rgb}{0.85,0.85,0.0} 
+
+ \definecolor{webdarkgray}{rgb}{0.2,0.2,0.2}
+
+ \definecolor{webgray}{rgb}{0.75,0.75,0.75}
+ \definecolor{weborange}{rgb}{1.0, 0.6, 0.0}
+
+%\renewcommand\labelenumi{\textcolor{webdarkgray}{\arabic{enumi}.}}
+%\newcommand{\setenumi}[1]{#1.\setcounter{enumi}{#1}}
+\usepackage{dsfont}
+%\newcommand{\Z}{\mathds{Z}}
+\newfont{\first}{msbm10 at 12pt}
+\newcommand{\Z}{\mbox{\first{Z}}}
+%\usepackage{pstricks}
+%\renewcommand{\thefigure}{\arabic{figure}}
+%\renewcommand{\thetable}{\arabic{table}}
+%\renewcommand{\theequation}{\arabic{equation}}
+%\renewcommand{\thefigure{\arabic{figure}}}
+\end_preamble
+\language english
+\inputencoding auto
+\fontscheme default
+\graphics dvips
+\paperfontsize default
+\spacing single 
+\papersize Default
+\paperpackage a4
+\use_geometry 0
+\use_amsmath 0
+\use_natbib 0
+\use_numerical_citations 0
+\paperorientation portrait
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\defskip medskip
+\quotes_language english
+\quotes_times 2
+\papercolumns 1
+\papersides 2
+\paperpagestyle default
+
+\layout Title
+
+A Family of 4-point Dyadic High Resolution Subdivision Schemes
+\layout Author
+
+Daniel Lemire
+\layout Abstract
+
+We present a new family of multistep iterative interpolation schemes generalizin
+g subdivision schemes so that quartic polynomials can be reproduced with
+ a 
+\begin_inset Formula $4-$
+\end_inset 
+
+point approach.
+ Interpolation requires two steps: a coarse scale interpolation followed
+ by a fine scale interpolation.
+ The interpolants are 
+\begin_inset Formula $C^{1}$
+\end_inset 
+
+, have good local properties and no additional memory requirement.
+\layout Keywords
+
+Subdivision Schemes, Fourier transform, CAGD, Wavelets, Lagrange Interpolation,
+ Richardson Extrapolation
+\layout Section
+
+Introduction
+\layout Standard
+
+Interpolatory subdivision schemes interpolate a discrete set of data points
+ in a local manner, that is, the value of the interpolation function at
+ a given point depends on a small number of nearby data points.
+ The classical dyadic algorithm 
+\begin_inset LatexCommand \cite{Du,DeDu}
+
+\end_inset 
+
+ finds the midpoint values by fitting a Lagrange polynomial through the
+ 
+\begin_inset Formula $2N$
+\end_inset 
+
+ closest data points.
+ By repeating this algorithm again and again, each time doubling the number
+ of data points or nodes by midpoint interpolation, we eventually have a
+ dense set of data points and can determine uniquely a smooth interpolation
+ function.
+ Because interpolatory subdivision schemes relate data points from one scale
+ to another scale, it is not surprising that they are a key ingredient in
+ the construction of compactly supported wavelets 
+\begin_inset LatexCommand \cite{Dau,DeDuLe}
+
+\end_inset 
+
+.
+\layout Standard
+
+More recently, Merrien 
+\begin_inset LatexCommand \cite{Me92,Me99,DuLeMe}
+
+\end_inset 
+
+ introduced Hermite subdivision schemes.
+ Since Merrien subdivision schemes use Hermite nodes, they have twice the
+ approximation order and better regularity for a given support.
+ For example, 
+\begin_inset Formula $2-$
+\end_inset 
+
+point Hermite schemes are differentiable and can reproduce quadratic or
+ cubic polynomials whereas the corresponding 
+\begin_inset Formula $2-$
+\end_inset 
+
+point Deslauriers-Dubuc scheme (the linear spline) is not differentiable
+ and only reproduces linear polynomials.
+ There has also been considerable interest in vector subdivision schemes
+ and variants of Merrien's Hermite subdivision schemes 
+\begin_inset LatexCommand \cite{Han2001,Plonka,HeilColella}
+
+\end_inset 
+
+ all characterized by the idea that each node should store a vector instead
+ of a single value.
+\layout Standard
+
+Adding extra nodes to improve an interpolation scheme is not a new approach
+ and has been used to make spline interpolation local 
+\begin_inset LatexCommand \cite{DuGe}
+
+\end_inset 
+
+.
+ However, doubling the number of nodes doubles the memory requirements.
+ On the other hand, dyadic subdivision scheme double their memory usage
+ at each step.
+ Hence, we can choose to use one step earlier the upcoming extra storage
+ space without any cost.
+ These new intermediate nodes or placeholders can then be used to record
+ a coarse scale guess (using a tetradic filter) which we can later combine
+ with a finer scale interpolation (using a dyadic filter).
+ Because the placeholders are used as predictors, it is reasonable to expect
+ that the new schemes will be as local as usual subdivision schemes.
+ These schemes are said to be 
+\begin_inset Quotes eld
+\end_inset 
+
+high resolution
+\begin_inset Quotes erd
+\end_inset 
+
+ because we no longer consider only the next finer scale, but actually the
+ next two finer scales; alternatively, we could describe these algorithms
+ as 
+\begin_inset Quotes eld
+\end_inset 
+
+two-step subdivision schemes
+\begin_inset Quotes erd
+\end_inset 
+
+.
+ Whereas subdivision schemes immediately fix the interpolated value, we
+ choose to only record the interpolated values as 
+\begin_inset Quotes eld
+\end_inset 
+
+reasonable guesses
+\begin_inset Quotes erd
+\end_inset 
+
+ and allow to scheme to correct the guess later based on the results at
+ finer scales.
+ Whereas a vector subdivision scheme would store two or more values per
+ node, we store only one value, but we allow it change over time.
+\layout Standard
+
+The main result of this paper is that by summing up the tetradic (coarse)
+ interpolation recorded in placeholders and dyadic (fine) interpolations,
+ we get a range of smooth (
+\begin_inset Formula $C^{1}$
+\end_inset 
+
+) high resolutions schemes reproducing at least cubic polynomials.
+ It is also shown that whereas 
+\begin_inset Formula $4-$
+\end_inset 
+
+point subdivision scheme can reproduce at most cubic polynomials, 
+\begin_inset Formula $4-$
+\end_inset 
+
+point high resolution subdivision (HRS) schemes can reproduce quartic polynomial
+s (see Table 
+\begin_inset LatexCommand \ref{cap:Comparaison-between-some}
+
+\end_inset 
+
+).
+ While there exists 
+\begin_inset Formula $5-$
+\end_inset 
+
+point quartic subdivision schemes, none of them is as local as the presented
+ HRS.
+\layout Standard
+
+The paper is organized as follows.
+ We begin by a brief review of subdivision schemes and give explicit algorithms
+ for both the dyadic and tetradic 
+\begin_inset Formula $4-$
+\end_inset 
+
+point Deslauriers-Dubuc schemes.
+ Combining these subdivision schemes, we present a family of HRS schemes
+ and show that this new family can reproduce cubic and even quartic polynomials.
+ We conclude by proving that some of these schemes are smooth (
+\begin_inset Formula $C^{1}$
+\end_inset 
+
+).
+\layout Standard
+
+
+\begin_inset Float table
+placement htbp
+wide false
+collapsed false
+
+\layout Standard
+\align center 
+
+\begin_inset  Tabular
+<lyxtabular version="3" rows="5" columns="5">
+<features>
+<column alignment="center" valignment="top" leftline="true" width="0pt">
+<column alignment="center" valignment="top" leftline="true" width="0pt">
+<column alignment="center" valignment="top" leftline="true" rightline="true" width="0pt">
+<column alignment="center" valignment="top" rightline="true" width="0pt">
+<column alignment="center" valignment="top" rightline="true" width="0pt">
+<row topline="true" bottomline="true">
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\layout Standard
+
+scheme
+\end_inset 
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\layout Standard
+
+regularity
+\end_inset 
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\layout Standard
+
+number of samples at step 
+\begin_inset Formula $j$
+\end_inset 
+
+
+\end_inset 
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\layout Standard
+
+support of fund.
+ function
+\end_inset 
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\layout Standard
+
+reproduced polynomials
+\end_inset 
+</cell>
+</row>
+<row topline="true">
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\layout Standard
+
+Dubuc
+\begin_inset LatexCommand \cite{Du}
+
+\end_inset 
+
+
+\end_inset 
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\layout Standard
+
+
+\begin_inset Formula $C^{1}$
+\end_inset 
+
+
+\end_inset 
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\layout Standard
+
+
+\begin_inset Formula $2^{j}N$
+\end_inset 
+
+
+\end_inset 
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\layout Standard
+
+
+\begin_inset Formula $\left[-3,3\right]$
+\end_inset 
+
+
+\end_inset 
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\layout Standard
+
+cubic
+\end_inset 
+</cell>
+</row>
+<row topline="true">
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\layout Standard
+
+Dyn-Gregory-Levin
+\begin_inset LatexCommand \cite{DyGrLe}
+
+\end_inset 
+
+
+\end_inset 
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\layout Standard
+
+up to 
+\begin_inset Formula $C^{1}$
+\end_inset 
+
+
+\end_inset 
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\layout Standard
+
+
+\begin_inset Formula $2^{j}N$
+\end_inset 
+
+
+\end_inset 
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\layout Standard
+
+
+\begin_inset Formula $\left[-3,3\right]$
+\end_inset 
+
+
+\end_inset 
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\layout Standard
+
+up to cubic
+\end_inset 
+</cell>
+</row>
+<row topline="true">
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\layout Standard
+
+Hassan et al.
+\begin_inset LatexCommand \cite{HaIvDoSa}
+
+\end_inset 
+
+
+\end_inset 
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\layout Standard
+
+
+\begin_inset Formula $C^{2}$
+\end_inset 
+
+
+\end_inset 
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\layout Standard
+
+
+\begin_inset Formula $3^{j}N$
+\end_inset 
+
+
+\end_inset 
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\layout Standard
+
+
+\begin_inset Formula $[-\frac{5}{2},\frac{5}{2}]$
+\end_inset 
+
+
+\end_inset 
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\layout Standard
+
+quadratic
+\end_inset 
+</cell>
+</row>
+<row topline="true" bottomline="true">
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\layout Standard
+
+presented HRS
+\end_inset 
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\layout Standard
+
+
+\begin_inset Formula $C^{1}$
+\end_inset 
+
+
+\end_inset 
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\layout Standard
+
+
+\begin_inset Formula $2^{j+1}N$
+\end_inset 
+
+
+\end_inset 
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\layout Standard
+
+
+\begin_inset Formula $[-3,3]$
+\end_inset 
+
+ or 
+\begin_inset Formula $[-3,4]$
+\end_inset 
+
+
+\end_inset 
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\layout Standard
+
+cubic or quartic
+\end_inset 
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset 
+
+
+\layout Caption
+
+
+\begin_inset LatexCommand \label{cap:Comparaison-between-some}
+
+\end_inset 
+
+Comparison between some 
+\begin_inset Formula $4-$
+\end_inset 
+
+point iterative interpolation schemes.
+ The quartic HRS scheme is slightly less local because it requires initializatio
+n by a one-step 
+\begin_inset Formula $5-$
+\end_inset 
+
+point scheme.
+\end_inset 
+
+
+\layout Standard
+
+
+\begin_inset Float figure
+placement htbp
+wide false
+collapsed false
+
+\layout Standard
+\align center 
+
+\begin_inset Graphics FormatVersion 1
+	filename HRSdiagram.eps
+	display default
+	size_type 1
+	width 25page%
+	keepAspectRatio
+	rotateOrigin center
+	lyxsize_type 2
+	lyxscale 10
+
+\end_inset 
+
+
+\begin_inset Graphics FormatVersion 1
+	filename HRSdiagram_tetradic.eps
+	display default
+	size_type 1
+	width 25page%
+	rotateOrigin center
+	lyxsize_type 2
+	lyxscale 10
+
+\end_inset 
+
+
+\begin_inset Graphics FormatVersion 1
+	filename HRSdiagram2.eps
+	display default
+	size_type 1
+	width 25page%
+	keepAspectRatio
+	rotateOrigin center
+	lyxsize_type 2
+	lyxscale 10
+
+\end_inset 
+
+
+\layout Caption
+
+Diagrams of 
+\begin_inset Formula $4-$
+\end_inset 
+
+point subdivision schemes in the dyadic (left) and tetradic (center) cases,
+ and HRS schemes (right).
+ Arrows symbolize the interpolation process.
+ The circles are data samples and, in the HRS diagram, the squares represent
+ placeholders recording 
+\begin_inset Quotes eld
+\end_inset 
+
+guesses
+\begin_inset Quotes erd
+\end_inset 
+
+.
+ 
+\end_inset 
+
+
+\layout Section
+
+Subdivision schemes
+\layout Standard
+
+Let 
+\begin_inset Formula $b>1$
+\end_inset 
+
+ be an integer, given two integers 
+\begin_inset Formula $k,j$
+\end_inset 
+
+, the number 
+\begin_inset Formula $x_{j,k}=k/b^{j}$
+\end_inset 
+
+ is said to be 
+\begin_inset Formula $b-$
+\end_inset 
+
+adic (of depth 
+\begin_inset Formula $j$
+\end_inset 
+
+).
+ For a fixed 
+\begin_inset Formula $j$
+\end_inset 
+
+, the 
+\begin_inset Formula $b-$
+\end_inset 
+
+adic numbers form a regularly spaced set of nodes.
+ For a fixed 
+\begin_inset Formula $J$
+\end_inset 
+
+, given some data 
+\begin_inset Formula $\left\{ y_{J,k}\right\} _{k\in \Z }$
+\end_inset 
+
+, we want a smooth function 
+\begin_inset Formula $f$
+\end_inset 
+
+ such that 
+\begin_inset Formula $f\left(x_{J,k}\right)=y_{J,k}\, \forall k\in \Z $
+\end_inset 
+
+.
+ Starting with (
+\begin_inset Formula $y_{J,k}$
+\end_inset 
+
+) and using the formula 
+\begin_inset Formula \begin{equation}
+y_{j+1,l}=\sum _{k\in \Z }\gamma _{bk-l}y_{j,k}\label{basicsubdivision}\end{equation}
+
+\end_inset 
+
+ for some array 
+\begin_inset Formula $\gamma $
+\end_inset 
+
+, we get values 
+\begin_inset Formula $y_{j,k}$
+\end_inset 
+
+ for any 
+\begin_inset Formula $j>J$
+\end_inset 
+
+ and since 
+\begin_inset Formula $b-$
+\end_inset 
+
+adic numbers form a dense set in 
+\begin_inset Formula $\R $
+\end_inset 
+
+, there is at most one continuous function such that 
+\begin_inset Formula $f\left(x_{j,k}\right)=y_{j,k}$
+\end_inset 
+
+ for all 
+\begin_inset Formula $k\in \Z ,j>J$
+\end_inset 
+
+.
+ 
+\layout Standard
+
+A subdivision scheme is 
+\shape italic 
+interpolatory
+\shape default 
+ and satisfies 
+\begin_inset Formula $f\left(x_{J,k}\right)=y_{J,k}$
+\end_inset 
+
+ if 
+\begin_inset Formula $\gamma _{bk}=0\, \forall k\in \Z $
+\end_inset 
+
+ except for 
+\begin_inset Formula $\gamma _{0}=1$
+\end_inset 
+
+.
+ We say that a subdivision scheme is
+\shape italic 
+ stationary
+\shape default 
+ if the array 
+\begin_inset Formula $\gamma $
+\end_inset 
+
+ is constant (does not depend on 
+\begin_inset Formula $j$
+\end_inset 
+
+).
+ Because 
+\begin_inset Formula $\gamma $
+\end_inset 
+
+ does not depend explicitly on 
+\begin_inset Formula $l$
+\end_inset 
+
+ but rather on 
+\begin_inset Formula $bk-l$
+\end_inset 
+
+ the scheme is 
+\shape italic 
+translation invariant
+\shape default 
+ or 
+\shape italic 
+homogeneous
+\shape default 
+.
+ A subdivision scheme is 
+\begin_inset Formula $2N-$
+\end_inset 
+
+point if 
+\begin_inset Formula $\gamma _{l}=0$
+\end_inset 
+
+ for 
+\begin_inset Formula $|l|\geq Nb$
+\end_inset 
+
+.
+ The fundamental function of an interpolatory 
+\begin_inset Formula $2N-$
+\end_inset 
+
+point 
+\begin_inset Formula $b-$
+\end_inset 
+
+adic scheme has initial data 
+\begin_inset Formula $y_{0,0}=1$
+\end_inset 
+
+ and 
+\begin_inset Formula $y_{0,k}=0$
+\end_inset 
+
+ for all 
+\begin_inset Formula $k\neq 0$
+\end_inset 
+
+; it has a compact support of 
+\begin_inset Formula $[-(Nb-1)/(b-1),(Nb-1)/(b-1)]$
+\end_inset 
+
+ (or 
+\begin_inset Formula $[1-2N,2N-1]$
+\end_inset 
+
+ when 
+\begin_inset Formula $b=2$
+\end_inset 
+
+).
+ 
+\layout Standard
+
+For 
+\begin_inset Formula $N=1,2,3,...$
+\end_inset 
+
+ there are corresponding interpolatory 
+\begin_inset Formula $2N-$
+\end_inset 
+
+point interpolatory Deslauriers-Dubuc subdivision schemes built from the
+ midpoint evaluation of Lagrange polynomial of degree 
+\begin_inset Formula $2N-1$
+\end_inset 
+
+.
+ For 
+\begin_inset Formula $b=2$
+\end_inset 
+
+ (dyadic case), the 
+\begin_inset Formula $4-$
+\end_inset 
+
+point Deslauriers-Dubuc scheme can be defined with the array 
+\begin_inset Formula $\gamma ^{DD2}$
+\end_inset 
+
+ given by 
+\begin_inset Formula $\gamma _{0}^{DD2}=1,\, $
+\end_inset 
+
+
+\begin_inset Formula $\gamma _{1}^{DD2}=\gamma _{-1}^{DD2}=-9/16,\, $
+\end_inset 
+
+
+\begin_inset Formula $\gamma _{3}^{DD2}=\gamma _{-3}^{DD2}=-1/16$
+\end_inset 
+
+ with 
+\begin_inset Formula $\gamma _{k}^{DD2}=0$
+\end_inset 
+
+ otherwise; for 
+\begin_inset Formula $b=4$
+\end_inset 
+
+ (tetradic case), the scheme is defined with the array 
+\begin_inset Formula $\gamma ^{DD4}$
+\end_inset 
+
+ given by 
+\begin_inset Formula $\gamma _{2k}^{DD4}=\gamma _{k}^{DD2}\, \forall k\in \Z ,\, $
+\end_inset 
+
+ 
+\begin_inset Formula $\gamma _{-1}^{DD4}=\gamma _{1}^{DD4}=105/128,\, $
+\end_inset 
+
+
+\begin_inset Formula $\gamma _{-3}^{DD4}=\gamma _{-3}^{DD4}=35/128,\, $
+\end_inset 
+
+
+\begin_inset Formula $\gamma _{-5}^{DD4}=\gamma _{5}^{DD4}=-7/128,\, $
+\end_inset 
+
+
+\begin_inset Formula $\gamma _{-7}^{DD4}=\gamma _{7}^{DD4}=-5/128,\, $
+\end_inset 
+
+with 
+\begin_inset Formula $\gamma _{k}^{DD2}=0$
+\end_inset 
+
+ otherwise.
+ 
+\layout Standard
+
+Because 
+\begin_inset Formula $4-$
+\end_inset 
+
+point Deslauriers-Dubuc schemes are derived from cubic Lagrange polynomials,
+ they reproduce cubic polynomials, that is, if the initial data 
+\begin_inset Formula $y_{j,k}$
+\end_inset 
+
+ satisfies 
+\begin_inset Formula $y_{j,k}=p\left(x_{j,k}\right)\, \forall k\in \Z $
+\end_inset 
+
+ for some cubic polynomial 
+\begin_inset Formula $p$
+\end_inset 
+
+ then the interpolation function 
+\begin_inset Formula $f$
+\end_inset 
+
+ is this same cubic polynomial 
+\begin_inset Formula $f=p$
+\end_inset 
+
+.
+ The two cases presented above (
+\begin_inset Formula $\gamma ^{DD2}$
+\end_inset 
+
+ and 
+\begin_inset Formula $\gamma ^{DD4}$
+\end_inset 
+
+) reproduce cubic polynomials and they both converge to differentiable (
+\begin_inset Formula $C^{1}$
+\end_inset 
+
+) interpolation functions.
+ Because we later borrow from these two subdivision schemes, we give explicit
+ algorithms for both schemes.
+\layout Algorithm
+
+(
+\begin_inset Formula $4-$
+\end_inset 
+
+point Deslauriers-Dubuc Dyadic Scheme) For a given integer 
+\begin_inset Formula $j$
+\end_inset 
+
+, begin with some initial 
+\begin_inset Formula $y-$
+\end_inset 
+
+values 
+\begin_inset Formula $y_{j,k}\, k\in \Z $
+\end_inset 
+
+ over dyadic numbers 
+\begin_inset Formula $x_{j,k}=k/2^{j}$
+\end_inset 
+
+,
+\begin_deeper 
+\layout Enumerate
+
+recopy data at 
+\begin_inset Formula $x_{j+1,2k}=x_{j,k}$
+\end_inset 
+
+: 
+\begin_inset Formula $y_{j+1,2k}=y_{j,k}\, \forall k\in \Z $
+\end_inset 
+
+ ;
+\layout Enumerate
+
+interpolate midpoint value by the corresponding cubic Lagrange polynomial:
+ 
+\begin_inset Formula \[
+y_{j+1,2k+1}=\frac{-y_{j,k-1}+9y_{j,k}+9y_{j,k+1}-y_{j,k+2}}{128}\, \forall k\in \Z ;\]
+
+\end_inset 
+
+
+\layout Enumerate
+
+Repeat with 
+\begin_inset Formula $j\rightarrow j+1$
+\end_inset 
+
+ and using 
+\begin_inset Formula $y_{j+1}$
+\end_inset 
+
+ as initial data.
+\end_deeper 
+\layout Standard
+
+\SpecialChar ~
+
+\layout Algorithm
+
+(
+\begin_inset Formula $4-$
+\end_inset 
+
+point Deslauriers-Dubuc Tetradic Subdivision Scheme) For a given integer
+ 
+\begin_inset Formula $j$
+\end_inset 
+
+, begin with some initial 
+\begin_inset Formula $y-$
+\end_inset 
+
+values 
+\begin_inset Formula $y_{j,k}\, k\in \Z $
+\end_inset 
+
+ over 
+\begin_inset Formula $4-$
+\end_inset 
+
+adic numbers 
+\begin_inset Formula $x_{j,k}=k/4^{j}$
+\end_inset 
+
+
+\begin_deeper 
+\layout Enumerate
+
+recopy data at 
+\begin_inset Formula $x_{j+1,4k}=x_{j,k}$
+\end_inset 
+
+: 
+\begin_inset Formula $y_{j+1,4k}=y_{j,k}\, \forall k\in \Z $
+\end_inset 
+
+ ;
+\layout Enumerate
+
+interpolate quartile point values by the corresponding cubic Lagrange polynomial
+: 
+\begin_inset Formula \[
+y_{j+1,4k+1}=\frac{-7y_{j,k-1}+105y_{j,k}+35y_{j,k+1}-5y_{j,k+2}}{128};\]
+
+\end_inset 
+
+ 
+\begin_inset Formula \[
+y_{j+1,4k+2}=\frac{-y_{j,k-1}+9y_{j,k}+9y_{j,k+1}-y_{j,k+2}}{128};\]
+
+\end_inset 
+
+
+\begin_inset Formula \[
+y_{j+1,4k+3}=\frac{-5y_{j,k-1}+35y_{j,k}+105y_{j,k+1}-7y_{j,k+2}}{128}\, \forall k\in \Z ;\]
+
+\end_inset 
+
+
+\layout Enumerate
+
+Repeat with 
+\begin_inset Formula $j\rightarrow j+1$
+\end_inset 
+
+ and using 
+\begin_inset Formula $y_{j+1}$
+\end_inset 
+
+ as initial data.
+\end_deeper 
+\layout Section
+
+High resolution subdivision schemes
+\layout Subsection
+
+Definitions
+\layout Standard
+
+In this paper, we want to extend subdivision schemes by hybrid schemes:
+ mixing tetradic and dyadic subdivision schemes for example.
+ Given some data 
+\begin_inset Formula $\left\{ y_{j-1,k}\right\} _{k\in \Z }$
+\end_inset 
+
+ on the dyadic 
+\begin_inset Formula $x_{j-1,k}$
+\end_inset 
+
+ grid, we must apply a dyadic subdivision scheme as an initialization step:
+ since HRS schemes can be seen as multistep subdivision schemes, it is not
+ surprising that they require an initialization step.
+ For 
+\begin_inset Formula $4-$
+\end_inset 
+
+point HRS schemes, a sensible choice for the initialization step is the
+ 
+\begin_inset Formula $4-$
+\end_inset 
+
+point Deslauriers-Dubuc dyadic scheme (see lemma 
+\begin_inset LatexCommand \ref{lemmecubic}
+
+\end_inset 
+
+) which copies the data at even nodes (
+\begin_inset Formula $y_{j,2k}=y_{j-1,k}$
+\end_inset 
+
+) and insert new values (
+\begin_inset Quotes eld
+\end_inset 
+
+guesses
+\begin_inset Quotes erd
+\end_inset 
+
+) at odd nodes (
+\begin_inset Formula $y_{j,2k+1}$
+\end_inset 
+
+ for 
+\begin_inset Formula $k\in \Z $
+\end_inset 
+
+).
+ A value 
+\begin_inset Formula $y_{j,k}$
+\end_inset 
+
+ is 
+\begin_inset Quotes eld
+\end_inset 
+
+stable
+\begin_inset Quotes erd
+\end_inset 
+
+ if 
+\begin_inset Formula $y_{j,k}=y_{j+1,2k}$
+\end_inset 
+
+ and other nodes are said to be temporary or are referred to as 
+\begin_inset Quotes eld
+\end_inset 
+
+placeholders
+\begin_inset Quotes erd
+\end_inset 
+
+.
+ A HRS on a dyadic grid is interpolatory if all 
+\begin_inset Formula $y_{j,2k}$
+\end_inset 
+
+ values on even nodes (
+\begin_inset Formula $x_{j,2k}$
+\end_inset 
+
+) are stable so that 
+\begin_inset Formula $y_{j,2k}=y_{j+1,4k}\, \forall k\in \Z $
+\end_inset 
+
+.
+ Assuming we used an interpolatory subdivision scheme as an initialization
+ step, the following HRS algorithm is interpolatory.
+\layout Algorithm
+
+
+\begin_inset LatexCommand \label{4pointhrssalgo}
+
+\end_inset 
+
+(
+\begin_inset Formula $4-$
+\end_inset 
+
+point Dyadic HRS Schemes) The following iteration steps depend on 
+\begin_inset Formula $\alpha \in \R $
+\end_inset 
+
+, a constant parameter.
+ For a given integer 
+\begin_inset Formula $j$
+\end_inset 
+
+, begin with some initial 
+\begin_inset Formula $y-$
+\end_inset 
+
+values 
+\begin_inset Formula $y_{j,k}\, k\in \Z $
+\end_inset 
+
+ over dyadic numbers 
+\begin_inset Formula $x_{j,k}=k/2^{j}$
+\end_inset 
+
+ where only the even nodes are interpolated (
+\begin_inset Formula $y_{j,2k}$
+\end_inset 
+
+),
+\begin_deeper 
+\layout Enumerate
+
+recopy stable data: 
+\begin_inset Formula $y_{j+1,4k}=y_{j,2k}\, \forall k\in \Z $
+\end_inset 
+
+ ;
+\layout Enumerate
+
+Apply the 
+\begin_inset Formula $4-$
+\end_inset 
+
+point Deslauriers-Dubuc tetradic scheme on even (stable) nodes: 
+\begin_inset Formula \[
+y_{j+1,4k+1}=\frac{-7y_{j,2k-2}+105y_{j,2k}+35y_{j,2k+2}-5y_{j,2k+4}}{128};\]
+
+\end_inset 
+
+ 
+\begin_inset Formula \[
+y_{j+1,4k+2}^{temporary}=\frac{-y_{j,2k-2}+9y_{j,2k}+9y_{j,2k+2}-y_{j,2k+4}}{128};\]
+
+\end_inset 
+
+
+\begin_inset Formula \[
+y_{j+1,4k+3}=\frac{-5y_{j,2k-2}+35y_{j,2k}+105y_{j,2k+2}-7y_{j,2k+4}}{128}\, \forall k\in \Z ;\]
+
+\end_inset 
+
+
+\layout Enumerate
+
+Update midpoint (which then becomes stable): 
+\begin_inset Formula \[
+y_{j+1,4k+2}=(1-\alpha )y_{j+1,4k+2}^{temporary}+\alpha y_{j,2k+1};\]
+
+\end_inset 
+
+
+\layout Enumerate
+
+Repeat with 
+\begin_inset Formula $j\rightarrow j+1$
+\end_inset 
+
+ and using 
+\begin_inset Formula $y_{j+1}$
+\end_inset 
+
+ as initial data.
+\end_deeper 
+\layout Standard
+
+This new algorithm is not a subdivision scheme in general and thus, we need
+ a more general definition: stationary subdivision schemes (equation 
+\begin_inset LatexCommand \ref{basicsubdivision}
+
+\end_inset 
+
+) can be generalized by the linear equation
+\begin_inset Formula \begin{equation}
+y_{j+1,l}=\sum _{m=1}^{M}\sum _{k\in \Z }\gamma _{Mbk+m-1-l}^{(m)}y_{j,Mk+m-1}\label{hrgeneral}\end{equation}
+
+\end_inset 
+
+where 
+\begin_inset Formula $\gamma ^{(1)},...,\gamma ^{(M)}$
+\end_inset 
+
+ are constant arrays (independent from 
+\begin_inset Formula $j$
+\end_inset 
+
+).
+ It can be said to be 
+\begin_inset Formula $b-$
+\end_inset 
+
+adic because the number of nodes is increasing by a factor of 
+\begin_inset Formula $b$
+\end_inset 
+
+ with each iteration but because we have 
+\begin_inset Formula $M>1$
+\end_inset 
+
+ arrays 
+\begin_inset Formula $\gamma $
+\end_inset 
+
+, the scheme is said to be a HRS scheme.
+ We say it is interpolatory if it satisfies 
+\begin_inset Formula $y_{j+1,Mbk}=y_{j,Mk}$
+\end_inset 
+
+ and it is 
+\begin_inset Formula $2N-$
+\end_inset 
+
+point if 
+\begin_inset Formula $\gamma _{l}^{(m)}=0$
+\end_inset 
+
+ for 
+\begin_inset Formula $|l|\geq MNb$
+\end_inset 
+
+ and 
+\begin_inset Formula $m=1,...,M$
+\end_inset 
+
+.
+ For 
+\begin_inset Formula $b=M=2$
+\end_inset 
+
+ the general equation 
+\begin_inset LatexCommand \ref{hrgeneral}
+
+\end_inset 
+
+ becomes 
+\begin_inset Formula \begin{equation}
+y_{j+1,l}=\sum _{k\in \Z }\gamma _{4k-l}^{(1)}y_{j,2k}+\gamma _{4k+1-l}^{(2)}y_{j,2k+1}.\label{N2highres}\end{equation}
+
+\end_inset 
+
+It is interpolatory if 
+\begin_inset Formula $y_{j+1,4k}=y_{j+1,2k}$
+\end_inset 
+
+ and 
+\begin_inset Formula $2N-$
+\end_inset 
+
+point if 
+\begin_inset Formula $\gamma _{l}^{(m)}=0$
+\end_inset 
+
+ for 
+\begin_inset Formula $|l|\geq 4N$
+\end_inset 
+
+ and 
+\begin_inset Formula $m=1,2$
+\end_inset 
+
+.
+ It should be noted that for an algorithm based on HRS scheme to be interpolator
+y, the initialization step must be interpolatory (
+\begin_inset Formula $y_{j,bk}=y_{j-1,k}$
+\end_inset 
+
+).
+ 
+\layout Standard
+
+The interpolatory algorithm 
+\begin_inset LatexCommand \ref{4pointhrssalgo}
+
+\end_inset 
+
+ amounts to choosing 
+\begin_inset Formula $\gamma ^{(1)}$
+\end_inset 
+
+ and 
+\begin_inset Formula $\gamma ^{(2)}$
+\end_inset 
+
+ to be:
+\layout Standard
+
+
+\begin_inset Formula \begin{eqnarray}
+\gamma _{2k}^{(1)}=\gamma _{2k}^{DD4}+\alpha \left(\delta _{k,0}-\gamma _{k}^{DD2}\right),\,  & \gamma _{2k+1}^{(1)}=\gamma _{2k+1}^{DD4}\, \forall k\in \Z  & \label{N2highres_1}\\
+\gamma _{0}^{(2)}=\alpha ,\,  & \gamma _{k}^{(2)}=0\, otherwise & \label{N2highres_2}
+\end{eqnarray}
+
+\end_inset 
+
+ for some parameter 
+\begin_inset Formula $\alpha \in \R $
+\end_inset 
+
+.
+ Indeed, since 
+\begin_inset Formula $\gamma _{2k}^{DD4}=\gamma _{k}^{DD2}\, \forall k\in \Z $
+\end_inset 
+
+, we can rewrite equation 
+\begin_inset LatexCommand \ref{N2highres}
+
+\end_inset 
+
+ for even and odd terms.
+ Firstly, setting 
+\begin_inset Formula $l=2s$
+\end_inset 
+
+ (
+\begin_inset Formula $l$
+\end_inset 
+
+ even), we have 
+\begin_inset Formula \begin{eqnarray*}
+y_{j+1,2s} & =\sum _{k\in \Z } & \gamma _{4k-2s}^{(1)}y_{j,2k}+\gamma _{4k+1-2s}^{(2)}y_{j,2k+1}\\
+ & =\sum _{k\in \Z } & \left(\gamma _{4k-2s}^{DD4}-\alpha \gamma _{2k-s}^{DD2}+\alpha \delta _{4k,2s}\right)y_{j,2k}+\alpha \delta _{4k+1,s}y_{j,2k+1}\\
+ & =\sum _{k\in \Z } & \left((1-\alpha )\gamma _{2k-s}^{DD2}+\alpha \delta _{2k,s}\right)y_{j,2k}+\delta _{2k+1,s+1}\alpha y_{j,2k+1}
+\end{eqnarray*}
+
+\end_inset 
+
+so that when 
+\begin_inset Formula $s$
+\end_inset 
+
+ is even (
+\begin_inset Formula $l=2s=4r$
+\end_inset 
+
+), we have the interpolatory condition 
+\begin_inset Formula \begin{equation}
+y_{j+1,4r}=y_{j,2r}\label{hrsinterpole}\end{equation}
+
+\end_inset 
+
+otherwise, when 
+\begin_inset Formula $s$
+\end_inset 
+
+ is odd 
+\begin_inset Formula $(l=2s=4r+2)$
+\end_inset 
+
+
+\begin_inset Formula \begin{equation}
+y_{j+1,4r+2}=\alpha y_{j,2r+1}+(1-\alpha )\sum _{k\in \Z }\gamma _{2k-2r-1}^{DD2}y_{j,2k}.\label{hrsricharson}\end{equation}
+
+\end_inset 
+
+Secondly, if 
+\begin_inset Formula $l$
+\end_inset 
+
+ is odd (
+\begin_inset Formula $l=2s+1$
+\end_inset 
+
+), we have
+\begin_inset Formula \begin{eqnarray}
+y_{j+1,2s+1} & = & \sum _{k\in \Z }\gamma _{4k-2s-1}^{(1)}y_{j,2k}+\gamma _{4k-2s-1}^{(2)}y_{j,2k+1}\nonumber \\
+ & = & \sum _{k\in \Z }\gamma _{4k-2s-1}^{DD4}y_{j,2k}.\label{hrswidguess}
+\end{eqnarray}
+
+\end_inset 
+
+Equations 
+\begin_inset LatexCommand \ref{hrsinterpole}
+
+\end_inset 
+
+, 
+\begin_inset LatexCommand \ref{hrsricharson}
+
+\end_inset 
+
+, and 
+\begin_inset LatexCommand \ref{hrswidguess}
+
+\end_inset 
+
+ can be used to describe the presented HRS schemes: while equation 
+\begin_inset LatexCommand \ref{hrsinterpole}
+
+\end_inset 
+
+ is the interpolatory condition, equation 
+\begin_inset LatexCommand \ref{hrswidguess}
+
+\end_inset 
+
+ fills the placeholders with tetradic (coarse scale) interpolated values
+ whereas equation 
+\begin_inset LatexCommand \ref{hrsricharson}
+
+\end_inset 
+
+ combines the value stored in the placeholder with the newly available interpola
+ted value (fine scale) given by the summation term which we recognize from
+ the dyadic Deslauriers-Dubuc interpolation.
+ 
+\layout Standard
+
+In the simplest case, 
+\begin_inset Formula $\alpha =0$
+\end_inset 
+
+, equation 
+\begin_inset LatexCommand \ref{N2highres}
+
+\end_inset 
+
+ becomes
+\begin_inset Formula \begin{equation}
+y_{j+1,l}=\sum _{k\in \Z }\gamma _{4k-l}^{DD4}y_{j,2k}.\label{N2highresalpha0}\end{equation}
+
+\end_inset 
+
+Because 
+\begin_inset Formula $\alpha =0\Rightarrow \gamma ^{(2)}=0$
+\end_inset 
+
+, we see that the placeholders (odd nodes) are effectively ignored.
+ Indeed, we observe that this last equation discards odd nodes at each step:
+ 
+\begin_inset Formula $y_{j+1,l}$
+\end_inset 
+
+ depends only on even nodes (
+\begin_inset Formula $y_{j,2k}$
+\end_inset 
+
+ ) and not at all on the odd nodes ( 
+\begin_inset Formula $y_{j,2k+1}$
+\end_inset 
+
+).
+ Hence, we can replace equation 
+\begin_inset LatexCommand \ref{N2highresalpha0}
+
+\end_inset 
+
+ by 
+\begin_inset Formula \[
+y_{j+1,2l}=\sum _{k\in \Z }\gamma _{4k-2l}^{DD4}y_{j,2k}\]
+
+\end_inset 
+
+but because 
+\begin_inset Formula $\gamma _{2k}^{DD4}=\gamma _{k}^{DD2}$
+\end_inset 
+
+ , this last equation becomes 
+\begin_inset Formula $y_{j+1,2l}=\gamma _{2k-l}^{DD2}y_{j,2k}$
+\end_inset 
+
+ and if we define 
+\begin_inset Formula $\widetilde{y}_{j,k}=y_{j,2k}$
+\end_inset 
+
+ then 
+\begin_inset Formula \begin{equation}
+\widetilde{y}_{j+1,2l}=\sum _{k\in \Z }\gamma _{2k-l}^{DD2}\widetilde{y}_{j,2k}\label{DD2}\end{equation}
+
+\end_inset 
+
+which we recognize as the cubic Deslauriers-Dubuc scheme and we have proved
+ the next proposition.
+ 
+\layout Proposition
+
+
+\begin_inset LatexCommand \label{propDesDuequiv}
+
+\end_inset 
+
+For 
+\begin_inset Formula $\alpha =0$
+\end_inset 
+
+, the HRS scheme given by algorithm 
+\begin_inset LatexCommand \ref{4pointhrssalgo}
+
+\end_inset 
+
+ is equivalent to the 
+\begin_inset Formula $4-$
+\end_inset 
+
+point dyadic Deslauriers-Dubuc subdivision scheme.
+\layout Standard
+
+Thus we can say that the presented family of HRS schemes generalizes the
+ dyadic Deslauriers-Dubuc scheme 
+\begin_inset LatexCommand \cite{Du,DeDu}
+
+\end_inset 
+
+.
+\layout Subsection
+
+Reproduced polynomials
+\layout Standard
+
+Assume that for some 
+\begin_inset Formula $j$
+\end_inset 
+
+, 
+\begin_inset Formula $y_{j,k}=p_{3}\left(x_{j,k}\right)\, \forall k\in \Z $
+\end_inset 
+
+ where 
+\begin_inset Formula $p_{3}$
+\end_inset 
+
+is a cubic polynomial.
+ Because 
+\begin_inset Formula $4-$
+\end_inset 
+
+point Deslauriers-Dubuc schemes reproduce cubic polynomials, we have 
+\begin_inset Formula \[
+\sum _{k\in \Z }\gamma _{2k-2r-1}^{DD2}y_{j,2k}=y_{j,2r+1}=p_{3}\left(x_{j,2r+1}\right)\]
+
+\end_inset 
+
+and thus equation 
+\begin_inset LatexCommand \ref{hrsricharson}
+
+\end_inset 
+
+ becomes 
+\begin_inset Formula $y_{j+1,4r+2}=p_{3}\left(x_{j,2r+1}\right)$
+\end_inset 
+
+ for any 
+\begin_inset Formula $\alpha \in \R $
+\end_inset 
+
+.
+ Similarly, equation 
+\begin_inset LatexCommand \ref{hrswidguess}
+
+\end_inset 
+
+ implies 
+\begin_inset Formula $y_{j+1,2s+1}=p_{3}\left(x_{j+1,2s+1}\right)$
+\end_inset 
+
+.
+ We can conclude that 
+\begin_inset Formula $y_{j+1,k}=p_{3}\left(x_{j+1,k}\right)\, \forall k\in \Z $
+\end_inset 
+
+ if 
+\begin_inset Formula $y_{j,k}=p_{3}\left(x_{j,k}\right)\, \forall k\in \Z $
+\end_inset 
+
+ and thus HRS schemes defined by equation 
+\begin_inset LatexCommand \ref{N2highres}
+
+\end_inset 
+
+ reproduce cubic polynomials.
+ As we have seen, for practical implementations of a high subdivision scheme,
+ it is necessary to first apply a one-step subdivision scheme.
+ This can be solved by a (one-step) dyadic Deslauriers-Dubuc interpolation.
+ Let 
+\begin_inset Formula $\left\{ y_{j,k}\right\} _{k}$
+\end_inset 
+
+ be some initial data.
+ As a first step, we apply equation
+\begin_inset Formula \begin{equation}
+y_{j+1,l}=\sum _{k\in \Z }\gamma _{2k-l}^{DD2}y_{j,2k}\label{DD2_2}\end{equation}
+
+\end_inset 
+
+ followed by algorithm 
+\begin_inset LatexCommand \ref{4pointhrssalgo}
+
+\end_inset 
+
+ with 
+\begin_inset Formula $j+1$
+\end_inset 
+
+.
+ By induction on 
+\begin_inset Formula $j$
+\end_inset 
+
+ using algorithm 
+\begin_inset LatexCommand \ref{4pointhrssalgo}
+
+\end_inset 
+
+, we get the following lemma.
+ Note that while this algorithm is as local as the corresponding Deslauriers-Dub
+uc subdivision scheme in the sense that the fundamental function has support
+ 
+\begin_inset Formula $[-3,3]$
+\end_inset 
+
+.
+ 
+\layout Lemma
+
+
+\begin_inset LatexCommand \label{lemmecubic}
+
+\end_inset 
+
+HRS schemes given by algorithm 
+\begin_inset LatexCommand \ref{4pointhrssalgo}
+
+\end_inset 
+
+ reproduce cubic polynomials and are interpolatory when using a one step
+ interpolatory 4-point dyadic Deslauriers-Dubuc interpolation (equation
+ 
+\begin_inset LatexCommand \ref{DD2_2}
+
+\end_inset 
+
+) as initialization.
+\layout Standard
+
+We can also get a stronger result by choosing a specific 
+\begin_inset Formula $\alpha $
+\end_inset 
+
+.
+ We can write any quartic polynomial 
+\begin_inset Formula $p_{4}$
+\end_inset 
+
+ as 
+\begin_inset Formula $p_{4}(x)=a_{4}x^{4}+p_{3}(x)$
+\end_inset 
+
+ where 
+\begin_inset Formula $p_{3}$
+\end_inset 
+
+ is some cubic polynomial.
+ Because of the Generalized Rolle's theorem, given any 4 points 
+\begin_inset Formula $\xi _{1}$
+\end_inset 
+
+,
+\begin_inset Formula $\xi _{2}$
+\end_inset 
+
+,
+\begin_inset Formula $\xi _{3}$
+\end_inset 
+
+, and 
+\begin_inset Formula $\xi _{4}$
+\end_inset 
+
+, the corresponding cubic polynomial 
+\begin_inset Formula $p_{Lagrange3}$
+\end_inset 
+
+ approximates 
+\begin_inset Formula $p_{4}$
+\end_inset 
+
+ with error 
+\begin_inset Formula \begin{eqnarray*}
+p_{4}(x)-p_{Lagrange3}(x) & = & \frac{p_{4}'(\xi )\left(x-\xi _{1}\right)\left(x-\xi _{2}\right)\left(x-\xi _{3}\right)\left(x-\xi _{4}\right)}{4!}\\
+ & = & a_{4}\left(x-\xi _{1}\right)\left(x-\xi _{2}\right)\left(x-\xi _{3}\right)\left(x-\xi _{4}\right)
+\end{eqnarray*}
+
+\end_inset 
+
+for some 
+\begin_inset Formula $\xi $
+\end_inset 
+
+.
+ In other words, the error depends only on 
+\begin_inset Formula $a_{4}$
+\end_inset 
+
+ and the geometry of the sample points 
+\begin_inset Formula $\xi _{i}$
+\end_inset 
+
+ with respect to 
+\begin_inset Formula $x$
+\end_inset 
+
+.
+ This makes the task of canceling out the errors given more two different
+ approximating cubic polynomials convenient as we shall see.
+\layout Standard
+
+Suppose that for some 
+\begin_inset Formula $j$
+\end_inset 
+
+, 
+\begin_inset Formula $y_{j,2k}=p_{4}\left(x_{j,2k}\right)$
+\end_inset 
+
+ and 
+\begin_inset Formula $y_{j-1,k}=p_{4}\left(x_{j-1,k}\right)\, \forall k\in \Z $
+\end_inset 
+
+.
+ We can write 
+\begin_inset Formula $y_{j+1,4r+2}$
+\end_inset 
+
+ for any 
+\begin_inset Formula $r\in \Z $
+\end_inset 
+
+ in terms of this initial data (
+\begin_inset Formula $y_{j}$
+\end_inset 
+
+ and 
+\begin_inset Formula $y_{j-1}$
+\end_inset 
+
+) by substituting equation 
+\begin_inset LatexCommand \ref{hrswidguess}
+
+\end_inset 
+
+ into 
+\begin_inset LatexCommand \ref{hrsricharson}
+
+\end_inset 
+
+ to get 
+\begin_inset Formula \begin{eqnarray}
+y_{j+1,4r+2} & = & \alpha y_{j,2r+1}+(1-\alpha )\sum _{k\in \Z }\gamma _{2k-2r-1}^{DD2}y_{j,2k}\nonumber \\
+ & = & \alpha \sum _{k\in \Z }\gamma _{4k-2r-1}^{DD4}y_{j-1,2k}+(1-\alpha )\sum _{k\in \Z }\gamma _{2k-2r-1}^{DD2}y_{j,2k}.\label{upcomingrichardson}
+\end{eqnarray}
+
+\end_inset 
+
+We want to show that 
+\begin_inset Formula $y_{j+1,4r+2}=p_{4}\left(x_{j,2r+1}\right)$
+\end_inset 
+
+ for some 
+\begin_inset Formula $\alpha \in \R $
+\end_inset 
+
+ and so we substitute 
+\begin_inset Formula $y_{j,2k}=p_{4}\left(x_{j,2k}\right)$
+\end_inset 
+
+ and 
+\begin_inset Formula $y_{j-1,k}=p_{4}\left(x_{j-1,k}\right)$
+\end_inset 
+
+ into the two sums of this last equation.
+ Because of the identities 
+\begin_inset Formula \begin{eqnarray*}
+\frac{-9}{2^{4j}} & = & \frac{-\left(x_{j,2r-2}\right)^{4}+9\left(x_{j,2r}\right)^{4}+9\left(x_{j,2r+2}\right)^{4}-\left(x_{j,2r+4}\right)^{4}}{128}-\left(x_{j,2r+1}\right)^{4}\\
+\frac{-105}{2^{4j}} & = & \frac{-7\left(x_{j,2r-4}\right)^{4}+105\left(x_{j,2r}\right)^{4}+35\left(x_{j,2r+4}\right)^{4}-5\left(x_{j,2r+8}\right)^{4}}{128}-\left(x_{j,2r+1}\right)^{4}\\
+ & = & \frac{-5\left(x_{j,2r-4}\right)^{4}+35\left(x_{j,2r}\right)^{4}+105\left(x_{j,2r+4}\right)^{4}-7\left(x_{j,2r+8}\right)^{4}}{128}-\left(x_{j,2r+1}\right)^{4},
+\end{eqnarray*}
+
+\end_inset 
+
+we can compute both sums in equation 
+\begin_inset LatexCommand \ref{upcomingrichardson}
+
+\end_inset 
+
+ explicitly: 
+\begin_inset Formula \begin{eqnarray}
+\sum _{k\in \Z }\gamma _{4k-2r-1}^{DD4}y_{j-1,2k} & = & p_{3}\left(x_{j,2r+1}\right)+a_{4}\sum _{k\in \Z }\gamma _{4k-2r-1}^{DD4}\times \left(x_{j-1,2k}=x_{j,4k}\right)^{4}\\
+ & = & p_{4}\left(x_{j,2r+1}\right)-\frac{105a_{4}}{2^{4j}}\label{105sur16}
+\end{eqnarray}
+
+\end_inset 
+
+ and
+\begin_inset Formula \begin{eqnarray*}
+\sum _{k\in \Z }\gamma _{2k-2r-1}^{DD2}y_{j,2k} & = & p_{3}\left(x_{j,2r+1}\right)+a_{4}\sum _{k\in \Z }\gamma _{2k-2r-1}^{DD2}\times \left(x_{j,2k}\right)^{4}\\
+ & = & p_{4}\left(x_{j,2r+1}\right)-\frac{9a_{4}}{2^{4j}}.
+\end{eqnarray*}
+
+\end_inset 
+
+Incidentally, these two results can be checked using the Generalized Rolle's
+ theorem.
+ Hence, setting 
+\begin_inset Formula $\alpha =-3/32$
+\end_inset 
+
+ in equation 
+\begin_inset LatexCommand \ref{upcomingrichardson}
+
+\end_inset 
+
+, we get 
+\begin_inset Formula \[
+y_{j+1,4r+2}=p_{4}\left(x_{j,2r+1}\right)-\frac{105\alpha +9(1-\alpha )}{2^{4j}}a_{4}=p_{4}\left(x_{j+1,4r+2}\right)\]
+
+\end_inset 
+
+since for 
+\begin_inset Formula $\alpha =-3/32$
+\end_inset 
+
+, 
+\begin_inset Formula $105\alpha +9(1-\alpha )=0$
+\end_inset 
+
+.
+ Therefore, the HRS scheme with 
+\begin_inset Formula $\alpha =-3/32$
+\end_inset 
+
+ reproduces quartic polynomials.
+ 
+\layout Standard
+
+For practical applications, we wish to initialize HRS schemes with an interpolat
+ory subdivision scheme so that the whole process remains interpolatory.
+ While there are no 
+\begin_inset Formula $4-$
+\end_inset 
+
+point subdivision scheme capable of interpolating 
+\begin_inset Formula $y_{j-1,k}=p_{4}\left(x_{j,k}\right)$
+\end_inset 
+
+ into 
+\begin_inset Formula $y_{j,2k+1}=p_{4}\left(x_{j,2k+1}\right)-\frac{105a_{4}}{16\times 2^{4j}}$
+\end_inset 
+
+ and 
+\begin_inset Formula $y_{j,2k}=p_{4}\left(x_{j,2k}\right)$
+\end_inset 
+
+ for all 
+\begin_inset Formula $k\in \Z $
+\end_inset 
+
+, there exist 
+\begin_inset Formula $5-$
+\end_inset 
+
+point subdivision schemes such as the subdivision scheme described by the
+ next algorithm.
+\layout Algorithm
+
+
+\begin_inset LatexCommand \label{5pointalgo}
+
+\end_inset 
+
+(
+\begin_inset Formula $5-$
+\end_inset 
+
+point 
+\begin_inset Quotes eld
+\end_inset 
+
+Initialization
+\begin_inset Quotes erd
+\end_inset 
+
+ Subdivision Scheme) For a given integer 
+\begin_inset Formula $j$
+\end_inset 
+
+, begin with some initial 
+\begin_inset Formula $y-$
+\end_inset 
+
+values 
+\begin_inset Formula $y_{j,k}\, k\in \Z $
+\end_inset 
+
+ over dyadic numbers 
+\begin_inset Formula $x_{j,k}=k/2^{j}$
+\end_inset 
+
+,
+\begin_deeper 
+\layout Enumerate
+
+recopy data at 
+\begin_inset Formula $x_{j+1,2k}=x_{j,k}$
+\end_inset 
+
+: 
+\begin_inset Formula $y_{j+1,2k}=y_{j,k}\, \forall k\in \Z $
+\end_inset 
+
+ ;
+\layout Enumerate
+
+extrapolate 
+\begin_inset Formula $y_{j,k+4}$
+\end_inset 
+
+ using 
+\begin_inset Formula $y_{j,k-2},y_{j,k-1},y_{j,k},y_{j,k+1},y_{j,k+2}$
+\end_inset 
+
+ by the formula 
+\begin_inset Formula \begin{equation}
+\gamma _{j,k}=5y_{j,k-2}-24y_{j,k-1}+45y_{j,k}-40y_{j,k+1}+15y_{j,k+1}\, \forall k\in \Z ;\label{power4lagrangeextra}\end{equation}
+
+\end_inset 
+
+
+\layout Enumerate
+
+interpolate midpoint value using the tetradic Deslauriers-Dubuc formula:
+ 
+\begin_inset Formula \[
+y_{j+1,2k+1}=\frac{-7y_{j,k-2}+105y_{j,k}+35y_{j,k+2}-5\gamma _{j,k}}{128}\, \forall k\in \Z .\]
+
+\end_inset 
+
+
+\end_deeper 
+\layout Standard
+
+To see that algorithm 
+\begin_inset LatexCommand \ref{5pointalgo}
+
+\end_inset 
+
+ properly initializes the placeholders, observe that if we assume that 
+\begin_inset Formula $y_{J,k}=p_{4}\left(x_{J,k}\right)$
+\end_inset 
+
+, then we only need to check that 
+\begin_inset Formula $y_{J+1,2k+1}=p_{4}\left(x_{J+1,2k+1}\right)-\frac{105a_{4}}{16\times 2^{4(J+1)}}$
+\end_inset 
+
+.
+ However, if 
+\begin_inset Formula $y_{J,k}=p_{4}\left(x_{J,k}\right)$
+\end_inset 
+
+ is satisfied, then 
+\begin_inset Formula $\gamma _{J,k}=p_{4}\left(x_{J,k+4}\right)$
+\end_inset 
+
+ since formula 
+\begin_inset LatexCommand \ref{power4lagrangeextra}
+
+\end_inset 
+
+ can be derived by finding the quartic polynomial 
+\begin_inset Formula $p_{J,k}$
+\end_inset 
+
+ satisfying 
+\begin_inset Formula $p_{J,k}\left(x_{j,l}\right)=y_{J,l}$
+\end_inset 
+
+ for 
+\begin_inset Formula $l=k-2,...,k+2$
+\end_inset 
+
+ and setting 
+\begin_inset Formula $\gamma _{J,k}=p_{J,k}\left(x_{J,k+4}\right)$
+\end_inset 
+
+.
+ Hence, by formula 
+\begin_inset LatexCommand \ref{105sur16}
+
+\end_inset 
+
+, we have the following lemma.
+\layout Lemma
+
+Algorithm 
+\begin_inset LatexCommand \ref{5pointalgo}
+
+\end_inset 
+
+ describes a 
+\begin_inset Formula $5-$
+\end_inset 
+
+point dyadic subdivision scheme such that with 
+\begin_inset Formula $y_{j-1,k}=p_{4}\left(x_{j-1,k}\right)$
+\end_inset 
+
+ where 
+\begin_inset Formula $p_{4}(x)=a_{4}x^{4}+a_{3}x^{3}+a_{2}x^{2}+a_{1}x+a_{0}$
+\end_inset 
+
+ is a quartic polynomial, 
+\begin_inset Formula $y_{j,2k+1}=p_{4}\left(x_{j,2k+1}\right)-\frac{105a_{4}}{16\times 2^{4j}}$
+\end_inset 
+
+ and 
+\begin_inset Formula $y_{j,2k}=p_{4}\left(x_{j,2k}\right)$
+\end_inset 
+
+ for all 
+\begin_inset Formula $k\in \Z $
+\end_inset 
+
+.
+\layout Standard
+
+Then , because we have a proper initialization scheme, we can reproduce
+ quartic polynomials as the next proposition states.
+\layout Proposition
+
+
+\begin_inset LatexCommand \label{prop4}
+
+\end_inset 
+
+For any given 
+\begin_inset Formula $j$
+\end_inset 
+
+ and 
+\begin_inset Formula $y_{j-1,k}=p_{4}\left(x_{j-1,k}\right)$
+\end_inset 
+
+ where 
+\begin_inset Formula $p_{4}$
+\end_inset 
+
+ is a quartic polynomial, algorithm 
+\begin_inset LatexCommand \ref{5pointalgo}
+
+\end_inset 
+
+ followed by algorithm 
+\begin_inset LatexCommand \ref{4pointhrssalgo}
+
+\end_inset 
+
+ with 
+\begin_inset Formula $\alpha =-3/32$
+\end_inset 
+
+ for the following steps guarantees that 
+\begin_inset Formula $y_{j',2k}=p_{4}\left(x_{j',2k}\right)$
+\end_inset 
+
+ for 
+\begin_inset Formula $\forall k\in \Z $
+\end_inset 
+
+ and all 
+\begin_inset Formula $j'\geq j-1$
+\end_inset 
+
+.
+ In other words, the 
+\begin_inset Formula $4-$
+\end_inset 
+
+point HRS algorithm reproduces quartic polynomials when 
+\begin_inset Formula $\alpha =-3/32$
+\end_inset 
+
+.
+\layout Standard
+
+This result is significant because it is not possible for 
+\begin_inset Formula $4-$
+\end_inset 
+
+point subdivision schemes to reproduce quartic polynomials.
+ Even if we include non-interpolatory subdivision schemes, for a given 
+\begin_inset Formula $k\in \Z $
+\end_inset 
+
+, 
+\begin_inset Formula $y_{j+1,2k+1}$
+\end_inset 
+
+ cannot be computed solely from the neighboring values 
+\begin_inset Formula $y_{j,k-1}$
+\end_inset 
+
+, 
+\begin_inset Formula $y_{j,k}$
+\end_inset 
+
+,
+\begin_inset Formula $y_{j,k+1}$
+\end_inset 
+
+, and 
+\begin_inset Formula $y_{j,k+1}$
+\end_inset 
+
+ while reproducing quartic polynomials.
+ Indeed, let 
+\begin_inset Formula $P_{4}(x)=x(x-1)(x-2)(x-3)$
+\end_inset 
+
+ and consider 
+\begin_inset Formula $y_{0,k}=P_{4}(k)$
+\end_inset 
+
+.
+ All 
+\begin_inset Formula $4-$
+\end_inset 
+
+point subdivision schemes interpolate 
+\begin_inset Formula $y_{1,3}=0\neq P_{4}\left(\frac{3}{2}\right)=\frac{9}{16}$
+\end_inset 
+
+.
+ Thus, we see that only subdivision schemes using 
+\begin_inset Formula $5$
+\end_inset 
+
+ points can interpolate quartic polynomials.
+ Starting with 
+\begin_inset Formula $y_{0,k}=\delta _{k,0}\, \forall k\in \Z $
+\end_inset 
+
+, in the best possible case, a 
+\begin_inset Formula $5-$
+\end_inset 
+
+point subdivision scheme gives an interpolation function having a support
+ of size 
+\begin_inset Formula $8$
+\end_inset 
+
+.
+ For example, consider schemes of the form 
+\begin_inset Formula $y_{j+1,l}=\sum _{k=-2}^{2}\tau _{2k-l}y_{j,k}$
+\end_inset 
+
+ with 
+\begin_inset Formula $\tau _{-5}=\frac{3}{128},$
+\end_inset 
+
+
+\begin_inset Formula $\tau _{-3}=\frac{-5}{32},$
+\end_inset 
+
+
+\begin_inset Formula $\tau _{-1}=\frac{45}{64}$
+\end_inset 
+
+,
+\begin_inset Formula $\tau _{1}=\frac{15}{32}$
+\end_inset 
+
+,
+\begin_inset Formula $\tau _{3}=\frac{-5}{128}$
+\end_inset 
+
+ and 
+\begin_inset Formula $\tau _{0}=1$
+\end_inset 
+
+, 
+\begin_inset Formula $\tau _{k}=0$
+\end_inset 
+
+ otherwise which has support 
+\begin_inset Formula $[-3,5]$
+\end_inset 
+
+.
+ On the other hand, applying the HRS scheme described by proposition 
+\begin_inset LatexCommand \ref{prop4}
+
+\end_inset 
+
+ with the same initial data (
+\begin_inset Formula $y_{0,k}=\delta _{k,0}\, \forall k\in \Z $
+\end_inset 
+
+) leads to an interpolation function having a compact support 
+\begin_inset Formula $[-3,4]$
+\end_inset 
+
+of size 
+\begin_inset Formula $7$
+\end_inset 
+
+ taking into account the 
+\begin_inset Formula $5-$
+\end_inset 
+
+point initialization scheme.
+ Therefore, we have a new quartic interpolation scheme more local than 
+\begin_inset Formula $5-$
+\end_inset 
+
+point quartic dyadic subdivision schemes.
+ Such good local properties are possible because in the presented HRS scheme,
+ the placeholders are only used to predict upcoming interpolations except
+ maybe during the initialization.
+\layout Subsection
+
+Sufficient conditions for regularity
+\layout Standard
+
+Given that for 
+\begin_inset Formula $\alpha =0$
+\end_inset 
+
+, the presented HRS scheme is equivalent to the Deslauriers-Dubuc subdivision
+ which is 
+\begin_inset Formula $C^{1}$
+\end_inset 
+
+, it is reasonable to expect HRS schemes to be 
+\begin_inset Formula $C^{1}$
+\end_inset 
+
+ for some range of 
+\begin_inset Formula $\alpha $
+\end_inset 
+
+ values.
+ Moreover, motivated by proposition 
+\begin_inset LatexCommand \ref{prop4}
+
+\end_inset 
+
+, we need to show that this range of values include 
+\begin_inset Formula $\alpha =-3/32$
+\end_inset 
+
+.
+ At this point, it is convenient to rewrite formula 
+\begin_inset LatexCommand \ref{N2highres}
+
+\end_inset 
+
+ in terms of (trigonometric) polynomials.
+ Given some data 
+\begin_inset Formula $y_{j,k}$
+\end_inset 
+
+, define 
+\begin_inset Formula $P^{j}(z)=\sum _{k\in \Z }y_{j,k}z^{k}$
+\end_inset 
+
+.
+ If 
+\begin_inset Formula $P_{2}(z)=\sum _{k\in \Z }\gamma _{k}^{DD2}z^{k}$
+\end_inset 
+
+, then the equation of the 
+\begin_inset Formula $4-$
+\end_inset 
+
+point dyadic Deslauriers-Dubuc scheme (equation 
+\begin_inset LatexCommand \ref{DD2_2}
+
+\end_inset 
+
+), can be rewritten 
+\begin_inset Formula $P^{j+1}(z)=P_{2}(z)P^{j}(z^{2})$
+\end_inset 
+
+.
+ Similarly, if 
+\begin_inset Formula $P_{4}(z)=\sum _{k\in \Z }\gamma _{k}^{DD4}z^{k}$
+\end_inset 
+
+, then the tetradic subdivision scheme is given by 
+\begin_inset Formula $P^{j+1}(z)=P_{4}(z)P^{j}(z^{2})$
+\end_inset 
+
+.
+ We can rewrite the general equation for HRS schemes as 
+\begin_inset Formula \[
+P^{j+1}(z)=\sum _{i=1}^{M}\Phi _{i}(z)P^{j}\left(e^{2\pi i/b}z^{b}\right).\]
+
+\end_inset 
+
+where 
+\begin_inset Formula $\Gamma _{i}$
+\end_inset 
+
+ must be Laurent polynomials and similarly for dyadic schemes (
+\begin_inset Formula $b=2$
+\end_inset 
+
+), 
+\begin_inset Formula \[
+P^{j+1}(z)=\Phi _{1}(z)P^{j}\left(z^{2}\right)+\Phi _{2}(z)P^{j}\left(-z^{2}\right).\]
+
+\end_inset 
+
+ The equation of symbols for the 
+\begin_inset Formula $4-$
+\end_inset 
+
+point HRS scheme is (see equation 
+\begin_inset LatexCommand \ref{N2highres}
+
+\end_inset 
+
+ and algorithm 
+\begin_inset LatexCommand \ref{4pointhrssalgo}
+
+\end_inset 
+
+)
+\begin_inset Formula \begin{eqnarray}
+P^{j+1}(z) & = & \left\{ P_{4}\left(z\right)-\alpha P_{2}\left(z^{2}\right)+\alpha \right\} \left(\frac{P^{j}\left(z^{2}\right)+P^{j}\left(-z^{2}\right)}{2}\right)+\alpha \left(\frac{P^{j}\left(z^{2}\right)-P^{j}\left(-z^{2}\right)}{2}\right)\nonumber \\
+ & = & \left\{ \frac{P_{4}\left(z\right)-\alpha P_{2}\left(z^{2}\right)}{2}+\alpha \right\} P^{j}\left(z^{2}\right)+\frac{P_{4}\left(z\right)-\alpha P_{2}\left(z^{2}\right)}{2}P^{j}\left(-z^{2}\right)\nonumber \\
+ & = & \Gamma _{1}(z)P^{j}\left(z^{2}\right)+\Gamma _{2}(z)P^{j}\left(-z^{2}\right).\label{gammas}
+\end{eqnarray}
+
+\end_inset 
+
+Because 
+\begin_inset Formula $\gamma _{2k}^{DD4}=\gamma _{k}^{DD2}\, \forall k\in \Z $
+\end_inset 
+
+, 
+\begin_inset Formula $P_{2}$
+\end_inset 
+
+ is not needed and everything can be written in terms of 
+\begin_inset Formula $P_{4}$
+\end_inset 
+
+, indeed, 
+\begin_inset Formula \[
+P_{4}\left(z\right)-\alpha P_{2}\left(z^{2}\right)=\frac{P_{4}\left(z\right)-P_{4}\left(-z\right)}{2}+(1-\alpha )\frac{P_{4}\left(z\right)+P_{4}\left(-z\right)}{2}\]
+
+\end_inset 
+
+and thus, the symbols 
+\begin_inset Formula $\Gamma _{1}$
+\end_inset 
+
+and 
+\begin_inset Formula $\Gamma _{2}$
+\end_inset 
+
+ can be written 
+\begin_inset Formula \begin{eqnarray*}
+\Gamma _{1}(z) & = & \Gamma _{2}(z)+\alpha \\
+\Gamma _{2}(z) & = & \frac{P_{4}\left(z\right)-P_{4}\left(-z\right)}{4}+(1-\alpha )\frac{P_{4}\left(z\right)+P_{4}\left(-z\right)}{4}.
+\end{eqnarray*}
+
+\end_inset 
+
+When 
+\begin_inset Formula $\alpha =0$
+\end_inset 
+
+ (Deslauriers-Dubuc case), 
+\begin_inset Formula $\Gamma _{1}(z)=\Gamma _{2}(z)=\frac{P_{4}\left(z\right)}{2}$
+\end_inset 
+
+ and equation 
+\begin_inset LatexCommand \ref{N2highres}
+
+\end_inset 
+
+ becomes
+\begin_inset Formula \[
+P^{j+1}(z)=P_{4}\left(z\right)\left(\frac{P^{j}\left(z^{2}\right)+P^{j}\left(-z^{2}\right)}{2}\right).\]
+
+\end_inset 
+
+Averaging 
+\begin_inset Formula $P^{j+1}(z)$
+\end_inset 
+
+ and 
+\begin_inset Formula $P^{j+1}(-z)$
+\end_inset 
+
+ 
+\begin_inset Formula \begin{eqnarray*}
+\frac{P^{j+1}(z)+P^{j+1}(-z)}{2} & = & \left(\frac{P_{4}\left(z\right)-P_{4}\left(-z\right)}{2}\right)\left(\frac{P^{j}\left(z^{2}\right)+P^{j}\left(-z^{2}\right)}{2}\right)\\
+ & = & P_{2}\left(z^{2}\right)\left(\frac{P^{j}\left(z^{2}\right)+P^{j}\left(-z^{2}\right)}{2}\right).
+\end{eqnarray*}
+
+\end_inset 
+
+we rediscover that when 
+\begin_inset Formula $\alpha =0$
+\end_inset 
+
+ the HRS scheme becomes the dyadic Deslauriers-Dubuc scheme (proposition
+ 
+\begin_inset LatexCommand \ref{propDesDuequiv}
+
+\end_inset 
+
+).
+\layout Standard
+
+Following Dyn 
+\begin_inset LatexCommand \cite{Dyn}
+
+\end_inset 
+
+, we want to find corresponding schemes for the (forward) finite differences.
+ Let 
+\begin_inset Formula $dx_{j}=1/2^{j}$
+\end_inset 
+
+ and write 
+\begin_inset Formula \[
+D_{j,k}=\frac{dy_{j,k}}{dx_{j}}=2^{j}\left(y_{j,k+1}-y_{j,k}\right),\]
+
+\end_inset 
+
+and define higher order finite differences recursively 
+\begin_inset Formula \[
+D_{j,k}^{n}=d^{(n)}y_{j,k}/\left(dx_{j}\right)^{n}=d\left(d^{(n-1)}y_{j,k}\right)/\left(dx_{j}\right)^{n}=2^{jn}\times d^{(n)}y_{j,k}.\]
+
+\end_inset 
+
+ Note that 
+\begin_inset Formula $D_{j,k}=D_{j,k}^{1}$
+\end_inset 
+
+.
+ Let 
+\begin_inset Formula $H_{1}^{j}$
+\end_inset 
+
+ be the symbol for 
+\begin_inset Formula $dy_{j,k}/dx_{j}$
+\end_inset 
+
+, then 
+\begin_inset Formula \begin{eqnarray*}
+H_{1}^{j}(z) & = & \sum _{k\in \Z }2^{j}\left(y_{j,k+1}-y_{j,k}\right)z^{k}\\
+ & = & \sum _{k\in \Z }2^{j}y_{j,k}z^{k-1}-\sum _{k\in \Z }2^{j}y_{j,k}z^{k}\\
+ & = & 2^{j}(1/z-1)P^{j}(z)=2^{j}(1-z)P^{j}(z)/z,
+\end{eqnarray*}
+
+\end_inset 
+
+ and thus 
+\begin_inset Formula $P^{j}\left(z^{2}\right)=z^{2}2^{j}H_{1}^{j}\left(z^{2}\right)/(1-z^{2})$
+\end_inset 
+
+, 
+\begin_inset Formula $P^{j}\left(-z^{2}\right)=-z^{2}2^{j}H_{1}^{j}\left(-z^{2}\right)/(1+z^{2})$
+\end_inset 
+
+, and 
+\begin_inset Formula $P^{j+1}(z)=z2^{j+1}H_{1}^{j+1}(z)/(1-z)$
+\end_inset 
+
+.
+ Substituting these three equations into 
+\begin_inset Formula $P^{j+1}(z)=\Gamma _{1}(z)P^{j}\left(z^{2}\right)+\Gamma _{2}(z)P^{j}\left(-z^{2}\right)$
+\end_inset 
+
+ (equation 
+\begin_inset LatexCommand \ref{gammas}
+
+\end_inset 
+
+) gives
+\begin_inset Formula \begin{equation}
+H_{1}^{j+1}(z)=\frac{2z(1-z)}{(1-z^{2})}\Gamma _{1}(z)H_{1}^{j}\left(z^{2}\right)-\frac{2z(1-z)}{(1+z^{2})}\Gamma _{2}(z)H_{1}^{j}\left(-z^{2}\right).\label{notsogen}\end{equation}
+
+\end_inset 
+
+ Similarly, the higher order finite differences are given by
+\begin_inset Formula \[
+H_{n}^{j}(z)=\frac{2(1-z)}{z}H_{n-1}^{j}(z)=\left(\frac{2(1-z)}{z}\right)^{n}P^{j}(z)\]
+
+\end_inset 
+
+where 
+\begin_inset Formula $H_{0}(z)=P(z)$
+\end_inset 
+
+ and they can be computed by (see derivation of equation 
+\begin_inset LatexCommand \ref{notsogen}
+
+\end_inset 
+
+ above) 
+\begin_inset Formula \begin{equation}
+H_{n}^{j+1}(z)=\left(\frac{2z}{1+z}\right)^{n}\Gamma _{1}(z)H_{n}^{j}\left(z^{2}\right)+\left(\frac{-2z(1-z)}{1+z^{2}}\right)^{n}\Gamma _{2}(z)H_{n}^{j}\left(-z^{2}\right).\label{genh}\end{equation}
+
+\end_inset 
+
+
+\begin_inset Formula $H_{n}$
+\end_inset 
+
+ is said to be the symbol of a HRS scheme if 
+\begin_inset Formula $\Gamma _{1}(z)/(1+z)$
+\end_inset 
+
+ and 
+\begin_inset Formula $\Gamma _{2}(z)/(1+z^{2})$
+\end_inset 
+
+ are Laurent polynomials.
+ 
+\begin_inset Formula $\Gamma _{1}(z)/(1+z)^{n}$
+\end_inset 
+
+ and 
+\begin_inset Formula $\Gamma _{2}(z)/(1+z^{2})^{n}$
+\end_inset 
+
+ are Laurent polynomial for 
+\begin_inset Formula $\textrm{n}=1,2,3,4$
+\end_inset 
+
+ because
+\begin_inset Formula \[
+P_{4}(z)=\frac{-\left(1+z\right)^{4}\left(1+z^{2}\right)^{4}\left(5z^{2}-12z+5\right)}{128z^{7}}.\]
+
+\end_inset 
+
+ Therefore, 
+\begin_inset Formula $H_{n}$
+\end_inset 
+
+ is the symbol of a HRS scheme if 
+\begin_inset Formula $n=1,2,3,4$
+\end_inset 
+
+.
+ 
+\layout Lemma
+
+For HRS schemes given by algorithm 
+\begin_inset LatexCommand \ref{4pointhrssalgo}
+
+\end_inset 
+
+, the finite differences of order 
+\begin_inset Formula $1,2,3,$
+\end_inset 
+
+ and 
+\begin_inset Formula $4$
+\end_inset 
+
+, that is 
+\begin_inset Formula $d^{(n)}y_{j,k}$
+\end_inset 
+
+ with 
+\begin_inset Formula $n=1,2,3,$
+\end_inset 
+
+ and 4, are given by a corresponding HRS scheme.
+\layout Standard
+
+We can define 
+\begin_inset Formula $dH_{n}^{j}$
+\end_inset 
+
+ as the symbol of 
+\begin_inset Formula \[
+dD_{j,k}^{n-1}=d\left(\frac{d^{(n-1)}y_{j,k}}{\left(dx_{j}\right)^{n-1}}\right)=\frac{d^{n}y_{j,k}}{\left(dx_{j}\right)^{n-1}}=\frac{D_{j,k}^{n}}{2^{j}}\]
+
+\end_inset 
+
+ or 
+\begin_inset Formula $dH_{n}^{j}(z)=H_{n+1}^{j}(z)/2^{j}$
+\end_inset 
+
+ and thus 
+\begin_inset Formula \begin{equation}
+dH_{n-1}^{j}(z)=\frac{(1-z)}{z}H_{n-1}^{j}(z)=\frac{2^{j(n-1)}(1-z)^{n}}{z^{n}}P^{j}(z).\label{dHdef}\end{equation}
+
+\end_inset 
+
+Replacing 
+\begin_inset Formula $H_{n-1}$
+\end_inset 
+
+ by 
+\begin_inset Formula $dH_{n-1}$
+\end_inset 
+
+ in equation 
+\begin_inset LatexCommand \ref{genh}
+
+\end_inset 
+
+, we find
+\begin_inset Formula \begin{equation}
+dH_{n-1}^{j+1}(z)=\frac{1}{2}\left\{ \left(\frac{2z}{1+z}\right)^{n}\Gamma _{1}(z)dH_{n-1}^{j}\left(z^{2}\right)+\left(\frac{-2z(1-z)}{1+z^{2}}\right)^{n}\Gamma _{2}(z)dH_{n-1}^{j}\left(-z^{2}\right)\right\} .\label{dH}\end{equation}
+
+\end_inset 
+
+And because 
+\begin_inset Formula $dH_{n}^{j}(z)=H_{n+1}^{j}(z)/2^{j}$
+\end_inset 
+
+, 
+\begin_inset Formula $dH_{n-1}$
+\end_inset 
+
+ is the symbol of a HRS scheme for 
+\begin_inset Formula $n=1,2,3,4$
+\end_inset 
+
+.
+ 
+\layout Standard
+
+Using results from Dyn 
+\begin_inset LatexCommand \cite{Dyn}
+
+\end_inset 
+
+, we have the following theorem.
+\layout Theorem
+
+
+\begin_inset LatexCommand \label{DynTheorem}
+
+\end_inset 
+
+(Dyn) Given trigonometric polynomials 
+\begin_inset Formula $\Gamma _{1}(z)$
+\end_inset 
+
+ and 
+\begin_inset Formula $\Gamma _{2}(z)$
+\end_inset 
+
+, the HRS scheme defined by 
+\begin_inset Formula \[
+P^{j+1}(z)=\Gamma _{1}(z)P^{j}\left(z^{2}\right)+\Gamma _{2}(z)P^{j}\left(-z^{2}\right)\]
+
+\end_inset 
+
+ is 
+\begin_inset Formula $C^{n}$
+\end_inset 
+
+ if the symbol corresponding to finite differences of order 
+\begin_inset Formula $n+1$
+\end_inset 
+
+
+\begin_inset Formula \[
+dH_{n}^{j}(z)=\frac{2^{jn}(1-z)^{n+1}}{z^{n+1}}P^{j}(z)\]
+
+\end_inset 
+
+ is the symbol of a HRS scheme converging uniformly to zero for all bounded
+ initial data.
+\layout Proof
+
+See the proof of theorem 3.4 
+\begin_inset LatexCommand \cite{Dyn}
+
+\end_inset 
+
+ or section 4.2 of 
+\begin_inset LatexCommand \cite{DynLevin}
+
+\end_inset 
+
+ as it applies to HRS schemes.
+ The key point being that for an iterative interpolation scheme (even a
+ nonstationary one) to be 
+\begin_inset Formula $C^{n}$
+\end_inset 
+
+, it is sufficient for the finite differences (
+\begin_inset Formula $d^{n+1}y_{j,k}/\left(dx_{j}\right)^{n}$
+\end_inset 
+
+) to converge uniformly to zero.
+ 
+\layout Standard
+
+In general, given 
+\begin_inset Formula $y_{j+1,l}=\sum _{k\in \Z }\gamma _{2k-l}y_{j,k}$
+\end_inset 
+
+, a sufficient condition for 
+\begin_inset Formula $y_{j,k}\rightarrow 0$
+\end_inset 
+
+ uniformly as 
+\begin_inset Formula $j\rightarrow \infty $
+\end_inset 
+
+ is that 
+\begin_inset Formula $\lambda =\max _{l=0,1}\left\{ \sum _{k\in \Z }\left|\gamma _{2k-l}\right|\right\} <1$
+\end_inset 
+
+, indeed, if 
+\begin_inset Formula $M_{j}=\sup \left\{ \left|y_{j,k}\right|:k\in \Z \right\} $
+\end_inset 
+
+ then 
+\begin_inset Formula $M_{j+1}\leq \max _{l=0,1}\left\{ \sum _{k\in \Z }\left|\gamma _{2k-l}\right|\right\} M_{j}$
+\end_inset 
+
+ because 
+\begin_inset Formula $y_{j+1,2l}=\sum _{k\in \Z }\gamma _{2k-2l}y_{j,k}$
+\end_inset 
+
+ and 
+\begin_inset Formula $y_{j+1,2l+1}=\sum _{k\in \Z }\gamma _{2k-2l-1}y_{j,k}$
+\end_inset 
+
+.
+ For a HRS scheme given by 
+\begin_inset Formula $y_{j+1,l}=\sum _{k\in \Z }\gamma _{4k-l}^{(1)}y_{j,2k}+\gamma _{4k+1-l}^{(2)}y_{j,2k+1}$
+\end_inset 
+
+, we proceed in the same manner.
+ Firstly 
+\begin_inset Formula $y_{j+1,2l}=\sum _{k\in \Z }\gamma _{4k-2l}^{(1)}y_{j,2k}+\gamma _{4k+1-2l}^{(2)}y_{j,2k+1}$
+\end_inset 
+
+ and secondly 
+\begin_inset Formula $y_{j+1,2l+1}=\sum _{k\in \Z }\gamma _{4k-2l-1}^{(1)}y_{j,2k}+\gamma _{4k-2l}^{(2)}y_{j,2k+1}$
+\end_inset 
+
+.
+ Thus if 
+\begin_inset Formula $\lambda _{HR}=\max _{l=0,1}\left\{ \sum _{k\in \Z }\left|\gamma _{2k-l}^{(1)}\right|+\left|\gamma _{2k+1-l}^{(2)}\right|\right\} $
+\end_inset 
+
+ then 
+\begin_inset Formula $M_{j+1}\leq \lambda M_{j}$
+\end_inset 
+
+.
+ Given a symbol 
+\begin_inset Formula $Q(z)=\sum _{k}q_{k}z^{k}$
+\end_inset 
+
+, define 
+\begin_inset Formula $\left\Vert Q(z)\right\Vert _{sup}=\sup _{k}\left\{ \left|q_{k}\right|\right\} $
+\end_inset 
+
+ and 
+\begin_inset Formula $\left\Vert Q(z)\right\Vert _{\sum }=\max \left\{ \sum _{k}\left|q_{k}\right|\right\} $
+\end_inset 
+
+.
+ With 
+\begin_inset Formula $P^{j+1}(z)=\Phi _{1}(z)P^{j}\left(z^{2}\right)+\Phi _{2}(z)P^{j}\left(-z^{2}\right),$
+\end_inset 
+
+ 
+\begin_inset Formula $\lambda _{HR}$
+\end_inset 
+
+ is given by 
+\begin_inset Formula \begin{eqnarray}
+\lambda _{HR} & = & \max \left\{ \lambda _{1},\lambda _{2}\right\} \\
+ & = & \max \left\{ \left\Vert \frac{\Phi _{1}(z)+\Phi _{1}(-z)+\Phi _{2}(z)-\Phi _{2}(-z)}{2}\right\Vert _{\sum },\left\Vert \frac{\Phi _{1}(z)-\Phi _{1}(-z)+\Phi _{2}(z)+\Phi _{2}(-z)}{2}\right\Vert _{\sum }\right\} \label{lemmaenough}
+\end{eqnarray}
+
+\end_inset 
+
+and 
+\begin_inset Formula $\left\Vert P^{j+1}(z)\right\Vert _{sup}\leq \lambda _{HR}\left\Vert P^{j}(z)\right\Vert _{sup}$
+\end_inset 
+
+.
+\layout Lemma
+
+
+\begin_inset LatexCommand \label{enoughlemma}
+
+\end_inset 
+
+A HRS scheme given by the symbol equation 
+\begin_inset Formula $P^{j+1}(z)=\Phi _{1}(z)P^{j}\left(z^{2}\right)+\Phi _{2}(z)P^{j}\left(-z^{2}\right)$
+\end_inset 
+
+ converges uniformly to zero for all bounded initial values if 
+\begin_inset Formula $\lambda _{HR}<1$
+\end_inset 
+
+ where 
+\begin_inset Formula $\lambda _{HR}$
+\end_inset 
+
+ is as in equation 
+\begin_inset LatexCommand \ref{lemmaenough}
+
+\end_inset 
+
+.
+\layout Standard
+
+We are now ready to prove the following theorem.
+\layout Theorem
+
+
+\begin_inset LatexCommand \label{maintheorem}
+
+\end_inset 
+
+For 
+\begin_inset Formula $-25/56<\alpha <15/32$
+\end_inset 
+
+, the HRS schemes given by equation 
+\begin_inset LatexCommand \ref{gammas}
+
+\end_inset 
+
+ (algorithm 
+\begin_inset LatexCommand \ref{4pointhrssalgo}
+
+\end_inset 
+
+) are 
+\begin_inset Formula $C^{1}$
+\end_inset 
+
+.
+\layout Proof
+
+The symbol of the HRS scheme 
+\begin_inset Formula $dD_{j,k}=dD_{j,k}^{1}$
+\end_inset 
+
+, 
+\begin_inset Formula $dH_{1}$
+\end_inset 
+
+ is given by (see equation 
+\begin_inset LatexCommand \ref{dH}
+
+\end_inset 
+
+) 
+\begin_inset Formula \[
+dH_{1}^{j+1}(z)=2\left(\frac{z}{1+z}\right)^{2}\Gamma _{1}(z)dH_{1}^{j}\left(z^{2}\right)+2\left(\frac{-z(1-z)}{1+z^{2}}\right)^{2}\Gamma _{2}(z)dH_{1}^{j}\left(-z^{2}\right)\]
+
+\end_inset 
+
+By theorem 
+\begin_inset LatexCommand \ref{DynTheorem}
+
+\end_inset 
+
+, it is enough to show that 
+\begin_inset Formula $dD_{j,k}$
+\end_inset 
+
+ converges uniformly to zero for all bounded initial data.
+ However, using lemma 
+\begin_inset LatexCommand \ref{enoughlemma}
+
+\end_inset 
+
+, we know that it is sufficient to prove that 
+\begin_inset Formula $\lambda _{HR}<1$
+\end_inset 
+
+ with 
+\begin_inset Formula $\Phi _{1}(z)=2z^{2}\Gamma _{1}(z)/\left(1+z\right)^{2}$
+\end_inset 
+
+ and 
+\begin_inset Formula $\Phi _{2}(z)=2z^{2}(1-z)^{2}\Gamma _{2}(z)/\left(1+z^{2}\right)^{2}$
+\end_inset 
+
+.
+ We have
+\begin_inset Formula \begin{eqnarray*}
+\lambda _{1} & = & \frac{5+2\left|4\alpha +1\right|+2\left|7-8\alpha \right|+2\left|5+12\alpha \right|+\left|32\alpha +5\right|+\left|5-8\alpha \right|+\left|24\alpha -7\right|}{64}\\
+\lambda _{2} & = & \frac{5+2\left|4\alpha +1\right|+2\left|3+8\alpha \right|+2\left|1-4\alpha \right|+\left|21-32\alpha \right|+\left|1+8\alpha \right|+\left|24\alpha +11\right|}{64}.
+\end{eqnarray*}
+
+\end_inset 
+
+Hence, for 
+\begin_inset Formula $-25/56<\alpha <15/32$
+\end_inset 
+
+, we have 
+\begin_inset Formula $\lambda _{1}<1$
+\end_inset 
+
+, whereas for 
+\begin_inset Formula $-7/12<\alpha <5/8$
+\end_inset 
+
+, 
+\begin_inset Formula $\lambda _{2}<1$
+\end_inset 
+
+.
+ Therefore, we have that 
+\begin_inset Formula $\lambda _{HR}=\max \left\{ \lambda _{1},\lambda _{2}\right\} <1$
+\end_inset 
+
+ for 
+\begin_inset Formula $-25/56<\alpha <15/32$
+\end_inset 
+
+ or 
+\begin_inset Formula $-\sim 0.45<\alpha <\sim 0.47$
+\end_inset 
+
+ (see Fig.
+ 
+\begin_inset LatexCommand \ref{FigLambdas}
+
+\end_inset 
+
+).
+ 
+\layout Standard
+
+Theorem 
+\begin_inset LatexCommand \ref{maintheorem}
+
+\end_inset 
+
+ is illustrated by Fig.
+ 
+\begin_inset LatexCommand \ref{Figdifffund}
+
+\end_inset 
+
+ where the derivatives of three interpolants are given for 
+\begin_inset Formula $\alpha =-0.2,\, 0,\, 0.15$
+\end_inset 
+
+.
+ These three examples show that there are many interpolatory 
+\begin_inset Formula $4-$
+\end_inset 
+
+point subdivision schemes having the same properties as the corresponding
+ Deslauriers-Dubuc scheme (linearity, stationarity, and homogeneity) which
+ reproduce cubic polynomials and are differentiable.
+\layout Standard
+
+
+\begin_inset Float figure
+placement htbp
+wide false
+collapsed false
+
+\layout Standard
+\align center 
+
+\begin_inset Graphics FormatVersion 1
+	filename firstderivative_fund_-0_2_0_15_0.eps
+	display color
+	size_type 1
+	height 20page%
+	scale 50
+	keepAspectRatio
+	rotateOrigin center
+	lyxsize_type 1
+	lyxwidth 297pt
+	lyxheight 207pt
+\end_inset 
+
+
+\layout Caption
+
+
+\begin_inset LatexCommand \label{Figdifffund}
+
+\end_inset 
+
+Derivatives of the fundamental functions for 
+\begin_inset Formula $\alpha =-0.2$
+\end_inset 
+
+ (continuous line), 
+\begin_inset Formula $\alpha =0$
+\end_inset 
+
+ (dash-dot line), and 
+\begin_inset Formula $\alpha =0.15$
+\end_inset 
+
+ (dashed line).
+ The fundamental functions are defined as the interpolation of 
+\begin_inset Formula $y_{0,k}=\delta _{k,0}$
+\end_inset 
+
+ by the HRS scheme initialized with the 
+\begin_inset Formula $4-$
+\end_inset 
+
+point Deslauriers-Dubuc dyadic scheme.
+ Derivatives were estimated using first-order forward finite differences
+ after 8 iterations of the HRS (discarding the placeholders at the last
+ iteration).
+ The 
+\begin_inset Formula $\alpha =0$
+\end_inset 
+
+ case is in fact the derivative of the Deslauriers-Dubuc fundamental function.
+ The plot illustrates the fact that HRS interpolants are smooth (differentiable)
+ for some values of 
+\begin_inset Formula $\alpha $
+\end_inset 
+
+.
+\end_inset 
+
+
+\layout Standard
+
+
+\begin_inset Float figure
+placement htbp
+wide false
+collapsed false
+
+\layout Standard
+\align center 
+
+\begin_inset Graphics FormatVersion 1
+	filename lambdas.eps
+	display color
+	size_type 1
+	height 30page%
+	keepAspectRatio
+	rotate
+	rotateAngle 270
+	rotateOrigin center
+	lyxsize_type 1
+	lyxwidth 297pt
+	lyxheight 208pt
+\end_inset 
+
+
+\layout Caption
+
+
+\begin_inset LatexCommand \label{FigLambdas}
+
+\end_inset 
+
+
+\begin_inset Formula $\lambda _{1}(\alpha )$
+\end_inset 
+
+ (continuous line) and 
+\begin_inset Formula $\lambda _{2}(\alpha )$
+\end_inset 
+
+ (dashed line) as in the proof of theorem 
+\begin_inset LatexCommand \ref{maintheorem}
+
+\end_inset 
+
+).
+ For a given 
+\begin_inset Formula $\alpha $
+\end_inset 
+
+, an HRS scheme is differentiable if 
+\begin_inset Formula $\lambda _{HR}(\alpha )=\max \left\{ \lambda _{1}(\alpha ),\lambda _{2}(\alpha )\right\} <1$
+\end_inset 
+
+.
+\end_inset 
+
+
+\layout Standard
+
+Given that the algorithm converges to continuous functions and is local,
+ we can easily prove that it must be 
+\begin_inset Quotes eld
+\end_inset 
+
+stable
+\begin_inset Quotes erd
+\end_inset 
+
+.
+ In general terms, an algorithm 
+\begin_inset Formula $R$
+\end_inset 
+
+ is said to be stable if for any data 
+\begin_inset Formula $z$
+\end_inset 
+
+, 
+\begin_inset Formula $|R(z+\delta z)-R(z)|\leq K|\delta z|$
+\end_inset 
+
+ 
+\begin_inset LatexCommand \cite{KuDa}
+
+\end_inset 
+
+.
+\layout Corollary
+
+For 
+\begin_inset Formula $-25/56<\alpha <15/32$
+\end_inset 
+
+, the HRS schemes (algorithm 
+\begin_inset LatexCommand \ref{4pointhrssalgo}
+
+\end_inset 
+
+) are stable, that is, given 
+\begin_inset Formula $\left|z_{j,k}-\widetilde{z}_{j,k}\right|<\delta \, \forall k\in \Z $
+\end_inset 
+
+ then 
+\begin_inset Formula $\left|z_{j+n,k}-\widetilde{z}_{j+n,k}\right|<K\delta \, \forall k\in \Z $
+\end_inset 
+
+ for all integers 
+\begin_inset Formula $n>0$
+\end_inset 
+
+ and a constant 
+\begin_inset Formula $K$
+\end_inset 
+
+ independent of 
+\begin_inset Formula $\delta $
+\end_inset 
+
+.
+\layout Proof
+
+Assume we use any 
+\begin_inset Formula $4-$
+\end_inset 
+
+point subdivision scheme as an initialization step on the initial data on
+ 
+\begin_inset Formula $z_{j,k},\widetilde{z}_{j,k}$
+\end_inset 
+
+.
+ For 
+\begin_inset Formula $-25/56<\alpha <15/32$
+\end_inset 
+
+, by theorem 
+\begin_inset LatexCommand \ref{maintheorem}
+
+\end_inset 
+
+, given the initial data 
+\begin_inset Formula $y_{j,k}=\delta _{k,0}\, \forall k\in \Z $
+\end_inset 
+
+, we get a continuous (
+\begin_inset Formula $C^{1}$
+\end_inset 
+
+) interpolation function 
+\begin_inset Formula $F(x)$
+\end_inset 
+
+.
+ Let 
+\begin_inset Formula $M=\left\Vert F\right\Vert _{L^{\infty }}$
+\end_inset 
+
+, assume 
+\begin_inset Formula $\left|z_{j,k}-\widetilde{z}_{j,k}\right|<\delta \, \forall k\in \Z $
+\end_inset 
+
+, by linearity, the interpolation function of 
+\begin_inset Formula $z_{j,k}-\widetilde{z}_{j,k}$
+\end_inset 
+
+ is given by 
+\begin_inset Formula $f(x)=\sum _{k=-\infty }^{\infty }\left(z_{j,k}-\widetilde{z}_{j,k}\right)F_{j}\left(x-x_{j,k}\right)$
+\end_inset 
+
+ but since 
+\begin_inset Formula $F$
+\end_inset 
+
+ has compact support 
+\begin_inset Formula $[x_{j,-3},x_{j,3}]$
+\end_inset 
+
+ then 
+\begin_inset Formula $\left\Vert f\right\Vert _{L^{\infty }}\leq 6M\delta $
+\end_inset 
+
+.
+ It means that the values of the stable nodes are bounded by 
+\begin_inset Formula $-6M\delta $
+\end_inset 
+
+ and 
+\begin_inset Formula $6M\delta $
+\end_inset 
+
+.
+ The placeholders must also be bounded by 
+\begin_inset Formula $6M\delta \sum _{k\in \Z }\left|\gamma _{4k-1}^{DD4}\right|$
+\end_inset 
+
+(see equation 
+\begin_inset LatexCommand \ref{hrswidguess}
+
+\end_inset 
+
+).
+\layout Comment
+
+The author would like to thank S.
+ Dubuc for his help in preparing the manuscript.
+\layout Comment
+
+The source code used to generate the figures is available from the author.
+\layout Bibliography
+\bibitem {Dau}
+
+
+\begin_inset Note
+collapsed true
+
+\layout Standard
+
+References A.
+ Cohen, N.
+ Dyn, B.
+ Matei, Quasilinear subdivision schemes with applications to ENO interpolation
+\end_inset 
+
+I.
+ Daubechies, Orthonormal bases of compactly supported wavelets, Comm.
+ Pure & Appl.
+ Math.
+ 41, pp.
+ 909--996, 1988.
+\layout Bibliography
+\bibitem {DeDu}
+
+G.
+ Deslauriers and S.
+ Dubuc, Symmetric iterative interpolation processes, Constr.
+ Approx., 5, pp.
+ 49-68, 1989.
+\layout Bibliography
+\bibitem {DeDuLe}
+
+G.
+ Deslauriers, S.
+ Dubuc, and D.
+ Lemire, Une famille d'ondelettes biorthogonales sur l'intervalle obtenue
+ par un schéma d'interpolation itérative, Ann.
+ Sci.
+ Math.
+ Québec 23 no.
+ 1, pp.
+ 37-48, 37-48, 1999.
+\layout Bibliography
+\bibitem {DuGe}
+
+F.
+ Dubeau and R.
+ Gervais, Procédures locale et non locale d'interpolation à l'aide de fonctions
+ splines quadratiques, Ann.
+ Sci.
+ Math.
+ Québec 23 no.
+ 1, pp.
+ 49-61, 1999.
+\layout Bibliography
+\bibitem {Du}
+
+S.
+ Dubuc, Interpolation through an iterative scheme, J.
+ Math.
+ Anal.
+ Appl., 114, pp.
+ 185-204,1986.
+\layout Bibliography
+\bibitem {DuLeMe}
+
+S.
+ Dubuc, D.
+ Lemire, J.-L.
+ Merrien, Fourier analysis of 2-point Hermite interpolatory subdivision
+ schemes, J.
+ of Fourier Anal.
+ Appl., 7 no.
+ 5, 2001.
+\layout Bibliography
+\bibitem {Dyn}
+
+N.
+ Dyn, Subdivision schemes in computer-aided geometric design, Advances in
+ numerical analysis (W.
+ Light, ed.), vol.
+ 2, Clarendon Press, pp.
+ 36-104, 1992.
+\layout Bibliography
+\bibitem {DyGrLe}
+
+N.
+ Dyn, J.A.
+ Gregory, and D.
+ Levin, A 4-point interpolatory subdivision scheme for curve design.
+ Comput.
+ Aided Geom.
+ Design, 4, pp.
+ 257-268, 1987.
+\layout Bibliography
+\bibitem {DynLevin}
+
+N.
+ Dyn, D.
+ Levin, Subdivision schemes in geometric modelling, Acta Numerica, 12, pp.
+ 1-72, 2002
+\layout Bibliography
+\bibitem {Han2001}
+
+B.
+ Han, Approximation Properties and Construction of Hermite Interpolants
+ and Biorthogonal Multiwavelets, Journal of Approximation Theory, 110 no.1,
+ pp.
+ 18-53, 2001.
+\layout Bibliography
+\bibitem {HaIvDoSa}
+
+M.F.
+ Hassan, I.P.
+ Ivrissimitzis, N.A.
+ Dodgson, and M.A.
+ Sabin, An Interpolating 
+\begin_inset Formula $4-$
+\end_inset 
+
+Point 
+\begin_inset Formula $C^{2}$
+\end_inset 
+
+ Ternary Stationary Subdivision Scheme, submitted for publication to CAGD
+ (December 18, 2001).
+\layout Bibliography
+\bibitem {HeilColella}
+
+C.
+ Heil and D.
+ Colella, Matrix refinement equations and subdivision schemes, J.
+ Fourier Anal.
+ Appl., 2, pp.
+ 363-377, 1996.
+\layout Bibliography
+\bibitem {KuDa}
+
+F.
+ Kuijt and R.
+ van Damme, Stability of subdivision schemes, Memorandum no.
+ 1469, Faculty of Applied Mathematics, University of Twente, the Netherlands.
+\layout Bibliography
+\bibitem {Me92}
+
+J.-L.
+ Merrien, A family of Hermite interpolants by bissection algorithms.
+ Numer.
+ Algorithms 2, pp.
+ 187-200, 1992.
+\layout Bibliography
+\bibitem {Me99}
+
+J.-L.
+ Merrien, Interpolants d'Hermite 
+\begin_inset Formula $C^{2}$
+\end_inset 
+
+ obtenus par subdivision.
+ M2An Math.
+ Model.
+ Numer.
+ Anal.
+ 33, pp.
+ 55-65, 1999.
+\layout Bibliography
+\bibitem {Plonka}
+
+G.
+ Plonka, Approximation order provided by refinable function vectors, Constr.
+ Approx.
+ 13, pp.
+ 221-244, 1997.
+\the_end

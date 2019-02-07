@@ -1,0 +1,243 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<HTML>
+<HEAD>
+	<META HTTP-EQUIV="CONTENT-TYPE" CONTENT="text/html; charset=iso-8859-1">
+	<TITLE></TITLE>
+	<META NAME="GENERATOR" CONTENT="StarOffice/5.2 (Win32)">
+	<META NAME="AUTHOR" CONTENT=" ">
+	<META NAME="CREATED" CONTENT="20010430;15520849">
+	<META NAME="CHANGEDBY" CONTENT=" ">
+	<META NAME="CHANGED" CONTENT="20010430;16505746">
+	<STYLE>
+	<!--
+		@page { size: 21.59cm 27.94cm; margin: 2cm }
+	-->
+	</STYLE>
+</HEAD>
+<BODY>
+<P STYLE="margin-bottom: 0cm">IFT 339: Structures de donn&eacute;es</P>
+<P STYLE="margin-bottom: 0cm">Daniel Lemire, Ph.D.</P>
+<P STYLE="margin-bottom: 0cm"><BR>
+</P>
+<P STYLE="margin-bottom: 0cm"><U><B>Exercices 0 : R&eacute;vision du
+C++ et l'enfer des pointeurs! (avec un peu de passage par r&eacute;f&eacute;rence)</B></U></P>
+<P STYLE="margin-left: 1.25cm; margin-bottom: 0cm; font-weight: medium; text-decoration: none">
+<BR>
+</P>
+<UL>
+	<LI><P STYLE="margin-bottom: 0cm; font-weight: medium; text-decoration: none">
+	Dire ce que donnera le code suivant:</P>
+</UL>
+<P STYLE="margin-left: 2.5cm; margin-bottom: 0cm; font-weight: medium; text-decoration: none">
+for (int a = 1; a &lt;= 1; a++) cout &lt;&lt; a++; cout &lt;&lt; a; 
+</P>
+<UL>
+	<LI><P STYLE="margin-bottom: 0cm; font-weight: medium; text-decoration: none">
+	Que va donner 54 % 7?</P>
+	<LI><P STYLE="margin-bottom: 0cm; font-weight: medium; text-decoration: none">
+	Que va va valoir d dans  double d = 5 / 2;</P>
+</UL>
+<UL>
+	<LI><P STYLE="margin-bottom: 0cm; font-weight: medium; text-decoration: none">
+	Qu'est-ce que va donner</P>
+</UL>
+<P STYLE="margin-left: 2.5cm; margin-bottom: 0cm; font-weight: medium; text-decoration: none">
+    void foo(int j) {</P>
+<P STYLE="margin-left: 2.5cm; margin-bottom: 0cm; font-weight: medium; text-decoration: none">
+                int x = 5 ;</P>
+<P STYLE="margin-left: 2.5cm; margin-bottom: 0cm; font-weight: medium; text-decoration: none">
+                if( j == 0 ) {</P>
+<P STYLE="margin-left: 2.5cm; margin-bottom: 0cm; font-weight: medium; text-decoration: none">
+                    int x ;</P>
+<P STYLE="margin-left: 2.5cm; margin-bottom: 0cm; font-weight: medium; text-decoration: none">
+                    x = 3 ; }</P>
+<P STYLE="margin-left: 2.5cm; margin-bottom: 0cm; font-weight: medium; text-decoration: none">
+                return x ;</P>
+<P STYLE="margin-left: 2.5cm; margin-bottom: 0cm; font-weight: medium; text-decoration: none">
+            }</P>
+<UL>
+	<LI><P STYLE="margin-bottom: 0cm; font-weight: medium; text-decoration: none">
+	Que va afficher le code suivant</P>
+</UL>
+<P STYLE="margin-left: 2.5cm; margin-bottom: 0cm; font-weight: medium; text-decoration: none">
+int n=1; if (n=0) cout &lt;&lt; &quot;n = 0&quot;; else cout &lt;&lt;
+&quot;n = &quot; &lt;&lt; n;</P>
+<UL>
+	<LI><P STYLE="margin-bottom: 0cm; font-weight: medium; text-decoration: none">
+	Que va afficher</P>
+</UL>
+<P STYLE="margin-left: 2.5cm; margin-bottom: 0cm; font-weight: medium; text-decoration: none">
+ for (int i=0; i&lt;10; i++); cout &lt;&lt; i%2 &lt;&lt; &quot; &quot;;
+} 
+</P>
+<UL>
+	<LI><P STYLE="margin-bottom: 0cm; font-weight: medium; text-decoration: none">
+	Est-ce que le code suivant est robuste? Expliquez!</P>
+</UL>
+<P STYLE="margin-left: 2.5cm; margin-bottom: 0cm; font-weight: medium; text-decoration: none">
+int number=1; 
+</P>
+<P STYLE="margin-left: 2.5cm; margin-bottom: 0cm; font-weight: medium; text-decoration: none">
+              while (true) { 
+</P>
+<P STYLE="margin-left: 2.5cm; margin-bottom: 0cm; font-weight: medium; text-decoration: none">
+                      cout &lt;&lt; number; 
+</P>
+<P STYLE="margin-left: 2.5cm; margin-bottom: 0cm; font-weight: medium; text-decoration: none">
+                      if (number == 3) break; 
+</P>
+<P STYLE="margin-left: 2.5cm; margin-bottom: 0cm; font-weight: medium; text-decoration: none">
+                      number += _value; } 
+</P>
+<UL>
+	<LI><P STYLE="margin-bottom: 0cm; font-weight: medium; text-decoration: none">
+	Qu'est-ce que va produire le code suivant...</P>
+</UL>
+<P STYLE="margin-left: 2.5cm; margin-bottom: 0cm; font-weight: medium; text-decoration: none">
+int i = 2.5; do { cout i * 2; } while (i &gt; 3 &amp;&amp; i &lt;
+10); 
+</P>
+<UL>
+	<LI><P STYLE="margin-bottom: 0cm; font-weight: medium; text-decoration: none">
+	Expliquer le code suivant...</P>
+</UL>
+<P STYLE="margin-left: 2.5cm; margin-bottom: 0cm; font-weight: medium; text-decoration: none">
+#include &lt;iostream&gt;</P>
+<P STYLE="margin-left: 2.5cm; margin-bottom: 0cm; font-weight: medium; text-decoration: none">
+        #include &lt;new&gt;</P>
+<P STYLE="margin-left: 2.5cm; margin-bottom: 0cm; font-weight: medium; text-decoration: none">
+        using namespace std ;</P>
+<P STYLE="margin-left: 2.5cm; margin-bottom: 0cm; font-weight: medium; text-decoration: none">
+<BR>
+</P>
+<P STYLE="margin-left: 2.5cm; margin-bottom: 0cm; font-weight: medium; text-decoration: none">
+        int main() {</P>
+<P STYLE="margin-left: 2.5cm; margin-bottom: 0cm; font-weight: medium; text-decoration: none">
+            int *p = new(nothrow) int ;</P>
+<P STYLE="margin-left: 2.5cm; margin-bottom: 0cm; font-weight: medium; text-decoration: none">
+            if( p!=0 ) {</P>
+<P STYLE="margin-left: 2.5cm; margin-bottom: 0cm; font-weight: medium; text-decoration: none">
+                delete p ;</P>
+<P STYLE="margin-left: 2.5cm; margin-bottom: 0cm; font-weight: medium; text-decoration: none">
+                *p = 99 ;</P>
+<P STYLE="margin-left: 2.5cm; margin-bottom: 0cm; font-weight: medium; text-decoration: none">
+                cout &lt;&lt; 12 &lt;&lt; endl ; }</P>
+<P STYLE="margin-left: 2.5cm; margin-bottom: 0cm; font-weight: medium; text-decoration: none">
+        }</P>
+<UL>
+	<LI><P STYLE="margin-bottom: 0cm; font-weight: medium; text-decoration: none">
+	Qu'est-ce qui ne va pas avec le code suivant...</P>
+</UL>
+<P STYLE="margin-left: 2.5cm; margin-bottom: 0cm; font-weight: medium; text-decoration: none">
+Matrix *strange( Matrix input ) {</P>
+<P STYLE="margin-left: 2.5cm; margin-bottom: 0cm; font-weight: medium; text-decoration: none">
+            Matrix *workMatrixP = new(nothrow) Matrix ;</P>
+<P STYLE="margin-left: 2.5cm; margin-bottom: 0cm; font-weight: medium; text-decoration: none">
+            *workMatrixP = input ;</P>
+<P STYLE="margin-left: 2.5cm; margin-bottom: 0cm; font-weight: medium; text-decoration: none">
+            for( int i = 0 ; i &lt; workMatrixP-&gt;rows() ; ++i )</P>
+<P STYLE="margin-left: 2.5cm; margin-bottom: 0cm; font-weight: medium; text-decoration: none">
+                for( int j = 0 ; j &lt; workMatrixP-&gt;cols() ; ++j
+)</P>
+<P STYLE="margin-left: 2.5cm; margin-bottom: 0cm; font-weight: medium; text-decoration: none">
+                    if( i != j )   workMatrixP-&gt;set(i,j, 0.0) ;</P>
+<P STYLE="margin-left: 2.5cm; margin-bottom: 0cm; font-weight: medium; text-decoration: none">
+            return workMatrixP ; }</P>
+<UL>
+	<LI><P STYLE="margin-bottom: 0cm; font-weight: medium; text-decoration: none">
+	Qu'est-ce qui ne va pas avec le code suivant...</P>
+</UL>
+<P STYLE="margin-left: 2.5cm; margin-bottom: 0cm; font-weight: medium; text-decoration: none">
+for( int i = 0 ; i &lt; N ; ++i ) {</P>
+<P STYLE="margin-left: 2.5cm; margin-bottom: 0cm; font-weight: medium; text-decoration: none">
+            double *p = new(nothrow) double ;</P>
+<P STYLE="margin-left: 2.5cm; margin-bottom: 0cm; font-weight: medium; text-decoration: none">
+            if( p== 0 ) { return false ; }</P>
+<P STYLE="margin-left: 2.5cm; margin-bottom: 0cm; font-weight: medium; text-decoration: none">
+            *p = A[i] ; A[i] = B[i] ; B[i] = *p ; }</P>
+<UL>
+	<LI><P STYLE="margin-bottom: 0cm; font-weight: medium; text-decoration: none">
+	Supposons que je veux copier un cha&icirc;ne de caract&egrave;res en
+	utilisant le code suivant... qu'est-ce qui ne va pas?</P>
+</UL>
+<P STYLE="margin-left: 2.5cm; margin-bottom: 0cm; font-weight: medium; text-decoration: none">
+        char *targetP ;</P>
+<P STYLE="margin-left: 2.5cm; margin-bottom: 0cm; font-weight: medium; text-decoration: none">
+        while( *sourceP ) {</P>
+<P STYLE="margin-left: 2.5cm; margin-bottom: 0cm; font-weight: medium; text-decoration: none">
+            *targetP = *sourceP ;</P>
+<P STYLE="margin-left: 2.5cm; margin-bottom: 0cm; font-weight: medium; text-decoration: none">
+            ++targetP; ++sourceP ;</P>
+<P STYLE="margin-left: 2.5cm; margin-bottom: 0cm; font-weight: medium; text-decoration: none">
+        }</P>
+<P STYLE="margin-left: 2.5cm; margin-bottom: 0cm; font-weight: medium; text-decoration: none">
+        *targetP = '\0' ;</P>
+<UL>
+	<LI><P STYLE="margin-bottom: 0cm; font-weight: medium; text-decoration: none">
+	Qu'est-ce qui ne va pas avec ce code...</P>
+</UL>
+<P STYLE="margin-left: 2.5cm; margin-bottom: 0cm; font-weight: medium; text-decoration: none">
+double *weird( double a, double b ) {</P>
+<P STYLE="margin-left: 2.5cm; margin-bottom: 0cm; font-weight: medium; text-decoration: none">
+            double c ;</P>
+<P STYLE="margin-left: 2.5cm; margin-bottom: 0cm; font-weight: medium; text-decoration: none">
+            c = pow( a*a + b*b, 0.5 ) ;</P>
+<P STYLE="margin-left: 2.5cm; margin-bottom: 0cm; font-weight: medium; text-decoration: none">
+            return &amp;c ;</P>
+<P STYLE="margin-left: 2.5cm; margin-bottom: 0cm; font-weight: medium; text-decoration: none">
+        }</P>
+<UL>
+	<LI><P STYLE="margin-bottom: 0cm; font-weight: medium; text-decoration: none">
+	Est-ce que quelque chose ne va pas avec le code suivant?</P>
+</UL>
+<P STYLE="margin-left: 2.5cm; margin-bottom: 0cm; font-weight: medium; text-decoration: none">
+int &amp;odd( int &amp;r, int i ) {</P>
+<P STYLE="margin-left: 2.5cm; margin-bottom: 0cm; font-weight: medium; text-decoration: none">
+           r = i*i ;</P>
+<P STYLE="margin-left: 2.5cm; margin-bottom: 0cm; font-weight: medium; text-decoration: none">
+           return r ; }</P>
+<UL>
+	<LI><P STYLE="margin-bottom: 0cm; font-weight: medium; text-decoration: none">
+	Que sera x dans</P>
+</UL>
+<P STYLE="margin-left: 2.5cm; margin-bottom: 0cm; font-weight: medium; text-decoration: none">
+ClassList *(x[N]) ;</P>
+<UL>
+	<LI><P STYLE="margin-bottom: 0cm; font-weight: medium; text-decoration: none">
+	Que sera x dans</P>
+</UL>
+<P STYLE="margin-left: 2.5cm; margin-bottom: 0cm; font-weight: medium; text-decoration: none">
+ClassList ( *x )[N] ;</P>
+<UL>
+	<LI><P STYLE="margin-bottom: 0cm; font-weight: medium; text-decoration: none">
+	Que sera x dans 
+	</P>
+</UL>
+<P STYLE="margin-left: 2.5cm; margin-bottom: 0cm; font-weight: medium; text-decoration: none">
+const char* w, x, y ;</P>
+<UL>
+	<LI><P STYLE="margin-bottom: 0cm; font-weight: medium; text-decoration: none">
+	Si nous avons... const int *p = x ;       int *const q = y ; alors
+	commentez chacune des affirmations suivantes...</P>
+</UL>
+<P STYLE="margin-left: 2.5cm; margin-bottom: 0cm; font-weight: medium; text-decoration: none">
+<BR>
+</P>
+<P STYLE="margin-left: 2.5cm; margin-bottom: 0cm; font-weight: medium; text-decoration: none">
+   1.*p = 10 ; 
+</P>
+<P STYLE="margin-left: 2.5cm; margin-bottom: 0cm; font-weight: medium; text-decoration: none">
+   2.*q = 10 
+</P>
+<P STYLE="margin-left: 2.5cm; margin-bottom: 0cm; font-weight: medium; text-decoration: none">
+   3.p = x; 
+</P>
+<P STYLE="margin-left: 2.5cm; margin-bottom: 0cm; font-weight: medium; text-decoration: none">
+   4.q = y ; 
+</P>
+<UL>
+	<P STYLE="margin-bottom: 0cm; font-weight: medium; text-decoration: none">
+	</P>
+</UL>
+</BODY>
+</HTML>

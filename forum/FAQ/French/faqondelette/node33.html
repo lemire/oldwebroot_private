@@ -1,0 +1,123 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with jLaTeX2HTML 2002 (1.62) JA patch-1.4
+patched version by:  Kenshi Muto, Debian Project.
+LaTeX2HTML 2002 (1.62),
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>Comment calculer la fréquence instantanée d'un signal non stationaire
+avec les ondelettes?</TITLE>
+<META NAME="description" CONTENT="Comment calculer la fréquence instantanée d'un signal non stationaire
+avec les ondelettes?">
+<META NAME="keywords" CONTENT="faqondelette">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<META NAME="Generator" CONTENT="jLaTeX2HTML v2002 JA patch-1.4">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="faqondelette.css">
+
+<LINK REL="next" HREF="node34.html">
+<LINK REL="previous" HREF="node32.html">
+<LINK REL="up" HREF="node20.html">
+<LINK REL="next" HREF="node34.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html550"
+  HREF="node34.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html546"
+  HREF="node20.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html540"
+  HREF="node32.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
+<A NAME="tex2html548"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html551"
+  HREF="node34.html">Est-ce qu'il existe des</A>
+<B> Up:</B> <A NAME="tex2html547"
+  HREF="node20.html">Un peu de théorie</A>
+<B> Previous:</B> <A NAME="tex2html541"
+  HREF="node32.html">Pourquoi la transformée de</A>
+ &nbsp <B>  <A NAME="tex2html549"
+  HREF="node1.html">Contents</A></B> 
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+
+<H2><A NAME="SECTION00041300000000000000000">
+Comment calculer la fr&#233;quence instantan&#233;e d'un signal non stationaire
+avec les ondelettes?</A>
+</H2>
+
+<P>
+La &#34;fr&#233;quence&#34; est un concept mal d&#233;fini en dehors
+de Fourier, et c'est l&#224; le v&#233;ritable probl&#232;me. Bien qu'il puisse sembler
+&#233;vident qu'&#233;tant donn&#233; un signal, il doit y avoir une fr&#233;quence associ&#233;e
+&#224; chaque instant dans le temps, ce n'est pas vrai en pratique. Pour
+s'en convaincre, il suffit de consid&#233;rer <!-- MATH
+ $f(t)=\sin t+\sin t^{2}$
+ -->
+<IMG
+ WIDTH="124" HEIGHT="35" ALIGN="MIDDLE" BORDER="0"
+ SRC="img87.png"
+ ALT="$ f(t)=\sin t+\sin t^{2}$">:
+quelle est la fr&#233;quence de cette fonction <IMG
+ WIDTH="31" HEIGHT="31" ALIGN="MIDDLE" BORDER="0"
+ SRC="img88.png"
+ ALT="$ f(t)$"> au temps <IMG
+ WIDTH="39" HEIGHT="29" ALIGN="MIDDLE" BORDER="0"
+ SRC="img89.png"
+ ALT="$ t=t_{0}$">?
+
+<P>
+La vraie solution est de rechercher une repr&#233;sentation temps-fr&#233;quence
+du signal. Cela peut-&#234;tre accompli avec le Matching Pursuit, les atomes
+de Gabor, etc. Ce ne sont plus des ondelettes cependant. Bien que
+les transformations demeurent lin&#233;aires, elles ne sont plus &#34;orthogonales&#34;...
+en d'autre termes, elles comportent beaucoup plus de calculs que Fourier
+et sont beaucoup, beaucoup plus lentes, m&#234;me si leur complexit&#233; peut
+(parfois) &#234;tre similaire.
+
+<P>
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html550"
+  HREF="node34.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html546"
+  HREF="node20.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html540"
+  HREF="node32.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
+<A NAME="tex2html548"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html551"
+  HREF="node34.html">Est-ce qu'il existe des</A>
+<B> Up:</B> <A NAME="tex2html547"
+  HREF="node20.html">Un peu de théorie</A>
+<B> Previous:</B> <A NAME="tex2html541"
+  HREF="node32.html">Pourquoi la transformée de</A>
+ &nbsp <B>  <A NAME="tex2html549"
+  HREF="node1.html">Contents</A></B> 
+<!--End of Navigation Panel-->
+<ADDRESS>
+Daniel Lemire
+2004-02-02
+</ADDRESS>
+</BODY>
+</HTML>

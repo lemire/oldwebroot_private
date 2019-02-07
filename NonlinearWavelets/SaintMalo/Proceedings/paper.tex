@@ -1,0 +1,105 @@
+%************************* MALO2 MACROS  **************************
+% FILE NAME: paper.tex
+% DATE: 4/15/99, updated 6/1/2003
+% CREATED BY: Larry Schumaker
+% EMAIL: s@mars.cas.vanderbilt.edu
+% WEB: http://www.math.vanderbilt.edu/~schumake/
+% ******************************************************************
+%
+%		For use in preparing papers for
+%
+%		     AT01 Proceedings, 2000
+%
+%		 Larry Schumaker (s@mars.cas.vanderbilt.edu)
+
+%********************  INSTRUCTIONS  **********************************
+
+%1. REPLACE xxx by correct information
+%2. INSERT body of text in the sections
+%3. INSERT references
+%4. REMOVE all lines starting with %
+%5. RENAME this file "yourname.tex"
+
+%************************ INITIALIZATION ************************
+
+%	 In TEXing your file remember that TEX will be asking for the
+%	 file at01.tex, so have it available in the
+%	 same directory as this file.
+%
+
+\count100= 1
+\count101= 3
+   %%replace 3 by the number of pages of your paper.
+\input malo2.tex
+%\input lls00.tex  %% Remove the % sign if you want advanced macros
+%\draft  \def\updated{xxxx}
+   %% Remove the % sign to get a draft version showing assigned labels
+   %% This only works if you input lls00.tex
+
+
+\title{xxx}
+  %% Replace xxx by your title.
+%\titwo{xxx}
+  %% If need two lines for title, replace xxx.
+\author{xxx}
+  %% Replace xxx by author names.
+%\autwo{xxx}
+  %% If you need two lines for authors, replace xxx.
+
+\def\shorttitle{xxx}
+  %% Replace xxx by a short title for the running head.
+\def\shortauthor{xxx}
+   %% Replace xxx by author names (initials only) for running head
+
+%   ********************** MACROS  ******************************
+
+%%  Insert your own macros here
+
+%************************* ABSTRACT **********************************
+
+\abstract {xxx.}
+  %% Replace xxx by your abstract
+
+%******************************* BODY *********************************
+
+\sect{1. xxx}
+  %% Insert text
+\sect{2. xxx}
+  %% Insert text
+  % $$ x = y. \en{}$$
+
+  % \proclaim Theorem \pn{test}. Test.
+  % \pf This is the proof. \eop
+
+\sect{3. xxx}
+  %% Insert text
+\sect{4. xxx}
+  %% Insert text
+
+%*************************** ACKNOWLEDGEMENTS ***********************
+
+%\Acknowledgments{xxx}
+  %% Replace xxx by your acknowledgement (if any)
+
+%******************************* REFERENCES *************************
+
+\References
+  %%  Insert your references here
+
+%******************************* ADDRESS *************************
+
+\Address
+xxx and xxx
+xxx
+xxx
+{\tt xxx@xxx.xxx.xxx}
+
+
+\Address
+xxx
+xxx
+xxx
+{\tt xxx@xxx.xxx.xxx}
+
+\bye
+%% END of paper.tex

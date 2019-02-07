@@ -1,0 +1,119 @@
+/*
+Copyright Daniel Lemire, Ph.D.
+www.ondelette.com/acadia/
+License: GPL
+*/
+
+.RSS {
+ font-family: arial, helvetica;
+ font-size: 0.6em;
+ font-weight: bold;
+ text-decoration: none;
+ border: 1px solid;
+ padding: 0px 2px 0px 2px;
+ margin: 0px;
+ vertical-align: top;
+ }
+
+
+.RSS, .RSS:link, .RSS:visited, .RSS:active {
+ color: #FF9966;
+ background-color: white;
+ border-color: #FF9966;
+ }
+
+
+.RSS:hover {
+ color: white;
+ background-color: #FF6600;
+ border-color: #FFC8A4 #7D3302 #3F1A01 #FF9A57;
+ }
+
+ h1 {text-align:center; font-family:Arial,Helvetica,"sans serif";color:black;
+font-size:x-large;
+font-weight:bold;
+text-transform:uppercase;
+
+}
+
+ h2 {text-align:center; font-family:Arial,Helvetica,"sans serif";color:black;
+font-size:large;
+font-weight:bold;
+
+
+}
+body{text-align:center;} 
+body> * {
+font-family:sans serif;
+font-size:11pt;
+color: black;
+text-align: justify;
+background-color: white;
+width:700px;
+margin-left : auto;
+margin-right : auto;
+}
+li {
+margin-top: 1em;
+}
+ul.TIGHT li {
+margin-top: 0em;
+}
+p,div,ul {
+text-align: left;
+font-family:Arial,Helvetica,"sans serif";
+color: black;
+background:transparent;
+/*margin-left : 64px;*/
+}
+
+form.SEARCHBAR {
+	float:right;
+	width: 15%;	
+}
+
+pre {
+	/*margin-left : 64px;*/
+}
+
+div.RIGHT {text-align: right}
+ p.BOLD {font-weight: bold}
+ h3.CENTER {text-align: center}
+ div.CENTER {text-align: center}
+ p.CENTER {text-align: center}
+ p.MENU {text-align: center; border: thin dotted; color: black;background :#E7E7E7;margin-bottom: 5em; }
+
+.INDENTE {
+text-align: left;
+margin-left : 4em;
+}
+a:link {
+color:#a00;
+text-decoration:none;
+ font-weight: bold;
+/*background:#eee;*/
+}
+
+a:visited {
+text-decoration:none;
+color:#551A8B;
+/*font-style: italic;*/
+}
+a:active {
+color:red;
+}
+
+a:hover {
+color:white;
+background-color: green;
+}
+
+
+
+@media print {
+BODY {
+background-color: white;
+color:#000000;
+}
+}
+

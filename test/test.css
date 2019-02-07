@@ -1,0 +1,250 @@
+/*
+* gris #ACACAC #DCDCDC
+* rosé #FF9999
+* blue
+*/
+
+BODY {
+   	color : black; 
+   	background-color :  #D0D0FF;
+   	font-family : Arial, Helvetica, sans-serif; 
+   	font-size:0.9em;
+}
+TEXTAREA.MESSAGEPOST {
+	white-space: pre;
+}
+table.POSTMESSAGEFORM {
+	margin-left:auto;
+	margin-right:auto;
+}
+
+div.SUBMITBUTTONS{
+	margin-left:auto;
+	margin-right:auto;
+	text-align:center;
+}
+
+p.REPLY{
+	margin-left:auto;
+	margin-right:auto;
+	text-align:center;
+}
+
+P.BACKTOFORUM{
+	text-align:left;
+}
+
+li.POSTS {
+	background-color: #ECECEC;
+   	color : black; 
+	margin: 0.5em;
+	padding: 0.5em;
+	/*list-style-image :
+	url(http://www.ondelette.com/winfertility/journal/pnkveinbttn.gif) !
+	important;*/
+	list-style-type: none;
+	border-style: solid ;
+        border-width: thin;
+	border-color:white black black white;
+}
+
+ul.POSTS{
+		background-color: transparent;
+		margin : 2em;
+}
+li.REPLIES {
+	background-color: #C0C0FF;
+   	color : black; 
+	list-style-type: none;
+	margin: 0.2em;
+	border-style: solid ;
+        border-width: thin;
+	border-color:white black black white;	
+	/*list-style-image :
+	url(http://www.ondelette.com/winfertility/journal/pnkveinbttn.gif) !
+	important;*/
+}
+
+H1.TITLE {
+	text-align : center;
+   	font-weight : bold; 
+   	font-size : x-large;
+   	color : black; 
+   	background-color : transparent;
+	font-style : italic;  
+}
+H2.TITLE {
+	text-align : center;
+   	font-weight : bold; 
+   	font-size : small;
+   	color : black; 
+   	background-color : transparent;
+}
+
+
+TD.INREPLYTOID {
+   	font-family : Arial, Helvetica, sans-serif; 
+	background-color: transparent;
+   	color : black; 
+}
+
+
+.DISPLAYMESSAGE {
+	background-color: white;
+        border-style:solid;
+        border-width: thin;
+	border-color:black;
+   	color : black; 
+	padding: 1em;
+	margin: 2em;
+   	font-family :  Arial, Helvetica, sans-serif; 
+}
+
+
+
+.DISPLAYSUBJECT {
+	background-color: transparent;
+	font-weight : bold  ! important;
+   	color : black; 
+   	font-family :  Arial, Helvetica, sans-serif; 
+}
+
+TD.MESSAGE, TD.FIELD {
+	background-color: #ACACAC;
+   	color : black; 
+   	font-family : Arial, Helvetica, sans-serif; 
+	text-align : center;
+}
+
+
+
+TD.EMAIL, TD.EMAILFIELD, TD.AUTHOR, TD.AUTHORFIELD, TD.SUBJECT, TD.SUBJECTFIELD, TD.OPTLINK, TD.OPTLINKFIELD, TD.LT, TD.LTFIELD, TD.IMAGEURL, TD.IMAGEURLFIELD {
+	background-color: #9999FF;
+   	color : black; 
+   	font-family : Arial, Helvetica, sans-serif; 
+	text-align : center;
+}
+
+
+
+P.MENU {	
+	text-align : center;
+	font-style : italic;  
+}
+
+A.AUTHORNAME {
+  	font-weight : bold  ! important;
+	color : blue  ! important; 
+   	background-color : transparent;
+}
+
+B.AUTHORNAME {
+  	font-weight : bold;
+	color : blue  ! important; 
+   	background-color :transparent;
+}
+
+TD.AUTHORNAME {
+  	font-weight : normal;
+	color : blue  ! important; 
+   	background-color : transparent;
+   	font-family : Arial, Helvetica, sans-serif; 
+}
+
+A.ADMINAUTHOR {
+	color : black  ! important; 
+  	font-weight : bold  ! important;
+	background-color: #9999FF;
+/*   	background-color : transparent  ! important;*/
+}
+
+B.ADMINAUTHOR {
+	color : black  ! important; 
+  	font-weight : bold  ! important;
+	background-color: #9999FF;
+/*   	background-color : transparent  ! important;*/
+}
+
+TD.ADMINAUTHOR {
+	color : black  ! important; 
+  	font-weight : bold  ! important;
+   	background-color : black  ! important;
+   	font-family : Arial, Helvetica, sans-serif; 
+}
+
+A.VIPMEMBER {
+	color : #9999FF ! important;
+	background-color : white  ! important;
+	font-weight : bold  ! important; 
+	font-style : italic  ! important;  
+}
+
+B.VIPMEMBER {
+	color : #9999FF;
+	background-color : white;
+	font-weight : bold  ! important; 
+	font-style : italic  ! important;  
+
+}
+
+TD.VIPMEMBER {
+	color : #9999FF;
+	background-color : white;
+	font-weight : bold  ! important; 
+	font-style : italic  ! important;  
+   	font-family : Arial, Helvetica, sans-serif; 
+}
+
+
+A.EXECUTIVEMEMBERAUTHOR {
+	color : #9999FF  ! important;
+	background-color: #ACACAC;
+	/*background-color : transparent  ! important;*/
+	font-weight : bold  ! important; 
+	font-style : italic  ! important;  
+}
+
+
+B.EXECUTIVEMEMBERAUTHOR {
+	color : #9999FF;
+	/*background-color : transparent;*/
+	background-color: #ACACAC;
+	font-weight : bold  ! important; 
+   	font-family : Arial, Helvetica, sans-serif; 
+	font-style : italic  ! important;  
+}
+
+TD.EXECUTIVEMEMBERAUTHOR {
+	color : #9999FF;
+	background-color: #ACACAC;
+/*	background-color : transparent;*/
+	font-weight : bold  ! important; 
+   	font-family : Arial, Helvetica, sans-serif; 
+	font-style : italic  ! important;  
+}
+
+A.MEMBERAUTHOR {
+	color : black  ! important;
+	background-color: #9999FF;
+/*	background-color : transparent  ! important*/
+}
+
+B.MEMBERAUTHOR {
+	color : black  ! important;
+	background-color: #9999FF;
+/*	background-color : transparent  ! important*/
+}
+A.GUESTAUTHOR {
+	color : black  ! important;
+	background-color: #9999FF;
+/*	background-color : transparent  ! important*/
+}
+
+
+
+B.GUESTAUTHOR {
+	color : black  ! important;
+	background-color: #9999FF;
+/*	background-color : transparent  ! important*/
+}
+

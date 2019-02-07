@@ -1,0 +1,120 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="generator" content="HTML Tidy, see www.w3.org" />
+<title>IFT339 premier travail</title>
+</head>
+<body>
+<h1>IFT339 : T.P.1</h1>
+
+<p>Il s'agit du premier t.p. du cours qui vaut 5% de la note
+finale. Pour le réussir, vous devrez avoir compris les rudiments
+de l'orienté-objet ainsi que les notions de piles et de
+files.</p>
+
+<a href="tp1.pdf">énoncé du t.p.</a> 
+
+<p>Il y a des correctifs à l'énoncé (en date du 14 mai 2001):</p>
+
+<ol>
+<li>Dans l'énoncé, il faut échanger FIF0 et FILO (mais le
+contraire serait impossible).</li>
+
+<li>On cherche des triangles "réguliers" et donc équilatéral. La
+définition donnée dans l'énoncé est incorrect. On doit simplement
+vérifier que les 3 côtés du triangles sont égaux.</li>
+
+<li>Il n'y a pas de fichiers binaires à manipuler contrairement à
+ce qui est indiqué dans l'énoncé.</li>
+
+<li>On doit comprendre que la classe Triangle doit avoir une
+méthode "aire" qui calcule l'aire des triangles. L'aire doit être
+positive. On n'a cependant pas à s'en faire avec ce détail
+(pourquoi?).</li>
+
+<li>On doit comprendre que la classe Triangle doit avoir une
+méthode "aire" qui calcule l'aire des triangles.</li>
+
+<li>Le correcteur m'a informé de son intention d'être disponible
+pour des consultations la semaine prochaine.</li>
+
+<li>On peut remettre les listings dans la case 1 du département
+jusqu'au 28 mai 2001 (à minuit). Une transmission informatique
+sera aussi exigée.</li>
+
+<li>On doit lire les points dans le fichier un à un pour former
+des triangles. Ainsi donc, si on a N points, nous aurons un total
+de N - 2 triangles.</li>
+
+<li>Vous êtes autorisés à "améliorer" la syntaxe du code qui vous
+est fourni, mais ne devez pas retirer de méthodes ou des
+opérateurs. Vous pouvez ajouter des méthodes. Il est à noter
+qu'il est parfaitement possible de faire le travail sans pour
+autant modifier les fichiers imposés.</li>
+
+<li>Il y a une légère erreur de syntaxe dans les fichiers imposés
+(un ";" de trop). Pouvez-vous trouver où est ce ";" de trop?</li>
+</ol>
+
+<br />
+<br />
+ 
+
+<h2>Exécutables</h2>
+
+<p>On peut faire en sorte qu'un exécutable prenne des paramètres
+au lancement en utilisant la syntaxe "int main(int n, char**c)
+{}". Par exemple, si on lance l'exécutable "Aires" avec la
+commande "Aire t a", nous aurons c[0] vaut "Aire", c[1] vaut "t"
+et c[2] vaut "a".</p>
+
+<h2>Notes importantes</h2>
+
+<ul>
+<li>Vous avez deux semaines à partir de la date de remise
+(semaine du 14 mai 2001) pour remettre le TP. Le correcteur est
+<a href="mailto:emrith@DMI.USherb.CA">Khemraj Emrith</a>. (Date
+de remise: 28 mai 2001.) Il n'y a pas de rapport ni d'analyse à
+remettre pour ce t.p. (seulement le code).</li>
+
+<li>Vous devez utiliser les sources de l'archive <a
+href="tp1code.zip">tp1code.zip</a> pour réussir le t.p. (il est
+permis de faire des modifications superficielles).</li>
+</ul>
+
+<h2>Considérations mathématiques</h2>
+
+<p>Hormis le fait que la définition de polygone régulier est
+inadéquate dans l'énoncé, on peut y trouver une bonne rigueur
+mathématique à condition de bien prendre à la lettre ce qu'on y
+mentionne. Ainsi donc, on définit un triangle comme étant l'union
+de 3 points, rien de plus, rien de moins.</p>
+
+<p>Certains prétendent donc qu'il n'y a pas de solutions au
+problème... C'est faux et vous trouverez effectivement des
+"Triangles" "réguliers" qui s'inscrivent dans Z x Z.</p>
+
+<p>J'avais préparé le petit texte suivant pour commenter le t.p.1
+mais quelqu'un a vendu la mèche en publiant un texte similaire...
+Le voici donc: "Il a fallu étendre la définition de triangle dans
+ce travail pour rendre les triangles réguliers dans ZxZ
+possibles. Ils sont, normalement, impossibles. Pour le montrer,
+il suffit en effet de calculer l'aire d'un triangle régulier en
+fonction de la longueur d'un de ses segments (c). On obtient
+racine(3)/8*c^2. Maintenant, si le triangle est inscrit dans Z x
+Z, on peut montrer que c^2 est entier (en fait, si P1=(x1,y1) et
+P2=(x2,y2) sont inscrits dans Z x Z, alors c^2 = (x1-x2) ^2 + (y1
+- y2) ^2 ce qui est certainement un entier!). Nous avons donc que
+l'aire du triangle équilatératal inscrit dans Z x Z est
+irrationnel. C'est absurde parce que l'aire est aussi donnée par
+la valeur absolue du produit vectoriel de P2-P1 et de P3-P1 où
+P1, P2, P3 sont les sommet du triangle (ce qui donne un entier)
+divisée par deux ce qui est rationnel (en fait, tous les
+triangles inscrits dans Z x Z ont une aire rationnelle)."</p>
+
+<p>© 2001, Daniel Lemire, Ph.D.</p>
+</body>
+</html>
+
+

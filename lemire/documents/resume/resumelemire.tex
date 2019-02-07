@@ -1,0 +1,187 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Cies Resume/CV
+% LaTeX Template
+% Version 1.0 (10/2/14)
+%
+% This template has been downloaded from:
+% http://www.LaTeXTemplates.com
+%
+% Original author:
+% Cies Breijs (cies@kde.nl)
+% https://github.com/cies/resume with extensive modifications by:
+% Vel (vel@latextemplates.com)
+%
+% License:
+% CC BY-NC-SA 3.0 (http://creativecommons.org/licenses/by-nc-sa/3.0/)
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%----------------------------------------------------------------------------------------
+%	PACKAGES AND OTHER DOCUMENT CONFIGURATIONS
+%----------------------------------------------------------------------------------------
+
+\documentclass[12pt]{article} % Font size (10-12pt) and paper size (a4paper, letterpaper, legalpaper, etc)
+
+\include{structure} % Include structure.tex which contains packages and document layout definitions
+\usepackage{ marvosym }
+
+
+\begin{document}
+
+%----------------------------------------------------------------------------------------
+%	NAME AND CONTACT INFORMATION
+%----------------------------------------------------------------------------------------
+
+\maintitle{Daniel Lemire}{Computer scientist}  % Your name and date of birth or subtitle
+
+\noindent\href{mailto:lemire@gmail.com}{lemire\MVAt{}gmail.com}\bull % Your email address
+\href{http://ca.linkedin.com/in/dlemire/}{ca.linkedin.com/in/dlemire/} \bull
+\href{https://github.com/lemire/}{github.com/lemire/}
+\\ % Your URL
+Montreal, Canada  \bull Canadian Citizen  \bull Father of two clever boys% Your address
+
+\spacedhrule{0.9em}{-0.4em} % Horizontal rule - the first bracket is whitespace before and the second is after
+
+%----------------------------------------------------------------------------------------
+%	SUMMARY SECTION
+%----------------------------------------------------------------------------------------
+
+\roottitle{Summary} % Root section title
+
+%\vspace{-1.3em} % Reduce whitespace after the Summary heading and the two-column content
+\setlength\columnsep{50pt}
+
+
+%\begin{multicols}{2}  % Start a two-column layout
+%\noindent \textit{indexing \bull  information retrieval \bull  data warehousing \bull  OLAP \bull databases}
+%\\
+
+I have been an entrepreneur, a government researcher and a university professor. I have been programming sofware since I was 12 years old and I never stopped. My contributions appear in several open-source projects: Git, Apache Hive, Apache Spark, Apache Lucene, Netflix Atlas, LinkedIn Pinot, Elastic, TensorFlow, Apache Kylin, Druid. I am a beneficiary of the Google Open Source Peer Bonus Program.
+%\end{multicols}
+
+%\spacedhrule{0.5em}{-0.4em} % Horizontal rule - the first bracket is whitespace before and the second is after
+
+%----------------------------------------------------------------------------------------
+%	EXPERIENCE SECTION
+%----------------------------------------------------------------------------------------
+
+\roottitle{Writing  (with collaborators)} % Top level section
+\begin{itemize}
+  \item
+I have written over \href{https://scholar.google.com/citations?user=q1ja-G8AAAAJ}{45~refereed publications} and I have been cited
+thousands of times.
+\item
+\href{http://lemire.me/blog/}{My blog} has been featured on
+Reddit, Hacker News and Slashdot.
+\end{itemize}
+
+
+\roottitle{Software (with collaborators)} % Top level section
+
+
+\inlineheadsection % Special section that has an inline header with a 'hanging' paragraph
+{\href{http://roaringbitmap.org/}{Roaring bitmap}}
+{Fast bitmaps used by Apache Spark \bull   Apache Kylin \bull   Druid  \bull Lucene, Solr, Elastic }
+
+\vspace{0.2cm}
+
+
+\inlineheadsection
+{\href{https://github.com/lemire/JavaFastPFOR}{JavaFastPFOR}}
+{Fast integer compression used by  \href{http://lucene.apache.org/core/4_6_1/core/org/apache/lucene/util/PForDeltaDocIdSet.html}{Lucene 4.x}}
+
+\vspace{0.2cm}
+
+\inlineheadsection % Special section that has an inline header with a 'hanging' paragraph
+{\href{https://github.com/lemire/javaewah}{EWAH}}
+{Fast bitmaps used by Apache Hive \bull \href{http://githubengineering.com/counting-objects/}{Git}}
+
+%\vspace{0.1cm}
+
+
+%\inlineheadsection % Special section that has an inline header with a 'hanging' paragraph
+%{\href{https://github.com/lemire/EWAHBoolArray}{EWAHBoolArray}}
+%{Fast bitmap in C++---used by the \href{http://chango.github.io/hustle/}{OLAP engine Hustle}}
+
+\roottitle{Recent experience} % Top level section
+
+\headedsection % Employer name which can include a hyperlink and location/URL on the right side of the page
+{\href{http://licef.ca}{\acr{LICEF} Research Center} \bull \href{http://www.teluq.ca/siteweb/univ/dlemire.html}{TELUQ, Universit\'e du Qu\'ebec}}
+{\textsc{Montreal, Canada}} {
+
+\headedsubsection % Job title entry for the current employer
+{Computer Science Professor}
+{2004--}
+{\bodytext{Promoted to full professor early (2009). Funded by NSERC Discovery grants (2003-2007, 2007-2012, 2012-2017) in computer science. Program committee member at major
+conferences (ACM SIGIR, ACM CIKM, ACM WSDM, ACM RecSys).}}
+
+}
+\headedsection
+{\href{http://www.nrc-cnrc.gc.ca/}{National Research Council of Canada}}
+{\textsc{Canada}} {
+
+\headedsubsection % Job title entry for the current employer
+{Research Officer}
+{2002--2004}
+{\bodytext{Founded and lead the e-Health research group. Designed the \href{http://en.wikipedia.org/wiki/Slope_One}{Slope One algorithm}.}
+}
+}
+
+%------------------------------------------------
+
+\spacedhrule{-0.2em}{-0.4em} % Horizontal rule - the first bracket is whitespace before and the second is after
+
+%----------------------------------------------------------------------------------------
+%	EDUCATION SECTION
+%----------------------------------------------------------------------------------------
+
+\roottitle{Education} % Top level section
+
+\headedsection % Employer name which can include a hyperlink and location/URL on the right side of the page
+{Ecole Polytechnique \bull Universit\'e de Montr\'eal }
+{\textsc{Montr\'eal, Canada}} {
+
+\headedsubsection % Job title entry for the current employer
+{Ph.D. in Engineering Mathematics (graduated in 2 $\frac{1}{2}$~years)}
+{1998}
+{%\bodytext{}
+}
+}
+
+
+\headedsection % Employer name which can include a hyperlink and location/URL on the right side of the page
+{University of Toronto}
+{\textsc{Toronto, Canada}} {
+
+\headedsubsection % Job title entry for the current employer
+{B.Sc. and M.Sc. (very high distinction, master completed in one year)}
+{1994, 1995}
+{%\bodytext{}
+}
+}
+
+\spacedhrule{0.5em}{-0.4em} % Horizontal rule - the first bracket is whitespace before and the second is after
+
+%----------------------------------------------------------------------------------------
+%	SKILLS SECTION
+%----------------------------------------------------------------------------------------
+
+\roottitle{Skills} % Top level section
+
+\inlineheadsection % Special section that has an inline header with a 'hanging' paragraph
+{Can program productively in}
+{Java, C++, C, Python, Go, Swift, JavaScript}
+\vspace{0.1cm}
+
+
+%------------------------------------------------
+
+\inlineheadsection % Special section that has an inline header with a 'hanging' paragraph
+{Fluent in}
+{French \textit{(mother tongue)}, English \textit{(full professional proficiency)}.}
+
+%------------------------------------------------
+
+
+
+\end{document}

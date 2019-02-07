@@ -1,0 +1,781 @@
+#LyX 1.1 created this file. For more info see http://www.lyx.org/
+\lyxformat 218
+\textclass article
+\language english
+\inputencoding auto
+\fontscheme default
+\graphics default
+\paperfontsize default
+\spacing single 
+\papersize Default
+\paperpackage a4
+\use_geometry 0
+\use_amsmath 0
+\paperorientation portrait
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\defskip medskip
+\quotes_language french
+\quotes_times 2
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+
+\layout Title
+
+Final exam (first draft) MATH1013
+\layout Enumerate
+
+Calculate 
+\begin_inset Formula \( y' \)
+\end_inset 
+
+
+\begin_deeper 
+\layout Enumerate
+
+
+\begin_inset Formula \( y=\ln \left( x^{2}e^{x}\right)  \)
+\end_inset 
+
+
+\newline 
+Answer: 
+\begin_inset Formula \( y'=\frac{x+2}{x} \)
+\end_inset 
+
+ (easy).
+\layout Enumerate
+
+
+\begin_inset Formula \( y=\frac{1+e^{x}}{1-e^{x}} \)
+\end_inset 
+
+
+\newline 
+Answer: 
+\begin_inset Formula \( y'=\frac{2e^{x}}{\left( e^{x}-1\right) ^{2}} \)
+\end_inset 
+
+ (easy, use quotient rule).
+\layout Enumerate
+
+
+\begin_inset Formula \( y=x^{x} \)
+\end_inset 
+
+ (assume 
+\begin_inset Formula \( x>0 \)
+\end_inset 
+
+)
+\newline 
+Answer: 
+\begin_inset Formula \( y'=x^{x}\left( \ln x+1\right)  \)
+\end_inset 
+
+ (easy?, use logarithmic diff.).
+\layout Enumerate
+
+
+\begin_inset Formula \( y=\tan \sqrt{1+x^{2}} \)
+\end_inset 
+
+
+\newline 
+Answer: 
+\begin_inset Formula \( y'=\frac{x\sec ^{2}\sqrt{1+x^{2}}}{\sqrt{1+x^{2}}} \)
+\end_inset 
+
+ (simple, yet tricky algebra)
+\layout Enumerate
+
+
+\begin_inset Formula \( y=\arcsin \left( \arctan x^{2}\right)  \)
+\end_inset 
+
+
+\newline 
+Answer: 
+\begin_inset Formula \( y'=\frac{1}{(x^{2}+1)\sqrt{1-\arctan ^{2}x}} \)
+\end_inset 
+
+ (somewhat harder).
+\end_deeper 
+\layout Enumerate
+
+Evaluating limits.
+\begin_deeper 
+\layout Enumerate
+
+Evaluate the following limits:
+\begin_deeper 
+\layout Enumerate
+
+
+\begin_inset Formula \( \lim _{x\rightarrow 0}\tan x^{2} \)
+\end_inset 
+
+
+\newline 
+Answer: 0 (
+\begin_inset Formula \( \tan  \)
+\end_inset 
+
+ is continuous at 
+\begin_inset Formula \( 0 \)
+\end_inset 
+
+, easy)
+\layout Enumerate
+
+
+\begin_inset Formula \( \lim _{x\rightarrow 0}\frac{\cos x-1}{x} \)
+\end_inset 
+
+
+\newline 
+Answer: 0 (Hospital, easy)
+\layout Enumerate
+
+
+\begin_inset Formula \( \lim _{x\rightarrow \infty }\frac{x^{2}+x-2}{2x^{2}-2} \)
+\end_inset 
+
+
+\newline 
+Answer: 
+\begin_inset Formula \( 1/2 \)
+\end_inset 
+
+ (division by 
+\begin_inset Formula \( x^{2} \)
+\end_inset 
+
+/Hospital - a bit more difficult)
+\layout Enumerate
+
+
+\begin_inset Formula \( \lim _{x\rightarrow 1}\frac{x^{2}+x-2}{2x^{2}-2} \)
+\end_inset 
+
+
+\newline 
+Answer: 
+\begin_inset Formula \( 3/4 \)
+\end_inset 
+
+ (
+\begin_inset Quotes fld
+\end_inset 
+
+cancel out
+\begin_inset Quotes frd
+\end_inset 
+
+ 
+\begin_inset Formula \( x-1 \)
+\end_inset 
+
+/Hospital - one notch more difficult)
+\layout Enumerate
+
+
+\begin_inset Formula \( \lim _{x\rightarrow \pi }\frac{\sqrt{-x^{2}+x+\pi ^{2}}-\sqrt{\pi }}{x-\pi } \)
+\end_inset 
+
+
+\newline 
+Answer: 
+\begin_inset Formula \( (1-2\pi )/2\sqrt{\pi } \)
+\end_inset 
+
+ (use conjugate/Hospital + a fair amout of work, challenge?)
+\layout Enumerate
+
+
+\begin_inset Formula \( \lim _{x\rightarrow -1}(-x)^{\frac{1}{x+1}} \)
+\end_inset 
+
+
+\newline 
+Answer: 
+\begin_inset Formula \( e^{-1} \)
+\end_inset 
+
+ (use logarithm first then l'Hospital, fairly hard)
+\end_deeper 
+\layout Enumerate
+
+Evaluate these limits if they exist.
+\begin_deeper 
+\layout Enumerate
+
+
+\begin_inset Formula \( \lim _{x\rightarrow 0}\frac{1}{x^{3}} \)
+\end_inset 
+
+
+\layout Enumerate
+
+
+\begin_inset Formula \( \lim _{x\rightarrow 0}\frac{x}{x} \)
+\end_inset 
+
+
+\layout Enumerate
+
+
+\begin_inset Formula \( \lim _{x\rightarrow 0}\frac{1}{x^{2}} \)
+\end_inset 
+
+
+\layout Enumerate
+
+
+\begin_inset Formula \( \lim _{x\rightarrow 0^{+}}\frac{1}{x} \)
+\end_inset 
+
+
+\end_deeper 
+\layout Enumerate
+
+Complete the Statement of the Squeeze Theorem...
+\begin_inset Quotes fld
+\end_inset 
+
+If 
+\begin_inset Formula \( f(x)\leq g(x)\leq h(x) \)
+\end_inset 
+
+ when 
+\begin_inset Formula \( x \)
+\end_inset 
+
+ is near 
+\begin_inset Formula \( a \)
+\end_inset 
+
+ (except possibly at 
+\begin_inset Formula \( a \)
+\end_inset 
+
+)...
+\begin_inset Quotes frd
+\end_inset 
+
+
+\newline 
+Answer: 
+\begin_inset Quotes fld
+\end_inset 
+
+If 
+\begin_inset Formula \( f(x)\leq g(x)\leq h(x) \)
+\end_inset 
+
+ when 
+\begin_inset Formula \( x \)
+\end_inset 
+
+ is near 
+\begin_inset Formula \( a \)
+\end_inset 
+
+ (except possibly at 
+\begin_inset Formula \( a \)
+\end_inset 
+
+) and 
+\begin_inset Formula \( \lim _{x\rightarrow a}f(x)=\lim _{x\rightarrow a}h(x)=L \)
+\end_inset 
+
+, then 
+\begin_inset Formula \( \lim _{x\rightarrow a}g(x)=L \)
+\end_inset 
+
+.
+\begin_inset Quotes frd
+\end_inset 
+
+ (given the hint, I'm sure that even the average student will get it)
+\layout Enumerate
+
+Using the Squeeze Theorem, show that 
+\begin_inset Formula \( \lim _{x\rightarrow 0}x^{5}\sin \frac{1}{x^{2}}\cos x=0 \)
+\end_inset 
+
+.
+\newline 
+Answer: choose 
+\begin_inset Formula \( f(x)=-\left| x^{5}\cos x\right|  \)
+\end_inset 
+
+and 
+\begin_inset Formula \( h(x)=\left| x^{5}\cos x\right|  \)
+\end_inset 
+
+ or better yet, 
+\begin_inset Formula \( f(x)=-\left| x^{5}\right|  \)
+\end_inset 
+
+and 
+\begin_inset Formula \( h(x)=\left| x^{5}\right|  \)
+\end_inset 
+
+.
+ (doable if you know the Squeeze Theorem even a little bit, no need to include
+ the plot since we give the answer in the question)
+\end_deeper 
+\layout Enumerate
+
+Optimization
+\begin_deeper 
+\layout Enumerate
+
+Given 
+\begin_inset Formula \( f(x)=\sqrt{-x^{2}+4x+2\pi } \)
+\end_inset 
+
+ answer the following questions.
+\begin_deeper 
+\layout Enumerate
+
+Give the domain of 
+\begin_inset Formula \( f \)
+\end_inset 
+
+.
+\newline 
+Answer: 
+\begin_inset Formula \( x\in \left[ 2-\sqrt{2\left( 2+\pi \right) },2+\sqrt{2\left( 2+\pi \right) }\right]  \)
+\end_inset 
+
+.
+ (I want to check explicitely if they know how to find the domain of a function!
+!!)
+\layout Enumerate
+
+Excluding the end-points of its domain, what are the critical numbers of
+ 
+\begin_inset Formula \( f \)
+\end_inset 
+
+ ?
+\newline 
+Answer: Taking the derivative, we get 
+\begin_inset Formula \( f'(x)=\frac{2-x}{\sqrt{-x^{2}+4x+2\pi }} \)
+\end_inset 
+
+, we therefore have one critical number\SpecialChar ~
+: 
+\begin_inset Formula \( x=2 \)
+\end_inset 
+
+.
+ (We avoid the end-points! It is a bit of a problem.)
+\layout Enumerate
+
+What are the absolute maximum and minimum of 
+\begin_inset Formula \( f(x) \)
+\end_inset 
+
+ in its domain?
+\newline 
+Answer: Max.
+ is 
+\begin_inset Formula \( \sqrt{4+2\pi } \)
+\end_inset 
+
+ and min.
+ is 
+\begin_inset Formula \( 0 \)
+\end_inset 
+
+.
+\layout Enumerate
+
+Give the range of 
+\begin_inset Formula \( f(x) \)
+\end_inset 
+
+.
+\newline 
+Answer: 
+\begin_inset Formula \( \left[ 0,\sqrt{4+2\pi }\right]  \)
+\end_inset 
+
+
+\end_deeper 
+\layout Enumerate
+
+Give the width and the height of a rectangular window of 
+\series bold 
+largest area
+\series default 
+ for a budget of 
+\begin_inset Formula \( 100\$ \)
+\end_inset 
+
+ given that the cost of the frame is 
+\begin_inset Formula \( 1\$/\textrm{cm} \)
+\end_inset 
+
+ and the cost of the glass is 
+\begin_inset Formula \( 0.50\$/\textrm{cm}^{2} \)
+\end_inset 
+
+.
+ 
+\newline 
+Answer: 
+\begin_inset Formula \( C(x,y)=2x+2y+xy/2 \)
+\end_inset 
+
+, 
+\begin_inset Formula \( A(x,y)=xy \)
+\end_inset 
+
+.
+ Set 
+\begin_inset Formula \( 2(x+y)+xy/2=100 \)
+\end_inset 
+
+ (assume that you use up all of the budget!), solve for y, 
+\begin_inset Formula \( y=\frac{-4\left( x-50\right) }{x+4} \)
+\end_inset 
+
+, substitute to get 
+\begin_inset Formula \( A(x)=\frac{-4x\left( x-50\right) }{x+4} \)
+\end_inset 
+
+ and so 
+\begin_inset Formula \( A'(x)=\frac{-4\left( x^{2}+8x-200\right) }{\left( x+4\right) ^{2}} \)
+\end_inset 
+
+, set this equal to zero, you get 
+\begin_inset Formula \( x=6\sqrt{6}-4 \)
+\end_inset 
+
+ (reject negative root), hence 
+\begin_inset Formula \( y=6\sqrt{6}-4 \)
+\end_inset 
+
+.
+\end_deeper 
+\layout Enumerate
+
+Applications of the derivative
+\begin_deeper 
+\layout Enumerate
+
+Using the derivative, find where 
+\begin_inset Formula \( f(x)=e/x^{2}+x^{2} \)
+\end_inset 
+
+ is increasing and decreasing.
+\newline 
+Answer: First thing to note is that 
+\begin_inset Formula \( x=0 \)
+\end_inset 
+
+ is not in the domain.
+ Then 
+\begin_inset Formula \( f'(x)=2x-2e/x^{3} \)
+\end_inset 
+
+, 
+\begin_inset Formula \( f'(x)=0 \)
+\end_inset 
+
+ implies 
+\begin_inset Formula \( x=\pm e^{1/4} \)
+\end_inset 
+
+, we also have 
+\begin_inset Formula \( f'(0) \)
+\end_inset 
+
+ is undefined, thus we have 
+\begin_inset Formula \( f'<0 \)
+\end_inset 
+
+ for 
+\begin_inset Formula \( x<-e^{1/4} \)
+\end_inset 
+
+, 
+\begin_inset Formula \( f'>0 \)
+\end_inset 
+
+ for 
+\begin_inset Formula \( -e^{1/4}<x<0 \)
+\end_inset 
+
+, 
+\begin_inset Formula \( f'>0 \)
+\end_inset 
+
+ for 
+\begin_inset Formula \( 0<x<e^{1/4} \)
+\end_inset 
+
+, and 
+\begin_inset Formula \( f'>0 \)
+\end_inset 
+
+ for 
+\begin_inset Formula \( x>e^{1/4} \)
+\end_inset 
+
+ (with corresponding increasing/decreasing intervals).
+\layout Enumerate
+
+Using the derivative, show that 
+\begin_inset Formula \( g(x)=(x-2001)^{1013}+\left( x-2001\right) ^{13} \)
+\end_inset 
+
+ can only have one root (
+\begin_inset Formula \( x=2001 \)
+\end_inset 
+
+).
+ (HINT: Show that the function is increasing and thus can cross zero only
+ once.)
+\newline 
+Answer: taking the derivative, we have 
+\begin_inset Formula \( g'(x)=1013(x-2001)^{1012}+13(x-2001)^{12} \)
+\end_inset 
+
+, in order to have 
+\begin_inset Formula \( g'(x)=0 \)
+\end_inset 
+
+, we need both term to be zero (since they both are 
+\begin_inset Formula \( \geq 0 \)
+\end_inset 
+
+) and solving 
+\begin_inset Formula \( (x-2001)^{n}=0 \)
+\end_inset 
+
+ gives 
+\begin_inset Formula \( x=2001 \)
+\end_inset 
+
+.
+ (Very difficult to plot this function so that calculus, or math insight
+ is needed.)
+\layout Enumerate
+
+Given 
+\begin_inset Formula \( g(x)=(x-2001)^{1013}+\left( x-2001\right) ^{13} \)
+\end_inset 
+
+ and using linear approximation, estimate (without your calculator) 
+\begin_inset Formula \( g(1999.9999) \)
+\end_inset 
+
+.
+ (HINT: 
+\begin_inset Formula \( 1999.9=2000-.0001 \)
+\end_inset 
+
+)
+\newline 
+Answer: Since 
+\begin_inset Formula \( g(2000)=-2 \)
+\end_inset 
+
+ and 
+\begin_inset Formula \( g'(2000)=1013+13=1026 \)
+\end_inset 
+
+, we have 
+\begin_inset Formula \( g(1999.9)=g(2000)-0.0001g'(2000)==-2-0.1026=-2.1016 \)
+\end_inset 
+
+ (the calculator gives 
+\begin_inset Formula \( 2.1079 \)
+\end_inset 
+
+).
+\end_deeper 
+\layout Enumerate
+
+Roots
+\begin_deeper 
+\layout Enumerate
+
+Is 
+\begin_inset Formula \( h(x)=x^{1013}-\sqrt{\left| x-1.5\right| } \)
+\end_inset 
+
+ continous? If so, where?
+\newline 
+Answer: obviously continuous everywhere.
+ (Note: the function is 
+\begin_inset Quotes fld
+\end_inset 
+
+unplottable
+\begin_inset Quotes frd
+\end_inset 
+
+ by calculators.
+ Very difficult for a calculation to plot 
+\begin_inset Formula \( x^{1013} \)
+\end_inset 
+
+.)
+\layout Enumerate
+
+Prove that 
+\begin_inset Formula \( h(x)=x^{1013}-\sqrt{x} \)
+\end_inset 
+
+ has a root in the interval 
+\begin_inset Formula \( x\in \left[ 0.5,1.5\right]  \)
+\end_inset 
+
+.
+ (HINT: Use the Intermediate Value Theorem.)
+\newline 
+Answer: clearly 
+\begin_inset Formula \( (1/2)^{1013} \)
+\end_inset 
+
+ is much smaller than 
+\begin_inset Formula \( \sqrt{1} \)
+\end_inset 
+
+ whereas 
+\begin_inset Formula \( 1.5^{1013} \)
+\end_inset 
+
+ is much bigger than 
+\begin_inset Formula \( \sqrt{0} \)
+\end_inset 
+
+ so the I.V.T.
+ applies.
+\layout Enumerate
+
+Apply one step in Newton's method to approximate the root to 
+\begin_inset Formula \( h(x)=x^{1013}-\sqrt{\left| x-1.5\right| } \)
+\end_inset 
+
+ starting with 
+\begin_inset Formula \( x_{1}=1. \)
+\end_inset 
+
+ (compute 
+\begin_inset Formula \( x_{2} \)
+\end_inset 
+
+ only).
+ (HINT: since 
+\begin_inset Formula \( x_{1}<1.5 \)
+\end_inset 
+
+, you can use the expression 
+\begin_inset Formula \( x^{1013}-\sqrt{1.5-x} \)
+\end_inset 
+
+ for 
+\begin_inset Formula \( h(x) \)
+\end_inset 
+
+.) 
+\newline 
+Answer:
+\begin_inset Formula \( x_{2}=1-h(1)/h'(1) \)
+\end_inset 
+
+.
+ 
+\begin_inset Formula \( h(1)=1-\sqrt{0.5}=1-\sqrt{2}/2 \)
+\end_inset 
+
+ whereas 
+\begin_inset Formula \( h'(1)=1013+\frac{1}{2\sqrt{1.5-1}}=1013+\frac{\sqrt{2}}{2} \)
+\end_inset 
+
+ so that 
+\begin_inset Formula \( x_{2}=1-\frac{1-\sqrt{2}/2}{1013+\frac{\sqrt{2}}{2}}\cong 0.9997 \)
+\end_inset 
+
+.
+ (We get 
+\begin_inset Formula \( h(0.9997)\cong 0.03 \)
+\end_inset 
+
+ so that it is actually very close to a root!)
+\end_deeper 
+\layout Enumerate
+
+Antiderivatives and Riemann's sums
+\begin_deeper 
+\layout Enumerate
+
+Find an antiderivative for the following expressions.
+\begin_deeper 
+\layout Enumerate
+
+
+\begin_inset Formula \( e^{x}-\sqrt{x}/x^{2} \)
+\end_inset 
+
+
+\layout Enumerate
+
+
+\begin_inset Formula \( \frac{\pi }{1+x^{2}}+x^{2} \)
+\end_inset 
+
+
+\end_deeper 
+\layout Enumerate
+
+Using 4 rectangles of equal width, approximate from above the area under
+ the curve 
+\begin_inset Formula \( 1/x \)
+\end_inset 
+
+ between 
+\begin_inset Formula \( x=2 \)
+\end_inset 
+
+ and 
+\begin_inset Formula \( x=6 \)
+\end_inset 
+
+ (HINT: 
+\begin_inset Formula \( 1/x \)
+\end_inset 
+
+ is a decreasing function from 
+\begin_inset Formula \( 2 \)
+\end_inset 
+
+ to 
+\begin_inset Formula \( 6 \)
+\end_inset 
+
+.)
+\newline 
+Answer: 
+\begin_inset Formula \( \Delta x=1 \)
+\end_inset 
+
+ and 
+\begin_inset Formula \( x_{i}=(i-1)\Delta x \)
+\end_inset 
+
+ so that 
+\begin_inset Formula \( A\cong \sum _{i=1}^{4}f\left( x_{i}\right) \Delta x=f(2)+f(3)+f(4)+f(5)=77/60 \)
+\end_inset 
+
+.
+\the_end

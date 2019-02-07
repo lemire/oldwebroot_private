@@ -1,0 +1,430 @@
+#LyX 1.1 created this file. For more info see http://www.lyx.org/
+\lyxformat 218
+\textclass article
+\begin_preamble
+
+\usepackage{epsfig}
+\usepackage{amsmath,amssymb}
+\usepackage{pslatex}
+\usepackage{color}
+ 
+ \definecolor{veryblackblue}{rgb}{0.0,0.0,0.1}
+ \usepackage[pdftex,urlcolor=webblackblue,colorlinks=true]{hyperref}
+ \pdfinfo{
+            /Title      (Introductory Calculus- Assignment 1 Solutions)
+            /Author     (Daniel Lemire, Ph.D.)
+            /Subject    (This is a set of solutions for sections 1.5, 1.6, 2.1, 2.2 and 2.3 in Stewart: calculus.)
+            /Keywords   (exponentials, tangents, Stewart, Solutions, limits, Acadia)
+          }
+
+
+\topmargin  = 0pt
+\headheight = 0pt
+\headsep    = 0pt
+
+\voffset    = 0in
+\hoffset    = 0in
+\textheight = 230mm
+\textwidth  = 164mm
+
+\evensidemargin = 0pt
+\oddsidemargin  = 0pt
+
+\pagestyle{empty}
+\usepackage{float}
+
+%% Background of blue palette
+ \definecolor{webblackblue}{rgb}{0.0,0.0,0.2}
+ \definecolor{webblue}{rgb}{0.0, 0.0, 0.6}
+
+%% Background of red palette
+ \definecolor{webblackred}{rgb}{0.2,0.0,0.0}
+ \definecolor{webred}{rgb}{0.6,0.0,0.0}
+
+%% Background of green palette
+ \definecolor{webblackgreen}{rgb}{0.0,0.2,0.0}                                   
+ \definecolor{webgreen}{rgb}{0.0,0.6,0.0} 
+
+%% Background of magenta palette
+ \definecolor{webblackmagenta}{rgb}{0.14,0.0,0.14}                                   
+ \definecolor{webmagenta}{rgb}{0.42,0.0,0.42} 
+
+%% Background of cyan palette
+ \definecolor{webblackcyan}{rgb}{0.0,0.14,0.14}                                   
+ \definecolor{webcyan}{rgb}{0.0,0.42,0.42} 
+
+%% Background of yellow pallete
+ \definecolor{webblackyellow}{rgb}{0.14,0.14,0.0}                                   
+ \definecolor{webyellow}{rgb}{0.85,0.85,0.0} 
+
+ \definecolor{webdarkgray}{rgb}{0.2,0.2,0.2}
+
+ \definecolor{webgray}{rgb}{0.75,0.75,0.75}
+ \definecolor{weborange}{rgb}{1.0, 0.6, 0.0}
+
+\renewcommand\labelenumi{\textcolor{webdarkgray}{\arabic{enumi}.}}
+\newcommand{\setenumi}[1]{#1.\setcounter{enumi}{#1}}
+\usepackage{dsfont}
+
+\usepackage{lastpage}
+\end_preamble
+\language english
+\inputencoding auto
+\fontscheme default
+\graphics default
+\paperfontsize 12
+\spacing single 
+\papersize Default
+\paperpackage a4
+\use_geometry 0
+\use_amsmath 0
+\paperorientation portrait
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\defskip medskip
+\quotes_language english
+\quotes_times 2
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+
+\layout Title
+
+Acadia University 
+\newline 
+
+\latex latex 
+
+\backslash 
+href{http://ace.acadiau.ca/math/}{Department of Mathematics and Statistics}
+\latex default 
+
+\newline 
+
+\latex latex 
+ 
+\backslash 
+vspace*{3mm}
+\latex default 
+ 
+\series bold 
+INTRODUCTORY CALCULUS 1
+\series default 
+
+\newline 
+ (MATH 1013) 
+\newline 
+
+\latex latex 
+ 
+\backslash 
+vspace*{3mm}
+\latex default 
+ Some extra problems for limits, continuity and derivatives
+\layout Author
+
+
+\latex latex 
+
+\backslash 
+href{http://ondelette.com/acadia/}{Daniel Lemire}
+\latex default 
+, Ph.D.
+\layout Standard
+
+
+\series bold 
+\color blue
+Warning:
+\series default 
+\color default
+ These are extra problems to do in preparation of your first test.
+ Solutions to these problems 
+\series bold 
+\color red
+will not be
+\series default 
+\color default
+ provided.
+ The purpose of these problems is to allow you to check that you understand
+ the material.
+ Some of these problems are very difficult and not meant to be representative
+ of what you'll find in tests.
+\layout Section
+
+
+\latex latex 
+
+\backslash 
+texorpdfstring{
+\backslash 
+textcolor{webblackblue}{Logarithms}}{Logarithms}
+\layout Enumerate
+
+Some of you have difficulties working with logarithms and exponentials.
+ Unfortunately, it is an essential skill in science, mathematics and engineering
+ (yes, even in biology, medecine, computer science and geology...!).
+ Here are some expressions that you need to simplify.
+ Sure you can use Maple, but you should use Maple only to check your answers!
+ Also, be careful since Maple might not get the best answer!
+\begin_deeper 
+\layout Enumerate
+
+
+\begin_inset Formula \( a^{b}\ln \left( ^{a}\sqrt{c}\right)  \)
+\end_inset 
+
+
+\layout Enumerate
+
+
+\begin_inset Formula \( \log _{4}64 \)
+\end_inset 
+
+
+\layout Enumerate
+
+
+\begin_inset Formula \( e^{\log _{\beta }\alpha }-\beta ^{\log _{\beta }\alpha \log _{\beta }e} \)
+\end_inset 
+
+
+\layout Enumerate
+
+
+\begin_inset Formula \( \log \frac{b}{a}-\log b \)
+\end_inset 
+
+
+\end_deeper 
+\layout Enumerate
+
+In computer science, we say that two algorithms have the same complexity
+ if 
+\begin_inset Formula \( f(n)=Cg(n)+D \)
+\end_inset 
+
+ for all positive 
+\begin_inset Formula \( n \)
+\end_inset 
+
+ integers where 
+\begin_inset Formula \( C \)
+\end_inset 
+
+ and 
+\begin_inset Formula \( D \)
+\end_inset 
+
+ are some constanst and 
+\begin_inset Formula \( f \)
+\end_inset 
+
+ and 
+\begin_inset Formula \( g \)
+\end_inset 
+
+ are the time an algorithm takes to process 
+\begin_inset Formula \( n \)
+\end_inset 
+
+ units of information (I'm cutting corners here...).
+ Prove that the following pairs of 
+\begin_inset Formula \( f \)
+\end_inset 
+
+ and 
+\begin_inset Formula \( g \)
+\end_inset 
+
+ have the same complexity (that is, 
+\begin_inset Formula \( f(n)=Cg(n)+D \)
+\end_inset 
+
+ for some constants 
+\begin_inset Formula \( C \)
+\end_inset 
+
+ and 
+\begin_inset Formula \( D \)
+\end_inset 
+
+).
+\begin_deeper 
+\layout Enumerate
+
+
+\begin_inset Formula \( \log n \)
+\end_inset 
+
+ and 
+\begin_inset Formula \( \ln n \)
+\end_inset 
+
+
+\layout Enumerate
+
+
+\begin_inset Formula \( \log 2n \)
+\end_inset 
+
+ and 
+\begin_inset Formula \( \log n \)
+\end_inset 
+
+
+\end_deeper 
+\layout Section
+
+
+\latex latex 
+
+\backslash 
+texorpdfstring{
+\backslash 
+textcolor{webblackblue}{Continuity}}{Continuity}
+\layout Enumerate
+
+Let 
+\begin_inset Formula \( f \)
+\end_inset 
+
+ be the function defined by
+\begin_inset Formula \[
+f(t)=\left\{ \begin{array}{cc}
+t+2 & \textrm{if }t\leq -10\\
+t^{2} & \textrm{if  }-10<t\leq 5\\
+e^{2\log _{2}t} & \textrm{if }5<t\leq 10\\
+\ln (t+e) & \textrm{if }t>10
+\end{array}\right. \]
+
+\end_inset 
+
+You should sketch this function, and tell where the function is continuous,
+ where the function is discontinuous and be able to justify fully your answers.
+ You should be able to sketch 
+\begin_inset Formula \( f \)
+\end_inset 
+
+ without a plotting calculator and to simplify the definition where possible.
+\layout Section
+
+
+\latex latex 
+
+\backslash 
+texorpdfstring{
+\backslash 
+textcolor{webblackblue}{Derivatives}}{Derivatives}
+\layout Enumerate
+
+An astronomer studying some new gaz nebula finds out that the mass of the
+ nebula is increasing.
+ Based on his observations and some curve fitting, it would seem like the
+ nebula mass is given by 
+\begin_inset Formula \( M(t)=100\frac{t-1}{t^{2}+1}+200 \)
+\end_inset 
+
+ where 
+\begin_inset Formula \( t \)
+\end_inset 
+
+ is in years (assuming 2000 is year 0) and the mass is expressed as a fraction
+ of the mass of the Sun (so that 
+\begin_inset Formula \( 100 \)
+\end_inset 
+
+ means 
+\begin_inset Quotes eld
+\end_inset 
+
+
+\begin_inset Formula \( 100 \)
+\end_inset 
+
+ times the mass of the Sun
+\begin_inset Quotes erd
+\end_inset 
+
+).
+ As the astronomer's assistant, answer the following questions (without
+ using Maple at first!):
+\begin_deeper 
+\layout Enumerate
+
+What is 
+\begin_inset Formula \( \lim _{x\rightarrow \infty }M(t) \)
+\end_inset 
+
+
+\layout Enumerate
+
+When is 
+\begin_inset Formula \( M(t) \)
+\end_inset 
+
+ ever negative?
+\layout Enumerate
+
+What is 
+\begin_inset Formula \( M'(t) \)
+\end_inset 
+
+, what are the units and what does it mean? Solve for 
+\begin_inset Formula \( M'(t)=0 \)
+\end_inset 
+
+.
+ You have to use the definition of the derivative to solve for 
+\begin_inset Formula \( M' \)
+\end_inset 
+
+.
+\layout Enumerate
+
+What is 
+\begin_inset Formula \( M''(t), \)
+\end_inset 
+
+ what are the units and what does it mean?
+\layout Enumerate
+
+Solve for 
+\begin_inset Formula \( M \)
+\end_inset 
+
+ as a function of 
+\begin_inset Formula \( t \)
+\end_inset 
+
+.
+\layout Enumerate
+
+Using the previous result, express 
+\begin_inset Formula \( v=M'(t) \)
+\end_inset 
+
+ as a function of the mass (
+\begin_inset Formula \( v(M) \)
+\end_inset 
+
+).
+ What are the units?
+\layout Enumerate
+
+Solve for 
+\begin_inset Formula \( v'(M) \)
+\end_inset 
+
+ and describe the meaning (what are the units?).
+\end_deeper 
+\layout Bibliography
+\bibitem [Stewart]{Steward}
+
+James Stewart, 
+\shape italic 
+Calculus: Concepts and Contexts
+\shape default 
+ (Second Edition), Brooks/Cole, 2001.
+\the_end

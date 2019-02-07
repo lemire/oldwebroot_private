@@ -1,0 +1,253 @@
+#LyX 1.1 created this file. For more info see http://www.lyx.org/
+\lyxformat 218
+\textclass article
+\language english
+\inputencoding auto
+\fontscheme default
+\graphics default
+\paperfontsize default
+\spacing single 
+\papersize Default
+\paperpackage a4
+\use_geometry 0
+\use_amsmath 0
+\paperorientation portrait
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\defskip medskip
+\quotes_language french
+\quotes_times 2
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+
+\layout Title
+
+Math1013-special 
+\layout Author
+
+Daniel Lemire, Ph.D.
+\layout Enumerate
+
+Derivatives
+\begin_deeper 
+\layout Enumerate
+
+Find the derivatives of the following functions.
+ DO NOT SIMPLIFY anymore than necessary.
+\begin_deeper 
+\layout Enumerate
+
+
+\begin_inset Formula \( f(x)=\frac{x^{2}+\sqrt{x}}{x^{4}-e^{x}} \)
+\end_inset 
+
+
+\layout Enumerate
+
+
+\begin_inset Formula \( h(x)=x^{\sin x^{2}} \)
+\end_inset 
+
+
+\newline 
+
+\layout Enumerate
+
+
+\begin_inset Formula \( r(x)=\sec ^{2}\left( 3x+5\right)  \)
+\end_inset 
+
+
+\newline 
+
+\layout Enumerate
+
+
+\begin_inset Formula \( g(t)=t^{\ln (t)} \)
+\end_inset 
+
+
+\newline 
+
+\end_deeper 
+\layout Enumerate
+
+Given 
+\begin_inset Formula \( \sqrt{x}+\sqrt{y}=xy+1 \)
+\end_inset 
+
+ find
+\begin_deeper 
+\layout Enumerate
+
+
+\begin_inset Formula \( \frac{dy}{dx} \)
+\end_inset 
+
+
+\newline 
+
+\layout Enumerate
+
+The equation of the tangent to the curve at the point 
+\begin_inset Formula \( (1,1) \)
+\end_inset 
+
+.
+\end_deeper 
+\end_deeper 
+\layout Enumerate
+
+Limits.
+\begin_deeper 
+\layout Enumerate
+
+Calculate the following limits or explain why they don't exist.
+\begin_deeper 
+\layout Enumerate
+
+
+\begin_inset Formula \( \lim _{h\rightarrow 0}\frac{(h+1)^{2}-1}{h} \)
+\end_inset 
+
+
+\layout Enumerate
+
+
+\begin_inset Formula \( \lim _{x\rightarrow \infty }x^{3}e^{-x^{2}} \)
+\end_inset 
+
+
+\layout Enumerate
+
+
+\begin_inset Formula \( \lim _{x\rightarrow 2}\frac{x-2}{x^{2}-4x+4} \)
+\end_inset 
+
+
+\layout Enumerate
+
+
+\begin_inset Formula \( \lim _{x\rightarrow \infty }\left( 1+\frac{2}{x}\right) ^{x} \)
+\end_inset 
+
+
+\end_deeper 
+\layout Enumerate
+
+If 
+\begin_inset Formula \( 1\leq f(x)\leq (x-1)^{2}+1 \)
+\end_inset 
+
+ for all 
+\begin_inset Formula \( x \)
+\end_inset 
+
+, find 
+\begin_inset Formula \( \lim _{x\rightarrow -1}f(x) \)
+\end_inset 
+
+.
+\layout Enumerate
+
+IVT
+\begin_deeper 
+\layout Enumerate
+
+State the Intermediate Value Theorem.
+\layout Enumerate
+
+Given the function 
+\begin_inset Formula \( f(x)=\left\{ \begin{array}{c}
+2t+1\, 0\leq t\leq 3\\
+t^{2}\, 3<t\leq 5
+\end{array}\right.  \)
+\end_inset 
+
+defined on the interval 
+\begin_inset Formula \( [0,5] \)
+\end_inset 
+
+.
+ Note that 
+\begin_inset Formula \( f(0)=1 \)
+\end_inset 
+
+, 
+\begin_inset Formula \( f(5)=25 \)
+\end_inset 
+
+ but 
+\begin_inset Formula \( f(x) \)
+\end_inset 
+
+ is never equal to 
+\begin_inset Formula \( 8 \)
+\end_inset 
+
+.
+ Explain why this doesn't contradict IVT.
+\newline 
+
+\end_deeper 
+\end_deeper 
+\layout Enumerate
+
+Extrema/Optimization
+\begin_deeper 
+\layout Enumerate
+
+State the Extreme Value Theorem
+\layout Enumerate
+
+Find the absolute maximum and absolute minimum of 
+\begin_inset Formula \( f(x)=e^{x^{3}-x} \)
+\end_inset 
+
+ on the interval 
+\begin_inset Formula \( [-1,0] \)
+\end_inset 
+
+.
+\end_deeper 
+\layout Enumerate
+
+Applications of the derivative
+\begin_deeper 
+\layout Enumerate
+
+Use Newton's method with an initial guess of 
+\begin_inset Formula \( x_{0}=1 \)
+\end_inset 
+
+ to find where 
+\begin_inset Formula \( f(x)=x^{3}-3 \)
+\end_inset 
+
+ has a zero.
+ Calculate the value correct to two decimal places, assuming that each step
+ brings you closer to the correct answer.
+\layout Enumerate
+
+Use a local linear approximation to 
+\begin_inset Formula \( f(x)=x^{1/3} \)
+\end_inset 
+
+ at 
+\begin_inset Formula \( x=3.375 \)
+\end_inset 
+
+ to approximate 
+\begin_inset Formula \( ^{3}\sqrt{3} \)
+\end_inset 
+
+.
+ Note that 
+\begin_inset Formula \( (3.375)^{1/3}=1.5 \)
+\end_inset 
+
+.
+ 
+\the_end

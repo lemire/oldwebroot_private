@@ -1,0 +1,15 @@
+This is pdfTeX, Version 3.14159-13d (Web2C 7.3.1) (format=pdftex 2001.3.27)  5 MAR 2002 13:56
+**\nonstopmode\pdfcompresslevel9\def\thumbmax{006}\input thumbpdf
+(/usr/share/texmf/tex/generic/thumbpdf/thumbpdf.tex
+File: thumbpdf.tex 2000/01/19 v1.11 Program to include thumbnails as images (HO
+)
+
+****************************************************************
+* Generating 'thumbpdf.pdf', each page with a found thumbnail. *
+****************************************************************
+\thumbcount=\count26
+\thumbread=\read0
+* Looking for thumbnails 0..006:
+[1 <./thumb001.png>] [2 <./thumb002.png>] [3 <./thumb003.png>] [4 <./thumb004.p
+ng>] [5 <./thumb005.png>] [6 <./thumb006.png>] )
+Output written on thumbpdf.pdf (6 pages, 8688 bytes).

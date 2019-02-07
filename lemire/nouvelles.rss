@@ -1,0 +1,268 @@
+<?xml version="1.0" encoding="ISO-8859-1"  ?>
+  <?xml-stylesheet title='RSS_Formatted' type='text/xsl' href='http://www.daniel-lemire.com/fr/rssit.xsl'?>
+  <!DOCTYPE rss PUBLIC "-//Netscape Communications//DTD RSS 0.91//EN" "http://my.netscape.com/publish/formats/rss-0.91.dtd">
+
+  <rss version="0.91">
+
+  <channel>
+
+  <description>Daniel Lemire s'intéresse particulièrement au forage de données, aux grandes bases de données (OLAP) ainsi
+  qu'au filtrage collaboratif. </description>
+
+  <language>fr</language>
+
+  <title>Nouvelles concernant Daniel Lemire, chercheur et professeur à l'UQÀM </title>
+  <link>http://www.daniel-lemire.com/fr/nouvelles.html</link>
+
+  <item>
+	<title> 16 octobre 2005</title>
+	<description><!--p class="INDENTE"-->Ce mois-ci, Steven Keith va présenter notre 
+ papier <!--a 
+ href="http://www.daniel-lemire.com/fr/abstracts/APICS2005.html"-->Analyzing 
+ Large Collections of Electronic Text Using OLAP<!--/a--> à la 
+ conférence <!--a href="http://euler.acadiau.ca/~apics/"-->APICS 
+ 2005<!--/a--> se tenant à Wolfville (Canada).<!--/p--> 
+ </description>
+	<link>http://www.daniel-lemire.com/fr/nouvelles.html</link>
+</item>
+
+
+<item>
+	<title> 6 septembre 2005</title>
+	<description><!--p class="INDENTE"-->Une communication chez IEEE Data Mining 
+ (ICDM-05) intitulée <!--a 
+ href="http://www.daniel-lemire.com/fr/abstracts/ICDM05.html"-->An 
+ Optimal Linear Time Algorithm for Quasi-Monotonic 
+ Segmentation<!--/a--> a été acceptée avec Martin Brooks et Yuhong Yan. 
+ Seulement 22% des communications furent acceptées. En août 
+ dernier, un de mes articles est paru dans l'International Journal 
+ of Interactive Technology and Smart Education: <!--a 
+ href="http://www.daniel-lemire.com/fr/abstracts/ITSE2005.html"-->Collaborative 
+ Filtering and Inference Rules for Context-Aware Learning Object 
+ Recommendation<!--/a--> avec Harold Boley, Sean McGrath et Marcel 
+ Ball.<!--/p--> 
+ </description>
+	<link>http://www.daniel-lemire.com/fr/nouvelles.html</link>
+</item>
+
+
+<item>
+	<title> 29 avril 2005</title>
+	<description><!--p class="INDENTE"-->AAAI05 a accepté notre article 
+ <!--i-->Quasi-monotonic segmentation of state variable behavior for 
+ reactive control<!--/i--> (avec Will Fitzgerald et Martin Brooks). 
+ Seulement 27% des papiers furent acceptés.<!--/p--> 
+ </description>
+	<link>http://www.daniel-lemire.com/fr/nouvelles.html</link>
+</item>
+
+
+<item>
+	<title> 16 mars 2005</title>
+	<description><!--p class="INDENTE"-->IJCAI05 a accepté notre article <!--i-->Scale-Based 
+ Monotonicity Analysis in Qualitative Modelling with Flat 
+ Segments<!--/i--> (avec Yuhong Yan et Martin Brooks). Seulement 18% 
+ des papiers furent acceptés.<!--/p--> 
+ </description>
+	<link>http://www.daniel-lemire.com/fr/nouvelles.html</link>
+</item>
+
+
+<item>
+	<title> 14 janvier 2005</title>
+	<description><!--p class="INDENTE"-->J'ai donné un conférence aux ateliers du 
+ "Ateliers du <!--a href="http://www.cirta.org/"-->CIRTA<!--/a-->" (un 
+ centre de eLearning) sur le filtrage collaboration par 
+ évaluations et j'ai présenté brièvement l'algorithme de <!--a 
+ href="http://www.daniel-lemire.com/fr/abstracts/SDM2005.html"-->filtrage 
+ collaboratif «Slope One»<!--/a-->.<!--/p--> 
+ </description>
+	<link>http://www.daniel-lemire.com/fr/nouvelles.html</link>
+</item>
+
+
+<item>
+	<title> 13 décembre 2004</title>
+	<description><!--p class="INDENTE"-->Le papier «Slope One Predictors for Online 
+ Rating-Based Collaborative Filtering» écrit avec Anna Maclachlan 
+ (maintenant chez Idilia Inc.) a été acccepté à la conférence SIAM 
+ Data Mining 2005. Les travaux en question furent appliqués au 
+ site <!--a href="http://www.indiscover.net"-->inDiscover<!--/a-->. Le 
+ papier décrit un filtrage collaboratif très simple, mais aussi 
+ raisonnablement précis et surtout, très facile à implémenter. <!--a 
+ href="http://www.daniel-lemire.com/fr/abstracts/SDM2005.html"-->La 
+ version PDF<!--/a--> de l'article est disponible.<!--/p--> 
+ </description>
+	<link>http://www.daniel-lemire.com/fr/nouvelles.html</link>
+</item>
+
+
+<item>
+	<title> 19 novembre 2004</title>
+	<description><!--p class="INDENTE"-->Après avoir fondé le <!--a 
+ href="http://www.cscsi.org/swig/"-->SWIG<!--/a-->, nous avons tenu le 
+ premier événement SWIG: <!--a 
+ href="http://www.cscsi.org/swig/swig04/"-->SWIG'04<!--/a-->.<!--/p--> 
+ </description>
+	<link>http://www.daniel-lemire.com/fr/nouvelles.html</link>
+</item>
+
+
+<item>
+	<title> 4 novembre 2004</title>
+	<description><!--p class="INDENTE"-->Notre site Web <!--a 
+ href="http://www.indiscover.net"-->inDiscover<!--/a--> est maintenant un 
+ site Bell Sympatico/MSN. Bell Canada est l'une des plus 
+ importantes compagnies canadiennes. Le site Web est le résultat 
+ direct de mes travaux de recherche des deux dernières années.<!--/p--> 
+ </description>
+	<link>http://www.daniel-lemire.com/fr/nouvelles.html</link>
+</item>
+
+
+<item>
+	<title> 6 octobre 2004</title>
+	<description><!--p class="INDENTE"-->J'ai donné une conférence au laboratoire RALI 
+ de l'Université de Montréal sur le filtrage collaboratif par 
+ évaluations. Merci à Guy Lapalme pour l'invitation! J'y parlais 
+ de mes travaux avec Anna Maclachlan ayant mené au site Web <!--a 
+ href="http://www.indiscover.net"-->inDiscover<!--/a-->.<!--/p--> 
+ </description>
+	<link>http://www.daniel-lemire.com/fr/nouvelles.html</link>
+</item>
+
+
+<item>
+	<title> 21 septembre 2004</title>
+	<description><!--p class="INDENTE"-->Je donne une conférence à l'<!--a 
+ href="http://www.ailia.ca/"-->Association de l'industrie de la 
+ langue (AILIA)<!--/a--> à Ottawa: Semantic Web in Brief. Je parle de 
+ ce qu'est vraiment le Web sémantique, c'est-à-dire RDF. Je donne 
+ une brève présentation de RDF avec des applications, mais sans 
+ insister sur le XML.<!--/p--> 
+ </description>
+	<link>http://www.daniel-lemire.com/fr/nouvelles.html</link>
+</item>
+
+
+<item>
+	<title> 8 septembre 2004</title>
+	<description><!--p class="INDENTE"-->Un autre papier avec Yuhong Yan et Martin 
+ Brooks a été accepté (MBR'04): <!--a 
+ href="http://www.daniel-lemire.com/fr/abstracts/MBR2004.html"-->Monotonicity 
+ Analysis for Constructing Qualitative Models<!--/a-->.<!--/p--> 
+ </description>
+	<link>http://www.daniel-lemire.com/fr/nouvelles.html</link>
+</item>
+
+
+<item>
+	<title> 12 juin 2004</title>
+	<description><!--p class="INDENTE"-->Avec Yuhong Yan et Martin Brooks, nous avons 
+ publié un nouveau papier (atelier Monet): <!--a 
+ href="http://www.daniel-lemire.com/fr/abstracts/MONET2004.html"-->Monotone 
+ Pieces Analysis for Qualitative Modeling<!--/a-->.<!--/p--> 
+ </description>
+	<link>http://www.daniel-lemire.com/fr/nouvelles.html</link>
+</item>
+
+
+<item>
+	<title> 29 mai 2004</title>
+	<description><!--p class="INDENTE"-->J'étais examinateur externe pour la thèse de 
+ doctorat de Sreeraman Rajan supervisée par les professeurs 
+ Doraiswami et Stevenson, en génie électrique et informatique à 
+ l'Université du Nouveau-Brunswick. La thèse porte sur la 
+ classification en utilisant les ondelettes de Morlet des 
+ phonocardiogrammes et porte le titre: <!--i-->A Wavelet-based 
+ Correlator Approach for Segmentation and Classification of the 
+ First Two Heart Sounds in a PCG Signal<!--/i-->. À mon avis, c'est une 
+ très bonne thèse de doctorat bien défendue.<!--/p--> 
+ </description>
+	<link>http://www.daniel-lemire.com/fr/nouvelles.html</link>
+</item>
+
+
+<item>
+	<title> 13 mai 2004</title>
+	<description><!--p class="INDENTE"-->Une des sommités mondiales en apprentissage 
+ électronique, <!--a href="http://www.downes.ca"-->Stephen Downes<!--/a-->, 
+ mentionne notre projet <!--a 
+ href="http://www.indiscover.net"-->indiscover.net<!--/a--> dans son 
+ blog.<!--/p--> 
+  
+ <!--pre 
+ style="margin-left : 6em; border-width: thin; border-style:dotted;border-color: #003000;"--> 
+  
+ OLDaily May 13, 2004 
+  
+ by Stephen Downes 
+  
+ ----------------------------------------------------------- 
+  
+ InDiscover 
+  
+ Those of you who heard my talk in Winnipeg last week (or 
+ viewed the slides online) will recall my discusion of 
+ recommender systems. InDiscover is one such site, a service 
+ designed to help bring independent music to new listeners 
+ by recommending songs based on users' tastes. The site is 
+ run using racofi technology, developed by NRC in 
+ Fredericton in conjunction with the Sifter Filter project I 
+ described in my talk, and so it gives you a pretty good 
+ idea of how such a system would work for learning 
+ resources. What I also like about this site is its focus on 
+ new and independent musicians, showing how such systems 
+ will open the marketplace. Still looking for the RSS 
+ metadata feeds from the site, but hey, one thing at a time. 
+ The site could also use more songs, so if you know of 
+ independent artists looking for exposure, forward them this 
+ item. By Various Authors, May, 2004 
+ <!--a href="http://indiscover.net"-->http://indiscover.net/<!--/a--> 
+ <!--/pre--> 
+ </description>
+	<link>http://www.daniel-lemire.com/fr/nouvelles.html</link>
+</item>
+
+
+<item>
+	<title> 24 avril 2004</title>
+	<description><!--p class="INDENTE"-->Je ne suis plus chercheur au Conseil national 
+ de recherches du Canada à Fredericton. J'ai accepté un poste de 
+ professeur à l'Université du Québec. C'est avec regret que je 
+ quitte le groupe de recherche en logique Internet, mais je reste 
+ branché sur le CNRC à vie. Un des bénéfices de vivre à Montréal 
+ est le fait qu'on sert des cappucino au rez-de-chaussé du 
+ bâtiment où je travaille ainsi qu'à tous les coins de rue dans le 
+ quartier. Je suis au coin de Saint-Denis et Mont-Royal ce qui est 
+ un des plus beaux quartiers de Montréal.<!--/p--> 
+  
+ <!--p class="INDENTE"-->Si vous cherchez un bon programme de doctorat, 
+ vous devriez regarder le programme en <!--a 
+ href="http://www.regis.uqam.ca/prod/owa/pkg_wpub.affiche_prog_desc?P_prog=3560"--> 
+ informatique cognitive<!--/a--> de l'UQAM. Quoi de mieux que l'une des 
+ villes les plus exicitantes du monde pour y faire un 
+ doctorat?<!--/p--> 
+ </description>
+	<link>http://www.daniel-lemire.com/fr/nouvelles.html</link>
+</item>
+
+
+<item>
+	<title> 17 avril 2004</title>
+	<description><!--p class="INDENTE"-->Notre site de recommandation de musique, <!--a 
+ href="http://www.indiscover.net" lang="en"-->inDiscover<!--/a-->, est 
+ finalement prêt. Je pense que <!--a 
+ href="http://raincoatagreements.net/" lang="en"-->Sean<!--/a--> a fait 
+ un boulot fantastique. Je sais que nous avons eu au moins une 
+ idée brillante: on vous demande d'évaluer de la musique 
+ indépendante ce qui fait que vous pouvez écouter les fichiers MP3 
+ en ligne gratuitement.<!--/p--> 
+ </description>
+	<link>http://www.daniel-lemire.com/fr/nouvelles.html</link>
+</item>
+
+
+
+  </channel>
+  </rss>

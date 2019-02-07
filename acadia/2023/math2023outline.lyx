@@ -1,0 +1,410 @@
+#LyX 1.1 created this file. For more info see http://www.lyx.org/
+\lyxformat 218
+\textclass article
+\begin_preamble
+\usepackage{epsfig}
+\usepackage{amsmath,amssymb}
+\usepackage{pslatex}
+\usepackage{color}
+ 
+ \definecolor{veryblackblue}{rgb}{0.0,0.0,0.1}
+ \usepackage[pdftex,urlcolor=webblackblue,colorlinks=true]{hyperref}
+ \pdfinfo{
+            /Title      (Math2023 - course outline)
+            /Author     (Daniel Lemire, Ph.D.)
+            /Subject (This is a course outline for Math 2023 including the grading scheme and a rough schedule.)
+            /Keywords   (series, differential equations, vector calculus, Acadia)
+          }
+
+
+\topmargin  = 0pt
+\headheight = 0pt
+\headsep    = 0pt
+
+\voffset    = 0in
+\hoffset    = 0in
+\textheight = 230mm
+\textwidth  = 164mm
+
+\evensidemargin = 0pt
+\oddsidemargin  = 0pt
+
+\pagestyle{empty}
+\usepackage{float}
+
+%% Background of blue palette
+ \definecolor{webblackblue}{rgb}{0.0,0.0,0.2}
+ \definecolor{webblue}{rgb}{0.0, 0.0, 0.6}
+
+%% Background of red palette
+ \definecolor{webblackred}{rgb}{0.2,0.0,0.0}
+ \definecolor{webred}{rgb}{0.6,0.0,0.0}
+
+%% Background of green palette
+ \definecolor{webblackgreen}{rgb}{0.0,0.2,0.0}                                   
+ \definecolor{webgreen}{rgb}{0.0,0.6,0.0} 
+
+%% Background of magenta palette
+ \definecolor{webblackmagenta}{rgb}{0.14,0.0,0.14}                                   
+ \definecolor{webmagenta}{rgb}{0.42,0.0,0.42} 
+
+%% Background of cyan palette
+ \definecolor{webblackcyan}{rgb}{0.0,0.14,0.14}                                   
+ \definecolor{webcyan}{rgb}{0.0,0.42,0.42} 
+
+%% Background of yellow pallete
+ \definecolor{webblackyellow}{rgb}{0.14,0.14,0.0}                                   
+ \definecolor{webyellow}{rgb}{0.85,0.85,0.0} 
+
+ \definecolor{webdarkgray}{rgb}{0.2,0.2,0.2}
+
+ \definecolor{webgray}{rgb}{0.75,0.75,0.75}
+ \definecolor{weborange}{rgb}{1.0, 0.6, 0.0}
+
+\renewcommand\labelenumi{\textcolor{webdarkgray}{\arabic{enumi}.}}
+\newcommand{\setenumi}[1]{#1.\setcounter{enumi}{#1}}
+\usepackage{dsfont}
+\end_preamble
+\language english
+\inputencoding auto
+\fontscheme default
+\graphics default
+\paperfontsize default
+\spacing single 
+\papersize Default
+\paperpackage a4
+\use_geometry 0
+\use_amsmath 0
+\paperorientation portrait
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\defskip medskip
+\quotes_language english
+\quotes_times 2
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+
+\layout Title
+
+MATH 2023 - Topics from Advanced Calculus
+\newline 
+Acadia University
+\layout Author
+
+Daniel Lemire, Ph.D.
+ 
+\layout Date
+
+Winter 2002
+\layout Address
+
+Email: 
+\latex latex 
+
+\backslash 
+href{mailto:daniel.lemire@acadiau.ca}{daniel.lemire@acadiau.ca}
+\layout Address
+
+Web: 
+\latex latex 
+
+\backslash 
+href{http://www.ondelette.com/acadia/}{http://www.ondelette.com/acadia/}
+\layout Address
+
+Office hours: MWF 10:30-12:30 
+\layout Address
+
+Office: HSH117
+\layout Section
+
+
+\series medium 
+Summary
+\layout Standard
+
+Vector functions and their derivatives.
+ Line integrals, Infinite series.
+ Differential equations: first and second-order linear equations and application
+; series solutions.
+\layout Section
+
+
+\series medium 
+Prerequisite
+\layout Standard
+
+Math 2013 is required.
+\layout Section
+
+
+\series medium 
+Textbooks
+\layout Standard
+
+Required:
+\layout Itemize
+
+McCallum, Hughes-Hallett, and Gleason, 
+\shape italic 
+Multivariable Calculus
+\shape default 
+, Wiley, ISBN #0471311510.
+ 
+\layout Itemize
+
+Bronson, 
+\shape italic 
+Schaum's Outline of Differential Equations
+\shape default 
+, Schaum, 1994, McGraw-Hill.
+ ISBN #0070080194.
+\layout Standard
+
+Suggested:
+\layout Itemize
+
+Harry M.
+ Schey, 
+\shape italic 
+Div, Grad, Curl, and all that
+\shape default 
+, W.
+ W.
+ Horton & Cie, August 1997.
+ ISBN #0393969975.
+\layout Standard
+
+Some free lecture notes will be made available to the students based on
+ the following document:
+\layout Itemize
+
+
+\shape italic 
+Mathematics 2023 - Infinite Series I
+\shape default 
+ © 1998 F.
+ Chipman, Acadia University 
+\newline 
+Revised 1999 T.
+ Archibald, Acadia University.
+\layout Section
+
+
+\series medium 
+Course outline
+\layout Enumerate
+
+Vector Functions and Their Derivatives
+\begin_deeper 
+\layout Itemize
+
+Line integrals 
+\layout Itemize
+
+Grad, Curl 
+\layout Itemize
+
+Green's theorem, Stoke's theorem
+\end_deeper 
+\layout Enumerate
+
+Series
+\begin_deeper 
+\layout Itemize
+
+Convergence 
+\layout Itemize
+
+Bounded series 
+\layout Itemize
+
+Taylor series 
+\layout Itemize
+
+Radius of convergence
+\end_deeper 
+\layout Enumerate
+
+Differential Equations
+\begin_deeper 
+\layout Itemize
+
+Linear Differential Equations 
+\layout Itemize
+
+Second-Order Linear Differential Equations 
+\layout Itemize
+
+The Method of Undetermined Coefficients 
+\layout Itemize
+
+Variation of Parameters 
+\layout Itemize
+
+Initial-Value Problems 
+\layout Itemize
+
+Series Solutions 
+\layout Itemize
+
+Eigenfunction Expansions
+\end_deeper 
+\layout Standard
+
+This course is a mix of three topics.
+ We will first learn about 
+\shape italic 
+Grad, Curl and all that
+\shape default 
+, in other words, Vector calculus during the first weeks of the course.
+ We will then learn more about series and their convergence.
+ It should take us roughly to study week at which point we will be ready
+ for the mid-term exam right after study week.
+ The rest of the course will be on differential equations and we will use
+ some of our knowledge of series to solve some of the more complicated different
+ial equations.
+ Correspondingly, you should expect 4 assignments, the first one on vector
+ calculus, the second one on series and the last two assignments on differential
+ equations.
+ Maple might be used for this course.
+\layout Section
+
+Grading Scheme 
+\layout Standard
+
+There are two marking schemes.
+ The second one is meant to help students who would do poorly on the Mid-Term
+ and the assignments.
+\layout Standard
+
+
+\begin_inset  Tabular
+<lyxtabular version="2" rows="4" columns="3">
+<features rotate="false" islongtable="false" endhead="0" endfirsthead="0" endfoot="0" endlastfoot="0">
+<column alignment="center" valignment="top" leftline="true" rightline="false" width="" special="">
+<column alignment="center" valignment="top" leftline="true" rightline="false" width="" special="">
+<column alignment="center" valignment="top" leftline="true" rightline="true" width="" special="">
+<row topline="true" bottomline="true" newpage="false">
+<cell multicolumn="0" alignment="center" valignment="top" topline="true" bottomline="false" leftline="true" rightline="false" rotate="false" usebox="none" width="" special="">
+\begin_inset Text
+
+\layout Standard
+
+Best of two schemes
+\end_inset 
+</cell>
+<cell multicolumn="0" alignment="center" valignment="top" topline="true" bottomline="false" leftline="true" rightline="false" rotate="false" usebox="none" width="" special="">
+\begin_inset Text
+
+\layout Standard
+
+Scheme 1
+\end_inset 
+</cell>
+<cell multicolumn="0" alignment="center" valignment="top" topline="true" bottomline="false" leftline="true" rightline="true" rotate="false" usebox="none" width="" special="">
+\begin_inset Text
+
+\layout Standard
+
+Scheme 2
+\end_inset 
+</cell>
+</row>
+<row topline="true" bottomline="false" newpage="false">
+<cell multicolumn="0" alignment="center" valignment="top" topline="true" bottomline="false" leftline="true" rightline="false" rotate="false" usebox="none" width="" special="">
+\begin_inset Text
+
+\layout Standard
+
+4 Assignments
+\end_inset 
+</cell>
+<cell multicolumn="0" alignment="center" valignment="top" topline="true" bottomline="false" leftline="true" rightline="false" rotate="false" usebox="none" width="" special="">
+\begin_inset Text
+
+\layout Standard
+
+20%
+\end_inset 
+</cell>
+<cell multicolumn="0" alignment="center" valignment="top" topline="true" bottomline="false" leftline="true" rightline="true" rotate="false" usebox="none" width="" special="">
+\begin_inset Text
+
+\layout Standard
+
+0%
+\end_inset 
+</cell>
+</row>
+<row topline="true" bottomline="false" newpage="false">
+<cell multicolumn="0" alignment="center" valignment="top" topline="true" bottomline="false" leftline="true" rightline="false" rotate="false" usebox="none" width="" special="">
+\begin_inset Text
+
+\layout Standard
+
+Mid-Term Exam
+\end_inset 
+</cell>
+<cell multicolumn="0" alignment="center" valignment="top" topline="true" bottomline="false" leftline="true" rightline="false" rotate="false" usebox="none" width="" special="">
+\begin_inset Text
+
+\layout Standard
+
+20%
+\end_inset 
+</cell>
+<cell multicolumn="0" alignment="center" valignment="top" topline="true" bottomline="false" leftline="true" rightline="true" rotate="false" usebox="none" width="" special="">
+\begin_inset Text
+
+\layout Standard
+
+0%
+\end_inset 
+</cell>
+</row>
+<row topline="true" bottomline="true" newpage="false">
+<cell multicolumn="0" alignment="center" valignment="top" topline="true" bottomline="false" leftline="true" rightline="false" rotate="false" usebox="none" width="" special="">
+\begin_inset Text
+
+\layout Standard
+
+Final Exam
+\end_inset 
+</cell>
+<cell multicolumn="0" alignment="center" valignment="top" topline="true" bottomline="false" leftline="true" rightline="false" rotate="false" usebox="none" width="" special="">
+\begin_inset Text
+
+\layout Standard
+
+60%
+\end_inset 
+</cell>
+<cell multicolumn="0" alignment="center" valignment="top" topline="true" bottomline="false" leftline="true" rightline="true" rotate="false" usebox="none" width="" special="">
+\begin_inset Text
+
+\layout Standard
+
+100%
+\end_inset 
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset 
+
+
+\layout Section
+
+Assignments
+\layout Standard
+
+Assignments will be made of a large set of problems and students will have
+ roughly two weeks to complete each set.
+ Team work will be allowed but each student must write his own paper.
+ These problems will be similar to what you can expect during the exams
+ so students are encouraged to work the problems on their own whenever possible.
+ 
+\the_end

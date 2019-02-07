@@ -1,0 +1,191 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with jLaTeX2HTML 2002 (1.62) JA patch-1.4
+patched version by:  Kenshi Muto, Debian Project.
+LaTeX2HTML 2002 (1.62),
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>Qu'est-ce qu'une ondelette?</TITLE>
+<META NAME="description" CONTENT="Qu'est-ce qu'une ondelette?">
+<META NAME="keywords" CONTENT="faqondelette">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<META NAME="Generator" CONTENT="jLaTeX2HTML v2002 JA patch-1.4">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="faqondelette.css">
+
+<LINK REL="next" HREF="node10.html">
+<LINK REL="previous" HREF="node8.html">
+<LINK REL="up" HREF="node8.html">
+<LINK REL="next" HREF="node10.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html250"
+  HREF="node10.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html246"
+  HREF="node8.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html240"
+  HREF="node8.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
+<A NAME="tex2html248"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html251"
+  HREF="node10.html">Qu'est-ce qu'une ondelette discrète?</A>
+<B> Up:</B> <A NAME="tex2html247"
+  HREF="node8.html">Qu'est-ce que les ondelettes?</A>
+<B> Previous:</B> <A NAME="tex2html241"
+  HREF="node8.html">Qu'est-ce que les ondelettes?</A>
+ &nbsp <B>  <A NAME="tex2html249"
+  HREF="node1.html">Contents</A></B> 
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+
+<H2><A NAME="SECTION0003100000000000000000">
+Qu'est-ce qu'une ondelette?</A>
+</H2>
+
+<P>
+Malheureusement, il n'y a pas de r&#233;ponse d&#233;finitive &#224; cette question.
+Tout en sachant que nous n'arriverons pas &#224; satisfaire tout le monde,
+essayons tout de m&#234;me. Il est &#224; noter que cette d&#233;finition est rarement
+utilis&#233;e parce que d'une part, on ne traite pas toujours avec des
+fonctions et d'autre part, on ne travaille pas toujours avec des espaces
+de Hilbert.
+
+<P>
+Condition 1. Une base d'ondelettes doit inclure des bases de Riesz
+pour une famille de sous-espaces de Hilbert <IMG
+ WIDTH="26" HEIGHT="29" ALIGN="MIDDLE" BORDER="0"
+ SRC="img7.png"
+ ALT="$ W_{j} $"> d'un espace de
+Hilbert <IMG
+ WIDTH="19" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
+ SRC="img8.png"
+ ALT="$ H $">, on note ces bases de Riesz (<A HREF="node23.html#basederiez">3.3</A>) <!-- MATH
+ $\left(\psi_{j,i}\right)_{i}\in W_{j}$
+ -->
+<IMG
+ WIDTH="88" HEIGHT="31" ALIGN="MIDDLE" BORDER="0"
+ SRC="img9.png"
+ ALT="$ \left( \psi _{j,i}\right) _{i}\in W_{j} $">
+et on doit pouvoir &#233;crire <!-- MATH
+ $H=...\oplus W_{-1}\oplus W_{0}\oplus W_{1}\oplus...$
+ -->
+<IMG
+ WIDTH="221" HEIGHT="29" ALIGN="MIDDLE" BORDER="0"
+ SRC="img10.png"
+ ALT="$ H=...\oplus W_{-1}\oplus W_{0}\oplus W_{1}\oplus ... $">.
+Par la condition de Riesz, nous avons <!-- MATH
+ $A_{j}\sum_{i}|c_{i}|^{2}\leq\left\Vert \sum_{i}c_{i}\psi_{j,i}\right\Vert ^{2}\leq B_{j}\sum_{i}|c_{i}|^{2}$
+ -->
+<IMG
+ WIDTH="280" HEIGHT="38" ALIGN="MIDDLE" BORDER="0"
+ SRC="img11.png"
+ ALT="$ A_{j}\sum _{i}\vert c_{i}\vert^{2}\leq \left\Vert \sum _{i}c_{i}\psi _{j,i}\right\Vert ^{2}\leq B_{j}\sum _{i}\vert c_{i}\vert^{2} $">.
+On dira que la base est stable si <IMG
+ WIDTH="23" HEIGHT="29" ALIGN="MIDDLE" BORDER="0"
+ SRC="img12.png"
+ ALT="$ A_{j} $"> et <IMG
+ WIDTH="23" HEIGHT="29" ALIGN="MIDDLE" BORDER="0"
+ SRC="img13.png"
+ ALT="$ B_{j} $"> sont constants
+(ind&#233;pendant de <IMG
+ WIDTH="12" HEIGHT="28" ALIGN="MIDDLE" BORDER="0"
+ SRC="img14.png"
+ ALT="$ j $">).
+
+<P>
+Condition 2. Toutes les ondelettes doivent avoir une masse nulle <!-- MATH
+ $\int\psi_{j,i}(x)dx=0$
+ -->
+<IMG
+ WIDTH="110" HEIGHT="33" ALIGN="MIDDLE" BORDER="0"
+ SRC="img15.png"
+ ALT="$ \int \psi _{j,i}(x)dx=0 $">
+(voir <A HREF="node31.html#momentsnuls">3.11</A>).
+
+<P>
+Condition 3. Il doit y avoir une condition d'&#233;chelle, c'est &#224; dire
+qu'il existe <IMG
+ WIDTH="39" HEIGHT="29" ALIGN="MIDDLE" BORDER="0"
+ SRC="img16.png"
+ ALT="$ b&gt;1$"> tel que <!-- MATH
+ $f\in W_{j}$
+ -->
+<IMG
+ WIDTH="55" HEIGHT="29" ALIGN="MIDDLE" BORDER="0"
+ SRC="img17.png"
+ ALT="$ f\in W_{j} $"> implique <!-- MATH
+ $f(b\cdot)\in W_{j-1}$
+ -->
+<IMG
+ WIDTH="95" HEIGHT="31" ALIGN="MIDDLE" BORDER="0"
+ SRC="img18.png"
+ ALT="$ f(b\cdot )\in W_{j-1} $">.
+On choisit normalement <IMG
+ WIDTH="42" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img19.png"
+ ALT="$ a=2 $"> (cas dyadique). En d'autres terms, dans
+le cas dyadique, on exige que si <!-- MATH
+ $f(x)\in W_{j}$
+ -->
+<IMG
+ WIDTH="76" HEIGHT="31" ALIGN="MIDDLE" BORDER="0"
+ SRC="img20.png"
+ ALT="$ f(x)\in W_{j} $"> alors <!-- MATH
+ $f(2x)\in W_{j-1}$
+ -->
+<IMG
+ WIDTH="100" HEIGHT="31" ALIGN="MIDDLE" BORDER="0"
+ SRC="img21.png"
+ ALT="$ f(2x)\in W_{j-1} $">.
+
+<P>
+La condition 1 peut &#234;tre r&#233;duite &#224; exiger que les ondelettes forment
+un rep&#232;re (<A HREF="node25.html#repere">3.5</A>).
+
+<P>
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html250"
+  HREF="node10.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html246"
+  HREF="node8.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html240"
+  HREF="node8.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
+<A NAME="tex2html248"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html251"
+  HREF="node10.html">Qu'est-ce qu'une ondelette discrète?</A>
+<B> Up:</B> <A NAME="tex2html247"
+  HREF="node8.html">Qu'est-ce que les ondelettes?</A>
+<B> Previous:</B> <A NAME="tex2html241"
+  HREF="node8.html">Qu'est-ce que les ondelettes?</A>
+ &nbsp <B>  <A NAME="tex2html249"
+  HREF="node1.html">Contents</A></B> 
+<!--End of Navigation Panel-->
+<ADDRESS>
+Daniel Lemire
+2004-02-02
+</ADDRESS>
+</BODY>
+</HTML>

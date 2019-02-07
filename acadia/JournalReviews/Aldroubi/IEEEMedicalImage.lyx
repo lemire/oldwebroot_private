@@ -1,0 +1,447 @@
+#LyX 1.1 created this file. For more info see http://www.lyx.org/
+\lyxformat 218
+\textclass letter
+\begin_preamble
+\usepackage[pdftex]{hyperref}
+\usepackage{dsfont}
+\usepackage{amsmath,amssymb}
+\usepackage{pslatex}
+ \pdfadjustspacing=1
+\end_preamble
+\language american
+\inputencoding auto
+\fontscheme default
+\graphics default
+\paperfontsize default
+\spacing single 
+\papersize Default
+\paperpackage a4
+\use_geometry 0
+\use_amsmath 0
+\paperorientation portrait
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\defskip medskip
+\quotes_language english
+\quotes_times 2
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+
+\layout My Address
+
+Daniel Lemire, Ph.D.
+\newline 
+Department of Math.
+ and Stat.
+\newline 
+Acadia University
+\newline 
+Wolfville, Nova Scotia, Canada
+\newline 
+B0P 1X0
+\layout Send To Address
+
+Professor Akram Aldroubi
+\newline 
+Associate Editor, IEEE Transactions on Medical Imaging
+\newline 
+Department of Mathematics
+\newline 
+Vanderbilt University
+\newline 
+Nashville TN 37240
+\newline 
+Fax: (615) 322-6656
+\newline 
+adroubi@math.vanderbilt.edu
+\layout Signature
+
+Daniel Lemire, Ph.D.
+ (lemire@ondelette.com) 
+\newline 
+Department of Math.
+ and Stat.
+\newline 
+Acadia University, Nova Scotia, Canada
+\layout Opening
+
+Dear Dr.
+ Aldrouki
+\layout Standard
+
+In December, I agree to review the paper IEEE TMI #248-01 
+\begin_inset Quotes eld
+\end_inset 
+
+Using of wavelets for smoothing and denoising of gated blood pool images
+\begin_inset Quotes erd
+\end_inset 
+
+ for a special issue on 
+\begin_inset Quotes eld
+\end_inset 
+
+Wavelets in Medical Imaging
+\begin_inset Quotes erd
+\end_inset 
+
+ for IEEE Transactions on Medical Imaging.
+ You will find my review of this paper with this letter.
+ I made sure to proceed in a timely fashion.
+ 
+\layout Standard
+
+Please don't hesitate to get in touch with me if I can be of further assistance.
+\layout Closing
+
+Yours sincerely,
+\layout Standard
+
+
+\latex latex 
+
+\backslash 
+pagebreak
+\latex default 
+ 
+\layout Standard
+\align center 
+
+\series bold 
+Criticism
+\layout Standard
+
+
+\series bold 
+Abstract.
+
+\series default 
+ This paper attempts to denoise short sequences of images (16 images) while
+ each one of these images is relatively small (
+\begin_inset Formula \( 64\times 64 \)
+\end_inset 
+
+ pixels).
+ This information is left out from the abstract even though it seems absolutely
+ necessary to understand the problem at hand.
+ In fact, the size of each image is only mentionned at the end of the introducti
+on.
+ Indeed, as far as wavelet processing is concerned, such small images are
+ a somewhat special case.
+ 
+\layout Standard
+
+
+\series bold 
+Missing data.
+
+\series default 
+ We do not know how many bits per pixel the images have (
+\begin_inset Formula \( 4,8,12,16? \)
+\end_inset 
+
+) and it doesn't seem to be mentionned anywhere in the article.
+\layout Standard
+
+
+\series bold 
+Motivation.
+
+\series default 
+ While the authors do a good job in explaining to the reader why these images
+ are somewhat noisy, as are almost all medical images, they may fail to
+ convince that denoising these images is required or helpful for clinical
+ applications.
+ While they show that their denoising can be done in such a way as to avoid
+ destroying vital information, it is unclear what the purpose of this denoising
+ is.
+ The authors do not refer to any work showing that this noise is a problem
+ clinically and therefore, it is quite natural to ask whether a doctor would
+ want to look at the denoised images when the original images are available.
+ A possible application might be automated processing of these images, however
+ the authors do not suggest such work.
+ Overall, the authors give no evidence that this denoising could make these
+ images easier to process either by a human or by a machine.
+ Surely, compression of the data doesn't seem to be an issue in this case.
+ If denoising these images is a significant work, we would also expect earlier
+ work on the same topic or at least some explanation as to why this is the
+ first attempt ever at denoising these images.
+ More broadly, it is unclear what scientific value there could be in denoising
+ such small images except that they propose an alternative to the 2D transform.
+ However, they do not attempt to explain why their 1D processing of images
+ would be better in a general setting and therefore, it is unclear whether
+ their approach could be applicable to other fields or interesting at all
+ for other researchers working on different images.
+\layout Standard
+
+
+\series bold 
+Applicability of the wavelet transform.
+
+\series default 
+ The authors fail to mention the problems expected when processing very
+ short signals using a multiscale approach.
+ Indeed, not only does it fail in these specific instances, but the wavelet
+ transform over 
+\begin_inset Formula \( 16 \)
+\end_inset 
+
+ samples is rarely going to be a valid tool.
+ Moreover, when filtering such a small image, surely, the boundaries pose
+ a problem.
+ How are the boundaries processed when the convolution is applied? A mirror-like
+ approach or some zero padding or yet something finer? This is very likely
+ to make a substantial difference in the results.
+\latex latex 
+
+\backslash 
+newpage
+\layout Standard
+
+
+\series bold 
+Reproducibility of the algorithms.
+
+\series default 
+ Moreover, the paper fails to detail many important algorithms it is proposing,
+ making it impossible for the reader to reproduce the results given a similar
+ set of images.
+ For example, the authors write that they use 
+\begin_inset Quotes eld
+\end_inset 
+
+the classical method of wavelet denoising
+\begin_inset Quotes erd
+\end_inset 
+
+.
+ This reviewer assumes that they are referring to one of the algorithms
+ proposed by Donoho and al.
+ It should be pointed out that there exists more than one classical method
+ for wavelet denoising (hard and soft denoising for example).
+ The authors compare a 1D scheme with a 2D scheme both using a variation
+ of this classical method without giving the necessary details to the reader.
+ To be precise, we don't even know if the same method was really applied
+ in both cases as there is no explicit mention of wavelet-denoising in the
+ 1D case.
+ In fact, we know for a fact that the 1D denoising scheme is preceded by
+ a perpendical low-pass filter whereas the 2D denoising scheme isn't.
+ We don't know how they handle some of the common problems such as values
+ exceeding the intensity bounds (negative pixel values for example).
+
+\latex latex 
+ 
+\latex default 
+The authors then describe the wavelets they have been using: Daubechies,
+ Symlet, Coiflet, Biorthogonal, Reverse Biorthogonal.
+ (Surprisingly, the Haar transform isn't mentioned here.) Again, this description
+ is somewhat unclear.
+ While we can see that the figures were generated using 
+\begin_inset Quotes eld
+\end_inset 
+
+Daubechies family, order 2, level 2
+\begin_inset Quotes erd
+\end_inset 
+
+, it is unclear what the authors did with the other wavelet filters.
+ It should also be pointed out that there are many biorthogonal wavelets.
+ We can assume here that they are referring to Cohen-Daubechies-Feauveau
+ wavelets, but it should be clearly stated and the term 
+\begin_inset Quotes eld
+\end_inset 
+
+Reverse Biorthogonal
+\begin_inset Quotes erd
+\end_inset 
+
+ should be clearly defined with the respective number of null moments spelled
+ out.
+ 
+\layout Standard
+
+
+\series bold 
+Unsustained claim.
+
+\series default 
+ The authors conclude that 
+\begin_inset Quotes eld
+\end_inset 
+
+The great number of wavelet families is one of the reasons for the high
+ suitability of this technique (...)
+\begin_inset Quotes erd
+\end_inset 
+
+ whereas the paper doesn't support this statement at all as the various
+ wavelet filters are never compared explicitely.
+ 
+\layout Standard
+
+
+\series bold 
+Arbitrary number of scales.
+
+\series default 
+ We can also wonder whether it is 
+\begin_inset Quotes eld
+\end_inset 
+
+fair
+\begin_inset Quotes erd
+\end_inset 
+
+ to compare a 1D transform using 2 iterations over 
+\begin_inset Formula \( 4096 \)
+\end_inset 
+
+ samples with a 2D transform using again 2 iterations but with 
+\begin_inset Formula \( N=64 \)
+\end_inset 
+
+.
+ Surely, the authors could have iterated more than twice over 
+\begin_inset Formula \( 4096 \)
+\end_inset 
+
+ samples and therefore, and their comment to the effect that 
+\begin_inset Quotes eld
+\end_inset 
+
+(...) 1D wavelets modified middle and low frequencies less than 2D wavelet
+ spatial smoothing(...)
+\begin_inset Quotes erd
+\end_inset 
+
+ might be related to this choice they made.
+ They should explain why they chose to do only two iterations while they
+ could have used many more.
+ It is not clear what would have happened if they had processed 4 or 5 scales
+ in their 1D denoising scheme.
+ 
+\latex latex 
+
+\backslash 
+newpage
+\layout Standard
+
+
+\series bold 
+Choice of algorithms.
+
+\series default 
+ Surely, one could design a denoising scheme using 2D wavelets that hardly
+ change the data whereas one could design an overly aggressive 1D scheme.
+ Is their 1D scheme better than all 2D schemes or only the one they've chosen?
+ To the reader, this seems like a very important question.
+\layout Standard
+
+
+\series bold 
+Question about perpendicular low-pass filter.
+
+\series default 
+ We face difficulties yet in comparing the 1D scheme with the 2D scheme
+ since the authors seem to apply a low-pass filter on their data before
+ the wavelet transform.
+ The filter (1/2,1,1/2) seems to be applied in a perpendicular fashion to
+ the transform.
+ It is suspicious that the filter isn't normalized so that the sum of the
+ terms be one.
+ This is especially important since the authors use the intensity of the
+ resulting images as a measure of quality.
+\layout Standard
+
+
+\series bold 
+What is intensity?
+\series default 
+ We should point out that wavelet denoising schemes typically only modify
+ the wavelet coefficients and hence, the denoised signal has the same mass
+ (average) as the original signal.
+ For example, given the data 
+\begin_inset Formula \( \{2,3\} \)
+\end_inset 
+
+ an aggressive Haar-based denoising might output 
+\begin_inset Formula \( \{2.5,2.5\} \)
+\end_inset 
+
+.
+ It is therefore difficult to understand how the mean intensity of the denoised
+ images could be strictly smaller (Fig.
+ 4) than the original images.
+ Chances are that the intensity is measured in terms of RMS or another such
+ algorithm but this isn't clear in the paper.
+ Also, it isn't clear how intensity could be a measure of quality (contrast
+ maybe, but intensity?).
+ Overall, the authors shouldn't provide evidence that intensity is lower
+ after denoising without explaining that fact in mathematical terms.
+\layout Standard
+
+
+\series bold 
+Meaning of the indicators.
+
+\series default 
+ All of the indicator provided seem to measure how close the denoised image
+ is to the original image except for the analysis of the gradient.
+ While denoising images without changing much their content (intensity,
+ visual analysis, Fourier analysis, TAC) is easy, actually achieving some
+ better properties (like better contour in an analysis of the gradients)
+ should be the actual goal.
+ This is not clear in the paper.
+\layout Standard
+
+
+\series bold 
+Unsustained claim.
+
+\series default 
+ The authors claim that their 1D method is ready to be 
+\begin_inset Quotes eld
+\end_inset 
+
+used in routine nuclear cardiology practice
+\begin_inset Quotes erd
+\end_inset 
+
+.
+
+\latex latex 
+ 
+\latex default 
+Is this claim founded? 
+\latex latex 
+
+\backslash 
+newpage
+\layout Standard
+\align center 
+
+\series bold 
+Some specific revisions needed
+\layout Enumerate
+
+The title and the first sentence of the abstract could be shorter.
+\layout Enumerate
+
+The second paragraph of the introduction has only one sentence and is followed
+ by an enumeration of problems, each in its own paragraph.
+ The authors should avoid a paragraph with a single sentence.
+\layout Enumerate
+
+The authors fail to mention in the abstract the size of the images (
+\begin_inset Formula \( 64\times 64 \)
+\end_inset 
+
+ pixels).
+ This very specific information is absolutely necessary to make sense of
+ the abstract.
+\layout Enumerate
+
+The typesetting of the document is lacking.
+\the_end

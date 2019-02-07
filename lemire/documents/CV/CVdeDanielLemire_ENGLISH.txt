@@ -1,0 +1,202 @@
+
+Daniel Lemire, Ph.D.
+lemire@ondelette.com
+http://www.ondelette.com/
+http://www.ondelette.com/lemire/
+
+
+1.Recent experience
+
+Assistant-Professor
+Acadia University
+2001-...
+	
+I am a professor at the Department of Mathematics and Statistics at Acadia University in Nova Scotia. Certainly one of the best universities in Canada, Acadia University ranked first as an undergraduate school in MacClean's for the last 6 years.
+
+Image processing consultant
+Compression d'Images en réseaux et Automatismes (CIRA)
+http://www.cira-image.com 
+March 1999 - today
+
+Image processing using wavelets is a topic of great interest to the medical industry.
+C++ libraries for compressing medical images (DICOM format). 
+Web solutions in Java (applets, servlets, etc.). 
+Integration at the Serveur National de Radiologie (National Radiology Server) in France (Waid, http://www.waid.fr).
+
+Signal processing consultant
+(Geophysics data processing)
+T.H.E.M. Geophysics, Gatineau
+http://www.themgeo.ca/
+October 1998 - today
+
+In geophysics, improving the processing of a signal can sometimes mean the difference between finding a lucrative mining site or wasting millions in exploration. Technical reports are available at http://www.ondelette.com/THEM/. 
+Design and tuning of a real-time C++ DSP software for heliported electromagnetic exploration (C/C++/Java with design under Mathcad). 
+The new processing has doubled the signal-to-noise ratio with respect to the previous scheme.
+The software is used by companies such as FalconBridge and Noranda and is one of the cornerstone of the services offered by THEM Geophysics Inc. .
+I appeared on television at the TV show « C'est mathématiques! » to talk about this work.
+Lecturer
+Département de mathématiques et d'informatique
+Université de Sherbrooke
+Summer 2001
+
+I taught IFT339 Structures de données (Data Structures) and IFT 438 Algorithmique (Algorithmics).
+
+Postdoctoral fellow
+(Muscle fatigue through EMGs and NMR imaging)
+Institut de génie biomédical
+http://www.igb.umontreal.ca/
+Faculté de médecine, Université de Montréal, Montreal, Quebec
+May 1999-October 1999
+
+Wavelets are an ideal tool to process and detect muscular fatigue. We also worked on the design of a new algorithm for NMR (Nuclear Magnetic Resonance) images.
+
+Postdoctoral fellow
+(Signal processing in cardiology)
+Institut de génie biomédical et Centre de recherche de l'Hôpital du Sacré-Coeur
+http://www.igb.umontreal.ca/ and http://www.crhsc.umontreal.ca/
+Faculté de médecine, Université de Montréal, Montreal, Quebec
+May 1998-May 1999
+
+We worked on various the morphology on the ECG signal and on ischemia detection.
+
+2. Education
+
+Ph.D. in Engineering Mathematics
+École Polytechnique de Montréal, Montreal, Quebec
+http://www.polymtl.ca/
+« Interpolation itérative et ondelettes »
+1995-April 1998		
+
+The thesis is on the relation between interpolation schemes and wavelet theory and how it applies to the processing of numerical data (such as short signals and images). Filter design through a sound mathematical approach is proposed.
+
+Gilles Deslauriers, professor (École Polytechnique)
+Serge Dubuc, professor (Université de Montréal)
+		
+
+M.Sc. in Mathematics
+University of Toronto, Toronto, Ontario
+http://www.utoronto.ca/
+1994-1995
+
+Wave scattering in non-linear but integrable equations is a fascinating subject having numerous applications  (solitons, inverse scattering, etc.).
+
+Catherine Sulem, professor (University of Toronto)
+
+B.Sc. in Mathematics
+high distinction
+University of Toronto, Toronto, Ontario
+http://www.utoronto.ca/
+1990-1994
+
+The B.Sc. was awared with a minor in Physics and a minor in French literature.
+
+3. Software
+
+Expert level :
+Java : swing, threads, servlets, TCP/IP, XML, javamail... 
+C++/STL (under VC++, Cygnus GNUWin32, Linux)
+Mathcad, Mathematica, Matlab, and Maple
+OOP, design patterns, etc.
+Scientific programming including numerical analysis and signal processing
+
+Familiar with : Unix/Linux, Windows, CVS...
+
+4. Publications
+
+a) Articles
+
+Serge Dubuc, Daniel Lemire, Jean-Louis Merrien, Fourier analysis of 2-point Hermite interpolatory subdivision schemes, Journal of Fourier Analysis and Applications (to appear).
+
+Daniel Lemire, Chantal Pharand, Jean-Claude Rajaonah, Bruno Dubé, A.-Robert LeBlanc, Wavelet time entropy, T wave morphology and myocardial ischemia, IEEE Transactions in Biomedical Engineering, vol. 47, no. 7, July 2000.
+
+Gilles Deslauriers, Serge Dubuc and Daniel Lemire, Une famille d'ondelettes biorthogonales sur l'intervalle obtenue par un schéma d'interpolation itérative, Ann. Sci. Math. Québec 23 (1999), no.1, 37-48.
+
+b) A few technical reports
+
+Alain Béliveau and Daniel Lemire, White paper sur la compression d'images par la Fast Wavelet Transform, white paper pour la société Compression d'Images, Réseaux et Automatismes, March 1999.
+
+Gilles Deslauriers, Serge Dubuc and Daniel Lemire, Dérivées de l'interpolation itérative de Lagrange et les ondelettes b-adiques de Cohen-Daubechies-Feauveau, Rapport technique EPM/RT-97/28, École Polytechnique de Montréal, Montréal, April 1997.
+
+c) Communications
+
+Daniel Lemire, Intégration Web de formats propriétaires par le Java, congrès WebTek, Québec, March 2000.
+
+Daniel Lemire, Chantal Pharand, Jean-Claude Rajaonah, Bruno Dubé, A.-Robert LeBlanc, Wavelet Time Entropy and T Wave Morphology, CMBEC 25, London, June 1999.
+
+Gilles Deslauriers, Serge Dubuc et Daniel Lemire, Interpolation itérative et ondelettes, 66e Congrès de l'Acfas, Université Laval, May 1998.
+
+
+d) A few other communications
+
+Daniel Lemire (2001) Ondelettes et applications industrielles, Séminaire d'analyse, Université Laval, Québec.
+
+Daniel Lemire (2001), Recent mathematical advances in EM modeling for mineral exploration, Canadian Mining Industry Research Organization (CAMIRO), Toronto, Ontario. (Invited by Tony Watts from FalconBridge.)
+
+Alain Béliveau and Daniel Lemire (1999), Géophysique, traitement du signal et analyse numérique, congrès Géologie Québec, gouvernement du Québec, Québec.
+
+Daniel Lemire (1998), Traitement de signal par ondelettes pour l'analyse de la morphologie de l'onde T et du segment ST chez des porcs, Colloque des sciences math.du Québec, Université de Montréal, Montréal.
+
+Daniel Lemire (1998), Analyse de l'onde T par ondelettes : le matching pursuit, l'I.C.F. et la transformation de Karhunen–Loève, Centre de Recherche de l'Hôpital Sacré-Coeur, Université de Montréal, Montréal.
+
+Gilles Deslauriers, Serge Dubuc,  Daniel Lemire (1997), Traitement d'images par ondelettes non séparables, Colloque des sciences mathématiques du Québec, UQTR, Trois-Rivières.
+
+Gilles Deslauriers, Serge Dubuc, Daniel Lemire, (1997) Exemples simples de débruitage par ondelettes, Séminaire de mathématiques appliquées (dirigé par le professeur Christiane Rousseau), Université de Montréal, Montréal.
+
+Gilles Deslauriers, Serge Dubuc, Daniel Lemire (1996), Interpolation des moments, Colloque des sciences mathématiques du Québec et de l'Atlantique, Université de Moncton, Moncton.
+
+
+5.Other experiences
+
+I gave an interview for the TV show « C'est mathématiques » on Canal Z presented by Jean-Marie De Kroninck, professor at Laval University (winter 2001). I talked on the importance of signal processing in geophysics and of the various mathematical problems involved.
+
+Science advisor : technical and software review, MathSoft (USA) (1999-2000)
+Wavelet Extension Pack
+Image Processing Extension Pack
+Signal Processing Extension Pack.
+
+Non linear differential equations (KdV) (Research, summer 1994)
+	Catherine Sulem, professor (University of Toronto)
+
+Differential geometry and optimization (Research, summer 1993)
+	John Bland, professor (University of Toronto)
+
+6. Scholarships and others
+
+FCAR (Quebec government) for 2 years
+NSERC (Canadian government) for 2 years
+C.D. Howe Memorial scholarship covering tuition, lodging...
+CNRSG Canada scholarship during 4 years.
+Dean's Medal from St.Michael's college.
+3T0 scholarship from the Physics and Mathematics departments
+
+7.Teaching experience
+
+I am a passionate teacher who always got good reviews. I host the only web board on wavelets and it is a great success with students from all over the world: http://www.ondelette.com/forum.
+
+8. References
+
+Hervé Barge
+Technical manager
+MEDICALGATE ASSOCIATION, Chambourcy (France)
+http://www.emedicalgate.com/
+GSM : (33) 06 81 71 71 93 
+Tel : (33) 03 84 65 15 87 
+Fax : (33) 01 39 30 42 09 
+email : hbarge@aol.com 
+
+Serge Dubuc
+Professor
+Département de mathématiques et de statistique
+Université de Montréal
+Tel : (514) 343-7526
+email : dubucs@dms.umontreal.ca
+Références (suite)
+
+Gilles Deslauriers
+professor (retired)
+Département de mathématiques et de génie industriel
+École Polytechnique de Montréal
+Tel : (450) 535-6373
+email : gilles.deslauriers@mail.polymtl.ca
+
+

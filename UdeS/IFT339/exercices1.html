@@ -1,0 +1,98 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<HTML>
+<HEAD>
+	<META HTTP-EQUIV="CONTENT-TYPE" CONTENT="text/html; charset=iso-8859-1">
+	<TITLE></TITLE>
+	<META NAME="GENERATOR" CONTENT="StarOffice/5.2 (Win32)">
+	<META NAME="AUTHOR" CONTENT=" ">
+	<META NAME="CREATED" CONTENT="20010429;15014693">
+	<META NAME="CHANGEDBY" CONTENT=" ">
+	<META NAME="CHANGED" CONTENT="20010429;15040683">
+	<STYLE>
+	<!--
+		@page { size: 21.59cm 27.94cm; margin: 2cm }
+	-->
+	</STYLE>
+</HEAD>
+<BODY>
+<P STYLE="margin-bottom: 0cm">IFT 339: Structures de donn&eacute;es</P>
+<P STYLE="margin-bottom: 0cm">Daniel Lemire, Ph.D.</P>
+<P STYLE="margin-bottom: 0cm"><BR>
+</P>
+<P STYLE="margin-bottom: 0cm"><U><B>Exercices 1</B></U></P>
+<OL>
+	<LI><P STYLE="margin-bottom: 0cm">Dans le contexte de nos
+	conventions pour IFT339, trouvez les erreurs dans le code
+	suivant...(au moins 3!)</P>
+</OL>
+<P STYLE="margin-left: 3.75cm; margin-bottom: 0cm">double moyenne(
+int* valeurs, int l) {</P>
+<P STYLE="margin-left: 5cm; margin-bottom: 0cm">int m = 0; // moyenne</P>
+<P STYLE="margin-left: 5cm; margin-bottom: 0cm">for (int k = 0; k &lt;
+l; ++k) {</P>
+<P STYLE="margin-left: 5cm; margin-bottom: 0cm">	m += valeurs[k];</P>
+<P STYLE="margin-left: 5cm; margin-bottom: 0cm">}</P>
+<P STYLE="margin-left: 5cm; margin-bottom: 0cm">if (l == 0) // si l
+est &eacute;gal &agrave; z&eacute;ro</P>
+<P STYLE="margin-left: 5cm; margin-bottom: 0cm">	return 0d;</P>
+<P STYLE="margin-left: 5cm; margin-bottom: 0cm">return (double)m/l; 
+</P>
+<P STYLE="margin-left: 3.75cm; margin-bottom: 0cm">}</P>
+<UL>
+	<LI><P STYLE="margin-bottom: 0cm">Vrai ou faux, une classe d&eacute;riv&eacute;e
+	est une classe concr&egrave;te?</P>
+	<LI><P STYLE="margin-bottom: 0cm">Vrai ou faux, si &laquo;&nbsp;Nombre&nbsp;&raquo;
+	est une classe abstraite alors l'instruction &laquo;&nbsp;Nombre
+	n;&nbsp;&raquo; causera un crash &agrave; l'ex&eacute;cution?</P>
+	<LI><P STYLE="margin-bottom: 0cm">Une fonction qui prend comme
+	argument une classe abstraite est un exemple de polymorphisme
+	statique ou dynamique? Et s'il s'agit d'une classe g&eacute;n&eacute;rique?</P>
+	<LI><P STYLE="margin-bottom: 0cm">Donner au moins deux raisons pour
+	expliquer que les programmeurs d&eacute;clarent la repr&eacute;sentation
+	d'un objet private ou protected par opposition &agrave; public.</P>
+	<LI><P STYLE="margin-bottom: 0cm">Donner les 4 fonctions implicites
+	d'une classe...</P>
+	<LI><P STYLE="margin-bottom: 0cm">Est-ce que le code suivant va
+	compiler...? Si oui, que va-t-il afficher?</P>
+</UL>
+<P STYLE="margin-left: 3.75cm; margin-bottom: 0cm">#include
+&lt;iostream&gt;</P>
+<P STYLE="margin-left: 3.75cm; margin-bottom: 0cm">using namespace
+std;</P>
+<P STYLE="margin-left: 3.75cm; margin-bottom: 0cm">class C {</P>
+<P STYLE="margin-left: 3.75cm; margin-bottom: 0cm">public:</P>
+<P STYLE="margin-left: 3.75cm; margin-bottom: 0cm">C(int n = 1)  { 
+_n = n; cout &lt;&lt; &quot;starting, n=&quot; &lt;&lt; _n &lt;&lt;
+endl;};</P>
+<P STYLE="margin-left: 3.75cm; margin-bottom: 0cm">~C() {cout &lt;&lt;
+&quot;done&quot; &lt;&lt; endl;}</P>
+<P STYLE="margin-left: 3.75cm; margin-bottom: 0cm">private:</P>
+<P STYLE="margin-left: 3.75cm; margin-bottom: 0cm">int _n;</P>
+<P STYLE="margin-left: 3.75cm; margin-bottom: 0cm">};</P>
+<P STYLE="margin-left: 3.75cm; margin-bottom: 0cm">int main() {</P>
+<P STYLE="margin-left: 3.75cm; margin-bottom: 0cm">C c;</P>
+<P STYLE="margin-left: 3.75cm; margin-bottom: 0cm">c = 5;</P>
+<P STYLE="margin-left: 3.75cm; margin-bottom: 0cm">return 0;</P>
+<P STYLE="margin-left: 3.75cm; margin-bottom: 0cm">}</P>
+<UL>
+	<LI><P STYLE="margin-bottom: 0cm">Est-ce que le code suivant va
+	compiler...</P>
+</UL>
+<P STYLE="margin-left: 3.75cm; margin-bottom: 0cm">class A {</P>
+<P STYLE="margin-left: 3.75cm; margin-bottom: 0cm">private:</P>
+<P STYLE="margin-left: 3.75cm; margin-bottom: 0cm">int n;</P>
+<P STYLE="margin-left: 3.75cm; margin-bottom: 0cm">};</P>
+<P STYLE="margin-left: 3.75cm; margin-bottom: 0cm"><BR>
+</P>
+<P STYLE="margin-left: 3.75cm; margin-bottom: 0cm">class B : public A
+{</P>
+<P STYLE="margin-left: 3.75cm; margin-bottom: 0cm">public:</P>
+<P STYLE="margin-left: 3.75cm; margin-bottom: 0cm">int foo {return
+n;}</P>
+<P STYLE="margin-left: 3.75cm; margin-bottom: 0cm">};</P>
+<UL>
+	<LI><P STYLE="margin-bottom: 0cm">Vrai ou Faux, le copieur est
+	appel&eacute; lors d'un passage par valeur?</P>
+</UL>
+</BODY>
+</HTML>

@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link  rel="alternate" type="application/atom+xml" title="Atom 1.0" 
+href="http://feeds.feedburner.com/DanielLemiresArticlesOnArxiv" />
+<link rel="stylesheet" type="text/css" href="lemire.css" />
+<title>Publications de Daniel Lemire</title>
+<meta http-equiv="Content-Type"
+content="text/html; charset=utf-8" />
+<link rel="SHORTCUT ICON" href="/favicon.ico"
+type="image/x-icon" />
+<link rel="Alternate"
+href="http://lemire.me/en/publications.html"
+hreflang="en" lang="en" title="English version" />
+<link rel="home" href="index.html" title="Page d'accueil" />
+
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-25286235-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+
+
+</head>
+<body>
+<form  action="http://www.google.com/search"
+method="get" class="SEARCHBAR"><div><input size="12" name="q" />
+<input type="hidden" name="sitesearch"
+value="daniel-lemire.com" /><br />
+<input type="submit" value="Search" name="submit" /></div></form>
+
+<p class="MENU"><a href="index.html">ACCUEIL</a> |  <a
+href="http://lemire.me/en/"  rel="author">ENGLISH</a></p>
+<div id="maincontent">
+<h1>Publications (à partir de 2005)</h1>
+
+<p>Une version PDF de tous les papiers est disponible, il suffit
+de suivre le lien. La plupart de mes travaux apparaissent
+sur <a href="http://arxiv.org/a/lemire_d_1">ma page arXiv</a>.</p>
+
+<h3>Suivez mes travaux</h3>
+
+<p>Vous pouvez vous abonner à mes publications <a href="http://feedburner.google.com/fb/a/mailverify?uri=DanielLemiresArticlesOnArxiv">par courriel</a>,  <a href="http://feeds.feedburner.com/DanielLemiresArticlesOnArxiv">par fil RSS</a> ou par l'entremise de mon <a href="http://scholar.google.com/citations?user=q1ja-G8AAAAJ"  rel="me">profil sur Google Scholar</a>.</p>
+
+
+<h3>En préparation</h3>
+<ul>
+<li>Daniel Lemire et Leonid Boytsov, Decoding billions of integers per second through vectorization (<a href="http://arxiv.org/abs/1209.2137">arXiv:1209.2137</a>) </li>
+<li>Owen Kaser et Daniel Lemire, Strongly universal string hashing is fast (<a href="http://arxiv.org/abs/1202.4961">arXiv:1202.4961</a>)</li>
+</ul>
+
+<h3>A paraître</h2>
+<ul>
+<li>Hazel Webb,  Owen Kaser, Daniel Lemire,
+ Diamond Dicing, Data &amp; Knowledge Engineering (<a href="http://arxiv.org/abs/1006.3726">arXiv:1006.3726</a>)</li>
+</ul>
+
+<h3>2012</h3>
+<ul>
+<li>Zoltán Prekopcsák et Daniel Lemire, Time Series Classification by Class-Based Mahalanobis Distances, Advances in Data Analysis and Classification  6 (3), 2012. (<a href="http://arxiv.org/abs/1010.1526">arXiv:1010.1526</a>).</li>
+<li>Daniel Lemire, Owen Kaser, Eduardo Gutarra, Reordering Rows for Better Compression: Beyond the Lexicographic Order, ACM Transactions on Database Systems 37 (3), 2012. (<a href="http://arxiv.org/abs/1207.2189">arXiv:1207.2189 </a>)</li>
+<li>Daniel Lemire, The universality of iterated hashing over variable-length strings, Discrete Applied Mathematics 160 (4-5), 2012. (<a href="http://arxiv.org/abs/1008.1715">arXiv:1008.1715 </a>)</li>
+<li>Cameron Neylon, Jan Aerts, C. Titus Brown, Daniel Lemire, Jarrod Millman, Peter Murray-Rust, Fernando Perez, Neil Saunders, Arfon Smith, Gaël Varoquaux and Egon Willighagen, <a href="http://www.scfbm.org/content/7/1/2/abstract">Changing computational research: The challenges ahead</a> (Editorial), Source Code for Biology and Medicine 7 (2), 2012.</li>
+</ul>
+
+
+
+<h3>2011</h3>
+<ul>
+<li>Antonio Badia et Daniel Lemire, A Call to Arms: Revisiting Database Design, SIGMOD Record 40 (3), 2011.
+(<a href="http://arxiv.org/abs/1105.6001">arXiv:1105.6001</a>)</li>
+
+<li>Daniel Lemire et Owen Kaser, Reordering Columns for Smaller Indexes, Information Sciences 181 (12), 2011. (<a href="http://arxiv.org/abs/0909.1346">arXiv:0909.1346</a>) </li>
+<li>Andre Vellino et Daniel Lemire, Extracting, Transforming and Archiving Scientific Data, VLDL 2011, 2011. (<a href="http://arxiv.org/abs/1108.4041">arXiv:1108.4041</a>)</li>
+</ul>
+
+<h3>2010</h3>
+<ul>
+
+
+<li>Daniel Lemire et Owen Kaser, Recursive n-gram hashing is pairwise independent, at best, Computer Speech &amp; Language 24 (4), pages 698-710, 2010.
+(<a href="http://arxiv.org/abs/0705.4676">arXiv:0705.4676</a>)
+(<a href="http://code.google.com/p/ngramhashing/">code source (C++)</a>)</li>
+
+
+<li>
+Daniel Lemire, Owen Kaser, Kamel Aouiche, Sorting improves word-aligned bitmap indexes. Data &amp; Knowledge Engineering 69 (1), pages 3-28, 2010.  (<a href="http://arxiv.org/abs/0901.3751">arXiv:0901.3751</a>) (<a href="http://www.slideshare.net/lemire/all-about-bitmap-indexes-and-sorting-them">transparents</a>)</li>
+
+
+<li>Sylvie Noël, Daniel Lemire, On the Challenges of Collaborative Data Processing, dans
+Collaborative Information Behaviour: User Engagement and Communication Sharing (édité par Jonathan Foster), IGI Global, avril 2010. (<a href="http://arxiv.org/abs/0906.0910">arXiv:0906.0910</a>)</li>
+</ul>
+
+
+<h3>2009</h3>
+
+<ul>
+
+<li>Daniel Lemire, Martin Brooks and Yuhong Yan,  An Optimal Linear Time Algorithm for Quasi-Monotonic Segmentation. International Journal
+of Computer Mathematics  86 (7), 2009. (<a href="http://arxiv.org/abs/0709.1166">arXiv:cs/0702142</a>)</li>
+<li>Daniel Lemire, 
+Faster Retrieval with a Two-Pass  Dynamic-Time-Warping  Lower Bound, Pattern Recognition 42 (9), pages 2169-2180, 2009. (<a href="http://arxiv.org/abs/0811.3301">arXiv:0811.3301</a>) (<a href="http://code.google.com/p/lbimproved/">code source C++</a>).</li>
+
+<li>Kamel Aouiche, Daniel Lemire and Robert Godin, <a href="http://www.springerlink.com/content/u752130474k15336/">Web 2.0 OLAP: From Data Cubes to Tag Clouds</a>, Lecture Notes in Business Information Processing Vol. 18, pages 51-64, 2009. <a href="http://arxiv.org/abs/0905.2657">arXiv:0905.2657</a>  </li>
+</ul>
+
+<h3>2008</h3>
+<ul>
+
+<li>Owen Kaser, Daniel Lemire, Kamel Aouiche, 
+Histogram-Aware Sorting for Enhanced Word-Aligned Compression in Bitmap Indexes, DOLAP 2008, 2008.  (<a href="http://arxiv.org/abs/0808.2083">arXiv:0808.2083</a>) (<a href="http://code.google.com/p/lemurbitmapindex/">code C++</a>) (<a href="http://www.slideshare.net/lemire/histogramaware-sorting-for-enhanced-wordaligned-compression-in-bitmap-indexes-presentation">transparents</a>)</li>
+
+<li>Kamel Aouiche, Daniel Lemire et Owen Kaser, Tri  de la table de faits et  compression des index bitmaps avec alignement sur les mots, BDA'08, 2008.  (<a href="http://arxiv.org/abs/0805.3339">arXiv:0805.3339</a>) (<a href="http://code.google.com/p/lemurbitmapindex/">code C++</a>)</li>
+
+<li>Hazel Webb, Owen Kaser, et Daniel Lemire, Pruning Attributes From Data Cubes with Diamond Dicing, IDEAS'08, 2008.
+(<a href="http://arxiv.org/abs/0805.0747">arXiv:0805.0747</a>) </li>
+
+<li>Daniel Lemire et Owen Kaser, Hierarchical Bin Buffering:
+Online Local Moments for Dynamic External Memory Arrays,
+ACM Transactions on Algorithms <b>4</b> (1), pages 1-31, 2008. (<a href="http://arxiv.org/abs/cs.DS/0610128">cs.DS/0610128</a>)
+(<a href="http://code.google.com/p/hierarchicalbinbuffering/">code C++</a>)
+</li>
+
+<li>Kamel Aouiche, Daniel Lemire, Robert Godin, Collaborative OLAP with Tag Clouds: Web 2.0 OLAP Formalism and Experimental Evaluation, WEBIST 2008, 2008. 
+(<a href="http://arxiv.org/abs/0710.2156">arXiv:0710.2156</a>)</li>
+</ul>
+
+<h3>2007</h3>
+
+<ul>
+<li>Kamel Aouiche et Daniel Lemire, A Comparison of Five Probabilistic View-Size Estimation Techniques in OLAP, DOLAP 2007, , pp. 17-24, 2007.  (<a href="http://arxiv.org/abs/cs.DB/0703058">cs.DB/0703058</a>) (<a href="http://code.google.com/p/viewsizeestimation/">code C++</a>) (<a href="http://www.slideshare.net/lemire/a-comparison-of-five-probabilistic-viewsize-estimation-techniques-in-olap-presentation">transparents</a>)</li>
+
+
+<li>Owen Kaser et Daniel Lemire, Removing Manually-Generated Boilerplate from
+Electronic Texts: Experiments with Project Gutenberg e-Books. CASCON 2007,  pp. 272-275, 2007. (<a href="http://arxiv.org/abs/0707.1913">arXiv:0707.1913</a>)</li>
+
+
+ <li>Owen Kaser et Daniel Lemire, Tag-Cloud Drawing: Algorithms for Cloud Visualization. Dans le compte-rendu de <i>Tagging and Metadata for
+Social Information Organization</i> (WWW 2007), 2007. (<a href="http://arxiv.org/abs/cs.DS/0703109">cs.DS/0703109</a>) (<a href="http://www.slideshare.net/lemire/tagcloud-drawing-algorithms-for-cloud-visualization-presentation">transparents</a>)
+(<a href="http://code.google.com/p/tagclouddrawing/">code source C et Java</a>)
+(<a href="http://pizza.unbsj.ca/~owen/lemur-tagging-0.0.zip">autre version du code source C</a>)</li>
+
+
+<li>Kamel Aouiche et Daniel Lemire, Unassuming View-Size Estimation Techniques in OLAP, An Experimental Comparison, ICEIS-2007, pp. 145-150, 2007. (<a href="http://arxiv.org/abs/cs.DB/0703056">cs.DB/0703056</a>)</li>
+
+
+
+<li>Daniel Lemire,  <a href="http://lemire.me/fr/abstracts/SDM2007.html">A Better Alternative to Piecewise Linear Time Series Segmentation</a>, SIAM Data Mining 2007, 2007.  (<a href="http://arxiv.org/abs/cs.DB/0605103">cs.DB/0605103</a>)</li>
+
+
+
+<li>Dan Kucerovsky et  Daniel Lemire, <a href="http://lemire.me/fr/abstracts/CS2006.html">Monotonicity Analysis over Chains and Curves</a>. Compte-rendu de Curves and Surfaces 2006, pages 180-190, 2007. (<a href="http://arxiv.org/abs/math.GM/0701481">math.GM/0701481</a>)</li>
+
+
+<li>Mamadou Tadiou Koné, Daniel Lemire (éditeurs), <a href="http://www.blackwell-synergy.com/toc/coin/23/3">Special Issue on Canadian Semantic Web,</a> Computational Intelligence, Blackwell Publishing, volume 23 no 3, pages 299-392, août 2007.</li>
+</ul>
+<h3>2006</h3>
+
+<ul>
+
+<li>Daniel Lemire, Streaming Maximum-Minimum Filter Using No More than Three Comparisons per Element. Nordic Journal of Computing, <strong>13</strong> (4), pages 328-339, 2006. (<a href="http://arxiv.org/abs/cs.DS/0610046">cs.DS/0610046</a>) (<a href="http://code.google.com/p/maxminfilters/">code C++</a>) (<a href="http://lemire.me/fr/documents/publications/maxmin.py">code Python</a>) 
+(<a href="http://lemire.me/fr/documents/publications/maxmin2.py">autre code Python</a>)
+</li>
+
+<li>Owen Kaser, Daniel Lemire, et Steven Keith, <a href="http://lemire.me/fr/abstracts/CASTA2006.html">The LitOLAP Project: Data Warehousing with Literature</a>, CaSTA 2006,
+       Fredericton, 2006.</li>
+
+<li>Owen Kaser et Daniel Lemire, <a
+href="http://lemire.me/fr/abstracts/IS2006.html">Attribute
+Value Reordering for Efficient Hybrid OLAP</a>, Information Sciences, volume 176, no 16, pages 2279-2438, 2006.
+(<a href="http://arxiv.org/abs/cs.DB/0702143">cs.DB/0702143</a>)</li>
+
+<li>Mamadou Tadiou Koné (éditeur), Daniel Lemire (éditeur), <i>Canadian Semantic Web,
+Semantic Web and Beyond: Computing for Human Experience</i>,  Springer, septembre 2006.
+<a href="http://www.amazon.com/exec/obidos/redirect?link_code=as2&amp;path=ASIN/0387298150&amp;tag=daniellemires-20&amp;camp=1789&amp;creative=9325">Achetez-le chez Amazon</a>.</li>
+
+</ul>
+<h3>2005</h3>
+
+<ul>
+
+ 
+<li>Steven Keith, Owen Kaser, Daniel Lemire, <a
+href="http://lemire.me/fr/abstracts/APICS2005.html">Analyzing
+Large Collections of Electronic Text Using OLAP</a>, APICS 2005,
+Wolfville, Canada, octobre 2005. (<a href="http://arxiv.org/abs/cs.DB/0605127">cs.DB/0605127</a>)</li>
+
+
+<li>Daniel Lemire, Martin Brooks et Yuhong Yan, <a
+href="http://lemire.me/fr/abstracts/ICDM05.html">An
+Optimal Linear Time Algorithm for Quasi-Monotonic
+Segmentation</a>, IEEE Data Mining 2005 (ICDM-05), pp. 709-712, novembre 2005.
+(<a href="http://arxiv.org/abs/cs.DS/0702142">cs.DS/0702142</a>)</li>
+
+<li>Daniel Lemire, Harold Boley, Sean McGrath, Marcel Ball, <a
+href="http://lemire.me/fr/abstracts/ITSE2005.html">Collaborative
+Filtering and Inference Rules for Context-Aware Learning Object
+Recommendation</a>, International Journal of Interactive
+Technology &amp; Smart Education, volume 2, no 3, août
+2005.</li>
+
+<li>Will Fitzgerald, Daniel Lemire et Martin Brooks, <a
+href="http://lemire.me/fr/abstracts/AAAI05.html">Quasi-monotonic
+segmentation of state variable behavior for reactive control</a>,
+AAAI05, Pittsburgh, É.-U., pp. 1145-1150, juillet 2005. </li>
+
+<li>Martin Brooks, Yuhong Yan, Daniel Lemire, <a
+href="http://lemire.me/fr/abstracts/IJCAI05.html">Scale-Based
+Monotonicity Analysis in Qualitative Modelling with Flat
+Segments</a>, IJCAI05, Edinburgh, G.-B.,  pp. 400-405, juillet 2005. </li>
+
+<li>Daniel Lemire et Anna Maclachlan, <a
+href="http://lemire.me/fr/abstracts/SDM2005.html">Slope
+One Predictors for Online Rating-Based Collaborative
+Filtering</a>, SIAM Data Mining (SDM'05), pp. 471-476, 2005.  (<a href="http://arxiv.org/abs/cs.DB/0702144">cs.DB/0702144</a>)</li>
+
+<li>Daniel Lemire, <a
+href="http://lemire.me/fr/abstracts/IR2003.html">Scale
+and Translation Invariant Collaborative Filtering Systems</a>.
+Information Retrieval, <b>8</b> (1), pages 129-150, janvier 2005.
+(CNRC 46508)</li>
+
+
+</ul>
+
+<h3>Rapports techniques récents</h3>
+<ul>
+
+<li>Daniel Lemire, Stephen Downes, Sébastien Paquet, <a
+href="http://lemire.me/fr/abstracts/DIVERSITY2008.html">Diversity in open social networks</a>, 2008. (Informal technical report)</li>
+
+<li>Daniel Lemire, Faster Sequential Search with a Two-Pass Dynamic-Time-Warping Lower Bound, 2008.
+(<a href="http://arxiv.org/abs/0807.1734">arXiv:0807.1734</a>)</li>
+
+<li>Hazel Webb, Owen Kaser, Daniel Lemire, Pruning Attributes From Data Cubes with Diamond Dicing, UNBSJ CSAS Technical Report TR-08-011, 2008.
+(<a href="http://arxiv.org/abs/0805.0747">arXiv:0805.0747</a>)</li>
+<li>Owen Kaser et Daniel Lemire, Removing Manually-Generated Boilerplate from Electronic Texts: Experiments with Project Gutenberg e-Books. UNBSJ CSAS Technical Report TR-07-001, 2007. (<a href="http://arxiv.org/abs/0707.1913">arXiv:0707.1913</a>)</li>
+
+<li>Daniel Lemire et Owen Kaser, One-Pass, One-Hash n-Gram Statistics Estimation, UNBSJ CSAS Technical Report TR-06-001, octobre 2006.
+(<a href="http://arxiv.org/abs/cs.DB/0610010">cs.DB/0610010</a>)</li>
+
+<li>Daniel Lemire, Sean McGrath, <a
+href="http://lemire.me/fr/abstracts/TRD01.html">Implementing
+a Rating-Based Item-to-Item Recommender System in PHP/SQL</a>,
+Rapport technique D-01, janvier 2005.</li>
+<li>Steven Keith, Owen Kaser, Daniel Lemire, <a
+href="http://lemire.me/fr/abstracts/TR05001.html">Analyzing
+Large Collections of Electronic Text Using OLAP</a>, Rapport
+technique UNBSJ CSAS TR-05-001, juin 2005.</li>
+
+
+</ul>
+
+<h3>Liste complète</h3>
+
+<ul>
+<li><a
+href="http://lemire.me/fr/documents/CV/CVdeDanielLemire.pdf">
+Mon c.v. contient une liste complète</a> (format Adobe
+Acrobat/PDF).</li>
+</ul>
+
+<h3>Bibliographies indépendantes</h3>
+
+<ul>
+<li>Pour mes travaux en informatique, j'apparais sur le <a
+href="http://www.informatik.uni-trier.de/~ley/db/indices/a-tree/l/Lemire:Daniel.html">
+DBLP Server</a>.</li>
+
+<li>Je suis aussi sur l'<a href="http://portal.acm.org/author_page.cfm?id=81100092997">ACM
+portal</a>.</li>
+</ul>
+</div>
+<p class="MENU"><a href="index.html">ACCUEIL</a> | <!--<a
+href="interets.html">RECHERCHE</a> | PUBLICATIONS | <a
+href="java.html">APPLETS</a> | <a
+href="http://lemire.me/">BLOG</a> |--> <a
+href="http://lemire.me/en/"  >ENGLISH</a></p>
+
+<p class="CENTER">2001-2013, Daniel Lemire (lemire at gmail dot
+com, <a
+href="https://plus.google.com/105888615414982242080/about" rel="me"> Google profile</a>)</p>
+
+
+
+</body>
+</html>
+
+

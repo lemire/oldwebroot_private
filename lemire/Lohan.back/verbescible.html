@@ -1,0 +1,125 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<script src="dist/sweetalert.min.js"></script> <link rel="stylesheet" type="text/css" href="dist/sweetalert.css">
+<script type="text/javascript">
+function getRandomKey(o) {
+    var tmpList = Object.keys(o);
+    return tmpList[Math.floor(Math.random() * tmpList.length)];
+}
+
+
+var succes;
+var echec;
+var total;
+
+function getStarted() {
+    total = 50;
+    echec = 0;
+    succes = 0;
+		var donnees = {
+	      "jeter": {
+	          "présent": ["jette", "jettes", "jette", "jetons", "jetez", "jettent"],
+				},
+				"savoir": {
+						"présent": ["sais", "sais", "sait", "savons", "savez", "savent"],
+				},
+        "tenir": {
+            "présent": ["tiens", "tiens", "tient", "tenons", "tenez", "tiennent"],
+				},
+				"céder": {
+					"présent": ["cède", "cèdes", "cède", "cédons", "cédez", "cèdent"],
+				},
+        "mettre": {
+            "présent": ["mets", "mets", "met", "mettons", "mettez", "mettent"],
+				},
+        "faire": {
+            "présent": ["fais", "fais", "fait", "faisons", "faites", "font"],
+				},
+		    "aimer": {
+		        "présent": ["aime", "aimes", "aime", "aimons", "aimez", "aiment"],
+		    },
+		    "finir": {
+		        "présent": ["finis", "finis", "finit", "finissons", "finissez", "finissent"],
+		    },
+		    "prendre": {
+		        "présent": ["prends", "prends", "prend", "prenons", "prenez", "prennent"],
+		    },
+		    "avoir": {
+		        "présent": ["ai", "as", "a", "avons", "avez", "ont"],
+		    },
+		    "être": {
+		        "présent": ["suis", "es", "est", "sommes", "êtes", "sont"],
+		    }
+
+		};
+    var personnenames = ["première personne du singulier", "deuxième personne du singulier", "troisième personne du singulier", "première personne du pluriel", "deuxième personne du pluriel", "troisième personne du pluriel"];
+
+    var pronom = ["je (ou j')", "tu", "il", "nous", "vous", "ils"];
+    var i;
+    var out = document.getElementById("verbes");
+    out.innerHTML = "";
+    var mycontent ='<table border="0" style="border-spacing: 10px 10px;"> ';
+    for (i = 0; i < total; i++) {
+        var v = getRandomKey(donnees);
+        var dv = donnees[v];
+        var t = getRandomKey(dv);
+        var tv = dv[t];
+        var personne = getRandomKey(tv);
+        var pname = personnenames[personne];
+        var answer = tv[personne];
+        mycontent = mycontent + '<tr><td> ' + (i+1) + '.</td><td><strong> ' + v + '</strong></td><td>' + t + '</td><td> '+pronom[personne]+' </td><td><input autocorrect="off" autocomplete="off" spellcheck="false"  type="text" name="lname" id="rep' + i + '" onkeypress="javascript:if(event.keyCode==13){checkval(\'' + answer + '\',' + i + ');}"/> <input type="submit" id="but' + i + '" value="Soumettre" onclick="javascript:checkval(\'' + answer + '\',' + i + ');" /></td></tr>';
+    }
+    mycontent = mycontent + '</table> ';
+    out.innerHTML = mycontent;
+}
+
+function compare(str1, str2) {
+    return str1.trim().replace(/\s+/g, " ") === str2.trim().replace(/\s+/g, " ");
+}
+
+function checkval(answer, i) {
+    if (parseInt(document.getElementById("rep" + i).value.trim().length === 0)) {
+        return;
+    }
+    if (compare(document.getElementById("rep" + i).value, answer)) {
+        document.getElementById("rep" + i).value = "C'est bon: " + document.getElementById("rep" + i).value;
+        document.getElementById("rep" + i).disabled = true;
+        document.getElementById("but" + i).disabled = true;
+        if(document.getElementById("rep" + (i+1))) {
+            document.getElementById("rep" + (i+1)).focus();
+        }
+        succes = succes + 1;
+    } else {
+        document.getElementById("rep" + i).value = "Ce n'est pas " + document.getElementById("rep" + i).value;
+        document.getElementById("rep" + i).disabled = true;
+        document.getElementById("rep" + i).style.background = 'red';
+        document.getElementById("but" + i).disabled = true;
+        echec = echec + 1;
+    }
+    document.getElementById("status").innerHTML= succes +" sur " + (succes + echec);
+    if( echec + succes == total)
+      sweetAlert("Tu as obtenu "+succes+" sur " + total);
+}
+
+
+window.onbeforeunload = function() {
+    return "Si tu quittes la page, ton travail sera perdu.";
+};
+</script>
+
+
+<title>Le champion des verbes</title>
+
+<body  onload="getStarted()" style="width:600px;margin-left:auto;margin-right:auto;">
+
+
+<h1>Conjugue les verbes suivants</h1>
+
+<p id="status" ></p>
+<div id="verbes" />
+
+
+
+</body>
+
+</html>

@@ -1,0 +1,270 @@
+#LyX 1.1 created this file. For more info see http://www.lyx.org/
+\lyxformat 218
+\textclass amsart
+\begin_preamble
+\usepackage {graphicx}
+
+
+\usepackage{epsfig}
+\usepackage{amsmath,amssymb}
+\usepackage{pslatex}
+\usepackage{color}
+
+ 
+ \definecolor{veryblackblue}{rgb}{0.0,0.0,0.1}
+ \usepackage[pdftex,urlcolor=webblackblue,colorlinks=true,citecolor=blue,linkcolor=webblackblue]{hyperref}
+ \pdfinfo{
+            /Title      (Mathematics 2023 - Infinite Series I)
+            /Author     (Daniel Lemire)
+            /Subject    (A document on series for the course topics from advanced calculs offered at Acadia University.)
+            /Keywords   ( series, convergence, Taylor, ratio test, cauchy sequences)
+          }
+
+
+\topmargin  = 0pt
+\headheight = 0pt
+\headsep    = 0pt
+
+\voffset    = 0in
+\hoffset    = 0in
+\textheight = 230mm
+\textwidth  = 164mm
+
+\evensidemargin = 0pt
+\oddsidemargin  = 0pt
+
+\pagestyle{empty}
+\usepackage{float}
+
+%% Background of blue palette
+ \definecolor{webblackblue}{rgb}{0.0,0.0,0.2}
+ \definecolor{webblue}{rgb}{0.0, 0.0, 0.6}
+
+%% Background of red palette
+ \definecolor{webblackred}{rgb}{0.2,0.0,0.0}
+ \definecolor{webred}{rgb}{0.6,0.0,0.0}
+
+%% Background of green palette
+ \definecolor{webblackgreen}{rgb}{0.0,0.2,0.0}                                   
+ \definecolor{webgreen}{rgb}{0.0,0.6,0.0} 
+
+%% Background of magenta palette
+ \definecolor{webblackmagenta}{rgb}{0.14,0.0,0.14}                                   
+ \definecolor{webmagenta}{rgb}{0.42,0.0,0.42} 
+
+%% Background of cyan palette
+ \definecolor{webblackcyan}{rgb}{0.0,0.14,0.14}                                   
+ \definecolor{webcyan}{rgb}{0.0,0.42,0.42} 
+
+%% Background of yellow pallete
+ \definecolor{webblackyellow}{rgb}{0.14,0.14,0.0}                                   
+ \definecolor{webyellow}{rgb}{0.85,0.85,0.0} 
+
+ \definecolor{webdarkgray}{rgb}{0.2,0.2,0.2}
+
+ \definecolor{webgray}{rgb}{0.75,0.75,0.75}
+ \definecolor{weborange}{rgb}{1.0, 0.6, 0.0}
+
+\renewcommand\labelenumi{\textcolor{webdarkgray}{\arabic{enumi}.}}
+\newcommand{\setenumi}[1]{#1.\setcounter{enumi}{#1}}
+\usepackage{dsfont}
+\end_preamble
+\language english
+\inputencoding auto
+\fontscheme default
+\graphics default
+\paperfontsize 12
+\spacing single 
+\papersize Default
+\paperpackage a4
+\use_geometry 0
+\use_amsmath 0
+\paperorientation portrait
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\defskip medskip
+\quotes_language english
+\quotes_times 2
+\papercolumns 1
+\papersides 2
+\paperpagestyle fancy
+
+\layout Title
+
+Mathematics 2023 - Infinite Series I (Examples)
+\newline 
+Acadia University
+\layout Address
+
+Copyright 2002 D.
+ Lemire
+\layout Section
+
+Questions
+\layout Exercise
+
+Compute the Taylor expansion of 
+\begin_inset Formula \( 1/x \)
+\end_inset 
+
+ about 
+\begin_inset Formula \( 1 \)
+\end_inset 
+
+.
+ Find the radius of convergence.
+ Using Taylor Theorem, find a bound on 
+\begin_inset Formula \( |1/x-S_{2}(x)| \)
+\end_inset 
+
+ where 
+\begin_inset Formula \( S_{2} \)
+\end_inset 
+
+ is the sum of the first two terms over the interval 
+\begin_inset Formula \( [1,2) \)
+\end_inset 
+
+.
+ Can you bound the error over 
+\begin_inset Formula \( [1,2) \)
+\end_inset 
+
+ using another theorem? What result do you get?
+\layout Standard
+
+\SpecialChar ~
+
+\latex latex 
+
+\backslash 
+vspace{3cm}
+\layout Exercise
+
+Will 
+\begin_inset Formula \( \sum _{k=0}^{\infty }\frac{e^{k}}{k!} \)
+\end_inset 
+
+ converge???
+\layout Standard
+
+\SpecialChar ~
+
+\latex latex 
+
+\backslash 
+vspace{3cm}
+\layout Exercise
+
+Will 
+\begin_inset Formula \( \sum _{k=0}^{\infty }\frac{k!}{(2k)!} \)
+\end_inset 
+
+ converge???
+\layout Standard
+
+\SpecialChar ~
+
+\latex latex 
+
+\backslash 
+vspace{3cm}
+\layout Exercise
+
+Will 
+\begin_inset Formula \( \sum _{k=2}^{\infty }\frac{(-1)^{k}}{\ln k} \)
+\end_inset 
+
+ converge?
+\latex latex 
+
+\backslash 
+newpage
+\layout Section
+
+Solutions
+\layout Example*
+
+
+\begin_inset Formula \( 1/x=1-(x-1)+(x-1)^{2}-(x-1)^{3}+... \)
+\end_inset 
+
+.
+ The ratio test gives us 
+\begin_inset Formula \( R=|x-1| \)
+\end_inset 
+
+ and thus the ratio of convergence is 1.
+ Taylor Theorem bounds the error after two terms by 
+\begin_inset Formula \( \frac{\frac{2}{\xi }(x-1)^{2}}{2}=\frac{(x-1)^{2}}{\xi }<\frac{(1)^{2}}{1}=1 \)
+\end_inset 
+
+.
+ Using AST, we check that this is an alternating series (assuming 
+\begin_inset Formula \( 1>(x-1)>0 \)
+\end_inset 
+
+ makes this easy), hence the error after two terms is given by 
+\begin_inset Formula \( (x-1)^{2}<1 \)
+\end_inset 
+
+.
+\layout Standard
+
+\SpecialChar ~
+
+\layout Example*
+
+We apply the ratio test, 
+\begin_inset Formula \( \frac{e^{k+1}}{(k+1)!}\frac{k!}{e^{k}}=\frac{e}{k+1} \)
+\end_inset 
+
+ which goes to zero when 
+\begin_inset Formula \( k \)
+\end_inset 
+
+ becomes big.
+\layout Standard
+
+\SpecialChar ~
+
+\layout Example*
+
+Again, we apply the ratio test, 
+\begin_inset Formula \( \frac{(k+1)!}{(2k+2)!}\frac{(2k)!}{k!}=\frac{k+1}{(2k+2)(2k+1)} \)
+\end_inset 
+
+ which clearly goes to zero as 
+\begin_inset Formula \( k \)
+\end_inset 
+
+ becomes big.
+\layout Standard
+
+\SpecialChar ~
+
+\layout Example*
+
+Applying the ratio test, we get 
+\begin_inset Formula \( \frac{\ln k}{\ln (k+1)} \)
+\end_inset 
+
+ which tends to 
+\begin_inset Formula \( 1 \)
+\end_inset 
+
+ as 
+\begin_inset Formula \( k \)
+\end_inset 
+
+ becomes big (just use l'Hospital rule!) However, since 
+\begin_inset Formula \( \frac{1}{\ln (k+1)}<\frac{1}{\ln k} \)
+\end_inset 
+
+ (
+\begin_inset Formula \( \ln  \)
+\end_inset 
+
+ is monotone increasing!) the series is alternating and thus, it converges!
+\the_end

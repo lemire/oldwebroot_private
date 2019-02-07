@@ -1,0 +1,522 @@
+#LyX 1.1 created this file. For more info see http://www.lyx.org/
+\lyxformat 218
+\textclass article
+\begin_preamble
+%%%%%
+%%%%%
+%%%%%
+%% Welcome!
+%% if you have any question about this
+%% document, please get in touch with
+%% Daniel Lemire at lemire@ondelette.com
+%%
+%% Of course, this file was generated
+%% with LyX which means that the syntax
+%% might be weird at times, but I've found
+%% that LyX did an excellent job overall at
+%% generating clean LaTeX syntax.
+%% Why do I choose LyX? Because LyX
+%% doesn't come with its own LaTeX engine.
+%% LyX simply use whatever tex I have.
+%% There is no "proprietary gizmos" going
+%% on. Also, instead of waiting for support
+%% from some folk in California, I can find
+%% most of the answers I need on the web,
+%% for free! Oh! And LyX is free too! 
+%% Good old Open Source software!
+%%
+%% (Sorry for the propaganda!)
+%% 
+%% Thanks!
+%% Enjoy!
+%%
+%% Sept. 8th 2001
+%% Grand-Pré, NS
+%%
+%%%%%%%%%%
+%
+% Notice that this document requires quite
+% a bit of macros... 
+% Sorry about that!
+%%%%%%%%%%%%%%
+%%
+\usepackage{epsfig}
+\usepackage{amsmath,amssymb}
+\usepackage{pslatex}
+\usepackage{color}
+ 
+ \definecolor{veryblackblue}{rgb}{0.0,0.0,0.1}
+ \usepackage[pdftex,urlcolor=webblackblue,colorlinks=true,citecolor=blue]{hyperref}
+ \pdfinfo{
+            /Title      (Introductory Calculus- Section 4.5 Solutions)
+            /Author     (Daniel Lemire, Ph.D.)
+            /Subject    (This is a set of solutions for section 4.5 in Stewart: calculus.)
+            /Keywords   (exponentials, tangents, Stewart, Solutions, limits, Acadia)
+          }
+
+
+\topmargin  = 0pt
+\headheight = 0pt
+\headsep    = 0pt
+
+\voffset    = 0in
+\hoffset    = 0in
+\textheight = 230mm
+\textwidth  = 164mm
+
+\evensidemargin = 0pt
+\oddsidemargin  = 0pt
+
+\pagestyle{empty}
+\usepackage{float}
+
+%% Background of blue palette
+ \definecolor{webblackblue}{rgb}{0.0,0.0,0.2}
+ \definecolor{webblue}{rgb}{0.0, 0.0, 0.6}
+
+%% Background of red palette
+ \definecolor{webblackred}{rgb}{0.2,0.0,0.0}
+ \definecolor{webred}{rgb}{0.6,0.0,0.0}
+
+%% Background of green palette
+ \definecolor{webblackgreen}{rgb}{0.0,0.2,0.0}                                   
+ \definecolor{webgreen}{rgb}{0.0,0.6,0.0} 
+
+%% Background of magenta palette
+ \definecolor{webblackmagenta}{rgb}{0.14,0.0,0.14}                                   
+ \definecolor{webmagenta}{rgb}{0.42,0.0,0.42} 
+
+%% Background of cyan palette
+ \definecolor{webblackcyan}{rgb}{0.0,0.14,0.14}                                   
+ \definecolor{webcyan}{rgb}{0.0,0.42,0.42} 
+
+%% Background of yellow pallete
+ \definecolor{webblackyellow}{rgb}{0.14,0.14,0.0}                                   
+ \definecolor{webyellow}{rgb}{0.85,0.85,0.0} 
+
+ \definecolor{webdarkgray}{rgb}{0.2,0.2,0.2}
+
+ \definecolor{webgray}{rgb}{0.75,0.75,0.75}
+ \definecolor{weborange}{rgb}{1.0, 0.6, 0.0}
+
+\renewcommand\labelenumi{\textcolor{webdarkgray}{\arabic{enumi}.}}
+\newcommand{\setenumi}[1]{#1.\setcounter{enumi}{#1}}
+\usepackage{dsfont}
+
+
+%%
+%% You might need this next line... I don't for
+%% some reason... defined somewhere?
+%%
+%% \newcommand{\setenumi}[1]{#1.\setcounter{enumi}{#1}}
+%%
+%% Document should begin NOW!
+%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%
+\end_preamble
+\language english
+\inputencoding auto
+\fontscheme default
+\graphics default
+\paperfontsize 12
+\spacing single 
+\papersize Default
+\paperpackage a4
+\use_geometry 0
+\use_amsmath 0
+\paperorientation portrait
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\defskip medskip
+\quotes_language english
+\quotes_times 2
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+
+\layout Title
+
+Acadia University 
+\newline 
+
+\latex latex 
+
+\backslash 
+href{http://ace.acadiau.ca/math/}{Department of Mathematics and Statistics}
+\latex default 
+
+\newline 
+
+\latex latex 
+ 
+\backslash 
+vspace*{3mm}
+\latex default 
+ 
+\series bold 
+INTRODUCTORY CALCULUS 1
+\series default 
+
+\newline 
+ (MATH 1013) 
+\newline 
+
+\latex latex 
+ 
+\backslash 
+vspace*{3mm}
+\latex default 
+ SECTION 4.5 Solutions
+\layout Author
+\added_space_bottom 0.3cm 
+
+\latex latex 
+
+\backslash 
+href{http://ondelette.com/acadia/}{Daniel Lemire}
+\latex default 
+, Ph.D.
+\layout Standard
+
+
+\latex latex 
+
+\backslash 
+setcounter{section}{3}
+\layout Section
+
+
+\latex latex 
+
+\backslash 
+texorpdfstring{
+\backslash 
+textcolor{webblackblue}{Indeterminate Forms and L'Hospital Rule}}{Applications
+ of Differentiation}
+\layout Standard
+
+
+\latex latex 
+
+\backslash 
+setcounter{subsection}{4}
+\layout Subsection
+\noindent 
+
+\latex latex 
+
+\backslash 
+texorpdfstring{
+\backslash 
+textcolor{webblue}{Derivatives and the Shapes of Curves}}{Derivatives and
+ the Shapes of Curves}
+\layout Enumerate
+
+
+\latex latex 
+[
+\backslash 
+setenumi{8}]
+\latex default 
+ 
+\series bold 
+[1 marks]
+\series default 
+ Since 
+\begin_inset Formula \( \lim _{x\rightarrow 0}\sin x=0 \)
+\end_inset 
+
+ and 
+\begin_inset Formula \( \lim _{x\rightarrow 0}x+\tan x=0 \)
+\end_inset 
+
+, l'Hospital's rule apply
+\series bold 
+ 
+\begin_inset Formula \[
+\lim _{x\rightarrow 0}\frac{x+\tan x}{\sin x}=\lim _{x\rightarrow 0}\frac{1+\sec ^{2}x}{\cos x}=\frac{\lim _{x\rightarrow 0}1+\sec ^{2}x}{\lim _{x\rightarrow 0}\cos x}=\frac{2}{1}=2.\]
+
+\end_inset 
+
+
+\layout Enumerate
+
+
+\latex latex 
+[
+\backslash 
+setenumi{10}]
+\series bold 
+\latex default 
+ [1 marks]
+\series default 
+ Since 
+\begin_inset Formula \( \lim _{x\rightarrow \pi }x=\pi  \)
+\end_inset 
+
+, l'Hospital's rule doesn't apply 
+\begin_inset Formula \[
+\lim _{x\rightarrow \pi }\frac{\tan x}{x}=\frac{\lim _{x\rightarrow \pi }\tan x}{\lim _{x\rightarrow \pi }x}=\frac{0}{\pi }=0.\]
+
+\end_inset 
+
+
+\layout Enumerate
+
+
+\latex latex 
+[
+\backslash 
+setenumi{14}]
+\series bold 
+\latex default 
+ [2 marks]
+\series default 
+ Since 
+\begin_inset Formula \( \lim _{x\rightarrow \infty }e^{x}=\infty  \)
+\end_inset 
+
+ and 
+\begin_inset Formula \( \lim _{x\rightarrow \infty }x^{3}=\infty  \)
+\end_inset 
+
+, l'Hospital's rule apply
+\begin_inset Formula \[
+\lim _{x\rightarrow \infty }\frac{e^{x}}{x^{3}}=\lim _{x\rightarrow \infty }\frac{e^{x}}{3x^{2}}.\]
+
+\end_inset 
+
+At this point, we still have a problem since 
+\begin_inset Formula \( \lim _{x\rightarrow \infty }3x^{2}=\infty  \)
+\end_inset 
+
+, so we need to apply l'Hospital's rule
+\begin_inset Formula \[
+\lim _{x\rightarrow \infty }\frac{e^{x}}{3x^{2}}=\lim _{x\rightarrow \infty }\frac{e^{x}}{6x}.\]
+
+\end_inset 
+
+Again, we need to apply l'Hospital's rule since 
+\begin_inset Formula \( \lim _{x\rightarrow \infty }6x=\infty  \)
+\end_inset 
+
+,
+\begin_inset Formula \[
+\lim _{x\rightarrow \infty }\frac{e^{x}}{6x}=\lim _{x\rightarrow \infty }\frac{e^{x}}{6}.\]
+
+\end_inset 
+
+ 
+\begin_inset Formula \( \frac{1}{6} \)
+\end_inset 
+
+ is a constant and so 
+\begin_inset Formula \[
+\lim _{x\rightarrow \infty }\frac{e^{x}}{6}=\frac{1}{6}\lim _{x\rightarrow \infty }e^{x}=\infty .\]
+
+\end_inset 
+
+
+\layout Enumerate
+
+
+\latex latex 
+[
+\backslash 
+setenumi{24}]
+\series bold 
+\latex default 
+ [2 marks]
+\series default 
+ We have 
+\begin_inset Formula \( \lim _{x\rightarrow (\frac{\pi }{2})^{-}}\cos 3x=\cos \frac{3\pi }{2}=0 \)
+\end_inset 
+
+ and 
+\begin_inset Formula \( \lim _{x\rightarrow (\frac{\pi }{2})^{-}}\cos 7x=\cos \frac{7\pi }{2}=0 \)
+\end_inset 
+
+, so l'Hospital's rule apply
+\begin_inset Formula \begin{eqnarray*}
+\lim _{x\rightarrow (\frac{\pi }{2})^{-}}\sec 7x\cos 3x & = & \lim _{x\rightarrow (\frac{\pi }{2})^{-}}\frac{\cos 3x}{\cos 7x}\\
+ & = & \lim _{x\rightarrow (\frac{\pi }{2})^{-}}\frac{3\sin 3x}{7\sin 7x}.
+\end{eqnarray*}
+
+\end_inset 
+
+And we have 
+\begin_inset Formula \( \lim _{x\rightarrow (\frac{\pi }{2})^{-}}\sin 3x=\sin \frac{3\pi }{2}=-1 \)
+\end_inset 
+
+ and 
+\begin_inset Formula \( \lim _{x\rightarrow (\frac{\pi }{2})^{-}}\sin 7x=\sin \frac{7\pi }{2}=-1 \)
+\end_inset 
+
+ so l'Hospital's rule no longer applies
+\begin_inset Formula \[
+\lim _{x\rightarrow (\frac{\pi }{2})^{-}}\frac{3\sin 3x}{7\sin 7x}=\frac{\lim _{x\rightarrow (\frac{\pi }{2})^{-}}3\sin 3x}{\lim _{x\rightarrow (\frac{\pi }{2})^{-}}7\sin 7x}=\frac{-3}{-7}=\frac{3}{7}.\]
+
+\end_inset 
+
+
+\layout Enumerate
+
+
+\latex latex 
+[
+\backslash 
+setenumi{34}]
+\series bold 
+\latex default 
+ [2 marks] 
+\series default 
+We are going to assume 
+\begin_inset Formula \( a\neq 0 \)
+\end_inset 
+
+ since in such a case, the limit is equal to 
+\begin_inset Formula \( 1 \)
+\end_inset 
+
+.
+ We have 
+\begin_inset Formula \begin{equation}
+\label{ex}
+\lim _{x\rightarrow \infty }\left( 1+\frac{a}{x}\right) ^{bx}=\lim _{x\rightarrow \infty }e^{bx\ln \left( 1+\frac{a}{x}\right) }.
+\end{equation}
+
+\end_inset 
+
+Looking only at the exponent 
+\begin_inset Formula \begin{equation}
+\label{lnoverx}
+\lim _{x\rightarrow \infty }bx\ln \left( 1+\frac{a}{x}\right) =\lim _{x\rightarrow \infty }b\frac{\ln \left( 1+\frac{a}{x}\right) }{1/x}=b\lim _{x\rightarrow \infty }\frac{\ln \left( 1+\frac{a}{x}\right) }{1/x}.
+\end{equation}
+
+\end_inset 
+
+We can see that 
+\begin_inset Formula \( \lim _{x\rightarrow \infty }\ln \left( 1+\frac{a}{x}\right) =\ln \left( 1\right) =0 \)
+\end_inset 
+
+ and 
+\begin_inset Formula \( \lim _{x\rightarrow \infty }1/x=0 \)
+\end_inset 
+
+, so l'Hospital's rule applies 
+\begin_inset Formula \begin{eqnarray*}
+\lim _{x\rightarrow \infty }\frac{\ln \left( 1+\frac{a}{x}\right) }{1/x} & = & \lim _{x\rightarrow \infty }\frac{\frac{\frac{-a}{x^{2}}}{1+\frac{a}{x}}}{-1/x^{2}}\\
+ & = & \lim _{x\rightarrow \infty }\frac{-a}{x^{2}(1+\frac{a}{x})\left( \frac{-1}{x^{2}}\right) }\\
+ & = & \lim _{x\rightarrow \infty }\frac{a}{1+\frac{a}{x}}\\
+ & = & \frac{a}{1+\lim _{x\rightarrow \infty }\frac{a}{x}}=a.
+\end{eqnarray*}
+
+\end_inset 
+
+Going back to equation 
+\begin_inset LatexCommand \ref{lnoverx}
+
+\end_inset 
+
+ 
+\begin_inset Formula \[
+\lim _{x\rightarrow \infty }bx\ln \left( 1+\frac{a}{x}\right) =ab.\]
+
+\end_inset 
+
+Therefore
+\begin_float footnote 
+\layout Standard
+
+Compare this next equation with equation 6 on page 3 in 
+\begin_inset LatexCommand \cite[section 3.7]{Steward}
+
+\end_inset 
+
+.
+\end_float 
+, by equation 
+\begin_inset LatexCommand \ref{ex}
+
+\end_inset 
+
+,
+\begin_inset Formula \[
+\lim _{x\rightarrow \infty }\left( 1+\frac{a}{x}\right) ^{bx}=e^{ab}.\]
+
+\end_inset 
+
+
+\layout Enumerate
+
+
+\latex latex 
+[
+\backslash 
+setenumi{52}]
+\series bold 
+\latex default 
+ [1 marks] 
+\series default 
+Since 
+\begin_inset Formula \( \lim _{x\rightarrow \infty }\ln x=\infty  \)
+\end_inset 
+
+ and 
+\begin_inset Formula \( \lim _{x\rightarrow \infty }x^{p}=\infty  \)
+\end_inset 
+
+, l'Hospital's rule apply.
+ Therefore
+\begin_inset Formula \[
+\lim _{x\rightarrow \infty }\frac{\ln x}{x^{p}}=\lim _{x\rightarrow \infty }\frac{1/x}{px^{p-1}}=\lim _{x\rightarrow \infty }\frac{1}{px^{p}}=p\lim _{x\rightarrow \infty }\frac{1}{x^{p}}=0\]
+
+\end_inset 
+
+assuming 
+\begin_inset Formula \( p>0 \)
+\end_inset 
+
+.
+ 
+\begin_float fig 
+\layout Standard
+
+
+\latex latex 
+[h]
+\layout Standard
+\align center \pextra_type 3 \pextra_widthp 50
+
+
+\begin_inset Figure size 118 168
+file 300analysepetits.jpg
+height 3 20
+flags 13
+
+\end_inset 
+
+
+\layout Caption
+\pextra_type 3 \pextra_widthp 50
+
+Cover page of 
+\begin_inset Quotes eld
+\end_inset 
+
+L'analyse des infiniment petits du Marquis de l'Hospital
+\begin_inset Quotes erd
+\end_inset 
+
+ (1696) where L'Hospital's Rule first appeared.
+\end_float 
+\layout Bibliography
+\bibitem [Stewart]{Steward}
+
+James Stewart, 
+\shape italic 
+Calculus: Concepts and Contexts
+\shape default 
+ (Second Edition), Brooks/Cole, 2001.
+\the_end

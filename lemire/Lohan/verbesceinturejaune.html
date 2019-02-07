@@ -1,0 +1,127 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<script type="text/javascript">
+function getRandomKey(o) {
+    var tmpList = Object.keys(o);
+    return tmpList[Math.floor(Math.random() * tmpList.length)];
+}
+
+var succes;
+var echec;
+var total;
+
+function getStarted() {
+    total = 25;
+    echec = 0;
+    succes = 0;
+    var donnees = {
+        "commencer": {
+            "présent": ["commence", "commences", "commence", "commençons", "commencez", "commencent"],
+            "imparfait": ["commençais", "commençais", "commençait", "commencions", "commenciez", "commençaient"],
+            "futur simple": ["commencerai", "commenceras", "commencera", "commencerons", "commencerez", "prendront"],
+            "conditionnel": ["commencerais", "commencerais", "commencerait", "commencerions", "commenceriez", "commenceraient"],
+            "passé composé": ["ai commencé", "as commencé", "a commencé", "avons commencé", "avez commencé", "ont commencé"],
+            "futur proche": ["vais commencer", "vas commencer", "va commencer", "allons commencer", "allez commencer", "vont commencer"],
+            "futur antérieur": ["aurai commencé", "auras commencé", "aura commencé", "aurons commencé", "aurez commencé", "auront commencé"]
+        },
+        "manger": {
+            "présent": ["mange", "manges", "mange", "mangeons", "mangez", "mangent"],
+            "imparfait": ["mangeais", "mangeais", "mangeait", "mangions", "mangiez", "mangeaient"],
+            "futur simple": ["mangerai", "mangeras", "mangera", "mangerons", "mangerez", "mangeront"],
+            "conditionnel": ["mangerais", "mangerais", "mangerait", "mangerions", "mangeriez", "mangeraient"],
+            "passé composé": ["ai mangé", "as mangé", "a mangé", "avons mangé", "avez mangé", "ont mangé"],
+            "futur proche": ["vais manger", "vas manger", "va manger", "allons manger", "allez manger", "vont manger"],
+            "futur antérieur": ["aurai mangé", "auras mangé", "aura mangé", "aurons mangé", "aurez mangé", "auront mangé"]
+        },
+        "faire": {
+            "présent": ["fais", "fais", "fait", "faisons", "faites", "font"],
+            "imparfait": ["faisais", "faisais", "faisait", "faisions", "faisiez", "faisaient"],
+            "futur simple": ["ferai", "feras", "fera", "ferons", "ferez", "feront"],
+            "conditionnel": ["ferais", "ferais", "ferait", "ferions", "feriez", "feraient"],
+            "passé composé": ["ai fait", "as fait", "a fait", "avons fait", "avez fait", "ont fait"],
+            "futur proche": ["vais faire", "vas faire", "va faire", "allons faire", "allez faire", "vont faire"],
+            "futur antérieur": ["aurai fait", "auras fait", "aura fait", "aurons fait", "aurez fait", "auront fait"]
+        },
+        "dire": {
+            "présent": ["dis", "dis", "dit", "disons", "dites", "disent"],
+            "imparfait": ["disais", "disais", "disait", "disions", "disiez", "disaient"],
+            "futur simple": ["dirai", "diras", "dira", "dirons", "direz", "diront"],
+            "conditionnel": ["dirais", "dirais", "dirait", "dirions", "diriez", "diraient"],
+            "passé composé": ["ai dit", "as dit", "a dit", "avons dit", "avez dit", "ont dit"],
+            "futur proche": ["vais dire", "vas dire", "va dire", "allons dire", "allez dire", "vont dire"],
+            "futur antérieur": ["aurai dit", "auras dit", "aura dit", "aurons dit", "aurez dit", "auront dit"]
+        },
+    };
+
+    var personnenames = ["première personne du singulier", "deuxième personne du singulier", "troisième personne du singulier", "première personne du pluriel", "deuxième personne du pluriel", "troisième personne du pluriel"];
+
+    var pronom = ["je (ou j')", "tu", "il", "nous", "vous", "ils"];
+    var i;
+    var out = document.getElementById("verbes");
+    out.innerHTML = "";
+    var mycontent ='<table border="0" style="border-spacing: 10px 10px;"> ';
+    for (i = 0; i < total; i++) {
+        var v = getRandomKey(donnees);
+        var dv = donnees[v];
+        var t = getRandomKey(dv);
+        var tv = dv[t];
+        var personne = getRandomKey(tv);
+        var pname = personnenames[personne];
+        var answer = tv[personne];
+        mycontent = mycontent + '<tr><td><strong> ' + v + '</strong></td><td>' + t + '</td><td> '+pronom[personne]+' </td><td><input autocorrect="off" autocomplete="off" spellcheck="false"  type="text" name="lname" id="rep' + i + '" onkeypress="javascript:if(event.keyCode==13){checkval(\'' + answer + '\',' + i + ');}"/> <input type="submit" id="but' + i + '" value="Soumettre" onclick="javascript:checkval(\'' + answer + '\',' + i + ');" /></td></tr>';
+    }
+    mycontent = mycontent + '</table> ';
+    out.innerHTML = mycontent;
+}
+
+function compare(str1, str2) {
+    return str1.trim().replace(/\s+/g, " ") === str2.trim().replace(/\s+/g, " ");
+}
+
+function checkval(answer, i) {
+    if (parseInt(document.getElementById("rep" + i).value.trim().length === 0)) {
+        return;
+    }
+    if (compare(document.getElementById("rep" + i).value, answer)) {
+        document.getElementById("rep" + i).value = "C'est bon: " + document.getElementById("rep" + i).value;
+        document.getElementById("rep" + i).disabled = true;
+        document.getElementById("but" + i).disabled = true;
+        if(document.getElementById("rep" + (i+1))) {
+            document.getElementById("rep" + (i+1)).focus();
+        }
+        succes = succes + 1;
+    } else {
+        document.getElementById("rep" + i).value = "Ce n'est pas " + document.getElementById("rep" + i).value;
+        document.getElementById("rep" + i).disabled = true;
+        document.getElementById("but" + i).disabled = true;
+        echec = echec + 1;
+    }
+    document.getElementById("status").innerHTML= succes +" sur " + (succes + echec);
+    if( echec + succes == total)
+      alert("Tu as obtenu "+succes+" sur " + total);
+}
+
+window.onbeforeunload = function() {
+    return "Si tu quittes la page, ton travail sera perdu.";
+};
+</script>
+
+
+<title>Lohan le champion des verbes</title>
+
+<body  onload="getStarted()" style="width:600px;margin-left:auto;margin-right:auto;">
+
+
+<h1>Conjugue les verbes suivants</h1>
+
+<p id="status" ></p>
+
+
+<div id="verbes" />
+
+
+
+</body>
+
+</html>

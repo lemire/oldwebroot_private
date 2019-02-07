@@ -1,0 +1,1068 @@
+#LyX 1.1 created this file. For more info see http://www.lyx.org/
+\lyxformat 218
+\textclass article
+\begin_preamble
+%%%%%
+%%%%%
+%%%%%
+%% Welcome!
+%% if you have any question about this
+%% document, please get in touch with
+%% Daniel Lemire at lemire@ondelette.com
+%%
+%% Of course, this file was generated
+%% with LyX which means that the syntax
+%% might be weird at times, but I've found
+%% that LyX did an excellent job overall at
+%% generating clean LaTeX syntax.
+%% Why do I choose LyX? Because LyX
+%% doesn't come with its own LaTeX engine.
+%% LyX simply use whatever tex I have.
+%% There is no "proprietary gizmos" going
+%% on. Also, instead of waiting for support
+%% from some folk in California, I can find
+%% most of the answers I need on the web,
+%% for free! Oh! And LyX is free too! 
+%% Good old Open Source software!
+%%
+%% (Sorry for the propaganda!)
+%% 
+%% Thanks!
+%% Enjoy!
+%%
+%% Sept. 8th 2001
+%% Grand-Pré, NS
+%%
+%%%%%%%%%%
+%
+% Notice that this document requires quite
+% a bit of macros... 
+% Sorry about that!
+%%%%%%%%%%%%%%
+%%
+\usepackage{epsfig}
+\usepackage{amsmath,amssymb}
+\usepackage{pslatex}
+\usepackage{color}
+ 
+ \definecolor{veryblackblue}{rgb}{0.0,0.0,0.1}
+ \usepackage[pdftex,urlcolor=webblackblue,colorlinks=true,citecolor=blue]{hyperref}
+ \pdfinfo{
+            /Title      (Introductory Calculus- Assignment 1 Solutions)
+            /Author     (Daniel Lemire, Ph.D.)
+            /Subject    (This is a set of solutions for sections 1.5, 1.6, 2.1, 2.2 and 2.3 in Stewart: calculus.)
+            /Keywords   (exponentials, tangents, Stewart, Solutions, limits, Acadia)
+          }
+
+
+\topmargin  = 0pt
+\headheight = 0pt
+\headsep    = 0pt
+
+\voffset    = 0in
+\hoffset    = 0in
+\textheight = 230mm
+\textwidth  = 164mm
+
+\evensidemargin = 0pt
+\oddsidemargin  = 0pt
+
+\pagestyle{empty}
+\usepackage{float}
+
+%% Background of blue palette
+ \definecolor{webblackblue}{rgb}{0.0,0.0,0.2}
+ \definecolor{webblue}{rgb}{0.0, 0.0, 0.6}
+
+%% Background of red palette
+ \definecolor{webblackred}{rgb}{0.2,0.0,0.0}
+ \definecolor{webred}{rgb}{0.6,0.0,0.0}
+
+%% Background of green palette
+ \definecolor{webblackgreen}{rgb}{0.0,0.2,0.0}                                   
+ \definecolor{webgreen}{rgb}{0.0,0.6,0.0} 
+
+%% Background of magenta palette
+ \definecolor{webblackmagenta}{rgb}{0.14,0.0,0.14}                                   
+ \definecolor{webmagenta}{rgb}{0.42,0.0,0.42} 
+
+%% Background of cyan palette
+ \definecolor{webblackcyan}{rgb}{0.0,0.14,0.14}                                   
+ \definecolor{webcyan}{rgb}{0.0,0.42,0.42} 
+
+%% Background of yellow pallete
+ \definecolor{webblackyellow}{rgb}{0.14,0.14,0.0}                                   
+ \definecolor{webyellow}{rgb}{0.85,0.85,0.0} 
+
+ \definecolor{webdarkgray}{rgb}{0.2,0.2,0.2}
+
+ \definecolor{webgray}{rgb}{0.75,0.75,0.75}
+ \definecolor{weborange}{rgb}{1.0, 0.6, 0.0}
+
+\renewcommand\labelenumi{\textcolor{webdarkgray}{\arabic{enumi}.}}
+\newcommand{\setenumi}[1]{#1.\setcounter{enumi}{#1}}
+\usepackage{dsfont}
+
+
+%%
+%% You might need this next line... I don't for
+%% some reason... defined somewhere?
+%%
+%% \newcommand{\setenumi}[1]{#1.\setcounter{enumi}{#1}}
+%%
+%% Document should begin NOW!
+%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%
+\end_preamble
+\language english
+\inputencoding auto
+\fontscheme default
+\graphics default
+\paperfontsize 12
+\spacing single 
+\papersize Default
+\paperpackage a4
+\use_geometry 0
+\use_amsmath 0
+\paperorientation portrait
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\defskip medskip
+\quotes_language english
+\quotes_times 2
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+
+\layout Title
+
+Acadia University 
+\newline 
+
+\latex latex 
+
+\backslash 
+href{http://ace.acadiau.ca/math/}{Department of Mathematics and Statistics}
+\latex default 
+
+\newline 
+
+\latex latex 
+ 
+\backslash 
+vspace*{3mm}
+\latex default 
+ 
+\series bold 
+INTRODUCTORY CALCULUS 1
+\series default 
+
+\newline 
+ (MATH 1013) 
+\newline 
+
+\latex latex 
+ 
+\backslash 
+vspace*{3mm}
+\latex default 
+ SECTION 4.3 Solutions
+\layout Author
+
+
+\latex latex 
+
+\backslash 
+href{http://ondelette.com/acadia/}{Daniel Lemire}
+\latex default 
+, Ph.D.
+\layout Standard
+
+
+\latex latex 
+
+\backslash 
+setcounter{section}{3}
+\layout Section
+
+
+\latex latex 
+
+\backslash 
+texorpdfstring{
+\backslash 
+textcolor{webblackblue}{Applications of Differentiation}}{Applications of
+ Differentiation}
+\layout Standard
+
+
+\latex latex 
+
+\backslash 
+setcounter{subsection}{2}
+\layout Subsection
+\noindent 
+
+\latex latex 
+
+\backslash 
+texorpdfstring{
+\backslash 
+textcolor{webblue}{Derivatives and the Shapes of Curves}}{Derivatives and
+ the Shapes of Curves}
+\layout Enumerate
+
+
+\latex latex 
+[
+\backslash 
+setenumi{6}]
+\latex default 
+ 
+\series bold 
+[4 marks]
+\series default 
+ 
+\begin_deeper 
+\layout Enumerate
+
+
+\begin_inset Formula \( f \)
+\end_inset 
+
+ is increasing on the intervals 
+\begin_inset Formula \( (2,4) \)
+\end_inset 
+
+, 
+\begin_inset Formula \( (6,9] \)
+\end_inset 
+
+ because it is where 
+\begin_inset Formula \( f'>0 \)
+\end_inset 
+
+ (see 
+\begin_inset LatexCommand \cite[Section 4.3, Increasing/Decreasing test, p. 282]{Steward}
+
+\end_inset 
+
+).
+\layout Enumerate
+
+Given that 
+\begin_inset Formula \( f' \)
+\end_inset 
+
+ exists everywhere, local max.
+ or local min.
+ will only happen when 
+\begin_inset Formula \( f'=0 \)
+\end_inset 
+
+ or on the boundary.
+ Firstly, at 
+\begin_inset Formula \( x=0 \)
+\end_inset 
+
+, we have a local maximum by the 
+\series bold 
+\shape italic 
+\color red
+Second Derivative Test
+\series default 
+\shape default 
+\color default
+ (
+\begin_inset LatexCommand \cite[Section 4.3, p. 284]{Steward}
+
+\end_inset 
+
+), 
+\begin_inset Formula \( f''(0)<0 \)
+\end_inset 
+
+ and 
+\begin_inset Formula \( f'(0)=0 \)
+\end_inset 
+
+.
+ At 
+\begin_inset Formula \( x=2 \)
+\end_inset 
+
+, we have a local minimum since 
+\begin_inset Formula \( f'(2)=0 \)
+\end_inset 
+
+ and 
+\begin_inset Formula \( f''(2)>0 \)
+\end_inset 
+
+.
+ At 
+\begin_inset Formula \( x=4 \)
+\end_inset 
+
+, we have a local maximum since 
+\begin_inset Formula \( f''(4)<0 \)
+\end_inset 
+
+ and 
+\begin_inset Formula \( f'(4)=0 \)
+\end_inset 
+
+.
+ At 
+\begin_inset Formula \( x=6 \)
+\end_inset 
+
+, we have a local minimum since 
+\begin_inset Formula \( f''(6)<0 \)
+\end_inset 
+
+ and 
+\begin_inset Formula \( f'(6)=0 \)
+\end_inset 
+
+.
+ Finally, at 
+\begin_inset Formula \( x=9 \)
+\end_inset 
+
+, we have a local maximum since 
+\begin_inset Formula \( f'(9)>0 \)
+\end_inset 
+
+ and it is a boundary point.
+ (We assume that 
+\begin_inset Formula \( f'' \)
+\end_inset 
+
+ is continuous everywhere.)
+\layout Enumerate
+
+
+\begin_inset Formula \( f \)
+\end_inset 
+
+ is concave upward when 
+\begin_inset Formula \( f''>0 \)
+\end_inset 
+
+ and concave downward when 
+\begin_inset Formula \( f''<0 \)
+\end_inset 
+
+ (see 
+\begin_inset LatexCommand \cite[Section 4.3, Concavity  Test, p. 284]{Steward}
+
+\end_inset 
+
+).
+ Looking at the graph of 
+\begin_inset Formula \( f' \)
+\end_inset 
+
+, we see that 
+\begin_inset Formula \( f' \)
+\end_inset 
+
+ is increasing (and therefore 
+\begin_inset Formula \( f''>0 \)
+\end_inset 
+
+) on the following intervals 
+\begin_inset Formula \( (1,3) \)
+\end_inset 
+
+, 
+\begin_inset Formula \( (5,7) \)
+\end_inset 
+
+, and 
+\begin_inset Formula \( (8,9] \)
+\end_inset 
+
+.
+ It is where 
+\begin_inset Formula \( f \)
+\end_inset 
+
+ is concave upward.
+ Also, 
+\begin_inset Formula \( f' \)
+\end_inset 
+
+ is decreasing on the intervals 
+\begin_inset Formula \( [0,1) \)
+\end_inset 
+
+, 
+\begin_inset Formula \( (3,5) \)
+\end_inset 
+
+, and 
+\begin_inset Formula \( (7,8) \)
+\end_inset 
+
+.
+ It is where 
+\begin_inset Formula \( f \)
+\end_inset 
+
+ is concave downward.
+\layout Enumerate
+
+
+\begin_inset Quotes eld
+\end_inset 
+
+A point where a curve changes its direction of concavity is called an inflection
+ point.
+\begin_inset Quotes erd
+\end_inset 
+
+ 
+\begin_inset LatexCommand \cite[Section 4.3, p.284]{Steward}
+
+\end_inset 
+
+ We see that this happens at 
+\begin_inset Formula \( x=3 \)
+\end_inset 
+
+, 
+\begin_inset Formula \( x=5 \)
+\end_inset 
+
+, and 
+\begin_inset Formula \( x=7 \)
+\end_inset 
+
+ according to the intervals of concavity in part (c).
+ 
+\end_deeper 
+\layout Enumerate
+
+
+\latex latex 
+[
+\backslash 
+setenumi{10}]
+\series bold 
+\latex default 
+ [3 marks]
+\series default 
+ 
+\begin_deeper 
+\layout Enumerate
+
+Using the quotient rule, derivative is found to be
+\begin_inset Formula \[
+f'(x)=\frac{1-x}{(1+x)^{3}}.\]
+
+\end_inset 
+
+We can now consider two cases separately.
+ Firstly, if 
+\begin_inset Formula \( x<-1 \)
+\end_inset 
+
+, then 
+\begin_inset Formula \( 1-x>0 \)
+\end_inset 
+
+ and 
+\begin_inset Formula \( (1+x)^{3}<0 \)
+\end_inset 
+
+ so that 
+\begin_inset Formula \( f'(x)<0 \)
+\end_inset 
+
+ and therefore 
+\begin_inset Formula \( f \)
+\end_inset 
+
+ is decreasing over 
+\begin_inset Formula \( (\infty ,-1) \)
+\end_inset 
+
+.
+ On the other hand, when 
+\begin_inset Formula \( x>-1 \)
+\end_inset 
+
+, we have 
+\begin_inset Formula \( (1+x)^{3}>0 \)
+\end_inset 
+
+ and we have two sub-cases, when 
+\begin_inset Formula \( -1<x<1 \)
+\end_inset 
+
+, then 
+\begin_inset Formula \( 1-x>0 \)
+\end_inset 
+
+ and when 
+\begin_inset Formula \( x>1 \)
+\end_inset 
+
+, 
+\begin_inset Formula \( 1-x<0 \)
+\end_inset 
+
+.
+ Therefore, we can conclude that 
+\begin_inset Formula \( f \)
+\end_inset 
+
+ is increasing in the interval 
+\begin_inset Formula \( (-1,1) \)
+\end_inset 
+
+ and decreasing over 
+\begin_inset Formula \( (1,\infty ) \)
+\end_inset 
+
+.
+\layout Enumerate
+
+Local min.
+ and max.
+ can only occur when 
+\begin_inset Formula \( f'=0\Rightarrow x=1 \)
+\end_inset 
+
+ of when 
+\begin_inset Formula \( f\, \nexists  \)
+\end_inset 
+
+ but this only happens at 
+\begin_inset Formula \( x=-1 \)
+\end_inset 
+
+ and this value is not in the domain of 
+\begin_inset Formula \( f \)
+\end_inset 
+
+.
+ At 
+\begin_inset Formula \( x=1 \)
+\end_inset 
+
+, the derivative goes from being positive to negative and therefore we have
+ a local maximum by the 
+\series bold 
+\shape italic 
+\color red
+First Derivative Test
+\series default 
+\shape default 
+\color default
+ (taking note that 
+\begin_inset Formula \( f \)
+\end_inset 
+
+ is continuous near 
+\begin_inset Formula \( x=1 \)
+\end_inset 
+
+).
+\layout Enumerate
+
+Again using the quotient rule, we find the second derivative 
+\begin_inset Formula \[
+f''(x)=\frac{2x-4}{(x+1)^{4}}.\]
+
+\end_inset 
+
+Since 
+\begin_inset Formula \( (x+1)^{4} \)
+\end_inset 
+
+ is always positive, 
+\begin_inset Formula \( 2x-4 \)
+\end_inset 
+
+ determines the sign.
+ The second derivative is positive when 
+\begin_inset Formula \( x>2 \)
+\end_inset 
+
+ (concave upward) and negative when 
+\begin_inset Formula \( x<2 \)
+\end_inset 
+
+ (concave downward).
+ The inflection point is therefore at 
+\begin_inset Formula \( x=2 \)
+\end_inset 
+
+.
+\begin_float fig 
+\end_deeper 
+\layout Standard
+
+
+\latex latex 
+[h]
+\layout Standard
+\align center 
+
+\begin_inset Figure size 239 168
+file 4_3_10
+height 3 20
+angle 270
+flags 9
+
+\end_inset 
+
+
+\layout Caption
+
+
+\begin_inset Formula \( \frac{x}{(1+x)^{2}} \)
+\end_inset 
+
+
+\end_float 
+\layout Enumerate
+
+
+\latex latex 
+[
+\backslash 
+setenumi{16}]
+\series bold 
+\latex default 
+ [3 marks]
+\series default 
+ Since 
+\begin_inset Formula \( f \)
+\end_inset 
+
+ is a polynomial, 
+\begin_inset Formula \( f \)
+\end_inset 
+
+, 
+\begin_inset Formula \( f' \)
+\end_inset 
+
+ and 
+\begin_inset Formula \( f'' \)
+\end_inset 
+
+ are continuous.
+\begin_deeper 
+\layout Enumerate
+
+Since the derivative exists everywhere, we only need to solve for 
+\begin_inset Formula \( f'(x)=0 \)
+\end_inset 
+
+ to find the critical numbers.
+ We can use the product rule to evaluate the derivative
+\begin_inset Formula \begin{eqnarray*}
+f'(x) & = & 3(x-1)^{2}x^{4}+4(x-1)^{3}x^{3}\\
+ & = & x^{3}\left( 7x^{3}-18x^{2}+15x-4\right) .
+\end{eqnarray*}
+
+\end_inset 
+
+We can actually factor 
+\begin_inset Formula \( f'(x) \)
+\end_inset 
+
+ further (by using Maple for example):
+\begin_inset Formula \[
+f'(x)=x^{3}(x-1)^{2}(7x-4).\]
+
+\end_inset 
+
+The critical numbers are therefore 
+\begin_inset Formula \( x=0 \)
+\end_inset 
+
+, 
+\begin_inset Formula \( x=1 \)
+\end_inset 
+
+, and 
+\begin_inset Formula \( x=4/7 \)
+\end_inset 
+
+.
+\layout Enumerate
+
+We first need to evaluate the second derivative.
+ It is most convenient to do so when we use the form 
+\begin_inset Formula \( f'(x)=7x^{6}-18x^{5}+15x^{4}-4x^{3} \)
+\end_inset 
+
+ 
+\begin_inset Formula \[
+f''(x)=42x^{5}-90x^{4}+60x^{3}-12x^{2}.\]
+
+\end_inset 
+
+We can then evaluate 
+\begin_inset Formula \( f'' \)
+\end_inset 
+
+ at the critical numbers and notice that 
+\begin_inset Formula \( f'' \)
+\end_inset 
+
+ is a continuous function.
+ Firstly, 
+\begin_inset Formula \( f''(0)=0 \)
+\end_inset 
+
+ so the 
+\series bold 
+\shape italic 
+\color red
+Second Derivative Test
+\series default 
+\shape default 
+\color default
+ is inconclusive.
+ We also have 
+\begin_inset Formula \( f''(1)=0 \)
+\end_inset 
+
+ and the 
+\series bold 
+\shape italic 
+\color red
+Second Derivative Test
+\series default 
+\shape default 
+\color default
+ is again inconclusive.
+ Finally, we have 
+\begin_inset Formula \( f''(4/7)=576/2401>0 \)
+\end_inset 
+
+ and so 
+\begin_inset Formula \( f \)
+\end_inset 
+
+ has a local minimum at 
+\begin_inset Formula \( 4/7 \)
+\end_inset 
+
+.
+\layout Enumerate
+
+At 
+\begin_inset Formula \( x=0 \)
+\end_inset 
+
+, the sign of the derivative will be go from being positive to being negative
+ since both 
+\begin_inset Formula \( (0-1)^{2}>1 \)
+\end_inset 
+
+ and 
+\begin_inset Formula \( (7\times 0-4)<0 \)
+\end_inset 
+
+ .
+ This tells us that we have a local maximum at 
+\begin_inset Formula \( x=0 \)
+\end_inset 
+
+ by the 
+\series bold 
+\shape italic 
+\color red
+First Derivative Test
+\series default 
+\shape default 
+\color default
+.
+ At 
+\begin_inset Formula \( x=1 \)
+\end_inset 
+
+, the sign will not change (the sign will remain positive), and therefore,
+ according to the 
+\series bold 
+\shape italic 
+\color red
+First Derivative Test
+\series default 
+\shape default 
+\color default
+, 
+\begin_inset Formula \( f \)
+\end_inset 
+
+ has no local maximum and no local minimum at 
+\begin_inset Formula \( x=1 \)
+\end_inset 
+
+.
+ At 
+\begin_inset Formula \( x=4/7 \)
+\end_inset 
+
+, the sign goes from being negative to being positive since 
+\begin_inset Formula \( (4/7)^{3}>0 \)
+\end_inset 
+
+ and 
+\begin_inset Formula \( (4/7-1)^{2}>0 \)
+\end_inset 
+
+ and so, we have a local minimum.
+\begin_float fig 
+\end_deeper 
+\layout Standard
+
+
+\latex latex 
+[h]
+\layout Standard
+\align center 
+
+\begin_inset Figure size 239 168
+file 4_3_16
+height 3 20
+angle 270
+flags 9
+
+\end_inset 
+
+
+\layout Caption
+
+
+\begin_inset Formula \( x^{4}(x-1)^{3} \)
+\end_inset 
+
+
+\end_float 
+\layout Enumerate
+
+
+\latex latex 
+[
+\backslash 
+setenumi{42}]
+\series bold 
+\latex default 
+ [2 marks]
+\series default 
+ First of all, assuming 
+\begin_inset Formula \( f(2) \)
+\end_inset 
+
+ is a maximum, we need 
+\begin_inset Formula \( f'(2)=0 \)
+\end_inset 
+
+ since 
+\begin_inset Formula \( f \)
+\end_inset 
+
+ is differentiable.
+ Using the product rule and then the chain rule, we have 
+\begin_inset Formula \[
+f'(x)=(2bx^{2}+1)ae^{bx^{2}}.\]
+
+\end_inset 
+
+Setting this equal to 
+\begin_inset Formula \( 0 \)
+\end_inset 
+
+, we get 
+\begin_inset Formula \( 2bx^{2}+1=0 \)
+\end_inset 
+
+ or 
+\begin_inset Formula \( x^{2}=\frac{-1}{2b} \)
+\end_inset 
+
+.
+ Since we want 
+\begin_inset Formula \( x=2 \)
+\end_inset 
+
+ as a solution of 
+\begin_inset Formula \( f'(x)=0 \)
+\end_inset 
+
+, we need 
+\begin_inset Formula \( x^{2}=4=\frac{-1}{2b} \)
+\end_inset 
+
+ and so, 
+\begin_inset Formula \( b=-1/8 \)
+\end_inset 
+
+.
+ With this choice, we'll have 
+\begin_inset Formula \( f'(2)=0 \)
+\end_inset 
+
+.
+ We need to make sure that 
+\begin_inset Formula \( f(2)=1\Rightarrow 2ae^{-1/2}=1 \)
+\end_inset 
+
+ and so 
+\begin_inset Formula \( a=\sqrt{e}/2 \)
+\end_inset 
+
+.
+ Since 
+\begin_inset Formula \( f'(x) \)
+\end_inset 
+
+ shows only two critical numbers (
+\begin_inset Formula \( -2 \)
+\end_inset 
+
+ and 
+\begin_inset Formula \( 2 \)
+\end_inset 
+
+), and since 
+\begin_inset Formula \( \lim _{x\rightarrow \pm \infty }f(x)=0 \)
+\end_inset 
+
+, 
+\begin_inset Formula \( f(2)=1 \)
+\end_inset 
+
+, and 
+\begin_inset Formula \( f(-2)=-1 \)
+\end_inset 
+
+, we can safely conclude that 
+\begin_inset Formula \( x=2,\, f(2)=1 \)
+\end_inset 
+
+ is the maximum of 
+\begin_inset Formula \( f \)
+\end_inset 
+
+.
+\begin_float fig 
+\layout Standard
+
+
+\latex latex 
+[h]
+\layout Standard
+\align center 
+
+\begin_inset Figure size 239 168
+file 4_3_12
+height 3 20
+angle 270
+flags 9
+
+\end_inset 
+
+
+\layout Caption
+
+
+\begin_inset Formula \( \frac{\sqrt{e}}{2}e^{\frac{-x^{2}}{8}} \)
+\end_inset 
+
+
+\end_float 
+\layout Enumerate
+
+
+\latex latex 
+[
+\backslash 
+setenumi{48}]
+\series bold 
+\latex default 
+ [2 marks]
+\series default 
+ In 10 minutes or 
+\begin_inset Formula \( 1/6 \)
+\end_inset 
+
+ hours, the car went from 
+\begin_inset Formula \( 30 \)
+\end_inset 
+
+\SpecialChar ~
+mi/h to 50\SpecialChar ~
+mi/h.
+ The average acceleration was
+\begin_inset Formula \[
+\frac{50\, \textrm{mi}/\textrm{h}-30\, \textrm{mi}/\textrm{h}}{1/6\, \textrm{h}}=20\times 6\, \textrm{mi}/\textrm{h}^{2}=120\, \textrm{mi}/\textrm{h}^{2}.\]
+
+\end_inset 
+
+Taking 
+\begin_inset Formula \( f \)
+\end_inset 
+
+ to be the velocity of the car and 
+\begin_inset Formula \( f' \)
+\end_inset 
+
+ to be the acceleration (assume 
+\begin_inset Formula \( f \)
+\end_inset 
+
+ to be differentiable), then the 
+\series bold 
+\shape italic 
+\color red
+Mean Value Theorem
+\series default 
+\shape default 
+\color default
+ 
+\begin_inset LatexCommand \cite[Section 4.3, p. 281]{Steward}
+
+\end_inset 
+
+ says that at some time 
+\begin_inset Formula \( t \)
+\end_inset 
+
+ between 
+\begin_inset Formula \( 2:00 \)
+\end_inset 
+
+ and 
+\begin_inset Formula \( 2:10 \)
+\end_inset 
+
+, 
+\begin_inset Formula \( f' \)
+\end_inset 
+
+ must be equal to its average or, in other words, 
+\begin_inset Formula \( f'(t)=120\, \textrm{mi}/\textrm{h}^{2} \)
+\end_inset 
+
+ .
+ 
+\layout Bibliography
+\bibitem [Stewart]{Steward}
+
+James Stewart, 
+\shape italic 
+Calculus: Concepts and Contexts
+\shape default 
+ (Second Edition), Brooks/Cole, 2001.
+\the_end

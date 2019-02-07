@@ -1,0 +1,419 @@
+<HTML>
+<HEAD>
+<TITLE>assignment4.py</TITLE>
+<STYLE TYPE="text/css"><!--
+.syntax0 {
+color: #330033;
+}
+.syntax1 {
+color: #006666;
+font-style: italic;
+}
+.syntax2 {
+color: #990033;
+font-style: italic;
+}
+.syntax3 {
+color: #990000;
+}
+.syntax4 {
+color: #009999;
+}
+.syntax5 {
+color: #990033;
+font-weight: bold;
+font-style: italic;
+}
+.syntax6 {
+color: #990099;
+}
+.syntax7 {
+color: #000000;
+font-weight: bold;
+}
+.syntax8 {
+color: #000000;
+font-weight: bold;
+}
+.syntax9 {
+color: #000066;
+}
+.syntax10 {
+color: #5e5e5e;
+font-weight: bold;
+}
+.syntax11 {
+color: #000000;
+}
+.syntax12 {
+color: #666600;
+}
+.syntax13 {
+color: #ff0000;
+}
+.gutter {
+background: #ffffff;
+color: #000000;
+}
+.gutterH {
+background: #ffffff;
+color: #000066;
+}
+-->
+</STYLE>
+</HEAD>
+<BODY BGCOLOR="#FFFFFF">
+<PRE><SPAN CLASS="gutter">   1:</SPAN><SPAN CLASS="syntax1">#! /usr/bin/env python</SPAN>
+<SPAN CLASS="gutter">   2:</SPAN><SPAN CLASS="syntax1">#</SPAN>
+<SPAN CLASS="gutter">   3:</SPAN><SPAN CLASS="syntax1"># This is a partial solution to assignment 4</SPAN>
+<SPAN CLASS="gutter">   4:</SPAN><SPAN CLASS="syntax1"># for the course Numerical Methods 2, Acadia University</SPAN>
+<SPAN CLASS="gutterH">   5:</SPAN><SPAN CLASS="syntax1">#</SPAN>
+<SPAN CLASS="gutter">   6:</SPAN><SPAN CLASS="syntax1"># Daniel Lemire, Ph.D.</SPAN>
+<SPAN CLASS="gutter">   7:</SPAN><SPAN CLASS="syntax1"># April 2002 </SPAN>
+<SPAN CLASS="gutter">   8:</SPAN><SPAN CLASS="syntax1"># GPL v. 3</SPAN>
+<SPAN CLASS="gutter">   9:</SPAN><SPAN CLASS="syntax1">#</SPAN>
+<SPAN CLASS="gutterH">  10:</SPAN><SPAN CLASS="syntax1"># Requirements: this file needs Numerical Python to run</SPAN>
+<SPAN CLASS="gutter">  11:</SPAN><SPAN CLASS="syntax1">#</SPAN>
+<SPAN CLASS="gutter">  12:</SPAN><SPAN CLASS="syntax1"># Note: Python and Numerical Python are free software,</SPAN>
+<SPAN CLASS="gutter">  13:</SPAN><SPAN CLASS="syntax1"># see www.python.org. </SPAN>
+<SPAN CLASS="gutter">  14:</SPAN><SPAN CLASS="syntax1">#######################################################</SPAN>
+<SPAN CLASS="gutterH">  15:</SPAN>
+<SPAN CLASS="gutter">  16:</SPAN><SPAN CLASS="syntax6">from</SPAN> Numeric <SPAN CLASS="syntax6">import</SPAN> <SPAN CLASS="syntax11">*</SPAN>
+<SPAN CLASS="gutter">  17:</SPAN><SPAN CLASS="syntax6">import</SPAN> time
+<SPAN CLASS="gutter">  18:</SPAN>
+<SPAN CLASS="gutter">  19:</SPAN><SPAN CLASS="syntax1">########################################################## </SPAN>
+<SPAN CLASS="gutterH">  20:</SPAN><SPAN CLASS="syntax1"># section 2.1</SPAN>
+<SPAN CLASS="gutter">  21:</SPAN><SPAN CLASS="syntax1">##########################################################</SPAN>
+<SPAN CLASS="gutter">  22:</SPAN><SPAN CLASS="syntax1">#</SPAN>
+<SPAN CLASS="gutter">  23:</SPAN><SPAN CLASS="syntax1"># 1- First question... solve  u'(x)= exp(x)*u(x)+ln(x) numerically.</SPAN>
+<SPAN CLASS="gutter">  24:</SPAN><SPAN CLASS="syntax1">#       You can do this with your favorite CAS. I used maxima with the following</SPAN>
+<SPAN CLASS="gutterH">  25:</SPAN><SPAN CLASS="syntax1">#       command :</SPAN>
+<SPAN CLASS="gutter">  26:</SPAN><SPAN CLASS="syntax1">#               ode2(diff(u(x),x)=exp(x)*u(x)+log(x),u(x),x);</SPAN>
+<SPAN CLASS="gutter">  27:</SPAN><SPAN CLASS="syntax1">#       (Maxima is free software : http://maxima.sourceforge.net)</SPAN>
+<SPAN CLASS="gutter">  28:</SPAN><SPAN CLASS="syntax1">#       to get</SPAN>
+<SPAN CLASS="gutter">  29:</SPAN><SPAN CLASS="syntax1">#               u(x)= exp(exp(x))*(integrate(exp(-exp(x))*log(x),x)+C)</SPAN>
+<SPAN CLASS="gutterH">  30:</SPAN><SPAN CLASS="syntax1"># </SPAN>
+<SPAN CLASS="gutter">  31:</SPAN><SPAN CLASS="syntax1">#       the requirement that u(1)=0 is not so trivial... unless you rewrite</SPAN>
+<SPAN CLASS="gutter">  32:</SPAN><SPAN CLASS="syntax1">#       the solution as</SPAN>
+<SPAN CLASS="gutter">  33:</SPAN><SPAN CLASS="syntax1"># </SPAN>
+<SPAN CLASS="gutter">  34:</SPAN><SPAN CLASS="syntax1">#               u(x)=exp(exp(x))*integrate(exp(-exp(s))*log(s),s,1,x)</SPAN>
+<SPAN CLASS="gutterH">  35:</SPAN><SPAN CLASS="syntax1">#</SPAN>
+<SPAN CLASS="gutter">  36:</SPAN><SPAN CLASS="syntax1">#       and then life is good again!</SPAN>
+<SPAN CLASS="gutter">  37:</SPAN><SPAN CLASS="syntax1">#</SPAN>
+<SPAN CLASS="gutter">  38:</SPAN><SPAN CLASS="syntax1">#       evaluating u(2) can be done numerically... and we get about 5.97795</SPAN>
+<SPAN CLASS="gutter">  39:</SPAN><SPAN CLASS="syntax1">#</SPAN>
+<SPAN CLASS="gutterH">  40:</SPAN><SPAN CLASS="syntax1">#       using maxima, the syntax is </SPAN>
+<SPAN CLASS="gutter">  41:</SPAN><SPAN CLASS="syntax1">#</SPAN>
+<SPAN CLASS="gutter">  42:</SPAN><SPAN CLASS="syntax1">#               exp(exp(2))*romberg(exp(-exp(x))*log(x),x,1,2),numer;</SPAN>
+<SPAN CLASS="gutter">  43:</SPAN><SPAN CLASS="syntax1">#</SPAN>
+<SPAN CLASS="gutter">  44:</SPAN><SPAN CLASS="syntax1">#       We can also get a better idea of what the function look like by</SPAN>
+<SPAN CLASS="gutterH">  45:</SPAN><SPAN CLASS="syntax1">#       sampling a few points...</SPAN>
+<SPAN CLASS="gutter">  46:</SPAN><SPAN CLASS="syntax1">#</SPAN>
+<SPAN CLASS="gutter">  47:</SPAN><SPAN CLASS="syntax1">#               u(1.0)=0</SPAN>
+<SPAN CLASS="gutter">  48:</SPAN><SPAN CLASS="syntax1">#               u(1.25)=0.04</SPAN>
+<SPAN CLASS="gutter">  49:</SPAN><SPAN CLASS="syntax1">#               u(1.5)=0.24</SPAN>
+<SPAN CLASS="gutterH">  50:</SPAN><SPAN CLASS="syntax1">#               u(1.75)=1.09</SPAN>
+<SPAN CLASS="gutter">  51:</SPAN><SPAN CLASS="syntax1">#               u(1.9) = 2.91</SPAN>
+<SPAN CLASS="gutter">  52:</SPAN><SPAN CLASS="syntax1">#               u(1.95) = 4.1</SPAN>
+<SPAN CLASS="gutter">  53:</SPAN><SPAN CLASS="syntax1">#               u(2.0)= 6.0</SPAN>
+<SPAN CLASS="gutter">  54:</SPAN><SPAN CLASS="syntax1">#</SPAN>
+<SPAN CLASS="gutterH">  55:</SPAN><SPAN CLASS="syntax1">#       Basically, we've got exponential growth... It grows very fast...</SPAN>
+<SPAN CLASS="gutter">  56:</SPAN><SPAN CLASS="syntax1">#       try figuring out what u(10) is!!! (challenge)</SPAN>
+<SPAN CLASS="gutter">  57:</SPAN><SPAN CLASS="syntax1">#</SPAN>
+<SPAN CLASS="gutter">  58:</SPAN><SPAN CLASS="syntax1"># 2- We've got to do a Runge-Kutta analysis...</SPAN>
+<SPAN CLASS="gutter">  59:</SPAN><SPAN CLASS="syntax6">def</SPAN> <SPAN CLASS="syntax9">f</SPAN>(xx,yy):
+<SPAN CLASS="gutterH">  60:</SPAN>        <SPAN CLASS="syntax6">return</SPAN> <SPAN CLASS="syntax9">exp</SPAN>(xx)<SPAN CLASS="syntax11">*</SPAN>yy<SPAN CLASS="syntax11">+</SPAN><SPAN CLASS="syntax9">log</SPAN>(xx)
+<SPAN CLASS="gutter">  61:</SPAN>
+<SPAN CLASS="gutter">  62:</SPAN><SPAN CLASS="syntax6">def</SPAN> <SPAN CLASS="syntax9">last</SPAN>(x): <SPAN CLASS="syntax6">return</SPAN> x[<SPAN CLASS="syntax7">len</SPAN>(x)<SPAN CLASS="syntax11">-</SPAN><SPAN CLASS="syntax12">1</SPAN>] 
+<SPAN CLASS="gutter">  63:</SPAN>
+<SPAN CLASS="gutter">  64:</SPAN><SPAN CLASS="syntax6">def</SPAN> <SPAN CLASS="syntax9">computeRK</SPAN>(f,y,x,dx):
+<SPAN CLASS="gutterH">  65:</SPAN>        k1<SPAN CLASS="syntax11">=</SPAN>dx<SPAN CLASS="syntax11">*</SPAN><SPAN CLASS="syntax9">f</SPAN>(x,y)
+<SPAN CLASS="gutter">  66:</SPAN>        k2<SPAN CLASS="syntax11">=</SPAN>dx<SPAN CLASS="syntax11">*</SPAN><SPAN CLASS="syntax9">f</SPAN>(x<SPAN CLASS="syntax11">+</SPAN>dx<SPAN CLASS="syntax11">/</SPAN><SPAN CLASS="syntax12">2</SPAN>.<SPAN CLASS="syntax12">0</SPAN>,y<SPAN CLASS="syntax11">+</SPAN>k1<SPAN CLASS="syntax11">/</SPAN><SPAN CLASS="syntax12">2</SPAN>.<SPAN CLASS="syntax12">0</SPAN>)
+<SPAN CLASS="gutter">  67:</SPAN>        k3<SPAN CLASS="syntax11">=</SPAN>dx<SPAN CLASS="syntax11">*</SPAN><SPAN CLASS="syntax9">f</SPAN>(x<SPAN CLASS="syntax11">+</SPAN>dx<SPAN CLASS="syntax11">/</SPAN><SPAN CLASS="syntax12">2</SPAN>.<SPAN CLASS="syntax12">0</SPAN>,y<SPAN CLASS="syntax11">+</SPAN>k2<SPAN CLASS="syntax11">/</SPAN><SPAN CLASS="syntax12">2</SPAN>.<SPAN CLASS="syntax12">0</SPAN>)
+<SPAN CLASS="gutter">  68:</SPAN>        k4<SPAN CLASS="syntax11">=</SPAN>dx<SPAN CLASS="syntax11">*</SPAN><SPAN CLASS="syntax9">f</SPAN>(x<SPAN CLASS="syntax11">+</SPAN>dx,y<SPAN CLASS="syntax11">+</SPAN>k3)
+<SPAN CLASS="gutter">  69:</SPAN>        <SPAN CLASS="syntax6">return</SPAN> y<SPAN CLASS="syntax11">+</SPAN>k1<SPAN CLASS="syntax11">/</SPAN><SPAN CLASS="syntax12">6</SPAN>.<SPAN CLASS="syntax12">0</SPAN><SPAN CLASS="syntax11">+</SPAN>k2<SPAN CLASS="syntax11">/</SPAN><SPAN CLASS="syntax12">3</SPAN>.<SPAN CLASS="syntax12">0</SPAN><SPAN CLASS="syntax11">+</SPAN>k3<SPAN CLASS="syntax11">/</SPAN><SPAN CLASS="syntax12">3</SPAN>.<SPAN CLASS="syntax12">0</SPAN><SPAN CLASS="syntax11">+</SPAN>k4<SPAN CLASS="syntax11">/</SPAN><SPAN CLASS="syntax12">6</SPAN>.<SPAN CLASS="syntax12">0</SPAN>
+<SPAN CLASS="gutterH">  70:</SPAN>
+<SPAN CLASS="gutter">  71:</SPAN><SPAN CLASS="syntax6">def</SPAN> <SPAN CLASS="syntax9">doRungeKutta</SPAN>(f,y,x,dx):
+<SPAN CLASS="gutter">  72:</SPAN>        y.<SPAN CLASS="syntax9">append</SPAN>(<SPAN CLASS="syntax9">computeRK</SPAN>(f,<SPAN CLASS="syntax9">last</SPAN>(y),<SPAN CLASS="syntax9">last</SPAN>(x),dx))
+<SPAN CLASS="gutter">  73:</SPAN>        x.<SPAN CLASS="syntax9">append</SPAN>(<SPAN CLASS="syntax9">last</SPAN>(x)<SPAN CLASS="syntax11">+</SPAN>dx)
+<SPAN CLASS="gutter">  74:</SPAN>
+<SPAN CLASS="gutterH">  75:</SPAN>
+<SPAN CLASS="gutter">  76:</SPAN><SPAN CLASS="syntax6">def</SPAN> <SPAN CLASS="syntax9">solveByRungeKutta</SPAN>(dx):
+<SPAN CLASS="gutter">  77:</SPAN>        y<SPAN CLASS="syntax11">=</SPAN>[<SPAN CLASS="syntax12">0</SPAN>.<SPAN CLASS="syntax12">0</SPAN>]
+<SPAN CLASS="gutter">  78:</SPAN>        x<SPAN CLASS="syntax11">=</SPAN>[<SPAN CLASS="syntax12">1</SPAN>.<SPAN CLASS="syntax12">0</SPAN>]
+<SPAN CLASS="gutter">  79:</SPAN>        <SPAN CLASS="syntax6">while</SPAN>(<SPAN CLASS="syntax9">last</SPAN>(x) <SPAN CLASS="syntax11">&lt;</SPAN> <SPAN CLASS="syntax12">2</SPAN>):
+<SPAN CLASS="gutterH">  80:</SPAN>                <SPAN CLASS="syntax9">doRungeKutta</SPAN>(f,y,x,dx)
+<SPAN CLASS="gutter">  81:</SPAN>        <SPAN CLASS="syntax6">return</SPAN> y
+<SPAN CLASS="gutter">  82:</SPAN>
+<SPAN CLASS="gutter">  83:</SPAN><SPAN CLASS="syntax6">def</SPAN> <SPAN CLASS="syntax9">question2_1_2</SPAN>():
+<SPAN CLASS="gutter">  84:</SPAN>        <SPAN CLASS="syntax6">print</SPAN> <SPAN CLASS="syntax9">last</SPAN>(<SPAN CLASS="syntax9">solveByRungeKutta</SPAN>(<SPAN CLASS="syntax12">1</SPAN>.<SPAN CLASS="syntax12">0</SPAN>))
+<SPAN CLASS="gutterH">  85:</SPAN>        <SPAN CLASS="syntax6">print</SPAN> <SPAN CLASS="syntax9">last</SPAN>(<SPAN CLASS="syntax9">solveByRungeKutta</SPAN>(<SPAN CLASS="syntax12">1</SPAN><SPAN CLASS="syntax11">/</SPAN><SPAN CLASS="syntax12">2</SPAN>.<SPAN CLASS="syntax12">0</SPAN>))
+<SPAN CLASS="gutter">  86:</SPAN>        <SPAN CLASS="syntax6">print</SPAN> <SPAN CLASS="syntax9">last</SPAN>(<SPAN CLASS="syntax9">solveByRungeKutta</SPAN>(<SPAN CLASS="syntax12">1</SPAN><SPAN CLASS="syntax11">/</SPAN><SPAN CLASS="syntax12">4</SPAN>.<SPAN CLASS="syntax12">0</SPAN>))
+<SPAN CLASS="gutter">  87:</SPAN>        <SPAN CLASS="syntax6">print</SPAN> <SPAN CLASS="syntax9">last</SPAN>(<SPAN CLASS="syntax9">solveByRungeKutta</SPAN>(<SPAN CLASS="syntax12">1</SPAN><SPAN CLASS="syntax11">/</SPAN><SPAN CLASS="syntax12">8</SPAN>.<SPAN CLASS="syntax12">0</SPAN>))
+<SPAN CLASS="gutter">  88:</SPAN>        <SPAN CLASS="syntax6">print</SPAN> <SPAN CLASS="syntax9">last</SPAN>(<SPAN CLASS="syntax9">solveByRungeKutta</SPAN>(<SPAN CLASS="syntax12">1</SPAN><SPAN CLASS="syntax11">/</SPAN><SPAN CLASS="syntax12">16</SPAN>.<SPAN CLASS="syntax12">0</SPAN>))
+<SPAN CLASS="gutter">  89:</SPAN>        <SPAN CLASS="syntax6">print</SPAN> <SPAN CLASS="syntax9">last</SPAN>(<SPAN CLASS="syntax9">solveByRungeKutta</SPAN>(<SPAN CLASS="syntax12">1</SPAN><SPAN CLASS="syntax11">/</SPAN><SPAN CLASS="syntax12">32</SPAN>.<SPAN CLASS="syntax12">0</SPAN>))
+<SPAN CLASS="gutterH">  90:</SPAN>        <SPAN CLASS="syntax6">print</SPAN> true
+<SPAN CLASS="gutter">  91:</SPAN>        <SPAN CLASS="syntax1">## next few lines are a really, really rough estimation</SPAN>
+<SPAN CLASS="gutter">  92:</SPAN>        <SPAN CLASS="syntax6">print</SPAN> <SPAN CLASS="syntax3">&quot;order of approximation &quot;</SPAN>, <SPAN CLASS="syntax9">log</SPAN>(<SPAN CLASS="syntax7">abs</SPAN>((<SPAN CLASS="syntax9">last</SPAN>(<SPAN CLASS="syntax9">solveByRungeKutta</SPAN>(<SPAN CLASS="syntax12">1</SPAN>.<SPAN CLASS="syntax12">0</SPAN>)) <SPAN CLASS="syntax11">-</SPAN> true) <SPAN CLASS="syntax11">/</SPAN>(<SPAN CLASS="syntax9">last</SPAN>(<SPAN CLASS="syntax9">solveByRungeKutta</SPAN>(<SPAN CLASS="syntax12">1</SPAN><SPAN CLASS="syntax11">/</SPAN><SPAN CLASS="syntax12">2</SPAN>.<SPAN CLASS="syntax12">0</SPAN>))) <SPAN CLASS="syntax11">-</SPAN> true))<SPAN CLASS="syntax11">/</SPAN><SPAN CLASS="syntax9">log</SPAN>(<SPAN CLASS="syntax12">2</SPAN>.<SPAN CLASS="syntax12">0</SPAN>)
+<SPAN CLASS="gutter">  93:</SPAN>        <SPAN CLASS="syntax6">print</SPAN> <SPAN CLASS="syntax3">&quot;order of approximation &quot;</SPAN>, <SPAN CLASS="syntax9">log</SPAN>(<SPAN CLASS="syntax7">abs</SPAN>((<SPAN CLASS="syntax9">last</SPAN>(<SPAN CLASS="syntax9">solveByRungeKutta</SPAN>(<SPAN CLASS="syntax12">1</SPAN><SPAN CLASS="syntax11">/</SPAN><SPAN CLASS="syntax12">2</SPAN>.<SPAN CLASS="syntax12">0</SPAN>)) <SPAN CLASS="syntax11">-</SPAN> true) <SPAN CLASS="syntax11">/</SPAN>(<SPAN CLASS="syntax9">last</SPAN>(<SPAN CLASS="syntax9">solveByRungeKutta</SPAN>(<SPAN CLASS="syntax12">1</SPAN><SPAN CLASS="syntax11">/</SPAN><SPAN CLASS="syntax12">4</SPAN>.<SPAN CLASS="syntax12">0</SPAN>))) <SPAN CLASS="syntax11">-</SPAN> true))<SPAN CLASS="syntax11">/</SPAN><SPAN CLASS="syntax9">log</SPAN>(<SPAN CLASS="syntax12">2</SPAN>.<SPAN CLASS="syntax12">0</SPAN>)
+<SPAN CLASS="gutter">  94:</SPAN>        <SPAN CLASS="syntax6">print</SPAN> <SPAN CLASS="syntax3">&quot;order of approximation &quot;</SPAN>, <SPAN CLASS="syntax9">log</SPAN>(<SPAN CLASS="syntax7">abs</SPAN>((<SPAN CLASS="syntax9">last</SPAN>(<SPAN CLASS="syntax9">solveByRungeKutta</SPAN>(<SPAN CLASS="syntax12">1</SPAN><SPAN CLASS="syntax11">/</SPAN><SPAN CLASS="syntax12">4</SPAN>.<SPAN CLASS="syntax12">0</SPAN>)) <SPAN CLASS="syntax11">-</SPAN> true) <SPAN CLASS="syntax11">/</SPAN>(<SPAN CLASS="syntax9">last</SPAN>(<SPAN CLASS="syntax9">solveByRungeKutta</SPAN>(<SPAN CLASS="syntax12">1</SPAN><SPAN CLASS="syntax11">/</SPAN><SPAN CLASS="syntax12">8</SPAN>.<SPAN CLASS="syntax12">0</SPAN>))) <SPAN CLASS="syntax11">-</SPAN> true))<SPAN CLASS="syntax11">/</SPAN><SPAN CLASS="syntax9">log</SPAN>(<SPAN CLASS="syntax12">2</SPAN>.<SPAN CLASS="syntax12">0</SPAN>)
+<SPAN CLASS="gutterH">  95:</SPAN>        
+<SPAN CLASS="gutter">  96:</SPAN>        
+<SPAN CLASS="gutter">  97:</SPAN><SPAN CLASS="syntax1">#</SPAN>
+<SPAN CLASS="gutter">  98:</SPAN><SPAN CLASS="syntax1">#       The problem should appear stable. It does appear to converge</SPAN>
+<SPAN CLASS="gutter">  99:</SPAN><SPAN CLASS="syntax1">#       fairly fast... the approximation order certainly appears to </SPAN>
+<SPAN CLASS="gutterH"> 100:</SPAN><SPAN CLASS="syntax1">#       be &gt;2 from numerical results.</SPAN>
+<SPAN CLASS="gutter"> 101:</SPAN><SPAN CLASS="syntax1">#</SPAN>
+<SPAN CLASS="gutter"> 102:</SPAN><SPAN CLASS="syntax1"># 3- The problem with solving the problem over [0,1] is that</SPAN>
+<SPAN CLASS="gutter"> 103:</SPAN><SPAN CLASS="syntax1">#       f(x,y) blows up at zero. The solution would be to start</SPAN>
+<SPAN CLASS="gutter"> 104:</SPAN><SPAN CLASS="syntax1">#       at one and stop short of 0, say 0+epsilon. A more involved</SPAN>
+<SPAN CLASS="gutterH"> 105:</SPAN><SPAN CLASS="syntax1">#       solution is to do a change of variable... set w=log(x)</SPAN>
+<SPAN CLASS="gutter"> 106:</SPAN><SPAN CLASS="syntax1">#       then x= exp(w) and we get a brand new differential </SPAN>
+<SPAN CLASS="gutter"> 107:</SPAN><SPAN CLASS="syntax1">#       equation where 0 is replaced by -Infinity. Both are </SPAN>
+<SPAN CLASS="gutter"> 108:</SPAN><SPAN CLASS="syntax1">#       reasonable approaches. </SPAN>
+<SPAN CLASS="gutter"> 109:</SPAN><SPAN CLASS="syntax1"># </SPAN>
+<SPAN CLASS="gutterH"> 110:</SPAN><SPAN CLASS="syntax1">########################################################## </SPAN>
+<SPAN CLASS="gutter"> 111:</SPAN><SPAN CLASS="syntax1"># Section 2.2</SPAN>
+<SPAN CLASS="gutter"> 112:</SPAN><SPAN CLASS="syntax1">########################################################## </SPAN>
+<SPAN CLASS="gutter"> 113:</SPAN><SPAN CLASS="syntax1"># 1- we need to implement Adams-Bashforth</SPAN>
+<SPAN CLASS="gutter"> 114:</SPAN>
+<SPAN CLASS="gutterH"> 115:</SPAN><SPAN CLASS="syntax6">def</SPAN> <SPAN CLASS="syntax9">secondLast</SPAN>(x): <SPAN CLASS="syntax6">return</SPAN> x[<SPAN CLASS="syntax7">len</SPAN>(x)<SPAN CLASS="syntax11">-</SPAN><SPAN CLASS="syntax12">2</SPAN>]
+<SPAN CLASS="gutter"> 116:</SPAN>
+<SPAN CLASS="gutter"> 117:</SPAN><SPAN CLASS="syntax6">def</SPAN> <SPAN CLASS="syntax9">thirdLast</SPAN>(x): <SPAN CLASS="syntax6">return</SPAN> x[<SPAN CLASS="syntax7">len</SPAN>(x)<SPAN CLASS="syntax11">-</SPAN><SPAN CLASS="syntax12">2</SPAN>] 
+<SPAN CLASS="gutter"> 118:</SPAN>
+<SPAN CLASS="gutter"> 119:</SPAN><SPAN CLASS="syntax6">def</SPAN> <SPAN CLASS="syntax9">fourthLast</SPAN>(x): <SPAN CLASS="syntax6">return</SPAN> x[<SPAN CLASS="syntax7">len</SPAN>(x)<SPAN CLASS="syntax11">-</SPAN><SPAN CLASS="syntax12">3</SPAN>] 
+<SPAN CLASS="gutterH"> 120:</SPAN>
+<SPAN CLASS="gutter"> 121:</SPAN><SPAN CLASS="syntax1"># Adams-Bashforth</SPAN>
+<SPAN CLASS="gutter"> 122:</SPAN><SPAN CLASS="syntax6">def</SPAN> <SPAN CLASS="syntax9">doAdamsBashforth</SPAN>(f,y,x,dx):
+<SPAN CLASS="gutter"> 123:</SPAN>        y3 <SPAN CLASS="syntax11">=</SPAN> <SPAN CLASS="syntax9">last</SPAN>(y)
+<SPAN CLASS="gutter"> 124:</SPAN>        x3 <SPAN CLASS="syntax11">=</SPAN> <SPAN CLASS="syntax9">last</SPAN>(x)
+<SPAN CLASS="gutterH"> 125:</SPAN>        y2 <SPAN CLASS="syntax11">=</SPAN> <SPAN CLASS="syntax9">secondLast</SPAN>(y)
+<SPAN CLASS="gutter"> 126:</SPAN>        x2 <SPAN CLASS="syntax11">=</SPAN> <SPAN CLASS="syntax9">secondLast</SPAN>(x)
+<SPAN CLASS="gutter"> 127:</SPAN>        y1 <SPAN CLASS="syntax11">=</SPAN> <SPAN CLASS="syntax9">thirdLast</SPAN>(y)
+<SPAN CLASS="gutter"> 128:</SPAN>        x1 <SPAN CLASS="syntax11">=</SPAN> <SPAN CLASS="syntax9">thirdLast</SPAN>(x)
+<SPAN CLASS="gutter"> 129:</SPAN>        y0 <SPAN CLASS="syntax11">=</SPAN> <SPAN CLASS="syntax9">fourthLast</SPAN>(y)
+<SPAN CLASS="gutterH"> 130:</SPAN>        x0 <SPAN CLASS="syntax11">=</SPAN> <SPAN CLASS="syntax9">fourthLast</SPAN>(x)
+<SPAN CLASS="gutter"> 131:</SPAN>        <SPAN CLASS="syntax1"># Something like the next line is really a third order, but was accepted without penalty</SPAN>
+<SPAN CLASS="gutter"> 132:</SPAN>        <SPAN CLASS="syntax1"># because I might not have been clear by what I meant by &quot;order&quot;. Conclusions should be the same.</SPAN>
+<SPAN CLASS="gutter"> 133:</SPAN>        <SPAN CLASS="syntax1">#y.append(y2+dx/12.0*(23.0*f(x2,y2)-16.0*f(x1,y1)+5.0*f(x0,y0)))</SPAN>
+<SPAN CLASS="gutter"> 134:</SPAN>        y.<SPAN CLASS="syntax9">append</SPAN>(y3<SPAN CLASS="syntax11">+</SPAN>dx<SPAN CLASS="syntax11">/</SPAN><SPAN CLASS="syntax12">24</SPAN>.<SPAN CLASS="syntax12">0</SPAN><SPAN CLASS="syntax11">*</SPAN>(<SPAN CLASS="syntax12">55</SPAN><SPAN CLASS="syntax11">*</SPAN><SPAN CLASS="syntax9">f</SPAN>(x3,y3)<SPAN CLASS="syntax11">-</SPAN><SPAN CLASS="syntax12">59</SPAN>.<SPAN CLASS="syntax12">0</SPAN><SPAN CLASS="syntax11">*</SPAN><SPAN CLASS="syntax9">f</SPAN>(x2,y2)<SPAN CLASS="syntax11">+</SPAN><SPAN CLASS="syntax12">37</SPAN>.<SPAN CLASS="syntax12">0</SPAN><SPAN CLASS="syntax11">*</SPAN><SPAN CLASS="syntax9">f</SPAN>(x1,y1)<SPAN CLASS="syntax11">-</SPAN><SPAN CLASS="syntax12">9</SPAN><SPAN CLASS="syntax11">*</SPAN><SPAN CLASS="syntax9">f</SPAN>(x0,y0)))
+<SPAN CLASS="gutterH"> 135:</SPAN>        x.<SPAN CLASS="syntax9">append</SPAN>(<SPAN CLASS="syntax9">last</SPAN>(x)<SPAN CLASS="syntax11">+</SPAN>dx)
+<SPAN CLASS="gutter"> 136:</SPAN>
+<SPAN CLASS="gutter"> 137:</SPAN><SPAN CLASS="syntax6">def</SPAN> <SPAN CLASS="syntax9">solveByAdamsBashforth</SPAN>(dx):
+<SPAN CLASS="gutter"> 138:</SPAN>        y<SPAN CLASS="syntax11">=</SPAN>[<SPAN CLASS="syntax12">0</SPAN>.<SPAN CLASS="syntax12">0</SPAN>]
+<SPAN CLASS="gutter"> 139:</SPAN>        x<SPAN CLASS="syntax11">=</SPAN>[<SPAN CLASS="syntax12">1</SPAN>.<SPAN CLASS="syntax12">0</SPAN>]
+<SPAN CLASS="gutterH"> 140:</SPAN>        <SPAN CLASS="syntax9">doRungeKutta</SPAN>(f,y,x,dx)
+<SPAN CLASS="gutter"> 141:</SPAN>        <SPAN CLASS="syntax9">doRungeKutta</SPAN>(f,y,x,dx)
+<SPAN CLASS="gutter"> 142:</SPAN>        <SPAN CLASS="syntax1">#print y</SPAN>
+<SPAN CLASS="gutter"> 143:</SPAN>        <SPAN CLASS="syntax6">while</SPAN>(<SPAN CLASS="syntax9">last</SPAN>(x) <SPAN CLASS="syntax11">&lt;</SPAN> <SPAN CLASS="syntax12">2</SPAN>):
+<SPAN CLASS="gutter"> 144:</SPAN>                <SPAN CLASS="syntax9">doAdamsBashforth</SPAN>(f,y,x,dx)
+<SPAN CLASS="gutterH"> 145:</SPAN>        <SPAN CLASS="syntax6">return</SPAN> y
+<SPAN CLASS="gutter"> 146:</SPAN>
+<SPAN CLASS="gutter"> 147:</SPAN><SPAN CLASS="syntax6">def</SPAN> <SPAN CLASS="syntax9">question2_2_1</SPAN>():
+<SPAN CLASS="gutter"> 148:</SPAN>        <SPAN CLASS="syntax6">print</SPAN> <SPAN CLASS="syntax9">last</SPAN>(<SPAN CLASS="syntax9">solveByAdamsBashforth</SPAN>(<SPAN CLASS="syntax12">1</SPAN><SPAN CLASS="syntax11">/</SPAN><SPAN CLASS="syntax12">4</SPAN>.<SPAN CLASS="syntax12">0</SPAN>))
+<SPAN CLASS="gutter"> 149:</SPAN>        <SPAN CLASS="syntax6">print</SPAN> <SPAN CLASS="syntax9">last</SPAN>(<SPAN CLASS="syntax9">solveByAdamsBashforth</SPAN>(<SPAN CLASS="syntax12">1</SPAN><SPAN CLASS="syntax11">/</SPAN><SPAN CLASS="syntax12">8</SPAN>.<SPAN CLASS="syntax12">0</SPAN>))
+<SPAN CLASS="gutterH"> 150:</SPAN>        <SPAN CLASS="syntax6">print</SPAN> <SPAN CLASS="syntax9">last</SPAN>(<SPAN CLASS="syntax9">solveByAdamsBashforth</SPAN>(<SPAN CLASS="syntax12">1</SPAN><SPAN CLASS="syntax11">/</SPAN><SPAN CLASS="syntax12">16</SPAN>.<SPAN CLASS="syntax12">0</SPAN>))
+<SPAN CLASS="gutter"> 151:</SPAN>        <SPAN CLASS="syntax6">print</SPAN> <SPAN CLASS="syntax9">last</SPAN>(<SPAN CLASS="syntax9">solveByAdamsBashforth</SPAN>(<SPAN CLASS="syntax12">1</SPAN><SPAN CLASS="syntax11">/</SPAN><SPAN CLASS="syntax12">32</SPAN>.<SPAN CLASS="syntax12">0</SPAN>))
+<SPAN CLASS="gutter"> 152:</SPAN>        <SPAN CLASS="syntax6">print</SPAN> <SPAN CLASS="syntax9">last</SPAN>(<SPAN CLASS="syntax9">solveByAdamsBashforth</SPAN>(<SPAN CLASS="syntax12">1</SPAN><SPAN CLASS="syntax11">/</SPAN><SPAN CLASS="syntax12">64</SPAN>.<SPAN CLASS="syntax12">0</SPAN>))
+<SPAN CLASS="gutter"> 153:</SPAN>        <SPAN CLASS="syntax6">print</SPAN> <SPAN CLASS="syntax9">last</SPAN>(<SPAN CLASS="syntax9">solveByAdamsBashforth</SPAN>(<SPAN CLASS="syntax12">1</SPAN><SPAN CLASS="syntax11">/</SPAN><SPAN CLASS="syntax12">128</SPAN>.<SPAN CLASS="syntax12">0</SPAN>))
+<SPAN CLASS="gutter"> 154:</SPAN>        <SPAN CLASS="syntax6">print</SPAN> <SPAN CLASS="syntax9">last</SPAN>(<SPAN CLASS="syntax9">solveByAdamsBashforth</SPAN>(<SPAN CLASS="syntax12">1</SPAN><SPAN CLASS="syntax11">/</SPAN><SPAN CLASS="syntax12">256</SPAN>.<SPAN CLASS="syntax12">0</SPAN>))
+<SPAN CLASS="gutterH"> 155:</SPAN>        <SPAN CLASS="syntax6">print</SPAN> <SPAN CLASS="syntax9">last</SPAN>(<SPAN CLASS="syntax9">solveByAdamsBashforth</SPAN>(<SPAN CLASS="syntax12">1</SPAN><SPAN CLASS="syntax11">/</SPAN><SPAN CLASS="syntax12">512</SPAN>.<SPAN CLASS="syntax12">0</SPAN>))
+<SPAN CLASS="gutter"> 156:</SPAN>        <SPAN CLASS="syntax6">print</SPAN> <SPAN CLASS="syntax9">last</SPAN>(<SPAN CLASS="syntax9">solveByAdamsBashforth</SPAN>(<SPAN CLASS="syntax12">1</SPAN><SPAN CLASS="syntax11">/</SPAN><SPAN CLASS="syntax12">1024</SPAN>.<SPAN CLASS="syntax12">0</SPAN>))
+<SPAN CLASS="gutter"> 157:</SPAN>        <SPAN CLASS="syntax6">print</SPAN> <SPAN CLASS="syntax9">last</SPAN>(<SPAN CLASS="syntax9">solveByAdamsBashforth</SPAN>(<SPAN CLASS="syntax12">1</SPAN><SPAN CLASS="syntax11">/</SPAN><SPAN CLASS="syntax12">2048</SPAN>.<SPAN CLASS="syntax12">0</SPAN>))
+<SPAN CLASS="gutter"> 158:</SPAN>        <SPAN CLASS="syntax6">print</SPAN> <SPAN CLASS="syntax9">last</SPAN>(<SPAN CLASS="syntax9">solveByAdamsBashforth</SPAN>(<SPAN CLASS="syntax12">1</SPAN><SPAN CLASS="syntax11">/</SPAN><SPAN CLASS="syntax12">4096</SPAN>.<SPAN CLASS="syntax12">0</SPAN>))
+<SPAN CLASS="gutter"> 159:</SPAN>        true <SPAN CLASS="syntax11">=</SPAN> <SPAN CLASS="syntax9">last</SPAN>(<SPAN CLASS="syntax9">solveByAdamsBashforth</SPAN>(<SPAN CLASS="syntax12">1</SPAN><SPAN CLASS="syntax11">/</SPAN><SPAN CLASS="syntax12">8192</SPAN>.<SPAN CLASS="syntax12">0</SPAN>))
+<SPAN CLASS="gutterH"> 160:</SPAN>        <SPAN CLASS="syntax6">print</SPAN> true
+<SPAN CLASS="gutter"> 161:</SPAN>        <SPAN CLASS="syntax6">print</SPAN> <SPAN CLASS="syntax3">&quot;order of approximation &quot;</SPAN>, <SPAN CLASS="syntax9">log</SPAN>(<SPAN CLASS="syntax7">abs</SPAN>((<SPAN CLASS="syntax9">last</SPAN>(<SPAN CLASS="syntax9">solveByAdamsBashforth</SPAN>(<SPAN CLASS="syntax12">1</SPAN>.<SPAN CLASS="syntax12">0</SPAN>)) <SPAN CLASS="syntax11">-</SPAN> true) <SPAN CLASS="syntax11">/</SPAN>(<SPAN CLASS="syntax9">last</SPAN>(<SPAN CLASS="syntax9">solveByAdamsBashforth</SPAN>(<SPAN CLASS="syntax12">1</SPAN><SPAN CLASS="syntax11">/</SPAN><SPAN CLASS="syntax12">2</SPAN>.<SPAN CLASS="syntax12">0</SPAN>))) <SPAN CLASS="syntax11">-</SPAN> true))<SPAN CLASS="syntax11">/</SPAN><SPAN CLASS="syntax9">log</SPAN>(<SPAN CLASS="syntax12">2</SPAN>.<SPAN CLASS="syntax12">0</SPAN>)
+<SPAN CLASS="gutter"> 162:</SPAN>        <SPAN CLASS="syntax6">print</SPAN> <SPAN CLASS="syntax3">&quot;order of approximation &quot;</SPAN>, <SPAN CLASS="syntax9">log</SPAN>(<SPAN CLASS="syntax7">abs</SPAN>((<SPAN CLASS="syntax9">last</SPAN>(<SPAN CLASS="syntax9">solveByAdamsBashforth</SPAN>(<SPAN CLASS="syntax12">1</SPAN><SPAN CLASS="syntax11">/</SPAN><SPAN CLASS="syntax12">2</SPAN>.<SPAN CLASS="syntax12">0</SPAN>)) <SPAN CLASS="syntax11">-</SPAN> true) <SPAN CLASS="syntax11">/</SPAN>(<SPAN CLASS="syntax9">last</SPAN>(<SPAN CLASS="syntax9">solveByAdamsBashforth</SPAN>(<SPAN CLASS="syntax12">1</SPAN><SPAN CLASS="syntax11">/</SPAN><SPAN CLASS="syntax12">4</SPAN>.<SPAN CLASS="syntax12">0</SPAN>))) <SPAN CLASS="syntax11">-</SPAN> true))<SPAN CLASS="syntax11">/</SPAN><SPAN CLASS="syntax9">log</SPAN>(<SPAN CLASS="syntax12">2</SPAN>.<SPAN CLASS="syntax12">0</SPAN>)
+<SPAN CLASS="gutter"> 163:</SPAN>        <SPAN CLASS="syntax6">print</SPAN> <SPAN CLASS="syntax3">&quot;order of approximation &quot;</SPAN>, <SPAN CLASS="syntax9">log</SPAN>(<SPAN CLASS="syntax7">abs</SPAN>((<SPAN CLASS="syntax9">last</SPAN>(<SPAN CLASS="syntax9">solveByAdamsBashforth</SPAN>(<SPAN CLASS="syntax12">1</SPAN><SPAN CLASS="syntax11">/</SPAN><SPAN CLASS="syntax12">4</SPAN>.<SPAN CLASS="syntax12">0</SPAN>)) <SPAN CLASS="syntax11">-</SPAN> true) <SPAN CLASS="syntax11">/</SPAN>(<SPAN CLASS="syntax9">last</SPAN>(<SPAN CLASS="syntax9">solveByAdamsBashforth</SPAN>(<SPAN CLASS="syntax12">1</SPAN><SPAN CLASS="syntax11">/</SPAN><SPAN CLASS="syntax12">8</SPAN>.<SPAN CLASS="syntax12">0</SPAN>))) <SPAN CLASS="syntax11">-</SPAN> true))<SPAN CLASS="syntax11">/</SPAN><SPAN CLASS="syntax9">log</SPAN>(<SPAN CLASS="syntax12">2</SPAN>.<SPAN CLASS="syntax12">0</SPAN>)
+<SPAN CLASS="gutter"> 164:</SPAN>
+<SPAN CLASS="gutterH"> 165:</SPAN><SPAN CLASS="syntax1"># This approach is noticeably faster than Runge-Kutta for the same number</SPAN>
+<SPAN CLASS="gutter"> 166:</SPAN><SPAN CLASS="syntax1"># of nodes (about 20% with this  implementation). It is stable (maybe </SPAN>
+<SPAN CLASS="gutter"> 167:</SPAN><SPAN CLASS="syntax1"># a little less stable than RK). With a more  efficient implementation, Adams-Bashforth</SPAN>
+<SPAN CLASS="gutter"> 168:</SPAN><SPAN CLASS="syntax1"># could be substantially faster. The choice between Runge-Kutta and Adams-Bashforth</SPAN>
+<SPAN CLASS="gutter"> 169:</SPAN><SPAN CLASS="syntax1"># could be a difficult one. If you need a lot of nodes, Adams-Bashforth is clearly</SPAN>
+<SPAN CLASS="gutterH"> 170:</SPAN><SPAN CLASS="syntax1"># faster, so that would be a better choice. However, for this case, Runge-Kutta</SPAN>
+<SPAN CLASS="gutter"> 171:</SPAN><SPAN CLASS="syntax1"># appears more accurate so it could be the best choice.</SPAN>
+<SPAN CLASS="gutter"> 172:</SPAN><SPAN CLASS="syntax1">#</SPAN>
+<SPAN CLASS="gutter"> 173:</SPAN><SPAN CLASS="syntax1"># The lesson here is that Runge-Kutta is not made obselete by multistep approaches.</SPAN>
+<SPAN CLASS="gutter"> 174:</SPAN><SPAN CLASS="syntax1"># </SPAN>
+<SPAN CLASS="gutterH"> 175:</SPAN><SPAN CLASS="syntax1"># 2- we need to implement Adams-Moulton</SPAN>
+<SPAN CLASS="gutter"> 176:</SPAN>
+<SPAN CLASS="gutter"> 177:</SPAN><SPAN CLASS="syntax1"># Adams-Moulton</SPAN>
+<SPAN CLASS="gutter"> 178:</SPAN><SPAN CLASS="syntax6">def</SPAN> <SPAN CLASS="syntax9">doAdamsMoulton</SPAN>(f,y,x,dx):
+<SPAN CLASS="gutter"> 179:</SPAN>        <SPAN CLASS="syntax1"># of course, we could optimize this a bit</SPAN>
+<SPAN CLASS="gutterH"> 180:</SPAN>        <SPAN CLASS="syntax1"># quite a bit actually! shouldn't call f all that much!</SPAN>
+<SPAN CLASS="gutter"> 181:</SPAN>        y4 <SPAN CLASS="syntax11">=</SPAN> y.<SPAN CLASS="syntax9">pop</SPAN>()
+<SPAN CLASS="gutter"> 182:</SPAN>        x4 <SPAN CLASS="syntax11">=</SPAN> x.<SPAN CLASS="syntax9">pop</SPAN>()
+<SPAN CLASS="gutter"> 183:</SPAN>        y3 <SPAN CLASS="syntax11">=</SPAN> <SPAN CLASS="syntax9">last</SPAN>(y)
+<SPAN CLASS="gutter"> 184:</SPAN>        x3 <SPAN CLASS="syntax11">=</SPAN> <SPAN CLASS="syntax9">last</SPAN>(x)
+<SPAN CLASS="gutterH"> 185:</SPAN>        y2 <SPAN CLASS="syntax11">=</SPAN> <SPAN CLASS="syntax9">secondLast</SPAN>(y)
+<SPAN CLASS="gutter"> 186:</SPAN>        x2 <SPAN CLASS="syntax11">=</SPAN> <SPAN CLASS="syntax9">secondLast</SPAN>(x)
+<SPAN CLASS="gutter"> 187:</SPAN>        y1 <SPAN CLASS="syntax11">=</SPAN> <SPAN CLASS="syntax9">thirdLast</SPAN>(y)
+<SPAN CLASS="gutter"> 188:</SPAN>        x1 <SPAN CLASS="syntax11">=</SPAN> <SPAN CLASS="syntax9">thirdLast</SPAN>(x)
+<SPAN CLASS="gutter"> 189:</SPAN>        y0 <SPAN CLASS="syntax11">=</SPAN> <SPAN CLASS="syntax9">fourthLast</SPAN>(y)
+<SPAN CLASS="gutterH"> 190:</SPAN>        x0 <SPAN CLASS="syntax11">=</SPAN> <SPAN CLASS="syntax9">fourthLast</SPAN>(x)
+<SPAN CLASS="gutter"> 191:</SPAN>        <SPAN CLASS="syntax1"># Something like the next line is really a fourth order, but was accepted without penalty</SPAN>
+<SPAN CLASS="gutter"> 192:</SPAN>        <SPAN CLASS="syntax1"># because I might not have been clear by what I meant by &quot;order&quot;. Conclusions should be the same.</SPAN>
+<SPAN CLASS="gutter"> 193:</SPAN>        <SPAN CLASS="syntax1"># y.append(y2+dx/24.0*(9*f(x3,y3)+19*f(x2,y2)-5*f(x1,y1)+f(x0,y0)))</SPAN>
+<SPAN CLASS="gutter"> 194:</SPAN>        y.<SPAN CLASS="syntax9">append</SPAN>(y3<SPAN CLASS="syntax11">+</SPAN>dx<SPAN CLASS="syntax11">/</SPAN><SPAN CLASS="syntax12">720</SPAN>.<SPAN CLASS="syntax12">0</SPAN><SPAN CLASS="syntax11">*</SPAN>(<SPAN CLASS="syntax12">251</SPAN><SPAN CLASS="syntax11">*</SPAN><SPAN CLASS="syntax9">f</SPAN>(x4,y4)<SPAN CLASS="syntax11">+</SPAN><SPAN CLASS="syntax12">646</SPAN><SPAN CLASS="syntax11">*</SPAN><SPAN CLASS="syntax9">f</SPAN>(x3,y3)<SPAN CLASS="syntax11">-</SPAN><SPAN CLASS="syntax12">264</SPAN><SPAN CLASS="syntax11">*</SPAN><SPAN CLASS="syntax9">f</SPAN>(x2,y2)<SPAN CLASS="syntax11">+</SPAN><SPAN CLASS="syntax12">106</SPAN><SPAN CLASS="syntax11">*</SPAN><SPAN CLASS="syntax9">f</SPAN>(x1,y1)<SPAN CLASS="syntax11">-</SPAN><SPAN CLASS="syntax12">19</SPAN><SPAN CLASS="syntax11">*</SPAN><SPAN CLASS="syntax9">f</SPAN>(x0,y0)))
+<SPAN CLASS="gutterH"> 195:</SPAN>        x.<SPAN CLASS="syntax9">append</SPAN>(<SPAN CLASS="syntax9">last</SPAN>(x)<SPAN CLASS="syntax11">+</SPAN>dx)
+<SPAN CLASS="gutter"> 196:</SPAN>
+<SPAN CLASS="gutter"> 197:</SPAN><SPAN CLASS="syntax6">def</SPAN> <SPAN CLASS="syntax9">solveByAdamsMoulton</SPAN>(dx):
+<SPAN CLASS="gutter"> 198:</SPAN>        y<SPAN CLASS="syntax11">=</SPAN>[<SPAN CLASS="syntax12">0</SPAN>.<SPAN CLASS="syntax12">0</SPAN>]
+<SPAN CLASS="gutter"> 199:</SPAN>        x<SPAN CLASS="syntax11">=</SPAN>[<SPAN CLASS="syntax12">1</SPAN>.<SPAN CLASS="syntax12">0</SPAN>]
+<SPAN CLASS="gutterH"> 200:</SPAN>        <SPAN CLASS="syntax9">doRungeKutta</SPAN>(f,y,x,dx)
+<SPAN CLASS="gutter"> 201:</SPAN>        <SPAN CLASS="syntax9">doRungeKutta</SPAN>(f,y,x,dx)
+<SPAN CLASS="gutter"> 202:</SPAN>        <SPAN CLASS="syntax1">#print y</SPAN>
+<SPAN CLASS="gutter"> 203:</SPAN>        <SPAN CLASS="syntax6">while</SPAN>(<SPAN CLASS="syntax9">last</SPAN>(x) <SPAN CLASS="syntax11">&lt;</SPAN> <SPAN CLASS="syntax12">2</SPAN>):
+<SPAN CLASS="gutter"> 204:</SPAN>                <SPAN CLASS="syntax9">doAdamsBashforth</SPAN>(f,y,x,dx)
+<SPAN CLASS="gutterH"> 205:</SPAN>                <SPAN CLASS="syntax9">doAdamsMoulton</SPAN>(f,y,x,dx)
+<SPAN CLASS="gutter"> 206:</SPAN>        <SPAN CLASS="syntax6">return</SPAN> y
+<SPAN CLASS="gutter"> 207:</SPAN>
+<SPAN CLASS="gutter"> 208:</SPAN><SPAN CLASS="syntax6">def</SPAN> <SPAN CLASS="syntax9">question2_2_2</SPAN>():
+<SPAN CLASS="gutter"> 209:</SPAN>        <SPAN CLASS="syntax6">print</SPAN> <SPAN CLASS="syntax9">last</SPAN>(<SPAN CLASS="syntax9">solveByAdamsMoulton</SPAN>(<SPAN CLASS="syntax12">1</SPAN><SPAN CLASS="syntax11">/</SPAN><SPAN CLASS="syntax12">4</SPAN>.<SPAN CLASS="syntax12">0</SPAN>))
+<SPAN CLASS="gutterH"> 210:</SPAN>        <SPAN CLASS="syntax6">print</SPAN> <SPAN CLASS="syntax9">last</SPAN>(<SPAN CLASS="syntax9">solveByAdamsMoulton</SPAN>(<SPAN CLASS="syntax12">1</SPAN><SPAN CLASS="syntax11">/</SPAN><SPAN CLASS="syntax12">8</SPAN>.<SPAN CLASS="syntax12">0</SPAN>))
+<SPAN CLASS="gutter"> 211:</SPAN>        <SPAN CLASS="syntax6">print</SPAN> <SPAN CLASS="syntax9">last</SPAN>(<SPAN CLASS="syntax9">solveByAdamsMoulton</SPAN>(<SPAN CLASS="syntax12">1</SPAN><SPAN CLASS="syntax11">/</SPAN><SPAN CLASS="syntax12">16</SPAN>.<SPAN CLASS="syntax12">0</SPAN>))
+<SPAN CLASS="gutter"> 212:</SPAN>        <SPAN CLASS="syntax6">print</SPAN> <SPAN CLASS="syntax9">last</SPAN>(<SPAN CLASS="syntax9">solveByAdamsMoulton</SPAN>(<SPAN CLASS="syntax12">1</SPAN><SPAN CLASS="syntax11">/</SPAN><SPAN CLASS="syntax12">32</SPAN>.<SPAN CLASS="syntax12">0</SPAN>))
+<SPAN CLASS="gutter"> 213:</SPAN>        <SPAN CLASS="syntax6">print</SPAN> <SPAN CLASS="syntax9">last</SPAN>(<SPAN CLASS="syntax9">solveByAdamsMoulton</SPAN>(<SPAN CLASS="syntax12">1</SPAN><SPAN CLASS="syntax11">/</SPAN><SPAN CLASS="syntax12">64</SPAN>.<SPAN CLASS="syntax12">0</SPAN>))
+<SPAN CLASS="gutter"> 214:</SPAN>        <SPAN CLASS="syntax6">print</SPAN> <SPAN CLASS="syntax9">last</SPAN>(<SPAN CLASS="syntax9">solveByAdamsMoulton</SPAN>(<SPAN CLASS="syntax12">1</SPAN><SPAN CLASS="syntax11">/</SPAN><SPAN CLASS="syntax12">128</SPAN>.<SPAN CLASS="syntax12">0</SPAN>))
+<SPAN CLASS="gutterH"> 215:</SPAN>        <SPAN CLASS="syntax6">print</SPAN> <SPAN CLASS="syntax9">last</SPAN>(<SPAN CLASS="syntax9">solveByAdamsMoulton</SPAN>(<SPAN CLASS="syntax12">1</SPAN><SPAN CLASS="syntax11">/</SPAN><SPAN CLASS="syntax12">256</SPAN>.<SPAN CLASS="syntax12">0</SPAN>))
+<SPAN CLASS="gutter"> 216:</SPAN>        <SPAN CLASS="syntax6">print</SPAN> <SPAN CLASS="syntax9">last</SPAN>(<SPAN CLASS="syntax9">solveByAdamsMoulton</SPAN>(<SPAN CLASS="syntax12">1</SPAN><SPAN CLASS="syntax11">/</SPAN><SPAN CLASS="syntax12">512</SPAN>.<SPAN CLASS="syntax12">0</SPAN>))
+<SPAN CLASS="gutter"> 217:</SPAN>        <SPAN CLASS="syntax6">print</SPAN> <SPAN CLASS="syntax9">last</SPAN>(<SPAN CLASS="syntax9">solveByAdamsMoulton</SPAN>(<SPAN CLASS="syntax12">1</SPAN><SPAN CLASS="syntax11">/</SPAN><SPAN CLASS="syntax12">1024</SPAN>.<SPAN CLASS="syntax12">0</SPAN>))
+<SPAN CLASS="gutter"> 218:</SPAN>        <SPAN CLASS="syntax6">print</SPAN> <SPAN CLASS="syntax9">last</SPAN>(<SPAN CLASS="syntax9">solveByAdamsMoulton</SPAN>(<SPAN CLASS="syntax12">1</SPAN><SPAN CLASS="syntax11">/</SPAN><SPAN CLASS="syntax12">2048</SPAN>.<SPAN CLASS="syntax12">0</SPAN>))
+<SPAN CLASS="gutter"> 219:</SPAN>        true <SPAN CLASS="syntax11">=</SPAN> <SPAN CLASS="syntax9">last</SPAN>(<SPAN CLASS="syntax9">solveByAdamsMoulton</SPAN>(<SPAN CLASS="syntax12">1</SPAN><SPAN CLASS="syntax11">/</SPAN><SPAN CLASS="syntax12">4096</SPAN>.<SPAN CLASS="syntax12">0</SPAN>))
+<SPAN CLASS="gutterH"> 220:</SPAN>        <SPAN CLASS="syntax6">print</SPAN> true
+<SPAN CLASS="gutter"> 221:</SPAN>        <SPAN CLASS="syntax6">print</SPAN> <SPAN CLASS="syntax3">&quot;order of approximation &quot;</SPAN>, <SPAN CLASS="syntax9">log</SPAN>(<SPAN CLASS="syntax7">abs</SPAN>((<SPAN CLASS="syntax9">last</SPAN>(<SPAN CLASS="syntax9">solveByAdamsMoulton</SPAN>(<SPAN CLASS="syntax12">1</SPAN>.<SPAN CLASS="syntax12">0</SPAN>)) <SPAN CLASS="syntax11">-</SPAN> true) <SPAN CLASS="syntax11">/</SPAN>(<SPAN CLASS="syntax9">last</SPAN>(<SPAN CLASS="syntax9">solveByAdamsMoulton</SPAN>(<SPAN CLASS="syntax12">1</SPAN><SPAN CLASS="syntax11">/</SPAN><SPAN CLASS="syntax12">2</SPAN>.<SPAN CLASS="syntax12">0</SPAN>))) <SPAN CLASS="syntax11">-</SPAN> true))<SPAN CLASS="syntax11">/</SPAN><SPAN CLASS="syntax9">log</SPAN>(<SPAN CLASS="syntax12">2</SPAN>.<SPAN CLASS="syntax12">0</SPAN>)
+<SPAN CLASS="gutter"> 222:</SPAN>        <SPAN CLASS="syntax6">print</SPAN> <SPAN CLASS="syntax3">&quot;order of approximation &quot;</SPAN>, <SPAN CLASS="syntax9">log</SPAN>(<SPAN CLASS="syntax7">abs</SPAN>((<SPAN CLASS="syntax9">last</SPAN>(<SPAN CLASS="syntax9">solveByAdamsMoulton</SPAN>(<SPAN CLASS="syntax12">1</SPAN><SPAN CLASS="syntax11">/</SPAN><SPAN CLASS="syntax12">2</SPAN>.<SPAN CLASS="syntax12">0</SPAN>)) <SPAN CLASS="syntax11">-</SPAN> true) <SPAN CLASS="syntax11">/</SPAN>(<SPAN CLASS="syntax9">last</SPAN>(<SPAN CLASS="syntax9">solveByAdamsMoulton</SPAN>(<SPAN CLASS="syntax12">1</SPAN><SPAN CLASS="syntax11">/</SPAN><SPAN CLASS="syntax12">4</SPAN>.<SPAN CLASS="syntax12">0</SPAN>))) <SPAN CLASS="syntax11">-</SPAN> true))<SPAN CLASS="syntax11">/</SPAN><SPAN CLASS="syntax9">log</SPAN>(<SPAN CLASS="syntax12">2</SPAN>.<SPAN CLASS="syntax12">0</SPAN>)
+<SPAN CLASS="gutter"> 223:</SPAN>        <SPAN CLASS="syntax6">print</SPAN> <SPAN CLASS="syntax3">&quot;order of approximation &quot;</SPAN>, <SPAN CLASS="syntax9">log</SPAN>(<SPAN CLASS="syntax7">abs</SPAN>((<SPAN CLASS="syntax9">last</SPAN>(<SPAN CLASS="syntax9">solveByAdamsMoulton</SPAN>(<SPAN CLASS="syntax12">1</SPAN><SPAN CLASS="syntax11">/</SPAN><SPAN CLASS="syntax12">4</SPAN>.<SPAN CLASS="syntax12">0</SPAN>)) <SPAN CLASS="syntax11">-</SPAN> true) <SPAN CLASS="syntax11">/</SPAN>(<SPAN CLASS="syntax9">last</SPAN>(<SPAN CLASS="syntax9">solveByAdamsMoulton</SPAN>(<SPAN CLASS="syntax12">1</SPAN><SPAN CLASS="syntax11">/</SPAN><SPAN CLASS="syntax12">8</SPAN>.<SPAN CLASS="syntax12">0</SPAN>))) <SPAN CLASS="syntax11">-</SPAN> true))<SPAN CLASS="syntax11">/</SPAN><SPAN CLASS="syntax9">log</SPAN>(<SPAN CLASS="syntax12">2</SPAN>.<SPAN CLASS="syntax12">0</SPAN>)
+<SPAN CLASS="gutter"> 224:</SPAN><SPAN CLASS="syntax1">#</SPAN>
+<SPAN CLASS="gutterH"> 225:</SPAN><SPAN CLASS="syntax1"># Adams-Moulton is stable and far more accurate than Adams-Bashforth. We might</SPAN>
+<SPAN CLASS="gutter"> 226:</SPAN><SPAN CLASS="syntax1"># still prefer Runge-Kutta though in this case! However, if we need a lot</SPAN>
+<SPAN CLASS="gutter"> 227:</SPAN><SPAN CLASS="syntax1"># of nodes with ok accuracy, Adams-Moulton might be better.</SPAN>
+<SPAN CLASS="gutter"> 228:</SPAN><SPAN CLASS="syntax1">#</SPAN>
+<SPAN CLASS="gutter"> 229:</SPAN>
+<SPAN CLASS="gutterH"> 230:</SPAN><SPAN CLASS="syntax1">########################################################## </SPAN>
+<SPAN CLASS="gutter"> 231:</SPAN><SPAN CLASS="syntax1"># Section 2.3</SPAN>
+<SPAN CLASS="gutter"> 232:</SPAN><SPAN CLASS="syntax1">########################################################## </SPAN>
+<SPAN CLASS="gutter"> 233:</SPAN><SPAN CLASS="syntax1">#</SPAN>
+<SPAN CLASS="gutter"> 234:</SPAN><SPAN CLASS="syntax1"># The major difference here is that we have </SPAN>
+<SPAN CLASS="gutterH"> 235:</SPAN><SPAN CLASS="syntax1"># a second order (linear) differential equation.</SPAN>
+<SPAN CLASS="gutter"> 236:</SPAN><SPAN CLASS="syntax1">#</SPAN>
+<SPAN CLASS="gutter"> 237:</SPAN><SPAN CLASS="syntax1"># We need to reduce this second order equation into</SPAN>
+<SPAN CLASS="gutter"> 238:</SPAN><SPAN CLASS="syntax1"># two first order differential equations.</SPAN>
+<SPAN CLASS="gutter"> 239:</SPAN><SPAN CLASS="syntax1">#</SPAN>
+<SPAN CLASS="gutterH"> 240:</SPAN><SPAN CLASS="syntax1"># we set u=y and v = u'=y'</SPAN>
+<SPAN CLASS="gutter"> 241:</SPAN><SPAN CLASS="syntax1">#</SPAN>
+<SPAN CLASS="gutter"> 242:</SPAN><SPAN CLASS="syntax1"># and we get...</SPAN>
+<SPAN CLASS="gutter"> 243:</SPAN><SPAN CLASS="syntax1"># u'= v</SPAN>
+<SPAN CLASS="gutter"> 244:</SPAN><SPAN CLASS="syntax1"># v'=exp(x)*v+log(x)</SPAN>
+<SPAN CLASS="gutterH"> 245:</SPAN><SPAN CLASS="syntax1"># with initial conditions</SPAN>
+<SPAN CLASS="gutter"> 246:</SPAN><SPAN CLASS="syntax1"># u(0)=0</SPAN>
+<SPAN CLASS="gutter"> 247:</SPAN><SPAN CLASS="syntax1"># and </SPAN>
+<SPAN CLASS="gutter"> 248:</SPAN><SPAN CLASS="syntax1"># v(0)= t where t is unknown (at first)</SPAN>
+<SPAN CLASS="gutter"> 249:</SPAN><SPAN CLASS="syntax1">#</SPAN>
+<SPAN CLASS="gutterH"> 250:</SPAN><SPAN CLASS="syntax1"># The problem didn't specify which method we had to use...</SPAN>
+<SPAN CLASS="gutter"> 251:</SPAN><SPAN CLASS="syntax1"># a clever student would use Euler!!!</SPAN>
+<SPAN CLASS="gutter"> 252:</SPAN><SPAN CLASS="syntax1"># a really smart student would read on the topic and use</SPAN>
+<SPAN CLASS="gutter"> 253:</SPAN><SPAN CLASS="syntax1"># an advanced approach... we go with Euler for now...</SPAN>
+<SPAN CLASS="gutter"> 254:</SPAN>
+<SPAN CLASS="gutterH"> 255:</SPAN><SPAN CLASS="syntax6">def</SPAN> <SPAN CLASS="syntax9">f1</SPAN>(x,u,v):
+<SPAN CLASS="gutter"> 256:</SPAN>        <SPAN CLASS="syntax6">return</SPAN> v
+<SPAN CLASS="gutter"> 257:</SPAN>
+<SPAN CLASS="gutter"> 258:</SPAN><SPAN CLASS="syntax6">def</SPAN> <SPAN CLASS="syntax9">f2</SPAN>(x,u,v):
+<SPAN CLASS="gutter"> 259:</SPAN>        <SPAN CLASS="syntax6">return</SPAN> <SPAN CLASS="syntax9">exp</SPAN>(x)<SPAN CLASS="syntax11">*</SPAN>v<SPAN CLASS="syntax11">+</SPAN><SPAN CLASS="syntax9">log</SPAN>(x)
+<SPAN CLASS="gutterH"> 260:</SPAN> 
+<SPAN CLASS="gutter"> 261:</SPAN>
+<SPAN CLASS="gutter"> 262:</SPAN><SPAN CLASS="syntax6">def</SPAN> <SPAN CLASS="syntax9">computeEuler1</SPAN>(f1,u,v,x,dx):
+<SPAN CLASS="gutter"> 263:</SPAN>        <SPAN CLASS="syntax6">return</SPAN> u<SPAN CLASS="syntax11">+</SPAN>dx<SPAN CLASS="syntax11">*</SPAN><SPAN CLASS="syntax9">f1</SPAN>(x,u,v)
+<SPAN CLASS="gutter"> 264:</SPAN>
+<SPAN CLASS="gutterH"> 265:</SPAN><SPAN CLASS="syntax6">def</SPAN> <SPAN CLASS="syntax9">computeEuler2</SPAN>(f2,u,v,x,dx):
+<SPAN CLASS="gutter"> 266:</SPAN>        <SPAN CLASS="syntax6">return</SPAN> v<SPAN CLASS="syntax11">+</SPAN>dx<SPAN CLASS="syntax11">*</SPAN><SPAN CLASS="syntax9">f2</SPAN>(x,u,v)
+<SPAN CLASS="gutter"> 267:</SPAN>
+<SPAN CLASS="gutter"> 268:</SPAN><SPAN CLASS="syntax6">def</SPAN> <SPAN CLASS="syntax9">doSecondOrder</SPAN>(f1,f2,u,v,x,dx):
+<SPAN CLASS="gutter"> 269:</SPAN>        lastu <SPAN CLASS="syntax11">=</SPAN> <SPAN CLASS="syntax9">last</SPAN>(u)
+<SPAN CLASS="gutterH"> 270:</SPAN>        lastv <SPAN CLASS="syntax11">=</SPAN> <SPAN CLASS="syntax9">last</SPAN>(v)
+<SPAN CLASS="gutter"> 271:</SPAN>        u.<SPAN CLASS="syntax9">append</SPAN>(<SPAN CLASS="syntax9">computeEuler1</SPAN>(f1,lastu,lastv,<SPAN CLASS="syntax9">last</SPAN>(x),dx))
+<SPAN CLASS="gutter"> 272:</SPAN>        v.<SPAN CLASS="syntax9">append</SPAN>(<SPAN CLASS="syntax9">computeEuler2</SPAN>(f2,lastu,lastv,<SPAN CLASS="syntax9">last</SPAN>(x),dx))
+<SPAN CLASS="gutter"> 273:</SPAN>        x.<SPAN CLASS="syntax9">append</SPAN>(<SPAN CLASS="syntax9">last</SPAN>(x)<SPAN CLASS="syntax11">+</SPAN>dx)
+<SPAN CLASS="gutter"> 274:</SPAN>
+<SPAN CLASS="gutterH"> 275:</SPAN>
+<SPAN CLASS="gutter"> 276:</SPAN><SPAN CLASS="syntax6">def</SPAN> <SPAN CLASS="syntax9">shootSecondOrder</SPAN>(t,dx):
+<SPAN CLASS="gutter"> 277:</SPAN>        u<SPAN CLASS="syntax11">=</SPAN>[<SPAN CLASS="syntax12">0</SPAN>.<SPAN CLASS="syntax12">0</SPAN>]
+<SPAN CLASS="gutter"> 278:</SPAN>        v<SPAN CLASS="syntax11">=</SPAN>[t]
+<SPAN CLASS="gutter"> 279:</SPAN>        x<SPAN CLASS="syntax11">=</SPAN>[<SPAN CLASS="syntax12">1</SPAN>.<SPAN CLASS="syntax12">0</SPAN>]
+<SPAN CLASS="gutterH"> 280:</SPAN>        <SPAN CLASS="syntax6">while</SPAN>(<SPAN CLASS="syntax9">last</SPAN>(x) <SPAN CLASS="syntax11">&lt;</SPAN> <SPAN CLASS="syntax12">2</SPAN>):
+<SPAN CLASS="gutter"> 281:</SPAN>                <SPAN CLASS="syntax9">doSecondOrder</SPAN>(f1,f2,u,v,x,dx)
+<SPAN CLASS="gutter"> 282:</SPAN>        <SPAN CLASS="syntax6">return</SPAN> u
+<SPAN CLASS="gutter"> 283:</SPAN>
+<SPAN CLASS="gutter"> 284:</SPAN><SPAN CLASS="syntax6">def</SPAN> <SPAN CLASS="syntax9">solveSecondOrder</SPAN>(dx):
+<SPAN CLASS="gutterH"> 285:</SPAN>        u0<SPAN CLASS="syntax11">=</SPAN><SPAN CLASS="syntax9">shootSecondOrder</SPAN>(<SPAN CLASS="syntax12">0</SPAN>,dx)
+<SPAN CLASS="gutter"> 286:</SPAN>        u1<SPAN CLASS="syntax11">=</SPAN><SPAN CLASS="syntax9">shootSecondOrder</SPAN>(<SPAN CLASS="syntax12">1</SPAN>,dx)
+<SPAN CLASS="gutter"> 287:</SPAN>        a<SPAN CLASS="syntax11">=</SPAN><SPAN CLASS="syntax9">last</SPAN>(u0)
+<SPAN CLASS="gutter"> 288:</SPAN>        b<SPAN CLASS="syntax11">=</SPAN><SPAN CLASS="syntax9">last</SPAN>(u1)
+<SPAN CLASS="gutter"> 289:</SPAN>        <SPAN CLASS="syntax6">if</SPAN> ((a<SPAN CLASS="syntax11">-</SPAN>b) <SPAN CLASS="syntax11">==</SPAN> <SPAN CLASS="syntax12">0</SPAN>):
+<SPAN CLASS="gutterH"> 290:</SPAN>                <SPAN CLASS="syntax6">print</SPAN> <SPAN CLASS="syntax3">&quot;we're dead&quot;</SPAN>
+<SPAN CLASS="gutter"> 291:</SPAN>        <SPAN CLASS="syntax6">else</SPAN>:
+<SPAN CLASS="gutter"> 292:</SPAN>                alpha <SPAN CLASS="syntax11">=</SPAN> (pi <SPAN CLASS="syntax11">-</SPAN> b)<SPAN CLASS="syntax11">/</SPAN>(a<SPAN CLASS="syntax11">-</SPAN>b)
+<SPAN CLASS="gutter"> 293:</SPAN>                solution <SPAN CLASS="syntax11">=</SPAN> alpha<SPAN CLASS="syntax11">*</SPAN><SPAN CLASS="syntax9">array</SPAN>(u0)<SPAN CLASS="syntax11">+</SPAN>(<SPAN CLASS="syntax12">1</SPAN><SPAN CLASS="syntax11">-</SPAN>alpha)<SPAN CLASS="syntax11">*</SPAN><SPAN CLASS="syntax9">array</SPAN>(u1)
+<SPAN CLASS="gutter"> 294:</SPAN>                <SPAN CLASS="syntax6">print</SPAN> <SPAN CLASS="syntax3">&quot;dx = &quot;</SPAN>, dx
+<SPAN CLASS="gutterH"> 295:</SPAN>                <SPAN CLASS="syntax6">print</SPAN> <SPAN CLASS="syntax3">&quot;y(0) = &quot;</SPAN>, solution[<SPAN CLASS="syntax12">0</SPAN>]
+<SPAN CLASS="gutter"> 296:</SPAN>                <SPAN CLASS="syntax6">print</SPAN> <SPAN CLASS="syntax3">&quot;y(1.25) = &quot;</SPAN>, solution[<SPAN CLASS="syntax7">len</SPAN>(solution)<SPAN CLASS="syntax11">/</SPAN><SPAN CLASS="syntax12">4</SPAN>]
+<SPAN CLASS="gutter"> 297:</SPAN>                <SPAN CLASS="syntax6">print</SPAN> <SPAN CLASS="syntax3">&quot;y(1.5) = &quot;</SPAN>, solution[<SPAN CLASS="syntax7">len</SPAN>(solution)<SPAN CLASS="syntax11">/</SPAN><SPAN CLASS="syntax12">2</SPAN>]
+<SPAN CLASS="gutter"> 298:</SPAN>                <SPAN CLASS="syntax6">print</SPAN> <SPAN CLASS="syntax3">&quot;y(1.75) = &quot;</SPAN>,  solution[<SPAN CLASS="syntax12">3</SPAN><SPAN CLASS="syntax11">*</SPAN><SPAN CLASS="syntax7">len</SPAN>(solution)<SPAN CLASS="syntax11">/</SPAN><SPAN CLASS="syntax12">4</SPAN>]
+<SPAN CLASS="gutter"> 299:</SPAN>                <SPAN CLASS="syntax6">print</SPAN> <SPAN CLASS="syntax3">&quot;y(2) = &quot;</SPAN>,<SPAN CLASS="syntax9">last</SPAN>(solution)
+<SPAN CLASS="gutterH"> 300:</SPAN>
+<SPAN CLASS="gutter"> 301:</SPAN><SPAN CLASS="syntax6">def</SPAN> <SPAN CLASS="syntax9">question2_3</SPAN>():
+<SPAN CLASS="gutter"> 302:</SPAN>        <SPAN CLASS="syntax9">solveSecondOrder</SPAN>(<SPAN CLASS="syntax12">1</SPAN>.<SPAN CLASS="syntax12">0</SPAN>)
+<SPAN CLASS="gutter"> 303:</SPAN>        <SPAN CLASS="syntax9">solveSecondOrder</SPAN>(<SPAN CLASS="syntax12">1</SPAN>.<SPAN CLASS="syntax12">0</SPAN><SPAN CLASS="syntax11">/</SPAN><SPAN CLASS="syntax12">2</SPAN>.<SPAN CLASS="syntax12">0</SPAN>)
+<SPAN CLASS="gutter"> 304:</SPAN>        <SPAN CLASS="syntax9">solveSecondOrder</SPAN>(<SPAN CLASS="syntax12">1</SPAN>.<SPAN CLASS="syntax12">0</SPAN><SPAN CLASS="syntax11">/</SPAN><SPAN CLASS="syntax12">4</SPAN>.<SPAN CLASS="syntax12">0</SPAN>)
+<SPAN CLASS="gutterH"> 305:</SPAN>        <SPAN CLASS="syntax9">solveSecondOrder</SPAN>(<SPAN CLASS="syntax12">1</SPAN>.<SPAN CLASS="syntax12">0</SPAN><SPAN CLASS="syntax11">/</SPAN><SPAN CLASS="syntax12">8</SPAN>.<SPAN CLASS="syntax12">0</SPAN>)
+<SPAN CLASS="gutter"> 306:</SPAN>        <SPAN CLASS="syntax9">solveSecondOrder</SPAN>(<SPAN CLASS="syntax12">1</SPAN>.<SPAN CLASS="syntax12">0</SPAN><SPAN CLASS="syntax11">/</SPAN><SPAN CLASS="syntax12">16</SPAN>.<SPAN CLASS="syntax12">0</SPAN>)
+<SPAN CLASS="gutter"> 307:</SPAN>        <SPAN CLASS="syntax9">solveSecondOrder</SPAN>(<SPAN CLASS="syntax12">1</SPAN>.<SPAN CLASS="syntax12">0</SPAN><SPAN CLASS="syntax11">/</SPAN><SPAN CLASS="syntax12">32</SPAN>.<SPAN CLASS="syntax12">0</SPAN>)
+<SPAN CLASS="gutter"> 308:</SPAN>        <SPAN CLASS="syntax9">solveSecondOrder</SPAN>(<SPAN CLASS="syntax12">1</SPAN>.<SPAN CLASS="syntax12">0</SPAN><SPAN CLASS="syntax11">/</SPAN><SPAN CLASS="syntax12">64</SPAN>.<SPAN CLASS="syntax12">0</SPAN>)
+<SPAN CLASS="gutter"> 309:</SPAN>        <SPAN CLASS="syntax9">solveSecondOrder</SPAN>(<SPAN CLASS="syntax12">1</SPAN>.<SPAN CLASS="syntax12">0</SPAN><SPAN CLASS="syntax11">/</SPAN><SPAN CLASS="syntax12">128</SPAN>.<SPAN CLASS="syntax12">0</SPAN>)
+<SPAN CLASS="gutterH"> 310:</SPAN>        <SPAN CLASS="syntax9">solveSecondOrder</SPAN>(<SPAN CLASS="syntax12">1</SPAN>.<SPAN CLASS="syntax12">0</SPAN><SPAN CLASS="syntax11">/</SPAN><SPAN CLASS="syntax12">256</SPAN>.<SPAN CLASS="syntax12">0</SPAN>)
+<SPAN CLASS="gutter"> 311:</SPAN>        <SPAN CLASS="syntax9">solveSecondOrder</SPAN>(<SPAN CLASS="syntax12">1</SPAN>.<SPAN CLASS="syntax12">0</SPAN><SPAN CLASS="syntax11">/</SPAN><SPAN CLASS="syntax12">512</SPAN>.<SPAN CLASS="syntax12">0</SPAN>)
+<SPAN CLASS="gutter"> 312:</SPAN>        <SPAN CLASS="syntax9">solveSecondOrder</SPAN>(<SPAN CLASS="syntax12">1</SPAN>.<SPAN CLASS="syntax12">0</SPAN><SPAN CLASS="syntax11">/</SPAN><SPAN CLASS="syntax12">1024</SPAN>.<SPAN CLASS="syntax12">0</SPAN>)
+<SPAN CLASS="gutter"> 313:</SPAN>        <SPAN CLASS="syntax9">solveSecondOrder</SPAN>(<SPAN CLASS="syntax12">1</SPAN>.<SPAN CLASS="syntax12">0</SPAN><SPAN CLASS="syntax11">/</SPAN><SPAN CLASS="syntax12">2048</SPAN>.<SPAN CLASS="syntax12">0</SPAN>)
+<SPAN CLASS="gutter"> 314:</SPAN>        <SPAN CLASS="syntax9">solveSecondOrder</SPAN>(<SPAN CLASS="syntax12">1</SPAN>.<SPAN CLASS="syntax12">0</SPAN><SPAN CLASS="syntax11">/</SPAN><SPAN CLASS="syntax12">4096</SPAN>.<SPAN CLASS="syntax12">0</SPAN>)
+<SPAN CLASS="gutterH"> 315:</SPAN>
+<SPAN CLASS="gutter"> 316:</SPAN><SPAN CLASS="syntax1">#</SPAN>
+<SPAN CLASS="gutter"> 317:</SPAN><SPAN CLASS="syntax1"># You were expected to plot y(1.25), y(1.5) and y(1.75). You should</SPAN>
+<SPAN CLASS="gutter"> 318:</SPAN><SPAN CLASS="syntax1"># verify that y(2) is indeed pi all the time...!</SPAN>
+<SPAN CLASS="gutter"> 319:</SPAN><SPAN CLASS="syntax1">#</SPAN>
+<SPAN CLASS="gutterH"> 320:</SPAN>
+<SPAN CLASS="gutter"> 321:</SPAN><SPAN CLASS="syntax1">#</SPAN>
+<SPAN CLASS="gutter"> 322:</SPAN><SPAN CLASS="syntax1"># The following function is just a general call to all of the answers!</SPAN>
+<SPAN CLASS="gutter"> 323:</SPAN><SPAN CLASS="syntax1"># </SPAN>
+<SPAN CLASS="gutter"> 324:</SPAN><SPAN CLASS="syntax6">if</SPAN> <SPAN CLASS="syntax8">__name__</SPAN> <SPAN CLASS="syntax11">==</SPAN> <SPAN CLASS="syntax3">'__main__'</SPAN>:
+<SPAN CLASS="gutterH"> 325:</SPAN>        before <SPAN CLASS="syntax11">=</SPAN> time.<SPAN CLASS="syntax9">time</SPAN>()
+<SPAN CLASS="gutter"> 326:</SPAN>        <SPAN CLASS="syntax6">print</SPAN> <SPAN CLASS="syntax3">&quot;Question 2.1.2&quot;</SPAN>
+<SPAN CLASS="gutter"> 327:</SPAN>        <SPAN CLASS="syntax9">question2_1_2</SPAN>()
+<SPAN CLASS="gutter"> 328:</SPAN>        after <SPAN CLASS="syntax11">=</SPAN> time.<SPAN CLASS="syntax9">time</SPAN>()
+<SPAN CLASS="gutter"> 329:</SPAN>        <SPAN CLASS="syntax6">print</SPAN> <SPAN CLASS="syntax3">&quot;Time used up : &quot;</SPAN>, after<SPAN CLASS="syntax11">-</SPAN>before
+<SPAN CLASS="gutterH"> 330:</SPAN>        <SPAN CLASS="syntax6">print</SPAN> <SPAN CLASS="syntax3">&quot;Question 2.2.1&quot;</SPAN>
+<SPAN CLASS="gutter"> 331:</SPAN>        before <SPAN CLASS="syntax11">=</SPAN> time.<SPAN CLASS="syntax9">time</SPAN>()
+<SPAN CLASS="gutter"> 332:</SPAN>        <SPAN CLASS="syntax9">question2_2_1</SPAN>()
+<SPAN CLASS="gutter"> 333:</SPAN>        after <SPAN CLASS="syntax11">=</SPAN> time.<SPAN CLASS="syntax9">time</SPAN>()
+<SPAN CLASS="gutter"> 334:</SPAN>        <SPAN CLASS="syntax6">print</SPAN> <SPAN CLASS="syntax3">&quot;Time used up : &quot;</SPAN>, after<SPAN CLASS="syntax11">-</SPAN>before
+<SPAN CLASS="gutterH"> 335:</SPAN>        <SPAN CLASS="syntax6">print</SPAN> <SPAN CLASS="syntax3">&quot;Question 2.2.2&quot;</SPAN>
+<SPAN CLASS="gutter"> 336:</SPAN>        before <SPAN CLASS="syntax11">=</SPAN> time.<SPAN CLASS="syntax9">time</SPAN>()
+<SPAN CLASS="gutter"> 337:</SPAN>        <SPAN CLASS="syntax9">question2_2_2</SPAN>()
+<SPAN CLASS="gutter"> 338:</SPAN>        after <SPAN CLASS="syntax11">=</SPAN> time.<SPAN CLASS="syntax9">time</SPAN>()
+<SPAN CLASS="gutter"> 339:</SPAN>        <SPAN CLASS="syntax6">print</SPAN> <SPAN CLASS="syntax3">&quot;Time used up : &quot;</SPAN>, after<SPAN CLASS="syntax11">-</SPAN>before
+<SPAN CLASS="gutterH"> 340:</SPAN>        <SPAN CLASS="syntax6">print</SPAN> <SPAN CLASS="syntax3">&quot;Question 2.3&quot;</SPAN>
+<SPAN CLASS="gutter"> 341:</SPAN>        <SPAN CLASS="syntax9">question2_3</SPAN>()
+<SPAN CLASS="gutter"> 342:</SPAN>
+<SPAN CLASS="gutter"> 343:</SPAN>
+<SPAN CLASS="gutter"> 344:</SPAN>
+<SPAN CLASS="gutterH"> 345:</SPAN>
+<SPAN CLASS="gutter"> 346:</SPAN>
+<SPAN CLASS="gutter"> 347:</SPAN>
+<SPAN CLASS="gutter"> 348:</SPAN>
+<SPAN CLASS="gutter"> 349:</SPAN>
+<SPAN CLASS="gutterH"> 350:</SPAN>
+<SPAN CLASS="gutter"> 351:</SPAN>
+</PRE></BODY>
+</HTML>
+

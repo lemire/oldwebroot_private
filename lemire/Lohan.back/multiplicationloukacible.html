@@ -1,0 +1,170 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<script src="dist/sweetalert.min.js"></script> <link rel="stylesheet" type="text/css" href="dist/sweetalert.css">
+<script type="text/javascript">
+window.onbeforeunload = function() {
+    return "Si tu quittes la page, ton travail sera perdu.";
+}
+
+var secondes;
+var minutes;
+var compte;
+var inittotal;
+
+var total;
+var down;
+var erreurs;
+function getStarted() {
+    compte = false;
+    var out = document.getElementById("multiplications");
+    total = 0;
+		erreurs = 0;
+		var list = new Array()
+    for (var i = 0; i < 15; i++) {
+			  // niveau 1, multiplication
+        //total ++;
+				//var x = Math.floor(Math.random()*11) + 2;
+				//var y = x;
+				//list.push('<p>'+x+' x ' +y+ ' = <input type="text" name="lname" id="rep'+total+'" onkeypress="javascript:countUp();if(event.keyCode==13)checkval('+x+','+y+','+total+');"/> <input type="submit" id="but'+total+'" value="Soumettre" onclick="javascript:checkval('+x+','+y+','+total+');" /></p>');
+				// niveau 1, division
+	      //total ++;
+				//var x = Math.floor(Math.random()*11) + 2;
+				//var y = x;
+				//list.push('<p>'+x*y+' ÷ ' +y+ ' = <input type="text" name="lname" id="rep'+total+'" onkeypress="javascript:countUp();if(event.keyCode==13)checkvaldiv('+x+','+y+','+total+');"/> <input type="submit" id="but'+total+'" value="Soumettre" onclick="javascript:checkval('+x+','+y+','+total+');" /></p>');
+				// niveau 2, multiplication
+		    total ++;
+				var x = Math.floor(Math.random()*11) + 2;
+				var y = 2;
+				list.push('<p>'+x+' x ' +y+ ' = <input type="text" name="lname" id="rep'+total+'" onkeypress="javascript:countUp();if(event.keyCode==13)checkval('+x+','+y+','+total+');"/> <input type="submit" id="but'+total+'" value="Soumettre" onclick="javascript:checkval('+x+','+y+','+total+');" /></p>');
+				total ++;
+				var x = Math.floor(Math.random()*11) + 2;
+				var y = 2;
+				list.push('<p>'+x*y+' ÷ ' +y+ ' = <input type="text" name="lname" id="rep'+total+'" onkeypress="javascript:countUp();if(event.keyCode==13)checkvaldiv('+x+','+y+','+total+');"/> <input type="submit" id="but'+total+'" value="Soumettre" onclick="javascript:checkval('+x+','+y+','+total+');" /></p>');
+				// niveau 2, multiplication
+		    total ++;
+				var x = 2;
+				var y = Math.floor(Math.random()*11) + 2;
+				list.push('<p>'+x+' x ' +y+ ' = <input type="text" name="lname" id="rep'+total+'" onkeypress="javascript:countUp();if(event.keyCode==13)checkval('+x+','+y+','+total+');"/> <input type="submit" id="but'+total+'" value="Soumettre" onclick="javascript:checkval('+x+','+y+','+total+');" /></p>');
+				// niveau 2, division
+			  total ++;
+				var x = 2;
+				var y = Math.floor(Math.random()*11) + 2;
+				list.push('<p>'+x*y+' ÷ ' +y+ ' = <input type="text" name="lname" id="rep'+total+'" onkeypress="javascript:countUp();if(event.keyCode==13)checkvaldiv('+x+','+y+','+total+');"/> <input type="submit" id="but'+total+'" value="Soumettre" onclick="javascript:checkval('+x+','+y+','+total+');" /></p>');
+    }
+		shuffle(list)
+		for(var j = 0; j < total ; ++j ) {
+			out.innerHTML = out.innerHTML + list[j];
+		}
+    inittotal = total;
+}
+
+function shuffle(o){
+    for(var j, x, i = o.length; i; j = Math.floor(Math.random() * i), x = o[--i], o[i] = o[j], o[j] = x);
+    return o;
+}
+
+function MoveToNextInput(thisinput) {
+	var alli = document.getElementsByTagName("input");
+	var found = -1;
+	for(i = 0; i < alli.length; ++i) {
+		if(alli[i].getAttribute('type')!= "text") {
+			continue;
+		}
+		if(found == 0) {
+			alli[i].focus();
+			alli[i].scrollIntoView( true );
+			return;
+		}
+		if(alli[i] == thisinput) {
+			found = 0;
+		}
+	}
+}
+
+function checkval(x, y, i) {
+  if(parseInt(document.getElementById("rep"+i).value.length==0)) return;
+  if(parseInt(document.getElementById("rep"+i).value)==x*y) {
+    document.getElementById("rep"+i).value="C'est bon: "+document.getElementById("rep"+i).value;
+    document.getElementById("rep"+i).disabled = true;
+    document.getElementById("but"+i).disabled = true;
+		MoveToNextInput(document.getElementById("rep"+i));
+    total --;
+  } else {
+    document.getElementById("rep"+i).value="Ce n'est pas "+document.getElementById("rep"+i).value;
+		total --;
+		erreurs ++;
+		document.getElementById("rep"+i).style.background = 'red';
+		MoveToNextInput(document.getElementById("rep"+i));
+		document.getElementById("rep"+i).disabled = true;
+    document.getElementById("but"+i).disabled = true;
+  }
+	if(total == 0) {
+			clearInterval(down);
+			document.getElementById("compteur").style.background = 'yellow';
+			swal("Tu as fait "+inittotal+" multiplications et divisions en "+minutes+" min "+secondes+" s avec "+erreurs+" erreur(s).")
+	}
+}
+
+function checkvaldiv(x, y, i) {
+  if(parseInt(document.getElementById("rep"+i).value.length==0)) return;
+  if(parseInt(document.getElementById("rep"+i).value)==x) {
+    document.getElementById("rep"+i).value="C'est bon: "+document.getElementById("rep"+i).value;
+    document.getElementById("rep"+i).disabled = true;
+    document.getElementById("but"+i).disabled = true;
+    MoveToNextInput(document.getElementById("rep"+i));
+    total --;
+  } else {
+    document.getElementById("rep"+i).value="Ce n'est pas "+document.getElementById("rep"+i).value;
+		total --;
+		erreurs ++;
+		document.getElementById("rep"+i).style.background = 'red';
+     MoveToNextInput(document.getElementById("rep"+i));
+		document.getElementById("rep"+i).disabled = true;
+    document.getElementById("but"+i).disabled = true;
+  }
+	if(total == 0) {
+			clearInterval(down);
+			document.getElementById("compteur").style.background = 'yellow';
+			swal("Tu as fait "+inittotal+" multiplications et divisions en "+minutes+" min "+secondes+" s avec "+erreurs+" erreur(s).")
+	}
+}
+
+
+
+
+function countUp() {
+    if(compte == false) {
+      compte = true;
+      secondes = 0;
+      minutes = 0;
+      down=setInterval(function(){UpRepeat();},1000);
+    }
+}
+
+function UpRepeat() {
+    secondes++;
+    if(secondes==60) {
+        secondes = 0;
+        minutes++;
+        document.getElementById("minutes").innerHTML = minutes;
+    }
+    document.getElementById("secondes").innerHTML = secondes;
+}
+
+</script>
+
+
+<title>Lemire le champion</title>
+
+<body  onload="getStarted()" style="width:600px;margin-left:auto;margin-right:auto;">
+
+
+<p id="compteur">Temps écoulé: <span id="minutes">0</span> min <span id="secondes">0</span> s.</p>
+
+<div id="multiplications" />
+
+
+
+</body>
+
+</html>

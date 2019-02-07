@@ -1,0 +1,130 @@
+#LyX 1.1 created this file. For more info see http://www.lyx.org/
+\lyxformat 218
+\textclass article
+\language english
+\inputencoding auto
+\fontscheme default
+\graphics default
+\paperfontsize default
+\spacing single 
+\papersize Default
+\paperpackage a4
+\use_geometry 0
+\use_amsmath 0
+\paperorientation portrait
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\defskip medskip
+\quotes_language english
+\quotes_times 2
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+
+\layout Standard
+
+We say that a function 
+\begin_inset Formula \( \phi  \)
+\end_inset 
+
+ is 
+\begin_inset Quotes eld
+\end_inset 
+
+orthonormality
+\begin_inset Quotes erd
+\end_inset 
+
+ if
+\begin_inset Formula \[
+\int \phi (x)\overline{\phi (x-k)}dx=\delta _{0,k}.\]
+
+\end_inset 
+
+Given that the Fourier transform is unitary and that 
+\begin_inset Formula \( \widehat{\phi (\cdot -k)}=e^{-ik\xi }\widehat{\phi } \)
+\end_inset 
+
+, we have
+\begin_inset Formula \[
+\int \left| \widehat{\phi }(\xi )\right| ^{2}e^{-ik\xi }d\xi =\delta _{0,k}.\]
+
+\end_inset 
+
+We can easily verify that
+\begin_inset Formula \[
+\int _{0}^{2\pi }e^{-ik\xi }d\xi =(2\pi )\delta _{0,k}\]
+
+\end_inset 
+
+and thus
+\begin_inset Formula \[
+\sum _{l=-\infty }^{\infty }\left| \widehat{\phi }\left( \xi +2\pi l\right) \right| ^{2}=1/2\pi \, a.e.\]
+
+\end_inset 
+
+This last equation is actually equivalent to orthonormality.
+ So suppose that 
+\begin_inset Formula \( \nu  \)
+\end_inset 
+
+ is any function such that 
+\begin_inset Formula \[
+\sum _{l=-\infty }^{\infty }\left| \widehat{\nu }\left( \xi +2\pi l\right) \right| ^{2}=p(\xi )\]
+
+\end_inset 
+
+exist then, the inverse transform of 
+\begin_inset Formula \( \widehat{v}(\xi )/\sqrt{p(\xi )} \)
+\end_inset 
+
+ is going to be orthonormal.
+ Clearly, 
+\begin_inset Formula \( p(\xi ) \)
+\end_inset 
+
+ is going to be positive and 
+\begin_inset Formula \( 2\pi  \)
+\end_inset 
+
+-periodic (so will 
+\begin_inset Formula \( 1/\sqrt{p(\xi )} \)
+\end_inset 
+
+).
+ We can easily show that multiplying the Fourier transform of a function
+ by a 
+\begin_inset Formula \( 2\pi  \)
+\end_inset 
+
+-periodic amounts to a linear transformation of the type
+\begin_inset Formula \[
+\phi (\cdot )\longrightarrow \sum _{k=-\infty }^{\infty }p_{k}\phi (\cdot -k).\]
+
+\end_inset 
+
+
+\layout Standard
+
+In other words, you can diagonalize a function through a simple division
+ in Fourier space!!!
+\layout Standard
+
+It may seem though that in practice you won't be able to get a reasonable
+ form for 
+\begin_inset Formula \( p(\xi ) \)
+\end_inset 
+
+, but you can get around this problem by taking the Fourier transform of
+ it
+\begin_inset Formula \begin{eqnarray*}
+\frac{1}{2\pi }\int _{0}^{2\pi }p(\xi )e^{ik\xi }d\xi  & = & \frac{1}{2\pi }\int _{0}^{2\pi }\sum _{l=-\infty }^{\infty }\left| \widehat{\nu }\left( \xi +2\pi l\right) \right| ^{2}e^{ik\xi }d\xi \\
+ & = & \frac{1}{2\pi }\int _{-\infty }^{\infty }\left| \widehat{\nu }\left( \xi \right) \right| ^{2}e^{ik\xi }d\xi \\
+ & = & \frac{1}{2\pi }\int _{-\infty }^{\infty }v(x)\overline{v(x-k)}dx.
+\end{eqnarray*}
+
+\end_inset 
+
+
+\the_end

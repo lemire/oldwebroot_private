@@ -1,0 +1,194 @@
+%**************  STMALO2 MACROS *****
+% FILE NAME: submit.tex
+% COPYRIGHT: 10/15/97, updated 6/1/02
+% BY: Larry Schumaker
+% EMAIL: s@mars.cas.vanderbilt.edu
+% WEB: http://www.math.vanderbilt.edu/~schumake/
+
+%********************** INITIALIZATION *************************
+\count100= 1
+\count101= 3
+\input malo2.tex
+
+%************************ TITLE ******************************
+
+\title{Submitting Papers to the}
+\titwo{\conf Proceedings}
+
+%*********************RUNNING HEAD ***************************
+
+\def\shorttitle{Submitting Papers to \conf}
+%********************* AUTHORS ***************************
+
+\author{Larry Schumaker}
+
+%********************* AUTHORS RUNNING HEAD **************
+
+\def\shortauthor{Larry L. Schumaker}
+
+%********************** MACROS  ******************************
+
+\def\back{{\tt \char'134}}
+\def\co{{\cal O}}
+\def\cP{{\cal P}}
+\def\ct{{\cal T}}
+\def\ctil{\tilde{\cal T}}
+\def\lb{\char'173}
+\def\rb{\char'175}
+\def\oln{\co(n \log(n))}
+\def\tb#1{{\tt \back #1}}
+\def\Tex{{\TeX~}}
+
+%************************* ABSTRACT **********************************
+
+\abstract
+{The purpose of this document (which corresponds to the file
+{\tt submit.tex}) is to discuss how
+to submit papers for the \conf proceedings.
+As a supplement, please read
+{\sl Instructions for Using the \conf \Tex Macros} which
+corresponds to the file {\tt instruct.tex}.
+A careful reading of these two documents should
+answer most questions, but if you need further help, please contact
+us.}
+
+%******************************* BODY *********************************
+
+\sect{1. Introduction}
+The proceedings of the \conf meeting will be published
+in two volumes similar in style to the proceedings of the
+first St.~Malo conference
+[2,5], see also [3,4,6--9].
+Contributions will be refereed
+and edited, and must be original work. Abstracts and summaries
+of work published elsewhere will not be accepted.
+
+Papers to be included in the proceedings
+must be prepared in \TeX, using a common macro file
+(called {\tt \macname{}.tex}) which sets
+up the style of the paper.
+We recommend that you read both this document and
+\eword{Instructions for Using the \conf \Tex Macros}
+which can be generated from {\tt instruct.tex},
+even if you are an experienced \Tex  user
+and have used some of our macros before.
+If you don't read anything else, please see Sect.~14
+of that document on things you should \eword{not} do.
+
+\sect{2. Preparing your Manuscript}
+The easiest way to prepare your paper is to
+fill in the blanks in the file\break
+{\tt paper.tex}. The file {\tt paper.tex} inputs a macro file
+called {\tt \macname.tex} which must be present in the same directory.
+These two files are included in the
+{\it \conf Macro Package}.
+If you want to take advantage of some advanced features of \TeX,
+including automatic numbering, insertion of postscript files, or
+use the spline bibliography, you will also need the macro file
+{\tt lls00.tex}.
+
+\sect{3. Page Limits}
+Due to page restrictions from the publisher and to give
+as many attendees as possible an opportunity to publish
+their paper in the proceedings, we regret that we
+must enforce the following page limits:
+\ms
+\noindent{{\bf Invited Speakers:} 16 pages}
+
+\noindent{{\bf Others:} 10 pages}
+\ms
+\noindent These limits apply to the manuscript produced
+by our \TeX{} macros. Please do not try to
+squeeze more into your paper
+by using smaller fonts or changing spacing.
+
+\sect{4. Submitting your Paper}
+Papers are due by {\bf October 31, 2002}.
+Please send 3 copies of your paper  to 
+\ms
+\leftline {Marie-Laurence Mazure}
+\leftline {LMC-IMAG}
+\leftline {Univ. Joseph Fourier,  BP 53}
+\leftline {38041 GRENOBLE cedex 9, FRANCE}
+\ms
+
+\noin You should get an email within a day or two
+acknowledging receipt of your paper. 
+
+\sect{6. Refereeing and Editing}
+The organizers will oversee the refereeing process for
+all submitted papers, and you 
+may be asked to revise your paper. 
+Once it has been accepted, I will ask you for
+tex files and figure files.  At that point I will
+copy-edit your paper for English usage and layout, and I
+may ask you to make further corrections.
+
+%******************************* REFERENCES *************************
+
+\References
+
+\ref  de\thinspace{}Boor, C. and L. L. Schumaker, Using the
+de\thinspace{}Boor/Schumaker
+spline bibliography, see the \Tex file {\tt splinebib.tex},
+included in the \conf Macro Package
+available on the conference  home page.
+
+\ref  Cohen, A., C. Rabut and L. L. Schumaker,
+{\sl Curve and Surface Fitting: Saint-Malo 99},
+Vanderbilt University Press, Nashville, 2000.
+
+\ref D{\ae}hlen, M., T. Lyche, L. L. Schumaker (eds.),
+{\sl Mathematical Methods for Curves and Surfaces},
+Vanderbilt University Press, Nashville, 1995.
+
+\ref D{\ae}hlen, M., T. Lyche, L. L. Schumaker (eds.),
+{\sl Mathematical Methods for Curves and Surfaces II},
+Vanderbilt University Press, Nashville, 1998.
+
+\ref Laurent, P. J., P.  Sablonni\`ere,, and L. L. Schumaker,
+{\sl Curve and Surface Design: Saint-Malo 99},
+Vanderbilt University Press, Nashville, 2000.
+
+\ref
+A. Le M\'ehaut\'e, C. Rabut, and L. L. Schumaker (eds.),
+{\sl Curves and Surfaces in Geometric Design},
+Vanderbilt University Press, Nashville TN, 1997.
+
+\ref Le M\'ehaut\'e, A, C. Rabut, and L. L. Schumaker (eds.),
+{\sl Surface Fitting and Multiresolution Methods},
+Vanderbilt University Press, Nashville, 1997.
+
+\ref Lyche, T., and L. L. Schumaker,
+{\sl Mathematical Methods for Curves and Surfaces: Oslo 2000},
+Vanderbilt University Press, Nashville, 2001.
+
+\ref  Schumaker, L. L., Instructions for using the \conf \Tex Macros,
+see the \Tex file {\tt instruct.tex}
+included in the \conf Macro Package
+available on the conference home page.
+
+\ref  Schumaker, L. L., Inserting postscript figures
+with the \conf\break macros,
+see the \Tex file {\tt psfigures.tex}
+included in the \conf Macro Package
+available on the conference home page.
+
+\ref  Schumaker, L. L., Automatic numbering with the
+\conf macros,
+see the \Tex file {\tt autonumber.tex}
+included in the \conf Macro Package
+available on the conference  home page.
+
+\Address{
+Larry L. Schumaker
+Dept. of Mathematics
+Vanderbilt University
+Nashville, TN 37240
+{\tt s@mars.cas.vanderbilt.edu
+http://www.math.vanderbilt.edu/$\sim$schumake/}
+}
+
+\bye
+
+%%%%%%%%  END of submit.tex

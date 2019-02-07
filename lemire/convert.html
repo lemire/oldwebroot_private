@@ -1,0 +1,86 @@
+<html>
+<body>
+
+<p>Cette page web fait son possible pour extraire des correspondances simples d'un fichier HTML.</p>
+
+<script>
+
+function generateCSV(montexte) {  
+    var blob = new Blob([montexte], {encoding:"UTF-8",type:"text/plain;charset=UTF-8"});
+    var el = document.getElementById('enregistre');
+    el.innerHTML = '<a href ="'+window.URL.createObjectURL(blob)+'" download="monfichierfusion.csv">monfichierfusion.csv</a> ('+blob.size+' octets)';
+}
+
+
+// Read the specified text file and display it in the <pre> element below
+function readfile(f) {
+    var reader = new FileReader();  // Create a FileReader object
+    reader.readAsText(f);           // Read the file
+    reader.onload = function() {    // Define an event handler
+        var text = reader.result;   // This is the file contents
+        var out = document.getElementById("output");    // Find output element
+        var st = document.getElementById("stat");    // Find output element
+        var enr = document.getElementById("enregistre");    // Find output element
+        out.innerHTML = "";                             // Clear it
+        st.innerHTML = "";
+        enr.innerHTML = "";
+        montexte = ""
+        var re = new RegExp('<span class="Exact">([^<>"]+)</span>.*<span class="Exact">([^<>"]+)</span>','g');
+        var i = 0;
+        do {
+          m = re.exec(text);
+          i = i + 1;
+          if (m) {
+            out.appendChild(document.createTextNode('"'+m[1]+'","'+m[2]+'"\n')); // Display file contents
+            montexte = montexte + '"'+m[1]+'","'+m[2]+'"\r\n';
+          }
+        } while (m && ( i < 1000 ) );
+        if( i == 0) {
+           out.appendChild(document.createTextNode("nada")); // Display file contents
+        }
+        st.appendChild(document.createTextNode(" "+i+" correspondances exactes. "));
+        var outpartial = document.getElementById("outputpartial");    // Find output element
+        outpartial.innerHTML = "";                             // Clear it
+        var re = new RegExp('<td style="border: 0px;padding: 2px;">([^<>"]+)</td><td style="border: 0px;padding: 2px;">([^<>"]+)</td>','g');
+        var i = 0;
+        do {
+          m = re.exec(text);
+          i = i + 1;
+          if (m) {
+            outpartial.appendChild(document.createTextNode('"'+m[1]+'","'+m[2]+'"\n')); // Display file contents
+            montexte = montexte + '"'+m[1]+'","'+m[2]+'"\r\n';            
+          }
+        } while (m && ( i < 1000 ) );
+        if( i == 0) {
+           outpartial.appendChild(document.createTextNode("nada")); // Display file contents
+        }
+        st.appendChild(document.createTextNode(" "+i+" correspondances partielles. "));        
+        generateCSV(montexte);
+    }
+    reader.onerror = function(e) {  // If anything goes wrong
+        console.log("Error", e);    // Just log it
+    };
+}
+</script>
+Choisissez le fichier html:
+<input type="file" onchange="readfile(this.files[0])"></input>
+
+
+<p id="stat">
+</p>
+<p id="enregistre">
+</p>
+
+<p>Sortie CSV des correspondances exactes simples: (copier-coller vers Excel)</p>
+
+<pre id="output" style="background:#ccc; width: 50%; overflow: scroll;">
+Rien pour le moment.
+</pre>
+
+<p>Sortie CSV des correspondances partielles simples: (copier-coller vers Excel)</p>
+<pre id="outputpartial"  style="background:#ccc; width: 50%; overflow: scroll;">
+Rien pour le moment.
+</pre>
+
+</body>
+</html>

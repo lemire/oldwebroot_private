@@ -1,0 +1,94 @@
+/* Comparison of the dense filters with DD plus some regularity analysis */
+/* Feb. 17th 2002 */
+/* D. Lemire */
+/**/
+/* DD filters */ 
+FPPREC:32;
+p2(x):=1+9*(x+x^-1)/16-(x^3+x^-3)/16;
+p4(x):=p2(x^2)+105*(x+x^(-1))/128+35*(x^3+x^(-3))/128-7*(x^5+x^(-5))/128-5*(x^7+x^(-7))/128;
+/* commonly used filter (depends on alpha) */
+R(x):= (p4(x)-p4(-x))/2+(1-alpha)*(p4(-x)+p4(x))/2;
+/* we test the case alpha=0 which gives DD */
+firststep(x):=ratexpand(subst(alpha=0,R(x)*(1)+alpha*(1)));
+/* the following gives only odd terms, hence DD match with DDimproved if alpha = 0*/
+ratexpand(p2(x^2)*p2(x^4))-ratexpand(subst(alpha=0,R(x)*(firststep(x^2)+firststep(-x^2))/2+alpha*(firststep(x))));
+/* Now, some regularity analysis */
+alpha1(x):=alpha+1/2*R(x); 
+alpha2(x):=1/2*R(x);
+H1(x):=ratexpand(alpha1(x)*x*(1-x)/(1-x^2)+alpha2(x)*(-x)*(1-x)/(1+x^2));
+/* when we set alpha=0, we should get back what DD has! or should we? */
+subst(alpha=0,ratexpand(H1(x))); 
+ddh1(x):=ratexpand(x*(1-x)/(1-x^2)*p2(x));
+ddh2(x):=ratexpand(x^2*(1-x)^2/(1-x^2)^2*p2(x));
+/* The weird thing here is that we look at finite differences including
+the damn placeholders... */
+/* not clear it works... anyhow...*/
+/* continuity can be required by summing the odd terms coefs and the even ones...*/
+/* for the even terms, we get */
+ h1_1(alpha):=15/64-5/128+cabs(1/128-alpha/16)+17/64+cabs(17/64-alpha/2)+7/128+cabs(alpha-3)/128;
+/* plot in gnuplot: plot [x=-2:2] abs(x-3)/128+abs(x/2-17/64)+abs(x/16-1/128)+33/64 */
+/* for the odd terms, we get */
+h1_2(x):=-5/128+cabs(1/128-alpha/16)+15/64+cabs(alpha/2+17/64)+7/128+cabs(alpha/16-3/128);
+/* plot in gnuplot: plot [x=-2:2] (2*abs(32*x+17)+abs(8*x-1)+abs(8*x-3)+32)/128 */
+/*Now, for the derivative... */
+H2(x):=ratexpand(alpha1(x)*x^2*(1-x)^2/(1-x^2)^2+alpha2(x)*(-x)^2*(1-x)^2/(1+x^2)^2);
+/* This FAILS!!! Need to take two steps and show < 1/4 ??? Let's see!!! */
+H1_two(x):=ratexpand(alpha1(x)*x*(1-x)/(1-x^2)*H1(x^2)+alpha2(x)*(-x)*(1-x)/(1+x^2)*H1(-x^2));
+H2_two(x):=ratexpand(alpha1(x)*x^2*(1-x)^2/(1-x^2)^2*H2(x^2)+alpha2(x)*(-x)^2*(1-x)^2/(1+x^2)^2*H2(-x^2));
+/* careful though, when you do it that way, you have to consider it as a tetradic scheme!!! */
+/* see for example... */
+ ratexpand(x^3*(1-x)/(1-x^4)*p2(x)*p2(x^2));
+/*ternary scheme example */
+tern(x):=1/18*(18+(9*m+13)*(x+x^-1)+(-9*m+7)*(x^2+x^-2)+(-3*m-1)*(x^4+x^-4)+(3*m-1)*(x^5+x^-5));
+ratexpand(tern(x)*x^2*(1-x)/(1-x^3));
+/* this verifies that I understand the basic!!! */
+/* check with dyn levin greg */
+pdlg(x):=1+(1/2+eps)*(x+x^-1)-eps*(x^3+x^-3);
+ratexpand(pdlg(x)*x^2*(1-x)^2/(1-x^2)^2);
+/* faut que ca soit < 1/2 ce qui implique que eps < 1/4 */
+/* Wait a minute!!! H2 doesn't really fail !!! */
+ratexpand(subst(alpha=0,(H2(x)-H2(-x))/2));
+5/128+1/32+13/128+1/16+13/128+1/32+5/128;
+ 3/64+1/64+1/16+1/16+3/64+1/64;
+/* Puis que H2 <1/2 (en fait max est 13/32) on est correct!!! */
+/* je me suis énervé pour rien!!! Reste a faire le cas général!!! */
+ h2_1(alpha):=cabs(alpha/16+1/64)+cabs(alpha/16+3/64)+cabs(1/16-3*alpha/8)+1/16+cabs(alpha/16+3/64)+cabs(alpha/16+1/64);
+/* plot [x=-1:1] (2*abs(6*x-1)+abs(4*x+3)+abs(4*x+1)+2)/32 */
+ h2_2(alpha):=5/128+cabs(-alpha/8+1/32)+13/128+cabs(3*alpha/4+1/16)+13/128+cabs(-alpha/8+1/32)+5/128;
+/* plot [x=-1:1] (32*abs((12*x+1)/16)+64*abs(-(4*x-1)/32)+9)/32*/
+/* On test maintenant pour la dérivée seconde, on doit avoir H3<4 */
+H3(x):=ratexpand(alpha1(x)*x^3*(1-x)^3/(1-x^2)^3+alpha2(x)*(-x)^3*(1-x)^3/(1+x^2)^3);
+h3_1(alpha):=cabs(alpha/16+7/128)+cabs(3*alpha/16+1/64)+cabs(1/8-3/16)+15/128+cabs(3/64-9*alpha/16);
+/* plot [x=-1:1]  abs(9*x/16-3/64)+abs(3*x/16+1/64)+abs(x/16+7/128)+23/128 */
+h3_2(alpha):=5/128+cabs(-3*alpha/16+1/64)+cabs(alpha/16+1/16)+cabs(9*alpha/16+3/64)+cabs(3*alpha/16+21/128);
+/* plot [x=-1:1]  (2*abs(36*x+3)+abs(24*x+21)+2*abs(12*x-1)+8*abs(x+1)+5)/128 */
+/**/
+/* Summary: the scheme is C1 */
+/* Here's a gnuplot program... */
+/* max(x,y)=x>y?x:y
+ plot [x=-1:1] max( (2*abs(6*x-1)+abs(4*x+3)+abs(4*x+1)+2)/32 , (32*abs((12*x+1)/16)+64*abs(-(4*x-1)/32)+9)/32 )
+*/
+/* On trouve les vraies bornes avec Newton...
+interpolate(max(h2_1(x),h2_2(x))=0.5,x,0.1,1);
+
+                               0.1875
+(which is 3/16)
+interpolate(max(h2_1(x),h2_2(x))=0.5,x,-0.1,-1);
+
+                              - 0.21875
+(which is -7/32)
+
+Hence C1 for -7 < 32 alpha < 6
+*/
+/*
+* Ok, next we simply use alpha1 and alpha2
+* and we forget about everything done after that
+*/
+phi1(x):=2*x^2*ratexpand(alpha1(x)/(1+x)^2);
+phi2(x):=2*(-x*(1-x))^2*ratexpand(alpha2(x)/(1+x^2)^2);
+lambda1(x):=(phi1(x)+phi1(-x)+phi2(x)-phi2(-x))/2;
+lambda2(x):=(phi1(x)-phi1(-x)+phi2(x)+phi2(-x))/2;
+lda1(a):=(5+2*cabs(4*a+1)+2*cabs(7-8*a)+2*cabs(5+12*a)+cabs(32*a+5)+cabs(5-8*a)+cabs(24*a-7))/64;
+lda2(a):=(5+2*cabs(4*a+1)+2*cabs(3+8*a)+2*cabs(1-4*a)+cabs(21-32*a)+cabs(1+8*a)+cabs(24*a+11))/64;
+
+

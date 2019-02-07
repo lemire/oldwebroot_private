@@ -1,0 +1,278 @@
+<?xml version="1.0" encoding="ISO-8859-1"  ?>
+  <?xml-stylesheet title='RSS_Formatted' type='text/xsl' href='http://www.daniel-lemire.com/fr/rssit.xsl'?>
+  <!DOCTYPE rss PUBLIC "-//Netscape Communications//DTD RSS 0.91//EN" "http://my.netscape.com/publish/formats/rss-0.91.dtd">
+
+  <rss version="0.91">
+
+  <channel>
+
+  <description>Daniel Lemire s'intéresse particulièrement au forage de données, aux grandes bases de données (OLAP) ainsi
+  qu'au filtrage collaboratif. </description>
+
+  <language>fr</language>
+
+  <title>Publications choisies par Daniel Lemire, chercheur et professeur à l'UQÀM </title>
+  <link>http://www.daniel-lemire.com/fr/publications.html</link>
+
+  <item>
+	<title>A Better Alternative to Piecewise Linear Time Series Segmentation, SIAM Data Mining 2007, 2007. (taux de succÃ¨s de 25%) (<!--a href="http://arxiv.org/abs/cs.DB/0605103"-->cs.DB/0605103<!--/a-->)</title>
+	<description><!--p--> 
+ Time series are  difficult to monitor, summarize and predict. Segmentation organizes time series into few intervals having uniform characteristics (flatness, linearity, modality, monotonicity and so on). For scalability, we require fast linear time algorithms. The popular piecewise linear model can determine where the data goes up or down and at what rate. Unfortunately, when the data does not follow a linear model, the computation of the local slope creates overfitting.  We propose an adaptive time series model where the polynomial degree of each interval vary (constant, linear and so on). Given a number of regressors, the cost of each interval is its polynomial degree: constant intervals cost 1 regressor, linear intervals cost 2 regressors, and so on. Our goal is to minimize the Euclidean (l_2) error for a given model complexity. Experimentally, we investigate the model where intervals can be either constant or linear. Over synthetic random walks, historical stock market prices, and electrocardiograms, the adaptive model provides a more accurate segmentation than the piecewise linear model without increasing the cross-validation error or the running time, while providing a richer vocabulary to applications. Implementation issues, such as numerical stability and real-world performance, are discussed. 
+ <!--/p--></description>
+	<link>http://www.daniel-lemire.com/fr/abstracts/SDM2007.html</link>
+</item>
+
+
+<item>
+	<title>Monotonicity Analysis over Chains and Curves. Compte-rendu de Curves and Surfaces 2006, pages 180-190, 2007. (<!--a href="http://arxiv.org/abs/math.GM/0701481"-->math.GM/0701481<!--/a-->)</title>
+	<description><!--p--> 
+ Chains are vector-valued signals sampling a curve. They are important to motion signal processing and to many scientific applications including location sensors. We propose a novel measure of smoothness for chains curves by generalizing the scalar-valued concept of monotonicity. Monotonicity can be defined by the connectedness of the inverse image of balls. This definition is coordinate-invariant and can be computed efficiently over chains. Monotone curves can be discontinuous, but continuous monotone curves are differentiable a.e. Over chains, a simple sphere-preserving filter shown to never decrease the degree of monotonicity. It outperforms moving average filters over a synthetic data set. Applications include Time Series Segmentation, chain reconstruction from unordered data points, Optical Character Recognition, and Pattern Matching.<!--/p--></description>
+	<link>http://www.daniel-lemire.com/fr/abstracts/CS2006.html</link>
+</item>
+
+
+<item>
+	<title>The LitOLAP Project: Data Warehousing with Literature, CaSTA 2006, 
+        Fredericton, 2006.</title>
+	<description><!--p--> 
+ The litOLAP project seeks to apply the Business Intelligence techniques of 
+ Data Warehousing and OLAP to the domain of text processing (specifically, 
+ computer-aided literary studies).  A literary data warehouse is  
+ similar to a conventional corpus, but its data is stored and organized in  
+ multidimensional cubes, in order to 
+ promote efficient end-user queries.  An initial implementation exists for 
+ litOLAP, and emphasis has been placed on cube-storage methods and caching  
+ intermediate results for reuse.  Work continues on improving the 
+ query engine, the ETL process, and the user interfaces. 
+ <!--/p--></description>
+	<link>http://www.daniel-lemire.com/fr/abstracts/CASTA2006.html</link>
+</item>
+
+
+<item>
+	<title>Attribute 
+ Value Reordering for Efficient Hybrid OLAP, Information Sciences, volume 176, no 16, pages 2279-2438, 2006. 
+ (<!--a href="http://arxiv.org/abs/cs.DB/0702143"-->cs.DB/0702143<!--/a-->)</title>
+	<description><!--p--> 
+ The normalization of a data cube is the 
+ ordering of the attribute values. 
+ For large multidimensional arrays where dense and sparse chunks are stored 
+ differently, proper normalization can lead to improved storage efficiency. 
+ We show that 
+ it is NP-hard to compute an optimal normalization even for 1x3 
+ chunks, although we find an exact algorithm for 1x2 chunks. 
+ When dimensions are nearly statistically independent, we show 
+ that dimension-wise attribute 
+ frequency sorting is an optimal normalization and takes time O(d n log(n)) for data 
+ cubes of size n^d. 
+ When dimensions are not independent, we propose and evaluate  
+ several heuristics. 
+ The hybrid OLAP (HOLAP) storage mechanism 
+ is already 19%-30% more efficient than ROLAP, but 
+ normalization can improve it further by 9%-13% 
+ for a total gain of 29%-44% over ROLAP. 
+ <!--/p--></description>
+	<link>http://www.daniel-lemire.com/fr/abstracts/IS2006.html</link>
+</item>
+
+
+<item>
+	<title>Analyzing 
+ Large Collections of Electronic Text Using OLAP, APICS 2005, 
+ Wolfville, Canada, octobre 2005. (<!--a href="http://arxiv.org/abs/cs.DB/0605127"-->cs.DB/0605127<!--/a-->)</title>
+	<description><!--p--> 
+ Computer-assisted reading and analysis of text has various 
+     applications in the humanities and social sciences.  The 
+     increasing size of many electronic text archives has the advantage 
+     of a more complete analysis but the disadvantage of taking longer 
+     to obtain results.  On-Line Analytical Processing is a method used 
+     to store and quickly analyze multidimensional data.  By storing 
+     text analysis information in an OLAP system, a user can obtain 
+     solutions to inquiries in a matter of seconds as opposed to 
+     minutes, hours, or even days.  This analysis is user-driven 
+     allowing various users the freedom to pursue their own direction 
+     of research.  
+ <!--/p--></description>
+	<link>http://www.daniel-lemire.com/fr/abstracts/APICS2005.html</link>
+</item>
+
+
+<item>
+	<title>An 
+ Optimal Linear Time Algorithm for Quasi-Monotonic 
+ Segmentation, IEEE Data Mining 2005 (ICDM-05), pp. 709-712, novembre 2005. 
+ (taux de succÃ¨s de 22%) (<!--a href="http://arxiv.org/abs/cs.DS/0702142"-->cs.DS/0702142<!--/a-->)</title>
+	<description><!--p--> 
+ Monotonicity is a simple yet significant qualitative characteristic.  We consider the problem of segmenting an array in up to K segments. We want 
+ segments to be as monotonic as possible and to alternate signs. We propose a quality metric for this problem, 
+ present an optimal linear time algorithm based on novel formalism, and compare experimentally its performance to a linear time top-down regression 
+ algorithm. We show that our algorithm is faster and more accurate. Applications include pattern recognition and qualitative modeling. 
+ <!--/p--></description>
+	<link>http://www.daniel-lemire.com/fr/abstracts/ICDM05.html</link>
+</item>
+
+
+<item>
+	<title>Collaborative 
+ Filtering and Inference Rules for Context-Aware Learning Object 
+ Recommendation, International Journal of Interactive 
+ Technology &amp; Smart Education, volume 2, no 3, aoÃ»t 
+ 2005.</title>
+	<description><!--p--> 
+ Learning objects strive for reusability in e-Learning to reduce cost and allow personalization of content. We argue that learning objects require 
+ adapted Information Retrieval systems. 
+ In the spirit of the Semantic Web, we discuss the semantic description, discovery, and composition of learning objects using Web-based MP3 objects as examples. As part of our project, we tag learning objects with both objective and subjective metadata. We study the application of collaborative filtering as prototyped in the RACOFI (Rule-Applying Collaborative Filtering) Composer system, which consists of two libraries and their associated engines: a collaborative filtering system and an inference rule system. We are currently developing RACOFI to generate context-aware recommendation lists. Context is handled by multidimensional predictions produced from a database-driven scalable collaborative filtering algorithm. Rules are then applied to the predictions to customize the recommendations according to user profiles. The prototype is available at inDiscover.net. 
+ <!--/p--></description>
+	<link>http://www.daniel-lemire.com/fr/abstracts/ITSE2005.html</link>
+</item>
+
+
+<item>
+	<title>Quasi-monotonic 
+ segmentation of state variable behavior for reactive control, 
+ AAAI05, Pittsburgh, Ã‰.-U., pp. 1145-1150, juillet 2005. (taux de succÃ¨s de 
+ 27%)</title>
+	<description><!--p--> 
+ Real-world agents must react to changing conditions as they 
+ execute planned tasks. Conditions are typically monitored  
+ through time series representing state variables. While some 
+ predicates on these times series only consider one measure at 
+ a time, other predicates, sometimes called episodic predicates, 
+ consider sets of measures. We consider a special class of episodic 
+ predicates based on segmentation of the the measures into quasi-monotonic intervals 
+ where each interval is either quasi-increasing, quasi-decreasing, or 
+ quasi-flat. While being scale-based, this approach 
+ is also computational efficient and results can be computed 
+ exactly without need for approximation algorithms. Our approach 
+ is compared to linear spline and regression analysis. 
+ <!--/p--></description>
+	<link>http://www.daniel-lemire.com/fr/abstracts/AAAI05.html</link>
+</item>
+
+
+<item>
+	<title>Scale-Based 
+ Monotonicity Analysis in Qualitative Modelling with Flat 
+ Segments, IJCAI05, Edinburgh, G.-B.,  pp. 400--405, juillet 2005. (taux de 
+ succÃ¨s de 18%)</title>
+	<description><!--p--> 
+ Qualitative models are often more suitable than classical quantitative models in tasks such as Model-based 
+ Diagnosis (MBD), explaining system behavior, and designing novel devices from first principles. Monotonicity is 
+ an important feature to leverage when constructing qualitative models. Detecting monotonic pieces robustly and 
+ efficiently from sensor or simulation data remains an open problem. This paper presents scale-based 
+ monotonicity: the notion that monotonicity can be defined relative to a scale.  Real-valued functions defined on 
+ a finite set of reals e.g. sensor data or simulation results, can be partitioned into quasi-monotonic segments, 
+ i.e. segments monotonic with respect to a scale, in linear time. A novel segmentation algorithm is introduced 
+ along with a scale-based definition of "flatness". 
+ <!--/p--></description>
+	<link>http://www.daniel-lemire.com/fr/abstracts/IJCAI05.html</link>
+</item>
+
+
+<item>
+	<title>Slope 
+ One Predictors for Online Rating-Based Collaborative 
+ Filtering, SIAM Data Mining (SDM'05), pp. 471-476, 2005. (taux de succÃ¨s 
+ de 36%) (<!--a href="http://arxiv.org/abs/cs.DB/0702144"-->cs.DB/0702144<!--/a-->)</title>
+	<description><!--p--> 
+ Rating-based collaborative filtering is the process of predicting 
+ how a user would rate a given item from other user ratings. We 
+ propose three related slope one schemes with predictors of the 
+ form f(x) = x + b, which precompute the average difference 
+ between the ratings of one item and another for users who rated 
+ both. Slope one algorithms are easy to implement, efficient to 
+ query, reasonably accurate, and they support both online queries 
+ and dynamic updates, which makes them good candidates for 
+ real-world systems. The basic slope one scheme is 
+ suggested as a new reference scheme for collaborative filtering. 
+ By factoring in items that a user liked separately from items that 
+ a user disliked, we achieve results competitive with slower 
+ memory-based schemes over the standard benchmark EachMovie and 
+ Movielens data sets while better fulfilling the desiderata of CF 
+ applications. 
+ <!--/p--></description>
+	<link>http://www.daniel-lemire.com/fr/abstracts/SDM2005.html</link>
+</item>
+
+
+<item>
+	<title>Scale 
+ and Translation Invariant Collaborative Filtering Systems. 
+ Information Retrieval, <!--b-->8<!--/b--> (1), pages 129-150, janvier 2005. 
+ (CNRC 46508)</title>
+	<description><!--p-->Collaborative filtering systems are prediction algorithms over sparse 
+ data sets of user preferences. We modify a wide range of state-of-the-art 
+ collaborative filtering systems to make them scale and translation 
+ invariant and generally improve their accuracy without increasing 
+ their computational cost. Using the EachMovie and the Jester data 
+ sets, we show that learning-free constant time scale and translation 
+ invariant schemes outperforms other learning-free constant time schemes 
+ by at least 3% and perform as well as expensive memory-based schemes 
+ (within 4%). Over the Jester data set, we show that a scale and translation 
+ invariant Eigentaste algorithm outperforms Eigentaste 2.0 by 20%. 
+ These results suggest that scale and translation invariance is a desirable 
+ property. 
+ <!--/p--></description>
+	<link>http://www.daniel-lemire.com/fr/abstracts/IR2003.html</link>
+</item>
+
+
+<item>
+	<title>Monotonicity 
+ Analysis for Constructing Qualitative Models, dans le 
+ compte-rendu de MBR'04, Pavia, Italie, 2004.</title>
+	<description><!--p--> 
+ Qualitative models are more suitable than classical quantitative 
+ models in many tasks like Model-based Diagnosis (MBD), explaining 
+ system behavior, and designing novel devices from first 
+ principles. Monotonicity is an important feature to leverage when 
+ constructing qualitative models. Detecting monotone pieces 
+ robustly and efficiently from sensor or simulation data remains an 
+ open problem. This paper introduces an approach based on 
+ scale-dependent monotonicity: the notion that monotonicity can be 
+ defined relative to a scale. Real-valued functions defined on a 
+ finite set of reals e.g. the sensor data the simulation results, 
+ can be partitioned into quasi-monotone segments, i.e. segments 
+ monotone with respect to nonzero scale. We can identify the 
+ extrema of the quasi-monotone segments. This paper then uses this 
+ method to abstract qualitative models from simulation models for 
+ the purpose of diagnosis. It shows that using monotone analysis, 
+ the abstracted qualitative model is not only sound, but also 
+ parsimonious because it generates few landmarks. 
+ <!--/p--></description>
+	<link>http://www.daniel-lemire.com/fr/abstracts/MBR2004.html</link>
+</item>
+
+
+<item>
+	<title>Monotone 
+ Pieces Analysis for Qualitative Modeling, dans le 
+ compte-rendu de ECAI MONET 2004, Valence, Espagne, 2004.</title>
+	<description><!--p--> 
+ It is a crucial task to build qualitative models of industrial 
+ applications for model-based diagnosis. A Model Abstraction 
+ procedure is designed to automatically transform a quantitative 
+ model into qualitative model. If the data is monotone, the 
+ behavior can be easily abstracted using the corners of the 
+ bounding rectangle. Hence, many existing model abstraction 
+ approaches rely on monotonicity.  But it is not a trivial problem 
+ to robustly detect monotone pieces from scattered data obtained by 
+ numerical simulation or experiments. This paper introduces an 
+ approach based on scale-dependent monotonicity: the notion that 
+ monotonicity can be defined relative to a scale. Real-valued 
+ functions defined on a finite set of reals e.g. simulation 
+ results, can be partitioned into quasi-monotone segments. The end 
+ points for the monotone segments are used as the initial set of 
+ landmarks for qualitative model abstraction. The qualitative model 
+ abstraction works as an iteratively refining process starting from 
+ the initial landmarks. The monotonicity analysis presented here 
+ can be used in constructing many other kinds of qualitative 
+ models; it is robust and computationally efficient.  
+ <!--/p--></description>
+	<link>http://www.daniel-lemire.com/fr/abstracts/MONET2004.html</link>
+</item>
+
+
+
+  </channel>
+  </rss>

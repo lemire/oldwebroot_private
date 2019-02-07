@@ -1,0 +1,304 @@
+
+
+902-542-7923
+lemire@ondelette.com
+http://www.ondelette.com/indexen.html
+
+Daniel Lemire, Ph.D.
+
+Daniel Lemire is an e-business researcher. His recent work
+is on data mining, telehealth, wavelets and data thinning.
+
+ Expérience 
+
+2002-... Associate Researcher
+E-business Research Groupe
+Information Technology Institute 
+National Research Council of Canada (NRC)
+
+2001-2002 Assistant Professor
+Acadia University 
+
+  * Member of the committee on the M.Sc. program.
+
+  * Taught 3 courses for about 200 students including an
+    advanced course in Numerical Methods.
+
+  * Acadia University is one of the best canadian university
+    and generally rank first for undergraduate teaching.
+
+1999-2001 Independent Scientific Consultant
+
+   MedicalGate Association (2000-2001)
+
+  Daniel Lemire served as a technology architect for Medical
+  Association, a non-profit group of doctors, biologists
+  and pharmacists. We successfully developed a medical records
+  management system through XML descriptors (Multimedia
+  Medical Format) with backward compatibility with systems
+  such HPRIM. At the time, the proposed DTD was certainly
+  one of the first concrete attempt at using XML for medical
+  record management in France, if not the first. The project
+  has since been open-sourced and is part of an ongoing
+  attempt at creating an efficient XML-based medical information
+  management system. It has been used in Franche-Comté and
+  serves as a reference for future projects. 
+
+   Waid/CIRA/Serveur national de radiologie (1999-2000)
+
+  Daniel Lemire was the consulting scientist for the first
+  wavelet-based image server for the "Serveur
+  national de radiologie" in France
+  ("National Radiology Server")
+  . Serving medical images (DICOM) on the web is a major
+  undertaking since the average radiologist will generate
+  over 4 gigabytes of raw data per day. In 2000, Daniel
+  Lemire spent part of the summer at Aix-en-Provence as
+  the guest scientist for this project. The result of this
+  work is known as the "waaves"
+  format and it is currently in use in France for storing
+  and retrieving digital radiology images and thousands
+  of images are sent every day using this system.
+
+   THEM Geophysics Inc./FalconBridge/CAMIRO (1998-2000)
+
+  Over several years, Daniel Lemire worked with THEM Geophysics
+  Inc. with funding from FalconBridge and CAMIRO (Canadian
+  Mining Industry Research Organization) on improving geophysical
+  data processing for the THEM system .
+  The THEM system is the only Canadian airborne EM system
+  for exploring rough terrains. The signal-to-noise ratio
+  was improved by at least 100% using better mathematical
+  modeling. The software has been used successfully in Northern
+  Canada and Sudan in exploration contracts worth several
+  millions of dollars.
+
+1998-1999 Post-doctoral fellowship
+Institut de génie biomédical
+
+  Daniel Lemire got two post-doctoral fellowships: one with
+  professor A.-R. LeBlanc and the other one with professor
+  P. Matthieu both at the "Institut
+  de génie biomédical" ("Biomedical
+  Engineering Institute") and at
+  the "Centre de recherche de l'Hôpital Sacré-Coeur"
+  (Sacré-Coeur Hospital Research Center). He worked on data
+  processing applications in a medical context (ECG, NMR,
+  EMG...).
+
+  The following contributions were made:
+
+  * A new approach to detect myocardial ischemia (lack of
+    oxygen in one's heart) was proposed .
+    Myocardial ischemia is a common cause of death in North
+    America and proper monitoring of the patients is important.
+    The most common monitoring technique involve ECGs and
+    a simple average over a small section of the heartbeat.
+    We were the first to propose wavelets as a tool to measure
+    ischemia. Having several perpendicular measures of the
+    same physiological phenomenon typically allows one to
+    improve accuracy and hence improve clinical monitoring.
+
+  * During his post-doctoral years, Daniel Lemire contributed
+    substantially to the JSci - A science API for Java project.
+    Indeed, all of the processing and visualization software
+    was written in Java. To this day, a large number of
+    classes contributed to JSci are used in various Java
+    projects through the world. Reference: http://maths.dur.ac.uk:8000/~dma3mjh/jsci/.
+
+ Formation
+
+1995-1998 Ph.D. thesis "Subdivision
+schemes and wavelets"
+Département de génie industriel et de mathématiques
+École Polytechnique de Montréal
+Prof. Gilles Deslauriers and Serge Dubuc
+Accepted by: André Fortin and Jean-Marc Lina
+
+  * New non-separable filters for image processing were proposed
+    . It is hoped that these new filters might lead
+    to image processing algorithm with reduced blocking
+    artifacts.
+
+  * New boundary-aware wavelet filters were proposed .
+    This work is important for two reasons: we discovered
+    a mathematically simpler approach to filter design and
+    these new filters provide a new tool for engineers.
+    Indeed, most wavelet filters generate (small) artifacts
+    at the beginning and at the end of signals while these
+    filters can be considered "perfect"
+    filters with regard to the boundaries.
+
+1994-1995 M.Sc. "A Priori Approximations
+for Nonlinear Systems" 
+University of Toronto
+Prof. Catherine Sulem
+
+1990-1994 B.Sc. with "High Distinction"
+University of Toronto
+
+ Contributions, Outreach and Influence
+
+ Media
+
+* Daniel Lemire was invited to the TV show "C'est
+  mathématiques!" ("It's
+  mathematics!") on "Canal
+  Z" (Winter 2001) to discuss Canadian innovations in
+  geophysical data processing. "Canal
+  Z" is the major French TV channel in Canada featuring
+  technology and science programs. "C'est
+  mathématiques!" has been on the air for
+  several years.
+
+* Daniel Lemire gave an interview for the "Bulletin
+  de l'AMQ" (Bulletin of the "Quebec
+  Mathematical Society") on the theme
+  "consulting in the industry as a mathematician"
+  (Autumn 2001). The "AMQ"
+  is the only major Mathematical Society in Quebec and has
+  thousands of members who all receive the "Bulletin
+  de l'AMQ".
+
+ Societies
+
+* Association for Computing Machinery (ACM)
+
+* La Société Québécoise d'Informatique Biomédicale et de
+  la Santé (SoQibs)
+
+* Institute of Electrical and Electronics Engineers, Inc.
+  (IEEE)
+
+* Association Mathématique du Québec (AMQ)
+
+ Referee
+
+* Daniel Lemire has been a referee for a few international
+  journals including IEEE Transactions in Medical Imaging,
+  IEEE Transactions in Signal Processing and others.
+
+* Daniel Lemire was also a scientific advice for MathSoft
+  Inc. in the design of the following Mathcad extension
+  packs: signal processing, image processing, and wavelet.
+  Mathcad is one of the most important mathematical software
+  on the market.
+
+ International
+
+Invited researcher by Waid Inc. (Serveur national de radiologie)
+in Aix-en-Provence (France) in summer 2000.
+
+ Web
+
+Daniel Lemire owns his own domain name on the web "ondelette.com"
+which stands for "wavelet.com".
+This web site host the "Wavelet forum"
+on http://www.ondelette.com/indexen.html ("ondelette"
+is French for "wavelet")
+and meant as a resource for researchers and students interested
+in wavelets. 
+
+ Teaching
+
+Some courses taught recently: numerical methods, vector calculus,
+algorithmics, data structures and java servlets.
+
+ Scholarships
+
+* FCAR (Quebec) for 2 years.
+
+* NSERC (Canada) for 2 years
+
+* C.D. Howe Memorial for 4 years (approximative value: 50,000$).
+
+* Canada Scholarship for 4 years (NSERC).
+
+* Dean's medal for B.Sc. (UofT).
+
+* 3T0 Scholarship (UofT)
+
+ Publications
+
+References
+
+Daniel Lemire, High Resolution Subdivision Schemes, Curves
+and Surfaces, Saint-Malo, France, June-July 2002 (accepted
+on March 2002).
+
+References
+
+Serge Dubuc, Daniel Lemire, Jean-Louis Merrien, Fourier analysis
+of 2-point Hermite interpolatory subdivision schemes, Journal
+of Fourier Analysis and Applications, Volume 7, Issue 5,
+2001. 
+
+References
+
+Daniel Lemire, Recent mathematical advances in EM modeling
+for mineral exploration, Canadian Mining Industry Research
+Organization (CAMIRO), Toronto, Ontario, 2001 (invited talk). 
+
+References
+
+Daniel Lemire, Chantal Pharand, Jean-Claude Rajaonah, Bruno
+Dubé, A.-Robert LeBlanc, Wavelet time entropy, T wave morphology
+and myocardial ischemia, IEEE Transactions in Biomedical
+Engineering, vol. 47, no. 7, July 2000.
+
+References
+
+Daniel Lemire, Intégration Web de formats propriétaires par
+le Java, congrès WebTek, Québec, March 2000.
+
+References
+
+Gilles Deslauriers, Serge Dubuc et Daniel Lemire, Une famille
+d'ondelettes biorthogonales sur l'intervalle obtenue par
+un schéma d'interpolation itérative, Ann. Sci. Math. Québec
+23 (1999), no.1, 37-48.
+
+References
+
+Daniel Lemire, Chantal Pharand, Jean-Claude Rajaonah, Bruno
+Dubé, A.-Robert LeBlanc, Wavelet Time Entropy and T Wave
+Morphology, CMBEC 25, London, June 1999.
+
+References
+
+Alain Béliveau et Daniel Lemire (1999), Géophysique, traitement
+du signal et analyse numérique, congrès Géologie Québec,
+gouvernement du Québec, Québec.
+
+References
+
+Alain Béliveau et Daniel Lemire, White paper on Image Compression
+by Fast Wavelet Transform, white paper pour la société Compression
+d'Images, Réseaux et Automatismes, March 1999.
+
+References
+
+Gilles Deslauriers, Serge Dubuc et Daniel Lemire, Interpolation
+itérative et ondelettes, 66e Congrès de l'Acfas, Université
+Laval, May 1998.
+
+References
+
+Gilles Deslauriers, Serge Dubuc et Daniel Lemire, Dérivées
+de l'interpolation itérative de Lagrange et les ondelettes
+b-adiques de Cohen-Daubechies-Feauveau, Rapport technique
+EPM/RT-97/28, École Polytechnique de Montréal, Montréal,
+April 1997.
+
+References
+
+Gilles Deslauriers, Serge Dubuc, 
+Daniel Lemire (1997), Traitement d'images par ondelettes
+non séparables, Colloque des sciences mathématiques du Québec,
+UQTR, Trois-Rivières.
+
+References
+
+Gilles Deslauriers, Serge Dubuc, Daniel Lemire (1996), Interpolation
+des moments, Colloque des sciences mathématiques du Québec
+et de l'Atlantique, Université de Moncton, Moncton.

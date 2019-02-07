@@ -1,0 +1,315 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr">
+<head>
+<meta name="MSSmartTagsPreventParsing" content="TRUE" />
+<meta http-equiv="Content-Language" content="fr" />
+<meta name="generator" content="HTML Tidy, see www.w3.org" />
+<link rel="alternate" type="text/xml" title="RSS .92" href="publications.rss" />
+
+<meta http-equiv="Content-Style-Type" content="text/css" />
+<meta http-equiv="Content-Script-Type" content=
+"text/javascript" />
+<link rel="stylesheet" type="text/css" href="lemire.css" title=
+"Expérimental" />
+<script type="text/javascript">
+  if (top.frames.length >1) {
+    top.location = self.location;
+  }
+</script>
+
+<link rel="SHORTCUT ICON" href="/favicon.ico"  type="image/x-icon" />
+<meta http-equiv="Content-Type" content=
+"text/html; charset=iso-8859-1" />
+<meta name="Copyright" content="1998-2002 Daniel Lemire" />
+<meta name="Author" content="Daniel Lemire" />
+<title>Daniel Lemire, professeur, Téluq, Université du Québec à Montréal (UQÀM)</title>
+<meta http-equiv="Window-target" content="_TOP" />
+<meta name="Keywords" content=
+"cyberapprentissage, Ondelette, Fourier, base de données multidimentionnelles, OLAP, Approximation Theory, MOLAP" />
+<meta name="Description" content=
+"Daniel Lemire est un chercheur dont les travaux portent sur le cyberapprentissage, 
+la théorie de l'approximation, OLAP et le filtrage collaboratif" />
+<link rel="Alternate" href=
+"http://www.daniel-lemire.com/en/index.html" hreflang="en" lang=
+"en" title="English version" />
+</head>
+<body>
+
+<table cellpadding="0" cellspacing="20" border="0" width="100%"
+align="center" summary="menu de gauche" >
+<tr>
+<td valign="top" ><!--  FIN MENU DE GAUCHE -->
+<h3>Page personnelle de Daniel Lemire</h3>
+
+<p>Bienvenue sur mon site!</p>
+
+<p lang="en"><a href="http://www.daniel-lemire.com/en/">English
+web site</a>.</p>
+
+<h4>Biographie</h4>
+
+<p>Je suis le papa de <a href="http://www.ondelette.com/lohan/">Lohan!</a></p>
+
+<pre class="CURRENTJOBS">
+<!-- <a href=
+"http://iit-iti.nrc-cnrc.gc.ca/">Chercheur, Conseil national de recherches du Canada (CNRC) - ITI</a>-->
+Professeur, Téluq, <a href="http://www.uqam.ca">Université du Québec à Montréal (UQÀM)</a>
+Site à l'UQÀM: <a href="http://www.professeurs.uqam.ca/pages/lemire.daniel.htm">http://www.professeurs.uqam.ca/pages/lemire.daniel.htm</a>
+Chercheur, Groupe de recherche sur les Environnements de soutien au téléapprentissage (ESTA)
+Responsable du baccalauréat ès sciences offert à distance (Téluq, UQÀM)
+Professeur associé, <a href="http://www.math.unb.ca">University of New Brunswick</a>
+</pre>
+
+
+<p>En tant que chercheur, je m'intéresse aux bases de données multidimensionnelles (<abbr title=
+"On-Line Analytical Processing">OLAP</abbr>, <abbr title="Hybrid OLAP">HOLAP</abbr> et <abbr title="Multidimensional OLAP">MOLAP</abbr>),
+au filtrage collaboratif (voir <a href="http://www.indiscover.net">inDiscover</a>), au forage de données
+ainsi qu'à la théorie de l'approximation.
+Les applications de mes travaux portent sur le commerce électronique, l'intelligence d'affaire, la robotique, etc. </p>
+
+<p>Je suis professeur à l'<a href="http://www.uqam.ca/">Université du Québec à Montréal</a> où j'enseigne l'informatique. J'ai été chercheur au sein du groupe de recherche
+en logique Internet au 
+<abbr title="Conseil national de recherches du Canada">CNRC</abbr>.
+J'ai été chef du groupe de recherche
+en santé électronique du <abbr title="Conseil national de recherches du Canada">CNRC</abbr>, professeur à l'<a href=
+"http://www.acadiau.ca">Université Acadia</a>, consultant
+industriel et boursier postdoctoral du CRSNG à l'Institut de génie
+biomédical. J'ai obtenu mon doctorat à l'École Polytechnique de
+Montréal et j'ai fait le reste de mes études universitaires à
+Toronto (<a href="http://www.toronto.edu/">University of Toronto</a>).</p>
+
+<p>En 2002, j'ai gagné le prix du <a href="http://www.daniel-lemire.com/fr/abstracts/CASCON2002.html">meilleur article</a> à la <a href="https://www-927.ibm.com/ibm/cas/archives/2002/papers/index.shtml">conférence CASCON</a> organisée par IBM pour mes travaux
+sur <abbr title=
+"On-Line Analytical Processing">OLAP</abbr>. </p>
+
+<p><strong>Mots-clefs</strong>: entrepôts de données et bases de données multidimensionnelles (OLAP), exploration de données.</p>
+
+<h4>Liens</h4>
+
+<p>Collaborateurs actuels</p>
+<ul>
+<li><a href="http://www.entish.org/">Will Fitzgerald</a> (QSS Group, Inc. and NASA Ames Research Center, <i>Reactive Control</i>)</li>
+<li><a href="http://www.flydragontech.com/">Yuhong Yan</a> (CNRC, <i>Case-Based Reasoning</i>)</li>
+<li>Anna Maclachlan (<a href="http://www.idilia.com">Idilia Inc.</a>, <i>Information Retrieval - Collaborative Filtering</i>)</li>
+<li><a href="http://v5o5jotqkgfu3btr91t7w5fhzedjaoaz8igl.unbsj.ca/~kaser/">Owen Kaser</a> (UNB, MOLAP)</li>
+<li><a href="http://www.cs.unb.ca/~boley/">Harold Boley</a> (CNRC, <i>Rule-Applying Collaborative Filtering - RACOFI</i>)</li>
+<li><a href="http://iit-iti.nrc-cnrc.gc.ca/personnel/brooks_martin_e.html">Martin Brooks</a> (CNRC, Théorie de l'approximation)</li>
+<li><a href="http://erdos.math.unb.ca/~dan/frame_bottom.htm">Dan Kucerovsky</a> (UNB, Théorie de l'approximation)</li>
+<!--<li><a href="http://www.umoncton.ca/raicheg/publications/index.html">Gilles Raiche</a> <i>(UQAM, Adaptive Testing)</i></li>-->
+</ul>
+<p>Collaborations récentes</p>
+<ul>
+<li><a href="http://www.dms.umontreal.ca/Professeurs/dubucs/">Serge Dubuc</a> (U. Montréal)</li>
+<li><a href="http://www.insa-rennes.fr/~jmerrien/">Jean Louis Merrien</a> (INSA Rennes)</li>
+
+</ul>
+
+<p>Liens divers</p>
+
+<ul>
+<li><a href="http://www.ondelette.com/OLAP/dwbib.html">Bibliographie sur les <em>Data Warehouse</em> et OLAP</a> (anglais)</li>
+<li><a href="http://www.cscsi.org/home/CSCSI/Members/swig">Canadian Semantic Web Interest Group (SWIG)</a> (anglais)</li>
+<li>Notre site <a href="http://www.indiscover.net">de recommendation de musique indépendante</a> avec 
+fichiers MP3 en ligne (anglais)</li>
+<li><a href=
+"http://www.daniel-lemire.com/fr/documents/CV/CVdeDanielLemire.pdf">
+Mon c.v.</a> (format Adobe Acrobat/PDF)</li>
+
+
+<li><a href="http://www.ondelette.com/">Forum sur les
+ondelettes</a>:
+
+<p class="INDENTE">pour les chercheurs en théorie de
+l'approximation, traitement du signal et ondelettes.</p>
+</li>
+</ul>
+
+<h4>Étudiants</h4>
+
+<p>Je suis habilité à la direction d'étudiants à l'UQÀM et à la 
+codirection d'étudiants à l'Université du Nouveau-Brunswick.</p>
+
+<ul>
+<li>Je codirige Steve Keith avec
+<a href="http://v5o5jotqkgfu3btr91t7w5fhzedjaoaz8igl.unbsj.ca/~kaser/">Owen Kaser</a> dans le cadre d'une maîtrise en informatique.</li>
+<li>Je dirige Abdelghafour Elomari dans un projet de maîtrise en technologie de l'information.</li>
+<li>Je codirige Hazel Webb au doctorat en informatique avec <a href="http://v5o5jotqkgfu3btr91t7w5fhzedjaoaz8igl.unbsj.ca/~kaser/">Owen Kaser</a>.</li>
+</ul>
+<p><a href="etudiants.html">Financement disponible pour étudiants</a>.</p>
+
+
+<h4>Enseignement (présent)</h4>
+
+<ul>
+
+<li><a href="http://www.teluq.ca/inf6450">INF 6450 - Gestion de l'information avec XML</a>,  offre publique en 2006 (Téluq, UQÀM)</li>
+
+<li><a href="http://www.teluq.uquebec.ca/expl_inf9002/">INF 9002 -  Évaluation et analyse des systèmes d'information</a>, professeur responsable (Téluq, UQÀM)</li>
+</ul>
+
+<h4>Enseignement (futur)</h4>
+<ul>
+<li>CS6905 Advanced Technology on E-business (version 2006) (University of New Brunswick)</li>
+<li>Services web, en préparation (Téluq, UQÀM)</li>
+
+<li>INF 6460 - Recherche et filtrage d'information, en préparation (Téluq, UQÀM)</li>
+
+
+</ul>
+
+
+
+<h4>Enseignement (passé récent)</h4>
+<ul>
+<li><a href="http://pizza.unbsj.ca/~owen/backup/courses/OLAP-2004/">CS6905 Advanced Technology on E-business</a> (version 2004) (University of New Brunswick)</li>
+
+<li><a href="http://www.ondelette.com/NRC/UNBMath3113/wavelet.pdf">20 Years of Wavelets
+(MATH 3113)</a> (University of New Brunswick)</li>
+
+<li><a href="http://pizza.unbsj.ca/~owen/backup/courses/OLAP-2003/">CS6905  Advanced Technologies
+for E-Business</a> (version 2003) (University of New Brunswick)</li>
+
+<li><a href="http://www.ondelette.com/NRC/UNBMath3073/LaTeX/math3073.pdf">Multiscale
+Analysis for Nonlinear Differential Equations</a> (University of New Brunswick)</li>
+
+<li><a href=
+"http://www.daniel-lemire.com/en/2023/index.html">Topics from
+Advanced Calculus</a> (Acadia University)</li>
+
+<li><a href=
+"http://www.daniel-lemire.com/en/3423/index.html">Numerical
+Methods 2</a> (Acadia University)</li>
+
+<li><a href=
+"http://www.ondelette.com/UdeS/IFT339/index.html">Structures de
+données</a> (Université de Sherbrooke)</li>
+
+<li><a href=
+"http://www.ondelette.com/UdeS/IFT438/index.html">Algorithmique</a>
+(Université de Sherbrooke)</li>
+</ul>
+
+<h4>Me joindre</h4>
+
+<pre>
+Professeur Daniel Lemire
+UER Sciences et Technologies (Téluq)
+Pavillon Sherbrooke
+Université du Québec à Montréal (UQÀM)
+100, rue Sherbrooke Ouest
+Montréal  (Québec)
+H2X 3P2 Canada
+<!--4750, avenue Henri-Julien
+Montréal (Québec) Canada
+H2T 3E4-->
+
+
+<!--Bureau 1134-->
+Téléphone: (514) 840-2747 poste 2446
+Courriel: lemire (arobas) ondelette (point) com
+</pre>
+
+
+<h4>Généalogie</h4>
+
+<pre>
+Daniel Lemire, École Polytechnique de Montréal 1998, étudiant de Gilles Deslauriers
+Gilles Deslauriers, Université de Montréal 1975, étudiant de Serge Dubuc
+Serge Dubuc, Cornell University 1966, étudiant de James Eells
+James Eels, Harvard University 1954, étudiant de Hassler Whitney
+Hassler Whitney, Harvard University 1932, étudiant de George Birkhoff
+George Birkhoff, University of Chicago 1907, étudiant d'Eliakim Hastings Moore
+Eliakim Hastings Moore, Yale University 1885, étudiant de Michel Chasles
+Michel Chasles, École Polytechnique 1814, étudiant de Simeon Poisson
+Simeon Poisson était un étudiant de Joseph Louis Lagrange
+Joseph Louis Lagrange était un étudiant de Leonhard Euler
+Leonhard Euler, Universität Basel 1726, était un étudiant de Johann Bernouilli
+Johann Bernouilli était un étudiant de Jacob Bernouilli
+(Jean-Baptiste Joseph Fourier était un étudiant de Joseph Louis Lagrange)
+</pre>
+
+<hr width="100%" />
+<address class="signature">Daniel Lemire, chercheur<br />
+B.Sc., M.Sc. (<a href="http://www.math.toronto.edu/">Toronto</a>), Ph. D. (<a href="http://www.magi.polymtl.ca/">Polytechnique</a>)<br />
+</address>
+</td>
+<td width="20%" valign="top" class="MenuAGauche"><img src=
+"images/JPG/profile2004.jpg" alt="photo de Daniel" height="140" width="100"/>
+
+<p class="ENGLISHINFRENCH" lang="en">English</p>
+
+<ul>
+<li lang="en" class="ENGLISHINFRENCH"><a href=
+"http://www.daniel-lemire.com/en/">English web site</a></li>
+</ul>
+
+<form name="search" action="http://www.google.com/search" method=
+"get"><input size="12" name="q" /> <input type="hidden" name=
+"sitesearch" value="ondelette.com" /><br />
+<input type="submit" value="Recherche" name="submit" /></form>
+
+<p>nouvelles</p>
+
+
+
+
+<ul>
+<li><a href=
+"http://www.daniel-lemire.com/fr/nouvelles.html">dernières
+nouvelles</a> <a href="nouvelles.rss" class="RSS">XML</a> </li>
+</ul>
+
+<p>moi?</p>
+
+<ul>
+<li><a href=
+"http://www.daniel-lemire.com/fr/publications.html">mes
+publications</a> <a href="publications.rss" class="RSS">XML</a> </li>
+
+<li><a href=
+"http://www.daniel-lemire.com/fr/math_info.html">logiciel</a></li>
+
+<li><a href=
+"http://www.daniel-lemire.com/fr/java.html">applets</a></li>
+
+<li><a href=
+"http://www.daniel-lemire.com/fr/interets.html">recherche</a></li>
+
+<li><a href="http://www.daniel-lemire.com/">blog</a> (anglais) <a href="http://www.daniel-lemire.com/blog/wp-rss.php" class="RSS">XML</a></li>
+
+</ul>
+
+<p>menu</p>
+
+<ul>
+<li><a href="http://www.daniel-lemire.com/fr/index.html">la page
+d'accueil</a></li>
+</ul>
+</td>
+</tr>
+</table>
+
+<!-- note sur le copyright -->
+<p class="COPYNOTICE">© 1998-2005 Daniel Lemire,<br /> lemire arobas ondelette point com.</p>
+<p class="COPYNOTICE">Ce site web a été conçu par Daniel Lemire à titre personnel.
+Les vues exprimées sur ce site ne sont pas nécessairement celles de son employeur
+ou de ses clients. Il est cependant possible que du logiciel ou des documents 
+sur ce site web soient la propriété de l'employeur. Dans tous les cas, avant
+de faire une utilisation commerciale de ce que vous pouvez trouver sur ce site,
+vous devez vous assurez d'en avoir le droit. Le gros bon sens s'applique.</p>
+
+<p class="PUBICON"><a href=
+"http://validator.w3.org/check/referer"><img src=
+"http://validator.w3.org/images/vxhtml10" alt="Valid XHTML 1.0!"
+height="31" width="88" /></a> <a href=
+"http://jigsaw.w3.org/css-validator"><img src=
+"http://jigsaw.w3.org/css-validator/images/vcss.gif" alt=
+"Valid CSS!" width="88" height="31" /></a></p>
+
+<a href="http://www.mygooglepagerank.com" target="_blank"><img src="http://www.mygooglepagerank.com/PRimage.php?url=http://www.daniel-lemire.com/fr/" border="0" width="66" height="13" alt="Google PageRank&trade; - Post your PR with MyGooglePageRank.com" /></a><noscript><a href='http://www.mygooglepagerank.com' title='My Google Page Rank'>My Google Page Rank</a></noscript>
+
+</body>
+</html>
+
+

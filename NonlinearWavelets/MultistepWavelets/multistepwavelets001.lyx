@@ -1,0 +1,158 @@
+#LyX 1.1 created this file. For more info see http://www.lyx.org/
+\lyxformat 218
+\textclass amsart
+\begin_preamble
+\newcommand{\R}{{\sf R\hspace*{-0.9ex}\rule{0.15ex}%
+       {1.3ex}\hspace*{0.9ex}}}
+\newcommand{\N}{{\sf N\hspace*{-1.0ex}\rule{0.15ex}%
+       {1.1ex}\hspace*{1.0ex}}}
+\newcommand{\Q}{{\sf Q\hspace*{-1ex}\rule{0.15ex}%
+       {1.3ex}\hspace*{1.1ex}}}
+\newcommand{\C}{{\sf C\hspace*{-0.9ex}\rule{0.15ex}%
+       {1.3ex}\hspace*{0.9ex}}}
+\usepackage{epsfig}
+\usepackage{amsmath,amssymb}
+\usepackage{pslatex}
+\usepackage{color}
+
+
+\newif \ifpdf
+    \ifx \pdfoutput \undefined
+        \pdffalse
+    \else
+        \pdftrue
+\fi
+
+
+\ifpdf
+ \usepackage{thumbpdf}
+ \usepackage[pdftex,urlcolor=black,colorlinks=false]{hyperref}
+ \pdfinfo{
+            /Title      (Multistep Wavelets)
+            /Author     (Daniel Lemire, Ph.D.)
+            /Subject 	( note to myself: fill this in)
+            /Keywords   (subdivision schemes, interpolation, CAGD, wavelets)
+          }
+
+\else
+    \usepackage[ps2pdf]{hyperref}
+\fi
+
+\topmargin  = 0pt
+\headheight = 0pt
+\headsep    = 0pt
+
+\voffset    = 0in
+\hoffset    = 0in
+\textheight = 230mm
+\textwidth  = 164mm
+
+\evensidemargin = 0pt
+\oddsidemargin  = 0pt
+
+\pagestyle{empty}
+\usepackage{float}
+
+\definecolor{veryblackblue}{rgb}{0.0,0.0,0.1}
+
+%% Background of blue palette
+ \definecolor{webblackblue}{rgb}{0.0,0.0,0.2}
+ \definecolor{webblue}{rgb}{0.0, 0.0, 0.6}
+
+%% Background of red palette
+ \definecolor{webblackred}{rgb}{0.2,0.0,0.0}
+ \definecolor{webred}{rgb}{0.6,0.0,0.0}
+
+%% Background of green palette
+ \definecolor{webblackgreen}{rgb}{0.0,0.2,0.0}                                   
+ \definecolor{webgreen}{rgb}{0.0,0.6,0.0} 
+
+%% Background of magenta palette
+ \definecolor{webblackmagenta}{rgb}{0.14,0.0,0.14}                                   
+ \definecolor{webmagenta}{rgb}{0.42,0.0,0.42} 
+
+%% Background of cyan palette
+ \definecolor{webblackcyan}{rgb}{0.0,0.14,0.14}                                   
+ \definecolor{webcyan}{rgb}{0.0,0.42,0.42} 
+
+%% Background of yellow pallete
+ \definecolor{webblackyellow}{rgb}{0.14,0.14,0.0}                                   
+ \definecolor{webyellow}{rgb}{0.85,0.85,0.0} 
+
+ \definecolor{webdarkgray}{rgb}{0.2,0.2,0.2}
+
+ \definecolor{webgray}{rgb}{0.75,0.75,0.75}
+ \definecolor{weborange}{rgb}{1.0, 0.6, 0.0}
+
+\renewcommand\labelenumi{\textcolor{webdarkgray}{\arabic{enumi}.}}
+\newcommand{\setenumi}[1]{#1.\setcounter{enumi}{#1}}
+\usepackage{dsfont}
+\end_preamble
+\language english
+\inputencoding auto
+\fontscheme default
+\graphics dvips
+\paperfontsize default
+\spacing single 
+\papersize Default
+\paperpackage a4
+\use_geometry 0
+\use_amsmath 0
+\paperorientation portrait
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\defskip medskip
+\quotes_language english
+\quotes_times 2
+\papercolumns 1
+\papersides 2
+\paperpagestyle default
+
+\layout Title
+
+Multistep wavelets
+\layout Author
+
+Daniel Lemire
+\layout Abstract
+
+The wavelet transform is essentially a single-step iterative scheme where
+ the wavelet coefficients are computed one scale at a time.
+ What happens when we are allowed to go back to modify the wavelet coefficients
+ of previous scales (note to myself: how does this relate with oblique wavelets?
+).
+\layout Keywords
+
+Subdivision Schemes, Fourier transform, CAGD, Wavelets, Lagrange Interpolation
+\layout Section
+
+Introduction
+\layout Standard
+
+Note to myself: Do a seach on extrapolation wavelets, multistep wavelets.
+\layout Standard
+
+See python file ModifiedHaar.py.
+\layout Quotation
+
+\SpecialChar ~
+
+\layout Quotation
+
+\SpecialChar ~
+
+\layout Quotation
+
+class Haar: def __init__(self): print "hello"
+\layout Quotation
+
+def transform(self,data,scaleindex): half = scaleindex / 2 out=data.copy()
+ for i in range(half) : # print data[2 * i] # print data[2 * i + 1] out[i]
+ = (data[2 * i] + data[2 * i + 1])/2.0 # print "out["+str(i)+"] = "+str(out[i])
+ out[i+half] = float( (float(data[2 * i]) - float(data[2* i + 1]))/2.0) #
+ print float( (float(data[2 * i]) - float(data[2* i + 1]))/2.0) # print "out["+st
+r(i+half)+"] = "+str(out[i+half]) return out # we upgrade the transform
+ def update(self,data,SecondWaveletIndex): out = data.copy() for i in range(Secon
+dWaveletIndex,2*SecondWaveletIndex): out[i] -= 0.5 * data[i/2] return out
+\the_end

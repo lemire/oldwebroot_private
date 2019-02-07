@@ -1,0 +1,726 @@
+#LyX 1.1 created this file. For more info see http://www.lyx.org/
+\lyxformat 218
+\textclass article
+\begin_preamble
+ \usepackage{epsfig}
+\usepackage{amsmath,amssymb}
+\usepackage{pslatex}
+\usepackage{color}
+ 
+ \definecolor{veryblackblue}{rgb}{0.0,0.0,0.1}
+ \usepackage[pdftex,urlcolor=webblackblue,colorlinks=true]{hyperref}
+ \pdfinfo{
+            /Title      (Assignment 1 for Math 3423 - Numerical Methods 2)
+            /Author     (Daniel Lemire, Ph.D.)
+            /Subject    (This is the first assignment for Math 3423.)
+            /Keywords   (Numerical differentiation and integration.)
+          }
+
+
+\topmargin  = 0pt
+\headheight = 0pt
+\headsep    = 0pt
+
+\voffset    = 0in
+\hoffset    = 0in
+\textheight = 230mm
+\textwidth  = 164mm
+
+\evensidemargin = 0pt
+\oddsidemargin  = 0pt
+
+\pagestyle{empty}
+\usepackage{float}
+
+%% Background of blue palette
+ \definecolor{webblackblue}{rgb}{0.0,0.0,0.2}
+ \definecolor{webblue}{rgb}{0.0, 0.0, 0.6}
+
+%% Background of red palette
+ \definecolor{webblackred}{rgb}{0.2,0.0,0.0}
+ \definecolor{webred}{rgb}{0.6,0.0,0.0}
+
+%% Background of green palette
+ \definecolor{webblackgreen}{rgb}{0.0,0.2,0.0}                                   
+ \definecolor{webgreen}{rgb}{0.0,0.6,0.0} 
+
+%% Background of magenta palette
+ \definecolor{webblackmagenta}{rgb}{0.14,0.0,0.14}                                   
+ \definecolor{webmagenta}{rgb}{0.42,0.0,0.42} 
+
+%% Background of cyan palette
+ \definecolor{webblackcyan}{rgb}{0.0,0.14,0.14}                                   
+ \definecolor{webcyan}{rgb}{0.0,0.42,0.42} 
+
+%% Background of yellow pallete
+ \definecolor{webblackyellow}{rgb}{0.14,0.14,0.0}                                   
+ \definecolor{webyellow}{rgb}{0.85,0.85,0.0} 
+
+ \definecolor{webdarkgray}{rgb}{0.2,0.2,0.2}
+
+ \definecolor{webgray}{rgb}{0.75,0.75,0.75}
+ \definecolor{weborange}{rgb}{1.0, 0.6, 0.0}
+
+\renewcommand\labelenumi{\textcolor{webdarkgray}{\arabic{enumi}.}}
+\newcommand{\setenumi}[1]{#1.\setcounter{enumi}{#1}}
+\usepackage{dsfont}
+\end_preamble
+\language american
+\inputencoding auto
+\fontscheme default
+\graphics default
+\paperfontsize default
+\spacing single 
+\papersize Default
+\paperpackage a4
+\use_geometry 0
+\use_amsmath 0
+\paperorientation portrait
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\defskip medskip
+\quotes_language english
+\quotes_times 2
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+
+\layout Title
+
+Assignment 2
+\newline 
+MATH 3423 - Numerical Methods 2
+\newline 
+Acadia University
+\layout Author
+
+
+\latex latex 
+
+\backslash 
+href{http://www.ondelette.com/acadia/}{Daniel Lemire}
+\latex default 
+, Ph.D.
+ 
+\layout Date
+
+Winter 2002
+\newline 
+Due February 25th 2002
+\layout Section
+
+
+\latex latex 
+
+\backslash 
+texorpdfstring{
+\backslash 
+textcolor{webblackblue}{Requirements}}{Requirements}
+\layout Standard
+
+If you met the requirements (presentation), you were granted 5/5.
+\layout Section
+
+
+\latex latex 
+
+\backslash 
+texorpdfstring{
+\backslash 
+textcolor{webblackblue}{Linear Splines}}{Linear Splines}
+\layout Subsection
+
+
+\latex latex 
+
+\backslash 
+texorpdfstring{
+\backslash 
+textcolor{webblue}{Approximation Order in 1D}}{Approximation Order in 1D}
+\layout Enumerate
+
+Given 
+\begin_inset Formula \( f \)
+\end_inset 
+
+ is a smooth function, let 
+\begin_inset Formula \( Sf \)
+\end_inset 
+
+ be the linear spline (a function piecewise linear and continuous) interpolating
+ the values 
+\begin_inset Formula \( y_{k}=f(k\Delta x) \)
+\end_inset 
+
+ over the nodes 
+\begin_inset Formula \( x_{k}=k\Delta x \)
+\end_inset 
+
+ .
+\begin_deeper 
+\layout Enumerate
+
+If 
+\begin_inset Formula \( f(x)=x \)
+\end_inset 
+
+ and 
+\begin_inset Formula \( \Delta x=1 \)
+\end_inset 
+
+, find 
+\begin_inset Formula \( \left\Vert Sf-f\right\Vert _{L^{\infty }([0,10])}=\max \left\{ |Sf(x)-f(x)|:x\in [0,10]\right\}  \)
+\end_inset 
+
+.
+\newline 
+
+\color blue
+Solution: since 
+\begin_inset Formula \( f \)
+\end_inset 
+
+ is linear, the error must be zero.
+\layout Enumerate
+
+If 
+\begin_inset Formula \( f(x)=\sqrt{x} \)
+\end_inset 
+
+ and 
+\begin_inset Formula \( \Delta x=1 \)
+\end_inset 
+
+, find 
+\begin_inset Formula \( \left\Vert Sf-f\right\Vert _{L^{\infty }([1,2])}=\max \left\{ |Sf(x)-f(x)|:x\in [1,2]\right\}  \)
+\end_inset 
+
+.
+\newline 
+
+\color blue
+Solution: 
+\begin_inset Formula \( Sf=(2-x)+\sqrt{2}(x-1) \)
+\end_inset 
+
+ and 
+\begin_inset Formula \( f=\sqrt{x} \)
+\end_inset 
+
+, hence 
+\begin_inset Formula \( Sf-f=(2-x)+\sqrt{2}(x-1)-\sqrt{x} \)
+\end_inset 
+
+.
+ We have to find the extrema of 
+\begin_inset Formula \( Sf-f \)
+\end_inset 
+
+ over 
+\begin_inset Formula \( [1,2] \)
+\end_inset 
+
+.
+ First, we solve for 
+\begin_inset Formula \( f'(z)=0 \)
+\end_inset 
+
+ to get 
+\begin_inset Formula \( z=\frac{-1}{8\sqrt{2}-12} \)
+\end_inset 
+
+.
+ We get that the minimum of 
+\begin_inset Formula \( Sf-f \)
+\end_inset 
+
+ is about 
+\begin_inset Formula \( -0.01776695 \)
+\end_inset 
+
+.
+ Hence 
+\begin_inset Formula \( \left\Vert Sf-f\right\Vert _{L^{\infty }([1,2])} \)
+\end_inset 
+
+ is about 
+\begin_inset Formula \( 0.01776695 \)
+\end_inset 
+
+.
+ 
+\layout Enumerate
+
+If 
+\begin_inset Formula \( f(x)=\sqrt{x} \)
+\end_inset 
+
+ and 
+\begin_inset Formula \( \Delta x=1/2 \)
+\end_inset 
+
+, find 
+\begin_inset Formula \( \left\Vert Sf-f\right\Vert _{L^{\infty }([1/2,1])}=\max \left\{ |Sf(x)-f(x)|:x\in [1/2,1]\right\}  \)
+\end_inset 
+
+.
+\newline 
+
+\color blue
+Solution: Same idea again.
+ 
+\begin_inset Formula \( Sf-f=\sqrt{2}(1-x)+2(x-1/2)-\sqrt{x} \)
+\end_inset 
+
+, we solve for the extrema and find a minimum of -0.01256313292354 at 
+\begin_inset Formula \( x\cong  \)
+\end_inset 
+
+0.72855339059327 and hence 
+\begin_inset Formula \( \left\Vert Sf-f\right\Vert _{L^{\infty }([1/2,1])}\cong 0.01256 \)
+\end_inset 
+
+.
+\layout Enumerate
+
+If 
+\begin_inset Formula \( f(x)=\sqrt{x} \)
+\end_inset 
+
+ and 
+\begin_inset Formula \( \Delta x=1/4 \)
+\end_inset 
+
+, find 
+\begin_inset Formula \( \left\Vert Sf-f\right\Vert _{L^{\infty }([1/4,1/2])}=\max \left\{ |Sf(x)-f(x)|:x\in [1/4,1/2]\right\}  \)
+\end_inset 
+
+.
+\newline 
+Solution: Same again...
+ 
+\begin_inset Formula \( Sf-f=2(1/2-x)+\frac{4}{\sqrt{2}}(x-1/4)-\sqrt{x} \)
+\end_inset 
+
+.
+ This time, we find a minimum of -0.00888347648318 and hence 
+\begin_inset Formula \( \left\Vert Sf-f\right\Vert _{L^{\infty }([1/4,1/2])}\cong 0.00888 \)
+\end_inset 
+
+.
+\layout Enumerate
+
+If 
+\begin_inset Formula \( f(x)=x^{2} \)
+\end_inset 
+
+ and 
+\begin_inset Formula \( \Delta x=1 \)
+\end_inset 
+
+, find 
+\begin_inset Formula \( \left\Vert Sf-f\right\Vert _{L^{\infty }([0,1])}=\max \left\{ |Sf(x)-f(x)|:x\in [0,1]\right\}  \)
+\end_inset 
+
+.
+\newline 
+
+\color blue
+Solution: 
+\begin_inset Formula \( Sf=x \)
+\end_inset 
+
+ and thus 
+\begin_inset Formula \( Sf-f=x-x^{2} \)
+\end_inset 
+
+ and the extrema is at 
+\begin_inset Formula \( x=1/2 \)
+\end_inset 
+
+.
+ Therefore 
+\begin_inset Formula \( \left\Vert Sf-f\right\Vert _{L^{\infty }([0,1])}=\frac{1}{4} \)
+\end_inset 
+
+.
+\layout Enumerate
+
+If 
+\begin_inset Formula \( f(x)=x^{2} \)
+\end_inset 
+
+ and 
+\begin_inset Formula \( \Delta x=1 \)
+\end_inset 
+
+, find 
+\begin_inset Formula \( \left\Vert Sf-f\right\Vert _{L^{\infty }([0,10])}=\max \left\{ |Sf(x)-f(x)|:x\in [0,10]\right\}  \)
+\end_inset 
+
+.
+\newline 
+
+\color blue
+Solution: The trick he is that we have 10 elements (11 nodes).
+ On 
+\begin_inset Formula \( [k,k+1] \)
+\end_inset 
+
+, the spline is given by 
+\begin_inset Formula \( Sf(x)=k^{2}+(x-k)((k+1)^{2}-k^{2}) \)
+\end_inset 
+
+, hence the difference is given by 
+\begin_inset Formula \( Sf(x)-f(x)=-x^{2}+(2k+1)x-k^{2}-k \)
+\end_inset 
+
+.
+ Solving for 
+\begin_inset Formula \( Sf'(x)-f'(x)=0 \)
+\end_inset 
+
+, we get 
+\begin_inset Formula \( x_{max}=\frac{2k+1}{2} \)
+\end_inset 
+
+ and 
+\begin_inset Formula \( Sf(x_{max})-f(x_{max})=1/4 \)
+\end_inset 
+
+ and hence 
+\begin_inset Formula \( \left\Vert Sf-f\right\Vert _{L^{\infty }([0,10])}=1/4 \)
+\end_inset 
+
+.
+\end_deeper 
+\layout Enumerate
+
+Given 
+\begin_inset Formula \( f \)
+\end_inset 
+
+ is a smooth function, let 
+\begin_inset Formula \( Sf \)
+\end_inset 
+
+ be the linear spline (a function piecewise linear and continuous) interpolating
+ the values 
+\begin_inset Formula \( y_{k}=f(k\Delta x) \)
+\end_inset 
+
+ over the nodes 
+\begin_inset Formula \( x_{k}=k\Delta x \)
+\end_inset 
+
+ .
+\begin_deeper 
+\layout Enumerate
+
+The function 
+\begin_inset Formula \[
+\Phi (t)=f(t)-Sf(t)-\frac{\left( t-x_{k}\right) \left( t-x_{k+1}\right) }{\left( x-x_{k}\right) \left( x-x_{k+1}\right) }\left( f(x)-Sf(x)\right) \]
+
+\end_inset 
+
+for any 
+\begin_inset Formula \( x \)
+\end_inset 
+
+ in 
+\begin_inset Formula \( (x_{k},x_{k+1}) \)
+\end_inset 
+
+ has at least 3 distinct roots in 
+\begin_inset Formula \( [x_{k},x_{k+1}] \)
+\end_inset 
+
+, hence its second derivative has at least one zero by Rolle's theorem.
+ Use this fact to estimate 
+\begin_inset Formula \( \left\Vert Sf-f\right\Vert _{L^{\infty }([x_{k},x_{k+1}])}=\max \left\{ |Sf(x)-f(x)|:x\in [x_{k},x_{k+1}]\right\}  \)
+\end_inset 
+
+ in terms of the second derivative of 
+\begin_inset Formula \( f \)
+\end_inset 
+
+.
+\newline 
+
+\color blue
+Solution: The zeroes of 
+\begin_inset Formula \( \Phi (t) \)
+\end_inset 
+
+ are 
+\begin_inset Formula \( t=x_{k},x,x_{k+1} \)
+\end_inset 
+
+.
+ Hence, there exists 
+\begin_inset Formula \( \xi  \)
+\end_inset 
+
+ such that 
+\begin_inset Formula \( \Phi ''(\xi )=0 \)
+\end_inset 
+
+ and therefore 
+\begin_inset Formula \( f(x)-Sf(x)=\frac{\left( x-x_{k}\right) \left( x-x_{k+1}\right) }{2}f''(\xi ) \)
+\end_inset 
+
+.
+ If 
+\begin_inset Formula \( |f''|\leq M \)
+\end_inset 
+
+ then
+\begin_inset Formula \( \left| f(x)-Sf(x)\right| \leq \frac{M\left( x-x_{k}\right) \left( x-x_{k+1}\right) }{2}\leq \frac{M(\Delta x)^{2}}{8}. \)
+\end_inset 
+
+
+\layout Enumerate
+
+Let 
+\begin_inset Formula \( f(x)=\sqrt{x} \)
+\end_inset 
+
+ and 
+\begin_inset Formula \( \Delta x=1/2^{n+1} \)
+\end_inset 
+
+, using part (a) find a good upper bound for 
+\begin_inset Formula \( \left\Vert Sf-f\right\Vert _{L^{\infty }([1/2^{n+1},1/2^{n}])}=\max \left\{ |Sf(x)-f(x)|:x\in [1/2^{n+1},1/2^{n}]\right\}  \)
+\end_inset 
+
+.
+ What do you expect will be 
+\begin_inset Formula \( \lim _{n\rightarrow \infty }\left\Vert Sf-f\right\Vert _{L^{\infty }([1/2^{n+1},1/2^{n}])} \)
+\end_inset 
+
+?
+\newline 
+
+\color blue
+Solution: 
+\begin_inset Formula \( f''(x)=\frac{-1}{4x^{3/2}} \)
+\end_inset 
+
+ and 
+\begin_inset Formula \( f'' \)
+\end_inset 
+
+ is bounded by 
+\begin_inset Formula \( \frac{1}{4(1/2^{n+1})^{3/2}}=2^{3n/2+1/2} \)
+\end_inset 
+
+ over 
+\begin_inset Formula \( [1/2^{n+1},1/2^{n}] \)
+\end_inset 
+
+, hence 
+\begin_inset Formula \( \left| f(x)-Sf(x)\right| \leq \frac{M(\Delta x)^{2}}{8}=\frac{2^{3n/2+1/2}}{8\times 2^{2n+2}}=\frac{1}{32\times 2^{\frac{n+1}{2}}}. \)
+\end_inset 
+
+ As 
+\begin_inset Formula \( n\rightarrow \infty  \)
+\end_inset 
+
+, the error should go down to zero.
+ 
+\layout Enumerate
+
+Generalize your result from part (a) for 
+\begin_inset Formula \( \left\Vert Sf-f\right\Vert _{L^{\infty }((-\infty ,\infty ))}=\max \left\{ |Sf(x)-f(x)|:x\in (-\infty ,\infty )\right\}  \)
+\end_inset 
+
+ with any 
+\begin_inset Formula \( \Delta x \)
+\end_inset 
+
+.
+\newline 
+
+\color blue
+Solution: The only difference here is that we have several nodes instead
+ of only two.
+ Other than that, the estimate can be chosen to be the same 
+\begin_inset Formula \( \left| f(x)-Sf(x)\right| \leq \frac{M(\Delta x)^{2}}{8} \)
+\end_inset 
+
+.
+\layout Enumerate
+
+If 
+\begin_inset Formula \( f(x)=x^{2} \)
+\end_inset 
+
+ and 
+\begin_inset Formula \( \Delta x=1 \)
+\end_inset 
+
+, can you easily give an upper bound for 
+\begin_inset Formula \( \left\Vert Sf-f\right\Vert _{L^{\infty }((-\infty ,\infty ))}=\max \left\{ |Sf(x)-f(x)|:x\in (-\infty ,\infty )\right\}  \)
+\end_inset 
+
+? Explain.
+\newline 
+
+\color blue
+Solution: Given that 
+\begin_inset Formula \( f''(x)=2 \)
+\end_inset 
+
+, then an easy upper bound is 
+\begin_inset Formula \( \frac{M(\Delta x)^{2}}{8}=\frac{2(1)^{2}}{8}=\frac{1}{4} \)
+\end_inset 
+
+.
+ 
+\end_deeper 
+\layout Subsection
+
+
+\latex latex 
+
+\backslash 
+texorpdfstring{
+\backslash 
+textcolor{webblue}{Splines in the plane}}{Splines in the plane}
+\layout Enumerate
+
+Given three points in the plane 
+\begin_inset Formula \( \underline{x_{1}},\underline{x_{2}},\underline{x_{3}} \)
+\end_inset 
+
+ with corresponding 
+\begin_inset Formula \( z \)
+\end_inset 
+
+ values 
+\begin_inset Formula \( z_{1},z_{2},z_{3} \)
+\end_inset 
+
+ find a linear interpolation of these values 
+\begin_inset Formula \( z(x,y)=a+bx+cy \)
+\end_inset 
+
+.
+ Hint: you need to generalize Lagrange or Newton interpolation.
+ Use Maple/Matlab/...
+ to check your answer!
+\newline 
+
+\color blue
+Solution: Let 
+\begin_inset Formula \( \underline{x_{1}}=(x1,y1),\, \underline{x_{2}}=(x2,y2),\underline{\, x_{3}}=(x3,y3) \)
+\end_inset 
+
+, then 
+\begin_inset Formula \[
+\left[ \begin{array}{ccc}
+1 & x1 & y1\\
+1 & x2 & y2\\
+1 & x3 & y3
+\end{array}\right] \left[ \begin{array}{c}
+a\\
+b\\
+c
+\end{array}\right] =\left[ \begin{array}{c}
+z1\\
+z2\\
+z3
+\end{array}\right] \]
+
+\end_inset 
+
+ and 
+\begin_inset Formula \begin{eqnarray*}
+z(x,y,z) & = & \left[ \begin{array}{ccc}
+1 & x & y
+\end{array}\right] \left[ \begin{array}{c}
+a\\
+b\\
+c
+\end{array}\right] \\
+ & =\left[ \begin{array}{ccc}
+1 & x & y
+\end{array}\right]  & \left[ \begin{array}{ccc}
+1 & x1 & y1\\
+1 & x2 & y2\\
+1 & x3 & y3
+\end{array}\right] ^{-1}\left[ \begin{array}{c}
+z1\\
+z2\\
+z3
+\end{array}\right] \\
+ & = & \frac{\begin{array}{c}
+((x1-x)y2+(x-x2)y1+(x2-x1)y)z_{3}+\\
+((x-x1)y3+(x3-x)y1+(x1-x3)y)z_{2}+\\
+((x2-x)y3+(x-x3)y2+(x3-x2)y)z_{1}
+\end{array}}{(x2-x1)y3+(x1-x3)y2+(x3-x2)y1}.
+\end{eqnarray*}
+
+\end_inset 
+
+We observe that it is very close to Lagrange formula, but a lot more complicated
+ at the same time.
+ The lesson here is that life in 2D is a lot more difficult than in 1D.
+ 
+\layout Enumerate
+
+Assume that 
+\begin_inset Formula \( f(x,y)=1+2x+2y+xy+x^{2}+y^{2} \)
+\end_inset 
+
+.
+ Let 
+\begin_inset Formula \( \underline{x_{1}}=(0,0),\underline{x_{2}}=(1,0),\underline{x_{3}}=(0,1) \)
+\end_inset 
+
+.
+ Find 
+\begin_inset Formula \[
+\varepsilon =\max \left\{ |z(\underline{x})-f(\underline{x})|:\underline{x}\in \triangle \underline{x_{1}},\underline{x_{2}},\underline{x_{3}}\right\} .\]
+
+\end_inset 
+
+ 
+\color blue
+Solution: 
+\begin_inset Formula \( z_{1}=f(\underline{x_{1}})=1, \)
+\end_inset 
+
+ 
+\begin_inset Formula \( z_{2}=f(\underline{x_{2}})=4, \)
+\end_inset 
+
+ 
+\begin_inset Formula \( z_{3}=f(\underline{x_{3}})=4 \)
+\end_inset 
+
+ and hence we have 
+\begin_inset Formula \( z(\underline{x})=3y+3x+1 \)
+\end_inset 
+
+, then 
+\begin_inset Formula \( z(\underline{x})-f(\underline{x})=x+y-xy-x^{2}-y^{2} \)
+\end_inset 
+
+.
+ Setting the gradient to zero, we get 
+\begin_inset Formula \( \left( 1-y-2x,1-x-2y\right) =0 \)
+\end_inset 
+
+ and 
+\begin_inset Formula \( x=y=1/3 \)
+\end_inset 
+
+.
+ It can be seen to be the maximum and we get 
+\begin_inset Formula \( \varepsilon =1/3 \)
+\end_inset 
+
+.
+\the_end

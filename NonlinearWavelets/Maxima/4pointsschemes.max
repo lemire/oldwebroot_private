@@ -1,0 +1,14 @@
+/*
+* Useful tricks to derive 4-point subdivision schemes
+*
+* March 12th 2002
+* Daniel Lemire
+*
+*/
+p(x):=a*x^3+b*x^2+c*x+d;
+coefs: solve([p(-1)=y0,p(0)=y1,p(1)=y2,p(2)=y3],[a,b,c,d]);
+string(rat(subst(coefs,p(1/2))));
+string(rat(subst(coefs,p(1/4))));
+string(rat(subst(coefs,p(1/8))));
+string(rat(subst(coefs,p(3/8))));
+

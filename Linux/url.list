@@ -1,0 +1,592 @@
+#############################################################################################
+# Default configuration block.
+#
+# These configuration values will be used for the sites that follow, unless they are
+# overridden by the site configuration values. Parameter names are case-sensitive.
+#
+# Auth       = "none"; or "username:password"
+# Diff       = "webdiff" to detect and highlight differences; or "none" to mail page as is.
+# HiColor    = "blue"; "yellow"; "pink"; or "grey".
+# Ignore     = list of comma-delimited section names containing ignore keywords.
+# IgnoreURL  = list of comma-delimited section names containing ignore URLs.
+# Tmin       = every token containing <= Tmin words will not be highlighted for differences.
+# Tmax       = every token containing >= Tmax words will not be checked for ignore keywords.
+# Proxy      = specify proxy "http://your.proxy.here:portnum" if you are behind one.
+# Email      = email address to send page to.
+# EmailLink  = email address to send URL to.
+#############################################################################################
+
+Auth      = none
+Diff      = webdiff
+Hicolor   = blue
+Ignore    = General,Date_Time
+IgnoreURL = Adverts
+Tmin      = 0
+Tmax      = 99999
+Email     = lemire@ondelette.com 
+EmailLink = lemire@ondelette.com
+Digest	  = false
+##########################################################################################
+# Sites to monitor
+#
+# Configuration values for each site is separated by a newline.
+# Parameter names are case-sensitive.
+# Parameter values override default values (for given site only) if specified.
+# URL, Name and Prefix parameters must be specified for each site.
+##########################################################################################
+
+URL= file://home/lemire/CVS/jnews/lemire.html
+Name = myrssfeed
+Prefix = myrssfeed
+
+URL= file://home/lemire/CVS/jnews/elearning.html
+Name = elearningmyrssfeed
+Prefix = elearningmyrssfeed
+
+
+
+
+#URL= file://home/lemire/CVS/jnews/eros.html
+#Name = myerosrssfeed
+#Prefix = myerosrssfeed
+
+
+#URL = http://www.math.uqam.CA/ISM/francais/emplois.html
+#Name = Offres d'emplois en mathématiques à l'ISM
+#Prefix = ism
+
+URL = http://dmig.uqar.uquebec.ca/dmig/
+Name = Mathématiques à Rimouski
+Prefix = uqardmig
+
+URL = http://www.dms.umontreal.ca/
+Name = Mathématiques à l'Université de Montréal (nouvelles)
+Prefix = udemnouvellesmath
+
+
+URL = http://www.math.mcgill.ca/
+Name = Mathématiques à McGill
+Prefix = mcgillmath
+
+URL = http://www.siam.org/meetings/calendar.htm
+Name = SIAM Calendar
+Prefix = SIAMCalendar
+
+URL = http://www.informatik.uni-trier.de/~ley/db/conf/vldb/
+Name = VLDB dates
+Prefix = VLDBCalendar
+
+URL = http://www.google.com/support/jobs/bin/static.py?page=intl.html&jobslc=canada
+Name = Googlejobs
+Prefix = Googlejobs
+
+#URL = http://www.cis.drexel.edu/faculty/song/dolap03/dolapmenu.htm
+#Name = DOLAP2003
+#Prefix = DOLAP2003
+
+#URL = http://www.cis.drexel.edu/faculty/song/dolap.html
+#Name = DOLAP
+#Prefix = DOLAP
+
+URL = http://www.vldb.org/
+Name = VLDB
+Prefix = VLDB
+
+URL = http://www.mathstat.concordia.ca/
+Name = Mathématiques à Concordia
+Prefix = concordiamath
+
+URL = http://www.mathstat.concordia.ca/PositionAd.html
+Name = Jobs en mathématiques à Concordia
+Prefix = concordiamathjob
+
+URL = http://www.cs.concordia.ca/department/hiring.html
+Name = Jobs à Concordia en informatique
+Prefix = concordiacs
+
+
+URL = http://www.cs.mcgill.ca/socs/about/employment
+Name = Computer Science at McGill (jobs)
+Prefix = mcgillcsjobs
+
+#URL = http://www.cs.mcgill.ca/
+#Name = Computer Science at McGill
+#Prefix = mcgillcs
+
+URL = http://www.smc.math.ca/Events/.f
+Name = Activités de la SMC
+Prefix = SMCEvents
+
+URL=http://www.caims.ca/Society/conflinks.html
+Name=SCMAImeetings
+Prefix=SCMAImeetings
+
+URL = http://www.caims.ca/Positions/
+Name = emplois (SCMAI)
+Prefix = SCMAIJobs
+
+URL = http://www.scmai.ca/Events/index.html
+Name = events (SCMAI)
+Prefix = SCMAIEvents
+
+URL = http://www.aarms.math.ca/events/index.php
+Name = events (AARMS)
+Prefix = AARMSevents
+
+URL = http://www.math.uqam.ca/_coll/
+Name = Colloque des sciences mathématiques du Québec
+Prefix = colloquessciencesmath
+
+#URL = http://www.polymtl.ca/rh/index.htm
+#Name = Ressources humaines à la poly
+#Prefix = polyrh
+
+URL = http://www.inrs.uquebec.ca/Francais/index.jsp?page=PosteOffert
+Name = Emplois à l'INRS (général)
+Prefix = inrsemplois
+
+URL = http://camel.math.ca/Employment/#FACPOS
+Name = Camel Faculty position
+Prefix = Camel
+
+URL = http://www.rhu.uqam.ca/affichageprofs/Default.htm
+Name = Ressources humaines  a l\'UQAM
+Prefix = rhuqam
+
+URL = http://www.drh.umontreal.ca/offre/of_prof.html
+Name = Ressources humaines a l\'UdeM
+Prefix = rhudem
+
+
+URL = http://www.uqar.uquebec.ca/uqar/emplois/liste.htm
+Name = UQAR (emplois)
+Prefix = jobsuqar
+
+URL = http://research.microsoft.com/%7Esurajitc/
+Name = Chaudhuri
+Prefix = Chaudhuri
+
+#URL = http://www.crim.ca//index.epl?selec=9000&href=/offres_emplois/index.epl
+#Name = Emplois au CRIM
+#Prefix = jobscrim
+
+URL = http://www.uqat.uquebec.ca/Repertoire/offresdemplois.asp
+Name = Emplois UQAT
+Prefix = jobsuqat
+
+RL=https://oraprdnt.uqtr.uquebec.ca/pls/public/gscw030?owa_no_site=115
+Name=emploiuqtr
+Prefix=emploiuqtr
+
+URL= http://campus.acm.org/calendar/prompt3a.cfm?TextRequest=Canada
+Name = ACMCalendarCanada
+Prefix= acmcalendarcanada
+
+URL=http://www.info2.uqam.ca/~missaoui/Publications.html
+Name= PublicationsByMissaoui
+Prefix = publicationsbymissaoui
+
+URL=http://www.cs.umn.edu/Research/GroupLens/publications.html
+Name=Grouplenspubs
+Prefix=Grouplenspubs
+
+URL=http://www.cs.cityu.edu.hk/~ckpoon/research/
+Name=CKPoonPapers
+Prefix=CKPoonPapers
+
+#URL = http://matinft4.uqtr.uquebec.ca:3080/maiLister.asp?st=1&od=Nom
+#Name = étudiants à l'uqtr
+#Prefix = uqtrstudents
+
+URL = http://www.uqtr.ca/~biskri/Personnel/publication.html
+Name = pub by biskri
+Prefix = pubbiskri
+
+
+URL = http://www.iro.umontreal.ca
+Name = Département d\'info (UdeM)
+Prefix = infoudem
+
+
+URL = http://www.cs.concordia.ca/department/hiring.html
+Name = postes en informatique (concordia) 
+Prefix = concordiajobsinformatique
+
+URL = http://www.math.mcgill.ca/department/positions.php
+Name = Postes en mathématique à McGill
+Prefix = mcgillmathjob
+
+URL = http://www.mathstat.concordia.ca/PositionAd.html
+Name = postes en math à Concordia
+Prefix = concordiamathjobs
+
+
+URL = http://www.fas.umontreal.ca/postes/
+Name = emplois (UdeM)
+Prefix = udemjobs
+
+URL = http://www.usherbrooke.ca/srh/offres.html?type_poste=professeur
+Name = emplois (Sherbrooke)
+Prefix = sherbrookejobs
+
+URL=http://www.uqo.ca/direction-services/personnels/Professeursnouveaux.asp
+Name = Emploi UQO prof
+Prefix = uqojobsprof
+
+
+URL = http://www.amara.com/current/wavelet.html
+Name = Amara
+Prefix = amara
+
+
+URL = http://www.cs.dal.ca/~panda/publications.html
+Name = Panda publications
+Prefix = pandapub
+
+URL = http://www.cs.duke.edu/~jsv/Papers/catalog/
+Name = papers by Vitter
+Prefix = vitterpapers
+
+URL = http://www.cs.toronto.edu/~mendel/papers.html
+Name = papers by Mendelson
+Prefix = mendelsonpapers
+
+URL = http://www.ualberta.ca/~bhan/publ.htm
+Name = papers by Bin Han
+Prefix = binhanspapers
+
+URL = http://www.math.tau.ac.il/~niradyn/recent_papers.html
+Name = recent papers by Nira Dyn
+Prefix = nirapapers
+
+URL = http://dimlab.usc.edu/ypublications.jsp
+Name = papers on propolyne
+Prefix = propolynepapers
+
+#URL = http://www.insa-rennes.fr/~jmerrien/articles.html
+#Name = Merrien's papers
+#Prefix = merrienpapers
+
+URL = http://v5o5jotqkgfu3btr91t7w5fhzedjaoaz8igl.unbsj.ca/~kaser/reports.html
+Name = Papers by Owen Kaser
+Prefix = kaserspapers
+
+#URL = http://www.math.vanderbilt.edu/~aldroubi/publications.html
+#Name = Papers by Aldroubi
+#Prefix = aldroubispapers
+
+
+URL = http://www-stat.stanford.edu/~donoho/reports.html
+Name = Papers by Dave Donoho
+Prefix = donohospapers
+
+
+URL = http://www.info2.uqam.ca/~godin/godin_rec.html
+Name = Papers by Godin
+Prefix = godinspapers
+
+
+#URL = http://link.springer.de/link/service/journals/00365/contents/tfirst.html
+#Name = Journal of Constructive Approximation
+#Prefix = ContructiveApprox
+
+#URL = http://careers-carrieres.nrc-cnrc.gc.ca/careers/jobpost.nsf/zonepostbycat_E
+#Name = NRCInternal
+#Prefix = NRCInternal
+
+#URL = http://careers-carrieres.nrc-cnrc.gc.ca/careers/jobpost.nsf/postbycitye?openview&start=1&count=60
+#Name = NRCExternal
+#Prefix = NRCExternal
+
+URL = http://www.ercim.org/publication/conferences.html
+Name = ercimconf
+Prefix = ercimconf
+
+URL = http://w3.informatik.gu.se/~dixi/conf.htm
+Name = dixiconf
+Prefix = dixiconf
+
+URL = http://www.isworld.org/forthcoming/jourchapcfp.asp
+Name = isworldjournalcfp
+Prefix = isworldjournalcfp
+
+URL = http://www.isworld.org/forthcoming/conferencecfp.asp
+Name = isworldconfcfp
+Prefix = isworldconfcfp
+
+URL=http://research.microsoft.com/~gray/JimGrayPublications.htm
+Name = Graypapers
+Prefix = Graypapers
+
+URL=http://www.dblab.ece.ntua.gr/~pvassil/publications/publications.html
+Name = Panospub
+Prefix = Panospub
+
+URL=http://www.blois.univ-tours.fr/~marcel/research.html
+Name = Marcelpub
+Prefix = Marcelpub
+
+URL= http://www.cs.unb.ca/~boley/abstracts.html
+Name = abstractboley
+Prefix = abstractboley
+
+
+URL = http://jamesthornton.com/cf/
+Name = thorntoncf
+Prefix = thorntoncf
+
+URL = http://www.ieor.berkeley.edu/~goldberg/pubs/
+Name = goldbergpub
+Prefix = goldbergpub
+
+URL = http://research.microsoft.com/~horvitz/
+Name = horvitz
+Prefix = horvitz
+
+URL = http://web.engr.oregonstate.edu/~herlock/papers.html
+Name = herlock
+Prefix = herlock
+
+URL = http://www-users.cs.umn.edu/~karypis/publications/cf.html
+Name = karypis
+Prefix = karypis
+
+
+URL = http://www.cs.utexas.edu/users/ml/publication/recommender.html
+Name = mlrec
+Prefix = mlrc
+
+URL = http://research.microsoft.com/%7Ecarlk/
+Name = microcarl
+Prefix = microcarl
+
+URL = http://research.microsoft.com/%7Eheckerman/
+Name = heckerman
+Prefix = heckerman
+
+#URL = http://indiscover.net/stats.php
+#Name = indiscoverstat
+#Prefix = indiscoverstat
+
+URL = http://www.cs.toronto.edu/db/WebPage/htmldocs/PublicByYear.html
+Name = torontodbgroup
+Prefix = torontodbgroup
+
+URL=http://www.uqac.ca/administration_services/sprt/postes.php
+Name = uqacjob
+Prefix = uqacjob
+
+URL=http://www.math.rutgers.edu/%7Ezeilberg/OPINIONS.html
+Name=zeilbergtopinions
+Prefix=zeilbergopinions
+
+URL=http://www.criq.qc.ca/fr/0100_enaff/p0107_offres_emploi.html
+Name=jobwithcriq
+Prefix=jobwithcriq
+
+URL=http://www.latece.uqam.ca/fr/c_nouvelles.html
+Name=latecenews
+Prefix=latecenews
+
+URL=http://www.fqrnt.gouv.qc.ca/nateq/subventions/index.htm
+Name=fcarsub
+Prefix=fcarsub
+
+URL=http://www.computer.org/internet/call4ppr.htm
+Name=ieeeinternetcomputingcfp
+Prefix=ieeeinternetcomputingcfp
+
+#URL=http://patft.uspto.gov/netacgi/nph-Parser?Sect1=PTO2&Sect2=HITOFF&u=%2Fnetahtml%2Fsearch-adv.htm&r=0&f=S&l=50&d=PTXT&RS=%22attribute+value%22+AND+reordering&Refine=Refine+Search&Refine=Refine+Search&Query=%22attribute+value%22+AND+reordering+AND+compression
+#Name=patentsearch1
+#Prefix=patentsearch1
+
+#URL=http://patft.uspto.gov/netacgi/nph-Parser?Sect1=PTO2&Sect2=HITOFF&p=1&u=%2Fnetahtml%2Fsearch-bool.html&r=0&f=S&l=50&TERM1=wavelet&FIELD1=&co1=AND&TERM2=OLAP&FIELD2=&d=ptxt
+#Name=patentsearch2
+#Prefix=patentsearch2
+
+#URL=http://patft.uspto.gov/netacgi/nph-Parser?Sect1=PTO2&Sect2=HITOFF&u=%2Fnetahtml%2Fsearch-adv.htm&r=0&f=S&l=50&d=PTXT&RS=%28%22collaborative+filtering%22+AND+rating%29&Refine=Refine+Search&Refine=Refine+Search&Query=%22collaborative+filtering%22+AND+rating+and+sum
+#Name=patentsearch3
+#Prefix=patentsearch3
+
+#URL=http://patft.uspto.gov/netacgi/nph-Parser?Sect1=PTO2&Sect2=HITOFF&u=%2Fnetahtml%2Fsearch-adv.htm&r=0&f=S&l=50&d=PTXT&RS=%22range+query%22&Refine=Refine+Search&Refine=Refine+Search&Query=%22range+query%22+and+buffer
+#Name=patentsearch4
+#Prefix=patentsearch4
+
+URL=http://www.ledevoir.com/carrieres.html
+Name=devoirjob
+Prefix=devoirjob
+
+
+
+URL=http://www.flydragontech.com/publications/
+Name=yuhongpub
+Prefix=yuhongpub
+
+URL=http://136.199.54.185/~ley/db/indices/a-tree/l/Lemire:Daniel.html
+Name=lemiredblp
+Prefix=lemiredblp
+
+URL=http://www.nserc.gc.ca/professors_e.asp?nav=profnav&lbi=b1a
+Name=newmedianserc
+Prefix=newmedianserc
+
+URL=http://v5o5jotqkgfu3btr91t7w5fhzedjaoaz8igl.unbsj.ca/~kaser/studentpage.html
+Name=owenstudentpage
+Prefix=owenstudentpage
+
+URL=http://v5o5jotqkgfu3btr91t7w5fhzedjaoaz8igl.unbsj.ca/~kaser/reports.html
+Name=owentechreports
+Prefix=owentechreports
+
+URL=http://www.research.att.com/~suresh/papers.html
+Name=sureshpapers
+Prefix=sureshpapers
+
+URL= file://home/lemire/CVS/jnews/games.html
+Name=mygamesrssfeed
+Prefix=mygamesrssfeed
+
+URL= http://www.sciences.uqam.ca/
+Name=scienceuqam
+Prefix=scienceuqam
+
+URL=http://www.math.rutgers.edu/~zeilberg/OPINIONS.html
+Name=zeilberg
+Prefix=zeilberg
+
+
+URL=http://www.idea-group.com/journals/tocVolumes.asp?id=4291
+Name=ijdwm
+Prefix=ijdwm
+
+URL=http://www.info.uqam.ca/informations/repartie/
+Name=repartie
+Prefix=repartie
+
+URL=http://gplsi.dlsi.ua.es/congresos/dolap05/?opc=2
+Name=dolap05announcements
+Prefix=dolap05announcements
+
+URL=http://gplsi.dlsi.ua.es/congresos/dolap05/?opc=2
+Name=dolap05announcements
+Prefix=dolap05announcements
+
+URL=http://gplsi.dlsi.ua.es/congresos/dolap05/
+Name=dolap05main
+Prefix=dolap05main
+
+URL=http://www.cis.drexel.edu/faculty/song/dolap.htm
+Name=dolapworkshops
+Prefix=dolapworkshops
+
+
+URL=http://www.ercim.org/publication/conferences.html
+Name=ercimcfp
+Prefix=ercimcfp
+
+URL=http://campus.acm.org/calendar/prompt3a.cfm?TextRequest=database
+Name=acmdatabase
+Prefix=acmdatabase
+
+
+URL=http://campus.acm.org/calendar/prompt3a.cfm?TextRequest=OLAP
+Name=acmOLAP
+Prefix=acmOLAP
+
+URL=http://campus.acm.org/calendar/prompt3a.cfm?TextRequest=data%20mining
+Name=acmdatamining
+Prefix=acmdatamining
+
+URL=http://islab.kaist.ac.kr/chungcw/interJournal.html
+Name=chungcwjournal
+Prefix=chungcwjournal
+
+URL=http://islab.kaist.ac.kr/chungcw/interConf.html
+Name=chungcwconf
+Prefix=chungcwconf
+
+URL=http://alpha.uhasselt.be/~lucp1080/icdt/
+Name=icdtnews
+Prefix=icdtnews
+
+URL=http://www.sigmod.org/sigmod/conferences/
+Name=sigmodpodsconfnews
+Prefix=sigmodpodsconfnews
+
+URL=http://www-db.cs.wisc.edu/cidr/
+Name=CIDR
+Prefix=CIDR
+
+
+URL=https://www-927.ibm.com/ibm/cas/cascon/index.shtml
+Name=casconpage
+Prefix=casconpage
+
+
+URL=http://www.acm.org/sigir/events/events-upcoming.html
+Name=sigirupcomingevents
+Prefix=sigirupcomingevents
+
+
+URL=http://eventseer.net/search/search.py/search?s=OLAP
+Name=eventseerolap
+Prefix=eventseerolap
+
+URL=http://eventseer.net/search/search.py/search?s=%22time%20series%22
+Name=eventsirtime
+Prefix=eventsirtime
+
+
+URL=http://eventseer.net/search/search.py/search?s=Quebec
+Name=eventseerquebec
+Prefix=eventseerquebec
+
+
+URL=http://www.cs.ucr.edu/~mirella/cfps.html
+Name=mirellacfp
+Prefix=mirellacfp
+
+URL=http://scholar.google.com/scholar?as_q=&num=100&btnG=Search+Scholar&as_sauthors=%22Daniel+Lemire%22
+UserAgent=monduna.com/2.5
+Name=lemirescholar
+Prefix=lemirescholar
+
+URL=http://www.itsoc.org/publications/newsletters.html
+Name=infosocietynews
+Prefix=infosocietynews
+
+URL=http://rali.iro.umontreal.ca/Conference/
+Name=raliconf
+Prefix=raliconf
+
+URL=http://www.acm.org/sigs/sigkdd/explorations/issue.php?issue=current
+Name=sigkddexplo
+Prefix=sigkddexplo
+
+URL=http://www.engr.uconn.edu/~dqg/papers/
+Name=Goldinpapers
+Prefix=Goldingpapers
+
+URL=http://tremblay.guy.uqam.ca/
+Name=tremblaypapers
+Prefix=tremblaypapers
+
+URL=http://136.199.54.185/~ley/db/indices/a-tree/l/Lemire:Daniel.html
+Name=mydblq
+Prefix=mydblq
+
+URL=http://lemire:acm7508@portal.acm.org/results.cfm?query=%22time%20series%22&querydisp=%22time%20series%22&srt=meta%5Fpublished%5Fdate%20dsc&short=0&coll=ACM&dl=GUIDE&parser=Internet&source_parser=Internet&source_disp=&source_query=&CFID=1297260&CFTOKEN=77562401
+Name=acmtimeseries
+Prefix=acmtimeseries
+
+URL=http://portal.acm.org/results.cfm?query=OLAP&querydisp=OLAP&srt=meta%5Fpublished%5Fdate%20dsc&short=0&coll=ACM&dl=GUIDE&parser=Internet&source_parser=Internet&source_disp=&source_query=&CFID=1297260&CFTOKEN=77562401
+Name=acmolap
+Prefix=acmolap
+
+URL=http://www.rhu.uqam.ca/affichageprofs/technologie_et_syst%E8mes_d%27information.htm
+Name=uqamtech
+Prefix=uqamtech
+
+URL=http://sigir.org/forum/index.html
+Name=sigirforum
+Prefix=sigirforum

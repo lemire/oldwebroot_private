@@ -1,0 +1,196 @@
+<html>
+<head>
+<title>Page de Nathalie Lampron</title>
+<META NAME="Author" CONTENT="Nathalie Lampron">
+<META NAME="Description" CONTENT="Site de Nathalie Lampron, jeune traductrice tintinologue et amatrice de chats.">
+<META NAME="Keywords" CONTENT="Lampron, Nathalie Lampron, traduction, traducteur, traductrice, terminologie, Milou, Tintin, Haddock, chat, chats, Java, Javascript, Québécois, Québécoise, québécois, québécoise, Montréal, Montréalais, Montréalaise, Berthier, Berthierville, Joliette, Lanaudière, applet, Javascript, UQTR, Université du Québec à Trois-Rivières, cégep Joliette-de Lanaudière, photo, photos, animation, OTIAQ, stade olympique, langues, espagnol, allemand, anglais, fiche terminologique, gifs animés, animation">
+<script type="text/javascript">
+  if (top.frames.length >1) {
+  	top.location = self.location;
+  }
+</script>
+
+<SCRIPT LANGUAGE="JavaScript">
+<!-- debut du script
+function VersionNavigateur(Netscape, Explorer) {
+  if ((navigator.appVersion.substring(0,3) >= Netscape && navigator.appName == 'Netscape') ||      
+      (navigator.appVersion.substring(0,3) >= Explorer && navigator.appName.substring(0,9) == 'Microsoft'))
+    return true;
+else return false;
+}
+//  fin du script -->
+</SCRIPT>
+<SCRIPT LANGUAGE = "JavaScript">
+     <!--
+// DerniereModif JavaScript (C)1997 Cyril Pannetier - La Petite Boutique JavaScript -
+// web : http://www.mygale.org/08/pannetie
+// e-mail : pannetie@mygale.org
+// Ce script est librement utilisable. Merci de ne pas effacer ces commentaires.
+
+
+function browserID() {
+
+	var name = navigator.appName ;
+	var version = navigator.appVersion;
+
+	if (name == 'Netscape') {
+		name = 'Netscape Navigator';
+		version = navigator.appVersion.substring(0,5);
+	}
+	else {
+		if (name == 'Microsoft Internet Explorer') {
+			id = version.indexOf('MSIE');
+			version = version.substring(id+5,id+9);
+		}
+		else {
+			name = 'Navigateur inconnu';
+			version = '0.00';
+		}
+	}
+	ID = name + ' ' + version;
+
+	return ID;
+}
+<!-- maintenant désuet -->
+function DerniereModif(format) {
+
+	var modif = document.lastModified;
+	var heure = '';
+
+	
+
+	browser = browserID();
+	if ( (browser.indexOf('Netscape Navigator') > -1) || (browser.indexOf('Microsoft Internet Explorer 4') > -1) ){
+		mois = modif.substring(0,2);
+		jour = modif.substring(3,5);
+		annee = modif.substring(6,8);
+		heure = modif.substring(9,17);
+		modif = jour + '/' + mois + '/19' + annee;
+	}
+	else {
+		if (browser.indexOf('Microsoft Internet Explorer') > -1) {
+			p1 = modif.indexOf(' ');
+			jour = modif.substring(0,p1);
+			p2 = modif.indexOf(' ',p1+1);
+			mois = modif.substring(p1,p2);
+			p1 = p2;
+			p2 = modif.indexOf(' ',p1+1);
+			jour = jour + ' ' + modif.substring(p1,p2);
+			p1 = p2;
+			p2 = modif.indexOf(' ',p1+1);
+			heure = modif.substring(p1,p2);
+			annee = modif.substring(p2+1,p2+5);
+			modif = jour + ' ' + mois + ' ' + annee;
+		}
+	}
+	if (format == 'F') { 
+		document.write('Dernière modification le ',modif,' à ',heure,'.');
+	}
+	else {
+		if (format =='D') {
+			document.write('Dernière modification le ',modif);
+		}
+		else {
+			if (format =='H') {
+				document.write('Dernière modification à ',heure);
+			}
+		}
+	}
+}
+//-->
+
+     </SCRIPT>
+<SCRIPT LANGUAGE = "JavaScript">
+	 <!--
+// BrowserID JavaScript (C)1997 Cyril Pannetier - La Petite Boutique JavaScript -
+// web : http://www.mygale.org/08/pannetie
+// e-mail : pannetie@mygale.org
+// Ce script est librement utilisable. Merci de ne pas effacer ces commentaires.
+
+function browserID() {
+
+	var name = navigator.appName ;
+	var version = navigator.appVersion;
+
+	if (name == 'Netscape') {
+		name = 'Netscape Navigator';
+		version = navigator.appVersion.substring(0,5);
+	}
+	else {
+		if (name == 'Microsoft Internet Explorer') {
+			id = version.indexOf('MSIE');
+			version = version.substring(id+5,id+9);
+		}
+		else {
+			name = 'Navigateur inconnu';
+			version = '0.00';
+		}
+	}
+	ID = name + ' ' + version;
+
+	return ID;
+}
+//-->
+</SCRIPT>
+
+</head>
+<body background="fondgris.gif" text="#000000" link="#0000ee" vlink="#551a8b" alink="#ff0000" bgcolor="#ffffff">
+ 
+<script language="JavaScript">
+  <!-- Funny text script by Bart Jellema
+    var hellotext="Bienvenue sur ma page!"
+    var thetext=""
+    var started=false
+    var step=0
+    var times=1
+
+    function welcometext()
+    {
+      times--
+      if (times==0)
+      { 
+        if (started==false)
+        {
+          started = true;
+          window.status = hellotext;
+          setTimeout("anim()",1); 
+        }
+        thetext = hellotext;
+      }
+    }
+
+    function showstatustext(txt)
+    {
+      thetext = txt;
+      setTimeout("welcometext()",4000)
+      times++
+    }
+
+    function anim()
+    {
+      step++
+      if (step==7) {step=1}
+      if (step==1) {window.status='>==='+thetext+'===<'}
+      if (step==2) {window.status='=>=='+thetext+'==<='}
+      if (step==3) {window.status='>=>='+thetext+'=<=<'}
+      if (step==4) {window.status='=>=>'+thetext+'<=<='}
+      if (step==5) {window.status='==>='+thetext+'=<=='}
+      if (step==6) {window.status='===>'+thetext+'<==='}
+      setTimeout("anim()",200);
+    }
+  // Funny text script by Bart Jellema -->
+</script>
+<BODY BGCOLOR="#FFFFFF" onLoad="welcometext()">
+
+<p><META HTTP-EQUIV="Content-Type"
+CONTENT="text/html; charset=iso-8859-1">   <IMG SRC="milou_lisant.gif" BORDER=0 WIDTH=86 HEIGHT=102 align=left alt="Milou est heureux de vous souhaiter la bienvenue sur cette page"><IMG SRC="Photos_numerisees/Nathalie.jpg" BORDER=0 WIDTH=97 HEIGHT=107 align="right" alt="Nathalie Lampron"><br>
+&nbsp;
+<h2><center>Bienvenue sur le site de Nathalie</h2>
+</center>
+<br>
+<CENTER><HR SIZE=5 NOSHADE WIDTH="100%"></CENTER>
+<BR><BR>
+<DIV ALIGN="center"><FONT SIZE=+2>Mon site a été refondu. Cliquez <A HREF="http://www.ondelette.com/Milou/index.html">ici</A> pour y accéder.</FONT></DIV>
+
+</body>
+</HTML>

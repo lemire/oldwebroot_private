@@ -1,0 +1,316 @@
+#LyX 1.1 created this file. For more info see http://www.lyx.org/
+\lyxformat 218
+\textclass amsart
+\begin_preamble
+% \newcommand{\R}{{\sf R\hspace*{-0.9ex}\rule{0.15ex}% {1.3ex}\hspace*{0.9ex}}} \newcommand{\N}{{\sf N\hspace*{-1.0ex}\rule{0.15ex}% {1.1ex}\hspace*{1.0ex}}} \newcommand{\Q}{{\sf Q\hspace*{-1ex}\rule{0.15ex}% {1.3ex}\hspace*{1.1ex}}} \newcommand{\C}{{\sf C\hspace*{-0.9ex}\rule{0.15ex}% {1.3ex}\hspace*{0.9ex}}}
+\usepackage{dsfont}
+\end_preamble
+\language american
+\inputencoding auto
+\fontscheme default
+\graphics default
+\paperfontsize default
+\spacing single 
+\papersize Default
+\paperpackage a4
+\use_geometry 0
+\use_amsmath 0
+\paperorientation portrait
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\defskip medskip
+\quotes_language english
+\quotes_times 2
+\papercolumns 1
+\papersides 2
+\paperpagestyle default
+
+\layout Title
+
+Nonlinear Functional Interpolation
+\layout Author
+
+Daniel Lemire
+\layout Abstract
+
+We give sufficient and necessary conditions on the functional for the nonlinear
+ functional refinement subdivision schemes introduced by Donoho and Yu.
+ 
+\layout Section
+
+Introduction
+\layout Standard
+
+Subdivision schemes are used to interpolate scalar[réference] and vector
+ data including derivatives [référence].
+ In many instances however, such as image processing, the data we wish to
+ interpolate refers to a region and not to a specific point.
+ In an attempt to recouncile(spelling), subdivision schemes and practical
+ applications, Donoho introduced average-interpolation.
+ It can be shown that average-interpolation interpolants are in fact the
+ derivatives of corresponding Deslauriers-Dubuc interpolants[référence]
+ and exactly match some Cohen-Daubechies-Feauveau dual scaling functions[référen
+ce].
+ 
+\layout Standard
+
+However, in 
+\begin_inset LatexCommand \cite{DoYu1,DoYu2}
+
+\end_inset 
+
+, Donoho and Yu presented a median subdivision scheme while noting that
+ it belonged to a larger class called functional interpolation.
+ In particular, functional interpolation doesn't have to be linear which
+ brings new mathematical challenges.
+ 
+\layout Subsection
+
+Average-Interpolation
+\layout Subsection
+
+Median-Interpolation
+\layout Section
+
+Lagrange Functional Interpolation over 
+\begin_inset Formula \( \mathds {R} \)
+\end_inset 
+
+
+\layout Standard
+
+Let 
+\begin_inset Formula \( I_{j,k} \)
+\end_inset 
+
+ be the semi-open 
+\begin_inset Formula \( b \)
+\end_inset 
+
+-adic intervals 
+\begin_inset Formula \( \left[ b^{-j}k,b^{-j}(k+1)\right)  \)
+\end_inset 
+
+.
+ Observe that for any 
+\begin_inset Formula \( j \)
+\end_inset 
+
+, we 
+\begin_inset Formula \( \bigcup _{k=-\infty }^{\infty }I_{j,k}=\mathds {R} \)
+\end_inset 
+
+ and the size of the sets 
+\begin_inset Formula \( I_{j,k} \)
+\end_inset 
+
+ tends to zero as 
+\begin_inset Formula \( j\rightarrow \infty  \)
+\end_inset 
+
+.
+ Let 
+\begin_inset Formula \( \lambda _{I_{k,l}}\left( f\right)  \)
+\end_inset 
+
+ be a functional of 
+\begin_inset Formula \( f \)
+\end_inset 
+
+ as a function over 
+\begin_inset Formula \( I_{k,l} \)
+\end_inset 
+
+.
+ Given a set of data 
+\begin_inset Formula \( \left\{ \lambda _{0,k}\right\} _{k\in \mathds {R}} \)
+\end_inset 
+
+ , we want to find a smooth function 
+\begin_inset Formula \( f \)
+\end_inset 
+
+ such that 
+\begin_inset Formula \( \lambda _{I_{0,k}}(f)=\lambda _{0,k} \)
+\end_inset 
+
+.
+ In order to solve this problem, Donoho and Yu defined functional interpolation
+ of order 
+\begin_inset Formula \( 2L \)
+\end_inset 
+
+ as the following two-step scheme.
+\layout Enumerate
+
+(Interpolation) From the set 
+\begin_inset Formula \( \left\{ \lambda _{j,k+h}\right\} _{h\in -L,...,L} \)
+\end_inset 
+
+ find the polynomial 
+\begin_inset Formula \( \pi _{j,k} \)
+\end_inset 
+
+ of order 
+\begin_inset Formula \( 2D+1 \)
+\end_inset 
+
+ such that 
+\begin_inset Formula \( \lambda _{I_{j,k+h}}(\pi _{j,k})=\lambda _{j,k+h} \)
+\end_inset 
+
+ for 
+\begin_inset Formula \( h=-L,...,L \)
+\end_inset 
+
+.
+ 
+\layout Enumerate
+
+(Imputation) Using the polynomial computed at the previous step, 
+\begin_inset Formula \( \pi _{j,k} \)
+\end_inset 
+
+, compute 
+\begin_inset Formula \( \lambda _{j+1,bk},\lambda _{j+1,bk+1},...,\lambda _{j+1,bk+b-1} \)
+\end_inset 
+
+.
+\layout Standard
+
+It should be noted that a more general scheme could replace polynomials
+ with another set of functions.
+ Also, it is certainly not possible to do step 
+\begin_inset Formula \( 1 \)
+\end_inset 
+
+ for any functional and so we have to assume that it is possible.
+\layout Standard
+
+We can repeat the process as often as we want.
+ At each step, define a function 
+\begin_inset Formula \[
+f_{j}=\sum _{k=-\infty }^{\infty }\lambda _{j,k}\pi _{j,k}1_{I_{j,k}}.\]
+
+\end_inset 
+
+Clearly, if at any point 
+\begin_inset Formula \( f_{j} \)
+\end_inset 
+
+ is a polynomial of order 
+\begin_inset Formula \( 2L \)
+\end_inset 
+
+, then any 
+\begin_inset Formula \( k \)
+\end_inset 
+
+, 
+\begin_inset Formula \( f_{k>j}=f_{j} \)
+\end_inset 
+
+ .
+\layout Section
+
+Generalized Average Interpolation
+\layout Standard
+
+One way to generalized average interpolation is to replace the average of
+ the function by the average of 
+\begin_inset Formula \( Pf \)
+\end_inset 
+
+ where 
+\begin_inset Formula \( P \)
+\end_inset 
+
+ is some operator.
+ Hence, 
+\begin_inset Formula \( \lambda _{I} \)
+\end_inset 
+
+ becomes
+\begin_inset Formula \[
+\lambda _{I}(f)=\int _{I}P(f).\]
+
+\end_inset 
+
+Specific examples include 
+\begin_inset Formula \( P(f)=f+\frac{df}{dx} \)
+\end_inset 
+
+.
+\layout Proposition
+
+If 
+\begin_inset Formula \( P \)
+\end_inset 
+
+ is a linear operator such that 
+\begin_inset Formula \( P(x^{n})=x^{p}+.... \)
+\end_inset 
+
+ then the resulting interpolation scheme is an 
+\begin_inset Formula \( p-N \)
+\end_inset 
+
+ average interpolation scheme.
+\layout Standard
+
+More interestingly...
+\layout Proposition
+
+If 
+\begin_inset Formula \( P \)
+\end_inset 
+
+ is an operator such that 
+\begin_inset Formula \( P(f)(x)\geq 0 \)
+\end_inset 
+
+ for all 
+\begin_inset Formula \( x \)
+\end_inset 
+
+, then the scheme doesn't converge.
+\layout Standard
+
+What happens when we allow the regions to overlap or to be irregular???
+\layout Standard
+
+Multifunctional interpolation??? Ah! Ah! That's an interesting beast!!!
+\layout Standard
+
+Pf bounded means?
+\layout Standard
+
+Pf lower bounded means?
+\layout Standard
+
+functional stationary means scheme is stationary?
+\layout Section
+
+Functional Interpolation over an interval
+\layout Bibliography
+\bibitem [DoYu1]{DoYu1}
+
+D.L.
+ Donoho and T.P.Y.
+ Yu, Deslauriers-Dubuc: Ten Years After, 1996.
+\layout Bibliography
+\bibitem [DoYu2]{DoYu2}
+
+D.L.
+ Donoho and T.P.
+ Yu, Nonlinear 
+\begin_inset Quotes eld
+\end_inset 
+
+Wavelet Transforms
+\begin_inset Quotes erd
+\end_inset 
+
+ based on median-interpolation, 1997.
+\the_end

@@ -1,0 +1,45 @@
+/* Computations of the first High Resolution Deslauriers-Dubuc scheme */
+/* Reproduction of polynomials of order 4 */
+/* February 11th 2002 */
+/* Daniel Lemire, Ph.D. */
+/* load("HighResSubdivision.max"); */
+/* */
+/*clean it up */
+kill(LABELS);
+/* cubic poly */
+ p(x):=a*x^3 +b*x^2+c*x+d;
+ coefs:solve([p(B-1)=y0,p(B)=y1,p(B+1)=y2,p(B+2)=y3],[a,b,c,d]);
+ filter1:ratexpand(subst(coefs,p(B+1/4)));
+ filter2:ratexpand(subst(coefs,p(B+1/2)));
+ filter3:ratexpand(subst(coefs,p(B+3/4)));
+/* coefs contains the Deslauriers-Dubuc poly for b = 4 */
+/* Now we test with a polynomial of order 4. */
+p4(x):= extra*(x-B)^4+ a*(x-B)^3 +b*(x-B)^2+c*(x-B)+d;
+f(t):=p4(B+t*A);
+samples:[y0=f(-1),y1=f(0),y2=f(1),y3=f(2)];
+y_quarter:ratexpand(subst(samples,filter1));
+y_half:ratexpand(subst(samples,filter2));
+y_three_quarter:ratexpand(subst(samples,filter3));
+error1:ratexpand(y_quarter-f(1/4));
+error2:ratexpand(y_half-f(1/2));
+error3:ratexpand(y_three_quarter-f(3/4));
+newsamples:[y0=f(-1/2),y1=f(0),y2=f(1/2),y3=f(1)];
+y_quarter2:ratexpand(subst(newsamples,filter2));
+error1_2:expand(y_quarter2-f(1/4));
+/* we solve it out */
+absol:solve([alpha+beta=1,alpha*error1+beta*error1_2=0],[alpha,beta]);
+/* we test it out */
+y_quarter_extrapolated:expand(subst(absol,alpha*y_quarter+beta*y_quarter2));
+error1_extrapolated:ratexpand(y_quarter_extrapolated-f(1/4));
+/* given this algo, if we start with p4 data and apply DD (b=4) followed
+by a correction of the midpoints to the p4 data, and apply this algo, and
+finish with a downsampled version, we should preserve poly of order 4!!! */
+/*
+*/
+/*
+*/
+/* Let's see if we can derive alpha... */
+dd2s:ratsimp(-1/16*(2*k-2)^4/2^(4*j)+9/16*(2*k)^4/2^(4*j)+9/16*(2*k+2)^4/2^(4*j)-1/16*(2*k+4)^4/2^(4*j) - (2*k+1)^4/2^(4*j));
+dd4s:ratsimp(-7/128*(2*k-4)^4/2^(4*j)+105/128*(2*k)^4/2^(4*j)+35/128*(2*k+4)^4/2^(4*j)-5/128*(2*k+8)^4/2^(4*j) - (2*k+1)^4/2^(4*j));
+
+

@@ -1,0 +1,26 @@
+/* Computations of the second High Resolution Deslauriers-Dubuc scheme */
+/* February 11th 2002 */
+/* Daniel Lemire, Ph.D. */
+p(x):= a+b*x+c*x^2+d*x^3+er4*x^4+er5*x^5;
+pcorrected(x):= a+b*x+c*x^2+d*x^3+er4*x^4;
+pclean(x):=a+b*x+c*x^2+d*x^3;
+/* main data points */
+y0:p(x);
+y1:p(x+dx);
+y2:p(x+1*dx);
+y3:p(x+2*dx);
+/*place holders*/
+/* just normal */
+y1_1:p(x+dx/4); 
+/* improved one step */
+y1_2:pcorrected(x+dx/2);
+/* just normal */
+y1_3:p(x+3*dx/4);
+/*Now we iterate... first, we are going to correct the corrected value */
+new_y1_2:(-y0+9*y1+9*y2-y3)/16;
+/* 
+I'm not done yet... this next line is wrong!
+solve(alpha*newy1_2+beta*
+
+*/
+

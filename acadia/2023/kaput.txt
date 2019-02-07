@@ -1,0 +1,127 @@
+From adam.boyd@shadnet.shad.ca Mon Apr  8 12:01:31 2002
+Return-Path: <adam.boyd@shadnet.shad.ca>
+Received: from io.europasystems.net ([216.232.10.66])
+          by mail-ns00s0.ns.sympatico.ca (Post.Office MTA v3.5.3
+          release 223 ID# 0-68925U141000L141000S0V35) with ESMTP id ca
+          for <daniel.lemire@ns.sympatico.ca>;
+          Mon, 8 Apr 2002 13:01:28 -0300
+Received: from m5.andara.com (m5-real.eastlink.ca [24.222.0.25])
+	by io.europasystems.net (8.9.3+Sun/8.9.3) with ESMTP id IAA19366
+	for <lemire@ondelette.com>; Mon, 8 Apr 2002 08:55:09 -0700 (PDT)
+Received: from thinkpada20 (CDR22-168.accesscable.net [24.138.22.168])
+	by m5.andara.com (8.12.1/8.12.1) with SMTP id g38G2Pgp008671
+	for <lemire@ondelette.com>; Mon, 8 Apr 2002 13:02:25 -0300 (ADT)
+Reply-To: <adam.boyd@shadnet.shad.ca>
+From: "J. Adam Boyd" <adam.boyd@shadnet.shad.ca>
+To: "Daniel Lemire \(E-mail\)" <lemire@ondelette.com>
+Subject: Marks
+Date: Mon, 8 Apr 2002 13:01:31 -0300
+Message-ID: <001401c1df16$a8c8efe0$a8168a18@acadiau.ca>
+MIME-Version: 1.0
+Content-Type: text/plain;
+  charset="iso-8859-1"
+Content-Transfer-Encoding: 7bit
+X-Priority: 3 (Normal)
+X-MSMail-Priority: Normal
+X-Mailer: Microsoft Outlook CWS, Build 9.0.2416 (9.0.2911.0)
+Importance: Normal
+X-MimeOLE: Produced By Microsoft MimeOLE V5.50.4522.1200
+Status: R 
+X-Status: N
+
+Just in case you can't read the Excel file...sometimes they don't send
+right. I'll also bring a hard copy for you.
+A
+
+		1	2	3	4
+		99	91	252	200
+Abeysirigunawardena, Sanwada	100049389	68
+Alami, Razan Mousa	100048190	88
+Authedi, Bevan Maclean	100045848	89	87	235	200
+Ayoub, Jehad Rajah	100044983	93	76	247	200
+Bacon, Mark Michael	100045262	77	60		185
+Boudreau, Cory Joseph	100044906	66.5	83	224	190
+Cooper, Erin Frances	100046381	97	88	123	200
+Cross, Wayne Anthony	100045099	96.5	66	246	200
+Daniels, Tanya	100041792	80	71.5
+Day, Xephyr	100043363	93.5	79.5	234	200
+Dooley, Mary Elizabeth	100046455	64.5	90.5	217	199
+Duffield, Katherine Margaret	100044518	83.5	70	224	200
+Dunbar, Kimberlea S	100048253	81	70	232+10=242	193
+Evans, Genevieve Laura	100045612	77	80.5	235	199
+Ewing, Jeremy Evans	100046871	96	91	241	200
+Fang, Zhe	100047506
+Feener, Shanna Claire	100043444	83.5	78	234	195
+Gould, Joshua Michael	100045797	95	86	244	200
+Hildebrand, Rebecca Lynn	100046517	80.5	88	246	200
+Hughes, Michael John	100046097	83	61.5	233	198
+Jackson, Sarah Marie	100044401	84	70.5	244	200
+Jeliazkova, Diana Valtcheva	100046270	28.5	89	206	190
+Jreige, Chadia	100048807	86.5	56	242	200
+Kennedy, Ryan Qilliam	100043758	84.5	73	243	200
+Lam, Ting-Him Johnson	100043903	89	80	237	200
+MacKenzie, Angela Cheryl	100044915	96.5	90	252	200
+MacLeod, Shannon Arlene	100041050	93	85	244	198
+Noel, David Donald	100046250	97	86	201	200
+Oliver, Eric Curtis John	100046365	96	86.5	251	200
+Pardy, Christine Elizabeth	100045673	96	63	214	193
+Prelevic, Vuk Marcus	100042262	81.5	86.5
+Raisanen, Tuukka Ilari	100046014	88	84
+Russell, Glen Francis	100043503	89.5	83.5	92
+Smith, Sean Terry	100044845	97	80	238	200
+Stafford, Randall Brooke	100040731	80.5	71
+Stewart, Joseph Frank Glen	100045914	90.5	83	206	190
+Vaughan, Alice Katherine	100044918	95.5	85	244	198
+Veinot, Melissa Sue	100046614	88	84	247	200
+Walsh, Ryan Christopher	100039157	74.5	74	203	190
+Wamboldt, Cathy Ann	100044958	96	91	235	200
+Wilson, Craig David	100046008	97.5	80	225	195
+Zhao, Jin	100055087	86.5	90	231	200
+
+	10	10	10	10
+Abeysirigunawardena, Sanwada Deshini	6.87
+Alami, Razan Mousa	8.89
+Authedi, Bevan Maclean	8.99	9.56	9.33	10.00
+Ayoub, Jehad Rajah	9.39	8.35	9.80	10.00
+Bacon, Mark Michael	7.78	6.59		9.25
+Boudreau, Cory Joseph	6.72	9.12	8.89	9.50
+Cooper, Erin Frances	9.80	9.67	4.88	10.00
+Cross, Wayne Anthony	9.75	7.25	9.76	10.00
+Daniels, Tanya	8.08	7.86
+Day, Xephyr	9.44	8.74	9.29	10.00
+Dooley, Mary Elizabeth	6.52	9.95	8.61	9.95
+Duffield, Katherine Margaret	8.43	7.69	8.89	10.00
+Dunbar, Kimberlea S	8.18	7.69	9.21	9.65
+Evans, Genevieve Laura	7.78	8.85	9.33	9.95
+Ewing, Jeremy Evans	9.70	10.00	9.56	10.00
+Fang, Zhe
+Feener, Shanna Claire	8.43	8.57	9.29	9.75
+Gould, Joshua Michael	9.60	9.45	9.68	10.00
+Hildebrand, Rebecca Lynn	8.13	9.67	9.76	10.00
+Hughes, Michael John	8.38	6.76	9.25	9.90
+Jackson, Sarah Marie	8.48	7.75	9.68	10.00
+Jeliazkova, Diana Valtcheva	2.88	9.78	8.17	9.50
+Jreige, Chadia	8.74	6.15	9.60	10.00
+Kennedy, Ryan Qilliam	8.54	8.02	9.64	10.00
+Lam, Ting-Him Johnson	8.99	8.79	9.40	10.00
+MacKenzie, Angela Cheryl	9.75	9.89	10.00	10.00
+MacLeod, Shannon Arlene	9.39	9.34	9.68	9.90
+Noel, David Donald	9.80	9.45	7.98	10.00
+Oliver, Eric Curtis John	9.70	9.51	9.96	10.00
+Pardy, Christine Elizabeth	9.70	6.92	8.49	9.65
+Prelevic, Vuk Marcus	8.23	9.51
+Raisanen, Tuukka Ilari	8.89	9.23
+Russell, Glen Francis	9.04	9.18	3.65
+Smith, Sean Terry	9.80	8.79	9.44	10.00
+Stafford, Randall Brooke	8.13	7.80
+Stewart, Joseph Frank Glen	9.14	9.12	8.17	9.50
+Vaughan, Alice Katherine	9.65	9.34	9.68	9.90
+Veinot, Melissa Sue	8.89	9.23	9.80	10.00
+Walsh, Ryan Christopher	7.53	8.13	8.06	9.50
+Wamboldt, Cathy Ann	9.70	10.00	9.33	10.00
+Wilson, Craig David	9.85	8.79	8.93	9.75
+Zhao, Jin	8.74	9.89	9.17	10.00
+
+
+
+

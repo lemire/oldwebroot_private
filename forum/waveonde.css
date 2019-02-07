@@ -1,0 +1,195 @@
+BODY {
+   	color : black; 
+   	background-color : white;
+   	font-family : Arial, Helvetica, "sans serif"; 
+   	font-size:0.8em;
+}
+TEXTAREA.MESSAGEPOST {
+	white-space: pre;
+}
+A.ENGLISH {
+	background-color: #ffffcc;
+   	color : #990000; 
+}
+div.ONDELETTEICON {
+   text-align: center;
+   margin-left:auto;
+   margin-right:auto;
+   font-weight : bold; 
+   font-size: large;
+}
+
+P.LONGTITLE {
+	font-style: italic;
+	font-weight: bold;
+	font-size: large;
+	text-align: center;
+	margin-top:1em;
+	margin-bottom:1em;
+	background: white; 
+    	color: #0863AD;
+    	text-shadow: black 0px 0px 5px;
+}
+
+
+A.FRENCH {
+	background-color: #ffffcc;
+   	color : #000099; 
+}
+
+small.stamp{
+	font-size: 80%;
+}
+.POSTS {
+	background-color: white;
+   	color : black; 
+	list-style-image :  url(http://www.ondelette.com/images/java/Add16.gif) ! important;
+	/*list-style-type: none;*/
+}
+
+.REPLIES {
+	background-color: #CCCCFF;
+   	color : black; 
+	list-style-image :  url(http://www.ondelette.com/images/java/Properties16.gif) ! important;
+}
+
+H1.TITLE {
+	text-align : center;
+   	font-weight : bold; 
+   	font-size : x-large;
+   	color : black; 
+   	background-color : white;
+}
+H2.TITLE {
+	text-align : center;
+   	font-weight : bold; 
+   	font-size : small;
+   	color : black; 
+   	background-color : white;
+}
+
+
+TD.INREPLYTOID {
+   	font-family : Arial, Helvetica, "sans serif"; 
+	background-color: white;
+   	color : black; 
+}
+
+
+.DISPLAYMESSAGE {
+	background-color: white;
+   	color : black; 
+   	font-family : Arial, Helvetica, "sans serif"; 
+}
+
+
+
+.DISPLAYSUBJECT {
+	background-color: white;
+	font-weight : bold  ! important;
+   	color : black; 
+   	font-family : Arial, Helvetica, "sans serif"; 
+}
+
+ 
+
+
+
+TD.MESSAGE, TD.FIELD, TD.EMAIL, TD.EMAILFIELD, TD.AUTHOR, TD.AUTHORFIELD, TD.SUBJECT, TD.SUBJECTFIELD, TD.OPTLINK, TD.OPTLINKFIELD, TD.LT, TD.LTFIELD, TD.IMAGEURL, TD.IMAGEURLFIELD {
+	background-color: #0863AD;
+   	color : white; 
+   	font-family : Arial, Helvetica, "sans serif"; 
+	text-align : center;
+}
+
+
+
+P.MENU {	
+	text-align : center;
+	font-style : italic;  
+}
+
+A.AUTHORNAME {
+  	font-weight : bold  ! important;
+	color : blue  ! important; 
+   	background-color : transparent;
+}
+
+B.AUTHORNAME {
+  	font-weight : bold;
+	color : blue  ! important; 
+   	background-color : transparent;
+}
+
+TD.AUTHORNAME {
+  	font-weight : normal;
+	color : blue  ! important; 
+   	background-color : white;
+   	font-family : Arial, Helvetica, "sans serif"; 
+}
+
+A.ADMINAUTHOR {
+	color : blue ! important; 
+  	font-weight : bold  ! important;
+	font-style: italic;
+   	background-color : transparent;
+}
+
+B.ADMINAUTHOR {
+	color : blue  ! important; 
+  	font-weight : bold  ! important;
+   	background-color : transparent;
+}
+
+TD.ADMINAUTHOR {
+	color : blue  ! important; 
+  	font-weight : bold  ! important;
+   	background-color : white  ! important;
+   	font-family : Arial, Helvetica, "sans serif"; 
+}
+
+A.VIPMEMBER, A.EXECUTIVEMEMBERAUTHOR {
+	font-weight : bold  ! important; 
+	font-style : italic  ! important;  
+	color : blue  ! important; 
+   	background-color : transparent;
+
+}
+
+B.VIPMEMBER,B.EXECUTIVEMEMBERAUTHOR {
+	color : blue  ! important; 
+   	background-color : transparent;
+	font-weight : bold  ! important; 
+	font-style : italic  ! important;  
+
+}
+
+TD.VIPMEMBER, TD.EXECUTIVEMEMBERAUTHOR {
+	color : #008080;
+	background-color : white;
+	font-weight : bold  ! important; 
+	font-style : italic  ! important;  
+   	font-family : Arial, Helvetica, "sans serif"; 
+}
+
+A.MEMBERAUTHOR {
+	color : #008080  ! important;
+	background-color : transparent  ! important;
+	font-weight : bold  ! important; 
+}
+
+
+B.MEMBERAUTHOR {
+	color : #008080;
+	background-color : white;
+	font-weight : bold  ! important; 
+}
+
+TD.MEMBERAUTHOR {
+	color : #008080;
+	background-color : white;
+   	font-family : Arial, Helvetica, "sans serif"; 
+	font-weight:bold;
+}
+
+

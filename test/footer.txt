@@ -1,0 +1,15 @@
+</td></tr></table>
+</center>
+<p style="text-align:center">
+
+<A HREF="http://www.ondelette.com/test/index.html" >login</A>
+|
+<A HREF="/servlet/com.ondelette.servlet.webforum.WebForumServlet?_FORUMFILE_=forumtest.properties" >Test Forum</A>
+|
+<A HREF="http://www.ondelette.com/test/test.zip" >Download the files for this example</A>
+|
+<A HREF="http://webforum.sourceforge.net" >WebForum site (Exit)</A>
+
+</p>
+
+

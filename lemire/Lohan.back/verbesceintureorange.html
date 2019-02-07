@@ -1,0 +1,131 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<script type="text/javascript">
+function getRandomKey(o) {
+    var tmpList = Object.keys(o);
+    return tmpList[Math.floor(Math.random() * tmpList.length)];
+}
+
+var succes;
+var echec;
+var total;
+
+function getStarted() {
+    total = 25;
+    echec = 0;
+    succes = 0;
+    var donnees = {
+                "mettre": {
+            "présent": ["mets", "mets", "met", "mettons", "mettez", "mettent"],
+            "imparfait": ["mettais", "mettais", "mettait", "mettions", "mettiez", "mettaient"],
+            "futur simple": ["mettrai", "mettras", "mettra", "mettrons", "mettrez", "mettront"],
+            "conditionnel": ["mettrais", "mettrais", "mettrait", "mettrions", "mettriez", "mettraient"],
+            "passé composé": ["ai mis", "as mis", "a mis", "avons mis", "avez mis", "ont mis"],
+            "futur proche": ["vais mettre", "vas mettre", "va mettre", "allons mettre", "allez mettre", "vont mettre"],
+            "futur antérieur": ["aurai mis", "auras mis", "aura mis", "aurons mis", "aurez mis", "auront mis"],
+            "plus-que-parfait": ["avais mis", "avais mis", "avait mis", "avions mis", "aviez mis", "avaient mis"],
+        },
+        "devoir": {
+            "présent": ["dois", "dois", "doit", "devons", "devez", "doivent"],
+            "imparfait": ["devais", "devais", "devait", "devions", "deviez", "devaient"],
+            "futur simple": ["devrai", "devras", "devra", "devrons", "devrez", "devront"],
+            "conditionnel": ["devrais", "devrais", "devrait", "devrions", "devriez", "devraient"],
+            "passé composé": ["ai dû", "as dû", "a dû", "avons dû", "avez dû", "ont dû"],
+            "futur proche": ["vais devoir", "vas devoir", "va devoir", "allons devoir", "allez devoir", "vont devoir"],
+            "futur antérieur": ["aurai dû", "auras dû", "aura dû", "aurons dû", "aurez dû", "auront dû"],
+            "plus-que-parfait": ["avais dû", "avais dû", "avait dû", "avions dû", "aviez dû", "avaient dû"],
+        },
+        "finir": {
+            "présent": ["finis", "finis", "finit", "finissons", "finissez", "finissent"],
+            "imparfait": ["finissais", "finissais", "finissait", "finissions", "finissiez", "finissaient"],
+            "futur simple": ["finirai", "finiras", "finira", "finirons", "finirez", "finiront"],
+            "conditionnel": ["finirais", "finirais", "finirait", "finirions", "finiriez", "finiraient"],
+            "passé composé": ["ai fini", "as fini", "a fini", "avons fini", "avez fini", "ont fini"],
+            "futur proche": ["vais finir", "vas finir", "va finir", "allons finir", "allez finir", "vont finir"],
+            "futur antérieur": ["aurai fini", "auras fini", "aura fini", "aurons fini", "aurez fini", "auront fini"],
+            "plus-que-parfait": ["avais fini", "avais fini", "avait fini", "avions fini", "aviez fini", "avaient fini"],
+        },
+        "ouvrir": {
+            "présent": ["ouvre", "ouvres", "ouvre", "ouvrons", "ouvrez", "ouvrent"],
+            "imparfait": ["ouvrais", "ouvrais", "ouvrait", "ouvrions", "ouvriez", "ouvraient"],
+            "futur simple": ["ouvrirai", "ouvriras", "ouvrira", "ouvrirons", "ouvrirez", "ouvriront"],
+            "conditionnel": ["ouvrirais", "ouvrirais", "ouvrirait", "ouvririons", "ouvririez", "ouvriraient"],
+            "passé composé": ["ai ouvert", "as ouvert", "a ouvert", "avons ouvert", "avez ouvert", "ont ouvert"],
+            "futur proche": ["vais ouvrir", "vas ouvrir", "va ouvrir", "allons ouvrir", "allez ouvrir", "vont ouvrir"],
+            "futur antérieur": ["aurai ouvert", "auras ouvert", "aura ouvert", "aurons ouvert", "aurez ouvert", "auront ouvert"],
+            "plus-que-parfait": ["avais ouvert", "avais ouvert", "avait ouvert", "avions ouvert", "aviez ouvert", "avaient ouvert"]
+        },
+    };
+
+    var personnenames = ["première personne du singulier", "deuxième personne du singulier", "troisième personne du singulier", "première personne du pluriel", "deuxième personne du pluriel", "troisième personne du pluriel"];
+
+    var pronom = ["je (ou j')", "tu", "il", "nous", "vous", "ils"];
+    var i;
+    var out = document.getElementById("verbes");
+    out.innerHTML = "";
+    var mycontent ='<table border="0" style="border-spacing: 10px 10px;"> ';
+    for (i = 0; i < total; i++) {
+        var v = getRandomKey(donnees);
+        var dv = donnees[v];
+        var t = getRandomKey(dv);
+        var tv = dv[t];
+        var personne = getRandomKey(tv);
+        var pname = personnenames[personne];
+        var answer = tv[personne];
+        mycontent = mycontent + '<tr><td><strong> ' + v + '</strong></td><td>' + t + '</td><td> '+pronom[personne]+' </td><td><input autocorrect="off" autocomplete="off" spellcheck="false"  type="text" name="lname" id="rep' + i + '" onkeypress="javascript:if(event.keyCode==13){checkval(\'' + answer + '\',' + i + ');}"/> <input type="submit" id="but' + i + '" value="Soumettre" onclick="javascript:checkval(\'' + answer + '\',' + i + ');" /></td></tr>';
+    }
+    mycontent = mycontent + '</table> ';
+    out.innerHTML = mycontent;
+}
+
+function compare(str1, str2) {
+    return str1.trim().replace(/\s+/g, " ") === str2.trim().replace(/\s+/g, " ");
+}
+
+function checkval(answer, i) {
+    if (parseInt(document.getElementById("rep" + i).value.trim().length === 0)) {
+        return;
+    }
+    if (compare(document.getElementById("rep" + i).value, answer)) {
+        document.getElementById("rep" + i).value = "C'est bon: " + document.getElementById("rep" + i).value;
+        document.getElementById("rep" + i).disabled = true;
+        document.getElementById("but" + i).disabled = true;
+        if(document.getElementById("rep" + (i+1))) {
+            document.getElementById("rep" + (i+1)).focus();
+        }
+        succes = succes + 1;
+    } else {
+        document.getElementById("rep" + i).value = "Ce n'est pas " + document.getElementById("rep" + i).value;
+        document.getElementById("rep" + i).disabled = true;
+        document.getElementById("but" + i).disabled = true;
+        echec = echec + 1;
+    }
+    document.getElementById("status").innerHTML= succes +" sur " + (succes + echec);
+    if( echec + succes == total)
+      alert("Tu as obtenu "+succes+" sur " + total);
+}
+
+window.onbeforeunload = function() {
+    return "Si tu quittes la page, ton travail sera perdu.";
+};
+</script>
+
+
+<title>Lohan le champion des verbes</title>
+
+<body  onload="getStarted()" style="width:600px;margin-left:auto;margin-right:auto;">
+
+
+<h1>Conjugue les verbes suivants</h1>
+
+<p id="status" ></p>
+
+
+<div id="verbes" />
+
+
+
+</body>
+
+</html>

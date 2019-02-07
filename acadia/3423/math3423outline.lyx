@@ -1,0 +1,341 @@
+#LyX 1.1 created this file. For more info see http://www.lyx.org/
+\lyxformat 218
+\textclass article
+\begin_preamble
+\usepackage{epsfig}
+\usepackage{amsmath,amssymb}
+\usepackage{pslatex}
+\usepackage{color}
+ 
+ \definecolor{veryblackblue}{rgb}{0.0,0.0,0.1}
+ \usepackage[pdftex,urlcolor=webblackblue,colorlinks=true]{hyperref}
+ \pdfinfo{
+            /Title      (Math 3423 - Numerical Methods 2)
+            /Author     (Daniel Lemire, Ph.D.)
+            /Subject    (This is a course outline for Math 3423.)
+            /Keywords   (Numerical differentiation and integration, numerical solution of differential equations, optimization.)
+          }
+
+
+\topmargin  = 0pt
+\headheight = 0pt
+\headsep    = 0pt
+
+\voffset    = 0in
+\hoffset    = 0in
+\textheight = 230mm
+\textwidth  = 164mm
+
+\evensidemargin = 0pt
+\oddsidemargin  = 0pt
+
+\pagestyle{empty}
+\usepackage{float}
+
+%% Background of blue palette
+ \definecolor{webblackblue}{rgb}{0.0,0.0,0.2}
+ \definecolor{webblue}{rgb}{0.0, 0.0, 0.6}
+
+%% Background of red palette
+ \definecolor{webblackred}{rgb}{0.2,0.0,0.0}
+ \definecolor{webred}{rgb}{0.6,0.0,0.0}
+
+%% Background of green palette
+ \definecolor{webblackgreen}{rgb}{0.0,0.2,0.0}                                   
+ \definecolor{webgreen}{rgb}{0.0,0.6,0.0} 
+
+%% Background of magenta palette
+ \definecolor{webblackmagenta}{rgb}{0.14,0.0,0.14}                                   
+ \definecolor{webmagenta}{rgb}{0.42,0.0,0.42} 
+
+%% Background of cyan palette
+ \definecolor{webblackcyan}{rgb}{0.0,0.14,0.14}                                   
+ \definecolor{webcyan}{rgb}{0.0,0.42,0.42} 
+
+%% Background of yellow pallete
+ \definecolor{webblackyellow}{rgb}{0.14,0.14,0.0}                                   
+ \definecolor{webyellow}{rgb}{0.85,0.85,0.0} 
+
+ \definecolor{webdarkgray}{rgb}{0.2,0.2,0.2}
+
+ \definecolor{webgray}{rgb}{0.75,0.75,0.75}
+ \definecolor{weborange}{rgb}{1.0, 0.6, 0.0}
+
+\renewcommand\labelenumi{\textcolor{webdarkgray}{\arabic{enumi}.}}
+\newcommand{\setenumi}[1]{#1.\setcounter{enumi}{#1}}
+\usepackage{dsfont}
+\end_preamble
+\language english
+\inputencoding auto
+\fontscheme default
+\graphics default
+\paperfontsize default
+\spacing single 
+\papersize Default
+\paperpackage a4
+\use_geometry 0
+\use_amsmath 0
+\paperorientation portrait
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\defskip medskip
+\quotes_language english
+\quotes_times 2
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+
+\layout Title
+
+MATH 3423 - Numerical Methods 2
+\newline 
+Acadia University
+\layout Author
+
+Daniel Lemire, Ph.D.
+ 
+\layout Date
+
+Winter 2002
+\layout Address
+
+Email: 
+\latex latex 
+
+\backslash 
+href{mailto:daniel.lemire@acadiau.ca}{daniel.lemire@acadiau.ca}
+\layout Address
+
+Web: 
+\latex latex 
+
+\backslash 
+href{http://www.ondelette.com/acadia/}{http://www.ondelette.com/acadia/}
+\layout Address
+
+Office hours: MWF 10:30-12:30 
+\layout Address
+
+Office: HSH117
+\layout Section
+
+
+\series medium 
+Summary
+\layout Standard
+
+Numerical differentiation and integration, numerical solution of differential
+ equations, optimization.
+ The solution of problems on computer forms an integral part of the course.
+\layout Section
+
+
+\series medium 
+Prerequisite
+\layout Itemize
+
+Math 2413.
+ 
+\layout Itemize
+
+Strongly suggested: Math 2023 or a comparable background in Differential
+ Equations.
+ We will be solving differential equations in this course so you need to
+ know what they are!!!
+\layout Section
+
+
+\series medium 
+Textbooks
+\layout Standard
+
+Required:
+\layout Itemize
+
+Michael T.
+ Heath, 
+\shape italic 
+Scientific Computing: An Introductory Survey
+\shape default 
+, 2nd Edition (McGraw-Hill, 2001).
+ ISBN #007112229X.
+\layout Section
+
+
+\series medium 
+Course outline
+\layout Enumerate
+
+Numerical Differentiation and Integration (2 weeks)
+\begin_deeper 
+\layout Itemize
+
+Numerical Quadrature
+\layout Itemize
+
+Integral Equations
+\layout Itemize
+
+Finite Difference
+\end_deeper 
+\layout Enumerate
+
+Optimization (4 weeks)
+\begin_deeper 
+\layout Itemize
+
+Steepest Descent
+\layout Itemize
+
+Newton's Method
+\layout Itemize
+
+Linear and Nonlinear Least Square Methods
+\layout Itemize
+
+Linear Programming
+\end_deeper 
+\layout Enumerate
+
+Numerical Solution of Differential Equations (Part 1) (4 weeks)
+\begin_deeper 
+\layout Itemize
+
+Euler's Method
+\layout Itemize
+
+Taylor Series Methods
+\layout Itemize
+
+Runge-Kutta Methods
+\end_deeper 
+\layout Enumerate
+
+Advanced Numerical Solution of Differential Equations (Part 2 - as time
+ permits!) (5 weeks)
+\begin_deeper 
+\layout Itemize
+
+Finite Difference Method 
+\layout Itemize
+
+Galerkin
+\layout Itemize
+
+Finite Elements Method
+\end_deeper 
+\layout Standard
+
+The first half of the course will be on Numerical integration and differential
+ up to optimization problems.
+ The Mid-Term Exam (after study week) and the first two assignments will
+ cover that material.
+ We will then spend the rest of the course solving differential equations.
+ The last two assignments will be on differential equations.
+\layout Section
+
+Grading Scheme 
+\layout Standard
+
+Exams will consist of pen and paper questions and while they will be similar
+ in content to the assignments, students are expected to be able to prove
+ theorems (for example).
+\layout Standard
+
+
+\begin_inset  Tabular
+<lyxtabular version="2" rows="4" columns="2">
+<features rotate="false" islongtable="false" endhead="0" endfirsthead="0" endfoot="0" endlastfoot="0">
+<column alignment="center" valignment="top" leftline="true" rightline="false" width="" special="">
+<column alignment="center" valignment="top" leftline="true" rightline="true" width="" special="">
+<row topline="true" bottomline="true" newpage="false">
+<cell multicolumn="0" alignment="center" valignment="top" topline="true" bottomline="false" leftline="true" rightline="false" rotate="false" usebox="none" width="" special="">
+\begin_inset Text
+
+\layout Standard
+
+\end_inset 
+</cell>
+<cell multicolumn="0" alignment="center" valignment="top" topline="true" bottomline="false" leftline="true" rightline="false" rotate="false" usebox="none" width="" special="">
+\begin_inset Text
+
+\layout Standard
+
+percentage
+\end_inset 
+</cell>
+</row>
+<row topline="true" bottomline="true" newpage="false">
+<cell multicolumn="0" alignment="center" valignment="top" topline="true" bottomline="false" leftline="true" rightline="false" rotate="false" usebox="none" width="" special="">
+\begin_inset Text
+
+\layout Standard
+
+4 Assignments
+\end_inset 
+</cell>
+<cell multicolumn="0" alignment="center" valignment="top" topline="true" bottomline="false" leftline="true" rightline="false" rotate="false" usebox="none" width="" special="">
+\begin_inset Text
+
+\layout Standard
+
+20%
+\end_inset 
+</cell>
+</row>
+<row topline="true" bottomline="true" newpage="false">
+<cell multicolumn="0" alignment="center" valignment="top" topline="true" bottomline="false" leftline="true" rightline="false" rotate="false" usebox="none" width="" special="">
+\begin_inset Text
+
+\layout Standard
+
+Mid-Term Exam
+\end_inset 
+</cell>
+<cell multicolumn="0" alignment="center" valignment="top" topline="true" bottomline="false" leftline="true" rightline="false" rotate="false" usebox="none" width="" special="">
+\begin_inset Text
+
+\layout Standard
+
+20%
+\end_inset 
+</cell>
+</row>
+<row topline="true" bottomline="true" newpage="false">
+<cell multicolumn="0" alignment="center" valignment="top" topline="true" bottomline="false" leftline="true" rightline="false" rotate="false" usebox="none" width="" special="">
+\begin_inset Text
+
+\layout Standard
+
+Final Exam
+\end_inset 
+</cell>
+<cell multicolumn="0" alignment="center" valignment="top" topline="true" bottomline="false" leftline="true" rightline="false" rotate="false" usebox="none" width="" special="">
+\begin_inset Text
+
+\layout Standard
+
+60%
+\end_inset 
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset 
+
+
+\layout Section
+
+Assignments
+\layout Standard
+
+Assignments will consist mostly of challenging problems to be solved using
+ Matlab or any other convenient programming environment (C++ for example).
+ In general, students will have two weeks to submit a report on the problem
+ with plots and tables.
+ Students may work in teams of up to 2 or work alone.
+ In all cases, each student must write his own report.
+ Students will be encouraged to use a word processor or similar tools (TeX,
+ LaTeX...) to produce their reports.
+\the_end

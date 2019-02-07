@@ -1,0 +1,147 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<script type="text/javascript">
+function getRandomKey(o) {
+    var tmpList = Object.keys(o);
+    return tmpList[Math.floor(Math.random() * tmpList.length)];
+}
+
+var succes;
+var echec;
+var total;
+
+function getStarted() {
+    total = 25;
+    echec = 0;
+    succes = 0;
+    var donnees = {
+                  "pouvoir": {
+            "présent": ["peux", "peux", "peut", "pouvons", "pouvez", "peuvent"],
+            "imparfait": ["pouvais", "pouvais", "pouvait", "pouvions", "pouviez", "pouvaient"],
+            "futur simple": ["pourrai", "pourras", "pourra", "pourrons", "pourrez", "pourront"],
+            "conditionnel": ["pourrais", "pourrais", "pourrait", "pourrions", "pourriez", "pourraient"],
+            "passé simple": {
+                "2": "put",
+                "5": "purent"
+            },
+            "passé composé": ["ai pu", "as pu", "a pu", "avons pu", "avez pu", "ont pu"],
+            "futur proche": ["vais pouvoir", "vas pouvoir", "va pouvoir", "allons pouvoir", "allez pouvoir", "vont pouvoir"],
+            "futur antérieur": ["aurai pu", "auras pu", "aura pu", "aurons pu", "aurez pu", "auront pu"],
+            "plus-que-parfait": ["avais pu", "avais pu", "avait pu", "avions pu", "aviez pu", "avaient pu"],
+            "subjonctif présent": ["puisse", "puisses", "puisse", "puissions", "puissiez", "puissent"],
+        },
+
+        "prendre": {
+            "présent": ["prends", "prends", "prend", "prenons", "prenez", "prennent"],
+            "imparfait": ["prenais", "prenais", "prenait", "prenions", "preniez", "prenaient"],
+            "futur simple": ["prendrai", "prendras", "prendra", "prendrons", "prendrez", "prendront"],
+            "conditionnel": ["prendrais", "prendrais", "prendrait", "prendrions", "prendriez", "prendraient"],
+            "passé simple": {
+                "2": "prit",
+                "5": "prirent"
+            },
+            "passé composé": ["ai pris", "as pris", "a pris", "avons pris", "avez pris", "ont pris"],
+            "futur proche": ["vais prendre", "vas prendre", "va prendre", "allons prendre", "allez prendre", "vont prendre"],
+            "futur antérieur": ["aurai pris", "auras pris", "aura pris", "aurons pris", "aurez pris", "auront pris"],
+            "plus-que-parfait": ["avais pris", "avais pris", "avait pris", "avions pris", "aviez pris", "avaient pris"],
+            "impératif":  {
+                "1": "prends",
+                "3": "prenons",
+                "4": "prenez"
+            },
+            "subjonctif présent": ["prenne", "prennes", "prenne", "prenions", "preniez", "prennent"],
+        },
+        "partir": {
+            "présent": ["pars", "pars", "part", "partons", "partez", "partent"],
+            "imparfait": ["partais", "partais", "partait", "partions", "partiez", "partaient"],
+            "futur simple": ["partirai", "partiras", "partira", "partirons", "partirez", "partiront"],
+            "conditionnel": ["partirais", "partirais", "partirait", "partirions", "partiriez", "partiraient"],
+            "passé simple": {
+                "2": "partit",
+                "5": "partirent"
+            },
+            "passé composé": ["suis parti", "es parti", "est parti", "sommes partis", "êtes partis", "sont partis"],
+            "futur proche": ["vais partir", "vas partir", "va partir", "allons partir", "allez partir", "vont partir"],
+            "futur antérieur": ["serai parti", "seras parti", "sera parti", "serons partis", "serez partis", "seront partis"],
+            "plus-que-parfait": ["étais parti", "étais parti", "était parti", "étions partis", "étiez partis", "étaient partis"],
+            "impératif":  {
+                "1": "pars",
+                "3": "partons",
+                "4": "partez"
+            },
+            "subjonctif présent": ["parte", "partes", "parte", "partions", "partiez", "partent"],
+        },
+    };
+
+    var personnenames = ["première personne du singulier", "deuxième personne du singulier", "troisième personne du singulier", "première personne du pluriel", "deuxième personne du pluriel", "troisième personne du pluriel"];
+
+    var pronom = ["je (ou j')", "tu", "il", "nous", "vous", "ils"];
+    var i;
+    var out = document.getElementById("verbes");
+    out.innerHTML = "";
+    var mycontent ='<table border="0" style="border-spacing: 10px 10px;"> ';
+    for (i = 0; i < total; i++) {
+        var v = getRandomKey(donnees);
+        var dv = donnees[v];
+        var t = getRandomKey(dv);
+        var tv = dv[t];
+        var personne = getRandomKey(tv);
+        var pname = personnenames[personne];
+        var answer = tv[personne];
+        mycontent = mycontent + '<tr><td><strong> ' + v + '</strong></td><td>' + t + '</td><td> '+pronom[personne]+' </td><td><input autocorrect="off" autocomplete="off" spellcheck="false"  type="text" name="lname" id="rep' + i + '" onkeypress="javascript:if(event.keyCode==13){checkval(\'' + answer + '\',' + i + ');}"/> <input type="submit" id="but' + i + '" value="Soumettre" onclick="javascript:checkval(\'' + answer + '\',' + i + ');" /></td></tr>';
+    }
+    mycontent = mycontent + '</table> ';
+    out.innerHTML = mycontent;
+}
+
+function compare(str1, str2) {
+    return str1.trim().replace(/\s+/g, " ") === str2.trim().replace(/\s+/g, " ");
+}
+
+function checkval(answer, i) {
+    if (parseInt(document.getElementById("rep" + i).value.trim().length === 0)) {
+        return;
+    }
+    if (compare(document.getElementById("rep" + i).value, answer)) {
+        document.getElementById("rep" + i).value = "C'est bon: " + document.getElementById("rep" + i).value;
+        document.getElementById("rep" + i).disabled = true;
+        document.getElementById("but" + i).disabled = true;
+        if(document.getElementById("rep" + (i+1))) {
+            document.getElementById("rep" + (i+1)).focus();
+        }
+        succes = succes + 1;
+    } else {
+        document.getElementById("rep" + i).value = "Ce n'est pas " + document.getElementById("rep" + i).value;
+        document.getElementById("rep" + i).disabled = true;
+        document.getElementById("but" + i).disabled = true;
+        echec = echec + 1;
+    }
+    document.getElementById("status").innerHTML= succes +" sur " + (succes + echec);
+    if( echec + succes == total)
+      alert("Tu as obtenu "+succes+" sur " + total);
+}
+
+window.onbeforeunload = function() {
+    return "Si tu quittes la page, ton travail sera perdu.";
+};
+</script>
+
+
+<title>Lohan le champion des verbes</title>
+
+<body  onload="getStarted()" style="width:600px;margin-left:auto;margin-right:auto;">
+
+
+<h1>Conjugue les verbes suivants</h1>
+
+<p id="status" ></p>
+
+
+<div id="verbes" />
+
+
+
+</body>
+
+</html>

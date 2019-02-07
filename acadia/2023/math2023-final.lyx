@@ -1,0 +1,1027 @@
+#LyX 1.1 created this file. For more info see http://www.lyx.org/
+\lyxformat 218
+\textclass article
+\begin_preamble
+\usepackage{amsmath,amssymb,amsfonts,fullpage,fancy,array}
+
+\textheight13.25in
+\textwidth6.5in
+\topmargin-.75in
+\oddsidemargin-.25in
+\pagestyle{fancy}
+
+\newfont{\first}{msbm10 at 12pt}
+\newcommand{\C}{\mbox{\first{C}}}
+\newcommand{\N}{\mbox{\first{N}}}
+\newcommand{\Q}{\mbox{\first{Q}}}
+\newcommand{\R}{\mbox{\first{R}}}
+\newcommand{\T}{\mbox{\first{T}}}
+\newcommand{\Z}{\mbox{\first{Z}}}
+
+\newcommand{\rmp}{\reversemarginpar\marginpar}
+\renewcommand{\marginparsep}{-.4in}
+
+
+\lhead{\small{Math 2023 -- Final Exam}}
+\rhead {Name: \rule{2in}{.1mm}}
+\chead{Page \, \thepage \, of \, \pageref{`last'} }
+\cfoot{}
+
+\setlength{\headheight}{18pt}
+\setlength{\headrulewidth}{.5 pt}
+%\nopagenumbers
+\title{}\date{}
+
+\usepackage{wasysym}
+\newcommand\myTF{$\stackrel{\mathrm{True}}{\Box}\qquad\stackrel{\mathrm{False}}{\Box}\quad$}
+\usepackage{dsfont}
+ %\usepackage[pdftex,urlcolor=black,colorlinks=false,citecolor=blue]{hyperref}
+ %\pdfinfo{
+ %         /Title      (Advanced Calculus)
+ %       /Author     (Daniel Lemire, Ph.D.)
+ %     /Subject    (Final.)
+ %   /Keywords   (series, differential equations, Acadia)
+ %}
+\usepackage{pslatex}
+\end_preamble
+\language english
+\inputencoding auto
+\fontscheme default
+\graphics default
+\paperfontsize 12
+\spacing single 
+\papersize Default
+\paperpackage a4
+\use_geometry 0
+\use_amsmath 0
+\paperorientation portrait
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\defskip medskip
+\quotes_language english
+\quotes_times 2
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+
+\layout Standard
+
+
+\latex latex 
+
+\backslash 
+thispagestyle{empty}
+\layout Standard
+\noindent 
+Page 1 of 
+\begin_inset LatexCommand \pageref{`last'}
+
+\end_inset 
+
+ 
+\hfill 
+NAME: 
+\latex latex 
+
+\backslash 
+rule{2in}{.1mm}
+\latex default 
+
+\newline 
+
+\latex latex 
+ 
+\backslash 
+mbox{}
+\latex default 
+ 
+\hfill 
+Please Print 
+\latex latex 
+
+\backslash 
+hspace{1in}
+\latex default 
+
+\newline 
+
+\layout Standard
+
+
+\latex latex 
+
+\backslash 
+mbox{}
+\latex default 
+ 
+\hfill 
+Id.
+ No.: 
+\latex latex 
+
+\backslash 
+rule{2in}{.1mm}
+\latex default 
+
+\newline 
+
+\layout Standard
+\align center 
+
+\series bold 
+\size large 
+Department of Mathematics & Statistics 
+\newline 
+ Acadia University
+\newline 
+MATH 2023 
+\hfill 
+FINAL EXAMINATION 
+\hfill 
+Winter 2002 
+\newline 
+Instructor: Daniel Lemire, Ph.D.
+ 
+\layout Standard
+\noindent 
+Time: 3 hours 
+\hfill 
+April 13th 2002 
+\hfill 
+2:00 p.m.-5:00 p.m.
+\newline 
+
+\layout Standard
+\noindent 
+
+\series bold 
+Instructions:
+\layout Enumerate
+
+Put your name and ID number at the top of this page.
+\layout Enumerate
+
+Answer the questions in the spaces provided, using the backs of pages for
+ overflow or rough work.
+\layout Enumerate
+
+
+\size large 
+ONE CHEAT SHEET ALLOWED (BOTH SIDES, HANDWRITTEN).
+\layout Enumerate
+
+For true or false questions, you don't have to show your work.
+\layout Standard
+\align center 
+
+\begin_inset Formula \(  \)
+\end_inset 
+
+
+\newline 
+
+\layout Standard
+\align center 
+
+\begin_inset  Tabular
+<lyxtabular version="2" rows="14" columns="2">
+<features rotate="false" islongtable="false" endhead="1" endfirsthead="1" endfoot="1" endlastfoot="1">
+<column alignment="center" valignment="top" leftline="true" rightline="true" width="" special="">
+<column alignment="right" valignment="top" leftline="false" rightline="true" width="" special="">
+<row topline="true" bottomline="false" newpage="false">
+<cell multicolumn="0" alignment="center" valignment="top" topline="true" bottomline="false" leftline="true" rightline="true" rotate="false" usebox="none" width="" special="">
+\begin_inset Text
+
+\layout Standard
+
+\end_inset 
+</cell>
+<cell multicolumn="0" alignment="right" valignment="top" topline="true" bottomline="false" leftline="false" rightline="true" rotate="false" usebox="none" width="" special="">
+\begin_inset Text
+
+\layout Standard
+
+\end_inset 
+</cell>
+</row>
+<row topline="false" bottomline="true" newpage="false">
+<cell multicolumn="0" alignment="center" valignment="top" topline="false" bottomline="true" leftline="true" rightline="true" rotate="false" usebox="none" width="" special="">
+\begin_inset Text
+
+\layout Standard
+
+ Question 
+\end_inset 
+</cell>
+<cell multicolumn="0" alignment="right" valignment="top" topline="false" bottomline="true" leftline="false" rightline="true" rotate="false" usebox="none" width="" special="">
+\begin_inset Text
+
+\layout Standard
+
+
+\latex latex 
+ 
+\backslash 
+hspace{5mm}
+\latex default 
+ Mark 
+\latex latex 
+
+\backslash 
+hspace{5mm}
+\end_inset 
+</cell>
+</row>
+<row topline="false" bottomline="false" newpage="false">
+<cell multicolumn="0" alignment="center" valignment="top" topline="false" bottomline="false" leftline="true" rightline="true" rotate="false" usebox="none" width="" special="">
+\begin_inset Text
+
+\layout Standard
+
+\end_inset 
+</cell>
+<cell multicolumn="0" alignment="right" valignment="top" topline="false" bottomline="false" leftline="false" rightline="true" rotate="false" usebox="none" width="" special="">
+\begin_inset Text
+
+\layout Standard
+
+\end_inset 
+</cell>
+</row>
+<row topline="false" bottomline="true" newpage="false">
+<cell multicolumn="0" alignment="center" valignment="top" topline="false" bottomline="true" leftline="true" rightline="true" rotate="false" usebox="none" width="" special="">
+\begin_inset Text
+
+\layout Standard
+
+ 1 
+\end_inset 
+</cell>
+<cell multicolumn="0" alignment="right" valignment="top" topline="false" bottomline="true" leftline="false" rightline="true" rotate="false" usebox="none" width="" special="">
+\begin_inset Text
+
+\layout Standard
+
+ /20 
+\end_inset 
+</cell>
+</row>
+<row topline="false" bottomline="false" newpage="false">
+<cell multicolumn="0" alignment="center" valignment="top" topline="false" bottomline="false" leftline="true" rightline="true" rotate="false" usebox="none" width="" special="">
+\begin_inset Text
+
+\layout Standard
+
+\end_inset 
+</cell>
+<cell multicolumn="0" alignment="right" valignment="top" topline="false" bottomline="false" leftline="false" rightline="true" rotate="false" usebox="none" width="" special="">
+\begin_inset Text
+
+\layout Standard
+
+\end_inset 
+</cell>
+</row>
+<row topline="false" bottomline="true" newpage="false">
+<cell multicolumn="0" alignment="center" valignment="top" topline="false" bottomline="true" leftline="true" rightline="true" rotate="false" usebox="none" width="" special="">
+\begin_inset Text
+
+\layout Standard
+
+ 2 
+\end_inset 
+</cell>
+<cell multicolumn="0" alignment="right" valignment="top" topline="false" bottomline="true" leftline="false" rightline="true" rotate="false" usebox="none" width="" special="">
+\begin_inset Text
+
+\layout Standard
+
+ /20 
+\end_inset 
+</cell>
+</row>
+<row topline="false" bottomline="false" newpage="false">
+<cell multicolumn="0" alignment="center" valignment="top" topline="false" bottomline="false" leftline="true" rightline="true" rotate="false" usebox="none" width="" special="">
+\begin_inset Text
+
+\layout Standard
+
+\end_inset 
+</cell>
+<cell multicolumn="0" alignment="right" valignment="top" topline="false" bottomline="false" leftline="false" rightline="true" rotate="false" usebox="none" width="" special="">
+\begin_inset Text
+
+\layout Standard
+
+\end_inset 
+</cell>
+</row>
+<row topline="false" bottomline="true" newpage="false">
+<cell multicolumn="0" alignment="center" valignment="top" topline="false" bottomline="true" leftline="true" rightline="true" rotate="false" usebox="none" width="" special="">
+\begin_inset Text
+
+\layout Standard
+
+ 3 
+\end_inset 
+</cell>
+<cell multicolumn="0" alignment="right" valignment="top" topline="false" bottomline="true" leftline="false" rightline="true" rotate="false" usebox="none" width="" special="">
+\begin_inset Text
+
+\layout Standard
+
+ /20 
+\end_inset 
+</cell>
+</row>
+<row topline="false" bottomline="false" newpage="false">
+<cell multicolumn="0" alignment="center" valignment="top" topline="false" bottomline="false" leftline="true" rightline="true" rotate="false" usebox="none" width="" special="">
+\begin_inset Text
+
+\layout Standard
+
+\end_inset 
+</cell>
+<cell multicolumn="0" alignment="right" valignment="top" topline="false" bottomline="false" leftline="false" rightline="true" rotate="false" usebox="none" width="" special="">
+\begin_inset Text
+
+\layout Standard
+
+\end_inset 
+</cell>
+</row>
+<row topline="false" bottomline="true" newpage="false">
+<cell multicolumn="0" alignment="center" valignment="top" topline="false" bottomline="true" leftline="true" rightline="true" rotate="false" usebox="none" width="" special="">
+\begin_inset Text
+
+\layout Standard
+
+ 4 
+\end_inset 
+</cell>
+<cell multicolumn="0" alignment="right" valignment="top" topline="false" bottomline="true" leftline="false" rightline="true" rotate="false" usebox="none" width="" special="">
+\begin_inset Text
+
+\layout Standard
+
+ /20 
+\end_inset 
+</cell>
+</row>
+<row topline="false" bottomline="false" newpage="false">
+<cell multicolumn="0" alignment="center" valignment="top" topline="false" bottomline="false" leftline="true" rightline="true" rotate="false" usebox="none" width="" special="">
+\begin_inset Text
+
+\layout Standard
+
+\end_inset 
+</cell>
+<cell multicolumn="0" alignment="right" valignment="top" topline="false" bottomline="false" leftline="false" rightline="true" rotate="false" usebox="none" width="" special="">
+\begin_inset Text
+
+\layout Standard
+
+\end_inset 
+</cell>
+</row>
+<row topline="false" bottomline="true" newpage="false">
+<cell multicolumn="0" alignment="center" valignment="top" topline="false" bottomline="true" leftline="true" rightline="true" rotate="false" usebox="none" width="" special="">
+\begin_inset Text
+
+\layout Standard
+
+ 5 
+\end_inset 
+</cell>
+<cell multicolumn="0" alignment="right" valignment="top" topline="false" bottomline="true" leftline="false" rightline="true" rotate="false" usebox="none" width="" special="">
+\begin_inset Text
+
+\layout Standard
+
+ /20
+\end_inset 
+</cell>
+</row>
+<row topline="false" bottomline="false" newpage="false">
+<cell multicolumn="0" alignment="center" valignment="top" topline="false" bottomline="false" leftline="true" rightline="true" rotate="false" usebox="none" width="" special="">
+\begin_inset Text
+
+\layout Standard
+
+\end_inset 
+</cell>
+<cell multicolumn="0" alignment="right" valignment="top" topline="false" bottomline="false" leftline="false" rightline="true" rotate="false" usebox="none" width="" special="">
+\begin_inset Text
+
+\layout Standard
+
+\end_inset 
+</cell>
+</row>
+<row topline="false" bottomline="true" newpage="false">
+<cell multicolumn="0" alignment="center" valignment="top" topline="false" bottomline="true" leftline="true" rightline="true" rotate="false" usebox="none" width="" special="">
+\begin_inset Text
+
+\layout Standard
+
+ Total 
+\end_inset 
+</cell>
+<cell multicolumn="0" alignment="right" valignment="top" topline="false" bottomline="true" leftline="false" rightline="true" rotate="false" usebox="none" width="" special="">
+\begin_inset Text
+
+\layout Standard
+
+ /100  
+\end_inset 
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset 
+
+
+\layout Standard
+
+
+\latex latex 
+
+\backslash 
+newpage
+\layout Enumerate
+
+(First-Order Differential Equations) 
+\latex latex 
+
+\backslash 
+rmp{[20]}
+\latex default 
+The equation for the current 
+\begin_inset Formula \( I \)
+\end_inset 
+
+ going through a simple RL circuit with electromotive force 
+\begin_inset Formula \( E \)
+\end_inset 
+
+ is given by 
+\begin_inset Formula \[
+\frac{dI(t)}{dt}+\frac{R}{L}I(t)=\frac{E}{L}.\]
+
+\end_inset 
+
+ Suppose that the electromotive force is given by 
+\begin_inset Formula \( E(t)=\cos mt \)
+\end_inset 
+
+ where 
+\begin_inset Formula \( m \)
+\end_inset 
+
+ is non-zero.
+ 
+\begin_inset Formula \( R \)
+\end_inset 
+
+ and 
+\begin_inset Formula \( L \)
+\end_inset 
+
+ are unknown non-zero parameters.
+ 
+\newline 
+\SpecialChar ~
+
+\newline 
+(a) [2 marks] This differential equation is linear?
+\latex latex 
+\SpecialChar ~
+
+\backslash 
+myTF 
+\backslash 
+vspace{1 cm}
+\latex default 
+
+\newline 
+(b) [2 marks] State the corresponding homogeneous differential equation.
+\latex latex 
+
+\backslash 
+vspace{1 cm}
+\latex default 
+
+\newline 
+(c) [2 marks] How many linearily independent solutions must the corresponding
+ homogeneous problem have?
+\latex latex 
+
+\backslash 
+vspace{1 cm}
+\latex default 
+
+\newline 
+(d) [4 marks] Find all such solutions.
+ 
+\latex latex 
+
+\backslash 
+vspace{8 cm} 
+\newline 
+
+\backslash 
+pagebreak{}
+\latex default 
+
+\newline 
+(e) [5 marks] Give the general solution to 
+\begin_inset Formula \( \frac{dI(t)}{dt}+\frac{R}{L}I(t)=\frac{E}{L} \)
+\end_inset 
+
+ with 
+\begin_inset Formula \( E(t)=\cos mt \)
+\end_inset 
+
+.
+\latex latex 
+
+\backslash 
+pagebreak{}
+\backslash 
+vspace{16 cm}
+\latex default 
+
+\newline 
+(f) [5 marks] Solve the differential equation with the initial condition
+ 
+\begin_inset Formula \( I(0)=0 \)
+\end_inset 
+
+.
+\latex latex 
+
+\backslash 
+vspace{8 cm}
+\backslash 
+pagebreak{}
+\layout Enumerate
+
+(Vector Calculus)
+\latex latex 
+
+\backslash 
+rmp{[20]}
+\begin_deeper 
+\layout Enumerate
+
+[2 marks] The curl of the gradient of 
+\begin_inset Formula \( \sin (xyz) \)
+\end_inset 
+
+ is zero.
+\latex latex 
+\SpecialChar ~
+
+\backslash 
+myTF
+\backslash 
+vspace{4 cm}
+\layout Enumerate
+
+[2 marks] The line integral of 
+\begin_inset Formula \( y\vec{i}+x\vec{j} \)
+\end_inset 
+
+ around the positively oriented unit circle is 
+\begin_inset Formula \( 2\pi  \)
+\end_inset 
+
+.
+\latex latex 
+\SpecialChar ~
+ 
+\backslash 
+linebreak{}
+\backslash 
+myTF
+\backslash 
+vspace{4 cm}
+\layout Enumerate
+
+[2 marks] The line integral of 
+\begin_inset Formula \( -y\vec{i}+x\vec{j} \)
+\end_inset 
+
+ around the positively oriented unit circle is 
+\begin_inset Formula \( 2\pi  \)
+\end_inset 
+
+.
+\latex latex 
+\SpecialChar ~
+ 
+\backslash 
+linebreak{}
+\backslash 
+myTF
+\backslash 
+vspace{4 cm}
+\layout Enumerate
+
+[2 marks] Given 
+\begin_inset Formula \( \phi (x,y,z)=x^{2}y^{2}z^{3} \)
+\end_inset 
+
+ compute 
+\begin_inset Formula \( \nabla \phi (x,y,z) \)
+\end_inset 
+
+.
+\latex latex 
+
+\backslash 
+vspace{8 cm}
+\backslash 
+pagebreak{}
+\layout Enumerate
+
+[3 marks] Compute the line integral 
+\begin_inset Formula \( \int _{P}\nabla \phi (x,y,z)\cdot d\vec{r} \)
+\end_inset 
+
+ where 
+\begin_inset Formula \( P \)
+\end_inset 
+
+ is the parametric curve 
+\begin_inset Formula \( \underline{x}(t)=\left( t^{2},t^{3},t^{4}\right)  \)
+\end_inset 
+
+ with 
+\begin_inset Formula \( t:0\rightarrow 1 \)
+\end_inset 
+
+ and where 
+\begin_inset Formula \( \phi  \)
+\end_inset 
+
+ is given in part (a).
+ 
+\latex latex 
+
+\backslash 
+vspace{8 cm}
+\layout Enumerate
+
+[2 marks] Compute 
+\begin_inset Formula \( \nabla ^{2}\phi (x,y,z) \)
+\end_inset 
+
+ where 
+\begin_inset Formula \( \phi  \)
+\end_inset 
+
+ is given in part (a).
+ 
+\latex latex 
+
+\backslash 
+vspace{8 cm}
+\layout Enumerate
+
+[2 marks] Given 
+\begin_inset Formula \( \vec{F}(x,y,z)=(y,x,0) \)
+\end_inset 
+
+ compute 
+\begin_inset Formula \( \nabla \times \vec{F}(x,y) \)
+\end_inset 
+
+.
+\latex latex 
+
+\backslash 
+vspace{8 cm}
+\backslash 
+pagebreak{}
+\layout Enumerate
+
+[5 marks] Compute the line integral 
+\begin_inset Formula \( \oint _{Q}\vec{F}\cdot d\vec{r} \)
+\end_inset 
+
+ where 
+\begin_inset Formula \( Q \)
+\end_inset 
+
+ is the triangle defined by the three points 
+\begin_inset Formula \( \underline{x_{1}}=(0,0) \)
+\end_inset 
+
+, 
+\begin_inset Formula \( \underline{x_{2}}=(1,0) \)
+\end_inset 
+
+, and 
+\begin_inset Formula \( \underline{x_{3}}=(1,1) \)
+\end_inset 
+
+ and where 
+\begin_inset Formula \( \vec{F}(x,y)=(y,x) \)
+\end_inset 
+
+.
+ Assume that the path 
+\begin_inset Formula \( Q \)
+\end_inset 
+
+ is positively oriented (counterclock-wise).
+\latex latex 
+
+\backslash 
+vspace{8 cm}
+\layout Standard
+
+
+\latex latex 
+
+\backslash 
+pagebreak{}
+\newline 
+
+\end_deeper 
+\layout Enumerate
+
+(Series)
+\latex latex 
+
+\backslash 
+rmp{[20]}
+\latex default 
+ 
+\begin_deeper 
+\layout Enumerate
+
+[2 marks] A bounded sequence is always a Cauchy sequence.\SpecialChar ~
+
+\latex latex 
+
+\backslash 
+myTF
+\layout Enumerate
+
+[2 marks] An alternating series will always converge.\SpecialChar ~
+
+\latex latex 
+
+\backslash 
+myTF
+\layout Enumerate
+
+[4 marks] Let 
+\begin_inset Formula \( f(x)=\sum _{k=0}^{\infty }\frac{(2k)!x^{k}}{(4k)!} \)
+\end_inset 
+
+.
+ Find the radius of convergence of this power series.
+\latex latex 
+
+\backslash 
+vspace{8 cm}
+\layout Enumerate
+
+[2 marks] What is 
+\begin_inset Formula \( f'(0) \)
+\end_inset 
+
+ if 
+\begin_inset Formula \( f(x)=\sum _{k=0}^{\infty }\frac{(2k)!x^{k}}{(4k)!} \)
+\end_inset 
+
+? 
+\latex latex 
+
+\backslash 
+vspace{8 cm}
+\layout Enumerate
+
+[4 marks] Without using your calculator, estimate 
+\begin_inset Formula \( L=\sum _{k=0}^{\infty }\frac{(-1)^{k}}{10^{k}} \)
+\end_inset 
+
+ within 0.001.
+\latex latex 
+
+\backslash 
+vspace{8 cm}
+\backslash 
+pagebreak{}
+\layout Enumerate
+
+[2 marks] Define a 
+\begin_inset Quotes eld
+\end_inset 
+
+monotone increasing sequence
+\begin_inset Quotes erd
+\end_inset 
+
+.
+\latex latex 
+
+\backslash 
+vspace{8 cm}
+\layout Enumerate
+
+[4 marks] Prove that a bounded monotone increasing sequence must converge.
+\latex latex 
+
+\backslash 
+vspace{8 cm}
+\layout Standard
+
+
+\latex latex 
+
+\backslash 
+pagebreak{}
+\end_deeper 
+\layout Enumerate
+
+(Higher-Order Differential Equations)
+\latex latex 
+
+\backslash 
+rmp{[20]}
+\latex default 
+ 
+\begin_deeper 
+\layout Enumerate
+
+[2 marks] A 
+\begin_inset Formula \( n^{th} \)
+\end_inset 
+
+ order linear differential equation has 
+\begin_inset Formula \( n+1 \)
+\end_inset 
+
+ solutions.
+\latex latex 
+\SpecialChar ~
+
+\backslash 
+myTF
+\layout Enumerate
+
+[2 marks] The function 
+\begin_inset Formula \( \sin (x) \)
+\end_inset 
+
+ can never be the solution of a homogeneous linear differential equation
+ with constant coefficients.
+\latex latex 
+\SpecialChar ~
+
+\backslash 
+myTF
+\layout Enumerate
+
+[4 marks] Solve 
+\begin_inset Formula \( y''-4y=0 \)
+\end_inset 
+
+.
+\latex latex 
+
+\backslash 
+vspace{8 cm}
+\layout Enumerate
+
+[6 marks] Solve 
+\begin_inset Formula \( y''-4y=e^{2x} \)
+\end_inset 
+
+.
+\latex latex 
+
+\backslash 
+vspace{8 cm}
+\backslash 
+pagebreak{}
+\layout Enumerate
+
+[6 marks] Solve 
+\begin_inset Formula \( y''-4y=xe^{2x} \)
+\end_inset 
+
+.
+\latex latex 
+
+\backslash 
+vspace{8 cm}
+\layout Standard
+
+
+\latex latex 
+
+\backslash 
+pagebreak{}
+\end_deeper 
+\layout Enumerate
+
+(Variable Coefficients) Consider the differential equation 
+\begin_inset Formula \( y''-xy'+2y=0 \)
+\end_inset 
+
+.
+\latex latex 
+
+\backslash 
+rmp{[20]}
+\begin_deeper 
+\layout Enumerate
+
+[2 marks] This differential equation is homogeneous.
+\latex latex 
+\SpecialChar ~
+
+\backslash 
+myTF
+\layout Enumerate
+
+[2 marks] An analytic function can have at most one singular point.\SpecialChar ~
+
+\latex latex 
+
+\backslash 
+myTF
+\layout Enumerate
+
+[2 marks] What are the singular points of this differential equation?
+\latex latex 
+
+\backslash 
+vspace{2 cm}
+\layout Enumerate
+
+[6 marks] Find the recurrence formula for power series solution of 
+\begin_inset Formula \( y''-xy'+2y=0 \)
+\end_inset 
+
+ around 
+\begin_inset Formula \( x=0 \)
+\end_inset 
+
+.
+ 
+\latex latex 
+
+\backslash 
+vspace{8 cm}
+\backslash 
+pagebreak{}
+\layout Enumerate
+
+[6 marks] Find the general solution for 
+\begin_inset Formula \( y''-xy'+2y=0 \)
+\end_inset 
+
+ by computing explicitely the first 
+\begin_inset Formula \( 7 \)
+\end_inset 
+
+ terms in the power series expansion solution.
+\latex latex 
+
+\backslash 
+vspace{8 cm}
+\backslash 
+pagebreak{}
+\layout Enumerate
+
+[2 marks] Use the general solution in part (e) to solve for the initial
+ values 
+\begin_inset Formula \( y(0)=1 \)
+\end_inset 
+
+ and 
+\begin_inset Formula \( y'(0)=1 \)
+\end_inset 
+
+.
+\latex latex 
+
+\backslash 
+vspace{8 cm}
+\end_deeper 
+\layout Standard
+
+
+\begin_inset LatexCommand \label{`last'}
+
+\end_inset 
+
+
+\the_end

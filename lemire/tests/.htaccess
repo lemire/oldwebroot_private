@@ -1,0 +1,5 @@
+#AuthUserFile  /home2/lemire/.htpasswd
+AuthUserFile /home2/lemire/tmp/.htpasswd
+AuthName Danielleprogrammeur
+AuthType Basic
+require valid-user

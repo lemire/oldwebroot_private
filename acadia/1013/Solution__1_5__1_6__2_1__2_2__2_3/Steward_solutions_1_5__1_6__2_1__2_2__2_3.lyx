@@ -1,0 +1,2825 @@
+#LyX 1.1 created this file. For more info see http://www.lyx.org/
+\lyxformat 218
+\textclass article
+\begin_preamble
+%%%%%
+%%%%%
+%%%%%
+%% Welcome!
+%% if you have any question about this
+%% document, please get in touch with
+%% Daniel Lemire at lemire@ondelette.com
+%%
+%% Of course, this file was generated
+%% with LyX which means that the syntax
+%% might be weird at times, but I've found
+%% that LyX did an excellent job overall at
+%% generating clean LaTeX syntax.
+%% Why do I choose LyX? Because LyX
+%% doesn't come with its own LaTeX engine.
+%% LyX simply use whatever tex I have.
+%% There is no "proprietary gizmos" going
+%% on. Also, instead of waiting for support
+%% from some folk in California, I can find
+%% most of the answers I need on the web,
+%% for free! Oh! And LyX is free too! 
+%% Good old Open Source software!
+%%
+%% (Sorry for the propaganda!)
+%% 
+%% Thanks!
+%% Enjoy!
+%%
+%% Sept. 8th 2001
+%% Grand-Pré, NS
+%%
+%%%%%%%%%%
+%
+% Notice that this document requires quite
+% a bit of macros... 
+% Sorry about that!
+%%%%%%%%%%%%%%
+%%
+\usepackage{epsfig}
+\usepackage{amsmath,amssymb}
+\usepackage{pslatex}
+\usepackage{color}
+ 
+ \definecolor{veryblackblue}{rgb}{0.0,0.0,0.1}
+ \usepackage[pdftex,urlcolor=webblackblue,colorlinks=true]{hyperref}
+ \pdfinfo{
+            /Title      (Introductory Calculus- Assignment 1 Solutions)
+            /Author     (Daniel Lemire, Ph.D.)
+            /Subject    (This is a set of solutions for sections 1.5, 1.6, 2.1, 2.2 and 2.3 in Stewart: calculus.)
+            /Keywords   (exponentials, tangents, Stewart, Solutions, limits, Acadia)
+          }
+
+
+\topmargin  = 0pt
+\headheight = 0pt
+\headsep    = 0pt
+
+\voffset    = 0in
+\hoffset    = 0in
+\textheight = 230mm
+\textwidth  = 164mm
+
+\evensidemargin = 0pt
+\oddsidemargin  = 0pt
+
+\pagestyle{empty}
+\usepackage{float}
+
+%% Background of blue palette
+ \definecolor{webblackblue}{rgb}{0.0,0.0,0.2}
+ \definecolor{webblue}{rgb}{0.0, 0.0, 0.6}
+
+%% Background of red palette
+ \definecolor{webblackred}{rgb}{0.2,0.0,0.0}
+ \definecolor{webred}{rgb}{0.6,0.0,0.0}
+
+%% Background of green palette
+ \definecolor{webblackgreen}{rgb}{0.0,0.2,0.0}                                   
+ \definecolor{webgreen}{rgb}{0.0,0.6,0.0} 
+
+%% Background of magenta palette
+ \definecolor{webblackmagenta}{rgb}{0.14,0.0,0.14}                                   
+ \definecolor{webmagenta}{rgb}{0.42,0.0,0.42} 
+
+%% Background of cyan palette
+ \definecolor{webblackcyan}{rgb}{0.0,0.14,0.14}                                   
+ \definecolor{webcyan}{rgb}{0.0,0.42,0.42} 
+
+%% Background of yellow pallete
+ \definecolor{webblackyellow}{rgb}{0.14,0.14,0.0}                                   
+ \definecolor{webyellow}{rgb}{0.85,0.85,0.0} 
+
+ \definecolor{webdarkgray}{rgb}{0.2,0.2,0.2}
+
+ \definecolor{webgray}{rgb}{0.75,0.75,0.75}
+ \definecolor{weborange}{rgb}{1.0, 0.6, 0.0}
+
+\renewcommand\labelenumi{\textcolor{webdarkgray}{\arabic{enumi}.}}
+\newcommand{\setenumi}[1]{#1.\setcounter{enumi}{#1}}
+\usepackage{dsfont}
+%%
+%% You might need this next line... I don't for
+%% some reason... defined somewhere?
+%%
+%% \newcommand{\setenumi}[1]{#1.\setcounter{enumi}{#1}}
+%%
+%% Document should begin NOW!
+%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%
+\end_preamble
+\language english
+\inputencoding auto
+\fontscheme default
+\graphics default
+\paperfontsize 12
+\spacing single 
+\papersize Default
+\paperpackage a4
+\use_geometry 0
+\use_amsmath 0
+\paperorientation portrait
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\defskip medskip
+\quotes_language english
+\quotes_times 2
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+
+\layout Title
+
+Acadia University 
+\newline 
+
+\latex latex 
+
+\backslash 
+href{http://ace.acadiau.ca/math/}{Department of Mathematics and Statistics}
+\latex default 
+
+\newline 
+
+\latex latex 
+ 
+\backslash 
+vspace*{3mm}
+\latex default 
+ 
+\series bold 
+INTRODUCTORY CALCULUS 1
+\series default 
+
+\newline 
+ (MATH 1013) 
+\newline 
+
+\latex latex 
+ 
+\backslash 
+vspace*{3mm}
+\latex default 
+ ASSIGNMENT 1 Solutions
+\layout Author
+
+
+\latex latex 
+
+\backslash 
+href{http://ondelette.com/acadia/}{Daniel Lemire}
+\latex default 
+, Ph.D.
+\layout Standard
+
+
+\begin_inset LatexCommand \tableofcontents{}
+
+\end_inset 
+
+
+\layout Section
+
+
+\latex latex 
+
+\backslash 
+texorpdfstring{
+\backslash 
+textcolor{webblackblue}{
+\latex default 
+Functions and Models
+\latex latex 
+}}{
+\latex default 
+Functions and Models
+\latex latex 
+}
+\layout Standard
+
+
+\latex latex 
+
+\backslash 
+setcounter{subsection}{4}
+\layout Subsection
+\noindent 
+
+\latex latex 
+
+\backslash 
+texorpdfstring{
+\backslash 
+textcolor{webblue}{Exponential Functions}}{Exponential Functions}
+\layout Enumerate
+
+
+\latex latex 
+[
+\backslash 
+setenumi{14}]
+\latex default 
+ 
+\begin_deeper 
+\layout Enumerate
+
+We say that two functions 
+\begin_inset Formula \( f \)
+\end_inset 
+
+ and 
+\begin_inset Formula \( g \)
+\end_inset 
+
+ are reflected about a line 
+\begin_inset Formula \( y=a \)
+\end_inset 
+
+ if 
+\begin_inset Formula \( f(x)-a \)
+\end_inset 
+
+ and 
+\begin_inset Formula \( g(x)-a \)
+\end_inset 
+
+ are equal but have opposite signs for all 
+\begin_inset Formula \( x \)
+\end_inset 
+
+.
+ Therefore, in the present case, we need to find a function 
+\begin_inset Formula \( f(x) \)
+\end_inset 
+
+ such that 
+\begin_inset Formula \( f(x)-4=4-e^{x} \)
+\end_inset 
+
+ and that's 
+\begin_inset Formula \( f(x)=8-e^{x} \)
+\end_inset 
+
+ (see Fig.
+ 
+\begin_inset LatexCommand \ref{refy4}
+
+\end_inset 
+
+).
+\begin_float fig 
+\end_deeper 
+\layout Standard
+
+
+\latex latex 
+[h]
+\layout Standard
+\align center 
+
+\begin_inset Figure size 180 126
+file question1_5_14
+flags 11
+
+\end_inset 
+
+
+\layout Caption
+
+
+\begin_inset LatexCommand \label{refy4}
+
+\end_inset 
+
+Reflection about the line 
+\begin_inset Formula \( y=4 \)
+\end_inset 
+
+
+\end_float 
+\begin_deeper 
+\layout Enumerate
+
+Two functions 
+\begin_inset Formula \( f \)
+\end_inset 
+
+ and 
+\begin_inset Formula \( g \)
+\end_inset 
+
+ are reflected about the line 
+\begin_inset Formula \( x=a \)
+\end_inset 
+
+ if 
+\begin_inset Formula \( f(a+x)=g(a-x) \)
+\end_inset 
+
+ for all 
+\begin_inset Formula \( x \)
+\end_inset 
+
+.
+ The function we are looking for is 
+\begin_inset Formula \( f(x+2)=e^{2-x} \)
+\end_inset 
+
+ because 
+\begin_inset Formula \( g(x)=e^{x} \)
+\end_inset 
+
+.
+ We finally substitute 
+\begin_inset Formula \( z=x+2 \)
+\end_inset 
+
+ (or 
+\begin_inset Formula \( x=z-2 \)
+\end_inset 
+
+) to obtain 
+\begin_inset Formula \( f(z)=e^{4-z} \)
+\end_inset 
+
+ (see Fig.
+ 
+\begin_inset LatexCommand \ref{refy4b}
+
+\end_inset 
+
+).
+\begin_float fig 
+\end_deeper 
+\layout Standard
+
+
+\latex latex 
+[h]
+\layout Standard
+\align center 
+
+\begin_inset Figure size 180 126
+file question1_5_14b
+flags 11
+
+\end_inset 
+
+
+\layout Caption
+
+
+\begin_inset LatexCommand \label{refy4b}
+
+\end_inset 
+
+Reflection about the line 
+\begin_inset Formula \( x=2 \)
+\end_inset 
+
+
+\end_float 
+\layout Enumerate
+
+
+\latex latex 
+[
+\backslash 
+setenumi{16}]
+\latex default 
+
+\begin_inset LatexCommand \label{enum:question16}
+
+\end_inset 
+
+Looking at the graph, we can observe that 
+\begin_inset Formula \( f(0)=2 \)
+\end_inset 
+
+ and 
+\begin_inset Formula \( f(2)=\frac{2}{9} \)
+\end_inset 
+
+.
+ Since 
+\begin_inset Formula \( f(x)=Ca^{x} \)
+\end_inset 
+
+, we have that
+\begin_inset Formula \begin{equation}
+\label{eqntrivial}
+Ca^{0}=2
+\end{equation}
+
+\end_inset 
+
+and
+\begin_inset Formula \begin{equation}
+\label{eqnnotsotrivial}
+Ca^{2}=\frac{2}{9}.
+\end{equation}
+
+\end_inset 
+
+From equation 
+\begin_inset LatexCommand \ref{eqntrivial}
+
+\end_inset 
+
+, we see right away that 
+\begin_inset Formula \( C=2 \)
+\end_inset 
+
+ and therefore, equation 
+\begin_inset LatexCommand \ref{eqnnotsotrivial}
+
+\end_inset 
+
+ becomes
+\begin_inset Formula \[
+a^{2}=\frac{1}{9}\]
+
+\end_inset 
+
+which implies that 
+\begin_inset Formula \( a=\pm \frac{1}{3} \)
+\end_inset 
+
+.
+ However, we must reject the solution 
+\begin_inset Formula \( a=-\frac{1}{3} \)
+\end_inset 
+
+ because the function 
+\begin_inset Formula \( f(x)=2\times \left( \frac{-1}{3}\right) ^{x} \)
+\end_inset 
+
+ implies 
+\begin_inset Formula \( f(1)=\frac{-2}{3} \)
+\end_inset 
+
+ which doesn't agree with the graph.
+ We have one remaining solution and it is 
+\begin_inset Formula \[
+f(x)=2\times \left( \frac{1}{3}\right) ^{x}.\]
+
+\end_inset 
+
+
+\layout Enumerate
+
+
+\latex latex 
+[
+\backslash 
+setenumi{18}]
+\latex default 
+We will assume that the highest paying job at the end of the month must
+ be chosen.
+ The first job pays 
+\begin_inset Formula \( 1,000,000 \)
+\end_inset 
+
+ over a month.
+ How much pays the second one? Setting up the equation is not very difficult,
+ we readily see that it pays
+\begin_float footnote 
+\layout Standard
+
+We chose a month with 30 days.
+\end_float 
+ 
+\begin_inset Formula \begin{equation}
+\label{geom}
+pay=\sum _{n=1}^{30}2^{n-1}.
+\end{equation}
+
+\end_inset 
+
+How much is it? The formula 
+\begin_inset LatexCommand \ref{geom}
+
+\end_inset 
+
+ is called a 
+\shape italic 
+geometric series
+\shape default 
+.
+ We can solve it rather easily, we simply evaluate 
+\begin_inset Formula \( pay-2\times pay \)
+\end_inset 
+
+ by using formula 
+\begin_inset LatexCommand \ref{geom}
+
+\end_inset 
+
+ which gives
+\begin_inset Formula \begin{eqnarray*}
+pay-2\times pay= & \sum _{n=1}^{30}2^{n-1}-2\times \sum _{n=1}^{30}2^{n-1} & \\
+= & \sum _{n=1}^{30}2^{n-1}-\sum _{n=2}^{31}2^{n-1} & \\
+= & 2^{0}-2^{30} & 
+\end{eqnarray*}
+
+\end_inset 
+
+We then solve for 
+\begin_inset Formula \( pay \)
+\end_inset 
+
+ in 
+\begin_inset Formula \( pay-2\times pay=1-2^{30} \)
+\end_inset 
+
+ which is very easy since 
+\begin_inset Formula \( pay-2\times pay=-pay \)
+\end_inset 
+
+, and we finally have 
+\begin_inset Formula \( pay=2^{30}-1 \)
+\end_inset 
+
+.
+ It should be noted here that 
+\begin_inset Formula \( 2^{30} \)
+\end_inset 
+
+ is a very big number (about one billion or 
+\begin_inset Formula \( 1,073,741,824 \)
+\end_inset 
+
+).
+\latex latex 
+
+\newline 
+
+\latex default 
+What is the lesson here? Exponential functions can increase 
+\series bold 
+\color red
+very fast
+\begin_float footnote 
+\layout Standard
+
+Most modern computer architectures are 32 bits (Windows, Linux and even
+ the new gaming consoles).
+ Therefore, the highest integer value most programmers will ever expect
+ is 
+\begin_inset Formula \( 2^{32}-1 \)
+\end_inset 
+
+.
+ Of course, newer computer architectures will probably be 64 bits and integers
+ will go up to 
+\begin_inset Formula \( 2^{64}-1 \)
+\end_inset 
+
+.
+ Will that be a big improvement? How much bigger is 
+\begin_inset Formula \( 2^{64} \)
+\end_inset 
+
+ with respect to 
+\begin_inset Formula \( 2^{32} \)
+\end_inset 
+
+?
+\end_float 
+.
+ 
+\layout Enumerate
+
+
+\latex latex 
+[
+\backslash 
+setenumi{24}]
+\begin_deeper 
+\layout Enumerate
+
+Given that the half-life is 15 hours, after 15 hours, we have 
+\begin_inset Formula \( 2/2=1 \)
+\end_inset 
+
+ g left (by definition).
+ After another 15 hours (for a total of 30 hours), we have 
+\begin_inset Formula \( 1/2 \)
+\end_inset 
+
+ g left, and after yet another 15 hours (for a total of 30 hours), we have
+ 
+\begin_inset Formula \( 1/4 \)
+\end_inset 
+
+ g left.
+ Finally, after 60 hours, we'll have 
+\begin_inset Formula \( 1/8 \)
+\end_inset 
+
+ g left
+\begin_float footnote 
+\end_deeper 
+\layout Standard
+
+It is also possible to deduce this result from equation 
+\begin_inset LatexCommand \ref{decayofsodium}
+
+\end_inset 
+
+.
+\end_float 
+.
+\begin_deeper 
+\layout Enumerate
+
+Since the decay is exponential, we have that 
+\begin_inset Formula \begin{equation}
+\label{expbasic}
+m(x)=Ca^{x}.
+\end{equation}
+
+\end_inset 
+
+ First of all, 
+\begin_inset Formula \( m(0)=2 \)
+\end_inset 
+
+ and therefore 
+\begin_inset Formula \( C=2 \)
+\end_inset 
+
+ (see equation 
+\begin_inset LatexCommand \ref{eqntrivial}
+
+\end_inset 
+
+ 
+\begin_inset LatexCommand \vpageref{eqntrivial}
+
+\end_inset 
+
+).
+ We have that after 15 hours, the mass must be half, so 
+\begin_inset Formula \begin{equation}
+\label{halflife}
+m(15)=1.
+\end{equation}
+
+\end_inset 
+
+Combining equations 
+\begin_inset LatexCommand \ref{expbasic}
+
+\end_inset 
+
+ and 
+\begin_inset LatexCommand \ref{halflife}
+
+\end_inset 
+
+, we get that
+\begin_inset Formula \begin{equation}
+\label{a15}
+2a^{15}=1
+\end{equation}
+
+\end_inset 
+
+ 
+\begin_inset Formula \( 2a^{15}=1 \)
+\end_inset 
+
+ and we must now solve for 
+\begin_inset Formula \( a \)
+\end_inset 
+
+.
+ One way to do it (assuming we don't know about logarithms) is to take the
+ equation 
+\begin_inset LatexCommand \ref{a15}
+
+\end_inset 
+
+to the power 
+\begin_inset Formula \( \frac{1}{15} \)
+\end_inset 
+
+ to get 
+\begin_inset Formula \[
+a=\frac{1}{2^{1/15}}\cong \frac{1}{1.047}\cong 0.9548.\]
+
+\end_inset 
+
+ This means that the mass of our sample goes down according to the equation
+\begin_float footnote 
+\end_deeper 
+\layout Standard
+
+Actually, your calculator or mathematical software is likely to evaluate
+ this function using the formula 
+\begin_inset Formula \( e^{(1-x/15)\ln 2} \)
+\end_inset 
+
+ instead.
+ We will come back to logarithms and their applications later in the course.
+ 
+\end_float 
+ 
+\begin_inset Formula \begin{equation}
+\label{decayofsodium}
+m(x)=2\left( \frac{1}{2}\right) ^{\frac{x}{15}}=\left( \frac{1}{2}\right) ^{\frac{x}{15}-1}.
+\end{equation}
+
+\end_inset 
+
+
+\begin_float fig 
+\layout Standard
+
+
+\latex latex 
+[h]
+\layout Standard
+\align center 
+
+\begin_inset Figure size 180 126
+file question1_5_24
+flags 11
+
+\end_inset 
+
+
+\layout Caption
+
+Mass of sodium vs time according to equation 
+\begin_inset LatexCommand \ref{decayofsodium}
+
+\end_inset 
+
+
+\end_float 
+\begin_deeper 
+\layout Enumerate
+
+Amount after 4 days? What you 
+\color red
+must not
+\color default
+ do here is substitute 
+\begin_inset Formula \( 4 \)
+\end_inset 
+
+ in equation 
+\begin_inset LatexCommand \ref{decayofsodium}
+
+\end_inset 
+
+.
+ The correct reasoning is to first convert 4 days in hours.
+ We have 24 hours for every day, so 4 days is 
+\begin_inset Formula \( 4\times 24=96 \)
+\end_inset 
+
+ hours.
+ Therefore, the remaining mass will be
+\begin_inset Formula \[
+m(96)=\left( \frac{1}{2}\right) ^{\frac{96}{15}-1}\cong 0.02.\]
+
+\end_inset 
+
+
+\end_deeper 
+\layout Subsection
+
+
+\latex latex 
+
+\backslash 
+texorpdfstring{
+\backslash 
+textcolor{webblue}{Inverse Functions and Logarithms}}{Inverse Functions
+ and Logarithms}
+\layout Enumerate
+
+
+\latex latex 
+[
+\backslash 
+setenumi{18}]
+\begin_deeper 
+\layout Enumerate
+
+We have to solve the equation 
+\begin_inset Formula \[
+3=3+x^{2}+\tan (\pi x/2)\]
+
+\end_inset 
+
+which simplifies to 
+\begin_inset Formula \[
+\tan (\pi x/2)=-x^{2}.\]
+
+\end_inset 
+
+Now, some of you might think that life is pretty hard (and it sometimes
+ is!).
+ But wait! What is 
+\begin_inset Formula \( \tan (0) \)
+\end_inset 
+
+? 
+\begin_inset Formula \( 0 \)
+\end_inset 
+
+ of course! And what is 
+\begin_inset Formula \( x^{2} \)
+\end_inset 
+
+ evaluated at 
+\begin_inset Formula \( 0 \)
+\end_inset 
+
+? 
+\begin_inset Formula \( 0 \)
+\end_inset 
+
+ of course! So we found a solution which we will assume to be unique and
+ we conclude that 
+\begin_inset Formula \( f^{-1}(3)=0 \)
+\end_inset 
+
+ (See Fig.
+ 
+\begin_inset LatexCommand \ref{equation1to1maybe}
+
+\end_inset 
+
+).
+\layout Enumerate
+
+
+\color red
+You must not try to evaluate 
+\begin_inset Formula \( f^{-1}(5) \)
+\end_inset 
+
+!
+\color default
+ We write 
+\begin_inset Formula \( x_{5}=f^{-1}(5) \)
+\end_inset 
+
+ and 
+\begin_inset Formula \( x_{5} \)
+\end_inset 
+
+ is defined by the equation 
+\begin_inset Formula \( f\left( x_{5}\right) =5 \)
+\end_inset 
+
+.
+ And thus 
+\begin_inset Formula \[
+f\left( f^{-1}\left( 5\right) \right) =f\left( x_{5}\right) =5.\]
+
+\end_inset 
+
+
+\begin_float fig 
+\end_deeper 
+\layout Standard
+
+
+\latex latex 
+[h]
+\layout Standard
+\align center 
+
+\begin_inset Figure size 180 126
+file question1_6_18
+flags 11
+
+\end_inset 
+
+
+\layout Caption
+
+
+\begin_inset LatexCommand \label{equation1to1maybe}
+
+\end_inset 
+
+
+\begin_inset Formula \( 3+x^{2}+\tan (\pi x/2) \)
+\end_inset 
+
+
+\end_float 
+\layout Enumerate
+
+
+\latex latex 
+[
+\backslash 
+setenumi{28}]
+\latex default 
+We want to compute the inverse of the following function
+\begin_inset Formula \begin{equation}
+\label{1expover1moinsx}
+f(x)=\left( 1+e^{x}\right) /\left( 1-e^{x}\right) 
+\end{equation}
+
+\end_inset 
+
+ It is worth noting that when 
+\begin_inset Formula \( x=0 \)
+\end_inset 
+
+, we get 
+\begin_inset Formula \( f(0)=2/0=\infty  \)
+\end_inset 
+
+.
+ Since we know that 
+\begin_inset Formula \( \ln \left( e^{x}\right) =x \)
+\end_inset 
+
+, we have 
+\begin_inset Formula \begin{eqnarray*}
+\frac{1+e^{x}}{1-e^{x}}=y & \Longrightarrow  & \left( 1-e^{x}\right) y=1+e^{x}\\
+ & \Longrightarrow  & (1+y)e^{x}=y-1\\
+ & \Longrightarrow  & e^{x}=\frac{y-1}{y+1}\\
+ & \Longrightarrow  & x=\ln \left( \frac{y-1}{y+1}\right) .
+\end{eqnarray*}
+
+\end_inset 
+
+Of course, this function isn't defined for 
+\begin_inset Formula \( \frac{y-1}{y+1}\leq 0 \)
+\end_inset 
+
+ or 
+\begin_inset Formula \( -1\leq y\leq 1 \)
+\end_inset 
+
+.
+ One could verify that 
+\begin_inset Formula \( f(x) \)
+\end_inset 
+
+ in equation 
+\begin_inset LatexCommand \ref{1expover1moinsx}
+
+\end_inset 
+
+ never takes these values (see also Fig.
+ 
+\begin_inset LatexCommand \ref{graph1exp}
+
+\end_inset 
+
+).
+ 
+\begin_float fig 
+\layout Standard
+
+
+\latex latex 
+[h]
+\layout Standard
+\align center 
+
+\begin_inset Figure size 180 126
+file question1_6_28
+flags 11
+
+\end_inset 
+
+
+\layout Caption
+
+
+\begin_inset LatexCommand \label{graph1exp}
+
+\end_inset 
+
+
+\begin_inset Formula \( f(x)=\left( 1+e^{x}\right) /\left( 1-e^{x}\right)  \)
+\end_inset 
+
+
+\end_float 
+ 
+\layout Enumerate
+
+
+\latex latex 
+[
+\backslash 
+setenumi{36}]
+\latex default 
+Recall that
+\latex latex 
+ 
+\latex default 
+
+\begin_inset Formula \( \log a^{b}=b\log a \)
+\end_inset 
+
+ and 
+\begin_inset Formula \( \log _{a}a=1 \)
+\end_inset 
+
+.
+\begin_deeper 
+\layout Enumerate
+
+
+\begin_inset Formula \( \log _{8}2=\log _{8}\left( 8^{\frac{1}{3}}\right) =\frac{1}{3}\times \log _{8}8 \)
+\end_inset 
+
+ because 
+\begin_inset Formula \( \log a^{b}=b\log a \)
+\end_inset 
+
+, and since 
+\begin_inset Formula \( \log _{a}a=1 \)
+\end_inset 
+
+, 
+\begin_inset Formula \[
+\frac{1}{3}\times \log _{8}8=\frac{1}{3}\]
+
+\end_inset 
+
+ so that 
+\begin_inset Formula \( \log _{8}2=\frac{1}{3} \)
+\end_inset 
+
+.
+\layout Enumerate
+
+
+\begin_inset Formula \( \ln e^{\sqrt{2}}=\sqrt{2}\ln e \)
+\end_inset 
+
+ because 
+\begin_inset Formula \( \ln a^{b}=b\ln a \)
+\end_inset 
+
+, and since 
+\begin_inset Formula \( \ln e=1 \)
+\end_inset 
+
+, we have 
+\begin_inset Formula \( \ln e^{\sqrt{2}}=\sqrt[]{2} \)
+\end_inset 
+
+.
+ 
+\end_deeper 
+\layout Enumerate
+
+
+\latex latex 
+[
+\backslash 
+setenumi{38}]
+\latex default 
+Recall that
+\latex latex 
+ 
+\latex default 
+
+\begin_inset Formula \( a^{b+c}=a^{b}a^{c} \)
+\end_inset 
+
+ and 
+\begin_inset Formula \( a^{\log _{a}b}=b \)
+\end_inset 
+
+ (see equation 7 in 
+\begin_inset LatexCommand \cite{Steward}
+
+\end_inset 
+
+ on page 68).
+\begin_deeper 
+\layout Enumerate
+
+
+\begin_inset Formula \( 2^{\log _{2}3+\log _{2}5}=2^{\log _{2}3}\times 2^{\log _{2}5}=3\times 5=15 \)
+\end_inset 
+
+
+\layout Enumerate
+
+
+\begin_inset Formula \( e^{3\ln 2}=e^{\ln \left( 2^{3}\right) }=2^{3}=8 \)
+\end_inset 
+
+
+\end_deeper 
+\layout Enumerate
+
+
+\latex latex 
+[
+\backslash 
+setenumi{42}]
+\latex default 
+The logarithm has 
+\begin_inset Formula \( \left( 0,\infty \right)  \)
+\end_inset 
+
+ for its domain (it isn't defined elsewhere, at least in this course).
+ Therefore, in 
+\begin_inset Formula \( \ln \left( 4-x^{2}\right)  \)
+\end_inset 
+
+, we need to have 
+\begin_inset Formula \( 4-x^{2}\geq 0 \)
+\end_inset 
+
+ or
+\begin_inset Formula \begin{equation}
+\label{sqrt4}
+x^{2}<4.
+\end{equation}
+
+\end_inset 
+
+ At this point, one must be 
+\color red
+careful
+\color default
+.
+ We may think of taking the square root on both sides of equation 
+\begin_inset LatexCommand \ref{sqrt4}
+
+\end_inset 
+
+ (getting 
+\begin_inset Formula \( x<2 \)
+\end_inset 
+
+) and indeed, it is correct to do so...
+ as long as you realize that if 
+\begin_inset Formula \( a^{2}=b \)
+\end_inset 
+
+ then so does 
+\begin_inset Formula \( \left( -a\right) ^{2}=b \)
+\end_inset 
+
+! That is, you have to consider negative values as well...
+ Therefore, we have 
+\begin_inset Formula \[
+x<2\]
+
+\end_inset 
+
+ 
+\color blue
+and
+\color default
+ 
+\begin_inset Formula \[
+x>-2.\]
+
+\end_inset 
+
+We conclude that the domain of 
+\begin_inset Formula \( \ln \left( 4-x^{2}\right)  \)
+\end_inset 
+
+ is 
+\begin_inset Formula \( \left( -2,2\right)  \)
+\end_inset 
+
+.
+\newline 
+As for the range of the function...
+ we first have to look at the range of 
+\begin_inset Formula \( 4-x^{2} \)
+\end_inset 
+
+ over 
+\begin_inset Formula \( \left( -2,2\right)  \)
+\end_inset 
+
+.
+ Clearly, the polynomial is at its maximum when 
+\begin_inset Formula \( x=0 \)
+\end_inset 
+
+ and so its range has 
+\begin_inset Formula \( 4 \)
+\end_inset 
+
+ as an upper bound.
+ On the other hand, it has 
+\begin_inset Formula \( 0 \)
+\end_inset 
+
+ as its lower bound and therefore the range of 
+\begin_inset Formula \( 4-x^{2} \)
+\end_inset 
+
+ over 
+\begin_inset Formula \( \left( -2,2\right)  \)
+\end_inset 
+
+ is 
+\begin_inset Formula \( \left( 0,4\right]  \)
+\end_inset 
+
+.
+ Since the logarithm is a strictly increasing function, we can conclude
+ that the range of 
+\begin_inset Formula \( \ln \left( 4-x^{2}\right)  \)
+\end_inset 
+
+ is 
+\begin_inset Formula \( \left( \ln 0,\ln 4\right]  \)
+\end_inset 
+
+ or 
+\begin_inset Formula \( \left( -\infty ,\ln 4\right]  \)
+\end_inset 
+
+ or approximately 
+\begin_inset Formula \( \left( -\infty ,1.386\right]  \)
+\end_inset 
+
+ (see Fig.
+ 
+\begin_inset LatexCommand \ref{graphln4}
+
+\end_inset 
+
+).
+\begin_float fig 
+\layout Standard
+
+
+\latex latex 
+[h]
+\layout Standard
+\align center 
+
+\begin_inset Figure size 180 126
+file question1_6_42
+flags 11
+
+\end_inset 
+
+
+\layout Caption
+
+
+\begin_inset LatexCommand \label{graphln4}
+
+\end_inset 
+
+
+\begin_inset Formula \( f(x)=\left( 1+e^{x}\right) /\left( 1-e^{x}\right)  \)
+\end_inset 
+
+
+\end_float 
+ 
+\layout Enumerate
+
+
+\latex latex 
+[
+\backslash 
+setenumi{52}]
+\begin_deeper 
+\layout Enumerate
+
+Starting from 
+\begin_inset Formula \( \ln \ln x=1 \)
+\end_inset 
+
+, we write 
+\begin_inset Formula \( e^{1}=e^{\ln \ln x} \)
+\end_inset 
+
+ but since 
+\begin_inset Formula \( e^{\ln w}=w \)
+\end_inset 
+
+, we have 
+\begin_inset Formula \( e=\ln x \)
+\end_inset 
+
+ and finally, we write 
+\begin_inset Formula \[
+e^{e}=e^{\ln x}=x\]
+
+\end_inset 
+
+so that 
+\begin_inset Formula \( x=e^{e} \)
+\end_inset 
+
+.
+\layout Enumerate
+
+Starting from 
+\begin_inset Formula \( e^{ax}=Ce^{bx} \)
+\end_inset 
+
+, we divide both sides of the equation by 
+\begin_inset Formula \( e^{bx} \)
+\end_inset 
+
+ (which we know to be a non-zero positive number! why?) to get 
+\begin_inset Formula \[
+e^{\left( a-b\right) x}=C.\]
+
+\end_inset 
+
+ We can then simply take the logarithm of both sides of the equation to
+ get
+\begin_inset Formula \[
+\left( a-b\right) x=\ln C\]
+
+\end_inset 
+
+and therefore 
+\begin_inset Formula \( x=\frac{\ln C}{a-b} \)
+\end_inset 
+
+ because 
+\begin_inset Formula \( a\neq b \)
+\end_inset 
+
+.
+\end_deeper 
+\layout Enumerate
+
+
+\latex latex 
+[
+\backslash 
+setenumi{58}]
+\begin_deeper 
+\layout Enumerate
+
+We have to solve for 
+\begin_inset Formula \( t \)
+\end_inset 
+
+ in 
+\begin_inset Formula \[
+Q_{0}\left( 1-e^{-t/a}\right) =Q.\]
+
+\end_inset 
+
+ We begin by dividing by 
+\begin_inset Formula \( Q_{0} \)
+\end_inset 
+
+ both sides of the equation and after some algebra, we get
+\begin_inset Formula \[
+e^{-t/a}=1-\frac{Q}{Q_{0}}.\]
+
+\end_inset 
+
+Taking the logarithm, we get
+\begin_inset Formula \[
+\frac{-t}{a}=\ln \left( 1-\frac{Q}{Q_{0}}\right) \]
+
+\end_inset 
+
+or
+\begin_inset Formula \[
+t=-a\ln \left( 1-\frac{Q}{Q_{0}}\right) \]
+
+\end_inset 
+
+or
+\begin_inset Formula \begin{equation}
+\label{timefunctionQ}
+t=a\ln \frac{Q_{0}}{Q_{0}-Q}
+\end{equation}
+
+\end_inset 
+
+because 
+\begin_inset Formula \( \ln c/b=-\ln b/c \)
+\end_inset 
+
+.
+ It should be noted that if 
+\begin_inset Formula \( Q_{0}=Q \)
+\end_inset 
+
+ (at time 
+\begin_inset Formula \( t=0 \)
+\end_inset 
+
+), then we have the logarithm of 
+\begin_inset Formula \( 0 \)
+\end_inset 
+
+ or of 
+\begin_inset Formula \( \infty  \)
+\end_inset 
+
+ which is not very good! We must therefore require that 
+\begin_inset Formula \( Q<Q_{0} \)
+\end_inset 
+
+ in which case 
+\begin_inset Formula \[
+\frac{Q_{0}}{Q_{0}-Q}>1\]
+
+\end_inset 
+
+ and therefore 
+\begin_inset Formula \( t>0 \)
+\end_inset 
+
+ (because 
+\begin_inset Formula \( \ln \left( 1\right) =0 \)
+\end_inset 
+
+).
+ When 
+\begin_inset Formula \( Q=0 \)
+\end_inset 
+
+, we have 
+\begin_inset Formula \( t=0 \)
+\end_inset 
+
+.
+ What does equation 
+\begin_inset LatexCommand \ref{timefunctionQ}
+
+\end_inset 
+
+ mean? Well, it gives us time as a function of the charge 
+\begin_inset Formula \( Q \)
+\end_inset 
+
+.
+ When the charge is at its minimum (
+\begin_inset Formula \( 0 \)
+\end_inset 
+
+), then 
+\begin_inset Formula \( t=0 \)
+\end_inset 
+
+ and we know that we just started recharging...
+ as 
+\begin_inset Formula \( Q \)
+\end_inset 
+
+ increases (getting closer to 
+\begin_inset Formula \( Q_{0} \)
+\end_inset 
+
+), we can compute the corresponding number of seconds we waited.
+ 
+\layout Enumerate
+
+Setting 
+\begin_inset Formula \( Q=0.9Q_{0} \)
+\end_inset 
+
+ and substituting in equation 
+\begin_inset LatexCommand \ref{timefunctionQ}
+
+\end_inset 
+
+, we have 
+\begin_inset Formula \begin{eqnarray*}
+t & = & a\ln \frac{Q_{0}}{Q_{0}-0.9Q_{0}}\\
+ & = & a\ln \frac{Q_{0}}{0.1Q_{0}}\\
+ & = & a\ln \frac{1}{0.1}\\
+ & = & a\ln 10
+\end{eqnarray*}
+
+\end_inset 
+
+and because 
+\begin_inset Formula \( a=2 \)
+\end_inset 
+
+, we have 
+\begin_inset Formula \( t=2\ln 10\cong 4.6 \)
+\end_inset 
+
+ seconds.
+ Bonus: how long for 99% of the charge? We substitute again to get 
+\begin_inset Formula \( t=2\ln \frac{1}{0.01}\cong 9.2 \)
+\end_inset 
+
+ seconds...
+ how long for 99.9% of the charge? We have 
+\begin_inset Formula \( t=2\ln \frac{1}{0.001}\cong 13.8 \)
+\end_inset 
+
+ seconds...
+ What is happening? The logarithm grows very slowly! We can get very, very
+ close to full charge without waiting all that long! 
+\end_deeper 
+\layout Section
+
+
+\latex latex 
+
+\backslash 
+texorpdfstring{
+\backslash 
+textcolor{webblackblue}{Limits and Derivatives}}{Limits and Derivatives}
+\layout Subsection
+
+
+\latex latex 
+
+\backslash 
+texorpdfstring{
+\backslash 
+textcolor{webblue}{The Tangent and Velocity Problems}}{The Tangent and Velocity
+ Problems}
+\layout Enumerate
+
+
+\latex latex 
+[
+\backslash 
+setenumi{2}]
+\latex default 
+It is always useful to begin by plotting the points we are given.
+ You can do it very easily using Maple
+\begin_float footnote 
+\layout Standard
+
+Many different plotting tools can be used including Mathematica, gnuplot,
+ Matlab, Mathcad, EasyCalc (for Palm Pilot or Visor users).
+ While you'll learn to use Maple in this course, you can use any tool that
+ suits your needs.
+ Some of them are free (gnuplot and EasyCalc for example).
+\end_float 
+ (see Fig.
+ 
+\begin_inset LatexCommand \ref{graphheart}
+
+\end_inset 
+
+).
+\begin_float fig 
+\layout Standard
+
+
+\latex latex 
+[h]
+\layout Standard
+\align center 
+
+\begin_inset Figure size 180 126
+file question2_1_2
+flags 11
+
+\end_inset 
+
+
+\layout Caption
+
+
+\begin_inset LatexCommand \label{graphheart}
+
+\end_inset 
+
+Heartbeats vs minutes
+\end_float 
+ 
+\begin_deeper 
+\layout Enumerate
+
+We want to compute the slope of the secant line passing through 
+\begin_inset Formula \( \left( 36,2530\right)  \)
+\end_inset 
+
+ and 
+\begin_inset Formula \( \left( 42,2948\right)  \)
+\end_inset 
+
+.
+ Recall that the slope of the line passing through 
+\begin_inset Formula \( \left( x_{1},y_{1}\right)  \)
+\end_inset 
+
+ and 
+\begin_inset Formula \( \left( x_{1},y_{1}\right)  \)
+\end_inset 
+
+ is given my 
+\begin_inset Formula \[
+m=\frac{y_{1}-y_{2}}{x_{1}-x_{2}}.\]
+
+\end_inset 
+
+In the present case, we therefore have 
+\begin_inset Formula \[
+m=\frac{2530-2948}{36-42}\cong 69.7.\]
+
+\end_inset 
+
+
+\layout Enumerate
+
+We have to compute the slope of the secant line passing through 
+\begin_inset Formula \( \left( 38,2661\right)  \)
+\end_inset 
+
+ and 
+\begin_inset Formula \( \left( 42,2948\right)  \)
+\end_inset 
+
+ which is
+\begin_inset Formula \[
+m=\frac{2661-2948}{38-42}=71.75.\]
+
+\end_inset 
+
+
+\layout Enumerate
+
+We have to compute the slope of the secant line passing through 
+\begin_inset Formula \( \left( 40,2806\right)  \)
+\end_inset 
+
+ and 
+\begin_inset Formula \( \left( 42,2948\right)  \)
+\end_inset 
+
+ which is
+\begin_inset Formula \[
+m=\frac{2806-2948}{40-42}=71.\]
+
+\end_inset 
+
+
+\layout Enumerate
+
+We have to compute the slope of the secant line passing through 
+\begin_inset Formula \( \left( 42,2948\right)  \)
+\end_inset 
+
+ and 
+\begin_inset Formula \( \left( 44,3080\right)  \)
+\end_inset 
+
+ which is
+\begin_inset Formula \[
+m=\frac{2948-3080}{42-44}=66.\]
+
+\end_inset 
+
+ If we want to approximate the slope of the tangent line at 
+\begin_inset Formula \( 42 \)
+\end_inset 
+
+, we can look at the two closest secant lines (c and d) and expect the slope
+ of the tangent line to be somewhere between 
+\begin_inset Formula \( 66 \)
+\end_inset 
+
+ and 
+\begin_inset Formula \( 71 \)
+\end_inset 
+
+.
+ We can use the average of the two values 
+\begin_inset Formula \( \frac{66+71}{2}\cong 68.5 \)
+\end_inset 
+
+ as a good estimation for the heart rate in beats per minute at time 
+\begin_inset Formula \( t=72 \)
+\end_inset 
+
+.
+\end_deeper 
+\layout Enumerate
+
+
+\latex latex 
+[
+\backslash 
+setenumi{4}]
+\begin_deeper 
+\layout Enumerate
+
+We have have to compute the slope of the line passing through 
+\begin_inset Formula \( \left( 2,\ln 2\right)  \)
+\end_inset 
+
+ and 
+\begin_inset Formula \( \left( x,\ln x\right)  \)
+\end_inset 
+
+ for some values of 
+\begin_inset Formula \( x \)
+\end_inset 
+
+.
+ The general formula for the slope is going to be
+\begin_inset Formula \[
+m=\frac{\ln 2-\ln x}{2-x}.\]
+
+\end_inset 
+
+Note that while the question in Steward require 6 decimal places values
+ for the slope, we give only 3 decimal places below.
+\begin_deeper 
+\layout Enumerate
+
+For 
+\begin_inset Formula \( x=1.5 \)
+\end_inset 
+
+, we have
+\begin_inset Formula \[
+m=\frac{\ln 2-\ln 1.5}{2-1.5}\cong 0.575.\]
+
+\end_inset 
+
+
+\layout Enumerate
+
+For 
+\begin_inset Formula \( x=0.9, \)
+\end_inset 
+
+ we have
+\begin_inset Formula \[
+m=\frac{\ln 2-\ln 0.9}{2-0.9}\cong 0.726.\]
+
+\end_inset 
+
+
+\layout Enumerate
+
+For 
+\begin_inset Formula \( x=1.99, \)
+\end_inset 
+
+ we have
+\begin_inset Formula \[
+m=\frac{\ln 2-\ln 1.99}{2-1.99}\cong 0.501.\]
+
+\end_inset 
+
+
+\layout Enumerate
+
+For 
+\begin_inset Formula \( x=1.999, \)
+\end_inset 
+
+ we have
+\begin_inset Formula \[
+m=\frac{\ln 2-\ln 1.999}{2-1.999}\cong 0.5.\]
+
+\end_inset 
+
+
+\layout Enumerate
+
+For 
+\begin_inset Formula \( x=2.5, \)
+\end_inset 
+
+ we have
+\begin_inset Formula \[
+m=\frac{\ln 2-\ln 2.5}{2-2.5}\cong 0.446.\]
+
+\end_inset 
+
+
+\layout Enumerate
+
+For 
+\begin_inset Formula \( x=2.1, \)
+\end_inset 
+
+ we have
+\begin_inset Formula \[
+m=\frac{\ln 2-\ln 2.1}{2-2.1}\cong 0.488.\]
+
+\end_inset 
+
+
+\layout Enumerate
+
+For 
+\begin_inset Formula \( x=2.01, \)
+\end_inset 
+
+ we have
+\begin_inset Formula \[
+m=\frac{\ln 2-\ln 2.01}{2-2.01}\cong 0.499.\]
+
+\end_inset 
+
+
+\layout Enumerate
+
+For 
+\begin_inset Formula \( x=2.001, \)
+\end_inset 
+
+ we have
+\begin_inset Formula \[
+m=\frac{\ln 2-\ln 1.5}{2-1.5}\cong 0.5.\]
+
+\end_inset 
+
+
+\end_deeper 
+\layout Enumerate
+
+To guess the value of the slope, we look at the secant lines we get with
+ 
+\begin_inset Formula \( x=1.999 \)
+\end_inset 
+
+ and 
+\begin_inset Formula \( x=2.001 \)
+\end_inset 
+
+, they both have a slope of 
+\begin_inset Formula \( \approx 0.5 \)
+\end_inset 
+
+ and therefore, 
+\begin_inset Formula \( m=0.5 \)
+\end_inset 
+
+ is our best guess.
+\layout Enumerate
+
+The tangent line will have a slope of 
+\begin_inset Formula \( 0.5 \)
+\end_inset 
+
+ and therefore, its equation is going to be
+\begin_inset Formula \begin{equation}
+\label{linehalf}
+y=0.5x+b
+\end{equation}
+
+\end_inset 
+
+ and it remains to solve for 
+\begin_inset Formula \( b \)
+\end_inset 
+
+.
+ We know that the tangent line must pass through 
+\begin_inset Formula \( \left( 2,\ln 2\right)  \)
+\end_inset 
+
+ and so we substitute these values in equation 
+\begin_inset LatexCommand \ref{linehalf}
+
+\end_inset 
+
+.
+ Solving for 
+\begin_inset Formula \( b \)
+\end_inset 
+
+, we get
+\begin_inset Formula \[
+b=\ln 2-0.5\times 2=\ln 2-1\cong -0.306.\]
+
+\end_inset 
+
+We therefore have the equation 
+\begin_inset Formula \[
+y=0.5x-\ln 2+1.\]
+
+\end_inset 
+
+
+\layout Enumerate
+
+Before sketching, we may compute the actual equations for the second lines.
+ Choosing 
+\begin_inset Formula \( x=1.5 \)
+\end_inset 
+
+ and 
+\begin_inset Formula \( x=2.5 \)
+\end_inset 
+
+ from part a, we have to solve for 
+\begin_inset Formula \( b \)
+\end_inset 
+
+ in the following equations
+\begin_inset Formula \[
+0.575\times 2+b=\ln 2\]
+
+\end_inset 
+
+and
+\begin_inset Formula \[
+0.446\times 2+b=\ln 2.\]
+
+\end_inset 
+
+It is, of course, very easy.
+ We get 
+\begin_inset Formula \( b\cong -0.457 \)
+\end_inset 
+
+ and 
+\begin_inset Formula \( b\cong -0.198 \)
+\end_inset 
+
+ respectively.
+ For sketch, see Fig.
+ 
+\begin_inset LatexCommand \ref{graphtangents}
+
+\end_inset 
+
+
+\begin_float fig 
+\end_deeper 
+\layout Standard
+
+
+\latex latex 
+[h]
+\layout Standard
+\align center 
+
+\begin_inset Figure size 180 126
+file question2_1_4
+flags 11
+
+\end_inset 
+
+
+\layout Caption
+
+
+\begin_inset LatexCommand \label{graphtangents}
+
+\end_inset 
+
+The tangent line and two secant lines at 
+\begin_inset Formula \( x=2 \)
+\end_inset 
+
+ for the curve 
+\begin_inset Formula \( y=\ln x \)
+\end_inset 
+
+.
+\end_float 
+ 
+\layout Enumerate
+
+
+\latex latex 
+[
+\backslash 
+setenumi{6}]
+\latex default 
+We plot the height as a function in time (see Fig.
+ 
+\begin_inset LatexCommand \ref{graphgalileo}
+
+\end_inset 
+
+).
+\begin_float fig 
+\layout Standard
+
+
+\latex latex 
+[h]
+\layout Standard
+\align center 
+
+\begin_inset Figure size 180 126
+file question2_1_6
+flags 11
+
+\end_inset 
+
+
+\layout Caption
+
+
+\begin_inset LatexCommand \label{graphgalileo}
+
+\end_inset 
+
+
+\begin_inset Formula \( h=58t-0.83t^{2} \)
+\end_inset 
+
+
+\end_float 
+ 
+\begin_deeper 
+\layout Enumerate
+
+Computing the average velocity is very similar to computing the slope of
+ a secant line as we shall see.
+\begin_deeper 
+\layout Enumerate
+
+The average velocity is given by
+\begin_inset Formula \[
+\frac{\left( 58\times 1-0.83\times 1^{2}\right) -\left( 58\times 2-0.83\times 2^{2}\right) }{1-2}=55.51.\]
+
+\end_inset 
+
+
+\layout Enumerate
+
+The average velocity is given by
+\begin_inset Formula \[
+\frac{\left( 58\times 1-0.83\times 1^{2}\right) -\left( 58\times 1.5-0.83\times 1.5^{2}\right) }{1-1.5}=55.925.\]
+
+\end_inset 
+
+
+\layout Enumerate
+
+The average velocity is given by
+\begin_inset Formula \[
+\frac{\left( 58\times 1-0.83\times 1^{2}\right) -\left( 58\times 1.1-0.83\times 1.1^{2}\right) }{1-1.1}=56.257.\]
+
+\end_inset 
+
+
+\layout Enumerate
+
+The average velocity is given by
+\begin_inset Formula \[
+\frac{\left( 58\times 1-0.83\times 1^{2}\right) -\left( 58\times 2-0.83\times 1.01^{2}\right) }{1-1.01}=56.3317.\]
+
+\end_inset 
+
+
+\layout Enumerate
+
+The average velocity is given by
+\begin_inset Formula \[
+\frac{\left( 58\times 1-0.83\times 1^{2}\right) -\left( 58\times 1.001-0.83\times 1.001^{2}\right) }{1-1.001}=56.33917.\]
+
+\end_inset 
+
+
+\end_deeper 
+\layout Enumerate
+
+We can estimate from the previous results that the velocity at 
+\begin_inset Formula \( t=1 \)
+\end_inset 
+
+ is going to be 
+\begin_inset Formula \( 56.34 \)
+\end_inset 
+
+.
+\end_deeper 
+\layout Subsection
+
+
+\latex latex 
+
+\backslash 
+texorpdfstring{
+\backslash 
+textcolor{webblue}{The Limit of a Function}}{The Limit of a Function}
+\layout Enumerate
+
+
+\latex latex 
+[
+\backslash 
+setenumi{4}]
+\begin_deeper 
+\layout Enumerate
+
+We have a continuous function at 
+\begin_inset Formula \( x=0 \)
+\end_inset 
+
+ and the limit from both sides will tend to 
+\begin_inset Formula \( 3 \)
+\end_inset 
+
+.
+\layout Enumerate
+
+If we come from the left, the limit will tend to 
+\begin_inset Formula \( 4 \)
+\end_inset 
+
+ even though it might not agree with the limit from the right or the value
+ of the function at 
+\begin_inset Formula \( x=3 \)
+\end_inset 
+
+.
+\layout Enumerate
+
+This time, the limit tends to 
+\begin_inset Formula \( 2 \)
+\end_inset 
+
+ even though it doesn't agree with the limit from the left and the value
+ of the function at 
+\begin_inset Formula \( x=3 \)
+\end_inset 
+
+.
+\layout Enumerate
+
+From our previous comments, the limits from the left and from the right
+ don't agree so that the limit doesn't exist (see 
+\begin_inset LatexCommand \cite[section 2.2, equation 3]{Steward}
+
+\end_inset 
+
+)
+\layout Enumerate
+
+Even though, it might seem strange, the value of 
+\begin_inset Formula \( f(3) \)
+\end_inset 
+
+ is simply 
+\begin_inset Formula \( 3 \)
+\end_inset 
+
+.
+\end_deeper 
+\layout Enumerate
+
+
+\latex latex 
+[
+\backslash 
+setenumi{6}]
+\latex default 
+We sketch the graph of the function
+\latex latex 
+ 
+\latex default 
+
+\begin_inset Formula \( f \)
+\end_inset 
+
+ using our favorite software package (in this case, we are using gnuplot,
+ see Fig.
+ 
+\begin_inset LatexCommand \ref{graphdiscontinuous}
+
+\end_inset 
+
+).
+ For the graph, it is clear that 
+\begin_inset Formula \( \lim _{x\rightarrow -1}f(x) \)
+\end_inset 
+
+ and 
+\begin_inset Formula \( \lim _{x\rightarrow 1}f(x) \)
+\end_inset 
+
+ do not exist.
+ Other than than, all limits will exist so that the set we are looking for
+ is 
+\begin_inset Formula \( \mathds {R}-\{-1,1\} \)
+\end_inset 
+
+.
+\begin_float fig 
+\layout Standard
+
+
+\latex latex 
+[h]
+\layout Standard
+\align center 
+
+\begin_inset Figure size 180 126
+file question2_2_6
+flags 11
+
+\end_inset 
+
+
+\layout Caption
+
+
+\begin_inset LatexCommand \label{graphdiscontinuous}
+
+\end_inset 
+
+The discontinuous function 
+\begin_inset Formula \( f(x) \)
+\end_inset 
+
+.
+\end_float 
+ 
+\layout Enumerate
+
+
+\latex latex 
+[
+\backslash 
+setenumi{16}]
+\begin_deeper 
+\layout Enumerate
+
+We plot
+\begin_inset Formula \( \frac{6^{x}-2^{x}}{x} \)
+\end_inset 
+
+ near 
+\begin_inset Formula \( x=0 \)
+\end_inset 
+
+ using our favorite plotting software (see Fig.
+ 
+\begin_inset LatexCommand \ref{graphexp62}
+
+\end_inset 
+
+).
+ Clearly we have that the limit must be closed to 
+\begin_inset Formula \( 1.10 \)
+\end_inset 
+
+.
+\begin_float fig 
+\end_deeper 
+\layout Standard
+
+
+\latex latex 
+[h]
+\layout Standard
+\align center 
+
+\begin_inset Figure size 180 126
+file question2_2_16
+flags 11
+
+\end_inset 
+
+
+\layout Caption
+
+
+\begin_inset LatexCommand \label{graphexp62}
+
+\end_inset 
+
+The function 
+\begin_inset Formula \( \frac{6^{x}-2^{x}}{x} \)
+\end_inset 
+
+ near 
+\begin_inset Formula \( x=0 \)
+\end_inset 
+
+.
+\end_float 
+\begin_deeper 
+\layout Enumerate
+
+Evaluating 
+\begin_inset Formula \( \frac{6^{x}-2^{x}}{x} \)
+\end_inset 
+
+ at 
+\begin_inset Formula \( x=0.0001 \)
+\end_inset 
+
+, we get 
+\begin_inset Formula \( \approx 1.098 \)
+\end_inset 
+
+ and at 
+\begin_inset Formula \( x=-0.0001 \)
+\end_inset 
+
+, we get 
+\begin_inset Formula \( \approx 1.098 \)
+\end_inset 
+
+ and therefore 
+\begin_inset Formula \( 1.10 \)
+\end_inset 
+
+ is clearly a good choice.
+\end_deeper 
+\layout Enumerate
+
+
+\latex latex 
+[
+\backslash 
+setenumi{18}]
+\begin_deeper 
+\layout Enumerate
+
+We use our calculator to get
+\begin_inset Formula \[
+\frac{\tan 1-1}{1^{3}}\cong 0.5574,\]
+
+\end_inset 
+
+
+\begin_inset Formula \[
+\frac{\tan 0.5-0.5}{0.5^{3}}\cong 0.3704,\]
+
+\end_inset 
+
+
+\begin_inset Formula \[
+\frac{\tan 0.1-0.1}{0.1^{3}}\cong 0.3347,\]
+
+\end_inset 
+
+
+\begin_inset Formula \[
+\frac{\tan 0.05-0.05}{0.05^{3}}\cong 0.3337,\]
+
+\end_inset 
+
+
+\begin_inset Formula \[
+\frac{\tan 0.01-0.01}{0.01^{3}}\cong 0.3333,\]
+
+\end_inset 
+
+
+\begin_inset Formula \[
+\frac{\tan 0.005-0.005}{0.005^{3}}\cong 0.3333.\]
+
+\end_inset 
+
+
+\layout Enumerate
+
+Since values tend to go to 
+\begin_inset Formula \( 1/3 \)
+\end_inset 
+
+ when 
+\begin_inset Formula \( x \)
+\end_inset 
+
+ goes down to 
+\begin_inset Formula \( 0 \)
+\end_inset 
+
+, we must assume that the limit will tend to 
+\begin_inset Formula \( 0 \)
+\end_inset 
+
+.
+\layout Enumerate
+
+Using a calculator, we get 
+\begin_inset Formula \( 0 \)
+\end_inset 
+
+ for values around 
+\begin_inset Formula \( 1\times 10^{-8} \)
+\end_inset 
+
+
+\begin_float footnote 
+\end_deeper 
+\layout Standard
+
+Smarter calculators may still print a non-zero value, but no matter what,
+ you'll eventually get small enough values for your calculator to print
+ 
+\begin_inset Formula \( 0 \)
+\end_inset 
+
+.
+ Just try smaller values for 
+\begin_inset Formula \( x \)
+\end_inset 
+
+.
+\end_float 
+.
+ Looking closely at the problem, we see that 
+\begin_inset Formula \( \tan x-x \)
+\end_inset 
+
+ has value 
+\begin_inset Formula \( 0 \)
+\end_inset 
+
+ on the calculator for 
+\begin_inset Formula \( x=1\times 10^{-8} \)
+\end_inset 
+
+, whereas 
+\begin_inset Formula \( x^{3}=1\times 10^{-24} \)
+\end_inset 
+
+.
+ Why do we get 
+\begin_inset Formula \( \tan x-x=0 \)
+\end_inset 
+
+ instead of 
+\begin_inset Formula \( \sim x^{3}/3\cong 3\times 10^{-25} \)
+\end_inset 
+
+? First of all, what is 
+\begin_inset Formula \( \tan x \)
+\end_inset 
+
+ when 
+\begin_inset Formula \( x=1\times 10^{-8} \)
+\end_inset 
+
+? Simply 
+\begin_inset Formula \( 1\times 10^{-8} \)
+\end_inset 
+
+, of course, which explain why we get 
+\begin_inset Formula \( \tan x-x=0 \)
+\end_inset 
+
+ in the first place! We might expect 
+\begin_inset Formula \( \tan x=1\times 10^{-8}+3\times 10^{-25} \)
+\end_inset 
+
+ instead...
+ but wait! Can your calculator manage a number like 
+\begin_inset Formula \( 1\times 10^{-8}+3\times 10^{-25} \)
+\end_inset 
+
+.
+ Of course not! For most calculator, 
+\begin_inset Formula \( 3\times 10^{-25} \)
+\end_inset 
+
+ is just too small with respect to 
+\begin_inset Formula \( 1\times 10^{-8} \)
+\end_inset 
+
+ and it will just be discarded.
+ Therefore, we are still confident about the value of our limit being 
+\begin_inset Formula \( 1/3 \)
+\end_inset 
+
+ and that the zero values come from numerical error.
+\begin_deeper 
+\layout Enumerate
+
+We use our favorite plotting package...
+ See Fig.
+ 
+\begin_inset LatexCommand \ref{graphlimittan}
+
+\end_inset 
+
+ and 
+\begin_inset LatexCommand \ref{graphlimittanstress}
+
+\end_inset 
+
+.
+ We can see on Fig.
+ 
+\begin_inset LatexCommand \ref{graphlimittanstress}
+
+\end_inset 
+
+ how the graphing tool has problems with values very close to 
+\begin_inset Formula \( 0 \)
+\end_inset 
+
+ since the curve doesn't seem to be as smooth as one would expect and it
+ eventually goes to 
+\begin_inset Formula \( 0 \)
+\end_inset 
+
+.
+ Notice that scientists often get around these problems by changing the
+ units they are using.
+\begin_float fig 
+\end_deeper 
+\layout Standard
+
+
+\latex latex 
+[h]
+\layout Standard
+\align center 
+
+\begin_inset Figure size 180 126
+file question2_2_20a
+flags 11
+
+\end_inset 
+
+
+\layout Caption
+
+
+\begin_inset LatexCommand \label{graphlimittan}
+
+\end_inset 
+
+The function 
+\begin_inset Formula \( \frac{\tan x-x}{x^{3}} \)
+\end_inset 
+
+ .
+\end_float 
+\begin_float fig 
+\layout Standard
+
+
+\latex latex 
+[h]
+\layout Standard
+\align center 
+
+\begin_inset Figure size 180 126
+file question2_2_20b
+flags 11
+
+\end_inset 
+
+
+\layout Caption
+
+
+\begin_inset LatexCommand \label{graphlimittanstress}
+
+\end_inset 
+
+The function 
+\begin_inset Formula \( \frac{\tan x-x}{x^{3}} \)
+\end_inset 
+
+ very near 
+\begin_inset Formula \( x=0 \)
+\end_inset 
+
+.
+ Notice how we stress the floating point lower limit of our graphing tool
+ as 
+\begin_inset Formula \( x \)
+\end_inset 
+
+ tends to 0.
+\end_float 
+\layout Subsection
+
+
+\latex latex 
+
+\backslash 
+texorpdfstring{
+\backslash 
+textcolor{webblue}{Calculating Limits Using the Limit Laws}}{Calculating
+ Limits Using the Limit Laws}
+\layout Enumerate
+
+
+\latex latex 
+[
+\backslash 
+setenumi{6}]
+\latex default 
+We have that
+\begin_inset Info
+
+\end_inset 
+
+
+\begin_inset Formula \begin{eqnarray}
+\lim _{u\rightarrow -2}\sqrt{u^{4}+3u+6} & = & \sqrt{\lim _{u\rightarrow -2}u^{4}+3u+6}\label{deleteme} \\
+ & = & \sqrt{\lim _{u\rightarrow -2}u^{4}+\lim _{u\rightarrow -2}3u+\lim _{u\rightarrow -2}6}\label{deleteme2} \\
+ & = & \sqrt{\left( \lim _{u\rightarrow -2}u\right) ^{4}+3\lim _{u\rightarrow -2}u+\lim _{u\rightarrow -2}6}\label{deleteme3} \\
+ & = & \sqrt{\left( -2\right) ^{4}+3\times -2+6}\label{deleteme4} \\
+ & = & \sqrt{16}=4
+\end{eqnarray}
+
+\end_inset 
+
+by using respectively the Root Law (equation 
+\begin_inset LatexCommand \ref{deleteme}
+
+\end_inset 
+
+), Law 1 (equation 
+\begin_inset LatexCommand \ref{deleteme2}
+
+\end_inset 
+
+), the Power Law and Law 3 (equation 
+\begin_inset LatexCommand \ref{deleteme3}
+
+\end_inset 
+
+) and Laws 7 and 8 (equation 
+\begin_inset LatexCommand \ref{deleteme4}
+
+\end_inset 
+
+).
+\layout Enumerate
+
+
+\latex latex 
+[
+\backslash 
+setenumi{8}]
+\begin_deeper 
+\layout Enumerate
+
+It is not true when 
+\begin_inset Formula \( x=2 \)
+\end_inset 
+
+ because the right hand side isn't defined (division by 0).
+\layout Enumerate
+
+The limit of a function at 
+\begin_inset Formula \( x=2 \)
+\end_inset 
+
+ doesn't depend on the value of the function at 
+\begin_inset Formula \( x=2 \)
+\end_inset 
+
+ itself, but only on the values nearby.
+ Since the equality presented in question a is true everywhere but at 
+\begin_inset Formula \( x=2 \)
+\end_inset 
+
+, this new equation is correct.
+\end_deeper 
+\layout Enumerate
+
+
+\latex latex 
+[
+\backslash 
+setenumi{10}]
+\latex default 
+We have that 
+\begin_inset Formula \( \lim _{x\rightarrow -4}x^{2}+3x-4=0 \)
+\end_inset 
+
+ and therefore, we cannot use the quotient rule.
+ Notice however that 
+\begin_inset Formula \[
+\frac{x^{2}+5x+4}{x^{2}+3x-4}=\frac{\left( x+4\right) \left( x+1\right) }{\left( x+4\right) \left( x-1\right) }\]
+
+\end_inset 
+
+and so, for 
+\begin_inset Formula \( x\neq -4 \)
+\end_inset 
+
+, we can consider
+\begin_inset Formula \begin{equation}
+\label{xmoinsxplus}
+f(x)=\frac{\left( x+1\right) }{\left( x-1\right) }
+\end{equation}
+
+\end_inset 
+
+instead.
+ Now, it is much easier because we can use the quotient rule.
+\begin_inset Formula \begin{eqnarray*}
+\lim _{x\rightarrow -4}\frac{\left( x+1\right) }{\left( x-1\right) } & = & \frac{\lim _{x\rightarrow -4}\left( x+1\right) }{\lim _{x\rightarrow -4}\left( x-1\right) }\\
+ & = & \frac{\lim _{x\rightarrow -4}x+\lim _{x\rightarrow -4}1}{\lim _{x\rightarrow -4}x-\lim _{x\rightarrow -4}1}\\
+ & = & \frac{-4+1}{-4-1}=\frac{3}{5}.
+\end{eqnarray*}
+
+\end_inset 
+
+
+\layout Enumerate
+
+
+\latex latex 
+[
+\backslash 
+setenumi{12}]
+\latex default 
+We must first simplify the function for 
+\begin_inset Formula \( x\neq 1 \)
+\end_inset 
+
+,
+\begin_inset Formula \[
+\frac{x^{3}-1}{x^{2}-1}=\frac{\left( x-1\right) \left( x^{2}+x+1\right) }{\left( x-1\right) \left( x+1\right) }=\frac{x^{2}+x+1}{x+1}\]
+
+\end_inset 
+
+and now, we can use the Quotient Law,
+\begin_inset Formula \begin{eqnarray*}
+\lim _{x\rightarrow 1}\frac{x^{3}-1}{x^{2}-1} & = & \lim _{x\rightarrow 1}\frac{x^{2}+x+1}{x+1}\\
+ & = & \frac{\lim _{x\rightarrow 1}x^{2}+x+1}{\lim _{x\rightarrow 1}x+1}\\
+ & = & \frac{3}{2}.
+\end{eqnarray*}
+
+\end_inset 
+
+
+\layout Enumerate
+
+
+\latex latex 
+[
+\backslash 
+setenumi{26}]
+\latex default 
+We use the Squeeze Theorem (see 
+\begin_inset LatexCommand \cite[Theorem 3 in section 2.3]{Steward}
+
+\end_inset 
+
+).
+ We have that
+\begin_inset Formula \[
+\lim _{x\rightarrow 1}3x\leq \lim _{x\rightarrow 1}f(x)\leq \lim _{x\rightarrow 1}x^{3}+2\]
+
+\end_inset 
+
+and therefore
+\begin_inset Formula \[
+3\leq \lim _{x\rightarrow 1}f(x)\leq 3\]
+
+\end_inset 
+
+ which implies 
+\begin_inset Formula \[
+\lim _{x\rightarrow 1}f(x)=3.\]
+
+\end_inset 
+
+
+\layout Enumerate
+
+
+\latex latex 
+[
+\backslash 
+setenumi{30}]
+\latex default 
+On the one hand, we have 
+\begin_inset Formula \[
+\lim _{x\rightarrow 2^{-}}\frac{\left| x-2\right| }{x-2}=\lim _{x\rightarrow 2^{-}}\frac{2-x}{x-2}=-1\]
+
+\end_inset 
+
+and on the other, we have 
+\begin_inset Formula \[
+\lim _{x\rightarrow 2^{+}}\frac{\left| x-2\right| }{x-2}=\lim _{x\rightarrow 2^{+}}\frac{x-2}{x-2}=1.\]
+
+\end_inset 
+
+Clearly, the limit doesn't exist!
+\layout Bibliography
+\bibitem [Stewart]{Steward}
+
+James Stewart, 
+\shape italic 
+Calculus: Concepts and Contexts
+\shape default 
+ (Second Edition), Brooks/Cole, 2001.
+\the_end

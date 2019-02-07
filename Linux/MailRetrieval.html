@@ -1,0 +1,228 @@
+<html>
+<head></head>
+<body>
+<h1>How to setup a local mail server using Linux for low bandwidth settings</h1>
+
+
+<p><strong>This HOWTO is now obselete. Getmail can sort mail as well as retrieve it so you don't need pycmail. Rule-based spam filtering  is also  obselete due to recent increase in spam levels.</strong></p>
+
+<p>Except for spam filtering, you can redistribute mails to your users
+on a machine from a POP server using the following .getmail/getmailrc file:</p>
+<pre>
+[options]
+verbose = 1
+read_all = 0
+delete = 0
+delete_after = 3
+
+[retriever]
+type = MultidropPOP3Retriever
+server = mail102.csoft.net
+username = someuser
+password = somepass
+# Our domain mailbox mailhost records the envelope recipient address in a
+# new Delivered-To: header field at the top of the message.
+envelope_recipient = delivered-to:1
+
+[destination]
+type = MultiSorter
+default = [postmaster]
+locals = (
+  ("nathalie.lampron@ondelette.com",      "[milou]")
+	 )
+	  
+[postmaster]
+type = Maildir
+path = ~lemire/.maildir/
+user = lemire
+
+[milou]
+type = Maildir
+path = ~milou/.maildir/
+user = milou
+</pre>
+
+<h2>Introduction</h2>
+
+<p>I live in a remote area in Canada somewhere. It is very difficult to
+get a decent Internet connection, yet, being an IT guy, I've got big
+IT needs. This page addresses some solutions I found to the <em>how 
+can I check my mail fast from several machines on my internal network</em>.</p>
+
+
+<p>I take the following steps... </P>
+
+<ol>
+<li>Remove spam on my POP server so I don't have to download it!</li>
+<li>Retrieve my mail locally</li>
+<li>Sort it among my local users</li>
+<li>Serve it to my local user using a POP server</li>
+</ol>
+
+<p>This approach is several times more efficient than the obvious approach which is to have all
+users download mail from the provider's POP server. Moreover, because I use UIDL, the mail
+isn't deleted on the server right away and so, the approach remains safe and I can check
+my mail from anywhere in the world with almost no spam!!! (Because the spam is deleted
+on the server.)</p>
+
+<h2>Savemymodem</h2>
+
+
+<P>Reference: <a href="http://savemymodem.sourceforge.net/">SMM Home Page</a>.</p>
+
+<p>First of all, the very first thing you want to do is get savemymodem.
+Savemymodem is a little piece of software that runs in batch mode with the -b
+switch. You can easily setup a cron job to check mail using smm it every 5 minutes or so.
+What it does is to monitor your account and automagically delete spam on it.
+Ideally, you want to run smm *before* you actually download the mail. Savemymodem
+supports UIDL which is good.</p>
+
+<p>SMM offers a gui for configuration, but assumes you can edit files.</p>
+
+<!-- <p>I should warn you that the UIDL implementation that Savemymodem is using is broken
+because the pop3 uid command is called for every single message which is a really,
+really bad idea. It can take several minutes to run whereas it should run in seconds.
+Bad. There is a patch that I sent the author a long time ago, but he doesn't return
+emails nor did he seem interested in fixing these problems. Sorry, but that's life.
+His software is still useful, but you have to hack a bit and be very careful about
+how you use it.</p>-->
+
+<p>First, to check my mail, I set my pop3rc file under ~/.smm/plugins as this... </p>
+
+<pre>
+USEUIDLDB = YES ;
+NOOPDELAY = 20 ;
+POP3 = [pop.nb.sympatico.ca] 110 [someusername] [somepassword] ;
+</pre>
+
+
+<p>In this same directory, my inspectorrc file looks like this. This file
+sets the rules to determine what is spam and what is not.</p>
+
+<pre>
+DOUBTPOLICY = KEEP ;
+SIZE [wormsize] = 100K to 500K ; 
+NAMELIST [hiddenexecattach] = [content.*type(\n|.)*audio(\n|.)*name(\n|.)*\.(exe|bat|com|pif|scr|dll|vbs)] ;
+NAMELIST [execattach] = [content.*type(\n|.)*name(\n|.)*\.(exe|bat|com|pif|scr|dll|vbs)] ;
+NAMELIST [spammers] = [spammer@.*\.(org|com|net|it)] [.*@hitechpros.com] [.*@.*\.internetseer\.com] [.*@epeakmarketing\.com]  [.*@cc\.nu]  [.*@zapo\.net] [.*@cmaisonneuve\.qc\.ca]  [.*@qed\.fr] [.*@club-internet\.fr] [.*@33-mtl\.com] [.*@.*\.tunet\.tn] [.*@money\.com] [.*@boss\.com][.*@bigfoot\.com][interkeysoll@earthlink\.net][.*@mastermolding\.com][invent\.online@hp\.com][.*\@money\.com] [n2qmke@netscape\.com][.*@good-better-best-values\.com][lem@MSN\.COM][xngxu@yahoo\.co\.uk][.*@purr-fectionbymjc\.com][.*@internetadvancement\.com];
+NAMELIST [friendserver] = [Received.*from.*server\.com.*192\.168\.0\.1] [Received.*from.*\.nrc\.ca ] [Received.*from.*\.unb\.ca ] [Received.*from.*\.gc\.ca ];
+NAMELIST [openrelays] = [Received.*from.*\.tunet\.tn ] [Received.*from.*\.ati\.tn ] [Received.*from.*\.kye\.co\.kr] [Received.*from.*218\.152\.71\.146] [Received.*from.*24\.72\.22\.244] [Received.*from.*BSP_NTS3] [Received.*from.*24\.165\.113\.54][Received.*from.*\.urdp\.org][Received.*from.*30\.215\.79\.204][Received.*from.*\.sampletheweb\.net][Received.*from.*whowhere\.com][Received.*from.*lawstlouis.com][Received.*from.*oviksfhv\.se][Received.*from.*ornskoldsvik\.com][Received.*from.*\.lttmail\.de][Received.*from.*tinyword\.co\.uk][Received.*from.*jak\.nl][Received.*from.*\.ssy\.co\.kr][Received.*from.*\.wxs\.nl][Received.*from*oas\.dceeepf\.net][Received.*from.*\.plusware\.co\.kr][Received.*from.*piaasvr\.piaa\.org];
+NAMELIST [oldemails] = [admin@ondelette\.com][webmestre@ondelette\.com][webmaster@ondelette\.com][info@ondelette\.com];
+NAMELIST [wormtitles] = [A.*powful.*tool] [A.*game] [A .*website] [excite game] [Your bridge.*Then select Run Train to send] [So cool a flash.*enjoy it] [W32.*removal tools] [Please try again] [A friend] [To continue] [Introduction.*ADSL] [safety policy] [new website] [W32.*Klez] [Garden of Eden] [WinXP patch] [.* IE.*(6|7)\.(0|5).*patch] [.* girl VS playboy] [very funny game] ;
+DENY [spammers] = SENDER is_in [spammers] ;
+DENY [worms] = ( SIZE is_in [wormsize] ) and ( SUBJECT is_in [wormtitles] ) ;
+DOUBT [strange] = ( ( ( SIZE is_not_in [wormsize] ) and ( SUBJECT is_in [wormtitles] ) ) or 
+		  ( ( SIZE is_in [wormsize] ) and ( SUBJECT is_not_in [wormtitles] ) ) ) and 
+		  ( BODY is_in [execattach] ); 
+DENY [exec] = BODY is_in [hiddenexecattach] ;
+DENY [orelay] = HEAD is_in [openrelays];
+DENY [oldemails] = HEAD is_in [oldemails];
+ALLOW [friends] = HEAD is_in [friendserver] ;
+</pre>
+
+<p>I constantly edit it so that more and more people are on my blacklist. To run it
+automatically, I've added the following like using <em>crontab -e</em></p>
+
+<pre>0,5,10,15,20,25,30,35,40,45,50,55 * * * * /home/lemire/bin/mailretrieval.sh &> /dev/null</pre>
+
+<p>Where mailretrieval.sh contains the following... </p>
+
+<pre>
+/usr/local/bin/smm -b &amp;
+#
+# wait two minutes or so in order not to flood the
+# server
+#
+sleep 120
+killall -9 smm
+# unfortunately, smm has a tendency to spawn several threads
+# and then hang mysteriously without any sensible timeout.
+# It can can kill your machine so you must enforce a timeout
+# of your own
+sleep 30
+# just for good measure, we wait another half minute
+#
+# second, call get mail
+/usr/bin/getmail -q -m /home/lemire/.getmail/logs
+</pre>
+
+<p>This brings us to getmail!</p>
+
+<h2>Getmail</h2>
+
+<P>Reference: <a href="http://www.qcc.ca/~charlesc/software/getmail-3.0/">Getmail Home Page</a>.</p>
+
+<p>Getting getmail to work is as simple as creating a directory called .getmail
+in your account and adding to it a file called getmailrc containing somethng like...</p>
+
+<pre>
+[default]
+verbose = 1
+
+[nbsympatico]
+server = pop.nb.sympatico.ca
+username = someusername
+password = somepassword
+postmaster = "|/usr/local/bin/pycmail"
+delete = 0
+delete_after = 3
+readall = 0
+</pre>
+<p>Notice that getmail doesn't delete the mail right away (only after 3 days). I think
+this is very important for safety reasons. Moreover, notice that the mail gets
+routed to pycmail... What is pycmail? That's my mail delivery solution! (Well, I wrote
+none of this software, so it isn't my solution per se but stay with me!)</p>
+
+<h2>Pycmail</h2>
+
+<P>Reference: <a href="http://melkor.dnp.fmph.uniba.sk/~garabik/pycmail.html">SMM Home Page</a>.</p>
+
+<p>Pycmail is another piece of great sofware. Again, the installation is simple. All
+you have to do is put the pycmail where it can be found and the default pycmailrc file
+to /etc/pycmailrc. Then you need to create a .pycmailrc file containing something
+like:</p>
+
+<pre>
+if (InHeader("To", "nathalie@ondelette.com",case=0) or InHeader("CC","nathalie@ondelette.com",case=0) or InHeader("To","Les Petits Copains",case=0 )
+or InHeader("From","tpc@qc.aira.com",case=0) or InHeader("Received", "nathalie@ondelette.com", case=0) ):
+        Set(Forward("milou"))
+        if(InHeader("To", "daniel") or InHeader("To","lemire") or InHeader("CC","lemire") or InHeader("CC","daniel")):
+                Append(default)
+                Stop()
+        Stop()
+</pre>
+
+<p>In this case, I've got only two users: me and my wife (milou). Milou was given an account
+on my linux box (with username milou). How do we retrieve mail from there?</p>
+
+<h2>POP server</h2>
+
+<p>Well, the pop server thing was really, really easy. On my redhat machine,
+I had a package called imap installed and apparently, it comes with a pop server
+which automagically serves mail to users who have an account on the machine.</p>
+
+<p>Automagically? Not quite... I had to edit my /etc/xinetd.d/ipop3 file so that it
+looked like this...</p>
+
+<pre>
+service pop3
+{
+        socket_type             = stream
+        wait                    = no
+        user                    = root
+        server                  = /usr/sbin/ipop3d
+        log_on_success  += HOST DURATION
+        log_on_failure  += HOST
+        disable                 = false
+}
+</pre>
+<p>After you modify the file, you have to run <em>/sbin/service xinetd restart</em> and
+then things should just work. If this seems to fail, you might have to check your
+firewall (ipchains or iptables), but configuring your firewall is beyond the scope of
+this text.</p>
+
+<p>I hope this was useful. If you have questions, you can email me at mailretrieval at ondelette dot com.</p>
+
+<p>&copy; Daniel Lemire, Ph.D.</p>
+</body>
+</html>

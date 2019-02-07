@@ -1,0 +1,790 @@
+#LyX 1.1 created this file. For more info see http://www.lyx.org/
+\lyxformat 218
+\textclass cv
+\begin_preamble
+%% You can modify the fonts used in the document be using the
+%% following macros. They take one parameter which is the font
+%% changing command.
+%% \headerfont: the font used in both headers.
+%%              Defaults to sans serif.
+%% \titlefont:  the font used for the title.
+%%              Defaults to \LARGE sans-serif semi bold condensed.
+%% \sectionfont: the font used by \section when beginning a new topic.
+%%              Defaults to sans-serif semi bold condensed.
+%% \itemfont:   the font used in descriptions of items.
+%%              Defaults to sans-serif slanted.
+% to make your name even bigger, uncomment the following line:
+% \titlefont{\Huge}
+%%
+%% You can modify the following parameters using \renewcommand:
+%% \topicmargin: the left margin inside topics.
+%%               Defaults to 20% of the text width (0.20\textwidth).
+% To get more room for left column of Topic layouts, uncomment following line:
+% \setlength{\topicmargin}{0.3\textwidth}
+\usepackage{epsfig}
+\usepackage{amsmath,amssymb}
+\usepackage{pslatex}
+\usepackage{color}
+\newif \ifpdf
+    \ifx \pdfoutput \undefined
+        \pdffalse
+    \else
+        \pdftrue
+\fi
+\newif \ifpdf
+    \ifx \pdfoutput \undefined
+        \pdffalse
+    \else
+        \pdftrue
+\fi
+
+
+\ifpdf
+ \usepackage{thumbpdf}
+ \usepackage[pdftex,urlcolor=black,colorlinks=false]{hyperref}
+ \pdfinfo{
+            /Title      (SOPD for Daniel Lemire)
+            /Author     (Daniel Lemire, Ph.D.)
+            /Subject 	(Daniel Lemire as a research, contributions and accomplishments .)
+            /Keywords   (data thinning, subdivision schemes, interpolation, CAGD, wavelets)
+          }
+
+\else
+    \usepackage[ps2pdf]{hyperref}
+\fi
+\end_preamble
+\language american
+\inputencoding default
+\fontscheme default
+\graphics default
+\paperfontsize default
+\spacing single 
+\papersize Default
+\paperpackage a4
+\use_geometry 0
+\use_amsmath 0
+\paperorientation portrait
+\secnumdepth -1
+\tocdepth -1
+\paragraph_separation indent
+\defskip medskip
+\quotes_language english
+\quotes_times 2
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+
+\layout Left Header
+
+1999, Grand-Pré road P.O.
+ Box 103
+\newline 
+Grand-Pré, Nova Scotia
+\newline 
+B0P 1M0
+\layout Right Header
+
+Phone: 902-542-7923
+\newline 
+lemire@ondelette.com
+\layout Title
+
+SOPD-Daniel Lemire, Ph.D.
+ 
+\layout Section
+
+Contributions to Science and Technology
+\layout SubSection
+
+Current work (March 2002)
+\layout Standard
+
+Daniel Lemire is currently doing research on data thinning and Computer
+ Aided Geometric Design (CAGD) at Acadia University.
+ He has worked for years experience in telehealth and data processing.
+ He is currently interested in building efficient summaries for large XML
+ files and helping data mining applications scale better on large databases
+ through data thinning.
+\layout Standard
+
+Among his recent contributions to CAGD is his work on High Resolution Subdivisio
+n Schemes 
+\begin_inset LatexCommand \cite{key-56}
+
+\end_inset 
+
+.
+ The purpose of this work is to propose and study a new truly local data
+ interpolation scheme which can be one order of magnitude better at approximatin
+g polynomials than the existing schemes in some cases.
+ Among applications of such work are pyramidal transforms which can be used
+ for efficient progressive data transfers and analysis.
+\layout SubSection
+
+Hermite Subdivision Schemes (2000-2001)
+\layout Standard
+
+Hermite Subdivision Schemes are a CAGD and data processing technique.
+ Daniel Lemire's work 
+\begin_inset LatexCommand \cite{key-57}
+
+\end_inset 
+
+ has lead to a new type of mathematical analysis for the regularity of Hermite
+ Subdivision Schemes based on the Fourier transform.
+\layout Standard
+
+Citation: S.
+ Dubuc, J.-L.
+ Merrien, A 4-Point Hermite Subdivision Scheme, Mathematical Methods in
+ CAGD: Oslo 2000, T.
+ Lyche\SpecialChar ~
+& L.L.Shumaker (eds), 2001 
+\layout SubSection
+
+Post-Doctoral Fellowships (1998-1999)
+\layout Standard
+
+Daniel Lemire got two post-doctoral fellowships: one with professor A.-R.
+ LeBlanc and the other one with professor P.
+ Matthieu both at the 
+\begin_inset Quotes eld
+\end_inset 
+
+Institut de génie biomédical
+\begin_inset Quotes erd
+\end_inset 
+
+ (
+\begin_inset Quotes eld
+\end_inset 
+
+Biomedical Engineering Institute
+\begin_inset Quotes erd
+\end_inset 
+
+) and at the 
+\begin_inset Quotes eld
+\end_inset 
+
+Centre de recherche de l'Hôpital Sacré-Coeur
+\begin_inset Quotes erd
+\end_inset 
+
+ (Sacré-Coeur Hospital Research Center).
+ He worked on data processing applications in a medical context (ECG, NMR,
+ EMG...).
+\layout Standard
+
+The following contributions were made:
+\layout Itemize
+
+A new approach to detect myocardial ischemia (lack of oxygen in one's heart)
+ was proposed 
+\begin_inset LatexCommand \cite{key-59}
+
+\end_inset 
+
+
+\begin_inset LatexCommand \cite{key-62}
+
+\end_inset 
+
+.
+ Myocardial ischemia is a common cause of death in North America and proper
+ monitoring of the patients is important.
+ The most common monitoring technique involve ECGs and a simple average
+ over a small section of the heartbeat.
+ We were the first to propose wavelets as a tool to measure ischemia.
+ Having several perpendicular measures of the same physiological phenomenon
+ typically allows one to improve accuracy.
+\layout Itemize
+
+During his post-doctoral years, Daniel Lemire contributed substantially
+ to the JSci - A science API for Java project.
+ Indeed, all of the processing and visualization software was written in
+ Java.
+ To this day, a large number of classes contributed to JSci are used in
+ various Java projects through the world.
+ Reference: http://maths.dur.ac.uk:8000/~dma3mjh/jsci/.
+\layout SubSection
+
+Thesis (1995-1998)
+\layout Standard
+
+Daniel Lemire got his Ph.D.
+ in 1998 from the 
+\begin_inset Quotes eld
+\end_inset 
+
+École Polytechnique de Montréal
+\begin_inset Quotes erd
+\end_inset 
+
+ (largest engineering school in Canada) with professors Gilles Deslauriers
+ and Serge Dubuc.
+ He worked on wavelets and applications.
+ His thesis was on 
+\begin_inset Quotes eld
+\end_inset 
+
+iterative schemes and wavelets
+\begin_inset Quotes erd
+\end_inset 
+
+.
+ He also got his M.Sc.
+ from the University of Toronto were he worked with professor Catherine
+ Sulem on 
+\begin_inset Quotes eld
+\end_inset 
+
+a priori estimates for nonlinear systems
+\begin_inset Quotes erd
+\end_inset 
+
+.
+\layout Standard
+
+The following contributions were made:
+\layout Itemize
+
+New non-separable filters for image processing were proposed 
+\begin_inset LatexCommand \cite{key-67}
+
+\end_inset 
+
+.
+ It is hoped that these new filters might lead to image processing algorithm
+ with reduced blocking artifacts.
+\layout Itemize
+
+New boundary-aware wavelet filters were proposed 
+\begin_inset LatexCommand \cite{key-66}
+
+\end_inset 
+
+.
+ This work is important for two reasons: we discovered a mathematically
+ simpler approach to filter design and these new filters provide a new tool
+ for engineers.
+ Indeed, most wavelet filters generate (small) artifacts at the beginning
+ and at the end of signals while these filters can be considered 
+\begin_inset Quotes eld
+\end_inset 
+
+perfect
+\begin_inset Quotes erd
+\end_inset 
+
+ filters with regard to the boundaries.
+\layout Section
+
+Contributions to Clients
+\layout Standard
+
+Since 1998, over 200,000$ in research contracts were granted by the following
+ companies: THEM Geophysics Inc., FalconBridge, Waid, CIRA, Infinition, and
+ Kheops.
+ The 3 most significant projects are described below.
+\layout SubSection
+
+MedicalGate Association (France) 
+\hfill 
+ 2000-2001
+\layout Standard
+
+Daniel Lemire served as a technology architect for Medical Association,
+ a non-profit group of doctors, biologists and pharmacists.
+ We successfully developed a medical records management system through XML
+ descriptors (Multimedia Medical Format) with backward compatibility with
+ systems such HPRIM.
+ At the time, the proposed DTD was certainly one of the first concrete attempt
+ at using XML for medical record management in France, if not the first.
+ The project has since been open-sourced and is part of an ongoing attempt
+ at creating an efficient XML-based medical information management system.
+ 
+\layout Standard
+
+It is hoped that this work will serve as a foundation for future work in
+ electronic medical record processing.
+\layout SubSection
+
+Waid/CIRA/Serveur national de radiologie (France) 
+\hfill 
+1999-2000
+\layout Standard
+
+Daniel Lemire was the consulting scientist for the first wavelet-based image
+ server for the 
+\begin_inset Quotes eld
+\end_inset 
+
+Serveur national de radiologie
+\begin_inset Quotes erd
+\end_inset 
+
+ in France (
+\begin_inset Quotes eld
+\end_inset 
+
+National Radiology Server
+\begin_inset Quotes erd
+\end_inset 
+
+) 
+\begin_inset LatexCommand \cite{key-60}
+
+\end_inset 
+
+
+\begin_inset LatexCommand \cite{key-64}
+
+\end_inset 
+
+.
+ Serving medical images (DICOM) on the web is a major undertaking since
+ the average radiologist will generate over 4 gigabytes of raw data per
+ day.
+ In 2000, Daniel Lemire spent part of the summer at Aix-en-Provence as the
+ guest scientist for this project.
+ The result of this work is known as the 
+\begin_inset Quotes eld
+\end_inset 
+
+waaves
+\begin_inset Quotes erd
+\end_inset 
+
+ format and it is currently in use in France for storing and retrieving
+ digital radiology images.
+ It is one of the few radiology image file format using wavelets in the
+ world and might have been the first.
+ As far as technology is concerned, we were involved in making available
+ a file format that is not normally used on the web .
+\layout Standard
+
+This work has lead to an improved encoding of radiology images and easier
+ management through an embedded 
+\begin_inset Quotes eld
+\end_inset 
+
+imagette
+\begin_inset Quotes erd
+\end_inset 
+
+ (thumbnail) system based on quad-tree encoding.
+ 
+\layout SubSection
+
+THEM Geophysics Inc./FalconBridge/CAMIRO (Canada)
+\hfill 
+1998-2000
+\layout Standard
+
+Over several years, Daniel Lemire worked with THEM Geophysics Inc.
+ with funding from FalconBridge and CAMIRO (Canadian Mining Industry Research
+ Organization) on improving geophysical data processing for the THEM system
+ 
+\begin_inset LatexCommand \cite{key-58}
+
+\end_inset 
+
+.
+ The THEM system is the only Canadian airborne EM system for exploring rough
+ terrains.
+ The signal-to-noise ratio was improved by at least 100% using better mathematic
+al modeling.
+ The software has been used successfully in Northern Canada and Sudan in
+ exploration contracts worth several millions of dollars.
+ It is impossible to estimate the exact value of such software, but geophysical
+ data processing packages are typically sold for over 100,000$ for one license
+ and it should be noted that no commercial solution was found to outperformed
+ the software developed specifically for THEM Geophysics Inc.
+\layout Section
+
+Contributions Outreach and Influence
+\layout SubSection
+
+Media
+\layout Itemize
+
+Daniel Lemire was invited to the TV show 
+\begin_inset Quotes eld
+\end_inset 
+
+C'est mathématiques!
+\begin_inset Quotes erd
+\end_inset 
+
+ (
+\begin_inset Quotes eld
+\end_inset 
+
+It's mathematics!
+\begin_inset Quotes erd
+\end_inset 
+
+) on 
+\begin_inset Quotes eld
+\end_inset 
+
+Canal Z
+\begin_inset Quotes erd
+\end_inset 
+
+ (Winter 2001) to discuss Canadian innovations in geophysical data processing.
+ 
+\begin_inset Quotes eld
+\end_inset 
+
+Canal Z
+\begin_inset Quotes erd
+\end_inset 
+
+ is the major French TV channel in Canada featuring technology and science
+ programs.
+ 
+\begin_inset Quotes eld
+\end_inset 
+
+C'est mathématiques!
+\begin_inset Quotes erd
+\end_inset 
+
+ has been on the air for several years.
+\layout Itemize
+
+Daniel Lemire gave an interview for the 
+\begin_inset Quotes eld
+\end_inset 
+
+Bulletin de l'AMQ
+\begin_inset Quotes erd
+\end_inset 
+
+ (Bulletin of the 
+\begin_inset Quotes eld
+\end_inset 
+
+Quebec Mathematical Society
+\begin_inset Quotes erd
+\end_inset 
+
+) on the theme 
+\begin_inset Quotes eld
+\end_inset 
+
+consulting in the industry as a mathematician
+\begin_inset Quotes erd
+\end_inset 
+
+ (Autumn 2001).
+ The 
+\begin_inset Quotes eld
+\end_inset 
+
+AMQ
+\begin_inset Quotes erd
+\end_inset 
+
+ is the only major Mathematical Society in Quebec and has thousands of members
+ who all receive the 
+\begin_inset Quotes eld
+\end_inset 
+
+Bulletin de l'AMQ
+\begin_inset Quotes erd
+\end_inset 
+
+.
+\layout SubSection
+
+Referee
+\layout Standard
+
+Daniel Lemire has been a referee for a few international journals including
+ IEEE Transactions in Medical Imaging, IEEE Transactions in Signal Processing
+ and others.
+\layout SubSection
+
+Web
+\layout Standard
+
+Daniel Lemire owns his own domain name on the web 
+\begin_inset Quotes eld
+\end_inset 
+
+ondelette.com
+\begin_inset Quotes erd
+\end_inset 
+
+ which stands for 
+\begin_inset Quotes eld
+\end_inset 
+
+wavelet.com
+\begin_inset Quotes erd
+\end_inset 
+
+.
+ This web site host the 
+\begin_inset Quotes eld
+\end_inset 
+
+Wavelet forum
+\begin_inset Quotes erd
+\end_inset 
+
+ on http://www.ondelette.com/indexen.html (
+\begin_inset Quotes eld
+\end_inset 
+
+ondelette
+\begin_inset Quotes erd
+\end_inset 
+
+ is French for 
+\begin_inset Quotes eld
+\end_inset 
+
+wavelet
+\begin_inset Quotes erd
+\end_inset 
+
+) and meant as a resource for researchers and students interested in wavelets.
+ 
+\layout SubSection
+
+Professorship
+\layout Standard
+
+Daniel Lemire has been a professor at Acadia University during the school
+ year 2001-2002.
+ (Reference: http://www.ondelette.com/acadia/ .)
+\layout Itemize
+
+He was a member of the special committee on the new master in Industrial
+ Mathematics.
+ The master in Industrial Mathematics should be offered in 2003 for the
+ first time.
+\layout Itemize
+
+He has taught to over 100 students during that one year including some of
+ the most advanced engineering and computer science students at Acadia Universit
+y (courses 
+\begin_inset Quotes eld
+\end_inset 
+
+Advanced Calculus
+\begin_inset Quotes erd
+\end_inset 
+
+ and 
+\begin_inset Quotes eld
+\end_inset 
+
+Numerical Methods 2
+\begin_inset Quotes erd
+\end_inset 
+
+).
+\layout Itemize
+
+As a guest lecturer, during the summer of 2001, Daniel Lemire taught to
+ over 150 students at the 
+\begin_inset Quotes eld
+\end_inset 
+
+Université de Sherbrooke
+\begin_inset Quotes erd
+\end_inset 
+
+ in Quebec (courses 
+\begin_inset Quotes eld
+\end_inset 
+
+Data Structures
+\begin_inset Quotes erd
+\end_inset 
+
+ and 
+\begin_inset Quotes eld
+\end_inset 
+
+Algorithmic
+\begin_inset Quotes erd
+\end_inset 
+
+).
+\layout Section
+
+Contributions to Teamwork
+\layout SubSection
+
+Acadia University
+\layout Standard
+
+As a professor at Acadia University, Daniel Lemire has been a member of
+ the committee for the upcoming master (M.Sc.) in industrial mathematics.
+ He also contributed to several internal teaching documents including solutions
+ for Calculus and he updated a teaching reference on Series.
+\layout SubSection
+
+Consultant 
+\layout Standard
+
+As a consultant Daniel Lemire was typically part of team including a least
+ one system programmer and often other scientists.
+ Moreover, clients expected good teamwork with their own technical teams.
+\layout Standard
+
+
+\latex latex 
+
+\backslash 
+pagebreak{}
+\layout Section
+
+APPENDIX
+\layout SubSection
+
+Publications
+\layout Bibliography
+\bibitem {key-56}
+
+Daniel Lemire, High Resolution Subdivision Schemes, Curves and Surfaces,
+ Saint-Malo, France, June-July 2002 (accepted on March 2002).
+\layout Bibliography
+\bibitem {key-57}
+
+Serge Dubuc, Daniel Lemire, Jean-Louis Merrien, Fourier analysis of 2-point
+ Hermite interpolatory subdivision schemes, Journal of Fourier Analysis
+ and Applications, Volume 7, Issue 5, 2001.
+\layout Bibliography
+\bibitem {key-58}
+
+Daniel Lemire, Recent mathematical advances in EM modeling for mineral explorati
+on, Canadian Mining Industry Research Organization (CAMIRO), Toronto, Ontario,
+ 2001 (guest talk).
+ 
+\layout Bibliography
+\bibitem {key-59}
+
+Daniel Lemire, Chantal Pharand, Jean-Claude Rajaonah, Bruno Dubé, A.-Robert
+ LeBlanc, Wavelet time entropy, T wave morphology and myocardial ischemia,
+ IEEE Transactions in Biomedical Engineering, vol.
+ 47, no.
+ 7, July 2000.
+\layout Bibliography
+\bibitem {key-60}
+
+Daniel Lemire, Intégration Web de formats propriétaires par le Java, congrès
+ WebTek, Québec, mars 2000.
+ (
+\begin_inset Quotes eld
+\end_inset 
+
+Web integration for proprietary formats using Java
+\begin_inset Quotes erd
+\end_inset 
+
+)
+\layout Bibliography
+\bibitem {key-61}
+
+Gilles Deslauriers, Serge Dubuc et Daniel Lemire, Une famille d'ondelettes
+ biorthogonales sur l'intervalle obtenue par un schéma d'interpolation itérative
+, Ann.
+ Sci.
+ Math.
+ Québec 23 (1999), no.1, 37-48.(
+\begin_inset Quotes eld
+\end_inset 
+
+A family of biorthogonal wavelets obtained by a interpolatory iterative
+ scheme
+\begin_inset Quotes erd
+\end_inset 
+
+)
+\layout Bibliography
+\bibitem {key-62}
+
+Daniel Lemire, Chantal Pharand, Jean-Claude Rajaonah, Bruno Dubé, A.-Robert
+ LeBlanc, Wavelet Time Entropy and T Wave Morphology, CMBEC 25, London,
+ June 1999.
+\layout Bibliography
+\bibitem {key-63}
+
+Alain Béliveau et Daniel Lemire (1999), Géophysique, traitement du signal
+ et analyse numérique, congrès Géologie Québec, gouvernement du Québec,
+ Québec.
+ (
+\begin_inset Quotes eld
+\end_inset 
+
+Geophysics, signal processing, and numerical analysis
+\begin_inset Quotes erd
+\end_inset 
+
+)
+\layout Bibliography
+\bibitem {key-64}
+
+Alain Béliveau et Daniel Lemire, White paper on Fast Wavelet Transform and
+ Image Compression, white paper for CIRA (France), March 1999.
+\layout Bibliography
+\bibitem {key-65}
+
+Gilles Deslauriers, Serge Dubuc et Daniel Lemire, Interpolation itérative
+ et ondelettes, 66e Congrès de l'Acfas, Université Laval, May 1998.
+\layout Bibliography
+\bibitem {key-66}
+
+Gilles Deslauriers, Serge Dubuc et Daniel Lemire, Dérivées de l'interpolation
+ itérative de Lagrange et les ondelettes b-adiques de Cohen-Daubechies-Feauveau,
+ Rapport technique EPM/RT-97/28, École Polytechnique de Montréal, Montréal,
+ April 1997.
+ (
+\begin_inset Quotes eld
+\end_inset 
+
+Technical Report: Derivatives of the Lagrange interpolation scheme and b-adic
+ Cohen-Daubechies-Feaveau wavelets
+\begin_inset Quotes erd
+\end_inset 
+
+)
+\layout Bibliography
+\bibitem {key-67}
+
+Gilles Deslauriers, Serge Dubuc,\SpecialChar ~
+ Daniel Lemire (1997), Traitement d'images
+ par ondelettes non séparables, Colloque des sciences mathématiques du Québec,
+ UQTR, Trois-Rivières.
+ (
+\begin_inset Quotes eld
+\end_inset 
+
+Image Processing using Non Separable Wavelets
+\begin_inset Quotes erd
+\end_inset 
+
+)
+\layout Bibliography
+\bibitem {key-68}
+
+Gilles Deslauriers, Serge Dubuc, Daniel Lemire (1996), Interpolation des
+ moments, Colloque des sciences mathématiques du Québec et de l'Atlantique,
+ Université de Moncton, Moncton.
+ (
+\begin_inset Quotes eld
+\end_inset 
+
+Moment interpolation
+\begin_inset Quotes erd
+\end_inset 
+
+)
+\the_end

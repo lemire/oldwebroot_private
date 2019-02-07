@@ -1,0 +1,1265 @@
+#LyX 1.1 created this file. For more info see http://www.lyx.org/
+\lyxformat 218
+\textclass article
+\begin_preamble
+%%%%%
+%%%%%
+%%%%%
+%% Welcome!
+%% if you have any question about this
+%% document, please get in touch with
+%% Daniel Lemire at lemire@ondelette.com
+%%
+%% Of course, this file was generated
+%% with LyX which means that the syntax
+%% might be weird at times, but I've found
+%% that LyX did an excellent job overall at
+%% generating clean LaTeX syntax.
+%% Why do I choose LyX? Because LyX
+%% doesn't come with its own LaTeX engine.
+%% LyX simply use whatever tex I have.
+%% There is no "proprietary gizmos" going
+%% on. Also, instead of waiting for support
+%% from some folk in California, I can find
+%% most of the answers I need on the web,
+%% for free! Oh! And LyX is free too! 
+%% Good old Open Source software!
+%%
+%% (Sorry for the propaganda!)
+%% 
+%% Thanks!
+%% Enjoy!
+%%
+%% Sept. 8th 2001
+%% Grand-Pré, NS
+%%
+%%%%%%%%%%
+%
+% Notice that this document requires quite
+% a bit of macros... 
+% Sorry about that!
+%%%%%%%%%%%%%%
+%%
+\usepackage{epsfig}
+\usepackage{amsmath,amssymb}
+\usepackage{pslatex}
+\usepackage{color}
+ 
+ \definecolor{veryblackblue}{rgb}{0.0,0.0,0.1}
+ \usepackage[pdftex,urlcolor=webblackblue,colorlinks=true,citecolor=blue]{hyperref}
+ \pdfinfo{
+            /Title      (Topics from Advanced Calculus)
+            /Author     (Daniel Lemire, Ph.D.)
+            /Subject    (Assignment 1.)
+            /Keywords   ( vector calculus, Acadia)
+          }
+
+
+\topmargin  = 0pt
+\headheight = 0pt
+\headsep    = 0pt
+
+\voffset    = 0in
+\hoffset    = 0in
+\textheight = 230mm
+\textwidth  = 164mm
+
+\evensidemargin = 0pt
+\oddsidemargin  = 0pt
+
+\pagestyle{empty}
+\usepackage{float}
+
+%% Background of blue palette
+ \definecolor{webblackblue}{rgb}{0.0,0.0,0.2}
+ \definecolor{webblue}{rgb}{0.0, 0.0, 0.6}
+
+%% Background of red palette
+ \definecolor{webblackred}{rgb}{0.2,0.0,0.0}
+ \definecolor{webred}{rgb}{0.6,0.0,0.0}
+
+%% Background of green palette
+ \definecolor{webblackgreen}{rgb}{0.0,0.2,0.0}                                   
+ \definecolor{webgreen}{rgb}{0.0,0.6,0.0} 
+
+%% Background of magenta palette
+ \definecolor{webblackmagenta}{rgb}{0.14,0.0,0.14}                                   
+ \definecolor{webmagenta}{rgb}{0.42,0.0,0.42} 
+
+%% Background of cyan palette
+ \definecolor{webblackcyan}{rgb}{0.0,0.14,0.14}                                   
+ \definecolor{webcyan}{rgb}{0.0,0.42,0.42} 
+
+%% Background of yellow pallete
+ \definecolor{webblackyellow}{rgb}{0.14,0.14,0.0}                                   
+ \definecolor{webyellow}{rgb}{0.85,0.85,0.0} 
+
+ \definecolor{webdarkgray}{rgb}{0.2,0.2,0.2}
+
+ \definecolor{webgray}{rgb}{0.75,0.75,0.75}
+ \definecolor{weborange}{rgb}{1.0, 0.6, 0.0}
+
+\renewcommand\labelenumi{\textcolor{webdarkgray}{\arabic{enumi}.}}
+\newcommand{\setenumi}[1]{#1.\setcounter{enumi}{#1}}
+\usepackage{dsfont}
+
+
+%%
+%% You might need this next line... I don't for
+%% some reason... defined somewhere?
+%%
+%% \newcommand{\setenumi}[1]{#1.\setcounter{enumi}{#1}}
+%%
+%% Document should begin NOW!
+%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%
+\end_preamble
+\language american
+\inputencoding auto
+\fontscheme default
+\graphics default
+\paperfontsize 12
+\spacing single 
+\papersize Default
+\paperpackage a4
+\use_geometry 0
+\use_amsmath 0
+\paperorientation portrait
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\defskip medskip
+\quotes_language english
+\quotes_times 2
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+
+\layout Title
+
+Acadia University 
+\newline 
+
+\latex latex 
+
+\backslash 
+href{http://ace.acadiau.ca/math/}{Department of Mathematics and Statistics}
+\latex default 
+
+\newline 
+
+\latex latex 
+ 
+\backslash 
+vspace*{3mm}
+\latex default 
+ 
+\series bold 
+Topics from Advanced Calculus
+\series default 
+
+\newline 
+ (MATH 2023) 
+\newline 
+
+\latex latex 
+ 
+\backslash 
+vspace*{3mm}
+\latex default 
+ Assignment 1
+\newline 
+Due 
+\bar under 
+February 1st 2002
+\layout Author
+\added_space_bottom 0.3cm 
+
+\latex latex 
+
+\backslash 
+href{http://ondelette.com/acadia/}{Daniel Lemire}
+\latex default 
+, Ph.D.
+\layout Standard
+
+Note: Problems are taken from Multivariable Calculus by McCallum, Hughes-Hallet,
+ Gleason et al.
+ Each student must hand in his own paper, but team work is allowed.
+ You have to give complete solutions! 
+\newline 
+
+\shape italic 
+\color red
+WARNING: DO NOT WAIT UNTIL THE LAST MINUTE TO DO THIS ASSIGNMENT!!! START
+ EARLY AND COME ASK QUESTIONS!
+\layout Standard
+
+
+\latex latex 
+
+\backslash 
+setcounter{section}{12}
+\layout Section
+
+
+\latex latex 
+
+\backslash 
+texorpdfstring{
+\backslash 
+textcolor{webblackblue}{Differentiating Functions of many Variables}}{Differenti
+ating Functions of many Variables}
+\layout Standard
+
+
+\latex latex 
+
+\backslash 
+setcounter{subsection}{3}
+\layout Subsection
+\noindent 
+
+\latex latex 
+
+\backslash 
+texorpdfstring{
+\backslash 
+textcolor{webblue}{Gradients and Directional Derivatives in the Plane}}{Gradient
+s and Directional Derivatives in the Plane}
+\layout Enumerate
+
+
+\latex latex 
+[
+\backslash 
+setenumi{34}]
+\latex default 
+ 
+\series bold 
+[5 marks]
+\series default 
+ The temperature at any point in the plane is given by 
+\begin_inset Formula \( T(x,y)=\frac{100}{x^{2}+y^{2}+1} \)
+\end_inset 
+
+.
+\begin_deeper 
+\layout Enumerate
+
+What shape are the level curves of T?
+\layout Enumerate
+
+Where on the plane is it hottest? What is the temperature at that point?
+\layout Enumerate
+
+Find the direction of the greatest increase in temperature at the point
+ 
+\begin_inset Formula \( (3,2) \)
+\end_inset 
+
+.
+ What is the magnitude of that greatest increase?
+\layout Enumerate
+
+Find the direction of the greatest decrease in temperature at the point
+ 
+\begin_inset Formula \( (3,2) \)
+\end_inset 
+
+.
+\layout Enumerate
+
+Find a direction at the point 
+\begin_inset Formula \( (3,2) \)
+\end_inset 
+
+ in which the temperature does not increase or decrease.
+\end_deeper 
+\layout Enumerate
+
+
+\latex latex 
+[
+\backslash 
+setenumi{35}]
+\series bold 
+\latex default 
+ [2 marks] 
+\series default 
+A differentiable function 
+\begin_inset Formula \( f(x,y) \)
+\end_inset 
+
+ has the property that 
+\begin_inset Formula \( f_{x}(4,1)=2 \)
+\end_inset 
+
+ and 
+\begin_inset Formula \( f_{y}(4,1)=-1 \)
+\end_inset 
+
+.
+ Find the equation of the tangent line to the level curve of 
+\begin_inset Formula \( f \)
+\end_inset 
+
+ through the point 
+\begin_inset Formula \( (4,1) \)
+\end_inset 
+
+.
+\layout Subsection
+\noindent 
+
+\latex latex 
+
+\backslash 
+texorpdfstring{
+\backslash 
+textcolor{webblue}{Gradients and Directional Derivatives in Space}}{Gradients
+ and Directional Derivatives in Space}
+\layout Enumerate
+
+
+\latex latex 
+[
+\backslash 
+setenumi{11}]
+\latex default 
+ 
+\series bold 
+[4 marks]
+\series default 
+ Consider 
+\begin_inset Formula \( S \)
+\end_inset 
+
+ to be the surface represented by the equation 
+\begin_inset Formula \( F=0 \)
+\end_inset 
+
+, where 
+\begin_inset Formula \( F(x,y,z)=x^{2}-\left( \frac{y}{z^{2}}\right)  \)
+\end_inset 
+
+.
+\begin_deeper 
+\layout Enumerate
+
+Find all points on 
+\begin_inset Formula \( S \)
+\end_inset 
+
+ where a normal vector is parallel to the 
+\begin_inset Formula \( xy- \)
+\end_inset 
+
+plane.
+\layout Enumerate
+
+Find the tangent plane to 
+\begin_inset Formula \( S \)
+\end_inset 
+
+ at the points 
+\begin_inset Formula \( (0,0,1) \)
+\end_inset 
+
+ and 
+\begin_inset Formula \( (1,1,1) \)
+\end_inset 
+
+.
+\layout Enumerate
+
+Find the unit vectors 
+\begin_inset Formula \( \vec{u}_{1} \)
+\end_inset 
+
+ and 
+\begin_inset Formula \( \vec{u}_{2} \)
+\end_inset 
+
+ pointing in the direction of maximum increase of 
+\begin_inset Formula \( F \)
+\end_inset 
+
+ at the points 
+\begin_inset Formula \( (0,0,1) \)
+\end_inset 
+
+and 
+\begin_inset Formula \( (1,1,1) \)
+\end_inset 
+
+ respectively.
+\end_deeper 
+\layout Enumerate
+
+
+\latex latex 
+[
+\backslash 
+setenumi{14}]
+\latex default 
+ 
+\series bold 
+[4 marks]
+\series default 
+ A differentiable function 
+\begin_inset Formula \( f(x,y) \)
+\end_inset 
+
+ has the property that 
+\begin_inset Formula \( f(1,3)=7 \)
+\end_inset 
+
+ and 
+\begin_inset Formula \( \nabla f(1,3)=2\vec{i}-5\vec{j} \)
+\end_inset 
+
+.
+\begin_deeper 
+\layout Enumerate
+
+Find the equation of the tangent line to the level curve of 
+\begin_inset Formula \( f \)
+\end_inset 
+
+ through the point 
+\begin_inset Formula \( (1,3) \)
+\end_inset 
+
+.
+\layout Enumerate
+
+Find the equation of the tangent plane to the surface 
+\begin_inset Formula \( z=f(x,y) \)
+\end_inset 
+
+ at the point 
+\begin_inset Formula \( (1,3,7) \)
+\end_inset 
+
+.
+\end_deeper 
+\layout Enumerate
+
+
+\latex latex 
+[
+\backslash 
+setenumi{16}]
+\latex default 
+ 
+\series bold 
+[3 marks]
+\series default 
+ Two surfaces are said to be orthogonal to each other at a point 
+\begin_inset Formula \( P \)
+\end_inset 
+
+ if the normals to their tangent planes are perpendicular at 
+\begin_inset Formula \( P \)
+\end_inset 
+
+.
+ Show that the surfaces 
+\begin_inset Formula \( z=\frac{1}{2}\left( x^{2}+y^{2}-1\right)  \)
+\end_inset 
+
+ and 
+\begin_inset Formula \( z=\frac{1}{2}\left( 1-x^{2}-y^{2}\right)  \)
+\end_inset 
+
+ are orthogonal.
+ 
+\layout Standard
+
+
+\latex latex 
+
+\backslash 
+setcounter{section}{17}
+\layout Section
+
+
+\latex latex 
+
+\backslash 
+texorpdfstring{
+\backslash 
+textcolor{webblackblue}{Line Integrals}}{Line Integrals}
+\layout Standard
+
+
+\latex latex 
+
+\backslash 
+setcounter{subsection}{2}
+\layout Subsection
+
+
+\latex latex 
+
+\backslash 
+texorpdfstring{
+\backslash 
+textcolor{webblue}{Gradient Fields and Path-Independent Fields}}{Gradient
+ Fields and Path-Independent Fields}
+\layout Enumerate
+
+
+\latex latex 
+[
+\backslash 
+setenumi{12}]
+\latex default 
+ 
+\series bold 
+[6 marks]
+\series default 
+ The line integral of 
+\begin_inset Formula \( \vec{F}=(x+y)\vec{i}+x\vec{j} \)
+\end_inset 
+
+ along each of the following paths is 
+\begin_inset Formula \( 3/2 \)
+\end_inset 
+
+: (i) the path 
+\begin_inset Formula \( \left( t,t^{2}\right)  \)
+\end_inset 
+
+ with 
+\begin_inset Formula \( 0\leq t\leq 1 \)
+\end_inset 
+
+ (ii) the path 
+\begin_inset Formula \( \left( t^{2},t\right)  \)
+\end_inset 
+
+ with 
+\begin_inset Formula \( 0\leq t\leq 1 \)
+\end_inset 
+
+ (iii) the path 
+\begin_inset Formula \( \left( t,t^{n}\right)  \)
+\end_inset 
+
+ with 
+\begin_inset Formula \( n>0 \)
+\end_inset 
+
+ and 
+\begin_inset Formula \( 0\leq t\leq 1 \)
+\end_inset 
+
+.
+ Verify this:
+\begin_deeper 
+\layout Enumerate
+
+Using the given parameterization to compute the line integral.
+\layout Enumerate
+
+Using the Fundamental Theorem of Calculus for Line Integrals.
+\end_deeper 
+\layout Enumerate
+
+
+\latex latex 
+[
+\backslash 
+setenumi{20}]
+\latex default 
+ 
+\series bold 
+[3 marks]
+\series default 
+ A particle moves with position vector 
+\begin_inset Formula \( \vec{r}(t)=x(t)\vec{i}+y(t)\vec{j}+z(t)\vec{k} \)
+\end_inset 
+
+.
+ Let 
+\begin_inset Formula \( \vec{v}(t) \)
+\end_inset 
+
+ and 
+\begin_inset Formula \( \vec{a}(t) \)
+\end_inset 
+
+ be its velocity and acceleration vectors.
+ Show that 
+\begin_inset Formula \( \frac{1}{2}\frac{d}{dt}\left\Vert \vec{v}(t)\right\Vert ^{2}=\vec{a}(t)\cdot \vec{v}(t) \)
+\end_inset 
+
+.
+\layout Standard
+
+
+\latex latex 
+
+\backslash 
+setcounter{subsection}{3}
+\layout Subsection
+
+
+\latex latex 
+
+\backslash 
+texorpdfstring{
+\backslash 
+textcolor{webblue}{Path-Dependent Vector Fields and Green's Theorem}}{Path-Depen
+dent Vector Fields and Green's Theorem}
+\layout Enumerate
+
+
+\latex latex 
+[
+\backslash 
+setenumi{12}]
+\latex default 
+ 
+\series bold 
+[2 marks]
+\series default 
+ Suppose 
+\begin_inset Formula \( \vec{F}=x\vec{j} \)
+\end_inset 
+
+.
+ Show that the line integral of 
+\begin_inset Formula \( \vec{F} \)
+\end_inset 
+
+ around a closed curve in the 
+\begin_inset Formula \( xy- \)
+\end_inset 
+
+plane, oriented as in Green's theorem, measures the area of the region enclosed
+ by the curve.
+\layout Enumerate
+
+
+\latex latex 
+[
+\backslash 
+setenumi{15}]
+\latex default 
+ 
+\series bold 
+[4 marks]
+\series default 
+ Using the result you just shown, calculate the area of the region with
+ the folium of Descartes, 
+\begin_inset Formula \( x^{3}+y^{3}=3xy \)
+\end_inset 
+
+, parametrized by 
+\begin_inset Formula \( x=\frac{3t}{1+t^{3}} \)
+\end_inset 
+
+, 
+\begin_inset Formula \( y=\frac{3t^{2}}{1+t^{3}} \)
+\end_inset 
+
+, for 
+\begin_inset Formula \( 0\leq t<\infty  \)
+\end_inset 
+
+.
+\layout Section
+
+
+\latex latex 
+
+\backslash 
+texorpdfstring{
+\backslash 
+textcolor{webblackblue}{Flux Integrals}}{Flux Integrals}
+\layout Standard
+
+
+\latex latex 
+
+\backslash 
+setcounter{subsection}{0}
+\layout Subsection
+
+
+\latex latex 
+
+\backslash 
+texorpdfstring{
+\backslash 
+textcolor{webblue}{The Idea of a Flux Integral}}{The Idea of a Flux Integral}
+\layout Enumerate
+
+
+\latex latex 
+[
+\backslash 
+setenumi{16}]
+\latex default 
+ 
+\series bold 
+[3 marks]
+\series default 
+ Let 
+\begin_inset Formula \( S \)
+\end_inset 
+
+ be the tetrahedron with vertices at the origin and at 
+\begin_inset Formula \( (1,0,0) \)
+\end_inset 
+
+, 
+\begin_inset Formula \( (0,1,0) \)
+\end_inset 
+
+, and 
+\begin_inset Formula \( (0,0,1) \)
+\end_inset 
+
+.
+\begin_deeper 
+\layout Enumerate
+
+Calculate the total flux of the constant vector field 
+\begin_inset Formula \( \vec{v}=-\vec{i}+2\vec{j}+\vec{k} \)
+\end_inset 
+
+ out of 
+\begin_inset Formula \( S \)
+\end_inset 
+
+ by computing the flux through each face separately.
+\layout Enumerate
+
+Calculate the flux out of 
+\begin_inset Formula \( S \)
+\end_inset 
+
+ in part (a) for any constant vector field 
+\begin_inset Formula \( \vec{v} \)
+\end_inset 
+
+.
+\layout Enumerate
+
+Do your answers in parts (a) and (b) make sense? Explain.
+\end_deeper 
+\layout Section
+
+
+\latex latex 
+
+\backslash 
+texorpdfstring{
+\backslash 
+textcolor{webblackblue}{Calculus of Vector Fields}}{Calculus of Vector Fields}
+\layout Standard
+
+
+\latex latex 
+
+\backslash 
+setcounter{subsection}{0}
+\layout Subsection
+
+
+\latex latex 
+
+\backslash 
+texorpdfstring{
+\backslash 
+textcolor{webblue}{The Divergence of a Vector Field}}{The Divergence of
+ a Vector Field}
+\layout Enumerate
+
+
+\latex latex 
+[
+\backslash 
+setenumi{12}]
+\latex default 
+ 
+\series bold 
+[4 marks]
+\series default 
+ Show that if 
+\begin_inset Formula \( g(x,y,z) \)
+\end_inset 
+
+ is a scalar valued function and 
+\begin_inset Formula \( \vec{F}(x,y,z) \)
+\end_inset 
+
+ is a vector field, then 
+\begin_inset Formula \( \nabla \cdot \left( g\vec{F}\right) =\nabla g\cdot \vec{F}+g\nabla \cdot \vec{F} \)
+\end_inset 
+
+.
+\layout Enumerate
+
+
+\latex latex 
+[
+\backslash 
+setenumi{18}]
+\latex default 
+ 
+\series bold 
+[3 marks]
+\series default 
+ Let 
+\begin_inset Formula \( \vec{F}(x,y,z)=z\vec{k} \)
+\end_inset 
+
+.
+\begin_deeper 
+\layout Enumerate
+
+Calculate 
+\begin_inset Formula \( \nabla \cdot \vec{F} \)
+\end_inset 
+
+.
+\layout Enumerate
+
+Sketch 
+\begin_inset Formula \( \vec{F} \)
+\end_inset 
+
+.
+ Does it appear to be diverging? Does it agree with your answer to part
+ (a)?
+\end_deeper 
+\layout Enumerate
+
+
+\latex latex 
+[
+\backslash 
+setenumi{19}]
+\latex default 
+ 
+\series bold 
+[4 marks]
+\series default 
+ Let 
+\begin_inset Formula \( \vec{F}(\vec{r})=\vec{r}/\left\Vert \vec{r}\right\Vert ^{3} \)
+\end_inset 
+
+ (in 3-space), 
+\begin_inset Formula \( \vec{r}\neq \vec{0} \)
+\end_inset 
+
+.
+\begin_deeper 
+\layout Enumerate
+
+Calculate 
+\begin_inset Formula \( \nabla \cdot \vec{F} \)
+\end_inset 
+
+.
+\layout Enumerate
+
+Sketch 
+\begin_inset Formula \( \vec{F} \)
+\end_inset 
+
+.
+ Does it appear to be diverging? Does it agree with your answer to part
+ (a)?
+\end_deeper 
+\layout Enumerate
+
+
+\latex latex 
+[
+\backslash 
+setenumi{27}]
+\latex default 
+ 
+\series bold 
+[2 marks]
+\series default 
+ If 
+\begin_inset Formula \( f(x,y,z) \)
+\end_inset 
+
+ and 
+\begin_inset Formula \( g(x,y,z) \)
+\end_inset 
+
+ are functions with continuous second partial derivatives, show that 
+\begin_inset Formula \( \nabla \cdot (\nabla f\times \nabla g)=0 \)
+\end_inset 
+
+.
+\layout Subsection
+
+
+\latex latex 
+
+\backslash 
+texorpdfstring{
+\backslash 
+textcolor{webblue}{The Divergence Theorem}}{The Divergence Theorem}
+\layout Enumerate
+
+
+\latex latex 
+[
+\backslash 
+setenumi{6}]
+\latex default 
+ 
+\series bold 
+[4 marks]
+\series default 
+ Use the Divergence Theorem to evaluate the flux integral 
+\begin_inset Formula \( \int _{S}\left( x^{2}\vec{i}+(y-2xy)\vec{j}+10z\vec{k}\right) \cdot d\vec{A} \)
+\end_inset 
+
+ where 
+\begin_inset Formula \( S \)
+\end_inset 
+
+ is the sphere of radius 5 centered at the origin, oriented outward.
+\layout Enumerate
+
+
+\latex latex 
+[
+\backslash 
+setenumi{12}]
+\latex default 
+ 
+\series bold 
+[4 marks]
+\series default 
+ The gravitational field, 
+\begin_inset Formula \( \vec{F} \)
+\end_inset 
+
+, of a planet of mass 
+\begin_inset Formula \( m \)
+\end_inset 
+
+ at the origin is given by 
+\begin_inset Formula \( \vec{F}=-Gm\frac{\vec{r}}{\left\Vert \vec{r}\right\Vert ^{3}} \)
+\end_inset 
+
+.
+ Use the Divergence Theorem to show that the flux of the gravitational field
+ through the sphere of radius 
+\begin_inset Formula \( a \)
+\end_inset 
+
+ is independent of 
+\begin_inset Formula \( a \)
+\end_inset 
+
+.
+ (HINT: Consider the region bounded by two concentric spheres.)
+\layout Standard
+
+For the next questions, recall that a function 
+\begin_inset Formula \( f \)
+\end_inset 
+
+ is said to be harmonic if 
+\begin_inset Formula \( \nabla \cdot \nabla f=\nabla ^{2}f=0 \)
+\end_inset 
+
+.
+\layout Enumerate
+
+
+\latex latex 
+[
+\backslash 
+setenumi{18}]
+\latex default 
+ 
+\series bold 
+[4 marks]
+\series default 
+ What is the condition on the constant coefficients 
+\begin_inset Formula \( a,b,c,d,e,f \)
+\end_inset 
+
+ such that 
+\begin_inset Formula \( ax^{2}+by^{2}+cz^{2}+dxy+exz+fyz \)
+\end_inset 
+
+ is harmonic?
+\layout Enumerate
+
+
+\latex latex 
+[
+\backslash 
+setenumi{21}]
+\latex default 
+ 
+\series bold 
+[4 marks]
+\series default 
+ Show that a nonconstant harmonic function cannot have a local mininmum
+ and that it can achieve a minimum value in a closed region only on the
+ boundary.
+\layout Enumerate
+
+
+\latex latex 
+[
+\backslash 
+setenumi{22}]
+\latex default 
+ 
+\series bold 
+[4 marks]
+\series default 
+ Show that if 
+\begin_inset Formula \( \phi  \)
+\end_inset 
+
+ is a harmonic function, then 
+\begin_inset Formula \( \nabla \cdot \left( \phi \nabla \phi \right) =\left\Vert \nabla \phi \right\Vert ^{2} \)
+\end_inset 
+
+.
+\layout Subsection
+
+
+\latex latex 
+
+\backslash 
+texorpdfstring{
+\backslash 
+textcolor{webblue}{The Curl of a Vector Field}}{The Curl of a Vector Field}
+ 
+\layout Enumerate
+
+
+\latex latex 
+[
+\backslash 
+setenumi{14}]
+\latex default 
+ 
+\series bold 
+[3 marks]
+\series default 
+ For any constant field 
+\begin_inset Formula \( \vec{c} \)
+\end_inset 
+
+, and any vector field, 
+\begin_inset Formula \( \vec{F} \)
+\end_inset 
+
+, show that 
+\begin_inset Formula \( \nabla \cdot \left( \vec{F}\times \vec{c}\right) =\vec{c}\cdot \nabla \times \vec{F} \)
+\end_inset 
+
+.
+\layout Enumerate
+
+
+\latex latex 
+[
+\backslash 
+setenumi{16}]
+\latex default 
+ 
+\series bold 
+[3 marks]
+\series default 
+ If 
+\begin_inset Formula \( \vec{F} \)
+\end_inset 
+
+ is any vector field whose components have continuous second partial derivatives
+, show that 
+\begin_inset Formula \( \nabla \cdot \left( \nabla \times \vec{F}\right) =0 \)
+\end_inset 
+
+.
+\layout Enumerate
+
+
+\latex latex 
+[
+\backslash 
+setenumi{17}]
+\latex default 
+ 
+\series bold 
+[4 marks]
+\series default 
+ Show that 
+\begin_inset Formula \( \nabla \times \left( \phi \vec{F}\right) =\phi \nabla \times \vec{F}+\nabla \phi \times \vec{F} \)
+\end_inset 
+
+ for a scalar function 
+\begin_inset Formula \( \phi  \)
+\end_inset 
+
+ and a vector field 
+\begin_inset Formula \( \vec{F} \)
+\end_inset 
+
+.
+ 
+\layout Enumerate
+
+
+\latex latex 
+[
+\backslash 
+setenumi{22}]
+\latex default 
+ 
+\series bold 
+[4 marks]
+\series default 
+ Show that if 
+\begin_inset Formula \( \phi  \)
+\end_inset 
+
+ is a harmonic function, the 
+\begin_inset Formula \( \nabla \phi  \)
+\end_inset 
+
+ is both curl free and divergence free.
+\layout Enumerate
+
+
+\latex latex 
+[
+\backslash 
+setenumi{24}]
+\latex default 
+ 
+\series bold 
+[4 marks]
+\series default 
+ Express 
+\begin_inset Formula \( (3x+2y)\vec{i}+(4x+9y)\vec{j} \)
+\end_inset 
+
+ as the sum of a curl free vector field and a divergence free vector field.
+\layout Enumerate
+
+
+\latex latex 
+[
+\backslash 
+setenumi{27}]
+\latex default 
+ 
+\series bold 
+[4 marks]
+\series default 
+ Let 
+\begin_inset Formula \( \vec{F} \)
+\end_inset 
+
+ be a smooth vector field and let 
+\begin_inset Formula \( \vec{u} \)
+\end_inset 
+
+ and 
+\begin_inset Formula \( \vec{v} \)
+\end_inset 
+
+ be constant vectors.
+ using the definitions of 
+\begin_inset Formula \( \nabla \times \vec{F} \)
+\end_inset 
+
+ in Cartesian coordinates, show that 
+\begin_inset Formula \( \nabla \left( \vec{F}\cdot \vec{v}\right) \cdot \vec{u}-\nabla \left( \vec{F}\cdot \vec{u}\right) \cdot \vec{v}=\left( \nabla \times \vec{F}\right) \cdot \vec{u}\times \vec{v} \)
+\end_inset 
+
+.
+ 
+\layout Subsection
+
+
+\latex latex 
+
+\backslash 
+texorpdfstring{
+\backslash 
+textcolor{webblue}{Stoke's Theorem}}{Stoke's Theorem}
+\layout Enumerate
+
+
+\latex latex 
+[
+\backslash 
+setenumi{6}]
+\latex default 
+ 
+\series bold 
+[4 marks]
+\series default 
+ Compute the line integral 
+\begin_inset Formula \( \int _{C}\left( \left( yz^{2}-y\right) \vec{i}+\left( xz^{2}-x\right) \vec{j}+2xyz\vec{k}\right) \cdot d\vec{r} \)
+\end_inset 
+
+ where 
+\begin_inset Formula \( C \)
+\end_inset 
+
+ is the circle of radius 3 in the 
+\begin_inset Formula \( xy- \)
+\end_inset 
+
+plane, centered at the origin, oriented counterclockwise as viewed from
+ the positive 
+\begin_inset Formula \( z- \)
+\end_inset 
+
+axis.
+ Do it two ways: (a) directly (b) using Stoke's Theorem.
+\layout Enumerate
+
+
+\latex latex 
+[
+\backslash 
+setenumi{17}]
+\latex default 
+ 
+\series bold 
+[4 marks]
+\series default 
+ Let 
+\begin_inset Formula \( \vec{F}=-y\vec{i}+x\vec{j}+\cos (xy)z\vec{k} \)
+\end_inset 
+
+ and let 
+\begin_inset Formula \( S \)
+\end_inset 
+
+ be the surface of the lower unit hemisphere 
+\begin_inset Formula \( x^{2}+y^{2}+z^{2}=1,z\leq 0 \)
+\end_inset 
+
+, oriented with outward pointing normal.
+ Find 
+\begin_inset Formula \( \int _{S}\nabla \times \vec{F}\cdot d\vec{A} \)
+\end_inset 
+
+.
+\the_end

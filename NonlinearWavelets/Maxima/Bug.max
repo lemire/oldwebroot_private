@@ -1,0 +1,17 @@
+"load(\"HighResSubdivision.max\");";
+kill(LABELS);
+ p(x):=a*x^3 +b*x^2+c*x+d;
+ coefs:solve([p(B-1)=y0,p(B)=y1,p(B+1)=y2,p(B+2)=y3],[a,b,c,d]);
+ filter1:expand(subst(coefs,p(B+1/4)));
+ filter2:expand(subst(coefs,p(B+1/2)));
+ filter3:expand(subst(coefs,p(B+3/4)));
+"Maintenant, on veut vérifier que les filtres sont corrects, on teste donc avec p4.";
+p4(x):= extra*(x-B)^4+ a*(x-B)^3 +b*(x-B)^2+c*(x-B)+d;
+f(t):=p4(B+t*A);
+samples:[y0=f(-1),y1=f(0),y2=f(1),y3=f(2)];
+y_quarter:subst(samples,filter1);
+y_half:subst(samples,filter2);
+y_three_quarter:subst(samples,filter3);
+error1:y_quarter-f(1/4);
+
+

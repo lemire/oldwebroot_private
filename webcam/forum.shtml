@@ -1,0 +1,73 @@
+<!-- DATE DE CREATION: 99-12-13 -->
+<HTML>
+<HEAD>
+<TITLE>Forum sur de la Webcam de Nathalie et Daniel</TITLE>
+<META NAME="Description" CONTENT="Forum sur de la Webcam de Nathalie et Daniel">
+<META NAME="Keywords" CONTENT="forum, servlet, java, webcam">
+</HEAD>
+<BODY TEXT="#000000" VLINK="#800080" BGCOLOR="#ffffcc">
+<DIV ALIGN="center"><P><B>Commentaires sur notre forum</B></P></DIV>
+<FONT SIZE=2>
+
+
+
+<!-- formulaire pour ajouter un commentaire -->
+<FORM NAME="CSGuestbook" ACTION="http://www.techelements.com/servlet/CSGuestbook"
+    METHOD="POST">
+<!-- hidden fields/parameters -->
+    <INPUT NAME="mode" TYPE="hidden" VALUE="record">
+    <INPUT NAME="key" TYPE="hidden" VALUE="webcam">
+    <INPUT NAME="response" TYPE="hidden" VALUE="Merci d'utiliser le forum!">
+    <INPUT NAME="linkBack" TYPE="hidden" VALUE="http://www.techelements.com/webcam/forum.shtml">
+    <INPUT NAME="textBack" TYPE="hidden" VALUE="Retour à la page privée">
+    <INPUT TYPE="hidden" NAME="url" VALUE="">
+    <INPUT TYPE="hidden" NAME="city" VALUE="">
+    <INPUT TYPE="hidden" NAME="state" VALUE="">
+    <INPUT TYPE="hidden" NAME="country" VALUE="">
+<!-- entry fields -->
+
+    <TABLE WIDTH="100%" BORDER="0">
+      <TR>
+        <TD>nom <INPUT TYPE="text" NAME="name" SIZE="12"></TD>
+      </TR>
+      <TR>
+        <TD>courriel <INPUT TYPE="text" NAME="email" SIZE="12"></TD>
+      </TR>
+      <TR>
+        <TD>Commentaires</TD>
+      </TR>
+      <TR>
+        <TD><TEXTAREA NAME="comment" ROWS="3" COLS="20"></TEXTAREA></TD>
+      </TR>
+      <TR>
+        <TD><INPUT TYPE="submit" VALUE="commentaire"></TD>
+      </TR>
+    </TABLE></FORM>
+
+<!-- fin du formulaire pour ajouter un commentaire -->
+
+
+
+
+
+
+
+
+<SERVLET CODE="CSGuestbook.class" NAME="/servlet/CSGuestbook">
+<PARAM name="key" value="webcam">
+<PARAM name="html" value="off">
+<PARAM name="cnt" value="20">
+</SERVLET>
+
+
+
+
+
+
+
+
+
+
+</FONT>
+</BODY>
+</HTML>

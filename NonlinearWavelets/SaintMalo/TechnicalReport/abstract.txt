@@ -1,0 +1,18 @@
+
+
+Local Interpolation by High Resolution Subdivision Schemes 
+
+
+Daniel Lemire,
+Acadia University
+
+Subdivision schemes are used to interpolate data samples locally.
+By using temporary placeholders on a dense grid, we improve one of
+the best known subdivision scheme (Deslauriers-Dubuc). Interpolated
+values require 2 steps to stabilize as they are first interpolated
+on a coarse scale through a tetradic filter and then on a finer scale
+using a dyadic filter. The interpolants are \( C^{1} \) and can be
+made to reproduce polynomials of degree 4 unlike regular subdivision
+schemes. These generalized interpolatory subdivision schemes have
+minimal support and no additional memory requirement. 
+

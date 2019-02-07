@@ -1,0 +1,137 @@
+
+# content of message is in msg
+
+#import re
+
+
+#BODY is defined
+#HEAD = ""
+#for i in mailmsg.headers : HEAD = HEAD + i
+
+#wormsize = (len(msg)/1024 > 100) and (len(msg)/1024 < 500) 
+
+#hiddenexecattach = re.search(r"content.*type.*audio.*name(\n|.)*\.(exe|bat|com|pif|scr|dll|vbs)",BODY, re.MULTILINE+re.IGNORECASE)<>None
+
+#execattach = re.search(r"content.*type.*name.*\.(exe|bat|com|pif|scr|dll|vbs)",BODY,re.MULTILINE+re.IGNORECASE)<>None
+
+#spamcontent = re.search(r"""email is loading""",BODY)<>None
+
+#spammers = re.search(r"""(spammer@.*\.(org|com|net|it))|
+#(.*@hitechpros.com)|
+#(.*@.*\.internetseer\.com) |
+#(.*@epeakmarketing\.com)|
+#(.*@cc\.nu) |
+#(.*@zapo\.net)|
+#(.*@cmaisonneuve\.qc\.ca)|
+#(.*@qed\.fr)|
+#(.*@club-internet\.fr)|
+#(.*@33-mtl\.com)|
+#(.*@.*\.tunet\.tn)|
+#(.*@money\.com)|
+#(.*@boss\.com)|
+#(.*@bigfoot\.com)|
+#(interkeysoll@earthlink\.net)|
+#(.*@mastermolding\.com)|
+#(invent\.online@hp\.com)|
+#(.*\@money\.com)|
+#(n2qmke@netscape\.com)|
+#(.*@good-better-best-values\.com)|
+#(lem@MSN\.COM)|
+#(xngxu@yahoo\.co\.uk)|
+#(.*@purr-fectionbymjc\.com)|
+#(.*@internetadvancement\.com)|
+#(MAILER-DAEMON@aol\.com)""",FROM, re.VERBOSE)<>None
+
+
+#friendserver = re.search(r"""(Received.*from.*server\.com.*192\.168\.0\.1)|
+#(Received.*from.*\.nrc\.ca )|
+#(Received.*from.*\.unb\.ca )|
+#(Received.*from.*\.gc\.ca )|
+#(Received.*from.*uquebec\.ca)""",HEAD, re.VERBOSE)<>None
+
+
+#openrelays = re.search(r"""(Received.*from.*\.tunet\.tn )|
+#(Received.*from.*\.ati\.tn )|
+#(Received.*from.*\.kye\.co\.kr)|
+#(Received.*from.*218\.152\.71\.146)|
+#(Received.*from.*24\.72\.22\.244)|
+#(Received.*from.*BSP_NTS3)|
+#(Received.*from.*24\.165\.113\.54)|
+#(Received.*from.*\.urdp\.org)|
+#(Received.*from.*30\.215\.79\.204)|
+#(Received.*from.*\.sampletheweb\.net)|
+#(Received.*from.*whowhere\.com)|
+#(Received.*from.*lawstlouis.com)|
+#(Received.*from.*oviksfhv\.se)|
+#(Received.*from.*ornskoldsvik\.com)|
+#(Received.*from.*\.lttmail\.de)|
+#(Received.*from.*tinyword\.co\.uk)|
+#(Received.*from.*jak\.nl)|
+#(Received.*from.*\.ssy\.co\.kr)|
+#(Received.*from.*\.wxs\.nl)|
+#(Received.*from*oas\.dceeepf\.net)|
+#(Received.*from.*\.plusware\.co\.kr)|
+#(Received.*from.*piaasvr\.piaa\.org)|
+#(Received.*from.*\.net\.tw)|
+#(Received.*from.*\.co\.kr)""",HEAD, re.VERBOSE)<>None
+
+#oldemails = re.search(r"""(admin@ondelette\.com)|
+#(webmestre@ondelette\.com)|
+#(webmaster@ondelette\.com)|
+#(info@ondelette\.com)""",TO, re.VERBOSE)<>None
+
+#spamtitles = re.search(r"""(certifiable university degrees)|
+#(Have you Seen This)|
+#(You can stay rock hard)""",SUBJECT, re.VERBOSE)<>None
+
+#wormtitles = re.search(r"""(A.*powful.*tool)|
+#(A .*website)|
+#(excite game)|
+#(Your bridge.*Then select Run Train to send)| 
+#(So cool a flash.*enjoy it)|
+#(W32.*removal tools)|
+#(Please try again)|
+#(A friend)|
+#(To continue)|
+#(Introduction.*ADSL)|
+#(safety policy)|
+#(new website)|
+#(W32.*Klez)|
+#(Garden of Eden)|
+#(WinXP patch)|
+#(.* IE.*(6|7)\.(0|5).*patch)|
+#(.* girl VS playboy)|
+#(very funny game)""",SUBJECT, re.VERBOSE)<>None
+
+
+
+#def add(comment):
+#  global msg
+#  endof1st = msg.find("\n")
+#  msg = msg[0:endof1st]+"\nX-pycmail: "+comment+msg[endof1st:len(msg)]
+
+#if(spamcontent):  add("spam content")
+
+#if(spamtitles):  add("spam title!")
+
+#if(spammers):  add("spammer!")
+
+#if(wormsize and wormtitles) :  add(" worm")
+
+#if(oldemails):  add("oldemails ")
+
+#if(execattach):  add("execattach")
+
+#if(hiddenexecattach):  add("hiddenexec!")
+
+#if(openrelays):  add("openrelay!")
+
+#if(friendserver):  add("friend!")
+
+
+if (InHeader("To", "nathalie.lampron@ondelette.com",case=0) or InHeader("Cc","nathalie.lampron@ondelette.com",case=0) or InHeader("To","Les Petits Copains",case=0 ) or InHeader("From","tpc@qc.aira.com",case=0) ):
+        Set(Forward("milou"))
+        if(InHeader("To", "daniel") or InHeader("To","lemire") or InHeader("Cc","lemire") or InHeader("Cc","daniel")):
+                Append(default)
+                Stop()
+        Stop()

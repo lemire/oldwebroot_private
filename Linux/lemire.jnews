@@ -1,0 +1,320 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <title>Daniel Lemire's RSS aggregate</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+	<meta http-equiv="Content-Language" content="en" />
+	<link rel="stylesheet" type="text/css" href="acadia.css" />
+	<link rel="SHORTCUT ICON" href="/favicon.ico" type="image/x-icon"  />
+	<link rel="Alternate" href="
+http://www.ondelette.com/lemire/index.html" hreflang="fr" lang="
+fr" title="Version française" />
+</head>
+<body >
+
+<h1>Daniel Lemire's RSS aggregate</h1>
+
+<p>Last updated: <source name="date">%(day)s %(month_abbr)s, %(year)s @ %(hour)s:%(minute)s %(tz)s</source></p>
+
+<source name="rssdiffregex" db="/home/lemire/rss.db" regex="(OLAP|Québec|Quebec|collaborative\s*filtering|recommender|wavelet|ondelette|Lemire|Téluq|OPML|Personalized|RSS\s*aggregator|large\s*data|highly\s*scalable|efficient\s*storage|Télé-Université|Data\s*Warehous|data\s*cube|learning\s*object|stephen\s*downes|gilbert\s*paquette|uqam)" 
+urla="http://it.sweeting.net/index.rdf" 
+urlb="http://sqljunkies.com/WebLog/orfda/Rss.aspx"
+urlc="http://entmag.com/rss/reports/"
+urlaa="http://entmag.com/rss/news/"
+urlab="http://entmag.com/rss/today/"
+urlac="http://itpapers.zdnet.com/xml/RSS-912.xml"
+urlba="http://it.sweeting.net/index.rdf"
+urlbc="http://sqljunkies.com/WebLog/mallik/Rss.aspx"
+urlca="http://www2.cio.com/search/rss/feed35.xml"
+urlcb="http://www2.cio.com/search/rss/feed14.xml"
+urlcc="http://topicexchange.com/t/calls_for_papers/rss"
+urlad="http://blogs.sqlxml.org/vinodkumar/Rss.aspx"
+urlae="http://blogs.msdn.com/wadams/rss.aspx"
+urlaf="http://www.nthoctave.com/index.rdf"
+urlag="http://www.sys-con.com/coldfusion/feed.rss"
+urlah="http://www.indielistening.com/wp-rss2.php"
+urlai="http://blogs.sqlxml.org/srinivassampath/Rss.aspx"
+urlaj="http://sqljunkies.com/WebLog/mrys/rss.aspx"
+urlak="http://blogs.msdn.com/mfussell/Rss.aspx"
+urlal="http://www.netcrucible.com/blog/SyndicationService.asmx/GetRss"
+urlam="http://weblogs.asp.net/kaevans/rss.aspx"
+urlao="http://weblogs.asp.net/jcollins/Rss.aspx"
+urlap="http://donxml.com/grokthis/Rss.aspx"
+urlaq="http://weblogs.asp.net/irwando/rss.aspx"
+urlar="http://www.25hoursaday.com/weblog/SyndicationService.asmx/GetRss"
+urlas="http://blogs.msdn.com/arpande/Rss.aspx"
+urlat="http://weblogs.asp.net/cschittko/rss.aspx"
+urlau="http://weblogs.asp.net/aconrad/Rss.aspx"
+urlav="http://sqljunkies.com/WebLog/tom%20rizzo/Rss.aspx"
+urlaw="http://sswug.org/blogging/ktegels/rss.aspx"
+urlax="http://weblogs.asp.net/bryanke/rss.aspx"
+urlay="http://blogs.sqlxml.org/bryantlikes/category/16.aspx/rss"
+urlaz="http://blogs.sqlxml.org/bryantlikes/category/17.aspx/rss"
+urlbd="http://www.gslis.utexas.edu/~dcplumer/blog/rss.xml"
+urlbe="http://www.corante.com/many/index.rdf"
+urlbf="http://www.emergic.org/index.xml"
+urlbg="http://www.wired.com/news_drop/netcenter/netcenter.rdf"
+urlbh="http://rssnewsapps.ziffdavis.com/tech.xml"
+urlbi="http://rssnewsapps.ziffdavis.com/eweekdatabase.xml"
+urlbj="http://rssnewsapps.ziffdavis.com/eweekstorage.xml"
+urlbk="http://rssnewsapps.ziffdavis.com/eweek_messaging.xml"
+urlbl="http://rssnewsapps.ziffdavis.com/petercoffee.xml"
+urlbm="http://rssnewsapps.ziffdavis.com/jimrapoza.xml"
+urlbn="http://rssnewsapps.ziffdavis.com/msw.xml"
+urlbo="http://rssnewsapps.ziffdavis.com/ziffdavis-cioinsight.xml"
+urlbp="http://rssnewsapps.ziffdavis.com/ziffdavischannel.xml"
+urlbq="http://jonsie.net/Rss.aspx"
+urlbr="http://www.invisibleadjunct.com/index.rdf"
+urlbs="http://www.newsforge.com/newsvac.rss"
+urlbt="http://www.newsforge.com/reports.rss"
+urlbu="http://www.xmlhack.com/rss10.php"
+urlbv="http://www.mozillazine.org/contents.rdf"
+urlbw="http://www.eff.org/rss/press.xml"
+urlbx="http://cyberlaw.stanford.edu/lessig/blog/index.rdf"
+urlby="http://boingboing.net/rss.xml"
+urlbz="http://arstechnica.com/news/rss2.0.rdf"
+urlca="http://homepage.mac.com/peterlevesque/iblog/rss.xml"
+urlcb="http://www.zephoria.org/thoughts/index.rdf"
+urlcc="http://blogs.law.harvard.edu/crimson1/xml/rss.xml"
+urlcd="http://feeds.scripting.com/xml/rss.xml"
+urlce="http://www.programmersheaven.com/app/rss/Rss.aspx?Feed=News&Version=092"
+urlcf="http://www.programmersheaven.com/app/rss/Rss.aspx?Feed=LF&Version=092"
+urlcg="http://www.programmersheaven.com/app/rss/Rss.aspx?Feed=LA&Version=092"
+urlch="http://www.programmersheaven.com/app/rss/Rss.aspx?Feed=LL&Version=092"
+urlci="http://www.kde.org/dotkdeorg.rdf"
+urle="http://wesnerm.blogs.com/net_undocumented/index.rdf"
+urlf="http://blogs.law.harvard.edu/cmusings/xml/rss.xml"
+urlg="http://www.adlnet.org/rss/news.xml"
+urlh="http://z.about.com/6/g/adulted/b/index.rdf"
+urli="http://www.teleeducation.nb.ca/feeds/enNews.xml"
+urlj="http://audiognome.co.uk/newsite/index.rdf"
+urlk="http://alia.org.au/rss/inquiries.php"
+urll="http://alia.org.au/rss/media.releases.php"
+urlm="http://alia.org.au/rss/home.php"
+urln="http://alia.org.au/rss/whats.new.php"
+urlo="http://bfranklin.edu/blog/index.rdf"
+urlp="http://www.eastasiacenter.net/apcampbell/xml/rss.xml"
+urlq="http://archiv.twoday.net/rss"
+urlr="http://www.bath.ac.uk/dacs/cdntl/pMachine/auricle.xml "
+urls="http://www.reusability.org/blogs/david/index.rdf"
+urlt="http://www.benhammersley.com/index.rdf"
+urlu="http://bildung.twoday.net/rss"
+urlv="http://radio.weblogs.com/0110222/categories/eLearning/rss.xml"
+urlw="http://blinger.org/index.xml"
+urlx="http://radio.weblogs.com/0100504/rss.xml"
+urly="http://www.newsisfree.com/HPE/xml/feeds/52/2152.xml"
+urlz="http://carvingcode.com/blog/xml-rss.php"
+urlde="http://carvingcode.com/blog/xml-rss2.php"
+urlee="http://www.cetis.ac.uk/news.xml"
+urlfe="http://www.csmonitor.com/rss/learning.rss"
+urlge="http://www.wcc.vccs.edu/services/chronicle/chronicle2rss.php?q=free"
+urlhe="http://cms2u.dk/index2.php?option=com_rss&amp;no_html=1"
+urlie="http://export.cnet.com/export/feeds/news/rss/1,11176,,00.xml"
+urlje="http://jade.mcli.dist.maricopa.edu/alan/index.rdf"
+urlke="http://www.criticalmethods.org/collab/collab.rss"
+urlle="http://www.steptwo.com.au/columntwo/index.xml"
+urlme="http://www.commoncontent.org/rss/news.cgi"
+urlne="http://radio.weblogs.com/0106698/rss.xml"
+urloe="http://www.webcrimson.com/rss/copyfight.rss"
+urlpe="http://www.reusability.org/blogs/steph/index.rdf"
+urlqe="http://www.webcrimson.com/rss/amateur.rss"
+urlre="http://www.webcrimson.com/rss/openmind.rss"
+urlse="http://www.webcrimson.com/rss/many.rss"
+urlte="http://creativecommons.org/weblog/rss"
+urlue="http://www.communityinclusion.org/curbcut/index.rdf"
+urlve="http://headlines.internet.com/internetnews/cyberatlas/news.rss"
+urlwe="http://commons.ucalgary.ca/weblogs/dnorman/index.rdf"
+urlxe="http://weblog.siliconvalley.com/column/dangillmor/index.xml"
+urlye="http://blogs.law.harvard.edu/carraher/xml/rss.xml"
+urlze="http://radio.weblogs.com/0001161/categories/edtech/rss.xml"
+urldf="http://www.disruptivetechnology.net/digitalhub/index.rdf"
+urlef="http://www.disruptivetechnology.net/blog/index.rdf"
+urlff="http://www.distance-educator.com/de_ezine/backend.php"
+urlgf="http://www.distance-educator.com/dnews/backend.php"
+urlhf="http://diveintomark.org/xml/rss.xml"
+urlif="http://feeds.blogstreet.com/25739.rss"
+urljf="http://headlines.internet.com/internetnews/ecommerce/news.rss"
+urlkf="http://subscribe.feedster.com/eLearningCentre"
+urllf="http://gordmackenzie.com/eclectic/backend.php"
+urlmf="http://www.gordmackenzie.com/eclectic/backend.php"
+urlnf="http://www.ecuaderno.com/index.xml"
+urlof="http://edtechdev.org/blog/index.rdf"
+urlpf="http://educational.blogs.com/edbloggerpraxis/index.rdf"
+urlqf="http://www.edna.edu.au/service/headline/edna"
+urlrf="http://www.edtechpost.ca/mt/index.rdf"
+urlsf="http://www.island.net/leslies/blog/rss.xml"
+urltf="http://www.edublognews.com/xml/rss.xml"
+urluf="http://ebybox.aresgate.net/edutech/index.rdf"
+urlvf="http://www.educationlibrarian.com/index.xml"
+urlwf="http://tim.lauer.name/index.xml"
+urlxf="http://people.uis.edu/rschr1/et/blogger_rss.xml"
+urlyf="http://radio.weblogs.com/0114870/rss.xml"
+urlzf="http://www.edutools.info/course/news/feed.jsp"
+urldg="http://necc.edweblogs.org/index.xml"
+urleg="http://www.masternewmedia.org/index-elearning_authoring_tools.rdf"
+urlfg="http://meta-time.com/elf/index.rdf"
+urlgg="http://www.elearningpost.com/index.xml"
+urlhg="http://www.elearnopedia.com/rss.asp"
+urlig="http://rubens.cs.kuleuven.ac.be:8989/mt/blogs/ErikLog/index.rdf"
+urljg="http://www.FlashSim.com/flashsim.xml"
+urlkg="http://nrc58.nas.edu/pgasurvey/ITRU_rss.xml"
+urllg="http://diveintomark.org/xml/fosnews.php"
+urlmg="http://www.earlham.edu/peters/fos/news.php"
+urlng="http://protest.blogger.de/rss10"
+urlog="http://log.handakte.de/index.rdf"
+urlpg="http://education.atu.edu/people/sadams/blogger2/rss.xml"
+urlqg="http://www.columbia.edu/hrh2101/radio/rss.xml"
+urlrg="http://interactiveu.berkeley.edu:8000/PatD/xml/rss.xml"
+urltg="http://www.reusability.org/blogs/trey/index.rdf"
+urlug="http://www.imsglobal.org/news.xml"
+urlvg="http://infocult.typepad.com/infocult/index.rdf"
+urlwg="http://bluesky.icaap.org/rssfeed.php?rid=10"
+urlxg="http://www.internettime.com/blog/index.rdf"
+urlyg="http://radio.weblogs.com/0120501/rss.xml"
+urlzg="http://www.zeldman.com/feed/zeldman.xml"
+urldh="http://radio.weblogs.com/0113297/rss.xml"
+urleh="http://www.wcc.vccs.edu/services/rssify/rssify.php?url=http://headspacej.tripod.com/blog.html"
+urlfh="http://www.hyperorg.com/blogger/index.rdf"
+urlgh="http://weblog.infoworld.com/udell/rss.xml"
+urlhh="http://www.kittens.co.uk/kittensrss.asp "
+urlih="http://www.kolabora.com/news.php"
+urljh="http://www.kuro5hin.org/backend.rdf"
+urlkh="http://www.internettime.com/lcmt/index.rdf"
+urllh="http://www.lsal.cmu.edu/lsal/expertise/papers/newsletter/rss.xml"
+urlmh="http://lessig.org/blog/index.rdf"
+urlnh="http://www.meberle.com/cgi-bin/getrss.pl"
+urloh="http://www.speakeasy.org/lion/lionsden.rss"
+urlph="http://radio.weblogs.com/0118812/rss.xml"
+urlqh="http://www.teleworks.com/blog/markoehlert/index.rdf"
+urlrh="http://mail.byRSS.com/pages/34744.xml "
+urlsh="http://masterview.ikonosnewmedia.com/index.rdf"
+urlth="http://blog.mathemagenic.com/rss.xml"
+urluh="http://www.megnut.com/index.xml"
+urlvh="http://feedster.com/makerss.php?url=http://www.isaacmao.com/meta"
+urlwh="http://www.monkeymagic.net/blog/index.rdf"
+urlxh="http://educational.blogs.com/movable_type/index.rdf"
+urlyh="http://partners.userland.com/nytRss/education.xml"
+urlzh="http://www.notepage.net/blog-feed.xml"
+urldi="http://jade.mcli.dist.maricopa.edu/boris/index.rdf"
+urlei="http://www.reusability.org/blogs/brian/index.rdf"
+urlfi="http://cent.uji.es/octeto/node/feed"
+urlgi="http://www.downes.ca/news/OLDaily.rss"
+urlhi="http://www.omegageek.net/blog/index.rdf"
+urlii="http://people.uis.edu/rschr1/onlinelearning/blogger_rss.xml"
+urlji="http://open-education.org/backend.php/"
+urlki="http://owrede.khm.de/xml/rss.xml"
+urlli="http://blogs.setonhill.edu/MikeArnzen/index.rdf"
+urlmi="http://www.voidstar.com/rssify.php?url=http://xrefer.blogspot.com/"
+urlni="http://icarus.med.utoronto.ca/lo/rss.xml"
+urloi="http://www.pitchjournal.org/articles.rss"
+urlpi="http://weblog.plasticthinking.org/xml-rss.php?full=yes&amp;catid=2"
+urlqi="http://www.prweb.com/xml/education.xml"
+urlri="http://educational.blogs.com/radio/index.rdf"
+urlsi="http://www.real-time.org/changes.rss"
+urlti="http://www.edventure.com/rss/R1feed.xml"
+urlui="http://www.omegageek.net/rickscafe/index.rdf"
+urlvi="http://smartpei.typepad.com/robert_patersons_weblog/index.rdf"
+urlwi="http://www.masternewmedia.org/robingoodlatestnews.php"
+urlxi="http://www.masternewmedia.org/index.rdf"
+urlyi="http://www.roi-learning.com/roi-learning.rss"
+urlzi="http://www.rolandTanglao.com/rss.xml"
+urldj="http://www.rushkoff.com/rssfeed.xml"
+urlej="http://www.scotfeict.org.uk/backend.php"
+urlfj="http://myrss.com/f/s/c/schmollerMailingsGy607n0.rss91"
+urlgj="http://radio.weblogs.com/0110772/rss.xml"
+urlhj="http://seblogging.cognitivearchitects.com/xml/rss.xml"
+urlij="http://www.semanticworld.org/backend/semanticworld.xml"
+urljj="http://instructionaltechnology.editthispage.com/xml/rss.xml"
+urlkj="http://www.educate.za.net/ShootMouth.xml"
+urllj="http://w3future.com/weblog/rss.xml"
+urlmj="http://slashdot.org/slashdot.rss"
+urlnj="http://www.anitacampbell.com/blog/feed.rss"
+urloj="http://www.softwaremarketingresource.com/marketing-feed.xml"
+urlpj="http://www.spectresoftware.com/db/rss/feed.asp"
+urlqj="http://www.syndic8.com/wkearney/blogs/syndic8/xml/index.rdf"
+urlrj="http://omegageek.typepad.com/technica/index.rdf"
+urlsj="http://people.uis.edu/rschr1/blogger_rss.xml"
+urltj="http://www.tenreasonswhy.com/weblog/index.xml"
+urluj="http://TheBentinel.com/rss.xml"
+urlvj="http://homepage.mac.com/john_kruper/iblog/B905739295/rss.xml"
+urlwj="http://importance.typepad.com/the_importance_of/index.rdf"
+urlxj="http://www.theregister.co.uk/tonys/slashdot.rdf"
+urlyj="http://www.theshiftedlibrarian.com/rss.xml"
+urlzj="http://www.internettime.com/wfblog/index.rdf"
+urldk="http://randgaenge.net/rss.xml"
+urlek="http://www.elearningworkshops.com/backend.php"
+urlfk="http://www.train-the-trainer.com/training.rss"
+urlgk="http://transnationaled.blogspot.com/rss/transnationaled.xml"
+urlhk="http://educational.blogs.com/typepad/index.rdf"
+urlik="http://radio.weblogs.com/0125797/rss.xml"
+urljk="http://www.d.umn.edu/itss/support/Training/Online/webdesign/webdesign.xml"
+urlkk="http://www.weblogg-ed.com/xml/rss.xml"
+urllk="http://blogs.law.harvard.edu/xml/rss.xml"
+urlmk="http://www.mchron.net/site/index.xml"
+urlnk="http://www.wired.com/news_drop/netcenter/netcenter.rdf"
+urlok="http://www.w3.org/2000/08/w3c-synd/home.rss"
+urlpk="http://www.weiterbildungsblog.de/index.rdf"
+urlqk="http://www.xplana.com/rss.php?feed=articles"
+><li><a href="%(link)s">%(title)s</a> - <ul> %(description)s </ul></li></source>
+
+ 
+
+<h3>Slashdot</h3>
+<ul>
+<source name="slashdot"><li><a href="%(link)s">%(title)s</a> - %(description)s</li></source>
+</ul>
+
+<h3>OLDaily</h3>
+<ul>
+<source name="rssdiff"  db="/home/lemire/rss.db" url="http://www.downes.ca/news/OLDaily.rss"><li><a href="%(link)s">%(title)s</a></li></source>
+</ul>
+
+<h3>Cringely</h3>
+<ul>
+<source name="rssdiff"  db="/home/lemire/rss.db" url="http://www.pbs.org/cgi-registry/cringely/cringelyrdf.pl"><li><a href="%(link)s">%(title)s</a></li></source>
+</ul>
+
+<h3>Wavelet Forum</h3>
+<ul>
+<source name="rssdiff"  db="/home/lemire/rss.db" url="http://www.daniel-lemire.com/phorum/scripts/quick_listrss.php?f=1&mode=messages"><li><a href="%(link)s">%(title)s</a></li></source>
+</ul>
+
+<h3>Forum sur les ondelettes</h3>
+<ul>
+<source name="rssdiff"  db="/home/lemire/rss.db" url="http://www.daniel-lemire.com/phorum/scripts/quick_listrss.php?f=2&mode=messages"><li><a href="%(link)s">%(title)s</a></li></source>
+</ul>
+
+<h3>Wavelet Forum (Software)</h3>
+<ul>
+<source name="rssdiff"  db="/home/lemire/rss.db" url="http://www.daniel-lemire.com/phorum/scripts/quick_listrss.php?f=5&mode=messages"><li><a href="%(link)s">%(title)s</a></li></source>
+</ul>
+
+<h3>Forum sur les ondelettes (logiciel)</h3>
+<ul>
+<source name="rssdiff"  db="/home/lemire/rss.db" url="http://www.daniel-lemire.com/phorum/scripts/quick_listrss.php?f=6&mode=messages"><li><a href="%(link)s">%(title)s</a></li></source>
+</ul>
+
+<h3>CS Underground</h3>
+<ul>
+<source name="rssdiff"  db="/home/lemire/rss.db" url="http://thedashboard.net/rss.php"><li><a href="%(link)s">%(title)s</a></li></source>
+</ul>
+
+<h3>Sean's blog</h3>
+<ul>
+<source name="rssdiff"  db="/home/lemire/rss.db" url="http://thedashboard.net/rca/rss.php"><li><a href="%(link)s">%(title)s</a></li></source>
+</ul>
+
+
+<h3>Comics</h3>
+<p>
+<source name="dilbert"></source>
+</p>
+
+
+<h3>Edu_RSS</h3>
+<ul>
+<source name="rssdiff"  db="/home/lemire/rss.db" url="http://www.downes.ca/edu_rss.rss"><li><a href="%(link)s">%(title)s</a></li></source>
+</ul>
+
+</body>
+</html>

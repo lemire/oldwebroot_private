@@ -1,0 +1,284 @@
+%*********************  STMALO2 MACROS *******************
+% FILE NAME: autonumber.tex
+% COPYRIGHT: 10/15/97, updated 6/1/2002
+% BY: Larry Schumaker
+% EMAIL: s@mars.cas.vanderbilt.edu
+% WEB: http://www.math.vanderbilt.edu/~schumake/
+
+\def\updated{6/1/02}
+\count100= 1
+\count101= 5
+\input malo2
+\input lls00
+%\draft %%% remove initial percent if you want the labels to appear
+        %%% in small print in the margins
+
+%\let\proclaimnum = \eqnum %%% remove initial percent if you want to number
+                           %%% all items with the same numbering system.
+
+\def\back{{\tt \char'134}}
+\def\tb#1{{\tt \back #1}}
+\def\Tex{\TeX\ }
+\def\lb{\char'173}
+\def\rb{\char'175}
+
+\title{Automatic Numbering Using the}
+\titwo{\conf Macros}
+\author{Larry L. Schumaker}
+\def\shorttitle{Automatic Numbering in \Tex}
+\def\shortauthor{Larry L. Schumaker}
+
+\abstract
+{The purpose of this note (which corresponds to the \Tex file
+{\tt autonumber.tex}) is to discuss how to use
+the automatic numbering macros contained in
+{\tt lls00.tex}.}
+
+\sect{1. Introduction}
+In typesetting mathematics using \TeX,
+it is very useful to dynamically label
+\sm
+\ritem{1)} equations,
+\sm
+\ritem{2)} proclamations (Lemmas, Theorems, Corollaries, etc.),
+\sm
+\ritem{3)} figures,
+\sm
+\ritem{4)} tables,
+\sm
+\ritem{5)} references.
+\ms
+
+The idea is to assign (easy-to-remember)
+labels to each of these items, and to
+refer to the items by label. We then rely on \Tex to
+automatically associate numbers with the labels. If
+labels are added or deleted, the numbers will be
+automatically adjusted.
+
+Many people who are familiar with automatic numbering in La\Tex
+think that it cannot be done in plain \TeX.
+Nothing could be further from the truth, and in fact
+it can be achieved with a small set of macros.
+Here we discuss how to do it using
+macros created by Carl de\thinspace{}Boor and included in the macro files
+{\tt lls00.tex}. Thus, to use these macros, you will have to input
+both {\tt \macname.tex} and {\tt lls00.tex} into your \Tex file.
+
+\sect{2. Equations}
+In this section, we discuss how to label equations.
+The idea is very simple.
+Every time you introduce an equation into a manuscript
+which you want to number,  use \tb{en}.
+If you write \tb{en\lb\rb}, the equation will be given the
+next number in sequence. If you write \tb{en\lb{}name\rb},
+the equation will be given the next number, and also assigned
+the label ``name". This label can be used
+in referring to the equation. For example, if you type
+$$ \hbox{\tt \$\$ x = y.  \tb{en}\lb{}xy\rb \$\$}$$
+you get
+$$ x= y.  \en{xy} $$
+Here \tb{en} is the macro (``en" stands for equation name),
+and {\tt xy} is the label.
+
+The situation is slightly different
+when you are using \tb{eqalignno}.  Then you have to use
+\tb{enn\lb{}name\rb} as shown in the following example:
+$$ \eqalignno{
+   a &= b, & \enn{ab} \cr
+   u &= v. & \enn{uv} \cr} $$
+To get these equations, you have to type
+$$ \eqalign{
+  \hbox{\$\$ \tb{eqalignno\lb}}& \cr
+  &\hbox{a \&= b, \& \tb{enn\lb ab\rb} \tb{cr}} \cr
+  &\hbox{u \&= v. \& \tb{enn\lb{}uv\rb} \tb{cr\rb\$\$}}\cr} $$
+
+To refer to a labeled equation,
+use the macro \tb{er}, where ``er" stands for equation reference.
+Thus, to refer to the above equation labeled xy, we write
+\tb{er\lb xy\rb}. For example, if the \Tex file includes
+the sentence
+$$ \hbox{\tt The equations {\back}er\lb{}xy\rb{}, {\back}er\lb{}ab\rb{},
+and {\back}er\lb{}uv\rb{} are important,} $$
+we get
+$$\hbox{The equations \er{xy}, \er{ab}, and \er{uv} are important.} $$
+
+Here is how it works.
+Suppose the name of your \Tex file is {\tt jobname.tex},
+and that it inputs both {\tt \macname.tex} and {\tt lls00.tex}.
+Then in processing {\tt jobname.tex},
+a new file called {\tt jobname.aux} is automatically created.
+Information about labels is written to this file.
+Now every time you \Tex the file {\tt jobname.tex},
+the file {\tt jobname.aux} is read in.
+Thus, whatever labels you have defined the last
+time {\tt jobname.aux} was written will be used.
+
+As your file is processed, {\tt jobname.aux}
+is rewritten to reflect any changes you have
+made to the labels. Every time
+the macro \tb{en} is encountered, a counter called \tb{eqnum}
+is advanced, and a definition is created
+and inserted in {\tt jobname.aux} which associates the label
+with the number.
+
+\eject
+Note that if you try to cite an equation with a label which has
+not been defined, you will get a message in your log file {\tt jobname.log}
+telling you which labels are not defined, and reminding you to
+\Tex your document again.  Moreover, it is easy to find the
+references to undefined labels
+in your \Tex file {\tt jobname.tex}, since
+the name of each such undefined label will
+appear in the \TeX'ed material between easy-to-locate black boxes.
+
+Note that the citation process works even if the
+citation of something with a given label
+appears before the label itself has been defined. This
+is called \eword{forward referencing}.
+Here is an example of a
+forward reference \er{forward} to the following equation:
+$$  y = x.  \en{forward} $$
+If you use forward referencing,
+the first time you \Tex your document,
+you will get a pair of black boxes marking each
+forward citation, and
+a warning message telling you which labels are not defined.
+But if you \Tex your file again, the boxes and the warning
+should disappear. If they do not, then probably you are trying
+to cite something that you never defined.
+
+\sect{3. Definitions, Lemmas, Theorems, and Corollaries}
+We prefer that you number
+definitions, lemmas, theorems, and corollaries (so-called proclamations)
+consecutively throughout the paper.
+This can be done automatically
+using the macro \tb{pn} (here ``pn" stands for proclaim name).
+This gives each proclamation a label which can then
+be referred to using \tb{pr}.
+
+\proclaim Lemma~\pn{prelim}. This is a lemma labeled ``prelim".
+\nopf
+
+\proclaim Theorem~\pn{main}. This is the theorem labeled ``main".
+\nopf
+\ms
+
+In the \Tex file {\tt autonumber.tex} for this document,
+we label this lemma by
+writing \tb{proclaim Lemma$\sim$}\tb{pn\lb prelim\rb}.
+To refer to this lemma, we write
+{\tt Lemma$\sim${\back}pr\lb prelim\rb}. Thus, if
+we insert the sentence
+$$ \hbox{\tt Lemma$\sim$\back{pr}\lb prelim\rb{}
+   immediately implies Theorem$\sim$\back{pr}\lb main\rb.} $$
+into our \Tex file, we get
+$$ \hbox{Lemma~\pr{prelim} immediately implies Theorem~\pr{main}.} $$
+
+Note that in \eword{assigning} the label for a Lemma
+and in \eword{referring} to it, we
+insert the symbol $\sim$ between the word
+Lemma and the macro \tb{pn} or \tb{pr}, respectively.
+\Tex interprets the symbol $\sim$ as a space, but does not allow
+a line break at this point.
+This is a useful tool when you want to keep things together.
+You should routinely use it with numbered items. Thus, for example,
+in referring to Fig.~1 and Tab.~2, you should type
+{\tt Fig.$\sim$1} and
+{\tt Tab.$\sim$2}.
+
+If you want to number all equations and proclamations consecutively,
+you can add the command
+{\tt \back{}let\back{}proclaimnum = \back{}eqnum}
+to your file.
+
+\sect{4. Labelling Figures and Tables}
+Use \tb{fn} to label figures, and \tb{fr}
+to refer to them.
+Here ``fn" stands for ``figure name", and ``fr" stands
+for ``figure reference".
+
+Similarly, use \tb{tn} to label tables,
+and \tb{tr} to refer to them.
+Here ``tn" stands for ``table name", and ``tr" stands
+for ``table reference".
+
+\sect{5. Labelling References}
+If you want to label references, use
+\tb{rn} instead of \tb{ref} to introduce each reference.
+Here ``rn" stands for ``reference name".
+You write \tb{rn}
+followed by the label (in curly brackets)
+that you want to assign to the reference. Here is an example of
+an entry with an assigned label:
+\ms
+{\tt \obeylines
+\back{}rn\lb{}S1\rb{}
+Schumaker, L. L., Inserting postscript files into \back{}TeX,
+see the \back{}Tex file \lb\back{}tt psfigures.tex\rb{} which is
+included in the \conf Macro Package and is also
+available on my home page.}
+\ms
+
+This is the first entry in the reference list below.
+To cite this reference (which is
+labeled {\tt S1}), simply type \tb{cite}$\{$S1$\}$.
+This gives \cite{S1}. Note that the macro \tb{cite} automatically
+creates brackets around the number of the cited article.
+To cite several papers at one time, use the macro \tb{cit} which
+does not automatically create the brackets.  For example,
+you type {\tt [\back{}cit\lb{}S1\rb{},\back{}cit\lb{}S2\rb{}]} to get
+[\cit{S1},\cit{S2}].
+
+\sect{6. How to Fix a Contaminated jobname.aux File}
+If your file fails to \Tex and you get an error message
+related to the file {\tt jobname.aux}, where {\tt jobname.tex} is
+the name of your tex file, probably the file
+{\tt jobname.aux} has somehow become contaminated.
+Simply delete it
+from your directory, and \Tex {\tt jobname.tex} twice.
+
+\sect{7. Draft Mode}
+If you use a lot of labels, you may find it hard to remember how
+you labeled various equations, figures, tables, proclamations, and
+references.
+You can find out by inserting the command \tb{draft} into
+your \Tex file right after \tb{input lls00}.  This causes the
+labels to appear in small print just following the equation numbers.
+For figures, tables, proclamations, and references, the label appears
+in the left margin.
+To see how this works, try it on the file {\tt autonumber.tex} which
+generated this document.
+
+\Acknowledgments{My thanks to Carl de\thinspace{}Boor for
+creating these numbering macros,
+and for comments on a draft of this note.}
+
+\References
+
+\rn{S1}
+Schumaker, L. L., Inserting postscript files
+using the \conf macros,
+see the \Tex file {\tt psfigures.tex} which is
+included in the {\it \conf Macro Package} and is also
+available on the conference home page.
+
+\rn{S2}
+Schumaker, L. L.,
+Instructions for using the \conf \Tex Macros,
+see the \Tex file {\tt instruct.tex} which is
+included in the {\it \conf Macro Package} and is also
+available on the conference home page.
+
+\Address{
+Larry L. Schumaker
+Dept. of Mathematics
+Vanderbilt University
+Nashville, TN 37240
+{\tt s@mars.cas.vanderbilt.edu
+http://www.math.vanderbilt.edu/$\sim$schumake/}
+}
+
+\bye
+%%%  END of autonumber.tex
+

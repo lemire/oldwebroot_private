@@ -1,0 +1,265 @@
+%***************** AT01 MACROS **********************
+% FILE NAME: lls00.tex
+% COPYRIGHT: 5/1/97, updated 4/29/99, 4/10/00
+% BY: Larry Schumaker
+% EMAIL: s@mars.cas.vanderbilt.edu
+% WEB: http://www.math.vanderbilt.edu/~schumake/
+
+% Contains advanced macros for autonumbering, postscript figures,
+%   and using the de Boor/Schumaker spline bibliography
+
+%%%%%%%%%%%%% COUNTS %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newcount\blackmarks\blackmarks=0
+\newcount\eqnum\eqnum = 0
+\newcount\figurenum\figurenum=0
+\newcount\proclaimnum\proclaimnum=0
+\newcount\refnum\refnum = 0
+\newcount\tablenum\tablenum=0
+
+%%%%%%%%%%%%%%%%%%%	SETUP NUMBERING  %%%%%%%%%%%%%%%%%%%%%%%
+ \newread\testfl
+ \def\inputifthere#1{\immediate\openin\testfl=#1
+    \ifeof\testfl\message{(#1 does not yet exist)}
+    \else\input#1\fi\closein\testfl}
+
+ \inputifthere{\jobname.aux}
+ \newwrite\aux
+ \immediate\openout\aux=\jobname.aux
+
+\def\plazieres{\expandafter\ifx\csname\griff\endcsname\relax%
+  \xdef\esfehlt{\griff}\blackmark\else{\csname\griff\endcsname}\fi}
+
+\def\definieres{\expandafter\xdef\csname\griff\endcsname{\inhalt}%
+ \def\blankkk{ }\expandafter\immediate\write\aux{%
+ \string\expandafter\def\string\csname%
+ \blankkk\griff\string\endcsname{\inhalt}}}
+
+\def\blackmark{\ifnum\blackmarks=0\global\blackmarks=1%
+ \write16{===========================================================}%
+ \write16{Some forward reference not yet defined. Re-TeX this file!}%
+ \write16{===========================================================}%
+ \fi\immediate\write16{undefined forward reference: \esfehlt}%
+ {\vrule height10pt width2pt depth2pt}\esfehlt%
+ {\vrule height10pt width2pt depth2pt}}
+
+\def\showlabel#1{\marginal{#1}}
+\def\marginal#1{\strut\vadjust{\kern-\strutdepth%
+\vtop to \strutdepth{\baselineskip\strutdepth\vss\llap{\fiverm#1\ }\null}}}
+\def\strutdepth{\dp\strutbox}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%  NUMBERING MACROS %%%%%%%%%%%%%%%%%%%%%%
+
+\newif\ifdraft
+
+\newcount\hour\newcount\minutes
+\def\draft{\drafttrue
+\def\comment##1{{\bf comment: ##1}}
+\headline={\sevenrm \hfill
+\ifx\filenamed\undefined\jobname\else\filenamed\fi%
+(.tex) (as of \ifx\updated\undefined???\else\updated\fi)
+ \TeX'ed at {\hour\time\divide\hour by 60{}%
+\minutes\hour\multiply\minutes by 60{}%
+\advance\time by -\minutes
+\the\hour:\ifnum\time<10{}0\fi\the\time\  on \today\hfill}}
+}
+
+\def\today{\number\day\space%
+\ifcase\month\or January\or February\or March\or April\or May\or June\or
+ July\or August\or September\or October\or November\or December\fi%
+\space\number\year}
+
+\def\en#1{%
+  \global\advance\eqnum by 1%%% Label Equations
+  \edef\griff{en#1}\edef\inhalt{\the\eqnum}%
+  \definieres\eqno(\inhalt)\ifdraft\rlap{\fiverm #1}\fi}
+
+\def\enn#1{\global\advance\eqnum by 1%%% Label Equations with eqalignno
+  \edef\griff{en#1}\edef\inhalt{\the\eqnum}%
+    \definieres(\inhalt)\ifdraft\rlap{\fiverm #1}\fi}
+
+\def\er#1{\edef\griff{en#1}(\plazieres)}%%% Cite Equations
+
+\def\fn#1{\global\advance\figurenum by 1%%% Label Figures
+  \edef\griff{fn#1}\edef\inhalt{\the\figurenum}\definieres\inhalt
+  \ifdraft\showlabel{#1}\fi}%
+
+\def\fr#1{\edef\griff{fn#1}\plazieres}%%% Cite Figures
+
+\def\pn#1{\global\advance\proclaimnum by 1%%% Label proclamations
+  \edef\griff{pn#1}\edef\inhalt{\the\proclaimnum}%
+  \definieres{\inhalt}\ifdraft\showlabel{#1}\fi}
+
+\def\pr#1{\edef\griff{pn#1}\plazieres}%%% Cite proclamations
+
+\def\rhl#1{\global\advance\refnum by 1%%% Label References
+    \edef\griff{rn#1}\edef\inhalt{\the\refnum}\definieres%
+    \ww{}\ww{\noexpand\smallskip\noexpand\item{\the\refnum.}}} 
+
+\def\rn#1{\smallskip\global\advance\refnum by 1%% Label References
+   \edef\griff{rn#1}\edef\inhalt{\the\refnum}\definieres%
+   \ifdraft\showlabel{#1}\vskip-\baselineskip\fi\item{\the\refnum.}}%   
+
+\def\cit#1{\edef\griff{rn#1}\plazieres}%%% Cite references
+
+\def\cite#1{[\cit{#1}]} %%% Cite references with brackets
+
+\def\tn#1{\global\advance\tablenum by 1%%% Label Tables
+   \edef\griff{tn#1}\edef\inhalt{\the\tablenum}\definieres \inhalt
+   \ifdraft\showlabel{#1}\fi}%
+
+\def\tr#1{\edef\griff{tn#1}\plazieres}%%% Cite Tables
+
+%********************* MACROS FOR INSERTING FIGURES ***************
+
+\input epsf
+
+\def\psone#1#2{\centerline{
+    \epsfxsize #2in  \epsfbox{#1}
+    }}
+
+\def\pstwo#1#2#3#4{
+   \centerline{
+    \epsfxsize=#2in \epsfbox{#1}
+      \qquad \epsfxsize=#4in  \epsfbox{#3}
+   }}%
+
+\def\pstwob#1#2#3#4#5{
+   \centerline{
+    \epsfxsize=#2in \epsfbox{#1}
+      \hskip #5pc \epsfxsize=#4in  \epsfbox{#3}
+   }}%
+
+
+\def\psthree#1#2#3#4#5#6{
+   \centerline{
+    \epsfxsize=#2in \epsfbox{#1}
+      \qquad \epsfxsize=#4in  \epsfbox{#3}
+      \qquad \epsfxsize=#6in  \epsfbox{#5}
+   }}%
+
+\def\psthreeb#1#2#3#4#5#6#7#8{
+   \centerline{
+    \epsfxsize=#2in \epsfbox{#1}
+      \hskip #7pc  \epsfxsize=#4in  \epsfbox{#3}
+      \hskip #8pc \epsfxsize=#6in  \epsfbox{#5}
+   }}%
+
+
+%************************* TOKENS ********************************
+\newtoks\lastname
+\newtoks\firstname
+\newtoks\au
+\newtoks\aut
+\newtoks\ti
+\newtoks\tit
+\newtoks\pb
+\newtoks\pub
+\newtoks\pl
+\newtoks\jr
+
+%*********************** DECODE AUTHORS *****************************
+\newif\ifonesofar
+\def\concat#1{\edef\audef{{#1}}\au=\audef}
+\def\decodeauthor#1, #2,#3;{\lastname={#1}\firstname={#2}%
+\concat{\formfirstauthor}\onesofartrue%
+\def\next{#3}\ifx\next\empty\else\decodemoreauthor#3;\fi}
+\def\decodemoreauthor#1, #2,#3;{\lastname={#1}\firstname={#2}%
+\def\next{#3}
+\ifx\next\empty\let\formaut=\formlastauthor%
+\ifonesofar\ifx\formotherauthor\undefined\else\let\formaut=\formotherauthor%
+\fi\fi\concat{\the\au\formaut}%
+\else\onesofarfalse\concat{\the\au\formnextauthor}\decodemoreauthor#3;\fi}
+
+%************************* BASIC REF MACROS *************************
+\def\refB #1; #2; #3 (#4); #5; {\decodeauthor#1,;%
+   \ti={#2}\pb={#3}\pl={#4}\def\yr{#5}\formB}
+
+\def\refD #1; #2; #3; #4; {\decodeauthor#1,;%
+   \ti={#2}\pl={#3}\def\yr{#4}\formD}
+
+%\def\refJ #1; #2; #3; #4; #5; #6; {\decodeauthor#1,;%
+%    \ti={#2}\def\jr{#3}\def\vl{#4}\def\yr{#5}\def\pp{#6}\formJ}
+
+\def\refJ #1; #2; #3; #4; #5; #6; {\decodeauthor#1,;%
+    \ti={#2}\jr={#3}\def\vl{#4}\def\yr{#5}\def\pp{#6}\formJ}
+
+\def\lookupp#1{{\global\aut={\vrule height15pt width15pt depth0pt}%
+ \global\tit={{\bf the specified proceedings does not exist in our files}}%
+ \xdef\edsop{}\global\pub={}\def#1{}\input \locbib proceed }}
+
+\def\refproc #1(#2; #3; {\decodeproc#2; \xdef\yr{#3}}
+\def\decodeproc#1), #2 (ed#3.),#4 (#5); {%
+ \global\tit={#1}\global\aut={#2}\xdef\edsop{#3}\global
+ \pub={#4}\global\pl={#5}}
+
+\def\refP #1; #2; #3; #4; {\lookupp{#3}\decodeauthor#1,;%
+	\ti={#2}\def\pp{#4}\formP}
+
+\def\refQ #1; #2; (#3; #4; #5; {\decodeproc#3; \decodeauthor#1,;%
+   \ti={#2}\def\yr{#4}\def\pp{#5}\formP}
+
+\def\refR #1; #2; #3; #4; {\decodeauthor#1,;%
+	 \ti={#2}\def\is{#3}\def\yr{#4}\formR}
+
+\def\refnew #1; {
+ \ww{#1.}}
+
+%*********************** CREATE jobname.bib *************************
+
+\newwrite\w
+\def\ww#1{\immediate\write\w{#1}}
+\def\startbib{\immediate\openout\w=\jobname.bib}
+\def\endbib{\immediate\closeout\w \input\jobname.bib}
+\newcount\refnum \refnum = 0
+\def\semicolon{; }
+\def\locbib{}
+
+% ****************** VANDERBILT PRESS STYLE *****************
+
+%
+\gdef\formfirstauthor{\the\lastname, \the\firstname}
+\gdef\formnextauthor{, \the\firstname\the\lastname}
+\gdef\formotherauthor{ and \the\firstname\the\lastname}
+\gdef\formlastauthor{,\formotherauthor}
+%
+\gdef\formB{
+\ww{\the\au,}
+\ww{{\sl \the\ti,}}
+\ww{\the\pb,}
+\ww{\the\pl,}
+\ww{\yr.}}
+%
+\gdef\formD{
+\ww{\the\au,}
+\ww{\the\ti,}
+\ww{dissertation,}
+\ww{\the\pl,}
+\ww{\yr.}}
+%
+\gdef\formJ{
+\ww{\the\au,}
+\ww{\the\ti,}
+%\ww{\jr\noexpand\ {\noexpand\bf\vl}}
+\ww{\the\jr\noexpand\ {\noexpand\bf\vl}}
+\ww{(\yr), \pp.}}
+%
+\gdef\formP{
+\ww{\the\au,}
+\ww{\the\ti,}
+\ww{in}
+\ww{{\sl \the\tit,}}
+\ww{\the\aut\ (ed\edsop),}
+\ww{\the\pub,}
+\ww{\the\pl,}
+\ww{\yr,}
+\ww{\pp.}}
+%
+\gdef\formR{
+\ww{\the\au,}
+\ww{\the\ti,}
+\ifx\is\empty\else\ww{\is,}\fi
+\ww{\yr.}}
+
+%%% END of lls00.tex

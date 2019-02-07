@@ -1,0 +1,601 @@
+#LyX 1.1 created this file. For more info see http://www.lyx.org/
+\lyxformat 218
+\textclass article
+\begin_preamble
+ \usepackage{epsfig}
+\usepackage{amsmath,amssymb}
+\usepackage{pslatex}
+\usepackage{color}
+ 
+ \definecolor{veryblackblue}{rgb}{0.0,0.0,0.1}
+ \usepackage[pdftex,urlcolor=webblackblue,colorlinks=true]{hyperref}
+ \pdfinfo{
+            /Title      (Assignment 1 for Math 3423 - Numerical Methods 2)
+            /Author     (Daniel Lemire, Ph.D.)
+            /Subject    (This is the first assignment for Math 3423.)
+            /Keywords   (Numerical differentiation and integration.)
+          }
+
+
+\topmargin  = 0pt
+\headheight = 0pt
+\headsep    = 0pt
+
+\voffset    = 0in
+\hoffset    = 0in
+\textheight = 230mm
+\textwidth  = 164mm
+
+\evensidemargin = 0pt
+\oddsidemargin  = 0pt
+
+\pagestyle{empty}
+\usepackage{float}
+
+%% Background of blue palette
+ \definecolor{webblackblue}{rgb}{0.0,0.0,0.2}
+ \definecolor{webblue}{rgb}{0.0, 0.0, 0.6}
+
+%% Background of red palette
+ \definecolor{webblackred}{rgb}{0.2,0.0,0.0}
+ \definecolor{webred}{rgb}{0.6,0.0,0.0}
+
+%% Background of green palette
+ \definecolor{webblackgreen}{rgb}{0.0,0.2,0.0}                                   
+ \definecolor{webgreen}{rgb}{0.0,0.6,0.0} 
+
+%% Background of magenta palette
+ \definecolor{webblackmagenta}{rgb}{0.14,0.0,0.14}                                   
+ \definecolor{webmagenta}{rgb}{0.42,0.0,0.42} 
+
+%% Background of cyan palette
+ \definecolor{webblackcyan}{rgb}{0.0,0.14,0.14}                                   
+ \definecolor{webcyan}{rgb}{0.0,0.42,0.42} 
+
+%% Background of yellow pallete
+ \definecolor{webblackyellow}{rgb}{0.14,0.14,0.0}                                   
+ \definecolor{webyellow}{rgb}{0.85,0.85,0.0} 
+
+ \definecolor{webdarkgray}{rgb}{0.2,0.2,0.2}
+
+ \definecolor{webgray}{rgb}{0.75,0.75,0.75}
+ \definecolor{weborange}{rgb}{1.0, 0.6, 0.0}
+
+\renewcommand\labelenumi{\textcolor{webdarkgray}{\arabic{enumi}.}}
+\newcommand{\setenumi}[1]{#1.\setcounter{enumi}{#1}}
+\usepackage{dsfont}
+\end_preamble
+\language american
+\inputencoding auto
+\fontscheme default
+\graphics default
+\paperfontsize default
+\spacing single 
+\papersize Default
+\paperpackage a4
+\use_geometry 0
+\use_amsmath 0
+\paperorientation portrait
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\defskip medskip
+\quotes_language english
+\quotes_times 2
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+
+\layout Title
+
+Assignment 1
+\newline 
+MATH 3423 - Numerical Methods 2
+\newline 
+Acadia University
+\layout Author
+
+
+\latex latex 
+
+\backslash 
+href{http://www.ondelette.com/acadia/}{Daniel Lemire}
+\latex default 
+, Ph.D.
+ 
+\layout Date
+
+Winter 2002
+\newline 
+Due February 1st 2002
+\layout Section
+
+
+\latex latex 
+
+\backslash 
+texorpdfstring{
+\backslash 
+textcolor{webblackblue}{Requirements}}{Requirements}
+\layout Standard
+
+You can do this assignment in teams of two or alone.
+ 5% of the mark will be based on presentation.
+ All required plots should be computer-generated.
+ A title page is required.
+ All computer code must be properly commented and should be computationally
+ efficient.
+ You may use the language you prefer (Matlab, C, Fortran, Java, C++...) as
+ long as you document your work.
+\layout Section
+
+
+\latex latex 
+
+\backslash 
+texorpdfstring{
+\backslash 
+textcolor{webblackblue}{Numerical Differentiation}}{Numerical Differentiation}
+\layout Subsection
+
+
+\latex latex 
+
+\backslash 
+texorpdfstring{
+\backslash 
+textcolor{webblue}{Basic applications}}{Basic applications}
+\layout Enumerate
+
+For the following problems, approximate the specified derivative.
+\begin_deeper 
+\layout Enumerate
+
+Using the forward-difference formula.
+\layout Enumerate
+
+Using the backward-difference formula.
+\layout Enumerate
+
+Using the central-difference formula.
+\layout Enumerate
+
+Using Richardson extrapolation to improve (once) your central-difference
+ result.
+\layout List
+\labelwidthstring 00.00.0000
+
+Question 1.
+ Approximate 
+\begin_inset Formula \( y'(1.0) \)
+\end_inset 
+
+ if 
+\begin_inset Formula \( x=[0.8\, 0.9\, 1.0\, 1.1\, 1.2] \)
+\end_inset 
+
+ and 
+\begin_inset Formula \( y=[0.992\, 0.999\, 1.000\, 1.001\, 1.008] \)
+\end_inset 
+
+.
+\layout List
+\labelwidthstring 00.00.0000
+
+Question 2.
+ Approximate 
+\begin_inset Formula \( y'(1) \)
+\end_inset 
+
+ if 
+\begin_inset Formula \( x=[-1\, 0\, 1\, 2\, 3] \)
+\end_inset 
+
+ and 
+\begin_inset Formula \( y=[1/3\, 1\, 3\, 9\, 27] \)
+\end_inset 
+
+.
+\end_deeper 
+\layout Enumerate
+
+The altitude of a helicopter at three different instants is found to be
+ 
+\begin_inset Formula \( h_{1}=445.98 \)
+\end_inset 
+
+ at 
+\begin_inset Formula \( t_{1}=0.20 \)
+\end_inset 
+
+, 
+\begin_inset Formula \( h_{2}=471.85 \)
+\end_inset 
+
+ at 
+\begin_inset Formula \( t_{2}=0.30 \)
+\end_inset 
+
+, and 
+\begin_inset Formula \( h_{3}=503.46 \)
+\end_inset 
+
+ at 
+\begin_inset Formula \( t_{3}=0.41 \)
+\end_inset 
+
+.
+ Taylor expanding twice the altitude 
+\begin_inset Formula \( h(t) \)
+\end_inset 
+
+ of the helicopter about 
+\begin_inset Formula \( t=0.30 \)
+\end_inset 
+
+, find 
+\begin_inset Formula \( dh/dt \)
+\end_inset 
+
+ at 
+\begin_inset Formula \( t=0.30 \)
+\end_inset 
+
+ using all of the available data.
+ (HINT: do not try to plug in a formula...
+ work out the math...)
+\layout Subsection
+
+
+\latex latex 
+
+\backslash 
+texorpdfstring{
+\backslash 
+textcolor{webblue}{Theory}}{Theory}
+\layout Enumerate
+
+Observe that the sum of all the coefficients of the functions values appearing
+ in the numerator of all finite-difference derivatives seen in class is
+ 0.
+ Give at least 4 examples to justify this claim.
+ Prove that it must always be so.
+\layout Enumerate
+
+Give the order of accuracy (
+\begin_inset Formula \( O(\Delta x),\, O((\Delta x)^{2}),\, ... \)
+\end_inset 
+
+) for the following formulas.
+ Briefly justify your answer (do not guess!).
+\begin_deeper 
+\layout Enumerate
+
+
+\begin_inset Formula \( f_{i}'=\frac{f_{i+1}-f_{i}}{\Delta x} \)
+\end_inset 
+
+
+\layout Enumerate
+
+
+\begin_inset Formula \( f_{i}'=\frac{f_{i+1}-f_{i-1}}{2\Delta x} \)
+\end_inset 
+
+
+\layout Enumerate
+
+
+\begin_inset Formula \( f_{i}''=\frac{f_{i+2}-2f_{i+1}+f_{i}}{(\Delta x)^{2}} \)
+\end_inset 
+
+
+\layout Enumerate
+
+
+\begin_inset Formula \( f_{i}''=\frac{f_{i+1}-2f_{i}+f_{i-1}}{\Delta x^{2}} \)
+\end_inset 
+
+
+\layout Enumerate
+
+
+\begin_inset Formula \( f_{i}'''=\frac{f_{i+3}-3f_{i+2}-3f_{i+1}-f_{i}}{\Delta x^{3}} \)
+\end_inset 
+
+
+\layout Enumerate
+
+
+\begin_inset Formula \( f_{i}'=\frac{f_{i+1}-f_{i}}{2\Delta x} \)
+\end_inset 
+
+
+\end_deeper 
+\layout Enumerate
+
+Recall that 
+\begin_inset Formula \( \left\Vert f-g\right\Vert _{L^{\infty }(S)}=\max \{|f(x)-g(x)|,x\in S\} \)
+\end_inset 
+
+.
+ Give the formulas for two families of real-valued functions 
+\begin_inset Formula \( f,g \)
+\end_inset 
+
+ with a parameter 
+\begin_inset Formula \( a \)
+\end_inset 
+
+ (for example 
+\begin_inset Formula \( \sin ax \)
+\end_inset 
+
+) over the real numbers such that 
+\begin_inset Formula \( \left\Vert f-g\right\Vert _{L^{\infty }} \)
+\end_inset 
+
+ can be made as small as we want (by a change of parameter) while 
+\begin_inset Formula \( \left\Vert f'-g'\right\Vert _{L^{\infty }}\geq 1 \)
+\end_inset 
+
+.
+ Suppose now that you have a sampling of two functions 
+\begin_inset Formula \( f_{i},g_{i} \)
+\end_inset 
+
+ for some 
+\begin_inset Formula \( x \)
+\end_inset 
+
+ values (
+\begin_inset Formula \( x_{i} \)
+\end_inset 
+
+), use your example to show that while the values 
+\begin_inset Formula \( f_{i},g_{i} \)
+\end_inset 
+
+ might be very close, and thus their numerical derivatives, their actual
+ derivatives might be very different.
+\layout Subsection
+
+
+\latex latex 
+
+\backslash 
+texorpdfstring{
+\backslash 
+textcolor{webblue}{Problem}}{Problem}
+\layout Standard
+
+You are working for NASA.
+ The American government has spotted an UFO and you must process the collected
+ data.
+ Write a computer program to estimate the speed as a function of time of
+ the object and its acceleration (one real number per time sample for both
+ speed and acceleration).
+ You must do this work for accuracy orders 
+\begin_inset Formula \( O(\Delta x),O((\Delta x)^{2}) \)
+\end_inset 
+
+, and 
+\begin_inset Formula \( O((\Delta x)^{4}) \)
+\end_inset 
+
+.
+ You must hand in the computer program you wrote, a brief explanation of
+ the formulas you used and two plots for each order of accuracy: speed vs
+ time and acceleration vs time.
+\layout Standard
+
+Data (in format 
+\begin_inset Formula \( [x,y,z,t] \)
+\end_inset 
+
+) : [0.84, 1.71, 1.0], [4.0, 1.81, 5.38, 2.0], [9.0, 0.42, 17.08, 3.0], [16.0, - 3.02,
+ 50.59, 4.0], [25.0, - 4.79, 143.41, 5.0], [36.0, - 1.67, 397.42, 6.0], [49.0, 4.59,
+ 1089.63, 7.0], [64.0, 7.91, 2972.95, 8.0], [81.0, 3.70, 8094.08, 9.0], [100.0, - 5.44,
+ 22016.46, 10.0], [121.0, - 10.99, 59863.14, 11.0], [144.0, - 6.43, 162742.79, 12.0],
+ [169.0, 5.46, 442400.39, 13.0], [196.0, 13.86, 1202590.28, 14.0], [225.0, 9.75, 3269002.37
+, 15.0],[256.0, - 4.60, 8886094.52, 16.0].
+\layout Section
+
+
+\latex latex 
+
+\backslash 
+texorpdfstring{
+\backslash 
+textcolor{webblackblue}{Numerical Integration}}{Numerical Integration}
+\layout Subsection
+
+
+\latex latex 
+
+\backslash 
+texorpdfstring{
+\backslash 
+textcolor{webblue}{Basic Applications}}{Basic Applications}
+\layout Enumerate
+
+Use Gaussian quadrature with 
+\begin_inset Formula \( n=3 \)
+\end_inset 
+
+ and exact arithmetic to approximate 
+\begin_inset Formula \( \int _{-1}^{1}x^{4}dx \)
+\end_inset 
+
+.
+ Compare your result with the expected value of the integral and discuss
+ the two.
+\layout Enumerate
+
+Evaluate the integral 
+\begin_inset Formula \( \int _{0}^{2\pi }\cos ^{2}xdx \)
+\end_inset 
+
+ using the following methods with 6 function evaluations (give all of your
+ computations):
+\begin_deeper 
+\layout Enumerate
+
+Trapezoidal rule.
+\layout Enumerate
+
+Simpson's rule (1/3)
+\layout Enumerate
+
+Gauss quadrature formula
+\end_deeper 
+\layout Subsection
+
+
+\latex latex 
+
+\backslash 
+texorpdfstring{
+\backslash 
+textcolor{webblue}{Theory}}{Theory}
+\layout Enumerate
+
+Show that the integral given by the trapezoidal rule is the average of the
+ integrals given by the two rectangular rules.
+\layout Enumerate
+
+Use the definition of the Legendre polynomial 
+\begin_inset Formula \( P_{n}(x)=\frac{(-1)^{n}}{2^{n}n!}\frac{d^{n}}{dx^{n}}[(1-x^{2})^{n}] \)
+\end_inset 
+
+, 
+\begin_inset Formula \( n\geq 1 \)
+\end_inset 
+
+ to find a relationship between 
+\begin_inset Formula \( P_{n}'(x) \)
+\end_inset 
+
+ and 
+\begin_inset Formula \( P_{n+1}(x) \)
+\end_inset 
+
+, and then show the equivalence of the following expressions for the coefficient
+s for Gaussian quadrature: 
+\begin_inset Formula \( c_{i}=\frac{-2}{(n+1)P_{n}'\left( x_{i}\right) P_{n+1}\left( x_{i}\right) } \)
+\end_inset 
+
+ and 
+\begin_inset Formula \( c_{i}=\frac{2\left( 1-x_{i}^{2}\right) }{(n+1)^{2}P_{n+1}^{2}\left( x_{i}\right) } \)
+\end_inset 
+
+.
+\newline 
+HINTS:
+\begin_deeper 
+\layout Enumerate
+
+The 
+\begin_inset Formula \( x_{i} \)
+\end_inset 
+
+'s are the roots of 
+\begin_inset Formula \( P_{n} \)
+\end_inset 
+
+ and thus 
+\begin_inset Formula \( P_{n}\left( x_{i}\right) =0 \)
+\end_inset 
+
+, however, 
+\begin_inset Formula \( P_{n}'\left( x_{i}\right)  \)
+\end_inset 
+
+ is not zero in general, nor is 
+\begin_inset Formula \( P_{n+1}\left( x_{i}\right)  \)
+\end_inset 
+
+.
+ (Why?)
+\layout Enumerate
+
+You might want to use Leibnitz' rule which says that
+\begin_inset Formula \[
+\frac{d^{n}}{dx^{n}}uv=\sum _{k=0}^{n}\frac{n!}{(n-k)!k!}\frac{d^{k}}{dx^{k}}u\frac{d^{n-k}}{dx^{n-k}}u.\]
+
+\end_inset 
+
+You don't have to prove Leibnitz' rule, but you should be clever enough
+ to know how to prove it if your life depended on it!
+\end_deeper 
+\layout Enumerate
+
+Suppose that the quadrature rule 
+\begin_inset Formula \( \int _{a}^{b}f(x)dx\approx \sum _{i=1}^{n}w_{i}f\left( x_{i}\right)  \)
+\end_inset 
+
+ is exact for all constant functions.
+ What does this imply about the weights 
+\begin_inset Formula \( w_{i} \)
+\end_inset 
+
+ or the nodes 
+\begin_inset Formula \( x_{i} \)
+\end_inset 
+
+? 
+\layout Subsection
+
+
+\latex latex 
+
+\backslash 
+texorpdfstring{
+\backslash 
+textcolor{webblue}{Problem}}{Problem}
+\layout Standard
+
+Assuming that 
+\begin_inset Formula \( f \)
+\end_inset 
+
+ is twice differentiable, prove that 
+\begin_inset Formula \( \int _{a}^{b}f(x)dx=(b-a)f\left( \frac{b-a}{2}\right) +\frac{\left( b-a\right) ^{3}}{24}f''(\xi ) \)
+\end_inset 
+
+ for some 
+\begin_inset Formula \( \xi \in [a,b] \)
+\end_inset 
+
+.
+ The formula 
+\begin_inset Formula \( \int _{a}^{b}f(x)dx\cong (b-a)f\left( \frac{b-a}{2}\right)  \)
+\end_inset 
+
+ is called the Midpoint formula.
+ Write a computer program to implement the Midpoint formula and use it to
+ integrate 
+\begin_inset Formula \( \sin x \)
+\end_inset 
+
+ between 
+\begin_inset Formula \( 0 \)
+\end_inset 
+
+ and 
+\begin_inset Formula \( \pi  \)
+\end_inset 
+
+ using as many function evaluations as you need to properly estimate the
+ integral starting with 
+\begin_inset Formula \( 2,4,8,16,32,64... \)
+\end_inset 
+
+ function evaluations.
+ You must hand in the code of your computer program and a table with your
+ results (function evaluations vs value).
+ Plot your table.
+ Briefly comment on your results (what is the apparent rate of convergence...what
+ do you expect from the theory...).
+ 
+\the_end

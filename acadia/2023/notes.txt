@@ -1,0 +1,50 @@
+
+assignment1 out of 99
+midterm out of 90
+
+Razan Alami			100048190	88
+Sanwada	Abeysirigunawardena	100049389	68	62
+Randall Stafford		100040731	80.5	45
+Rebecca Hildebrand		100046517	80.5	70
+Tanya Daniels 			100041792	80	35
+Mary Dooley			100046455	64.5	65
+Wayne Cross			100045099	96.5	80
+Ting Him Lam			100043903	89	80
+Katherine Duffield		100044518	83.5	75
+Cathy Wamboldt			100044958	96	85
+Angela MacKenzie		100044915	96.5	80
+Erin Cooper			100046381	97	85
+Jeremy Ewing			100046871	96	80
+Tumblea Raisanen		100046014	88	0
+Genevive Evans			100045612	77	80
+Zhao Jin			100055087	86.5	80
+Chadia Jeige			100048807	86.5	40
+Craig Wilson			100046008	97.5	85
+Christine Pardy			100045673	96	30
+Bevan M. Authedi		100045848	89	55
+David Noel			100046250	97	85
+Shannon MacLeod			100041050	93	70
+Yuk Prelevic 			100042262	81.5	60
+Josh Gould			100045797	95	80
+Ryan Kennedy			100043758	84.5	75
+Cory Boudreau			100044906	66.5	70
+Joseph Stewart			100045914	90.5	70
+Alice Vaughan			100044918	95.5	85
+Shanna Feener			100043444	83.5	85
+Ryan Walsh 			100039157	74.5	40
+Mark Baron			100045262	77	32
+Kimberlea Dunbar		100048253	81	40
+Jerry Azoub 			100044983	93	50
+Sarah Jackson 			100044401	84	80
+Melissa Veinot			100046614	88	57
+Eric Oliver			100046365	96	75
+Glen Russell			100043503	89.5	55
+Diana Jeliazuova		100046270	28.5	85
+Xephyr Day			100043363	93.5	80
+Michael Hughes			100046097	83	70
+Sean Smith			100044845	97	85
+
+
+
+
+

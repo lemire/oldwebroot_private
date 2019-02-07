@@ -1,0 +1,95 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<script type="text/javascript">
+function getRandomKey(o) {
+    var tmpList = Object.keys(o);
+    return tmpList[Math.floor(Math.random() * tmpList.length)];
+}
+
+
+function getStarted() {
+    var donnees = {
+        "rendre": {
+            "présent": ["rends", "rends", "rend", "rendons", "rendez", "rendent"],
+            "imparfait": ["rendais", "rendais", "rendait", "rendions", "rendiez", "rendaient"],
+            "futur simple": ["rendrai", "rendras", "rendra", "rendrons", "rendrez", "rendront"],
+            "conditionnel": ["rendrais", "rendrais", "rendrait", "rendrions", "rendriez", "rendraient"],
+            "passé simple": {
+                "2": "rendit",
+                "5": "rendirent"
+            },
+            "passé composé": ["ai rendu", "as rendu", "a rendu", "avons rendu", "avez rendu", "ont rendu"],
+            "futur proche": ["vais rendre", "vas rendre", "va rendre", "allons rendre", "allez rendre", "vont rendre"],
+            "futur antérieur": ["aurai rendu", "auras rendu", "aura rendu", "aurons rendu", "aurez rendu", "auront rendu"],
+            "plus-que-parfait": ["avais rendu", "avais rendu", "avait rendu", "avions rendu", "aviez rendu", "avaient rendu"],
+            "impératif":  {
+                "1": "rends",
+                "3": "rendons",
+                "4": "rendez"
+            },
+            "subjonctif présent": ["rende", "rendes", "rende", "rendions", "rendiez", "rendent"],
+        }
+    };
+
+    var personnenames = ["première personne du singulier", "deuxième personne du singulier", "troisième personne du singulier", "première personne du pluriel", "deuxième personne du pluriel", "troisième personne du pluriel"];
+
+    var pronom = ["je (ou j')", "tu", "il", "nous", "vous", "ils"];
+    var i;
+    var out = document.getElementById("verbes");
+    out.innerHTML = "";
+    var mycontent ='<table border="0" style="border-spacing: 10px 10px;"> ';
+    for (i = 0; i < 20; i++) {
+        var v = getRandomKey(donnees);
+        var dv = donnees[v];
+        var t = getRandomKey(dv);
+        var tv = dv[t];
+        var personne = getRandomKey(tv);
+        var pname = personnenames[personne];
+        var answer = tv[personne];
+        mycontent = mycontent + '<tr><td><strong> ' + v + '</strong></td><td>' + t + '</td><td> '+pronom[personne]+' </td><td><input type="text" autocorrect="off" autocomplete="off" spellcheck="false"  name="lname" id="rep' + i + '" onkeypress="javascript:if(event.keyCode==13){checkval(\'' + answer + '\',' + i + ');}"/> <input type="submit" id="but' + i + '" value="Soumettre" onclick="javascript:checkval(\'' + answer + '\',' + i + ');" /></td></tr>';
+    }
+    mycontent = mycontent + '</table> ';
+    out.innerHTML = mycontent;
+}
+
+function compare(str1, str2) {
+    return str1.trim().replace(/\s+/g, " ") === str2.trim().replace(/\s+/g, " ");
+}
+
+function checkval(answer, i) {
+    if (parseInt(document.getElementById("rep" + i).value.trim().length === 0)) {
+        return;
+    }
+    if (compare(document.getElementById("rep" + i).value, answer)) {
+        document.getElementById("rep" + i).value = "C'est bon: " + document.getElementById("rep" + i).value;
+        document.getElementById("rep" + i).disabled = true;
+        document.getElementById("but" + i).disabled = true;
+        if(document.getElementById("rep" + (i+1))) {
+            document.getElementById("rep" + (i+1)).focus();
+        }
+    } else {
+        document.getElementById("rep" + i).value = "Ce n'est pas " + document.getElementById("rep" + i).value;
+    }
+}
+
+window.onbeforeunload = function() {
+    return "Si tu quittes la page, ton travail sera perdu.";
+};
+</script>
+
+
+<title>Lohan le champion des verbes</title>
+
+<body  onload="getStarted()" style="width:600px;margin-left:auto;margin-right:auto;">
+
+
+<h1>Conjugue les verbes suivants</h1>
+  
+<div id="verbes" />
+
+
+
+</body>
+
+</html>

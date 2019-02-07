@@ -1,0 +1,235 @@
+#LyX 1.1 created this file. For more info see http://www.lyx.org/
+\lyxformat 218
+\textclass article
+\begin_preamble
+\usepackage{dsfont}
+\end_preamble
+\language american
+\inputencoding auto
+\fontscheme default
+\graphics default
+\paperfontsize default
+\spacing single 
+\papersize Default
+\paperpackage a4
+\use_geometry 0
+\use_amsmath 0
+\paperorientation portrait
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\defskip medskip
+\quotes_language english
+\quotes_times 2
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+
+\layout Title
+
+A Nonlinear Lagrange Subdivision Schemes with Minimal Impulse Response or
+ increased smoothness
+\layout Author
+
+Daniel Lemire
+\layout Abstract
+
+A nonlinear subdivision scheme similar to the Lagrange subdivision scheme
+ introduced by Deslauriers and Dubuc is presented.
+ While having the same approximation order as the linear Lagrange subdivision
+ scheme, it is chosen to have a smaller impulse response or support.
+\layout Section
+
+Subdivision scheme on
+\begin_inset Formula \( \mathds {R} \)
+\end_inset 
+
+
+\layout Standard
+
+The purpose of subdivision schemes is to solve the interpolation problem:
+ given a set of values 
+\begin_inset Formula \( \left\{ v_{0,k}\right\} _{k\in \mathds {Z}} \)
+\end_inset 
+
+find a function 
+\begin_inset Formula \( f:\mathds {R}\rightarrow \mathds {R} \)
+\end_inset 
+
+ such that 
+\begin_inset Formula \( f(k)=v_{0,k} \)
+\end_inset 
+
+ for 
+\begin_inset Formula \( k\in \mathds {Z} \)
+\end_inset 
+
+.
+ Maybe surprisingly, the multiscale solution of this problem called a subdivisio
+n scheme, has a wide range of applications and is one of the building blocks
+ of wavelet theory[cite Daubechies?].
+\layout Standard
+
+Given two integers 
+\begin_inset Formula \( n,b>1 \)
+\end_inset 
+
+, a 
+\begin_inset Formula \( 2n- \)
+\end_inset 
+
+point 
+\begin_inset Formula \( b- \)
+\end_inset 
+
+adic subdivision scheme is described in terms of 
+\begin_inset Formula \( b \)
+\end_inset 
+
+ functions 
+\begin_inset Formula \( \Lambda _{i}:\mathds {R}^{2n}\rightarrow \mathds {R} \)
+\end_inset 
+
+(
+\begin_inset Formula \( i=1,...,b) \)
+\end_inset 
+
+by the following algorithm:
+\layout Enumerate
+
+For each 
+\begin_inset Formula \( k\in \mathds {Z} \)
+\end_inset 
+
+, set 
+\begin_inset Formula \( v_{j+1,bk}=v_{j,k} \)
+\end_inset 
+
+.
+\layout Enumerate
+
+For each 
+\begin_inset Formula \( k\in \mathds {Z} \)
+\end_inset 
+
+, set 
+\begin_inset Formula \( v_{j+1,bk+i}=\Lambda _{i}\left( v_{j,k-n+1},...,v_{j,k},...,v_{j,k+n}\right)  \)
+\end_inset 
+
+.
+\layout Standard
+
+This algorithm provides an interpolation of the original set 
+\begin_inset Formula \( \left\{ v_{0,k}\right\} _{k\in \mathds {Z}} \)
+\end_inset 
+
+ over 
+\begin_inset Formula \( b- \)
+\end_inset 
+
+adic numbers: 
+\begin_inset Formula \( \left\{ k/b^{j}\right\} _{k,j\in \mathds {Z}} \)
+\end_inset 
+
+ which is a dense set in 
+\begin_inset Formula \( \mathds {R} \)
+\end_inset 
+
+.
+ Assuming that the 
+\begin_inset Formula \( v_{j,k} \)
+\end_inset 
+
+ converge to a uniformly continuous function over the 
+\begin_inset Formula \( b- \)
+\end_inset 
+
+adic numbers as 
+\begin_inset Formula \( j\rightarrow \infty  \)
+\end_inset 
+
+, we can extend this function to all of 
+\begin_inset Formula \( \mathds {R} \)
+\end_inset 
+
+.
+ We say that the scheme has regularity 
+\begin_inset Formula \( r \)
+\end_inset 
+
+ if this function is in 
+\begin_inset Formula \( C^{r} \)
+\end_inset 
+
+.
+\layout Standard
+
+Deslauriers and Dubuc 
+\begin_inset LatexCommand \cite{DeDu}
+
+\end_inset 
+
+ proposed the first such scheme with 
+\begin_inset Formula \( n=4 \)
+\end_inset 
+
+ and 
+\begin_inset Formula \( b=1 \)
+\end_inset 
+
+ and using 
+\begin_inset Formula \[
+\Lambda _{1}\left( a,b,c,d\right) =\frac{-a+9b+9c-d}{16}.\]
+
+\end_inset 
+
+They've shown that the resulting subdivision scheme converge to a uniformly
+ continuous function on the dyadic Later Dyn and Levin generalized the scheme
+ by showing that for 
+\begin_inset Formula \( n=4 \)
+\end_inset 
+
+ and 
+\begin_inset Formula \( b=1 \)
+\end_inset 
+
+, This function is sometimes refered in the engineering litterature as a
+ 
+\begin_inset Quotes eld
+\end_inset 
+
+Lagrange filter
+\begin_inset Quotes erd
+\end_inset 
+
+.
+\layout Standard
+
+We ask three questions concerning (possibly nonlinear) 
+\begin_inset Formula \( n- \)
+\end_inset 
+
+points subdivision schemes:
+\layout Enumerate
+
+How regular can the scheme be given 
+\begin_inset Formula \( n \)
+\end_inset 
+
+?
+\layout Enumerate
+
+Can we always give an example of an optimally regular subdivision scheme?
+\layout Enumerate
+
+Can we always implement efficiently such a scheme?
+\layout Bibliography
+\bibitem [DeDu]{DeDu}
+
+G.
+ Deslauriers and S.
+ Dubuc.
+ Symmetric iterative interpolation processes.
+ Constr.
+ Approx., 5:49-68, 1989.
+\the_end

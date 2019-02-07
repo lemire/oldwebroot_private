@@ -1,0 +1,103 @@
+
+H1.TITLE {
+	text-align : center;
+   font-weight : bold; 
+   font-size : x-large;
+
+   color : black; 
+   background-color : #CCFFCC;
+}
+
+TD.MESSAGE {
+	background-color: #CCFFCC;
+}
+
+TD.SUBJECT {
+	background-color: #FFFFCC;
+	font-weight : bold; 
+}
+
+P.MENU {	
+	text-align : center;
+	font-style : italic;  
+}
+
+B.ADMINAUTHOR {
+	color : black; 
+   	font-weight : bold; 
+   background-color : yellow;
+}
+
+B.EXECUTIVEMEMBERAUTHOR {
+	color : red;
+	font-weight : bold; 
+}
+
+
+B.VIPMEMBER {
+	color : red;
+}
+
+A.AUTHORNAME {
+  	font-weight : normal;
+}
+A.ADMINAUTHOR {
+	color : black; 
+  	font-weight : normal;
+   	background-color : yellow;
+   	font-weight : normal;
+}
+
+A.EXECUTIVEMEMBERAUTHOR {
+	color : red;
+	font-weight : normal;
+}
+
+A.VIPMEMBER {
+	color : red;
+	font-weight : normal;
+}
+
+
+TD.ADMINAUTHOR {
+	color : black; 
+   	font-weight : bold; 
+   background-color : yellow;
+}
+
+TD.EXECUTIVEMEMBERAUTHOR {
+	color : red;
+	font-weight : bold; 
+}
+
+TD.VIPMEMBER {
+	color : red;
+}
+
+A.SHOWLINK:link {
+	background-color: #FFFFCC;
+	color: 000066;
+}
+
+A.SHOWLINK:visited {
+	background-color: #FFFFCC;
+	color: 0099FF;
+}
+
+A.SHOWLINK:hover {
+	color:#FFFFCC;
+	background-color: black;
+}
+
+P.BACKTOFORUM {
+	text-align : center;
+	background-color: #FFFF99;
+}
+
+
+TABLE.POSTMESSAGEFORM {
+	text-align : center;
+		
+	background-color: #CCFFFF;
+
+}

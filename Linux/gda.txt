@@ -1,0 +1,151 @@
+
+*) Il faut faire passer Firefox pour Internet Explorer. Installer l'extension User Agent Switcher, repartir Firefox et choisir Tools->User Agent Switcher->Internet Explorer 6. On peut le faire après avoir constaté que le site nous refuse l'accès, mais il faut utiliser le "back button" du fureteur.
+
+Reference: 
+https://addons.mozilla.org/extensions/moreinfo.php?application=firefox&id=59
+
+*) [étape spécifique à Linux] Configurer Java sous Firefox.
+mkdir ~/.mozilla/plugins
+> locate libjavaplugin_oji.so
+>  ln -s /opt/sun-jdk-1.5.0.04/jre/plugin/i386/ns7/libjavaplugin_oji.so ~/.mozilla/plugins
+
+Il faut ensuite repartir Firefox.
+
+Le reste fait suite à 
+
+http://bijur.de/home/index.php?title=Oracle_Apps_on_Linux
+Goto your ~/.mozilla/firefox/ directory and open your pluginreg.dat
+
+add a lines like this at the end:
+
+31:application/x-jinit-applet;version=1.1.8.16:Java::$     32:application/x-jinit-applet;version=1.1.8.13:Java::$    33:application/x-jinit-applet;version=1.1.8.19:Java::$
+
+and increase the count
+
+retart, do about:plugins
+
+31:application/x-jinit-applet;version=1.1.8.16:Java::$
+
+attention, ça semble foutre le bordel et faire crasher firefox sur les applets.
+
+
+===voici un fichier pluginreg.dat qui fonctionne===
+Generated File. Do not edit.
+
+[HEADER]
+Version:0.08:$
+
+[PLUGINS]
+/usr/lib/mozilla-firefox/plugins/libnullplugin.so:$
+:$
+1129785762000:1:5:$
+The default plugin handles plugin data for mimetypes and extensions that are not specified and facilitates downloading of new plugins.:$
+Default Plugin:$
+1
+0:*:All types:.*:$
+/opt/sun-jdk-1.5.0.04/jre/plugin/i386/ns7/libjavaplugin_oji.so:$
+:$
+1122593327000:1:5:$
+Java(TM) Plug-in 1.5.0_04:$
+Java(TM) Plug-in 1.5.0_04-b05:$
+31
+0:application/x-java-vm:Java::$
+1:application/x-java-applet:Java::$
+2:application/x-java-applet;version=1.1:Java::$
+3:application/x-java-applet;version=1.1.1:Java::$
+4:application/x-java-applet;version=1.1.2:Java::$
+5:application/x-java-applet;version=1.1.3:Java::$
+6:application/x-java-applet;version=1.2:Java::$
+7:application/x-java-applet;version=1.2.1:Java::$
+8:application/x-java-applet;version=1.2.2:Java::$
+9:application/x-java-applet;version=1.3:Java::$
+10:application/x-java-applet;version=1.3.1:Java::$
+11:application/x-java-applet;version=1.4:Java::$
+12:application/x-java-applet;version=1.4.1:Java::$
+13:application/x-java-applet;version=1.4.2:Java::$
+14:application/x-java-applet;version=1.5:Java::$
+15:application/x-java-applet;jpi-version=1.5.0_04:Java::$
+16:application/x-java-bean:Java::$
+17:application/x-java-bean;version=1.1:Java::$
+18:application/x-java-bean;version=1.1.1:Java::$
+19:application/x-java-bean;version=1.1.2:Java::$
+20:application/x-java-bean;version=1.1.3:Java::$
+21:application/x-java-bean;version=1.2:Java::$
+22:application/x-java-bean;version=1.2.1:Java::$
+23:application/x-java-bean;version=1.2.2:Java::$
+24:application/x-java-bean;version=1.3:Java::$
+25:application/x-java-bean;version=1.3.1:Java::$
+26:application/x-java-bean;version=1.4:Java::$
+27:application/x-java-bean;version=1.4.1:Java::$
+28:application/x-java-bean;version=1.4.2:Java::$
+29:application/x-java-bean;version=1.5:Java::$
+30:application/x-java-bean;jpi-version=1.5.0_04:Java::$
+/usr/lib/nsbrowser/plugins/libmozsvgdec.so:$
+:$
+1119483772000:1:5:$
+Scalable Vector Graphics, as handled by RSVG-2.9.5.  Views SVG images.<br><br>This is alpha software.  It will probably behave in many situations, but may also ride your motorcycle, drink all your milk, or use your computer to browse porn.  Comments, feature requests, and patches are welcome.<br><br>See <a href="http://librsvg.sourceforge.net/">http://librsvg.sourceforge.net/</a> for information.<br><br>:$
+Scalable Vector Graphics:$
+5
+0:image/svg+xml:Scalable Vector Graphics:svg,svgz:$
+1:image/svg-xml:Scalable Vector Graphics:svg,svgz:$
+2:image/svg:Scalable Vector Graphics:svg,svgz:$
+3:image/vnd.adobe.svg+xml:Scalable Vector Graphics:svg,svgz:$
+4:text/xml-svg:Scalable Vector Graphics:svg,svgz:$
+/opt/sun-jdk-1.5.0.04/jre/plugin/i386/ns7/libjavaplugin_oji.so:$
+:$
+1122593327000:1:5:$
+Java(TM) Plug-in 1.5.0_04:$
+Java(TM) Plug-in 1.5.0_04-b05:$
+32
+0:application/x-java-vm:Java::$
+1:application/x-java-applet:Java::$
+2:application/x-java-applet;version=1.1:Java::$
+3:application/x-java-applet;version=1.1.1:Java::$
+4:application/x-java-applet;version=1.1.2:Java::$
+5:application/x-java-applet;version=1.1.3:Java::$
+6:application/x-java-applet;version=1.2:Java::$
+7:application/x-java-applet;version=1.2.1:Java::$
+8:application/x-java-applet;version=1.2.2:Java::$
+9:application/x-java-applet;version=1.3:Java::$
+10:application/x-java-applet;version=1.3.1:Java::$
+11:application/x-java-applet;version=1.4:Java::$
+12:application/x-java-applet;version=1.4.1:Java::$
+13:application/x-java-applet;version=1.4.2:Java::$
+14:application/x-java-applet;version=1.5:Java::$
+15:application/x-java-applet;jpi-version=1.5.0_04:Java::$
+16:application/x-java-bean:Java::$
+17:application/x-java-bean;version=1.1:Java::$
+18:application/x-java-bean;version=1.1.1:Java::$
+19:application/x-java-bean;version=1.1.2:Java::$
+20:application/x-java-bean;version=1.1.3:Java::$
+21:application/x-java-bean;version=1.2:Java::$
+22:application/x-java-bean;version=1.2.1:Java::$
+23:application/x-java-bean;version=1.2.2:Java::$
+24:application/x-java-bean;version=1.3:Java::$
+25:application/x-java-bean;version=1.3.1:Java::$
+26:application/x-java-bean;version=1.4:Java::$
+27:application/x-java-bean;version=1.4.1:Java::$
+28:application/x-java-bean;version=1.4.2:Java::$
+29:application/x-java-bean;version=1.5:Java::$
+30:application/x-java-bean;jpi-version=1.5.0_04:Java::$
+31:application/x-jinit-applet;version=1.1.8.16:Java::$
+/opt/netscape/plugins/nppdf.so:$
+:$
+1122742943000:1:5:$
+The Adobe Reader plugin is used to enable viewing of PDF and FDF files from within the browser.:$
+Adobe Reader 7.0:$
+5
+0:application/pdf:Portable Document Format:pdf:$
+1:application/vnd.fdf:Acrobat Forms Data Format:fdf:$
+2:application/vnd.adobe.xfdf:XML Version of Acrobat Forms Data Format:xfdf:$
+3:application/vnd.adobe.xdp+xml:Acrobat XML Data Package:xdp:$
+4:application/vnd.adobe.xfd+xml:Adobe FormFlow99 Data File:xfd:$
+/opt/netscape/plugins/libflashplayer.so:$
+:$
+1124502307000:1:5:$
+Shockwave Flash 7.0 r25:$
+Shockwave Flash:$
+2
+0:application/x-shockwave-flash:Shockwave Flash:swf:$
+1:application/futuresplash:FutureSplash Player:spl:$
+================

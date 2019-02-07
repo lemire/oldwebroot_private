@@ -1,0 +1,316 @@
+#LyX 1.2 created this file. For more info see http://www.lyx.org/
+\lyxformat 220
+\textclass article
+\begin_preamble
+\usepackage{pslatex}
+\end_preamble
+\language american
+\inputencoding auto
+\fontscheme default
+\graphics default
+\paperfontsize default
+\spacing single 
+\papersize Default
+\paperpackage a4
+\use_geometry 0
+\use_amsmath 0
+\use_natbib 0
+\use_numerical_citations 0
+\paperorientation portrait
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\defskip medskip
+\quotes_language english
+\quotes_times 2
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\bullet 0
+	1
+	16
+	-1
+\end_bullet
+
+\layout Title
+
+Answer to referee concerning 
+\begin_inset Quotes eld
+\end_inset 
+
+A Family of 4-point Dyadic High Resolution Subdivision Schemes
+\begin_inset Quotes erd
+\end_inset 
+
+
+\layout Author
+
+Daniel Lemire
+\layout Section
+
+Specific Criticism
+\layout Itemize
+
+
+\shape italic 
+
+\begin_inset Quotes eld
+\end_inset 
+
+The symbols of the masks in (11) and below it do not agree with the masks
+ as defined between (3) and (4).
+\begin_inset Quotes erd
+\end_inset 
+
+
+\shape default 
+ and 
+\shape italic 
+The analysis in section 5 depends on the symbols that seem to be in error.
+ So the claims of Section 5 cannot be accepted.
+ 
+\shape default 
+This really only one criticism.
+ They are not in error, but the derivation was skipped in the interest of
+ space.
+ I've put back a short derivation that should be sufficient for most readers.
+ The actually full derivation would take more than a page and is not very
+ interesting.
+ What I provided should convince the reader.
+\layout Itemize
+
+
+\shape italic 
+
+\begin_inset Quotes eld
+\end_inset 
+
+Equation (9) indicates a strong connection of the HRS schemes with 
+\begin_inset Formula $b=M=2$
+\end_inset 
+
+, with 
+\begin_inset Quotes eld
+\end_inset 
+
+polyscale subdivision schemes
+\begin_inset Quotes erd
+\end_inset 
+
+ as introduced in S.
+ Dekel and N.
+ Dyn, Polyscale schemes and refinability, ACHA, Vol.
+ 13, 35-62, (2002).
+ The paper should remark on this relation.
+ Perhaps HRS schemes with 
+\begin_inset Formula $M=b=2$
+\end_inset 
+
+ are polyscale schemes of a certain type?
+\shape default 
+ I agree with the referee that I should cite the paper and comment how my
+ work relates to it.
+ Done.
+\layout Itemize
+
+
+\shape italic 
+The title of the paper talks about a family of high resolution schemes,
+ while only one scheme has exactness for higher degree polynomials.
+ I suggest to give a more accurate title.
+ Perhaps HRS schemes for the schemes in (2) is misleading.
+
+\shape default 
+ This is a good point.
+ I've been asking the same question myself: is 
+\begin_inset Quotes eld
+\end_inset 
+
+high resolution
+\begin_inset Quotes erd
+\end_inset 
+
+ a good name.
+ The referee thinks that it is not, and I wasn't sure.
+ I agree with the referee that I should keep the 
+\begin_inset Quotes eld
+\end_inset 
+
+High Resolution
+\begin_inset Quotes erd
+\end_inset 
+
+ name only for schemes that have extra orders of approximation.
+ I replaced 
+\begin_inset Quotes eld
+\end_inset 
+
+High Resolution
+\begin_inset Quotes erd
+\end_inset 
+
+ by 
+\begin_inset Quotes eld
+\end_inset 
+
+multistep
+\begin_inset Quotes erd
+\end_inset 
+
+ and I kept 
+\begin_inset Quotes eld
+\end_inset 
+
+High Resolution
+\begin_inset Quotes erd
+\end_inset 
+
+ only for the special case where 
+\begin_inset Formula $\alpha $
+\end_inset 
+
+ takes a specific value.
+ This should fix the problem.
+\layout Itemize
+
+
+\shape italic 
+It is hard to see how (11) is derived.
+ In the equation above (11) the index 
+\begin_inset Formula $i$
+\end_inset 
+
+ is the 
+\begin_inset Formula $m$
+\end_inset 
+
+ in (2).
+ Since 
+\begin_inset Formula $i$
+\end_inset 
+
+ is not the square root of -1, I do not see how (11) is obtained.
+
+\shape default 
+ The referee is quite right.
+ The problem is that one of the 
+\begin_inset Formula $i$
+\end_inset 
+
+ is 
+\begin_inset Formula $\sqrt[]{-1}$
+\end_inset 
+
+ whereas the other one isn't.
+ I fixed that and now 
+\begin_inset Formula $i$
+\end_inset 
+
+ (in this equation) will be used only for 
+\begin_inset Formula $\sqrt[]{-1}$
+\end_inset 
+
+ and otherwise, a more 
+\begin_inset Quotes eld
+\end_inset 
+
+neutral
+\begin_inset Quotes erd
+\end_inset 
+
+ letter is used such as 
+\begin_inset Formula $k$
+\end_inset 
+
+.
+ This is fixed.
+\layout Section
+
+Minor Remarks
+\layout Itemize
+
+
+\shape italic 
+The use of tetradic for 
+\begin_inset Formula $4-$
+\end_inset 
+
+adic is wrong.
+
+\shape default 
+ Throughout the text, tetradic was replaced by 
+\begin_inset Formula $4-$
+\end_inset 
+
+adic.
+ This is fixed.
+\layout Itemize
+
+
+\shape italic 
+A simpler for of 
+\begin_inset Formula $\gamma _{2k}^{(1)}$
+\end_inset 
+
+ as defined between (3) and (4) is 
+\begin_inset Formula $\gamma _{\textrm{2k}}^{(1)}=\gamma _{k}^{DD2}(1-\alpha )+\alpha \delta _{k,0}$
+\end_inset 
+
+.
+
+\shape default 
+ Yes, shame on me.
+ I fixed this (see middle of page 4).
+\layout Itemize
+
+
+\shape italic 
+Fourth line after Lemma 1 should start with 
+\begin_inset Formula $\frac{p_{4}^{(4)}}{4!}=a_{4}$
+\end_inset 
+
+.
+
+\shape default 
+ Yes, this was an unfortunate mistake.
+ I corrected it.
+ 
+\layout Itemize
+
+
+\shape italic 
+Tenth line in Section 5 should start with 
+\begin_inset Formula $P^{j+1}(z)=P_{4}(z)P^{j}(z^{4})$
+\end_inset 
+
+.
+
+\shape default 
+ This was corrected.
+ Shame.
+\layout Itemize
+
+
+\shape italic 
+The index 
+\begin_inset Formula $i$
+\end_inset 
+
+ in the equation above (11) is confusing.
+
+\shape default 
+ It was a mess.
+ I fixed that now.
+\layout Itemize
+
+
+\shape italic 
+In Theorem 5, the polynomials are Laurent polynomials and not trigonometric
+ polynomials.
+
+\shape default 
+ Absolutely right.
+ While they can be seen as trigonometric polynomial, as stated they are
+ Laurent polynomials.
+ This is fixed now.
+\the_end

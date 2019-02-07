@@ -1,0 +1,2422 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% This is fig4tex.tex, version 1.6.1, June 24, 2002
+%
+%           Authors : Yvon Lafranche, Daniel Martin
+%                     IRMAR, Universite de Rennes 1 - France
+%
+%           E-mail  : Yvon.Lafranche@univ-rennes1.fr
+%                     Daniel.Martin@univ-rennes1.fr
+%
+%           Web     : http://www.maths.univ-rennes1.fr/~lafranch/
+%                     http://www.maths.univ-rennes1.fr/~dmartin/
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\ifx\figfortexisloaded\relax\endinput\else\let\figfortexisloaded=\relax\fi
+\message{version 1.6.1}
+% CAUTION :
+%   Some internal commands depend on the running environment.
+%   This package has been tested with TeX on UNIX and with TeXtures on MacOS.
+%   The \iftextures control sequence allows to choose between those two cases.
+%   By default, TeX on UNIX is assumed.
+\newif\iftextures
+% Uncomment the following line for TeXtures on MacOS:
+%\texturestrue
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+% OBJECT
+%
+% Set of TeX macros allowing to :
+%  . create a figure as a postscript file at compilation time of the TeX document,
+%  . write text on the figure under total control of the user.
+% If the file already exists, it is not recreated, it is used as is.
+% For details, see the documentation file fig4texDOC.tex.
+%
+% PRINCIPLE
+%
+% With the help of adequate macros, the user defines some characteristic points.
+% These points are used to build the figure which is generated as a postscript file.
+% Each of them, and eventually other ones, can also be used as an attach point of a
+% text printed on the figure. Thus, an interesting fact is to have the same geometric
+% description both to draw the figure and to locate the text.
+%
+% USAGE
+%
+% The user macros are divided in two main groups:
+% 1. Macros beginning with \ps are commands used to create the postscript file.
+%    They have an effect only if a new postscript file is created.
+% 2. Macros beginning with \fig can themselves be divided in two classes, so-called
+%    mute and non-mute macros. Mute macros are mainly related to the definition of
+%    the geometry. Non-mute macros are the only ones that write something on the
+%    figure. Their names begin with \figwrite.
+%
+% EXAMPLE
+%
+% Put the following lines in a source file and compile it with TeX.
+% The postscript file "demofig1.ps" will be created and used.
+%
+%     \input fig4tex.tex
+%     \newbox\demo
+% 1. Definition of characteristic points
+%     \figinit{pt}
+%     \figpt 2:(-10, -10)
+%     \figpt 3:(130, 20)
+%     \figpt 1:(80, 120)
+%     \figptbary  5:c.g.[1,2,3 ; 1,1,1]
+% 2. Creation of the postscript file
+%     \def\MyPSfile{demofig1.ps}
+%     \psbeginfig{\MyPSfile}
+%     \pstrimesh 2 [1,2,3]
+%     \psnormal 20,0.5 [3,1]
+%     \psendfig
+% 3. Writing text on the figure
+%     \figvisu{\demo}{Example}{%
+%     \figinsert{\MyPSfile}
+%     \figwriten 1:(4)
+%     \figwritew 2:(2)
+%     \figwritee 3:(2)
+%     \figptendnormal 4 :: 20,0.5 [3,1]\figwriten 4:$\vec{n}_2$(4)
+%     \figsetmark{$\bullet$}\figwrites 5:$G$(4)
+%     }
+%     \box\demo
+%     \bye
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+%                      Geometrical macros - Mute macros
+%                      --------------------------------
+% --------- Control macros
+% Initialization before the creation of a new figure. It is necessary to call this
+% macro in case of successive figures. No check is performed on the arguments.
+% First argument : Choice of the unit and the scale factor.
+%  The unit can be one those defined in the TeX Book, namely: pt (TeX point),
+%  pc (pica, 1pc = 12pt), in (inch, 1in = 72.27pt), bp (big point, 72bp = 1in),
+%  cm (centimeter, 2.54cm = 1in), mm (millimeter, 10mm = 1cm), dd (point didot,
+%  1157dd = 1238pt), cc (cicero, 1cc = 12dd), sp (scaled point, 65536sp = 1pt)
+%  By default, pt is assumed and the scale factor is 1. For example, \figinit{in}
+%  is equivalent to \figinit{2.54cm}.
+% Second argument (optional) : Choice of the space dimension and, in 3D, the
+%  projection type.
+%  If this argument is equal to 2D or absent, then geometry in the plane is assumed,
+%  otherwise geometry in three dimensions is performed.
+%  Moreover, if this argument is equal to:
+%   . orthogonal, then the orthogonal projection is used,
+%   . realistic, then the realistic projection is used,
+%   . 3D or cavalier (or anything else), then the cavalier projection is used.
+%    \figinit{ScaleFactorUnit} or \figinit{ScaleFactorUnit, 2D}
+%    \figinit{ScaleFactorUnit, X} with X in {3D, cavalier, orthogonal, realistic}
+% Insertion of the postscript file FileName in the page, scaled by ScaleFactor
+% which  by default equals to 1.
+%    \figinsert{FileName} or \figinsert{FileName, ScaleFactor}
+% Draws a rectangular grid with horizontal and vertical steps HX and HY, with
+% numerical values corresponding to the bounding box read in the file FileName.
+%    \figscan FileName(HX,HY)
+% Definition of the observation distance Dist for the realistic projection.
+% Must be called before step 2 (\psbeginfig) and 3 (\figvisu).
+%    \figsetobdist (Dist)
+% Definition of the target point Pt for the realistic projection.
+% Must be called before step 2 (\psbeginfig) and 3 (\figvisu).
+%    \figsettarget [Pt]
+% Setting the parameters of the projection.
+% Must be called before step 2 (\psbeginfig) and 3 (\figvisu).
+% Psi and Theta denote angles to be given in degrees, Lambda denotes a real number.
+% The cavalier projection is defined by the angle Psi and Lambda which is a depth reduction
+% coefficient usually lying between 0 and 1. In this case, values of Psi lying in [0,180]
+% correspond to a view from above and to a view from beneath for values lying in [-180,0].
+% For the other projections, the observation direction is defined by the longitude Psi and
+% the latitude Theta, with (Psi, Theta) = (0, 0) corresponding to the Ox line (see also
+% \figsettarget and \figsetobdist).
+% The second argument (Theta or Lambda) is optional.
+% The default values are Psi = 40 degrees, Theta = 25 degrees, Lambda = 0.5.
+%    \figsetview(Psi) or \figsetview(Psi, Theta) or \figsetview(Psi, Lambda)
+% Prints to the terminal the current settings.
+%    \figshowsettings
+% Creation of a Vbox containing the figure and the legends defined by the Commands,
+% with a Caption centered below. The box must be previously allocated by the user.
+% Commands and Caption can be void.
+%    \figvisu{Vbox}{Caption}{Commands}
+%
+% --------- Basic macros
+% Definition of the point NewPt whose coordinates are (X,Y) or (X,Y,Z), with a joined Text.
+% If Z is missing, then Z=0 is assumed.
+% The default Text is $A_i$ where i is the number of the point (see \figsetptname).
+%    \figpt NewPt :Text(X,Y)
+%    \figpt NewPt :Text(X,Y,Z)
+% Barycenter or centroid (with a joined Text) of N points bearing integer coefficients
+%    \figptbary NewPt :Text[Pt1,... ,PtN ; Coef1,... ,CoefN]
+% Barycenter or centroid (with a joined Text) of N points bearing real coefficients
+%    \figptbaryR NewPt :Text[Pt1,... ,PtN ; Coef1,... ,CoefN]
+% Definition of NewPt, with an associated Text, with the same coordinates as Pt.
+%    \figptcopy NewPt :Text/Pt/
+% Computation of the value \Value (in degrees) of the oriented angle (CP1, CP2), where
+% C=Center, P1=Pt1, P2=Pt2. \Value is a macro whose name is chosen by the user and can
+% then be used as a symbolic numerical constant.
+% In 3D, the plane is oriented so that the angle is measured counterclockwise around the
+% vector CP1 x CP3, where P3=Pt3. Notice that C, P1, P2 and P3 must be coplanar, but P3
+% must not lie on the line (C,P1).
+%    \figgetangle \Value [Center,Pt1,Pt2]
+%    \figgetangle \Value [Center,Pt1,Pt2,Pt3]
+% Computation of the euclidian distance \Value between the points Pt1 and Pt2.
+% \Value is a macro whose name is chosen by the user and can then be used as a symbolic
+% numerical constant.
+%    \figgetdist\Value[Pt1,Pt2]
+% Definition of the vector NewVect with components (X,Y) or (X,Y,Z).
+% If Z is missing, then Z=0 is assumed.
+%    \figvectC NewVect (X,Y)
+%    \figvectC NewVect (X,Y,Z)
+% Definition of the vector NewVect which is:
+% . in 2D, the vector with origin point Pt1 and end point Pt2 rotated by pi/2
+%   (so normal to [Pt1,Pt2]),
+% . in 3D, the vector product P1P2 / ||P1P2|| x P1P3 / ||P1P3||, ie a vector normal to
+%   the plane defined by the 3 points and so that (P1P2, P1P3, NewVect) is a positively
+%   oriented basis.
+%    \figvectN NewVect [Pt1,Pt2]
+%    \figvectN NewVect [Pt1,Pt2,Pt3]
+% Definition of the vector NewVect which is:
+% . in 2D, the vector Vector rotated by pi/2
+% . in 3D, the vector product Vector1 / ||Vector1|| x Vector2 / ||Vector2|| so that
+% (Vector1, Vector2, NewVect) is a positively oriented basis.
+%    \figvectNV NewVect [Vector]
+%    \figvectNV NewVect [Vector1, Vector2]
+% Definition of the vector NewVect with origin point Pt1 and end point Pt2.
+%    \figvectP NewVect [Pt1,Pt2]
+% Definition of the unitary vector NewVect which is Vector normalized according to
+% the unit and the scale factor chosen by the user (see \figinit).
+%    \figvectU NewVect [Vector]
+%
+% --------- Macros for elementary geometry
+% --- Transformation macros (one result) ---
+% Image NewPt of point Pt by the homothety of center Center and of ratio Ratio
+% with a joined Text
+%    \figpthom NewPt :Text= Pt /Center, Ratio/
+% Image NewPt (with a joined Text) of point Pt by the rotation defined:
+% . in 2D, by the center Center and the angle Angle (in degrees),
+% . in 3D, by the axis (Center, Vector) and the angle Angle (in degrees).
+%   Pt is rotated by Angle around the axis. The sense of rotation is such that
+%   (CP, CP', Vector) is a positively oriented basis, where C=Center, P=Pt, P'=NewPt.
+%    \figptrot NewPt :Text= Pt /Center, Angle/
+%    \figptrot NewPt :Text= Pt /Center, Angle, Vector/
+% Image NewPt (with a joined Text) of point Pt by the orthogonal symmetry
+% with respect to:
+% . in 2D, the line defined by the points LinePt1 and LinePt2,
+% . in 3D, the plane defined by the point PlanePt and the vector NormalVector normal
+% to the plane.
+%    \figptsym NewPt :Text= Pt /LinePt1, LinePt2/
+%    \figptsym NewPt :Text= Pt /PlanePt, NormalVector/
+% Image NewPt of point Pt by the translation of vector Lambda * Vector
+% with a joined Text.
+%    \figpttra NewPt :Text= Pt /Lambda, Vector/
+% Image NewPt of point Pt by the translation of vector (X,Y) in 2D, (X,Y,Z) in 3D
+% with a joined Text.
+%    \figpttraC NewPt :Text= Pt /X,Y/
+%    \figpttraC NewPt :Text= Pt /X,Y,Z/
+%
+% Image NewPt of point Pt by the orthogonal projection onto the line (LinePt1,LinePt2),
+% with a joined Text.
+%    \figptorthoprojline NewPt :Text= Pt /LinePt1, LinePt2/
+% Image NewPt of point Pt by the orthogonal projection onto the plane defined by
+% the point PlanePt and the normal vector NormalVector, with a joined Text.
+%    \figptorthoprojplane NewPt :Text= Pt /PlanePt, NormalVector/
+%
+% --- Transformation macros (multiple result) ---
+% Images NewPt1, NewPt1+1,..., NewPt1+(N-1) of points Pt1, Pt2, ..., PtN
+% by the homothety of center Center and of ratio Ratio.
+% See following information at \figptstra.
+%    \figptshom NewPt1 = Pt1, Pt2, ..., PtN /Center, Ratio/
+% Images NewPt1, NewPt1+1,..., NewPt1+(N-1) of points Pt1, Pt2, ..., PtN
+% by the rotation defined:
+% . in 2D, by the center Center and the angle Angle (in degrees),
+% . in 3D, by the axis (Center, Vector) and the angle Angle (in degrees). Each point
+%   Pti is rotated by Angle around the axis. The sense of rotation is such that
+%   (CP, CP', Vector) is a positively oriented basis, where C=Center, P=Pti, P'=NewPti.
+% See following information at \figptstra.
+%    \figptsrot NewPt1 = Pt1, Pt2, ..., PtN /Center, Angle/
+%    \figptsrot NewPt1 = Pt1, Pt2, ..., PtN /Center, Angle, Vector/
+% Images NewPt1, NewPt1+1,..., NewPt1+(N-1) of points Pt1, Pt2, ..., PtN
+% by the orthogonal symmetry with respect to:
+% . in 2D, the line defined by the points LinePt1 and LinePt2,
+% . in 3D, the plane defined by the point PlanePt and the vector NormalVector normal
+% to the plane. See following information at \figptstra.
+%    \figptssym NewPt1 = Pt1, Pt2, ..., PtN /LinePt1, LinePt2/
+%    \figptssym NewPt1 = Pt1, Pt2, ..., PtN /PlanePt, NormalVector/
+% Images NewPt1, NewPt1+1,..., NewPt1+(N-1) of points Pt1, Pt2, ..., PtN
+% by the translation of vector Lambda * Vector
+% Text eventually previously associated with the result points is lost.
+% The result points NewPti have successive numbers.
+% The data points Pti can be given in any order.
+% WARNING : Let Ir (resp. Id) the set of the result points numbers (resp. the set
+% of the given points numbers). Let J the intersection of Ir and Id.
+% 1) Ir = Id, or J is empty, or NewPt1 does not belong to J: no problem.
+% 2) Otherwise, the result given by the macro MAY BE WRONG, at least partially:
+%    this is because, in this case, NewPt1 belongs to J, and the given points are
+%    taken into account sequentially, beginning from the first element in the list.
+%    \figptstra NewPt1 = Pt1, Pt2, ..., PtN /Lambda, Vector/
+%
+% Images NewPt1, NewPt1+1,..., NewPt1+(N-1) of points Pt1, Pt2, ..., PtN
+% by the orthogonal projection onto the line (LinePt1, LinePt2).
+%    \figptsorthoprojline NewPt1 = Pt1, Pt2, ..., PtN /LinePt1, LinePt2/
+% Images NewPt1, NewPt1+1,..., NewPt1+(N-1) of points Pt1, Pt2, ..., PtN
+% by the orthogonal projection onto the plane defined by the point PlanePt and the
+% normal vector NormalVector.
+%    \figptsorthoprojplane NewPt1 = Pt1, Pt2, ..., PtN /PlanePt, NormalVector/
+%
+% --- Geometrical construction macros ---
+% Intersection of the line defined by the point LinePt1 and the vector Vector1
+%             and the line defined by the point LinePt2 and the vector Vector2
+% with a joined Text
+%    \figptinterlines NewPt :Text[LinePt1,Vector1; LinePt2,Vector2]
+% Intersection of the line defined by the point LinePt and the vector Vector
+%             and the plane defined by the point PlanePt and the normal vector NormalVector
+% with a joined Text.
+%    \figptinterlineplane NewPt :Text[LinePt,Vector; PlanePt,NormalVector]
+% Endpoint (with a joined Text) of the "exterior normal" to the segment [Pt1, Pt2].
+% The length of the normal vector is Length. Lambda is the barycentric coordinate
+% of the origin of the normal with respect to the segment [Pt1, Pt2], which sets the
+% position of the vector along [Pt1, Pt2]. In 3D-mode, it works only in the plane Z=0.
+%    \figptendnormal NewPt :Text: Length,Lambda [Pt1,Pt2]
+% Intersections NewPt1 and NewPt2 (=NewPt1+1) of the two circles defined by their
+% center and radius, (Center1,Radius1) and (Center2,Radius2).
+% NewPt1 and NewPt2 must be different from Center1 and Center2.
+% NewPt1 and NewPt2 are ordered so that the angle (NewPt1, Center1, NewPt2) is positive.
+% If the two circles do not intersect, then NewPt1=Center1 and NewPt2=Center2.
+% In 3D-mode, it works only in the plane Z=0.
+%    \figptsintercirc NewPt1 [Center1,Radius1 ; Center2,Radius2]
+%
+% --- Macros related to the triangle ---
+% Center NewPt of the circumscribed circle to the triangle (Pt1,Pt2,Pt3) with a joined Text.
+%    \figptcircumcenter NewPt :Text[Pt1,Pt2,Pt3]
+% Center NewPt of the inscribed circle to the triangle (Pt1,Pt2,Pt3) with a joined Text.
+%    \figptinscribedcenter NewPt :Text[Pt1,Pt2,Pt3]
+% Orthocenter NewPt of the triangle (Pt1,Pt2,Pt3) with a joined Text.
+%    \figptorthocenter NewPt :Text[Pt1,Pt2,Pt3]
+%
+% --------- Macros related to arcs and curves
+% Creation of the point NewPt, with an associated Text, on the circle defined by its Center,
+% and its Radius. The position of the point is set by the Angle given in degrees.
+% In 3D, the circle is lying in the plane (Center,Pt1,Pt2) = (C,P1,P2) and
+% the Angle is measured counterclockwise around the vector CP1 x CP2, starting from
+% the half-line (C,P1).
+%    \figptcirc NewPt :Text: Center;Radius (Angle)
+%    \figptcirc NewPt :Text: Center,Pt1,Pt2;Radius (Angle)
+% Creation of the point NewPt, with an associated Text, on the ellipse defined by Center,
+% XRad, YRad and Inclination. Inclination is the rotation angle of the local axes with
+% respect to the paper sheet. The position of the point is set by the parametrization
+% Angle given in local axes. The two angles are given in degrees.
+% In 3D-mode, it works only in the plane Z=0.
+%    \figptell NewPt :Text: Center;XRad,YRad (Angle,Inclination)
+% Creation of the point NewPt, with an associated Text, on the ellipse defined by its Center,
+% and the end points of its axes, A1=PtAxis1 and A2=PtAxis2. The local axes are then
+% defined by the basis (CA1, CA2). The position of the point is set by the parametrization
+% Angle given in degrees, starting from the half-line (C,A1) and measured counterclockwise
+% around the vector CA1 x CA2.
+%    \figptellP NewPt :Text: Center,PtAxis1,PtAxis2 (Angle)
+% Computes the point NewPt (with a joined Text) lying on the cubic Bezier curve defined
+% by the four control points Pt1, Pt2, Pt3 and Pt4, for the parameter value t.
+% We recall that if t=0, NewPt=Pt1 and if t=1, NewPt=Pt4.
+%    \figptBezier NewPt :Text: t [Pt1,Pt2,Pt3,Pt4]
+% Computes the two control points NewPt1 and NewPt2 (=NewPt1+1) so that the cubic Bezier
+% curve defined by the control points Pt1, NewPt1, NewPt2 and Pt4 interpolates the
+% four points Pt1, Pt2, Pt3 and Pt4 with respective parameter values of 0, 1/3, 2/3 and 1.
+%    \figptscontrol NewPt1 [Pt1,Pt2,Pt3,Pt4]
+% Curvature center NewPt (with a joined Text) at the point lying on the cubic Bezier curve
+% defined by the four control points Pt1, Pt2, Pt3 and Pt4, for the parameter value t.
+%    \figptcurvcenter NewPt :Text: t [Pt1,Pt2,Pt3,Pt4]
+% Computes the vector NewVect corresponding to the derivative of order n of the cubic Bezier
+% curve defined by the four control points Pt1, Pt2, Pt3 and Pt4, for the parameter value t.
+% The order n must be equal to 1 or 2.
+%    \figvectDBezier NewVect : n, t [Pt1,Pt2,Pt3,Pt4]
+%
+%
+%                      Writing macros - Non-mute macros
+%                      --------------------------------
+% --------- Control macros
+% To write the coordinates of a point. To be used in the joined text argument
+% of the macros that create points and the non-mute macros \figwrit* .
+% Only NDec decimals are printed.
+%    \figcoord{NDec}
+% Definition of the point marker to be written, for example a point (.) or $\bullet$.
+% By default, nothing is written.
+%    \figsetmark{Mark}
+% Sets the new default name for the points created.
+% The default name for the point i is $A_i$: \figsetptname{$X^{(#1)}$} changes it
+% to $X^{(i)}$.
+%    \figsetptname{Name}
+% Switches on rounding of decimals printed with \figcoord.
+%    \figsetroundcoord{yes} or \figsetroundcoord{no}
+% Shows on the figure the location of every point defined since the beginning
+% of the session, whose number lies in the interval [Nmin, Nmax].
+% Writes a bullet at each location point along with the number of the point or
+% the joined text if any.
+% CAUTION :
+% If Nmax-Nmin is too large, an error message "! TeX capacity exceeded" may occur.
+%    \figshowpts[Nmin, Nmax]
+% --------- Writing macros
+% Writing a Text after Pt1, Pt2, ..., PtN according to TeX's alignment.
+%    \figwrite[Pt1, Pt2, ..., PtN]{Text}
+% Writing a Text vertically and horizontally centered at Pt1, Pt2, ..., PtN.
+%    \figwritec[Pt1, Pt2, ..., PtN]{Text}
+% Writing the point marker at the locations defined by Pt1, Pt2, ..., PtN.
+%    \figwritep[Pt1, Pt2, ..., PtN]
+% Writing a point marker at the locations defined by Pt1, Pt2, ..., PtN, with a Text
+% placed, with respect to each point, at a given Distance from each point towards
+% the west, the east, the north or the south.
+%    \figwritew Pt1, Pt2, ..., PtN :Text(Distance)
+%    \figwritee Pt1, Pt2, ..., PtN :Text(Distance)
+%    \figwriten Pt1, Pt2, ..., PtN :Text(Distance)
+%    \figwrites Pt1, Pt2, ..., PtN :Text(Distance)
+% Writing a point marker at the locations defined by Pt1, Pt2, ..., PtN, with a Text
+% placed, with respect to each point, at a given Distance from each point towards
+% the north-west, the south-west, the north-east or the south-east.
+%    \figwritenw Pt1, Pt2, ..., PtN :Text(Distance)
+%    \figwritesw Pt1, Pt2, ..., PtN :Text(Distance)
+%    \figwritene Pt1, Pt2, ..., PtN :Text(Distance)
+%    \figwritese Pt1, Pt2, ..., PtN :Text(Distance)
+% Writing a point marker at the locations defined by Pt1, Pt2, ..., PtN, with a Text
+% placed, with respect to each point, at a horizontal distance DistanceX (west or east)
+% and a vertical distance DistanceY between the point and the mid-height of the text.
+%    \figwritegcw Pt1, Pt2, ..., PtN :Text(DistanceX,DistanceY)
+%    \figwritegce Pt1, Pt2, ..., PtN :Text(DistanceX,DistanceY)
+% Writing a point marker at the locations defined by Pt1, Pt2, ..., PtN, with a Text
+% placed, with respect to each point, at a horizontal distance DistanceX (west or east)
+% and a vertical distance DistanceY from the bottom of the text if DistanceY > 0, from
+% the top if DistanceY < 0. If DistanceY = 0, the text is vertically centered.
+%    \figwritegw Pt1, Pt2, ..., PtN :Text(DistanceX,DistanceY)
+%    \figwritege Pt1, Pt2, ..., PtN :Text(DistanceX,DistanceY)
+%
+%                      Macros for postscript generation
+%                      --------------------------------
+% --------- Control macros
+% --- General ---
+% Starting the creation of a PostScript file whose name is FileName.
+%    \psbeginfig{FileName}
+% End of the current PostScript file.
+%    \psendfig
+% Setting the update mode to "yes" before \psbeginfig enforces the postscript
+% file to be recreated at each compilation. The default is "no".
+%    \pssetupdate{no} or \pssetupdate{yes}
+% --- Line ---
+% Setting the line style by Index (Index = 1 (solid) to 10) or by Pattern.
+% To switch back to the default value : \pssetdash{\defaultdash}
+%    \pssetdash{Index} or \pssetdash{Pattern}
+% Setting the line width (in postscript points).
+% To switch back to the default value : \pssetwidth{\defaultwidth}
+% Note : has no effect on a straight line after \pssetfillmode{yes}.
+%    \pssetwidth{Width}
+% Setting the secondary line style by Index (Index = 1 (solid) to 10) or by Pattern.
+% To switch back to the default value : \pssetseconddash{\defaultseconddash}
+%    \pssetseconddash{Index} or \pssetseconddash{Pattern}
+% Setting the secondary line width (in postscript points).
+% To switch back to the default value : \pssetsecondwidth{\defaultsecondwidth}
+%    \pssetsecondwidth{Width}
+% To reset the secondary line settings.
+%    \psresetsecondsettings
+% --- Color ---
+% Setting the color in cmyk code.
+%    \pssetcmyk{\ColorName} or \pssetcmyk{cmyk color code}
+% Setting the color in rgb code.
+%    \pssetrgb{\ColorName}  or \pssetrgb{rgb color code}
+% Setting the gray level, real number between 0 (black) and 1 (white).
+%    \pssetgray{GrayLevel}
+% Setting the filling mode to "no" tells the concerned macros to draw lines ;
+% this is the default. Setting the filling mode to "yes" tells the macros to
+% fill the appropriate area using the current color or gray shade.
+%    \pssetfillmode{no} or \pssetfillmode{yes}
+% Setting the secondary color in cmyk or rgb color code, or in gray tone.
+%    \pssetsecondcmyk{\ColorName} or \pssetsecondcmyk{cmyk color code}
+%    \pssetsecondrgb{\ColorName}  or \pssetsecondrgb{rgb color code}
+%    \pssetsecondgray{GrayLevel}
+% --- Arrow ---
+% Setting the arrow-head half-angle to Angle (in degrees).
+% To switch back to the default value : \pssetarrowheadangle{\defaultarrowheadangle}
+%    \pssetarrowheadangle{Angle}
+% Setting the arrow-head filling switch. The default value is "no".
+%    \pssetarrowheadfill{no} or \pssetarrowheadfill{yes}
+% Setting the arrow-head "outside" switch. The default value is "no".
+%    \pssetarrowheadout{no} or \pssetarrowheadout{yes}
+% Setting the length of each edge of the arrow-head to Length (in user coordinates).
+% To switch back to the default value : \pssetarrowheadlength{\defaultarrowheadlength}
+%    \pssetarrowheadlength{Length}
+% Setting the arrow-head ratio to Ratio (real number usually in (0,1)).
+% To switch back to the default value : \pssetarrowheadratio{\defaultarrowheadratio}
+%    \pssetarrowheadratio{Ratio}
+% To reset the arrow-head attributes to the default values.
+%    \psresetarrowhead
+% --- Curve ---
+% Setting the roundness of a curve to Roundness (real number).
+% To switch back to the default value : \pssetroundness{\defaultroundness}
+%    \pssetroundness{Roundness}
+% --- Mesh ---
+% Setting the flag that controls the drawing of a grid mesh:
+%  . if Index =  1, the SW-NE diagonal is drawn inside each cell,
+%  . if Index = -1, the NW-SE diagonal is drawn inside each cell,
+%  . otherwise, each cell is empty ; this is the default (Index = 0).
+% To switch back to the default value : \pssetmeshdiag{\defaultmeshdiag}
+%    \pssetmeshdiag{Index}
+%
+% --------- Basic drawing macros
+% Circle of center Center and of radius Radius.
+% In 3D, the circle is in the plane defined the 3 points Center, Pt1 and Pt2 ;
+% Pt1 and Pt2 do not need to lie on the circle.
+%    \pscirc Center (Radius)
+%    \pscirc Center,Pt1,Pt2 (Radius)
+% Line defined by N points, closed if the last point number equals the first one.
+%    \psline[Pt1,Pt2,... ,PtN]
+% Line defined by points read from the text file Filename, which contains the
+% coordinates of the points, one point per line, given as  X Y  in 2D and as
+% X Y Z  in 3D (the values must be separated by a white space and nothing else).
+% The line is closed if the last point equals the first one.
+%    \pslineF{Filename}
+%
+% --------- Other drawing macros
+% --- Arc ---
+% Circular arc of center Center and radius Radius limited by the angles
+% Ang1 and Ang2 given in degrees.
+% In 2D, the angles are measured counterclockwise.
+% In 3D, the arc lies in the plane defined by the 3 points Center, Pt1 and Pt2.
+% The angles are measured counterclockwise around the vector CP1 x CP2, starting
+% from the half-line (C, P1), where C=Center, P1=Pt1, P2=Pt2.
+%    \psarccirc Center ; Radius (Ang1,Ang2)
+%    \psarccirc Center,Pt1,Pt2 ; Radius (Ang1,Ang2)
+% Point version of \psarccirc
+% Circular arc of center Center and of radius Radius limited by the two half-lines
+% (Center, Pt1) and (Center, Pt2).
+% Let N be the normal vector that orients the plane in which lies the arc.
+% In 2D, N is defined as usual by N = Z = X x Y.
+% In 3D, N = CP1 x CP3, where C=Center, P1=Pt1, P3=Pt3.
+% The arc is drawn from Pt1 towards Pt2 turning counterclockwise around the axis (C; N).
+% Notice that C, P1, P2 and P3 must be coplanar, but P3 must not lie on the line (C,P1).
+%    \psarccircP Center ; Radius [Pt1,Pt2]
+%    \psarccircP Center ; Radius [Pt1,Pt2,Pt3]
+% Arc of ellipse of center Center, of axes XRad and YRad, limited by the parametrization
+% angles Ang1 and Ang2. The major axis is turned by an angle Inclination from the
+% horizontal line. The angles are given in degrees and measured counterclockwise.
+% In 3D-mode, it works only in the plane Z=0.
+%    \psarcell Center ; XRad,YRad (Ang1,Ang2, Inclination)
+% Arc of ellipse of center Center limited by the parametrization angles Ang1 and Ang2.
+% The end point of the major axis is PtAxis1 and the end point of the minor axis is PtAxis2.
+% The angles are given in degrees and measured counterclockwise around the vector CA1 x CA2.
+%    \psarcellPA Center,PtAxis1,PtAxis2 (Ang1, Ang2)
+% Arc of ellipse of center Center limited by the two half-lines (Center,Pt1)
+% and (Center,Pt2). The end point of the major axis is PtAxis1 and the end point
+% of the minor axis is PtAxis2. The arc is drawn counterclockwise around the vector
+% CA1 x CA2, where C=Center, A1=PtAxis1, A2=PtAxis2.
+%    \psarcellPP Center,PtAxis1,PtAxis2 [Pt1,Pt2]
+% --- Arrow ---
+% Arrow from Pt1 to Pt2.
+% The arrow-head is drawn according to the \psarrowhead macro settings.
+%    \psarrow [Pt1,Pt2]
+% Arrow that consists of the cubic Bezier curve defined by the four control points
+% Pt1, Pt2, Pt3 and Pt4, and the arrow-head at point Pt4.
+%    \psarrowBezier [Pt1,Pt2,Pt3,Pt4]
+% Circular arrow such that the circular arc is centered at Center, has the radius Radius
+% and is limited by the angles Ang1 and Ang2 given in degrees.
+% If Ang2 > Ang1, the arrow is drawn counterclockwise, else it is drawn clockwise.
+% The arrow-head is drawn according to the \psarrowhead macro settings.
+% In 3D, the arc lies in the plane defined the 3 points Center, Pt1 and Pt2.
+% The angles are measured counterclockwise around the vector CP1 x CP2, starting
+% from the half-line (C, P1), where C=Center, P1=Pt1, P2=Pt2.
+%    \psarrowcirc Center ; Radius (Ang1,Ang2)
+%    \psarrowcirc Center,Pt1,Pt2 ; Radius (Ang1,Ang2)
+% Point version of \psarrowcirc
+% Circular arrow such that the circular arc is centered at Center, has the radius
+% |Radius| and is limited by the two half-lines (Center, Pt1) and (Center, Pt2).
+% Let N be the normal vector that orients the plane in which lies the arc.
+% In 2D, N is defined as usual by N = Z = X x Y.
+% In 3D, N = CP1 x CP3, where C=Center, P1=Pt1, P3=Pt3.
+% The arrow is drawn from Pt1 towards Pt2 turning around the axis (Center; N):
+%  . counterclockwise if Radius > 0,
+%  . clockwise if Radius < 0.
+% Notice that C, P1, P2 and P3 must be coplanar, but P3 must not lie on the line (C,P1).
+%    \psarrowcircP Center ; Radius [Pt1,Pt2]
+%    \psarrowcircP Center ; Radius [Pt1,Pt2,Pt3]
+% Arrow-head of the arrow from Pt1 to Pt2. The segment [Pt1, Pt2] is not drawn.
+% The appearance of the arrow-head can be modified with the help of the macros :
+%  . \pssetarrowheadangle which sets the opening angle,
+%  . \pssetarrowheadfill which tells whether the interior of the arrow-head
+%    must be filled or not,
+%  . \pssetarrowheadout which tells whether the arrow-head must be drawn outside
+%    the segment [Pt1, Pt2] or not,
+%  . \pssetarrowheadlength which sets the length of the arrow-head in user coordinates,
+%  . \pssetarrowheadratio which sets the length of the arrow-head as a ratio of the
+%    length of the segment [Pt1, Pt2].
+% Nota : The last two macros are mutually exclusive ; the default is to use the length.
+%        Default values exist for each attribute.
+%    \psarrowhead [Pt1,Pt2]
+% --- Curve ---
+% Bezier curve defined by N cubic arcs. The arc number i is defined by the four
+% control points P_{j}, P_{j+1}, P_{j+2}, P_{j+3} with j=3i-2.
+% The curve interpolates each 3 points beginning with the first, i.e. at P_{3i-2},
+% i=1,...N+1. At these points, the curve is only C0. To obtain G1 continuity at P_j,
+% the points P_{j-1}, P_j and P_{j+1} must be aligned.
+% The total number of points must be 3N+1 and is not checked.
+%    \psBezier N [Pt_1, ..., Pt_{3N+1}]
+% C1 curve that interpolates the points P1, P2,... ,Pn. The direction of the
+% tangent at P1 is given by P0P2, and at Pn by Pn-1Pn+1. The curve consists of
+% n-1 Bezier cubic arcs. To get a C1 closed curve, the last three points must
+% be the same as the first three ones.
+% The shape of the curve can be modified by a roundness coefficient to be
+% set by the macro \pssetroundness. The best values for this coefficient are
+% in the interval [0.15, 0.3] (0 gives a polygonal line).
+%    \pscurve [Pt0,Pt1,... ,PtN,PtN+1]
+% --- Triangle related macros ---
+% Altitude from Pt1 in the triangle (Pt1, Pt2, Pt3).
+% Dim is the dimension of the square at the end point of the altitude.
+%    \psaltitude Dim [Pt1,Pt2,Pt3]
+% Exterior normal of length Length to the segment [Pt1, Pt2]. Lambda is the barycentric
+% coordinate of the origin of the normal with respect to the segment [Pt1, Pt2], which
+% sets the position of the vector along [Pt1, Pt2].
+% In 3D-mode, it works only in the plane Z=0.
+%    \psnormal Length,Lambda [Pt1,Pt2]
+% --- Grid ---
+% Mesh of N1 x N2 intervals on the quadrangle (Pt1, Pt2, Pt3, Pt4)
+% (N1 along [Pt1, Pt2] and [Pt3, Pt4], N2 along the 2 other segments).
+% If the flag set by \pssetmeshdiag is equal to 1 (resp. -1), the SW-NE (resp. NW-SE)
+% diagonal is drawn inside each cell. By default, no diagonal is drawn.
+%    \psmesh N1,N2 [Pt1,Pt2,Pt3,Pt4]
+% Mesh of the type Type triangle on the triangle (Pt1, Pt2, Pt3).
+%    \pstrimesh Type [Pt1,Pt2,Pt3]
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\catcode`\@=11
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Points with numbers >= 0 are devoted to the user.
+% Points with numbers <  0 are reserved to internal use.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newdimen\epsil@n\epsil@n=0.00005pt
+\newdimen\Cepsil@n\Cepsil@n=0.005pt
+\newdimen\dcq@\dcq@=254pt
+\newdimen\PI@\PI@=3.141592pt
+\newdimen\PI@deg\PI@deg=360pt
+\newdimen\PI@sDdeg\PI@sDdeg=180pt
+\chardef\t@n=10
+\newcount\p@rtent \newcount\f@ctech \newcount\result@tent
+\newdimen\v@lmin \newdimen\v@lmax \newdimen\v@leur
+\newdimen\result@t\newdimen\result@@t
+\newdimen\mili@u \newdimen\c@rre \newdimen\delt@
+\def\degT@rd{0.017453} % pi/180
+\def\rdT@deg{57.295779} % 180/pi
+{\catcode`p=12 \catcode`t=12 \gdef\v@leurseule#1pt{#1}}
+\def\repdecn@mb#1{\expandafter\v@leurseule\the#1\space}
+\def\arct@n#1(#2,#3){{\v@lmin=#2\v@lmax=#3%
+    \maxim@m{\mili@u}{-\v@lmin}{\v@lmin}\maxim@m{\c@rre}{-\v@lmax}{\v@lmax}%
+    \delt@=\mili@u\m@ech\mili@u%
+    \ifdim\c@rre>9949\mili@u\v@lmax=0.5\v@lmax\c@lATAN\v@leur(\z@,\v@lmax)% DY > 9949 DX
+    \else%
+    \maxim@m{\mili@u}{-\v@lmin}{\v@lmin}\maxim@m{\c@rre}{-\v@lmax}{\v@lmax}%
+    \m@ech\c@rre%
+    \ifdim\mili@u>9949\c@rre\v@lmin=0.5\v@lmin% DX > 9949 DY
+    \maxim@m{\mili@u}{-\v@lmin}{\v@lmin}\c@lATAN\v@leur(\mili@u,\z@)%
+    \else\c@lATAN\v@leur(\delt@,\v@lmax)\fi\fi%
+    \ifdim\v@lmin<\z@\v@leur=-\v@leur\ifdim\v@lmax<\z@\advance\v@leur-\PI@%
+    \else\advance\v@leur\PI@\fi\fi%
+    \global\result@t=\v@leur}#1=\result@t}
+\def\m@ech#1{\ifdim#1>1.646pt\divide\mili@u\t@n\divide\c@rre\t@n\m@ech#1\fi}
+\def\c@lATAN#1(#2,#3){{\v@lmin=#2\v@lmax=#3\v@leur=\z@\delt@=\tw@ pt%
+    \un@iter{0.785398}{\v@lmax<}%
+    \un@iter{0.463648}{\v@lmax<}%
+    \un@iter{0.244979}{\v@lmax<}%
+    \un@iter{0.124355}{\v@lmax<}%
+    \un@iter{0.062419}{\v@lmax<}%
+    \un@iter{0.031240}{\v@lmax<}%
+    \un@iter{0.015624}{\v@lmax<}%
+    \un@iter{0.007812}{\v@lmax<}%
+    \un@iter{0.003906}{\v@lmax<}%
+    \un@iter{0.001953}{\v@lmax<}%
+    \un@iter{0.000976}{\v@lmax<}%
+    \un@iter{0.000488}{\v@lmax<}%
+    \un@iter{0.000244}{\v@lmax<}%
+    \un@iter{0.000122}{\v@lmax<}%
+    \un@iter{0.000061}{\v@lmax<}%
+    \un@iter{0.000030}{\v@lmax<}%
+    \un@iter{0.000015}{\v@lmax<}%
+    \global\result@t=\v@leur}#1=\result@t}
+\def\un@iter#1#2{%
+    \divide\delt@\tw@\edef\dpmn@{\repdecn@mb{\delt@}}%
+    \mili@u=\v@lmin%
+    \ifdim#2\z@%
+      \advance\v@lmin-\dpmn@\v@lmax\advance\v@lmax\dpmn@\mili@u%
+      \advance\v@leur-#1pt%
+    \else%
+      \advance\v@lmin\dpmn@\v@lmax\advance\v@lmax-\dpmn@\mili@u%
+      \advance\v@leur#1pt%
+    \fi}
+\def\c@ssin#1#2#3{{\v@leur=#3\maxim@m{\mili@u}{-\v@leur}{\v@leur}%
+    \mili@u=\repdecn@mb\PI@\mili@u\divide\mili@u180 %
+    \loop\ifdim\mili@u>2\PI@\advance\mili@u-2\PI@\repeat%
+    \ifdim\mili@u<0.5\PI@\c@lCS{\v@lmin}{\v@lmax}{\mili@u}%
+    \else\ifdim\mili@u<\PI@\advance\mili@u-0.5\PI@\c@lCS{\v@lmin}{\v@lmax}{\mili@u}%
+         \mili@u=\v@lmin\v@lmin=-\v@lmax\v@lmax=\mili@u%
+    \else\ifdim\mili@u<1.5\PI@\advance\mili@u-\PI@\c@lCS{\v@lmin}{\v@lmax}{\mili@u}%
+         \v@lmin=-\v@lmin\v@lmax=-\v@lmax%
+    \else\advance\mili@u-2\PI@\c@lCS{\v@lmin}{\v@lmax}{\mili@u}\fi\fi\fi%
+    \ifdim\v@leur<\z@\v@lmax=-\v@lmax\fi%
+    \global\result@t=\v@lmin\global\result@@t=\v@lmax}#1=\result@t#2=\result@@t}
+\def\c@lCS#1#2#3{{\v@lmin=0.607253pt\v@lmax=\z@\v@leur=#3\delt@=\tw@ pt%
+    \un@iter{0.785398}{\v@leur>}%
+    \un@iter{0.463648}{\v@leur>}%
+    \un@iter{0.244979}{\v@leur>}%
+    \un@iter{0.124355}{\v@leur>}%
+    \un@iter{0.062419}{\v@leur>}%
+    \un@iter{0.031240}{\v@leur>}%
+    \un@iter{0.015624}{\v@leur>}%
+    \un@iter{0.007812}{\v@leur>}%
+    \un@iter{0.003906}{\v@leur>}%
+    \un@iter{0.001953}{\v@leur>}%
+    \un@iter{0.000976}{\v@leur>}%
+    \un@iter{0.000488}{\v@leur>}%
+    \un@iter{0.000244}{\v@leur>}%
+    \un@iter{0.000122}{\v@leur>}%
+    \un@iter{0.000061}{\v@leur>}%
+    \un@iter{0.000030}{\v@leur>}%
+    \global\result@t=\v@lmin\global\result@@t=\v@lmax}#1=\result@t#2=\result@@t}
+\def\invers@#1#2{{\v@leur=#2%
+    \maxim@m{\v@lmax}{-\v@leur}{\v@leur}% Valeur absolue de #2
+    \f@ctech=\@ne\loop\ifdim\v@lmax<\p@\multiply\v@lmax\t@n\multiply\f@ctech\t@n\repeat%
+    \multiply\v@leur\f@ctech\edef\v@lv@leur{\repdecn@mb{\v@leur}}%
+    \p@rtentiere{\p@rtent}{\v@leur}\v@lmin=\p@\divide\v@lmin\p@rtent%
+    \loop\v@lmax=-\v@lmin\v@lmax=\v@lv@leur\v@lmax%
+    \advance\v@lmax\tw@ pt\v@lmax=\repdecn@mb{\v@lmin}\v@lmax%
+    \delt@=\v@lmax\advance\delt@-\v@lmin\ifdim\delt@<\z@\delt@=-\delt@\fi%
+    \ifdim\delt@>\epsil@n\v@lmin=\v@lmax\repeat\multiply\v@lmax\f@ctech%
+    \global\result@t=\v@lmax}#1=\result@t}
+\def\minim@m#1#2#3{\relax\ifdim#2<#3#1=#2\else#1=#3\fi}
+\def\maxim@m#1#2#3{\relax\ifdim#2>#3#1=#2\else#1=#3\fi}
+\def\p@rtentiere#1#2{#1=#2\divide#1by65536 }
+\def\r@undint#1#2{{\v@leur=#2\v@leur=0.1\v@leur\p@rtentiere{\p@rtent}{\v@leur}%
+    \v@leur=\p@rtent pt\global\result@t=10\v@leur}#1=\result@t}
+\def\sqrt@#1#2{{\v@leur=#2%
+    \minim@m{\v@lmin}{\p@}{\v@leur}\maxim@m{\v@lmax}{\p@}{\v@leur}%
+    \f@ctech=\@ne\loop\ifdim\v@leur>\dcq@\divide\v@leur100 \v@lmax=\v@leur%
+                   \multiply\f@ctech\t@n\repeat%
+    \loop\mili@u=\v@lmin\advance\mili@u\v@lmax\divide\mili@u\tw@%
+    \c@rre=\repdecn@mb{\mili@u}\mili@u%
+    \ifdim\c@rre<\v@leur\v@lmin=\mili@u\else\v@lmax=\mili@u\fi%
+    \delt@=\v@lmax\advance\delt@-\v@lmin%
+    \ifdim\delt@>\epsil@n\repeat%
+    \mili@u=\v@lmin\advance\mili@u\v@lmax\divide\mili@u\tw@\multiply\mili@u\f@ctech%
+    \global\result@t=\mili@u}#1=\result@t}
+\def\extrairelepremi@r#1\de#2{\expandafter\lepremi@r#2@#1#2}
+\def\lepremi@r#1,#2@#3#4{\def#3{#1}\def#4{#2}\ignorespaces}
+\def\@cfor#1:=#2\do#3{%
+  \edef\@fortemp{#2}%
+  \ifx\@fortemp\@empty\else\@cforloop#2,\@nil,\@nil\@@#1{#3}\fi}
+\def\@cforloop#1,#2\@@#3#4{%
+  \def#3{#1}%
+  \ifx#3\@nnil\let\@nextwhile=\@fornoop\else#4\relax\let\@nextwhile=\@cforloop\fi%
+  \@nextwhile#2\@@#3{#4}}
+
+\def\@ecfor#1:=#2\do#3{%
+  \def\@@cfor{\@cfor#1:=}%
+  \edef\@@@cfor{#2}%
+  \expandafter\@@cfor\@@@cfor\do{#3}}
+\def\@empty{}
+\def\@nnil{\@nil}
+\def\@fornoop#1\@@#2#3{}
+\newbox\b@xvisu
+\newtoks\let@xte
+\newif\ifitis@K
+\newcount\s@mme
+\newcount\l@mbd@un \newcount\l@mbd@de
+\newcount\superc@ntr@l\superc@ntr@l=\@ne        % Controle impose
+\newcount\typec@ntr@l\typec@ntr@l=\superc@ntr@l % Controle souhaite
+\newdimen\v@lX  \newdimen\v@lY  \newdimen\v@lZ
+\newdimen\v@lXa \newdimen\v@lYa \newdimen\v@lZa
+\newdimen\unit@\unit@=\p@ % Initialisation a la valeur par defaut.
+\def\unit@util{pt}
+\def\ptT@ptps{0.99626400996264009962}
+\def\ptpsT@pt{1.00375}
+\def\ptT@unit@{1} % Initialisation correspondant a la valeur par defaut de \unit@
+\def\setunit@#1{\def\unit@util{#1}\setunit@@#1:\invers@{\result@t}{\unit@}%
+    \edef\ptT@unit@{\repdecn@mb\result@t}}
+\def\setunit@@#1#2:{\ifcat#1a\unit@=\@ne#1#2\else\unit@=#1#2\fi}
+\newif\ifBdingB@x\BdingB@xtrue
+\newdimen\c@@rdXmin \newdimen\c@@rdYmin  % Dimensions de la BoundingBox
+\newdimen\c@@rdXmax \newdimen\c@@rdYmax
+\def\b@undb@x#1#2{\ifBdingB@x%
+    \minim@m{\global\c@@rdXmin}{\c@@rdXmin}{#1}%
+    \minim@m{\global\c@@rdYmin}{\c@@rdYmin}{#2}%
+    \maxim@m{\global\c@@rdXmax}{\c@@rdXmax}{#1}%
+    \maxim@m{\global\c@@rdYmax}{\c@@rdYmax}{#2}\fi}
+\def\b@undb@xP#1{{\figg@tXY{#1}\b@undb@x{\v@lX}{\v@lY}}}
+\def\ellBB@x#1;#2,#3(#4,#5,#6){{\s@uvc@ntr@l\et@tellBB@x%
+    \setc@ntr@l{2}\figptell-2::#1;#2,#3(#4,#6)\b@undb@xP{-2}%
+    \figptell-2::#1;#2,#3(#5,#6)\b@undb@xP{-2}%
+    \c@ssin{\v@lmin}{\v@lmax}{#6pt}%
+    \mili@u=#3\v@lmin\delt@=#2\v@lmax\arct@n\v@leur(\delt@,\mili@u)%
+    \mili@u=-#3\v@lmax\delt@=#2\v@lmin\arct@n\c@rre(\delt@,\mili@u)%
+    \v@leur=\rdT@deg\v@leur\advance\v@leur-\PI@deg%
+    \c@rre=\rdT@deg\c@rre\advance\c@rre-\PI@deg%
+    \v@lmin=#4pt\v@lmax=#5pt%
+    \loop\ifdim\v@leur<\v@lmax\ifdim\v@leur>\v@lmin%
+    \edef\@ngle{\repdecn@mb\v@leur}\figptell-2::#1;#2,#3(\@ngle,#6)%
+    \b@undb@xP{-2}\fi\advance\v@leur\PI@sDdeg\repeat%
+    \loop\ifdim\c@rre<\v@lmax\ifdim\c@rre>\v@lmin%
+    \edef\@ngle{\repdecn@mb\c@rre}\figptell-2::#1;#2,#3(\@ngle,#6)%
+    \b@undb@xP{-2}\fi\advance\c@rre\PI@sDdeg\repeat%
+    \resetc@ntr@l\et@tellBB@x}\ignorespaces}
+\def\initb@undb@x{\c@@rdXmin=\maxdimen\c@@rdYmin=\maxdimen%
+    \c@@rdXmax=-\maxdimen\c@@rdYmax=-\maxdimen}
+\def\c@ntr@lnum#1{%
+    \relax\ifnum\typec@ntr@l=\@ne%
+    \ifnum#1<\z@%
+    \immediate\write16{*** Forbidden point number (#1). Abort.}\end\fi\fi%
+    \set@bjc@de{#1}}
+\def\set@bjc@de#1{\edef\objc@de{@BJ\ifnum#1<\z@ M\romannumeral-#1\else\romannumeral#1\fi}}
+\def\setc@ntr@l#1{\ifnum\superc@ntr@l>#1\typec@ntr@l=\superc@ntr@l%
+    \else\typec@ntr@l=#1\fi}
+\def\resetc@ntr@l#1{\global\superc@ntr@l=#1\setc@ntr@l{#1}}
+\def\s@uvc@ntr@l#1{\edef#1{\the\superc@ntr@l}}
+\def\c@lproscalDD#1[#2,#3]{{\figg@tXY{#2}%
+    \edef\Xu@{\repdecn@mb{\v@lX}}\edef\Yu@{\repdecn@mb{\v@lY}}\figg@tXY{#3}%
+    \global\result@t=\Xu@\v@lX\global\advance\result@t\Yu@\v@lY}#1=\result@t}
+\def\c@lproscalTD#1[#2,#3]{{\figg@tXY{#2}\edef\Xu@{\repdecn@mb{\v@lX}}%
+    \edef\Yu@{\repdecn@mb{\v@lY}}\edef\Zu@{\repdecn@mb{\v@lZ}}%
+    \figg@tXY{#3}\global\result@t=\Xu@\v@lX\global\advance\result@t\Yu@\v@lY%
+    \global\advance\result@t\Zu@\v@lZ}#1=\result@t}
+\def\c@lprovec#1{%
+    \det@rmC\v@lZa(\v@lX,\v@lY,\v@lmin,\v@lmax)%
+    \det@rmC\v@lXa(\v@lY,\v@lZ,\v@lmax,\v@leur)%
+    \det@rmC\v@lYa(\v@lZ,\v@lX,\v@leur,\v@lmin)%
+    \figv@ctCreg#1(\v@lXa,\v@lYa,\v@lZa)}
+\def\det@rm#1[#2,#3]{{\figg@tXY{#2}\figg@tXYa{#3}%
+    \delt@=\repdecn@mb{\v@lX}\v@lYa\advance\delt@-\repdecn@mb{\v@lY}\v@lXa%
+    \global\result@t=\delt@}#1=\result@t}
+\def\det@rmC#1(#2,#3,#4,#5){{\global\result@t=\repdecn@mb{#2}#5%
+    \global\advance\result@t-\repdecn@mb{#3}#4}#1=\result@t}
+\def\getredf@ctDD#1(#2,#3){{\maxim@m{\v@lXa}{-#2}{#2}\maxim@m{\v@lYa}{-#3}{#3}%
+    \maxim@m{\v@lXa}{\v@lXa}{\v@lYa}% \v@lXa = ||X||inf
+    \ifdim\v@lXa>64pt\divide\v@lXa64 %
+    \p@rtentiere{\p@rtent}{\v@lXa}\advance\p@rtent\@ne\else\p@rtent=\@ne\fi%
+    \global\result@tent=\p@rtent}#1=\result@tent\ignorespaces}
+\def\getredf@ctTD#1(#2,#3,#4){{\maxim@m{\v@lXa}{-#2}{#2}\maxim@m{\v@lYa}{-#3}{#3}%
+    \maxim@m{\v@lZa}{-#4}{#4}\maxim@m{\v@lXa}{\v@lXa}{\v@lYa}%
+    \maxim@m{\v@lXa}{\v@lXa}{\v@lZa}% \v@lXa = ||X||inf
+    \ifdim\v@lXa>42pt\divide\v@lXa42 %
+    \p@rtentiere{\p@rtent}{\v@lXa}\advance\p@rtent\@ne\else\p@rtent=\@ne\fi%
+    \global\result@tent=\p@rtent}#1=\result@tent\ignorespaces}
+\def\figptintercircB@zDD#1:#2[#3,#4,#5,#6]{{\s@uvc@ntr@l\et@tfigptintercircB@zDD%
+    \setc@ntr@l{2}\figvectPDD-1[#3,#6]\figg@tXY{-1}\getredf@ctDD\f@ctech(\v@lX,\v@lY)%
+    \v@lmin=\z@\v@lmax=\p@\mili@u=#2\unit@\divide\mili@u\f@ctech%
+    \c@rre=\repdecn@mb{\mili@u}\mili@u\loop\mili@u=\v@lmin\advance\mili@u\v@lmax%
+    \divide\mili@u\tw@\edef\T@{\repdecn@mb{\mili@u}}\figptBezierDD-2::\T@[#3,#4,#5,#6]%
+    \figvectPDD-1[#3,-2]\n@rmeucCDD{\delt@}{-1}\ifdim\delt@>\c@rre\v@lmax=\mili@u%
+    \else\v@lmin=\mili@u\fi\v@leur=\v@lmax\advance\v@leur-\v@lmin%
+    \ifdim\v@leur>\epsil@n\repeat\figptcopyDD#1:/-2/%
+    \resetc@ntr@l\et@tfigptintercircB@zDD}\ignorespaces}
+\def\inters@cDD#1:#2[#3,#4;#5,#6]{{\s@uvc@ntr@l\et@tinters@cDD%
+    \setc@ntr@l{2}\vecunit@{-1}{#4}\vecunit@{-2}{#6}%
+    \figg@tXY{-1}\setc@ntr@l{1}\figg@tXYa{#3}%
+    \edef\A@{\repdecn@mb{\v@lX}}\edef\B@{\repdecn@mb{\v@lY}}%
+    \v@lmin=\B@\v@lXa\advance\v@lmin-\A@\v@lYa%
+    \figg@tXYa{#5}\setc@ntr@l{2}\figg@tXY{-2}%
+    \edef\C@{\repdecn@mb{\v@lX}}\edef\D@{\repdecn@mb{\v@lY}}%
+    \v@lmax=\D@\v@lXa\advance\v@lmax-\C@\v@lYa%
+    \delt@=\A@\v@lY\advance\delt@-\B@\v@lX%
+    \invers@{\v@leur}{\delt@}\edef\v@ldelta{\repdecn@mb{\v@leur}}%
+    \v@lXa=\A@\v@lmax\advance\v@lXa-\C@\v@lmin%
+    \v@lYa=\B@\v@lmax\advance\v@lYa-\D@\v@lmin%
+    \v@lXa=\v@ldelta\v@lXa\v@lYa=\v@ldelta\v@lYa%
+    \setc@ntr@l{1}\figp@intregDD#1:{#2}(\v@lXa,\v@lYa)%
+    \resetc@ntr@l\et@tinters@cDD}\ignorespaces}
+\def\inters@cTD#1:#2[#3,#4;#5,#6]{{\s@uvc@ntr@l\et@tinters@cTD%
+    \setc@ntr@l{2}\figvectNVTD-1[#4,#6]\figvectNVTD-2[#6,-1]\figvectPTD-1[#3,#5]%
+    \r@pPSTD\v@leur[-2,-1,#4]\edef\v@lcoef{\repdecn@mb{\v@leur}}%
+    \figpttraTD#1:{#2}=#3/\v@lcoef,#4/\resetc@ntr@l\et@tinters@cTD}\ignorespaces}
+\def\r@pPSTD#1[#2,#3,#4]{{\figg@tXY{#2}\edef\Xu@{\repdecn@mb{\v@lX}}%
+    \edef\Yu@{\repdecn@mb{\v@lY}}\edef\Zu@{\repdecn@mb{\v@lZ}}%
+    \figg@tXY{#3}\v@lmin=\Xu@\v@lX\advance\v@lmin\Yu@\v@lY\advance\v@lmin\Zu@\v@lZ%
+    \figg@tXY{#4}\v@lmax=\Xu@\v@lX\advance\v@lmax\Yu@\v@lY\advance\v@lmax\Zu@\v@lZ%
+    \invers@{\v@leur}{\v@lmax}\global\result@t=\repdecn@mb{\v@leur}\v@lmin}%
+    #1=\result@t}
+\def\n@rminfDD#1#2{{\figg@tXY{#2}\maxim@m{\v@lX}{\v@lX}{-\v@lX}%
+    \maxim@m{\v@lY}{\v@lY}{-\v@lY}\maxim@m{\global\result@t}{\v@lX}{\v@lY}}%
+    #1=\result@t}
+\def\n@rminfTD#1#2{{\figg@tXY{#2}\maxim@m{\v@lX}{\v@lX}{-\v@lX}%
+    \maxim@m{\v@lY}{\v@lY}{-\v@lY}\maxim@m{\v@lZ}{\v@lZ}{-\v@lZ}%
+    \maxim@m{\v@lX}{\v@lX}{\v@lY}\maxim@m{\global\result@t}{\v@lX}{\v@lZ}}%
+    #1=\result@t}
+\def\n@rmeucCDD#1#2{\figg@tXY{#2}\divide\v@lX\f@ctech\divide\v@lY\f@ctech%
+    #1=\repdecn@mb{\v@lX}\v@lX\v@lX=\repdecn@mb{\v@lY}\v@lY\advance#1\v@lX}
+\def\n@rmeucCTD#1#2{\figg@tXY{#2}%
+    \divide\v@lX\f@ctech\divide\v@lY\f@ctech\divide\v@lZ\f@ctech%
+    #1=\repdecn@mb{\v@lX}\v@lX\v@lX=\repdecn@mb{\v@lY}\v@lY\advance#1\v@lX%
+    \v@lX=\repdecn@mb{\v@lZ}\v@lZ\advance#1\v@lX}
+\def\n@rmeucSVDD#1#2{{\figg@tXY{#2}%
+    \v@lXa=\repdecn@mb{\v@lX}\v@lX\v@lYa=\repdecn@mb{\v@lY}\v@lY%
+    \advance\v@lXa\v@lYa\sqrt@{\global\result@t}{\v@lXa}}#1=\result@t}
+\def\n@rmeucSVTD#1#2{{\figg@tXY{#2}\v@lXa=\repdecn@mb{\v@lX}\v@lX%
+    \v@lYa=\repdecn@mb{\v@lY}\v@lY\v@lZa=\repdecn@mb{\v@lZ}\v@lZ%
+    \advance\v@lXa\v@lYa\advance\v@lXa\v@lZa\sqrt@{\global\result@t}{\v@lXa}}#1=\result@t}
+\def\n@rmeucDD#1#2{{\figg@tXY{#2}\getredf@ctDD\f@ctech(\v@lX,\v@lY)%
+    \divide\v@lX\f@ctech\divide\v@lY\f@ctech%
+    \v@lXa=\repdecn@mb{\v@lX}\v@lX\v@lYa=\repdecn@mb{\v@lY}\v@lY%
+    \advance\v@lXa\v@lYa\sqrt@{\global\result@t}{\v@lXa}%
+    \global\multiply\result@t\f@ctech}#1=\result@t}
+\def\n@rmeucTD#1#2{{\figg@tXY{#2}\getredf@ctTD\f@ctech(\v@lX,\v@lY,\v@lZ)%
+    \divide\v@lX\f@ctech\divide\v@lY\f@ctech\divide\v@lZ\f@ctech%
+    \v@lXa=\repdecn@mb{\v@lX}\v@lX%
+    \v@lYa=\repdecn@mb{\v@lY}\v@lY\v@lZa=\repdecn@mb{\v@lZ}\v@lZ%
+    \advance\v@lXa\v@lYa\advance\v@lXa\v@lZa\sqrt@{\global\result@t}{\v@lXa}%
+    \global\multiply\result@t\f@ctech}#1=\result@t}
+\def\vecunit@DD#1#2{{\figg@tXY{#2}\getredf@ctDD\f@ctech(\v@lX,\v@lY)%
+    \divide\v@lX\f@ctech\divide\v@lY\f@ctech%
+    \figv@ctCreg#1(\v@lX,\v@lY)\n@rmeucSV{\v@lYa}{#1}%
+    \invers@{\v@lXa}{\v@lYa}\edef\v@lv@lXa{\repdecn@mb{\v@lXa}}%
+    \v@lX=\v@lv@lXa\v@lX\v@lY=\v@lv@lXa\v@lY%
+    \figv@ctCreg#1(\v@lX,\v@lY)\multiply\v@lYa\f@ctech\global\result@t=\v@lYa}}
+\def\vecunit@TD#1#2{{\figg@tXY{#2}\getredf@ctTD\f@ctech(\v@lX,\v@lY,\v@lZ)%
+    \divide\v@lX\f@ctech\divide\v@lY\f@ctech\divide\v@lZ\f@ctech%
+    \figv@ctCreg#1(\v@lX,\v@lY,\v@lZ)\n@rmeucSV{\v@lYa}{#1}%
+    \invers@{\v@lXa}{\v@lYa}\edef\v@lv@lXa{\repdecn@mb{\v@lXa}}%
+    \v@lX=\v@lv@lXa\v@lX\v@lY=\v@lv@lXa\v@lY\v@lZ=\v@lv@lXa\v@lZ%
+    \figv@ctCreg#1(\v@lX,\v@lY,\v@lZ)\multiply\v@lYa\f@ctech\global\result@t=\v@lYa}}
+\def\vecunitC@TD[#1,#2]{\figg@tXYa{#1}\figg@tXY{#2}%
+    \advance\v@lX-\v@lXa\advance\v@lY-\v@lYa\advance\v@lZ-\v@lZa\c@lvecunitTD}
+\def\vecunitCV@TD#1{\figg@tXY{#1}\c@lvecunitTD}
+\def\c@lvecunitTD{\getredf@ctTD\f@ctech(\v@lX,\v@lY,\v@lZ)%
+    \divide\v@lX\f@ctech\divide\v@lY\f@ctech\divide\v@lZ\f@ctech%
+    \v@lXa=\repdecn@mb{\v@lX}\v@lX%
+    \v@lYa=\repdecn@mb{\v@lY}\v@lY\v@lZa=\repdecn@mb{\v@lZ}\v@lZ%
+    \advance\v@lXa\v@lYa\advance\v@lXa\v@lZa\sqrt@{\v@lYa}{\v@lXa}%
+    \invers@{\v@lXa}{\v@lYa}\edef\v@lv@lXa{\repdecn@mb{\v@lXa}}%
+    \v@lX=\v@lv@lXa\v@lX\v@lY=\v@lv@lXa\v@lY\v@lZ=\v@lv@lXa\v@lZ}
+\def\figgetangleDD#1[#2,#3,#4]{\ifps@cri{\s@uvc@ntr@l\et@tfiggetangleDD\setc@ntr@l{2}%
+    \figvectPDD-1[#2,#3]\figvectPDD-2[#2,#4]\vecunit@{-1}{-1}%
+    \c@lproscalDD\delt@[-2,-1]\figvectNVDD-1[-1]\c@lproscalDD\v@leur[-2,-1]%
+    \arct@n\v@lmax(\delt@,\v@leur)\v@lmax=\rdT@deg\v@lmax%
+    \ifdim\v@lmax<\z@\advance\v@lmax\PI@deg\fi\xdef#1{\repdecn@mb{\v@lmax}}%
+    \resetc@ntr@l\et@tfiggetangleDD}\ignorespaces\fi}
+\def\figgetangleTD#1[#2,#3,#4,#5]{\ifps@cri{\s@uvc@ntr@l\et@tfiggetangleTD\setc@ntr@l{2}%
+    \figvectPTD-1[#2,#3]\figvectPTD-2[#2,#5]\figvectNVTD-3[-1,-2]%
+    \figvectPTD-2[#2,#4]\figvectNVTD-4[-3,-1]%
+    \vecunit@{-1}{-1}\c@lproscalTD\delt@[-2,-1]\c@lproscalTD\v@leur[-2,-4]%
+    \arct@n\v@lmax(\delt@,\v@leur)\v@lmax=\rdT@deg\v@lmax%
+    \ifdim\v@lmax<\z@\advance\v@lmax\PI@deg\fi\xdef#1{\repdecn@mb{\v@lmax}}%
+    \resetc@ntr@l\et@tfiggetangleTD}\ignorespaces\fi}    
+\def\figgetdist#1[#2,#3]{\ifps@cri{\s@uvc@ntr@l\et@tfiggetdist\setc@ntr@l{2}%
+    \figvectP-1[#2,#3]\n@rmeuc{\v@lX}{-1}\v@lX=\ptT@unit@\v@lX\xdef#1{\repdecn@mb{\v@lX}}%
+    \resetc@ntr@l\et@tfiggetdist}\ignorespaces\fi}
+\def\figg@tT#1{\c@ntr@lnum{#1}%
+    {\expandafter\expandafter\expandafter\extr@ctT\csname\objc@de\endcsname:%
+     \ifdim\wd\Gb@x=\z@\ptn@me{#1}\else\unhcopy\Gb@x\fi}}
+\def\extr@ctT#1)#2:{\setbox\Gb@x=\hbox{#2}}
+\def\figg@tXY#1{\c@ntr@lnum{#1}%
+    \expandafter\expandafter\expandafter\extr@ctC\csname\objc@de\endcsname:}
+\def\extr@ctCDD#1(#2,#3,#4:{\v@lX=#2\v@lY=#3}
+\def\extr@ctCTD#1(#2,#3,#4)#5:{\v@lX=#2\v@lY=#3\v@lZ=#4}
+\def\figg@tXYa#1{\c@ntr@lnum{#1}%
+    \expandafter\expandafter\expandafter\extr@ctCa\csname\objc@de\endcsname:}
+\def\extr@ctCaDD#1(#2,#3,#4:{\v@lXa=#2\v@lYa=#3}
+\def\extr@ctCaTD#1(#2,#3,#4)#5:{\v@lXa=#2\v@lYa=#3\v@lZa=#4}
+\def\figinit#1{\initpr@lim\figinit@#1,:\initpss@ttings\ignorespaces}
+\def\figinit@#1,#2:{\setunit@{#1}\def\t@xt@{#2}\ifx\t@xt@\empty\else\figinit@@#2:\fi}
+\def\figinit@@#1#2:{\if#12 \else\figs@tproj{#1}\initTD@\fi}
+\newif\ifTr@isDim
+\def\UnD@fined{UNDEFINED}
+\def\ifundefined#1{\expandafter\ifx\csname#1\endcsname\relax}
+\def\initpr@lim{\initb@undb@x\figsetmark{}\figsetptname{$A_{##1}$}\def\Sc@leFact{1}%
+    \initDD@\figsetroundcoord{yes}\ps@critrue%
+    \edef\disob@unit{\UnD@fined}}
+\def\initDD@{\Tr@isDimfalse%
+    \let\c@lDCUn=\c@lDCUnDD%
+    \let\c@lDCDeux=\c@lDCDeuxDD%
+    \let\c@ldefproj=\relax%
+    \let\c@lproscal=\c@lproscalDD%
+    \let\c@lprojSP=\relax%
+    \let\extr@ctC=\extr@ctCDD%
+    \let\extr@ctCa=\extr@ctCaDD%
+    \let\extr@ctCF=\extr@ctCFDD%
+    \let\figp@intreg=\figp@intregDD%
+    \let\n@rmeucSV=\n@rmeucSVDD\let\n@rmeuc=\n@rmeucDD\let\n@rminf=\n@rminfDD%
+    \let\vecunit@=\vecunit@DD%
+    \let\figcoord=\figcoordDD%
+    \let\figgetangle=\figgetangleDD%
+    \let\figpt=\figptDD%
+    \let\figptBezier=\figptBezierDD%
+    \let\figptbary=\figptbaryDD%
+    \let\figptbaryR=\figptbaryRDD%
+    \let\figptcirc=\figptcircDD%
+    \let\figptcircumcenter=\figptcircumcenterDD%
+    \let\figptcopy=\figptcopyDD%
+    \let\figptcurvcenter=\figptcurvcenterDD%
+    \let\figptell=\figptellDD%
+    \let\figptendnormal=\figptendnormalDD%
+    \def\figptinterlineplane{\un@v@ilable{figptinterlineplane}}%
+    \let\figptinterlines=\inters@cDD%
+    \let\figptorthocenter=\figptorthocenterDD%
+    \let\figptorthoprojline=\figptorthoprojlineDD%
+    \def\figptorthoprojplane{\un@v@ilable{figptorthoprojplane}}%
+    \let\figptrot=\figptrotDD%
+    \let\figptscontrol=\figptscontrolDD%
+    \let\figptsintercirc=\figptsintercircDD%
+    \let\figptsorthoprojline=\figptsorthoprojlineDD%
+    \let\figptsrot=\figptsrotDD%
+    \let\figptssym=\figptssymDD%
+    \let\figptstra=\figptstraDD%
+    \let\figptsym=\figptsymDD%
+    \let\figpttraC=\figpttraCDD%
+    \let\figpttra=\figpttraDD%
+    \def\figsetobdist{\un@v@ilable{figsetobdist}}%
+    \def\figsettarget{\un@v@ilable{figsettarget}}%
+    \def\figsetview{\un@v@ilable{figsetview}}%
+    \let\figvectDBezier=\figvectDBezierDD%
+    \let\figvectN=\figvectNDD%
+    \let\figvectNV=\figvectNVDD%
+    \let\figvectP=\figvectPDD%
+    \let\figvectU=\figvectUDD%
+    \let\psarccircP=\psarccircPDD%
+    \let\psarccirc=\psarccircDD%
+    \let\psarcell=\psarcellDD%
+    \let\psarcellPA=\psarcellPADD%
+    \let\psarrowBezier=\psarrowBezierDD%
+    \let\psarrowcircP=\psarrowcircPDD%
+    \let\psarrowcirc=\psarrowcircDD%
+    \let\psarrowhead=\psarrowheadDD%
+    \let\psarrow=\psarrowDD%
+    \let\psBezier=\psBezierDD%
+    \let\pscirc=\pscircDD%
+    \let\pscurve=\pscurveDD%
+    \let\psnormal=\psnormalDD%
+    }
+\def\initTD@{\Tr@isDimtrue\initb@undb@xTD\newt@rgetptfalse\newdis@bfalse%
+    \let\c@lDCUn=\c@lDCUnTD%
+    \let\c@lDCDeux=\c@lDCDeuxTD%
+    \let\c@ldefproj=\c@ldefprojTD%
+    \let\c@lproscal=\c@lproscalTD%
+    \let\extr@ctC=\extr@ctCTD%
+    \let\extr@ctCa=\extr@ctCaTD%
+    \let\extr@ctCF=\extr@ctCFTD%
+    \let\figp@intreg=\figp@intregTD%
+    \let\n@rmeucSV=\n@rmeucSVTD\let\n@rmeuc=\n@rmeucTD\let\n@rminf=\n@rminfTD%
+    \let\vecunit@=\vecunit@TD%
+    \let\figcoord=\figcoordTD%
+    \let\figgetangle=\figgetangleTD%
+    \let\figpt=\figptTD%
+    \let\figptBezier=\figptBezierTD%
+    \let\figptbary=\figptbaryTD%
+    \let\figptbaryR=\figptbaryRTD%
+    \let\figptcirc=\figptcircTD%
+    \let\figptcircumcenter=\figptcircumcenterTD%
+    \let\figptcopy=\figptcopyTD%
+    \let\figptcurvcenter=\figptcurvcenterTD%
+    \let\figptinterlineplane=\figptinterlineplaneTD%
+    \let\figptinterlines=\inters@cTD%
+    \let\figptorthocenter=\figptorthocenterTD%
+    \let\figptorthoprojline=\figptorthoprojlineTD%
+    \let\figptorthoprojplane=\figptorthoprojplaneTD%
+    \let\figptrot=\figptrotTD%
+    \let\figptscontrol=\figptscontrolTD%
+    \let\figptsorthoprojline=\figptsorthoprojlineTD%
+    \let\figptsorthoprojplane=\figptsorthoprojplaneTD%
+    \let\figptsrot=\figptsrotTD%
+    \let\figptssym=\figptssymTD%
+    \let\figptstra=\figptstraTD%
+    \let\figptsym=\figptsymTD%
+    \let\figpttraC=\figpttraCTD%
+    \let\figpttra=\figpttraTD%
+    \let\figsetobdist=\figsetobdistTD%
+    \let\figsettarget=\figsettargetTD%
+    \let\figsetview=\figsetviewTD%
+    \let\figvectDBezier=\figvectDBezierTD%
+    \let\figvectN=\figvectNTD%
+    \let\figvectNV=\figvectNVTD%
+    \let\figvectP=\figvectPTD%
+    \let\figvectU=\figvectUTD%
+    \let\psarccircP=\psarccircPTD%
+    \let\psarccirc=\psarccircTD%
+    \let\psarcell=\psarcellTD%
+    \let\psarcellPA=\psarcellPATD%
+    \let\psarrowBezier=\psarrowBezierTD%
+    \let\psarrowcircP=\psarrowcircPTD%
+    \let\psarrowcirc=\psarrowcircTD%
+    \let\psarrowhead=\psarrowheadTD%
+    \let\psarrow=\psarrowTD%
+    \let\psBezier=\psBezierTD%
+    \let\pscirc=\pscircTD%
+    \let\pscurve=\pscurveTD%
+    }
+\def\un@v@ilable#1{\immediate\write16{*** The macro #1 is not available in the current context.}}
+\def\figinsert#1{\figinsert@#1,:\ignorespaces}
+\def\figinsert@#1,#2:{{\def\t@xt@{#2}\ifx\t@xt@\empty\xdef\Sc@leFact{1}\else%
+    \def\Xarg@##1,{\def\@rgdeux{##1}}\Xarg@#2\xdef\Sc@leFact{\@rgdeux}\fi\@psfgetbb{#1}%
+    \v@lX=\@psfllx\p@\v@lX=\ptpsT@pt\v@lX\v@lX=\Sc@leFact\v@lX%
+    \v@lY=\@psflly\p@\v@lY=\ptpsT@pt\v@lY\v@lY=\Sc@leFact\v@lY%
+    \b@undb@x{\v@lX}{\v@lY}%
+    \v@lX=\@psfurx\p@\v@lX=\ptpsT@pt\v@lX\v@lX=\Sc@leFact\v@lX%
+    \v@lY=\@psfury\p@\v@lY=\ptpsT@pt\v@lY\v@lY=\Sc@leFact\v@lY%
+    \b@undb@x{\v@lX}{\v@lY}%
+    \v@lX=100pt\v@lX=\Sc@leFact\v@lX\edef\F@ct{\repdecn@mb{\v@lX}}%
+    \iftextures\special{postscriptfile #1 vscale=\F@ct\space hscale=\F@ct}%
+    \else\special{psfile=#1 vscale=\F@ct\space hscale=\F@ct}\fi% 
+    \message{[#1]}}\ignorespaces}
+\def\figptDD#1:#2(#3,#4){\ifps@cri\c@ntr@lnum{#1}%
+    {\v@lX=#3\unit@\v@lY=#4\unit@\let@xte={#2}% Pour inhiber l'expansion de #2
+    \expandafter\xdef\csname\objc@de\endcsname{\ifitis@vect@r V\else P\fi%
+    (\the\v@lX,\the\v@lY,\z@)\the\let@xte}}\ignorespaces\fi}
+\def\figptTD#1:#2(#3,#4){\ifps@cri\c@ntr@lnum{#1}%
+    \def\c@@rdYZ{#4,0,0}\extrairelepremi@r\c@@rdY\de\c@@rdYZ%
+    \extrairelepremi@r\c@@rdZ\de\c@@rdYZ%
+    {\v@lX=#3\unit@\v@lY=\c@@rdY\unit@\v@lZ=\c@@rdZ\unit@\let@xte={#2}%
+    \expandafter\xdef\csname\objc@de\endcsname{\ifitis@vect@r V\else P\fi%
+    (\the\v@lX,\the\v@lY,\the\v@lZ)\the\let@xte}%
+    \b@undb@xTD{\v@lX}{\v@lY}{\v@lZ}}\ignorespaces\fi}
+\def\figp@intregDD#1:#2(#3,#4){\c@ntr@lnum{#1}%
+    {\result@t=#4\v@lX=#3\v@lY=\result@t\let@xte={#2}% Pour inhiber l'expansion de #2
+    \expandafter\xdef\csname\objc@de\endcsname{\ifitis@vect@r V\else P\fi%
+    (\the\v@lX,\the\v@lY,\z@)\the\let@xte}}\ignorespaces}
+\def\figp@intregTD#1:#2(#3,#4){\c@ntr@lnum{#1}%
+    \def\c@@rdYZ{#4,\z@,\z@}\extrairelepremi@r\c@@rdY\de\c@@rdYZ%
+    \extrairelepremi@r\c@@rdZ\de\c@@rdYZ%
+    {\v@lX=#3\v@lY=\c@@rdY\v@lZ=\c@@rdZ\let@xte={#2}%
+    \expandafter\xdef\csname\objc@de\endcsname{\ifitis@vect@r V\else P\fi%
+    (\the\v@lX,\the\v@lY,\the\v@lZ)\the\let@xte}%
+    \b@undb@xTD{\v@lX}{\v@lY}{\v@lZ}}\ignorespaces}
+\def\figptBezierDD#1:#2:#3[#4,#5,#6,#7]{\ifps@cri{\s@uvc@ntr@l\et@tfigptBezierDD%
+    \figptBezier@#3[#4,#5,#6,#7]\figp@intregDD#1:{#2}(\v@lX,\v@lY)%
+    \resetc@ntr@l\et@tfigptBezierDD}\ignorespaces\fi}
+\def\figptBezierTD#1:#2:#3[#4,#5,#6,#7]{\ifps@cri{\s@uvc@ntr@l\et@tfigptBezierTD%
+    \figptBezier@#3[#4,#5,#6,#7]\figp@intregTD#1:{#2}(\v@lX,\v@lY,\v@lZ)%
+    \resetc@ntr@l\et@tfigptBezierTD}\ignorespaces\fi}
+\def\figptBezier@#1[#2,#3,#4,#5]{\setc@ntr@l{2}%
+    \edef\T@{#1}\v@leur=\p@\advance\v@leur-#1pt\edef\UNmT@{\repdecn@mb{\v@leur}}%
+    \figptcopy-4:/#2/\figptcopy-3:/#3/\figptcopy-2:/#4/\figptcopy-1:/#5/%
+    \s@mme=\z@\p@rtent=\z@\loop\ifnum\s@mme<\thr@@\advance\p@rtent\m@ne%
+    \c@lDecast{-4}{-3}{\p@rtent}\advance\s@mme\@ne\repeat\figg@tXY{-4}}
+\def\c@lDCUnDD#1#2{\figg@tXY{#1}\v@lX=\UNmT@\v@lX\v@lY=\UNmT@\v@lY%
+    \figg@tXYa{#2}\advance\v@lX\T@\v@lXa\advance\v@lY\T@\v@lYa%
+    \figp@intregDD#1:(\v@lX,\v@lY)}
+\def\c@lDCUnTD#1#2{\figg@tXY{#1}\v@lX=\UNmT@\v@lX\v@lY=\UNmT@\v@lY\v@lZ=\UNmT@\v@lZ%
+    \figg@tXYa{#2}\advance\v@lX\T@\v@lXa\advance\v@lY\T@\v@lYa\advance\v@lZ\T@\v@lZa%
+    \figp@intregTD#1:(\v@lX,\v@lY,\v@lZ)}
+\def\c@lDecast#1#2#3{\l@mbd@un=#1\l@mbd@de=#2%
+    {\loop\ifnum\l@mbd@un<#3\c@lDCUn{\l@mbd@un}{\l@mbd@de}%
+    \advance\l@mbd@un\@ne\advance\l@mbd@de\@ne\repeat}}
+\def\figptbaryDD#1:#2[#3;#4]{\ifps@cri{\def\list@num{#3}\extrairelepremi@r\p@int\de\list@num%
+    \s@mme=\z@\@ecfor\c@ef:=#4\do{\advance\s@mme\c@ef}%
+    \def\listec@ef{#4,0}\extrairelepremi@r\c@ef\de\listec@ef%
+    \figg@tXY{\p@int}\divide\v@lX\s@mme\divide\v@lY\s@mme%
+    \multiply\v@lX\c@ef\multiply\v@lY\c@ef%
+    \@ecfor\p@int:=\list@num\do{\extrairelepremi@r\c@ef\de\listec@ef%
+           \figg@tXYa{\p@int}\divide\v@lXa\s@mme\divide\v@lYa\s@mme%
+           \multiply\v@lXa\c@ef\multiply\v@lYa\c@ef%
+           \advance\v@lX\v@lXa\advance\v@lY\v@lYa}%
+    \figp@intregDD#1:{#2}(\v@lX,\v@lY)}\ignorespaces\fi}
+\def\figptbaryTD#1:#2[#3;#4]{\ifps@cri{\def\list@num{#3}\extrairelepremi@r\p@int\de\list@num%
+    \s@mme=\z@\@ecfor\c@ef:=#4\do{\advance\s@mme\c@ef}%
+    \def\listec@ef{#4,0}\extrairelepremi@r\c@ef\de\listec@ef%
+    \figg@tXY{\p@int}\divide\v@lX\s@mme\divide\v@lY\s@mme\divide\v@lZ\s@mme%
+    \multiply\v@lX\c@ef\multiply\v@lY\c@ef\multiply\v@lZ\c@ef%
+    \@ecfor\p@int:=\list@num\do{\extrairelepremi@r\c@ef\de\listec@ef%
+           \figg@tXYa{\p@int}\divide\v@lXa\s@mme\divide\v@lYa\s@mme\divide\v@lZa\s@mme%
+           \multiply\v@lXa\c@ef\multiply\v@lYa\c@ef\multiply\v@lZa\c@ef%
+           \advance\v@lX\v@lXa\advance\v@lY\v@lYa\advance\v@lZ\v@lZa}%
+    \figp@intregTD#1:{#2}(\v@lX,\v@lY,\v@lZ)}\ignorespaces\fi}
+\def\figptbaryRDD#1:#2[#3;#4]{\ifps@cri{\def\list@num{#3}\extrairelepremi@r\p@int\de\list@num%
+    \v@leur=\z@\@ecfor\c@ef:=#4\do{\advance\v@leur\c@ef pt}%
+    \invers@\v@leur\v@leur\edef\invs@mme{\repdecn@mb{\v@leur}}%
+    \def\listec@ef{#4,0}\extrairelepremi@r\c@ef\de\listec@ef%
+    \figg@tXY{\p@int}\v@lX=\invs@mme\v@lX\v@lY=\invs@mme\v@lY%
+    \v@lX=\c@ef\v@lX\v@lY=\c@ef\v@lY%
+    \@ecfor\p@int:=\list@num\do{\extrairelepremi@r\c@ef\de\listec@ef%
+           \figg@tXYa{\p@int}\v@lXa=\invs@mme\v@lXa\v@lYa=\invs@mme\v@lYa%
+	   \v@lXa=\c@ef\v@lXa\v@lYa=\c@ef\v@lYa%
+           \advance\v@lX\v@lXa\advance\v@lY\v@lYa}%
+    \figp@intregDD#1:{#2}(\v@lX,\v@lY)}\ignorespaces\fi}
+\def\figptbaryRTD#1:#2[#3;#4]{\ifps@cri{\def\list@num{#3}\extrairelepremi@r\p@int\de\list@num%
+    \v@leur=\z@\@ecfor\c@ef:=#4\do{\advance\v@leur\c@ef pt}%
+    \invers@\v@leur\v@leur\edef\invs@mme{\repdecn@mb{\v@leur}}%
+    \def\listec@ef{#4,0}\extrairelepremi@r\c@ef\de\listec@ef%
+    \figg@tXY{\p@int}\v@lX=\invs@mme\v@lX\v@lY=\invs@mme\v@lY\v@lZ=\invs@mme\v@lZ%
+    \v@lX=\c@ef\v@lX\v@lY=\c@ef\v@lY\v@lZ=\c@ef\v@lZ%
+    \@ecfor\p@int:=\list@num\do{\extrairelepremi@r\c@ef\de\listec@ef%
+           \figg@tXYa{\p@int}%
+	   \v@lXa=\invs@mme\v@lXa\v@lYa=\invs@mme\v@lYa\v@lZa=\invs@mme\v@lZa%
+	   \v@lXa=\c@ef\v@lXa\v@lYa=\c@ef\v@lYa\v@lZa=\c@ef\v@lZa%
+           \advance\v@lX\v@lXa\advance\v@lY\v@lYa\advance\v@lZ\v@lZa}%
+    \figp@intregTD#1:{#2}(\v@lX,\v@lY,\v@lZ)}\ignorespaces\fi}
+\def\figptcircDD#1:#2:#3;#4(#5){\ifps@cri{\s@uvc@ntr@l\et@tfigptcircDD%
+    \c@lptellDD#1:{#2}:#3;#4,#4(#5)\resetc@ntr@l\et@tfigptcircDD}\ignorespaces\fi}
+\def\figptcircTD#1:#2:#3,#4,#5;#6(#7){\ifps@cri{\s@uvc@ntr@l\et@tfigptcircTD%
+    \setc@ntr@l{2}\c@lExtAxes#3,#4,#5(#6)\figptellP#1:{#2}:#3,-4,-5(#7)%
+    \resetc@ntr@l\et@tfigptcircTD}\ignorespaces\fi}
+\def\figptcircumcenterDD#1:#2[#3,#4,#5]{\ifps@cri{\s@uvc@ntr@l\et@tfigptcircumcenterDD%
+    \setc@ntr@l{2}\figvectNDD-5[#3,#4]\figptbaryDD-3:[#3,#4;1,1]%
+                  \figvectNDD-6[#4,#5]\figptbaryDD-4:[#4,#5;1,1]%
+    \resetc@ntr@l{2}\inters@cDD#1:{#2}[-3,-5;-4,-6]%
+    \resetc@ntr@l\et@tfigptcircumcenterDD}\ignorespaces\fi}
+\def\figptcircumcenterTD#1:#2[#3,#4,#5]{\ifps@cri{\s@uvc@ntr@l\et@tfigptcircumcenterTD%
+    \setc@ntr@l{2}\figvectNTD-1[#3,#4,#5]%
+    \figvectPTD-3[#3,#4]\figvectNVTD-5[-1,-3]\figptbaryTD-3:[#3,#4;1,1]%
+    \figvectPTD-4[#4,#5]\figvectNVTD-6[-1,-4]\figptbaryTD-4:[#4,#5;1,1]%
+    \resetc@ntr@l{2}\inters@cTD#1:{#2}[-3,-5;-4,-6]%
+    \resetc@ntr@l\et@tfigptcircumcenterTD}\ignorespaces\fi}
+\def\figptcopyDD#1:#2/#3/{\ifps@cri{\figg@tXY{#3}%
+    \figp@intregDD#1:{#2}(\v@lX,\v@lY)}\ignorespaces\fi}
+\def\figptcopyTD#1:#2/#3/{\ifps@cri{\figg@tXY{#3}%
+    \figp@intregTD#1:{#2}(\v@lX,\v@lY,\v@lZ)}\ignorespaces\fi}
+\def\figptcurvcenterDD#1:#2:#3[#4,#5,#6,#7]{\ifps@cri{\s@uvc@ntr@l\et@tfigptcurvcenterDD%
+    \setc@ntr@l{2}\c@lcurvradDD#3[#4,#5,#6,#7]\edef\Sprim@{\repdecn@mb{\result@t}}%
+    \figptBezierDD-1::#3[#4,#5,#6,#7]\figpttraDD#1:{#2}=-1/\Sprim@,-5/%
+    \resetc@ntr@l\et@tfigptcurvcenterDD}\ignorespaces\fi}
+\def\figptcurvcenterTD#1:#2:#3[#4,#5,#6,#7]{\ifps@cri{\s@uvc@ntr@l\et@tfigptcurvcenterTD%
+    \setc@ntr@l{2}\figvectDBezierTD -5:1,#3[#4,#5,#6,#7]%
+    \figvectDBezierTD -6:2,#3[#4,#5,#6,#7]\vecunit@TD{-5}{-5}%
+    \edef\Sprim@{\repdecn@mb{\result@t}}\figvectNVTD-1[-6,-5]%
+    \figvectNVTD-5[-5,-1]\c@lproscalTD\v@leur[-6,-5]%
+    \invers@{\v@leur}{\v@leur}\v@leur=\Sprim@\v@leur\v@leur=\Sprim@\v@leur%
+    \figptBezierTD-1::#3[#4,#5,#6,#7]\edef\Sprim@{\repdecn@mb{\v@leur}}%
+    \figpttraTD#1:{#2}=-1/\Sprim@,-5/\resetc@ntr@l\et@tfigptcurvcenterTD}\ignorespaces\fi}
+\def\c@lcurvradDD#1[#2,#3,#4,#5]{{\figvectDBezierDD -5:1,#1[#2,#3,#4,#5]%
+    \figvectDBezierDD -6:2,#1[#2,#3,#4,#5]\vecunit@DD{-5}{-5}%
+    \edef\Sprim@{\repdecn@mb{\result@t}}\figvectNVDD-5[-5]\c@lproscalDD\v@leur[-6,-5]%
+    \invers@{\v@leur}{\v@leur}\v@leur=\Sprim@\v@leur\v@leur=\Sprim@\v@leur%
+    \global\result@t=\v@leur}}
+\def\figptellDD#1:#2:#3;#4,#5(#6,#7){\ifps@cri{\s@uvc@ntr@l\et@tfigptell%
+    \c@lptellDD#1::#3;#4,#5(#6)\figptrotDD#1:{#2}=#1/#3,#7/%
+    \resetc@ntr@l\et@tfigptell}\ignorespaces\fi}
+\def\c@lptellDD#1:#2:#3;#4,#5(#6){\c@ssin{\v@lmin}{\v@lmax}{#6pt}%
+    \v@lmin=#4\v@lmin\v@lmax=#5\v@lmax%
+    \edef\Xc@mp{\repdecn@mb{\v@lmin}}\edef\Yc@mp{\repdecn@mb{\v@lmax}}%
+    \setc@ntr@l{2}\figvectC-1(\Xc@mp,\Yc@mp)\figpttraDD#1:{#2}=#3/1,-1/}
+\def\figptellP#1:#2:#3,#4,#5(#6){\ifps@cri{\s@uvc@ntr@l\et@tfigptellP%
+    \setc@ntr@l{2}\figvectP-1[#3,#4]\figvectP-2[#3,#5]%
+    \v@leur=#6pt\c@lptellP{#3}{-1}{-2}\figptcopy#1:{#2}/-3/%
+    \resetc@ntr@l\et@tfigptellP}\ignorespaces\fi}
+\def\c@lptellP#1#2#3{\c@ssin{\v@lmin}{\v@lmax}{\v@leur}%
+    \edef\C@{\repdecn@mb{\v@lmin}}\edef\S@{\repdecn@mb{\v@lmax}}%
+    \figpttra-3:=#1/\C@,#2/\figpttra-3:=-3/\S@,#3/}
+\def\figptendnormalDD#1:#2:#3,#4[#5,#6]{\ifps@cri{\s@uvc@ntr@l\et@tfigptendnormal%
+    \figg@tXYa{#5}\figg@tXY{#6}%
+    \advance\v@lX-\v@lXa\advance\v@lY-\v@lYa%
+    \setc@ntr@l{2}\figv@ctCreg-1(\v@lX,\v@lY)\vecunit@{-1}{-1}\figg@tXY{-1}%
+    \delt@=#3\unit@\maxim@m{\delt@}{\delt@}{-\delt@}\edef\l@ngueur{\repdecn@mb{\delt@}}%
+    \v@lX=\l@ngueur\v@lX\v@lY=\l@ngueur\v@lY%
+    \delt@=\p@\advance\delt@-#4pt\edef\l@ngueur{\repdecn@mb{\delt@}}%
+    \figptbaryRDD-1:[#5,#6;#4,\l@ngueur]\figg@tXYa{-1}%
+    \advance\v@lXa\v@lY\advance\v@lYa-\v@lX%
+    \setc@ntr@l{1}\figp@intregDD#1:{#2}(\v@lXa,\v@lYa)\resetc@ntr@l\et@tfigptendnormal}%
+    \ignorespaces\fi}
+\def\figptinscribedcenter#1:#2[#3,#4,#5]{\ifps@cri{%
+    \figgetdist\LA@[#4,#5]\figgetdist\LB@[#3,#5]\figgetdist\LC@[#3,#4]%
+    \figptbaryR#1:{#2}[#3,#4,#5;\LA@,\LB@,\LC@]}\ignorespaces\fi}
+\def\figptinterlineplaneTD#1:#2[#3,#4;#5,#6]{\ifps@cri{\s@uvc@ntr@l\et@tfigptinterlineplane%
+    \setc@ntr@l{2}\figvectPTD-1[#3,#5]\vecunit@TD{-2}{#6}%
+    \r@pPSTD\v@leur[-2,-1,#4]\edef\v@lcoef{\repdecn@mb{\v@leur}}%
+    \figpttraTD#1:{#2}=#3/\v@lcoef,#4/\resetc@ntr@l\et@tfigptinterlineplane}\ignorespaces\fi}
+\def\figptorthocenterDD#1:#2[#3,#4,#5]{\ifps@cri{\s@uvc@ntr@l\et@tfigptorthocenterDD%
+    \setc@ntr@l{2}\figvectNDD-3[#3,#4]\figvectNDD-4[#4,#5]%
+    \resetc@ntr@l{2}\inters@cDD#1:{#2}[#5,-3;#3,-4]%
+    \resetc@ntr@l\et@tfigptorthocenterDD}\ignorespaces\fi}
+\def\figptorthocenterTD#1:#2[#3,#4,#5]{\ifps@cri{\s@uvc@ntr@l\et@tfigptorthocenterTD%
+    \setc@ntr@l{2}\figvectNTD-1[#3,#4,#5]%
+    \figvectPTD-2[#3,#4]\figvectNVTD-3[-1,-2]%
+    \figvectPTD-2[#4,#5]\figvectNVTD-4[-1,-2]%
+    \resetc@ntr@l{2}\inters@cTD#1:{#2}[#5,-3;#3,-4]%
+    \resetc@ntr@l\et@tfigptorthocenterTD}\ignorespaces\fi}
+\def\figptorthoprojlineDD#1:#2=#3/#4,#5/{\ifps@cri{\s@uvc@ntr@l\et@tfigptorthoprojlineDD%
+    \setc@ntr@l{2}\figvectPDD-3[#4,#5]\figvectNVDD-4[-3]\resetc@ntr@l{2}%
+    \inters@cDD#1:{#2}[#3,-4;#4,-3]\resetc@ntr@l\et@tfigptorthoprojlineDD}\ignorespaces\fi}
+\def\figptorthoprojlineTD#1:#2=#3/#4,#5/{\ifps@cri{\s@uvc@ntr@l\et@tfigptorthoprojlineTD%
+    \setc@ntr@l{2}\figvectPTD-1[#4,#3]\figvectPTD-2[#4,#5]\vecunit@TD{-2}{-2}%
+    \c@lproscalTD\v@leur[-1,-2]\edef\v@lcoef{\repdecn@mb{\v@leur}}%
+    \figpttraTD#1:{#2}=#4/\v@lcoef,-2/\resetc@ntr@l\et@tfigptorthoprojlineTD}\ignorespaces\fi}
+\def\figptorthoprojplaneTD#1:#2=#3/#4,#5/{\ifps@cri{\s@uvc@ntr@l\et@tfigptorthoprojplane%
+    \setc@ntr@l{2}\figvectPTD-1[#3,#4]\vecunit@TD{-2}{#5}%
+    \c@lproscalTD\v@leur[-1,-2]\edef\v@lcoef{\repdecn@mb{\v@leur}}%
+    \figpttraTD#1:{#2}=#3/\v@lcoef,-2/\resetc@ntr@l\et@tfigptorthoprojplane}\ignorespaces\fi}
+\def\figpthom#1:#2=#3/#4,#5/{\ifps@cri{\s@uvc@ntr@l\et@tfigpthom%
+    \setc@ntr@l{2}\figvectP-1[#4,#3]\figpttra#1:{#2}=#4/#5,-1/%
+    \resetc@ntr@l\et@tfigpthom}\ignorespaces\fi}
+\def\figptrotDD#1:#2=#3/#4,#5/{\ifps@cri{\s@uvc@ntr@l\et@tfigptrotDD%
+    \c@ssin{\v@lmin}{\v@lmax}{#5pt}%
+    \edef\C@{\repdecn@mb{\v@lmin}}\edef\S@{\repdecn@mb{\v@lmax}}%
+    \setc@ntr@l{2}\figvectPDD-1[#4,#3]\figg@tXY{-1}%
+    \v@lXa=\C@\v@lX\v@lYa=-\S@\v@lY\advance\v@lXa\v@lYa%
+    \v@lYa=\S@\v@lX\v@lX=\C@\v@lY\advance\v@lYa\v@lX%
+    \figv@ctCreg-1(\v@lXa,\v@lYa)\figpttraDD#1:{#2}=#4/1,-1/%
+    \resetc@ntr@l\et@tfigptrotDD}\ignorespaces\fi}
+\def\figptrotTD#1:#2=#3/#4,#5,#6/{\ifps@cri{\s@uvc@ntr@l\et@tfigptrotTD%
+    \c@ssin{\v@lmin}{\v@lmax}{#5pt}%
+    \edef\C@{\repdecn@mb{\v@lmin}}\edef\S@{\repdecn@mb{\v@lmax}}%
+    \setc@ntr@l{2}\figptorthoprojplaneTD-3:=#4/#3,#6/\figvectPTD-2[-3,#3]%
+    \n@rmeucTD\v@leur{-2}\ifdim\v@leur<\Cepsil@n\figg@tXYa{#3}\else%
+    \edef\v@lcoef{\repdecn@mb{\v@leur}}\figvectNVTD-1[#6,-2]%
+    \figg@tXYa{-1}\v@lXa=\v@lcoef\v@lXa\v@lYa=\v@lcoef\v@lYa\v@lZa=\v@lcoef\v@lZa%
+    \v@lXa=\S@\v@lXa\v@lYa=\S@\v@lYa\v@lZa=\S@\v@lZa\figg@tXY{-2}%
+    \advance\v@lXa\C@\v@lX\advance\v@lYa\C@\v@lY\advance\v@lZa\C@\v@lZ%
+    \figg@tXY{-3}\advance\v@lXa\v@lX\advance\v@lYa\v@lY\advance\v@lZa\v@lZ\fi%
+    \figp@intregTD#1:{#2}(\v@lXa,\v@lYa,\v@lZa)\resetc@ntr@l\et@tfigptrotTD}\ignorespaces\fi}
+\def\figptsymDD#1:#2=#3/#4,#5/{\ifps@cri{\s@uvc@ntr@l\et@tfigptsymDD%
+    \resetc@ntr@l{2}\figptorthoprojlineDD-5:=#3/#4,#5/\figvectPDD-2[#3,-5]%
+    \figpttraDD#1:{#2}=#3/2,-2/\resetc@ntr@l\et@tfigptsymDD}\ignorespaces\fi}
+\def\figptsymTD#1:#2=#3/#4,#5/{\ifps@cri{\s@uvc@ntr@l\et@tfigptsymTD%
+    \resetc@ntr@l{2}\figptorthoprojplaneTD-3:=#3/#4,#5/\figvectPTD-2[#3,-3]%
+    \figpttraTD#1:{#2}=#3/2,-2/\resetc@ntr@l\et@tfigptsymTD}\ignorespaces\fi}
+\def\figpttraDD#1:#2=#3/#4,#5/{\ifps@cri{\figg@tXYa{#5}\v@lXa=#4\v@lXa\v@lYa=#4\v@lYa%
+    \figg@tXY{#3}\advance\v@lX\v@lXa\advance\v@lY\v@lYa%
+    \figp@intregDD#1:{#2}(\v@lX,\v@lY)}\ignorespaces\fi}
+\def\figpttraTD#1:#2=#3/#4,#5/{\ifps@cri{\figg@tXYa{#5}\v@lXa=#4\v@lXa\v@lYa=#4\v@lYa%
+    \v@lZa=#4\v@lZa\figg@tXY{#3}\advance\v@lX\v@lXa\advance\v@lY\v@lYa%
+    \advance\v@lZ\v@lZa\figp@intregTD#1:{#2}(\v@lX,\v@lY,\v@lZ)}\ignorespaces\fi}
+\def\figpttraCDD#1:#2=#3/#4,#5/{\ifps@cri{\v@lXa=#4\unit@\v@lYa=#5\unit@%
+    \figg@tXY{#3}\advance\v@lX\v@lXa\advance\v@lY\v@lYa%
+    \figp@intregDD#1:{#2}(\v@lX,\v@lY)}\ignorespaces\fi}
+\def\figpttraCTD#1:#2=#3/#4,#5,#6/{\ifps@cri{\v@lXa=#4\unit@\v@lYa=#5\unit@\v@lZa=#6\unit@%
+    \figg@tXY{#3}\advance\v@lX\v@lXa\advance\v@lY\v@lYa\advance\v@lZ\v@lZa%
+    \figp@intregTD#1:{#2}(\v@lX,\v@lY,\v@lZ)}\ignorespaces\fi}
+\def\figptscontrolDD#1[#2,#3,#4,#5]{\ifps@cri{\s@uvc@ntr@l\et@tfigptscontrolDD%
+    \setc@ntr@l{2}\figptcopyDD-2:/#2/\s@mme=#1\advance\s@mme\@ne%
+    \figg@tXY{-2}\v@lX=8\v@lX\v@lY=8\v@lY\figp@intregDD-1:(\v@lX,\v@lY)%
+    \figpttraDD-1:=-1/-27,#3/\figpttraDD-1:=-1/1,#5/%
+    \figpttraDD-2:=-2/-27,#4/\figpttraDD-2:=-2/8,#5/%
+    \c@lptCtrlDD#1[-2,-1]\c@lptCtrlDD\the\s@mme[-1,-2]%
+    \resetc@ntr@l\et@tfigptscontrolDD}\ignorespaces\fi}
+\def\figptscontrolTD#1[#2,#3,#4,#5]{\ifps@cri{\s@uvc@ntr@l\et@tfigptscontrolTD%
+    \setc@ntr@l{2}\figptcopyTD-2:/#2/\s@mme=#1\advance\s@mme\@ne%
+    \figg@tXY{-2}\v@lX=8\v@lX\v@lY=8\v@lY\v@lZ=8\v@lZ\figp@intregTD-1:(\v@lX,\v@lY,\v@lZ)%
+    \figpttraTD-1:=-1/-27,#3/\figpttraTD-1:=-1/1,#5/%
+    \figpttraTD-2:=-2/-27,#4/\figpttraTD-2:=-2/8,#5/%
+    \c@lptCtrlTD#1[-2,-1]\c@lptCtrlTD\the\s@mme[-1,-2]%
+    \resetc@ntr@l\et@tfigptscontrolTD}\ignorespaces\fi}
+\def\figptsintercircDD#1[#2,#3;#4,#5]{\ifps@cri{\s@uvc@ntr@l\et@tfigptsintercirc%
+    \setc@ntr@l{2}\figvectP-1[#2,#4]\n@rmeucDD{\delt@}{-1}\s@mme=#1\advance\s@mme\@ne%
+    \figptcopyDD#1:/#2/\figptcopyDD\the\s@mme:/#4/%
+    \ifdim\delt@=\z@\else%
+    \v@lmin=#3\unit@\v@lmax=#5\unit@\v@leur=\v@lmin\advance\v@leur\v@lmax%
+    \ifdim\v@leur>\delt@%
+    \v@leur=\v@lmin\advance\v@leur-\v@lmax\maxim@m{\v@leur}{\v@leur}{-\v@leur}%
+    \ifdim\v@leur<\delt@%
+    \v@lmin=\repdecn@mb{\v@lmin}\v@lmin\v@lmax=\repdecn@mb{\v@lmax}\v@lmax%
+    \invers@{\v@leur}{\delt@}\advance\v@lmax-\v@lmin%
+    \v@lmax=-\repdecn@mb{\v@leur}\v@lmax\advance\delt@\v@lmax\delt@=.5\delt@%
+    \setc@ntr@l{2}\figvectPDD-1[#2,#4]\vecunit@{-1}{-1}%
+    \edef\t@ille{\repdecn@mb{\delt@}}\figpttraDD-2:=#2/\t@ille,-1/%
+    \figg@tXY{-1}\figv@ctCreg-1(-\v@lY,\v@lX)%
+    \delt@=\repdecn@mb{\delt@}\delt@\advance\v@lmin-\delt@%
+    \sqrt@{\v@leur}{\v@lmin}\edef\t@ille{\repdecn@mb{\v@leur}}%
+    \figpttraDD#1:=-2/-\t@ille,-1/\figpttraDD\the\s@mme:=-2/\t@ille,-1/\fi\fi\fi%
+    \resetc@ntr@l\et@tfigptsintercirc}\ignorespaces\fi}
+\def\figptsorthoprojlineDD#1=#2/#3,#4/{\ifps@cri{\s@uvc@ntr@l\et@tfigptsorthoprojlineDD%
+    \setc@ntr@l{2}\figvectPDD-3[#3,#4]\figvectNVDD-4[-3]\resetc@ntr@l{2}%
+    \def\list@num{#2}\s@mme=#1\@ecfor\p@int:=\list@num\do{%
+    \inters@cDD\the\s@mme:[\p@int,-4;#3,-3]\advance\s@mme\@ne}%
+    \resetc@ntr@l\et@tfigptsorthoprojlineDD}\ignorespaces\fi}
+\def\figptsorthoprojlineTD#1=#2/#3,#4/{\ifps@cri{\s@uvc@ntr@l\et@tfigptsorthoprojlineTD%
+    \setc@ntr@l{2}\figvectPTD-2[#3,#4]\vecunit@TD{-2}{-2}%
+    \def\list@num{#2}\s@mme=#1\@ecfor\p@int:=\list@num\do{%
+    \figvectPTD-1[#3,\p@int]\c@lproscalTD\v@leur[-1,-2]%
+    \edef\v@lcoef{\repdecn@mb{\v@leur}}\figpttraTD\the\s@mme:=#3/\v@lcoef,-2/%
+    \advance\s@mme\@ne}\resetc@ntr@l\et@tfigptsorthoprojlineTD}\ignorespaces\fi}
+\def\figptsorthoprojplaneTD#1=#2/#3,#4/{\ifps@cri{\s@uvc@ntr@l\et@tfigptsorthoprojplane%
+    \setc@ntr@l{2}\vecunit@TD{-2}{#4}%
+    \def\list@num{#2}\s@mme=#1\@ecfor\p@int:=\list@num\do{\figvectPTD-1[\p@int,#3]%
+    \c@lproscalTD\v@leur[-1,-2]\edef\v@lcoef{\repdecn@mb{\v@leur}}%
+    \figpttraTD\the\s@mme:=\p@int/\v@lcoef,-2/\advance\s@mme\@ne}%
+    \resetc@ntr@l\et@tfigptsorthoprojplane}\ignorespaces\fi}
+\def\figptshom#1=#2/#3,#4/{\ifps@cri{\s@uvc@ntr@l\et@tfigptshom%
+    \setc@ntr@l{2}\def\list@num{#2}\s@mme=#1%
+    \@ecfor\p@int:=\list@num\do{\figvectP-1[#3,\p@int]%
+    \figpttra\the\s@mme:=#3/#4,-1/\advance\s@mme\@ne}%
+    \resetc@ntr@l\et@tfigptshom}\ignorespaces\fi}
+\def\figptsrotDD#1=#2/#3,#4/{\ifps@cri{\s@uvc@ntr@l\et@tfigptsrotDD%
+    \c@ssin{\v@lmin}{\v@lmax}{#4pt}%
+    \edef\C@{\repdecn@mb{\v@lmin}}\edef\S@{\repdecn@mb{\v@lmax}}%
+    \setc@ntr@l{2}\def\list@num{#2}\s@mme=#1%
+    \@ecfor\p@int:=\list@num\do{\figvectPDD-1[#3,\p@int]\figg@tXY{-1}%
+    \v@lXa=\C@\v@lX\v@lYa=-\S@\v@lY\advance\v@lXa\v@lYa%
+    \v@lYa=\S@\v@lX\v@lX=\C@\v@lY\advance\v@lYa\v@lX%
+    \figv@ctCreg-1(\v@lXa,\v@lYa)\figpttraDD\the\s@mme:=#3/1,-1/\advance\s@mme\@ne}%
+    \resetc@ntr@l\et@tfigptsrotDD}\ignorespaces\fi}
+\def\figptsrotTD#1=#2/#3,#4,#5/{\ifps@cri{\s@uvc@ntr@l\et@tfigptsrotTD%
+    \c@ssin{\v@lmin}{\v@lmax}{#4pt}%
+    \edef\C@{\repdecn@mb{\v@lmin}}\edef\S@{\repdecn@mb{\v@lmax}}%
+    \setc@ntr@l{2}\def\list@num{#2}\s@mme=#1%
+    \@ecfor\p@int:=\list@num\do{\figptorthoprojplaneTD-3:=#3/\p@int,#5/%
+    \figvectPTD-2[-3,\p@int]%
+    \figvectNVTD-1[#5,-2]\n@rmeucTD\v@leur{-2}\edef\v@lcoef{\repdecn@mb{\v@leur}}%
+    \figg@tXYa{-1}\v@lXa=\v@lcoef\v@lXa\v@lYa=\v@lcoef\v@lYa\v@lZa=\v@lcoef\v@lZa%
+    \v@lXa=\S@\v@lXa\v@lYa=\S@\v@lYa\v@lZa=\S@\v@lZa\figg@tXY{-2}%
+    \advance\v@lXa\C@\v@lX\advance\v@lYa\C@\v@lY\advance\v@lZa\C@\v@lZ%
+    \figg@tXY{-3}\advance\v@lXa\v@lX\advance\v@lYa\v@lY\advance\v@lZa\v@lZ%
+    \figp@intregTD\the\s@mme:(\v@lXa,\v@lYa,\v@lZa)\advance\s@mme\@ne}%
+    \resetc@ntr@l\et@tfigptsrotTD}\ignorespaces\fi}
+\def\figptssymDD#1=#2/#3,#4/{\ifps@cri{\s@uvc@ntr@l\et@tfigptssymDD%
+    \setc@ntr@l{2}\figvectPDD-3[#3,#4]\figg@tXY{-3}\figv@ctCreg-4(-\v@lY,\v@lX)%
+    \resetc@ntr@l{2}\def\list@num{#2}\s@mme=#1%
+    \@ecfor\p@int:=\list@num\do{\inters@cDD-5:[#3,-3;\p@int,-4]\figvectPDD-2[\p@int,-5]%
+    \figpttraDD\the\s@mme:=\p@int/2,-2/\advance\s@mme\@ne}%
+    \resetc@ntr@l\et@tfigptssymDD}\ignorespaces\fi}
+\def\figptssymTD#1=#2/#3,#4/{\ifps@cri{\s@uvc@ntr@l\et@tfigptssymTD%
+    \setc@ntr@l{2}\vecunit@TD{-2}{#4}\def\list@num{#2}\s@mme=#1%
+    \@ecfor\p@int:=\list@num\do{\figvectPTD-1[\p@int,#3]%
+    \c@lproscalTD\v@leur[-1,-2]\v@leur=2\v@leur\edef\v@lcoef{\repdecn@mb{\v@leur}}%
+    \figpttraTD\the\s@mme:=\p@int/\v@lcoef,-2/\advance\s@mme\@ne}%
+    \resetc@ntr@l\et@tfigptssymTD}\ignorespaces\fi}
+\def\figptstraDD#1=#2/#3,#4/{\ifps@cri{\figg@tXYa{#4}\v@lXa=#3\v@lXa\v@lYa=#3\v@lYa%
+    \def\list@num{#2}\s@mme=#1\@ecfor\p@int:=\list@num\do{\figg@tXY{\p@int}%
+    \advance\v@lX\v@lXa\advance\v@lY\v@lYa%
+    \figp@intregDD\the\s@mme:(\v@lX,\v@lY)\advance\s@mme\@ne}}\ignorespaces\fi}
+\def\figptstraTD#1=#2/#3,#4/{\ifps@cri{\figg@tXYa{#4}\v@lXa=#3\v@lXa\v@lYa=#3\v@lYa%
+    \v@lZa=#3\v@lZa\def\list@num{#2}\s@mme=#1\@ecfor\p@int:=\list@num\do{\figg@tXY{\p@int}%
+    \advance\v@lX\v@lXa\advance\v@lY\v@lYa\advance\v@lZ\v@lZa%
+    \figp@intregTD\the\s@mme:(\v@lX,\v@lY,\v@lZ)\advance\s@mme\@ne}}\ignorespaces\fi}
+\def\figscan#1(#2,#3){{\s@uvc@ntr@l\et@tfigscan\@psfgetbb{#1}%
+    \if@psfbbfound\else\def\@psfllx{0}\def\@psflly{50}\def\@psfurx{540}\def\@psfury{800}\fi%
+    \unit@=\@ne bp\setc@ntr@l{2}\figsetmark{}%
+    \def\minst@p{20pt}\v@lX=\@psfllx\p@\v@lX=\Sc@leFact\v@lX\r@undint\v@lX\v@lX%
+    \v@lY=\@psflly\p@\v@lY=\Sc@leFact\v@lY%
+    \delt@=\@psfury\p@\delt@=\Sc@leFact\delt@%
+    \advance\delt@-\v@lY\v@lXa=\@psfurx\p@\v@lXa=\Sc@leFact\v@lXa\v@leur=\minst@p%
+    \edef\valv@lY{\repdecn@mb{\v@lY}}\edef\LgTr@it{\the\delt@}%
+    \loop\ifdim\v@lX<\v@lXa\edef\valv@lX{\repdecn@mb{\v@lX}}%
+    \figptDD -1:(\valv@lX,\valv@lY)\figwriten -1:\hbox{\vrule height\LgTr@it}(0)%
+    \ifdim\v@leur<\minst@p\else\figsetmark{$\scriptscriptstyle\triangle$}%
+    \figwrites -1:\@ffichnb{0}{\valv@lX}(4)\v@leur=\z@\figsetmark{}\fi%
+    \advance\v@leur#2pt\advance\v@lX#2pt\repeat%
+    \def\minst@p{10pt}\v@lX=\@psfllx\p@\v@lX=\Sc@leFact\v@lX%
+    \v@lY=\@psflly\p@\v@lY=\Sc@leFact\v@lY\r@undint\v@lY\v@lY%
+    \delt@=\@psfurx\p@\delt@=\Sc@leFact\delt@%
+    \advance\delt@-\v@lX\v@lYa=\@psfury\p@\v@lYa=\Sc@leFact\v@lYa\v@leur=\minst@p%
+    \edef\valv@lX{\repdecn@mb{\v@lX}}\edef\LgTr@it{\the\delt@}%
+    \loop\ifdim\v@lY<\v@lYa\edef\valv@lY{\repdecn@mb{\v@lY}}%
+    \figptDD -1:(\valv@lX,\valv@lY)\figwritee -1:\vbox{\hrule width\LgTr@it}(0)%
+    \ifdim\v@leur<\minst@p\else\figsetmark{$\triangleright$}%
+    \figwritew -1:\@ffichnb{0}{\valv@lY}(4)\v@leur=\z@\figsetmark{}\fi%
+    \advance\v@leur#3pt\advance\v@lY#3pt\repeat%
+    \resetc@ntr@l\et@tfigscan}\ignorespaces}
+\def\figshowpts[#1,#2]{{\figsetmark{$\bullet$}\figsetptname{\bf ##1}%
+    \p@rtent=#2\relax\ifnum\p@rtent<\z@\p@rtent=\z@\fi%
+    \s@mme=#1\relax\ifnum\s@mme<\z@\s@mme=\z@\fi%
+    \loop\ifnum\s@mme<\p@rtent\pt@rvect{\s@mme}%
+    \ifitis@K\figwriten{\the\s@mme}:(4pt)\fi\advance\s@mme\@ne\repeat%
+    \pt@rvect{\s@mme}\ifitis@K\figwriten{\the\s@mme}:(4pt)\fi}\ignorespaces}
+\def\pt@rvect#1{\set@bjc@de{#1}%
+    \expandafter\expandafter\expandafter\inqpt@rvec\csname\objc@de\endcsname:}
+\def\inqpt@rvec#1#2:{\if#1P\itis@vect@rtrue\else\itis@vect@rfalse\fi}
+\def\figshowsettings{{%
+    \immediate\write16{====================================================================}%
+    \immediate\write16{ Current settings about:}%
+    \immediate\write16{ --- GENERAL ---}%
+    \immediate\write16{Scale factor and Unit = \unit@util\space (\the\unit@)
+     \space -> \BS@ figinit{ScaleFactorUnit}}%
+    \immediate\write16{Update mode = \ifpstestm@de yes\else no\fi
+     \space-> \BS@ pssetupdate{yes/no}}%
+    \immediate\write16{ --- PRINTING ---}%
+    \immediate\write16{Implicit point name = \ptn@me{i} \space-> \BS@ figsetptname{Name}}%
+    \immediate\write16{Point marker = \the\c@nsymb \space -> \BS@ figsetmark{Mark}}%
+    \immediate\write16{Print rounded coordinates = \ifr@undcoord yes\else no\fi
+     \space-> \BS@ figsetroundcoord{yes/no}}%
+    \immediate\write16{ --- POSTSCRIPT ---}%
+    \immediate\write16{Arrow-head:}%
+    \immediate\write16{ (half-)Angle = \@rrowheadangle
+     \space-> \BS@ pssetarrowheadangle{Angle}}%
+    \immediate\write16{ Filling mode = \if@rrowhfill yes\else no\fi
+     \space-> \BS@ pssetarrowheadfill{yes/no}}%
+    \immediate\write16{ "Outside" = \if@rrowhout yes\else no\fi
+     \space-> \BS@ pssetarrowheadout{yes/no}}%
+    \immediate\write16{ Length = \@rrowheadlength
+     \if@rrowratio\space(not active)\else\space(active)\fi
+     \space-> \BS@ pssetarrowheadlength{Length}}%
+    \immediate\write16{ Ratio = \@rrowheadratio
+     \if@rrowratio\space(active)\else\space(not active)\fi
+     \space-> \BS@ pssetarrowheadratio{Ratio}}%
+    \immediate\write16{Color = \curr@ntcolor \space-> \BS@ pssetcmyk{\BS@ ColorName} or}%
+    \immediate\write16{ \space\space\space \BS@ pssetrgb{\BS@ ColorName}
+     or \BS@ pssetgray{GrayLevel}}%
+    \immediate\write16{Curve roundness = \curv@roundness
+     \space-> \BS@ pssetroundness{Roundness}}%
+    \immediate\write16{Filling mode = \iffillm@de yes\else no\fi
+     \space-> \BS@ pssetfillmode{yes/no}}%
+    \immediate\write16{Line style = \curr@ntdash \space-> \BS@ pssetdash{Index/Pattern}}%
+    \immediate\write16{Line width = \curr@ntwidth \space-> \BS@ pssetwidth{Width}}%
+    \immediate\write16{Secondary settings:}%
+    \immediate\write16{ Color = \sec@ndcolor \space-> \BS@ pssetsecondcmyk{\BS@ ColorName} or}%
+    \immediate\write16{ \space\space\space \BS@ pssetsecondrgb{\BS@ ColorName}
+     or \BS@ pssetsecondgray{GrayLevel}}%
+    \immediate\write16{ Line style = \curr@ntseconddash \space-> \BS@ pssetseconddash{Index/Pattern}}%
+    \immediate\write16{ Line width = \curr@ntsecondwidth \space-> \BS@ pssetsecondwidth{Width}}%
+    \ifTr@isDim%
+    \immediate\write16{ --- 3D to 2D PROJECTION ---}%
+    \immediate\write16{Projection : \typ@proj \space-> \BS@ figinit{ScaleFactorUnit, ProjType}}%
+    \immediate\write16{Psi = \v@lPsi \space-> \BS@ figsetview(Psi)}%
+    \ifcase\curr@ntproj\let@xte={Lambda}\else\let@xte={Theta}\fi%
+    \immediate\write16{\the\let@xte\space = \v@lTheta \space-> \BS@ figsetview(Psi, \the\let@xte)}%
+    \ifnum\curr@ntproj=\tw@%
+    \immediate\write16{Observation distance = \disob@unit \space-> \BS@ figsetobdist (Dist)}%
+     \v@lX=\ptT@unit@\Xt@rget\v@lY=\ptT@unit@\Yt@rget\v@lZ=\ptT@unit@\Zt@rget%
+    \immediate\write16{Target point = (\repdecn@mb{\v@lX}, \repdecn@mb{\v@lY},
+     \repdecn@mb{\v@lZ}) \space-> \BS@ figsettarget [Pt]}\fi%
+    \fi%
+    \immediate\write16{====================================================================}%
+    \ignorespaces}}
+{\catcode`\/=0 \catcode`/\=12 /gdef/BS@{\}}
+\newif\ifitis@vect@r
+\def\figvectC#1(#2,#3){{\itis@vect@rtrue\figpt#1:(#2,#3)}\ignorespaces}
+\def\figv@ctCreg#1(#2,#3){{\itis@vect@rtrue\figp@intreg#1:(#2,#3)}\ignorespaces}
+\def\figvectDBezierDD#1:#2,#3[#4,#5,#6,#7]{\ifps@cri{\s@uvc@ntr@l\et@tfigvectDBezierDD%
+    \figvectDBezier@#2,#3[#4,#5,#6,#7]\v@lX=\c@ef\v@lX\v@lY=\c@ef\v@lY%
+    \figv@ctCreg#1(\v@lX,\v@lY)\resetc@ntr@l\et@tfigvectDBezierDD}\ignorespaces\fi}
+\def\figvectDBezierTD#1:#2,#3[#4,#5,#6,#7]{\ifps@cri{\s@uvc@ntr@l\et@tfigvectDBezierTD%
+    \figvectDBezier@#2,#3[#4,#5,#6,#7]\v@lX=\c@ef\v@lX\v@lY=\c@ef\v@lY\v@lZ=\c@ef\v@lZ%
+    \figv@ctCreg#1(\v@lX,\v@lY,\v@lZ)\resetc@ntr@l\et@tfigvectDBezierTD}\ignorespaces\fi}
+\def\figvectDBezier@#1,#2[#3,#4,#5,#6]{\setc@ntr@l{2}%
+    \edef\T@{#2}\v@leur=\p@\advance\v@leur-#2pt\edef\UNmT@{\repdecn@mb{\v@leur}}%
+    \ifnum#1=\tw@\def\c@ef{6}\else\def\c@ef{3}\fi%
+    \figptcopy-4:/#3/\figptcopy-3:/#4/\figptcopy-2:/#5/\figptcopy-1:/#6/%
+    \c@lDecast{-4}{-3}{-1}\ifnum#1=\tw@\c@lDCDeux{-4}{-3}\c@lDCDeux{-3}{-2}%
+    \c@lDCDeux{-4}{-3}\else\c@lDecast{-4}{-3}{-2}\c@lDCDeux{-4}{-3}\fi\figg@tXY{-4}}
+\def\c@lDCDeuxDD#1#2{\figg@tXY{#2}\figg@tXYa{#1}%
+    \advance\v@lX-\v@lXa\advance\v@lY-\v@lYa\figp@intregDD#1:(\v@lX,\v@lY)}
+\def\c@lDCDeuxTD#1#2{\figg@tXY{#2}\figg@tXYa{#1}\advance\v@lX-\v@lXa%
+    \advance\v@lY-\v@lYa\advance\v@lZ-\v@lZa\figp@intregTD#1:(\v@lX,\v@lY,\v@lZ)}
+\def\figvectNDD#1[#2,#3]{\ifps@cri{\figg@tXYa{#2}\figg@tXY{#3}%
+    \advance\v@lX-\v@lXa\advance\v@lY-\v@lYa%
+    \figv@ctCreg#1(-\v@lY,\v@lX)}\ignorespaces\fi}
+\def\figvectNTD#1[#2,#3,#4]{\ifps@cri{\vecunitC@TD[#2,#4]\v@lmin=\v@lX\v@lmax=\v@lY%
+    \v@leur=\v@lZ\vecunitC@TD[#2,#3]\c@lprovec{#1}}\ignorespaces\fi}
+\def\figvectNVDD#1[#2]{\ifps@cri{\figg@tXY{#2}\figv@ctCreg#1(-\v@lY,\v@lX)}\ignorespaces\fi}
+\def\figvectNVTD#1[#2,#3]{\ifps@cri{\vecunitCV@TD{#3}\v@lmin=\v@lX\v@lmax=\v@lY%
+    \v@leur=\v@lZ\vecunitCV@TD{#2}\c@lprovec{#1}}\ignorespaces\fi}
+\def\figvectPDD#1[#2,#3]{\ifps@cri{\figg@tXYa{#2}\figg@tXY{#3}%
+    \advance\v@lX-\v@lXa\advance\v@lY-\v@lYa%
+    \figv@ctCreg#1(\v@lX,\v@lY)}\ignorespaces\fi}
+\def\figvectPTD#1[#2,#3]{\ifps@cri{\figg@tXYa{#2}\figg@tXY{#3}%
+    \advance\v@lX-\v@lXa\advance\v@lY-\v@lYa\advance\v@lZ-\v@lZa%
+    \figv@ctCreg#1(\v@lX,\v@lY,\v@lZ)}\ignorespaces\fi}
+\def\figvectUDD#1[#2]{\ifps@cri{\n@rmeuc\v@leur{#2}\invers@\v@leur\v@leur%
+    \delt@=\repdecn@mb{\v@leur}\unit@\edef\v@ldelt@{\repdecn@mb{\delt@}}%
+    \figg@tXY{#2}\v@lX=\v@ldelt@\v@lX\v@lY=\v@ldelt@\v@lY%
+    \figv@ctCreg#1(\v@lX,\v@lY)}\ignorespaces\fi}
+\def\figvectUTD#1[#2]{\ifps@cri{\n@rmeuc\v@leur{#2}\invers@\v@leur\v@leur%
+    \delt@=\repdecn@mb{\v@leur}\unit@\edef\v@ldelt@{\repdecn@mb{\delt@}}%
+    \figg@tXY{#2}\v@lX=\v@ldelt@\v@lX\v@lY=\v@ldelt@\v@lY\v@lZ=\v@ldelt@\v@lZ%
+    \figv@ctCreg#1(\v@lX,\v@lY,\v@lZ)}\ignorespaces\fi}
+\def\figvisu#1#2#3{\c@ldefproj\initb@undb@x\setbox\b@xvisu=\hbox{\ignorespaces#3}%
+    \v@lXa=-\c@@rdYmin\v@lYa=\c@@rdYmax\advance\v@lYa-\c@@rdYmin%
+    \v@lX=\c@@rdXmax\advance\v@lX-\c@@rdXmin%
+    \setbox#1=\hbox{#2}\v@lY=-\v@lX\maxim@m{\v@lX}{\v@lX}{\wd#1}%
+    \advance\v@lY\v@lX\v@lY=0.5\v@lY\advance\v@lY-\c@@rdXmin%
+    \setbox#1=\vbox{\parindent0mm\hsize=\v@lX\vskip\v@lYa%
+    \rlap{\hskip\v@lY\smash{\raise\v@lXa\box\b@xvisu}}%
+    \def\t@xt@{#2}\ifx\t@xt@\empty\else\medskip\centerline{#2}\fi}\wd#1=\v@lX}
+\newdimen\Xt@rget  \newdimen\Yt@rget  \newdimen\Zt@rget
+\newdimen\XminTD@ \newdimen\YminTD@ \newdimen\ZminTD@ % Dimensions de la BoundingBox 3D
+\newdimen\XmaxTD@ \newdimen\YmaxTD@ \newdimen\ZmaxTD@
+\newif\ifnewt@rgetpt\newif\ifnewdis@b
+\def\b@undb@xTD#1#2#3{%
+    \minim@m{\global\XminTD@}{\XminTD@}{#1}%
+    \minim@m{\global\YminTD@}{\YminTD@}{#2}%
+    \minim@m{\global\ZminTD@}{\ZminTD@}{#3}%
+    \maxim@m{\global\XmaxTD@}{\XmaxTD@}{#1}%
+    \maxim@m{\global\YmaxTD@}{\YmaxTD@}{#2}%
+    \maxim@m{\global\ZmaxTD@}{\ZmaxTD@}{#3}}
+\def\c@ldefdisob{{\ifdim\XminTD@<\maxdimen\v@leur=\XmaxTD@\advance\v@leur-\XminTD@%
+    \delt@=\YmaxTD@\advance\delt@-\YminTD@\maxim@m{\v@leur}{\v@leur}{\delt@}%
+    \delt@=\ZmaxTD@\advance\delt@-\ZminTD@\maxim@m{\v@leur}{\v@leur}{\delt@}%
+    \v@leur=5\v@leur\else\v@leur=800pt\fi\c@ldefdisob@{\v@leur}}}
+\def\c@ldefdisob@#1{{\v@leur=#1\ifdim\v@leur<\p@\v@leur=800pt\fi%
+    \delt@=\ptT@unit@\v@leur\xdef\disob@unit{\repdecn@mb{\delt@}}%
+    \f@ctech=\@ne\loop\ifdim\v@leur>10pt\divide\v@leur\t@n\multiply\f@ctech\t@n\repeat%
+    \xdef\disob@{\repdecn@mb{\v@leur}}\xdef\divf@ctproj{\the\f@ctech}}%
+    \global\newdis@btrue}
+\def\c@ldeft@rgetpt{\global\newt@rgetpttrue%
+    \v@leur=\XmaxTD@\advance\v@leur-\XminTD@\Xt@rget=\XminTD@\advance\Xt@rget.5\v@leur%
+    \v@leur=\YmaxTD@\advance\v@leur-\YminTD@\Yt@rget=\YminTD@\advance\Yt@rget.5\v@leur%
+    \v@leur=\ZmaxTD@\advance\v@leur-\ZminTD@\Zt@rget=\ZminTD@\advance\Zt@rget.5\v@leur}
+\def\c@ldefprojTD{\ifnewt@rgetpt\else\c@ldeft@rgetpt\fi\ifnewdis@b\else\c@ldefdisob\fi}
+\def\c@lprojcav{% Projection cavaliere : X = x + y L cos t, Y = z + y L sin t
+    \v@leur=\cxa@\v@lY\advance\v@lX\v@leur%
+    \v@leur=\cxb@\v@lY\v@lY=\v@lZ\advance\v@lY\v@leur\ignorespaces}
+\def\c@lprojrea{% Projection realiste
+    \advance\v@lX-\Xt@rget\advance\v@lY-\Yt@rget\advance\v@lZ-\Zt@rget%
+    \v@leur=\cza@\v@lX\advance\v@leur\czb@\v@lY\advance\v@leur\czc@\v@lZ%
+    \divide\v@leur\divf@ctproj\advance\v@leur\disob@ pt\invers@{\v@leur}{\v@leur}%
+    \v@leur=\disob@\v@leur\edef\v@lcoef{\repdecn@mb{\v@leur}}%
+    \v@lXa=\cxa@\v@lX\advance\v@lXa\cxb@\v@lY\v@lXa=\v@lcoef\v@lXa%
+    \v@lY=\cyb@\v@lY\advance\v@lY\cya@\v@lX\advance\v@lY\cyc@\v@lZ%
+    \v@lY=\v@lcoef\v@lY\v@lX=\v@lXa\ignorespaces}
+\def\c@lprojort{% Projection orthogonale
+    \v@lXa=\cxa@\v@lX\advance\v@lXa\cxb@\v@lY%
+    \v@lY=\cyb@\v@lY\advance\v@lY\cya@\v@lX\advance\v@lY\cyc@\v@lZ%
+    \v@lX=\v@lXa\ignorespaces}
+\def\figptpr@j#1:#2/#3/{{\figg@tXY{#3}\superc@lprojSP%
+    \figp@intregDD#1:{#2}(\v@lX,\v@lY)}\ignorespaces}
+\def\figsetobdistTD(#1){{\ifcurr@ntPS%
+    \immediate\write16{*** \BS@ figsetobdist is ignored inside a
+     \BS@ psbeginfig-\BS@ psendfig block.}%
+    \else\v@leur=#1\unit@\c@ldefdisob@{\v@leur}\fi}\ignorespaces}
+\def\figs@tproj#1{%
+    \if#13 \d@faultproj\else\if#1c\d@faultproj%
+    \else\if#1o\xdef\curr@ntproj{1}\xdef\typ@proj{orthogonal}\figsetviewTD(40,25)%
+         \global\let\c@lprojSP=\c@lprojort\global\let\superc@lprojSP=\c@lprojort%
+    \else\if#1r\xdef\curr@ntproj{2}\xdef\typ@proj{realistic}\figsetviewTD(40,25)%
+         \global\let\c@lprojSP=\c@lprojrea\global\let\superc@lprojSP=\c@lprojrea%
+    \else\d@faultproj\message{*** Unknown projection. Cavalier projection assumed.}%
+    \fi\fi\fi\fi}
+\def\d@faultproj{\xdef\curr@ntproj{0}\xdef\typ@proj{cavalier}\figsetviewTD(40,0.5)%
+         \global\let\c@lprojSP=\c@lprojcav\global\let\superc@lprojSP=\c@lprojcav}
+\def\figsettargetTD[#1]{{\ifcurr@ntPS%
+    \immediate\write16{*** \BS@ figsettarget is ignored inside a
+     \BS@ psbeginfig-\BS@ psendfig block.}%
+    \else\global\newt@rgetpttrue\figg@tXY{#1}\global\Xt@rget=\v@lX%
+    \global\Yt@rget=\v@lY\global\Zt@rget=\v@lZ\fi}\ignorespaces}
+\def\figsetviewTD(#1){\ifcurr@ntPS%
+     \immediate\write16{*** \BS@ figsetview is ignored inside a
+     \BS@ psbeginfig-\BS@ psendfig block.}\else\figsetview@#1,:\fi\ignorespaces}
+\def\figsetview@#1,#2:{{\c@ssin{\v@lmin}{\v@lmax}{#1pt}\xdef\v@lPsi{#1}\def\t@xt@{#2}%
+    \ifx\t@xt@\empty\def\@rgdeux{\v@lTheta}\else\def\Xarg@##1,{\def\@rgdeux{##1}}\Xarg@#2\fi%
+    \xdef\costhet@{\repdecn@mb{\v@lmin}}\xdef\sinthet@{\repdecn@mb{\v@lmax}}%
+    \ifcase\curr@ntproj%
+    \v@leur=\@rgdeux\v@lmin\xdef\cxa@{\repdecn@mb{\v@leur}}%
+    \v@leur=\@rgdeux\v@lmax\xdef\cxb@{\repdecn@mb{\v@leur}}\v@leur=\@rgdeux pt%
+    \relax\ifdim\v@leur>\p@\message{*** Lambda too large ! See \BS@ figsetview !}\fi%
+    \else%
+    \v@lmax=-\v@lmax\xdef\cxa@{\repdecn@mb{\v@lmax}}\xdef\cxb@{\costhet@}%
+    \ifx\t@xt@\empty\def\@rgdeux{25}\fi\c@ssin{\v@lmin}{\v@lmax}{\@rgdeux pt}%
+    \v@lmax=-\v@lmax%
+    \v@leur=\v@lmax\v@leur=\costhet@\v@leur\xdef\cya@{\repdecn@mb{\v@leur}}%
+    \v@leur=\v@lmax\v@leur=\sinthet@\v@leur\xdef\cyb@{\repdecn@mb{\v@leur}}%
+    \xdef\cyc@{\repdecn@mb{\v@lmin}}%
+    \v@lmin=-\v@lmin%
+    \v@leur=\v@lmin\v@leur=\costhet@\v@leur\xdef\cza@{\repdecn@mb{\v@leur}}%
+    \v@leur=\v@lmin\v@leur=\sinthet@\v@leur\xdef\czb@{\repdecn@mb{\v@leur}}%
+    \xdef\czc@{\repdecn@mb{\v@lmax}}\fi%
+    \xdef\v@lTheta{\@rgdeux}}}
+\def\initb@undb@xTD{\XminTD@=\maxdimen\YminTD@=\maxdimen\ZminTD@=\maxdimen%
+    \XmaxTD@=-\maxdimen\YmaxTD@=-\maxdimen\ZmaxTD@=-\maxdimen}
+\newbox\Gb@x      % boite a tout faire
+\newbox\Gb@xSC    % boite qui contient le point marker
+\newtoks\c@nsymb  % the point marker
+\newdimen\V@l@ur  % dimension a tout faire
+\newif\ifr@undcoord\newif\ifunitpr@sent
+\def\unssqrttw@{0.70710678}
+\def\Ast{\raise-5.05pt\hbox{$\ast$}}
+\def\Bullet{\raise-5.05pt\hbox{$\bullet$}}
+\def\Circ{\raise-5.05pt\hbox{$\circ$}}
+\def\Diamond{\raise-5.05pt\hbox{$\diamond$}}%
+\def\c@nterpt{\ignorespaces%
+    \kern-.5\wd\Gb@xSC%
+    \raise-.5\ht\Gb@xSC\rlap{\hbox{\raise.5\dp\Gb@xSC\hbox{\copy\Gb@xSC}}}%
+    \kern .5\wd\Gb@xSC\ignorespaces}
+\def\b@undb@xSC#1#2{{\v@lXa=#1\v@lYa=#2%
+    \V@l@ur=\ht\Gb@xSC\advance\V@l@ur\dp\Gb@xSC%
+    \advance\v@lXa-.5\wd\Gb@xSC\advance\v@lYa-.5\V@l@ur\b@undb@x{\v@lXa}{\v@lYa}%
+    \advance\v@lXa\wd\Gb@xSC\advance\v@lYa\V@l@ur\b@undb@x{\v@lXa}{\v@lYa}}}
+\def\@keldist#1#2{\edef\Dist@n{#2}\y@tiunit{\Dist@n}%
+    \ifunitpr@sent#1=\Dist@n\else#1=\Dist@n\unit@\fi}
+\def\y@tiunit#1{\unitpr@sentfalse\expandafter\y@tiunit@#1:}
+\def\y@tiunit@#1#2:{\ifcat#1a\unitpr@senttrue\else\def\l@suite{#2}%
+    \ifx\l@suite\empty\else\y@tiunit@#2:\fi\fi}
+\def\figcoordDD#1{{\v@lX=\ptT@unit@\v@lX\v@lY=\ptT@unit@\v@lY%
+    \ifr@undcoord\ifcase#1\v@leur=0.5pt\or\v@leur=0.05pt\or\v@leur=0.005pt%
+    \or\v@leur=0.0005pt\else\v@leur=\z@\fi%
+    \ifdim\v@lX<\z@\advance\v@lX-\v@leur\else\advance\v@lX\v@leur\fi%
+    \ifdim\v@lY<\z@\advance\v@lY-\v@leur\else\advance\v@lY\v@leur\fi\fi%
+    (\@ffichnb{#1}{\repdecn@mb{\v@lX}},\ifmmode\else\thinspace\fi%
+    \@ffichnb{#1}{\repdecn@mb{\v@lY}})}}
+\def\@ffichnb#1#2{\def\@@ffich{\@ffich#1(}\edef\n@mbre{#2}%
+    \expandafter\@@ffich\n@mbre)}
+\def\@ffich#1(#2.#3){{#2\ifnum#1>\z@.\fi\def\dig@ts{#3}\s@mme=\z@%
+    \loop\ifnum\s@mme<#1\expandafter\@ffichdec\dig@ts:\advance\s@mme\@ne\repeat}}
+\def\@ffichdec#1#2:{\relax#1\def\dig@ts{#20}}
+\def\figcoordTD#1{{\v@lX=\ptT@unit@\v@lX\v@lY=\ptT@unit@\v@lY\v@lZ=\ptT@unit@\v@lZ%
+    \ifr@undcoord\ifcase#1\v@leur=0.5pt\or\v@leur=0.05pt\or\v@leur=0.005pt%
+    \or\v@leur=0.0005pt\else\v@leur=\z@\fi%
+    \ifdim\v@lX<\z@\advance\v@lX-\v@leur\else\advance\v@lX\v@leur\fi%
+    \ifdim\v@lY<\z@\advance\v@lY-\v@leur\else\advance\v@lY\v@leur\fi%
+    \ifdim\v@lZ<\z@\advance\v@lZ-\v@leur\else\advance\v@lZ\v@leur\fi\fi%
+    (\@ffichnb{#1}{\repdecn@mb{\v@lX}},\ifmmode\else\thinspace\fi%
+     \@ffichnb{#1}{\repdecn@mb{\v@lY}},\ifmmode\else\thinspace\fi%
+     \@ffichnb{#1}{\repdecn@mb{\v@lZ}})}}
+\def\figsetroundcoord#1{\figsetr@undcoord#1:}
+\def\figsetr@undcoord#1#2:{\if#1n\r@undcoordfalse\else\r@undcoordtrue\fi}
+\def\figsetmark#1{\c@nsymb={#1}\setbox\Gb@xSC=\hbox{\the\c@nsymb}\ignorespaces}
+\def\figsetptname#1{\def\ptn@me##1{#1}\ignorespaces}
+\def\figwrite[#1]#2{{\ignorespaces\def\list@num{#1}\@ecfor\p@int:=\list@num\do{%
+    \setbox\Gb@x=\hbox{\def\t@xt@{#2}\ifx\t@xt@\empty\figg@tT{\p@int}\else#2\fi}%
+    \figwrit@{\p@int}}}\ignorespaces}
+\def\figwrit@#1{\figg@tXY{#1}\c@lprojSP%
+    \rlap{\kern\v@lX\raise\v@lY\hbox{\unhcopy\Gb@x}}\V@l@ur=\v@lY%
+    \advance\v@lY\ht\Gb@x\b@undb@x{\v@lX}{\v@lY}\advance\v@lX\wd\Gb@x%
+    \v@lY=\V@l@ur\advance\v@lY-\dp\Gb@x\b@undb@x{\v@lX}{\v@lY}}
+\def\figwritec[#1]#2{{\ignorespaces\def\list@num{#1}%
+    \@ecfor\p@int:=\list@num\do{\figwrit@c{\p@int}{#2}}}\ignorespaces}
+\def\figwrit@c#1#2{\figg@tXY{#1}\c@lprojSP%
+    \setbox\Gb@x=\hbox{\def\t@xt@{#2}\ifx\t@xt@\empty\figg@tT{#1}\else#2\fi}%
+    \rlap{\kern\v@lX\raise\v@lY\hbox{\rlap{\kern-.5\wd\Gb@x%
+    \raise-.5\ht\Gb@x\hbox{\raise.5\dp\Gb@x\hbox{\unhcopy\Gb@x}}}}}%
+    \V@l@ur=\ht\Gb@x\advance\V@l@ur\dp\Gb@x%
+    \advance\v@lX-.5\wd\Gb@x\advance\v@lY-.5\V@l@ur\b@undb@x{\v@lX}{\v@lY}%
+    \advance\v@lX\wd\Gb@x\advance\v@lY\V@l@ur\b@undb@x{\v@lX}{\v@lY}}
+\def\figwritep[#1]{{\ignorespaces\def\list@num{#1}\setbox\Gb@x=\hbox{\c@nterpt}%
+    \@ecfor\p@int:=\list@num\do{\figwrit@{\p@int}}}\ignorespaces}
+\def\figwritew#1:#2(#3){{\ignorespaces\@keldist\V@l@ur{#3}\delt@=\z@\def\list@num{#1}%
+    \@ecfor\p@int:=\list@num\do{\figwrit@gcw{\p@int}{#2}}}\ignorespaces}
+\def\figwritee#1:#2(#3){{\ignorespaces\@keldist\V@l@ur{#3}\delt@=\z@\def\list@num{#1}%
+    \@ecfor\p@int:=\list@num\do{\figwrit@gce{\p@int}{#2}}}\ignorespaces}
+\def\figwriten#1:#2(#3){{\ignorespaces\@keldist\V@l@ur{#3}\def\list@num{#1}%
+    \@ecfor\p@int:=\list@num\do{\figwrit@NS\p@int:{#2}(\@ne)}}\ignorespaces}
+\def\figwrites#1:#2(#3){{\ignorespaces\@keldist\V@l@ur{#3}\V@l@ur=-\V@l@ur\def\list@num{#1}%
+    \@ecfor\p@int:=\list@num\do{\figwrit@NS\p@int:{#2}(\m@ne)}}\ignorespaces}
+\def\figwritenw#1:#2(#3){{\ignorespaces\@keldist\V@l@ur{#3}%
+    \V@l@ur=\unssqrttw@\V@l@ur\delt@=\V@l@ur\ifdim\delt@=\z@\delt@=\epsil@n\fi%
+    \def\list@num{#1}\@ecfor\p@int:=\list@num\do{\figwrit@gw{\p@int}{#2}}}\ignorespaces}
+\def\figwritesw#1:#2(#3){{\ignorespaces\@keldist\V@l@ur{#3}%
+    \V@l@ur=\unssqrttw@\V@l@ur\delt@=-\V@l@ur\ifdim\delt@=\z@\delt@=-\epsil@n\fi%
+    \def\list@num{#1}\@ecfor\p@int:=\list@num\do{\figwrit@gw{\p@int}{#2}}}\ignorespaces}
+\def\figwritene#1:#2(#3){{\ignorespaces\@keldist\V@l@ur{#3}%
+    \V@l@ur=\unssqrttw@\V@l@ur\delt@=\V@l@ur\ifdim\delt@=\z@\delt@=\epsil@n\fi%
+    \def\list@num{#1}\@ecfor\p@int:=\list@num\do{\figwrit@ge{\p@int}{#2}}}\ignorespaces}
+\def\figwritese#1:#2(#3){{\ignorespaces\@keldist\V@l@ur{#3}%
+    \V@l@ur=\unssqrttw@\V@l@ur\delt@=-\V@l@ur\ifdim\delt@=\z@\delt@=-\epsil@n\fi%
+    \def\list@num{#1}\@ecfor\p@int:=\list@num\do{\figwrit@ge{\p@int}{#2}}}\ignorespaces}
+\def\figwritegcw#1:#2(#3,#4){{\ignorespaces\@keldist\V@l@ur{#3}\@keldist\delt@{#4}%
+    \def\list@num{#1}\@ecfor\p@int:=\list@num\do{\figwrit@gcw{\p@int}{#2}}}\ignorespaces}
+\def\figwrit@gcw#1#2{\figg@tXY{#1}\c@lprojSP%
+    \setbox\Gb@x=\hbox{\def\t@xt@{#2}\ifx\t@xt@\empty\figg@tT{#1}\else#2\fi}%
+    \rlap{\kern\v@lX\raise\v@lY\hbox{\rlap{\kern-\wd\Gb@x\kern-\V@l@ur%
+          \raise-.5\ht\Gb@x\hbox{\raise\delt@\hbox{\raise.5\dp\Gb@x\hbox{\unhcopy\Gb@x}}}}%
+          \c@nterpt}}%
+    \ifdim\wd\Gb@xSC>\z@\b@undb@xSC{\v@lX}{\v@lY}\fi% Prise en compte du point marker
+    \advance\v@lX-\wd\Gb@x\advance\v@lX-\V@l@ur\v@lZ=\ht\Gb@x\advance\v@lZ\dp\Gb@x%
+    \advance\v@lY\delt@\advance\v@lY.5\v@lZ\b@undb@x{\v@lX}{\v@lY}%
+    \advance\v@lX\wd\Gb@x\advance\v@lY-\v@lZ\b@undb@x{\v@lX}{\v@lY}}
+\def\figwritegce#1:#2(#3,#4){{\ignorespaces\@keldist\V@l@ur{#3}\@keldist\delt@{#4}%
+    \def\list@num{#1}\@ecfor\p@int:=\list@num\do{\figwrit@gce{\p@int}{#2}}}\ignorespaces}
+\def\figwrit@gce#1#2{\figg@tXY{#1}\c@lprojSP%
+    \setbox\Gb@x=\hbox{\def\t@xt@{#2}\ifx\t@xt@\empty\figg@tT{#1}\else#2\fi}%
+    \rlap{\kern\v@lX\raise\v@lY\hbox{\c@nterpt\kern\V@l@ur%
+          \raise-.5\ht\Gb@x\hbox{\raise\delt@\hbox{\raise.5\dp\Gb@x\hbox{\unhcopy\Gb@x}}}}}%
+    \ifdim\wd\Gb@xSC>\z@\b@undb@xSC{\v@lX}{\v@lY}\fi% Prise en compte du point marker
+    \advance\v@lX\wd\Gb@x\advance\v@lX\V@l@ur\v@lZ=\ht\Gb@x\advance\v@lZ\dp\Gb@x%
+    \advance\v@lY\delt@\advance\v@lY.5\v@lZ\b@undb@x{\v@lX}{\v@lY}%
+    \advance\v@lX-\wd\Gb@x\advance\v@lY-\v@lZ\b@undb@x{\v@lX}{\v@lY}}
+\def\figwritegw#1:#2(#3,#4){{\ignorespaces\@keldist\V@l@ur{#3}\@keldist\delt@{#4}%
+    \def\list@num{#1}\@ecfor\p@int:=\list@num\do{\figwrit@gw{\p@int}{#2}}}\ignorespaces}
+\def\figwrit@gw#1#2{\figg@tXY{#1}\c@lprojSP%
+    \setbox\Gb@x=\hbox{\def\t@xt@{#2}\ifx\t@xt@\empty\figg@tT{#1}\else#2\fi}%
+    \v@lXa=\z@\v@lYa=\ht\Gb@x\advance\v@lYa\dp\Gb@x%
+    \ifdim\delt@>\z@\relax%
+    \rlap{\kern\v@lX\raise\v@lY\hbox{\rlap{\kern-\wd\Gb@x\kern-\V@l@ur%
+          \raise\delt@\hbox{\raise\dp\Gb@x\hbox{\unhcopy\Gb@x}}}\c@nterpt}}%
+    \else\ifdim\delt@<\z@\relax\v@lYa=-\v@lYa%
+    \rlap{\kern\v@lX\raise\v@lY\hbox{\rlap{\kern-\wd\Gb@x\kern-\V@l@ur%
+          \raise\delt@\hbox{\raise-\ht\Gb@x\hbox{\unhcopy\Gb@x}}}\c@nterpt}}%
+    \else\v@lXa=-.5\v@lYa%
+    \rlap{\kern\v@lX\raise\v@lY\hbox{\rlap{\kern-\wd\Gb@x\kern-\V@l@ur%
+          \raise-.5\ht\Gb@x\hbox{\raise.5\dp\Gb@x\hbox{\unhcopy\Gb@x}}}\c@nterpt}}%
+    \fi\fi%
+    \ifdim\wd\Gb@xSC>\z@\b@undb@xSC{\v@lX}{\v@lY}\fi% Prise en compte du point marker
+    \advance\v@lY\delt@%
+    \advance\v@lX-\V@l@ur\advance\v@lY\v@lXa\b@undb@x{\v@lX}{\v@lY}%
+    \advance\v@lX-\wd\Gb@x\advance\v@lY\v@lYa\b@undb@x{\v@lX}{\v@lY}}
+\def\figwritege#1:#2(#3,#4){{\ignorespaces\@keldist\V@l@ur{#3}\@keldist\delt@{#4}%
+    \def\list@num{#1}\@ecfor\p@int:=\list@num\do{\figwrit@ge{\p@int}{#2}}}\ignorespaces}
+\def\figwrit@ge#1#2{\figg@tXY{#1}\c@lprojSP%
+    \setbox\Gb@x=\hbox{\def\t@xt@{#2}\ifx\t@xt@\empty\figg@tT{#1}\else#2\fi}%
+    \v@lXa=\z@\v@lYa=\ht\Gb@x\advance\v@lYa\dp\Gb@x%
+    \ifdim\delt@>\z@\relax%
+    \rlap{\kern\v@lX\raise\v@lY\hbox{\c@nterpt\kern\V@l@ur%
+          \raise\delt@\hbox{\raise\dp\Gb@x\hbox{\unhcopy\Gb@x}}}}%
+    \else\ifdim\delt@<\z@\relax\v@lYa=-\v@lYa%
+    \rlap{\kern\v@lX\raise\v@lY\hbox{\c@nterpt\kern\V@l@ur%
+          \raise\delt@\hbox{\raise-\ht\Gb@x\hbox{\unhcopy\Gb@x}}}}%
+    \else\v@lXa=-.5\v@lYa%
+    \rlap{\kern\v@lX\raise\v@lY\hbox{\c@nterpt\kern\V@l@ur%
+          \raise-.5\ht\Gb@x\hbox{\raise.5\dp\Gb@x\hbox{\unhcopy\Gb@x}}}}%
+    \fi\fi%
+    \ifdim\wd\Gb@xSC>\z@\b@undb@xSC{\v@lX}{\v@lY}\fi% Prise en compte du point marker
+    \advance\v@lY\delt@%
+    \advance\v@lX\V@l@ur\advance\v@lY\v@lXa\b@undb@x{\v@lX}{\v@lY}%
+    \advance\v@lX\wd\Gb@x\advance\v@lY\v@lYa\b@undb@x{\v@lX}{\v@lY}}
+\def\figwrit@NS#1:#2(#3){\figg@tXY{#1}\c@lprojSP%
+    \setbox\Gb@x=\hbox{\def\t@xt@{#2}\ifx\t@xt@\empty\figg@tT{#1}\else#2\fi}%
+    \v@lZ=\V@l@ur\relax\ifdim#3pt<\z@\advance\v@lZ-\ht\Gb@x%
+    \else\advance\v@lZ\dp\Gb@x\fi%
+    \rlap{\kern\v@lX\raise\v@lY\hbox{\rlap{\kern-.5\wd\Gb@x%
+          \raise\v@lZ\hbox{\unhcopy\Gb@x}}\c@nterpt}}%
+    \ifdim\wd\Gb@xSC>\z@\b@undb@xSC{\v@lX}{\v@lY}\fi% Prise en compte du point marker
+    \advance\v@lY\v@lZ%
+    \advance\v@lY-\dp\Gb@x\advance\v@lX-.5\wd\Gb@x\b@undb@x{\v@lX}{\v@lY}%
+    \advance\v@lY\ht\Gb@x\advance\v@lY\dp\Gb@x%
+    \advance\v@lX\wd\Gb@x\b@undb@x{\v@lX}{\v@lY}}
+\newread\frf@g  \newwrite\fwf@g
+\newif\ifcurr@ntPS
+\newif\ifps@cri
+\newif\ifUse@llipse
+\newif\ifpsdebugmode \psdebugmodefalse % Provoque l'ecriture de commentaires dans
+\newif\ifmored@ta
+\def\c@pypsfile#1#2{\def\blankline{\par}{\catcode`\%=12
+    \loop\ifeof#2\mored@tafalse\else\mored@tatrue\immediate\read#2 to\tr@c
+    \ifx\tr@c\blankline\else\immediate\write#1{\tr@c}\fi\fi\ifmored@ta\repeat}}
+\let\@psffilein=\frf@g % file to \read
+\newif\if@psffileok    % continue looking for the bounding box?
+\newif\if@psfbbfound   % success?
+\newif\if@psfverbose   % report what you're making?
+\@psfverbosetrue
+\def\@psfgetbb#1{\global\@psfbbfoundfalse%
+\global\def\@psfllx{0}\global\def\@psflly{0}%
+\global\def\@psfurx{30}\global\def\@psfury{30}%
+\openin\@psffilein=#1
+\ifeof\@psffilein\errmessage{I couldn't open #1, will ignore it}\else
+   \edef\setcolonc@tcode{\catcode`\noexpand\:\the\catcode`\:\relax}%
+   {\@psffileoktrue \chardef\other=12
+    \def\do##1{\catcode`##1=\other}\dospecials \catcode`\ =10 \setcolonc@tcode
+    \loop
+       \read\@psffilein to \@psffileline
+       \ifeof\@psffilein\@psffileokfalse\else
+          \expandafter\@psfaux\@psffileline:. \\%
+       \fi
+   \if@psffileok\repeat
+   \if@psfbbfound\else
+    \if@psfverbose\message{No bounding box comment in #1; using defaults}\fi\fi
+   }\closein\@psffilein\fi}%
+{\catcode`\%=12 \global\let\@psfpercent=%\global\def\@psfbblit{%BoundingBox}}%
+\long\def\@psfaux#1#2:#3\\{\ifx#1\@psfpercent
+   \def\testit{#2}\ifx\testit\@psfbblit
+      \@psfgrab #3 . . . \\%
+      \@psffileokfalse
+      \global\@psfbbfoundtrue
+   \fi\else\ifx#1\par\else\@psffileokfalse\fi\fi}%
+\def\@psfempty{}%
+\def\@psfgrab #1 #2 #3 #4 #5\\{%
+\global\def\@psfllx{#1}\ifx\@psfllx\@psfempty
+      \@psfgrab #2 #3 #4 #5 .\\\else
+   \global\def\@psflly{#2}%
+   \global\def\@psfurx{#3}\global\def\@psfury{#4}\fi}%
+\newif\iffillm@de
+\def\pssetfillmode#1{\setfillm@de#1:}
+\def\setfillm@de#1#2:{\if#1n\fillm@defalse\else\fillm@detrue\fi}
+\newif\ifpstestm@de
+\def\pssetupdate#1{\ifcurr@ntPS\immediate\write16{*** \BS@ pssetupdate is ignored inside a
+     \BS@ psbeginfig-\BS@ psendfig block.}%
+    \immediate\write16{*** It must be called before \BS@ psbeginfig.}\else\setupd@te#1:\fi}
+\def\setupd@te#1#2:{\if#1n\pstestm@defalse\else\pstestm@detrue\fi}
+\def\psaltitude#1[#2,#3,#4]{{\ifps@cri%
+    \psc@mment{psaltitude Square Dim=#1, Triangle=[#2 / #3,#4]}%
+    \s@uvc@ntr@l\et@tpsaltitude\resetc@ntr@l{2}\figptorthoprojline-5:=#2/#3,#4/%
+    \figvectP -1[#3,#4]\n@rminf{\v@leur}{-1}%
+    \figvectP -1[-5,#3]\n@rminf{\v@lmin}{-1}\figvectP -2[-5,#4]\n@rminf{\v@lmax}{-2}%
+    \ifdim\v@lmin<\v@lmax\vecunit@{-3}{-2}\s@mme=#3%
+     \else\v@lmax=\v@lmin\vecunit@{-3}{-1}\s@mme=#4\fi%
+    \figvectP -4[-5,#2]\vecunit@{-4}{-4}\delt@=#1\unit@%
+    \edef\t@ille{\repdecn@mb{\delt@}}\figpttra-1:=-5/\t@ille,-4/%
+    \figpttra-2:=-1/\t@ille,-3/\figpttra-3:=-2/-\t@ille,-4/%
+    \psline[#2,-5]\psline[-1,-2,-3]%
+    \ifdim\v@leur<\v@lmax\pss@tsecondSt\psline[-5,\the\s@mme]\psrest@reSt\fi%
+    \psc@mment{End psaltitude}\resetc@ntr@l\et@tpsaltitude\fi}}
+\def\ps@rcerc#1;#2(#3,#4){\ellBB@x#1;#2,#2(#3,#4,0)%
+    \immediate\write\fwf@g{newpath}{\delt@=#2\unit@\delt@=\ptT@ptps\delt@%
+    \BdingB@xfalse%
+    \pswrit@cmd{#1}{\repdecn@mb{\delt@}\space #3\space #4\space arc}{\fwf@g}}}
+\def\psarccircDD#1;#2(#3,#4){\ifps@cri%
+    \psc@mment{psarccircDD Center=#1 ; Radius=#2 (Ang1=#3, Ang2=#4)}%
+    \iffillm@de\immediate\write\fwf@g{currentrgbcolor}\ps@rcerc#1;#2(#3,#4)%
+    \immediate\write\fwf@g{\curr@ntcolor\setfillc@md\space setrgbcolor}%
+    \else\ps@rcerc#1;#2(#3,#4)\immediate\write\fwf@g{stroke}\fi%
+    \psc@mment{End psarccircDD}\fi}
+\def\psarccircTD#1,#2,#3;#4(#5,#6){{\ifps@cri\s@uvc@ntr@l\et@tpsarccircTD%
+    \psc@mment{psarccircTD Center=#1,P1=#2,P2=#3 ; Radius=#4 (Ang1=#5, Ang2=#6)}%
+    \setc@ntr@l{2}\c@lExtAxes#1,#2,#3(#4)\psarcellPATD#1,-4,-5(#5,#6)%
+    \psc@mment{End psarccircTD}\resetc@ntr@l\et@tpsarccircTD\fi}}
+\def\c@lExtAxes#1,#2,#3(#4){%
+    \figvectPTD-5[#1,#2]\vecunit@{-5}{-5}\figvectNTD-4[#1,#2,#3]\vecunit@{-4}{-4}%
+    \figvectNVTD-3[-4,-5]\delt@=#4\unit@\edef\r@yon{\repdecn@mb{\delt@}}%
+    \figpttra-4:=#1/\r@yon,-5/\figpttra-5:=#1/\r@yon,-3/}
+\def\psarccircPDD#1;#2[#3,#4]{{\ifps@cri\s@uvc@ntr@l\et@tpsarccircPDD%
+    \psc@mment{psarccircPDD Center=#1; Radius=#2, [P1=#3, P2=#4]}%
+    \ps@ngleparam#1;#2[#3,#4]\ifdim\v@lmin>\v@lmax\advance\v@lmax\PI@deg\fi%
+    \edef\@ngdeb{\repdecn@mb{\v@lmin}}\edef\@ngfin{\repdecn@mb{\v@lmax}}%
+    \psarccirc#1;\r@dius(\@ngdeb,\@ngfin)%
+    \psc@mment{End psarccircPDD}\resetc@ntr@l\et@tpsarccircPDD\fi}}
+\def\psarccircPTD#1;#2[#3,#4,#5]{{\ifps@cri\s@uvc@ntr@l\et@tpsarccircPTD%
+    \psc@mment{psarccircPTD Center=#1; Radius=#2, [P1=#3, P2=#4, P3=#5]}%
+    \setc@ntr@l{2}\c@lExtAxes#1,#3,#5(#2)\psarcellPP#1,-4,-5[#3,#4]%
+    \psc@mment{End psarccircPTD}\resetc@ntr@l\et@tpsarccircPTD\fi}}
+\def\ps@ngleparam#1;#2[#3,#4]{\setc@ntr@l{2}%
+    \figvectPDD-1[#1,#3]\vecunit@{-1}{-1}\figg@tXY{-1}\arct@n\v@lmin(\v@lX,\v@lY)%
+    \figvectPDD-2[#1,#4]\vecunit@{-2}{-2}\figg@tXY{-2}\arct@n\v@lmax(\v@lX,\v@lY)%
+    \v@lmin=\rdT@deg\v@lmin\v@lmax=\rdT@deg\v@lmax%
+    \v@leur=#2pt\maxim@m{\mili@u}{-\v@leur}{\v@leur}%
+    \edef\r@dius{\repdecn@mb{\mili@u}}}
+\def\ps@rell#1;#2,#3(#4,#5,#6){\ellBB@x#1;#2,#3(#4,#5,#6)%
+    \immediate\write\fwf@g{newpath}{\v@lmin=#2\unit@\v@lmin=\ptT@ptps\v@lmin%
+    \v@lmax=#3\unit@\v@lmax=\ptT@ptps\v@lmax\BdingB@xfalse%
+    \pswrit@cmd{#1}%
+    {#6\space\repdecn@mb{\v@lmin}\space\repdecn@mb{\v@lmax}\space #4\space #5\space ellipse}{\fwf@g}}%
+    \global\Use@llipsetrue}
+\def\psarcellDD#1;#2,#3(#4,#5,#6){{\ifps@cri%
+    \psc@mment{psarcellDD Center=#1 ; XRad=#2, YRad=#3 (Ang1=#4, Ang2=#5, Inclination=#6)}%
+    \iffillm@de\immediate\write\fwf@g{currentrgbcolor}\ps@rell#1;#2,#3(#4,#5,#6)%
+    \immediate\write\fwf@g{\curr@ntcolor\setfillc@md\space setrgbcolor}%
+    \else\ps@rell#1;#2,#3(#4,#5,#6)\immediate\write\fwf@g{stroke}\fi%
+    \psc@mment{End psarcellDD}\fi}}
+\def\psarcellTD#1;#2,#3(#4,#5,#6){{\ifps@cri\s@uvc@ntr@l\et@tpsarcellTD%
+    \psc@mment{psarcellTD Center=#1 ; XRad=#2, YRad=#3 (Ang1=#4, Ang2=#5, Inclination=#6)}%
+    \setc@ntr@l{2}\figpttraC -8:=#1/#2,0,0/\figpttraC -7:=#1/0,#3,0/%
+    \figvectC -4(0,0,1)\figptsrot -8=-8,-7/#1,#6,-4/\psarcellPATD#1,-8,-7(#4,#5)%
+    \psc@mment{End psarcellTD}\resetc@ntr@l\et@tpsarcellTD\fi}}
+\def\psarcellPADD#1,#2,#3(#4,#5){{\ifps@cri\s@uvc@ntr@l\et@tpsarcellPADD%
+    \psc@mment{psarcellPADD Center=#1,PtAxis1=#2,PtAxis2=#3 (Ang1=#4, Ang2=#5)}%
+    \setc@ntr@l{2}\figvectPDD-1[#1,#2]\vecunit@DD{-1}{-1}\v@lX=\ptT@unit@\result@t%
+    \edef\XR@d{\repdecn@mb{\v@lX}}\figg@tXY{-1}\arct@n\v@lmin(\v@lX,\v@lY)%
+    \v@lmin=\rdT@deg\v@lmin\edef\Inclin@{\repdecn@mb{\v@lmin}}%
+    \figgetdist\YR@d[#1,#3]\psarcellDD#1;\XR@d,\YR@d(#4,#5,\Inclin@)%
+    \psc@mment{End psarcellPADD}\resetc@ntr@l\et@tpsarcellPADD\fi}}
+\def\psarcellPATD#1,#2,#3(#4,#5){{\ifps@cri\s@uvc@ntr@l\et@tpsarcellPATD%
+    \psc@mment{psarcellPATD Center=#1,PtAxis1=#2,PtAxis2=#3 (Ang1=#4, Ang2=#5)}%
+    \iffillm@de\immediate\write\fwf@g{currentrgbcolor}\ps@rellPATD#1,#2,#3(#4,#5)%
+    \immediate\write\fwf@g{\curr@ntcolor\setfillc@md\space setrgbcolor}%
+    \else\ps@rellPATD#1,#2,#3(#4,#5)\immediate\write\fwf@g{stroke}\fi%
+    \psc@mment{End psarcellPATD}\resetc@ntr@l\et@tpsarcellPATD\fi}}
+\def\ps@rellPATD#1,#2,#3(#4,#5){\let\c@lprojSP=\relax%
+    \setc@ntr@l{2}\figvectPTD-1[#1,#2]\figvectPTD-2[#1,#3]\c@lNbarcs{#4}{#5}%
+    \v@leur=#4pt\c@lptellP{#1}{-1}{-2}\figptpr@j-5:/-3/%
+    \immediate\write\fwf@g{newpath}\pswrit@cmdS{-5}{moveto}{\fwf@g}{\X@un}{\Y@un}%
+    \s@mme=\z@\loop\ifnum\s@mme<\p@rtent\advance\s@mme\@ne%
+    \figg@tXY{-5}\v@lX=8\v@lX\v@lY=8\v@lY\figp@intregDD-4:(\v@lX,\v@lY)%
+    \advance\v@leur\delt@\c@lptellP{#1}{-1}{-2}\figptpr@j-6:/-3/\figpttraDD-4:=-4/-27,-6/%
+    \advance\v@leur\delt@\c@lptellP{#1}{-1}{-2}\figptpr@j-6:/-3/\figpttraDD-5:=-5/-27,-6/%
+    \advance\v@leur\delt@\c@lptellP{#1}{-1}{-2}\figptpr@j-6:/-3/%
+    \figpttraDD-4:=-4/1,-6/\figpttraDD-5:=-5/8,-6/\BdingB@xfalse%
+    \c@lptCtrlDD-3[-5,-4]\pswrit@cmdS{-3}{}{\fwf@g}{\X@de}{\Y@de}%
+    \c@lptCtrlDD-3[-4,-5]\pswrit@cmdS{-3}{}{\fwf@g}{\X@tr}{\Y@tr}%
+    \BdingB@xtrue\pswrit@cmdS{-6}{curveto}{\fwf@g}{\X@qu}{\Y@qu}%
+    \B@zierBB@x{1}{\Y@un}(\X@un,\X@de,\X@tr,\X@qu)%
+    \B@zierBB@x{2}{\X@un}(\Y@un,\Y@de,\Y@tr,\Y@qu)%
+    \edef\X@un{\X@qu}\edef\Y@un{\Y@qu}\figptcopyDD-5:/-6/\repeat}
+\def\c@lNbarcs#1#2{%
+    \delt@=#2pt\advance\delt@-#1pt\maxim@m{\v@lmax}{\delt@}{-\delt@}%
+    \v@leur=\v@lmax\divide\v@leur45 \p@rtentiere{\p@rtent}{\v@leur}\advance\p@rtent\@ne%
+    \s@mme=\p@rtent\multiply\s@mme\thr@@\divide\delt@\s@mme}
+\def\c@lptCtrlDD#1[#2,#3]{\figptcopyDD#1:/#2/\figpttraDD#1:=#1/-2,#3/%
+    \figg@tXY{#1}\divide\v@lX18 \divide\v@lY18 \figp@intregDD#1:(\v@lX,\v@lY)}
+\def\c@lptCtrlTD#1[#2,#3]{\figptcopyTD#1:/#2/\figpttraTD#1:=#1/-2,#3/%
+    \figg@tXY{#1}\divide\v@lX18 \divide\v@lY18 \divide\v@lZ18 %
+    \figp@intregTD#1:(\v@lX,\v@lY,\v@lZ)}
+\def\psarcellPP#1,#2,#3[#4,#5]{{\ifps@cri\s@uvc@ntr@l\et@tpsarcellPP%
+    \psc@mment{psarcellPP Center=#1,PtAxis1=#2,PtAxis2=#3 [Point1=#4, Point2=#5]}%
+    \setc@ntr@l{2}\figvectP-2[#1,#3]\vecunit@{-2}{-2}\v@lmin=\result@t%
+    \invers@{\v@lmax}{\v@lmin}%
+    \figvectP-1[#1,#2]\vecunit@{-1}{-1}\v@leur=\result@t%
+    \v@leur=\repdecn@mb{\v@lmax}\v@leur\edef\AsB@{\repdecn@mb{\v@leur}}% a/b
+    \c@lAngle{#1}{#4}{\v@lmin}\edef\@ngdeb{\repdecn@mb{\v@lmin}}%
+    \c@lAngle{#1}{#5}{\v@lmax}\ifdim\v@lmin>\v@lmax\advance\v@lmax\PI@deg\fi%
+    \edef\@ngfin{\repdecn@mb{\v@lmax}}\psarcellPA#1,#2,#3(\@ngdeb,\@ngfin)%
+    \psc@mment{End psarcellPP}\resetc@ntr@l\et@tpsarcellPP\fi}}
+\def\c@lAngle#1#2#3{\figvectP-3[#1,#2]%
+    \c@lproscal\delt@[-3,-1]\c@lproscal\v@leur[-3,-2]%
+    \v@leur=\AsB@\v@leur\arct@n#3(\delt@,\v@leur)#3=\rdT@deg#3}
+\newif\if@rrowratio\@rrowratiotrue
+\newif\if@rrowhfill
+\newif\if@rrowhout
+\def\pssetarrowheadangle#1{\edef\@rrowheadangle{#1}{\c@ssin{\v@lmin}{\v@lmax}{#1pt}%
+    \xdef\C@AHANG{\repdecn@mb{\v@lmin}}\xdef\S@AHANG{\repdecn@mb{\v@lmax}}%
+    \invers@{\v@leur}{\v@lmax}\maxim@m{\v@leur}{\v@leur}{-\v@leur}%
+    \xdef\UNSS@N{\the\v@leur}}}
+\def\pssetarrowheadfill#1{\set@rrowhfill#1:}
+\def\set@rrowhfill#1#2:{\if#1n\@rrowhfillfalse\else\@rrowhfilltrue\fi}
+\def\pssetarrowheadout#1{\set@rrowhout#1:}
+\def\set@rrowhout#1#2:{\if#1n\@rrowhoutfalse\else\@rrowhouttrue\fi}
+\def\pssetarrowheadlength#1{\edef\@rrowheadlength{#1}\@rrowratiofalse}
+\def\pssetarrowheadratio#1{\edef\@rrowheadratio{#1}\@rrowratiotrue}
+\def\psresetarrowhead{%
+    \pssetarrowheadangle{\defaultarrowheadangle}%
+    \pssetarrowheadfill{no}\pssetarrowheadout{no}%
+    \pssetarrowheadratio{\defaultarrowheadratio}%
+    \c@ldef@hlength\pssetarrowheadlength{\defaultarrowheadlength}}
+\def\defaultarrowheadratio{0.1}
+\def\defaultarrowheadangle{20}
+\def\c@ldef@hlength{{\v@leur=10pt\v@leur=\ptT@unit@\v@leur%
+    \xdef\defaultarrowheadlength{\repdecn@mb{\v@leur}}}}
+\def\psarrowDD[#1,#2]{{\ifps@cri\s@uvc@ntr@l\et@tpsarrow%
+    \psc@mment{psarrowDD [Pt1,Pt2]=[#1,#2]}\pssetfillmode{no}%
+    \psarrowheadDD[#1,#2]\setc@ntr@l{2}\psline[#1,-3]%
+    \psc@mment{End psarrowDD}\resetc@ntr@l\et@tpsarrow\fi}}
+\def\psarrowTD[#1,#2]{{\ifps@cri\s@uvc@ntr@l\et@tpsarrowTD%
+    \psc@mment{psarrowTD [Pt1,Pt2]=[#1,#2]}\resetc@ntr@l{2}%
+    \figptpr@j-5:/#1/\figptpr@j-6:/#2/\let\c@lprojSP=\relax\psarrowDD[-5,-6]%
+    \psc@mment{End psarrowTD}\resetc@ntr@l\et@tpsarrowTD\fi}}
+\def\psarrowheadDD[#1,#2]{{\ifps@cri\s@uvc@ntr@l\et@tpsarrowheadDD%
+    \if@rrowhfill\def\@hangle{-\@rrowheadangle}\else\def\@hangle{\@rrowheadangle}\fi%
+    \if@rrowratio%
+    \if@rrowhout\def\@hratio{-\@rrowheadratio}\else\def\@hratio{\@rrowheadratio}\fi%
+    \psc@mment{psarrowheadDD Ratio=\@hratio, Angle=\@hangle, [Pt1,Pt2]=[#1,#2]}%
+    \ps@rrowhead\@hratio,\@hangle[#1,#2]%
+    \else%
+    \if@rrowhout\def\@hlength{-\@rrowheadlength}\else\def\@hlength{\@rrowheadlength}\fi%
+    \psc@mment{psarrowheadDD Length=\@hlength, Angle=\@hangle, [Pt1,Pt2]=[#1,#2]}%
+    \ps@rrowheadfd\@hlength,\@hangle[#1,#2]%
+    \fi%
+    \psc@mment{End psarrowheadDD}\resetc@ntr@l\et@tpsarrowheadDD\fi}}
+\def\psarrowheadTD[#1,#2]{{\ifps@cri\s@uvc@ntr@l\et@tpsarrowheadTD%
+    \psc@mment{psarrowheadTD [Pt1,Pt2]=[#1,#2]}\resetc@ntr@l{2}%
+    \figptpr@j-5:/#1/\figptpr@j-6:/#2/\let\c@lprojSP=\relax\psarrowheadDD[-5,-6]%
+    \psc@mment{End psarrowheadTD}\resetc@ntr@l\et@tpsarrowheadTD\fi}}
+\def\ps@rrowhead#1,#2[#3,#4]{{%
+    \psc@mment{ps@rrowhead Ratio=#1, Angle=#2, [Pt1,Pt2]=[#3,#4]}\v@leur=\UNSS@N%
+    \v@leur=\curr@ntwidth\v@leur\v@leur=\ptpsT@pt\v@leur\delt@=.5\v@leur% = width / (2 sin(Angle))
+    \setc@ntr@l{2}\figvectPDD-3[#4,#3]%
+    \figg@tXY{-3}\v@lX=#1\v@lX\v@lY=#1\v@lY\figv@ctCreg-3(\v@lX,\v@lY)%
+    \vecunit@{-4}{-3}\mili@u=\result@t%
+    \ifdim#2pt>\z@\v@lXa=-\C@AHANG\delt@%
+     \edef\c@ef{\repdecn@mb{\v@lXa}}\figpttraDD-3:=-3/\c@ef,-4/\fi%
+    \edef\c@ef{\repdecn@mb{\delt@}}%
+    \v@lXa=\mili@u\v@lXa=\C@AHANG\v@lXa%
+    \v@lYa=\ptpsT@pt\p@\v@lYa=\curr@ntwidth\v@lYa\v@lYa=\sDcc@ngle\v@lYa%
+    \advance\v@lXa-\v@lYa\gdef\sDcc@ngle{0}%
+    \ifdim\v@lXa>\v@leur\edef\c@efendpt{\repdecn@mb{\v@leur}}%
+    \else\edef\c@efendpt{\repdecn@mb{\v@lXa}}\fi%
+    \figg@tXY{-3}\v@lmin=\v@lX\v@lmax=\v@lY%
+    \v@lXa=\C@AHANG\v@lmin\v@lYa=\S@AHANG\v@lmax\advance\v@lXa\v@lYa%
+    \v@lYa=-\S@AHANG\v@lmin\v@lX=\C@AHANG\v@lmax\advance\v@lYa\v@lX%
+    \setc@ntr@l{1}\figg@tXY{#4}\advance\v@lX\v@lXa\advance\v@lY\v@lYa%
+    \setc@ntr@l{2}\figp@intregDD-2:(\v@lX,\v@lY)%
+    \v@lXa=\C@AHANG\v@lmin\v@lYa=-\S@AHANG\v@lmax\advance\v@lXa\v@lYa%
+    \v@lYa=\S@AHANG\v@lmin\v@lX=\C@AHANG\v@lmax\advance\v@lYa\v@lX%
+    \setc@ntr@l{1}\figg@tXY{#4}\advance\v@lX\v@lXa\advance\v@lY\v@lYa%
+    \setc@ntr@l{2}\figp@intregDD-1:(\v@lX,\v@lY)%
+    \ifdim#2pt<\z@\fillm@detrue\psline[-2,#4,-1]% fill
+    \else\figptstraDD-3=#4,-2,-1/\c@ef,-4/\psline[-2,-3,-1]\fi% no fill
+    \ifdim#1pt>\z@\figpttraDD-3:=#4/\c@efendpt,-4/\else\figptcopyDD-3:/#4/\fi%
+    \psc@mment{End ps@rrowhead}}}
+\def\sDcc@ngle{0}% Initialisation
+\def\ps@rrowheadfd#1,#2[#3,#4]{{%
+    \psc@mment{ps@rrowheadfd Length=#1, Angle=#2, [Pt1,Pt2]=[#3,#4]}%
+    \setc@ntr@l{2}\figvectPDD-1[#3,#4]\n@rmeucDD{\v@leur}{-1}\v@leur=\ptT@unit@\v@leur%
+    \invers@{\v@leur}{\v@leur}\v@leur=#1\v@leur\edef\R@tio{\repdecn@mb{\v@leur}}%
+    \ps@rrowhead\R@tio,#2[#3,#4]\psc@mment{End ps@rrowheadfd}}}
+\def\psarrowBezierDD[#1,#2,#3,#4]{{\ifps@cri\s@uvc@ntr@l\et@tpsarrowBezierDD%
+    \psc@mment{psarrowBezierDD Control points=#1,#2,#3,#4}\setc@ntr@l{2}%
+    \if@rrowratio\c@larclengthDD\v@leur,10[#1,#2,#3,#4]\else\v@leur=\z@\fi%
+    \ps@rrowB@zDD\v@leur[#1,#2,#3,#4]%
+    \psc@mment{End psarrowBezierDD}\resetc@ntr@l\et@tpsarrowBezierDD\fi}}
+\def\psarrowBezierTD[#1,#2,#3,#4]{{\ifps@cri\s@uvc@ntr@l\et@tpsarrowBezierTD%
+    \psc@mment{psarrowBezierTD Control points=#1,#2,#3,#4}\resetc@ntr@l{2}%
+    \figptpr@j-7:/#1/\figptpr@j-8:/#2/\figptpr@j-9:/#3/\figptpr@j-10:/#4/%
+    \let\c@lprojSP=\relax\ifnum\curr@ntproj<\tw@\psarrowBezierDD[-7,-8,-9,-10]%
+    \else\immediate\write\fwf@g{newpath}\pswrit@cmd{-7}{moveto}{\fwf@g}%
+    \if@rrowratio\c@larclengthDD\mili@u,10[-7,-8,-9,-10]\else\mili@u=\z@\fi%
+    \p@rtent=\NBz@rcs\advance\p@rtent\m@ne\subB@zierTD\p@rtent[#1,#2,#3,#4]%
+    \immediate\write\fwf@g{stroke}%
+    \advance\v@lmin\p@rtent\delt@% Initialized in \subB@zierTD
+    \v@leur=\v@lmin\advance\v@leur0.33333\delt@\edef\unti@rs{\repdecn@mb{\v@leur}}%
+    \v@leur=\v@lmin\advance\v@leur0.66666\delt@\edef\deti@rs{\repdecn@mb{\v@leur}}%
+    \figptcopyDD-8:/-10/\c@lsubBzarc\unti@rs,\deti@rs[#1,#2,#3,#4]%
+    \figptcopyDD-8:/-4/\figptcopyDD-9:/-3/\ps@rrowB@zDD\mili@u[-7,-8,-9,-10]\fi%
+    \psc@mment{End psarrowBezierTD}\resetc@ntr@l\et@tpsarrowBezierTD\fi}}
+\def\c@larclengthDD#1,#2[#3,#4,#5,#6]{{\p@rtent=#2\figptcopyDD-5:/#3/%
+    \delt@=\p@\divide\delt@\p@rtent\c@rre=\z@\v@leur=\z@\s@mme=\z@%
+    \loop\ifnum\s@mme<\p@rtent\advance\s@mme\@ne\advance\v@leur\delt@%
+    \edef\T@{\repdecn@mb{\v@leur}}\figptBezierDD-6::\T@[#3,#4,#5,#6]%
+    \figvectPDD-1[-5,-6]\n@rmeucDD{\mili@u}{-1}\advance\c@rre\mili@u%
+    \figptcopyDD-5:/-6/\repeat\global\result@t=\ptT@unit@\c@rre}#1=\result@t}
+\def\ps@rrowB@zDD#1[#2,#3,#4,#5]{{\pssetfillmode{no}%
+    \if@rrowratio\delt@=\@rrowheadratio#1\else\delt@=\@rrowheadlength pt\fi%
+    \v@leur=\C@AHANG\delt@\edef\R@dius{\repdecn@mb{\v@leur}}%
+    \figptintercircB@zDD-5:\R@dius[#5,#4,#3,#2]%
+    \pssetarrowheadlength{\repdecn@mb{\delt@}}\psarrowheadDD[-5,#5]%
+    \let\n@rmeuc=\n@rmeucDD\figgetdist\R@dius[#5,-3]\figptBezierDD-5::0.33333[#5,#4,#3,#2]%
+    \figptBezierDD-6::0.66666[#5,#4,#3,#2]\figptintercircB@zDD-3:\R@dius[#5,#4,#3,#2]%
+    \figptscontrolDD-5[-3,-5,-6,#2]\psBezierDD1[-3,-5,-4,#2]}}
+\def\psarrowcircDD#1;#2(#3,#4){{\ifps@cri\s@uvc@ntr@l\et@tpsarrowcircDD%
+    \psc@mment{psarrowcircDD Center=#1 ; Radius=#2 (Ang1=#3,Ang2=#4)}%
+    \pssetfillmode{no}\pscirc@rrowhead#1;#2(#3,#4)%
+    \setc@ntr@l{2}\figvectPDD -4[#1,-3]\vecunit@{-4}{-4}%
+    \figg@tXY{-4}\arct@n\v@lmin(\v@lX,\v@lY)%
+    \v@lmin=\rdT@deg\v@lmin\v@leur=#4pt\advance\v@leur-\v@lmin%
+    \maxim@m{\v@leur}{\v@leur}{-\v@leur}%
+    \ifdim\v@leur>90pt\relax\ifdim\v@lmin<#4pt\advance\v@lmin\PI@deg%
+    \else\advance\v@lmin-\PI@deg\fi\fi\edef\ar@ngle{\repdecn@mb{\v@lmin}}%
+    \ifdim#3pt<#4pt\psarccirc#1;#2(#3,\ar@ngle)\else\psarccirc#1;#2(\ar@ngle,#3)\fi%
+    \psc@mment{End psarrowcircDD}\resetc@ntr@l\et@tpsarrowcircDD\fi}}
+\def\psarrowcircTD#1,#2,#3;#4(#5,#6){{\ifps@cri\s@uvc@ntr@l\et@tpsarrowcircTD%
+    \psc@mment{psarrowcircTD Center=#1,P1=#2,P2=#3 ; Radius=#4 (Ang1=#5, Ang2=#6)}%
+    \resetc@ntr@l{2}\c@lExtAxes#1,#2,#3(#4)\let\c@lprojSP=\relax%
+    \figvectPTD-11[#1,-4]\figvectPTD-12[#1,-5]\c@lNbarcs{#5}{#6}%
+    \if@rrowratio\v@lmax=\degT@rd\v@lmax\edef\D@lpha{\repdecn@mb{\v@lmax}}\fi%
+    \advance\p@rtent\m@ne\mili@u=\z@%
+    \v@leur=#5pt\c@lptellP{#1}{-11}{-12}\figptpr@j-9:/-3/%
+    \immediate\write\fwf@g{newpath}\pswrit@cmdS{-9}{moveto}{\fwf@g}{\X@un}{\Y@un}%
+    \s@mme=\z@\loop\ifnum\s@mme<\p@rtent\advance\s@mme\@ne%
+    \advance\v@leur\delt@\c@lptellP{#1}{-11}{-12}\figptpr@j-5:/-3/%
+    \advance\v@leur\delt@\c@lptellP{#1}{-11}{-12}\figptpr@j-6:/-3/%
+    \advance\v@leur\delt@\c@lptellP{#1}{-11}{-12}\figptpr@j-10:/-3/%
+    \figptscontrolDD-8[-9,-5,-6,-10]\BdingB@xfalse%
+    \pswrit@cmdS{-8}{}{\fwf@g}{\X@de}{\Y@de}\pswrit@cmdS{-7}{}{\fwf@g}{\X@tr}{\Y@tr}%
+    \BdingB@xtrue\pswrit@cmdS{-10}{curveto}{\fwf@g}{\X@qu}{\Y@qu}%
+    \if@rrowratio\c@lcurvradDD0.5[-9,-8,-7,-10]\advance\mili@u\result@t\fi%
+    \B@zierBB@x{1}{\Y@un}(\X@un,\X@de,\X@tr,\X@qu)%
+    \B@zierBB@x{2}{\X@un}(\Y@un,\Y@de,\Y@tr,\Y@qu)%
+    \edef\X@un{\X@qu}\edef\Y@un{\Y@qu}\figptcopyDD-9:/-10/\repeat%
+    \immediate\write\fwf@g{stroke}%
+    \advance\v@leur\delt@\c@lptellP{#1}{-11}{-12}\figptpr@j-5:/-3/%
+    \advance\v@leur\delt@\c@lptellP{#1}{-11}{-12}\figptpr@j-6:/-3/%
+    \advance\v@leur\delt@\c@lptellP{#1}{-11}{-12}\figptpr@j-10:/-3/%
+    \figptscontrolDD-8[-9,-5,-6,-10]%
+    \if@rrowratio\c@lcurvradDD0.5[-9,-8,-7,-10]\advance\mili@u\result@t%
+    \maxim@m{\mili@u}{\mili@u}{-\mili@u}\mili@u=\ptT@unit@\mili@u%
+    \mili@u=\D@lpha\mili@u\advance\p@rtent\@ne\divide\mili@u\p@rtent\fi%
+    \ps@rrowB@zDD\mili@u[-9,-8,-7,-10]%
+    \psc@mment{End psarrowcircTD}\resetc@ntr@l\et@tpsarrowcircTD\fi}}
+\def\pscirc@rrowhead#1;#2(#3,#4){{%
+    \psc@mment{pscirc@rrowhead Center=#1 ; Radius=#2 (Ang1=#3,Ang2=#4)}%
+    \v@leur=#2\unit@\edef\s@glen{\repdecn@mb{\v@leur}}\v@lY=\z@\v@lX=\v@leur%
+    \resetc@ntr@l{2}\figv@ctCreg-3(\v@lX,\v@lY)\figpttraDD-5:=#1/1,-3/%
+    \figptrotDD-5:=-5/#1,#4/%
+    \figvectPDD-3[#1,-5]\figg@tXY{-3}\v@leur=\v@lX%
+    \ifdim#3pt<#4pt\v@lX=\v@lY\v@lY=-\v@leur\else\v@lX=-\v@lY\v@lY=\v@leur\fi%
+    \figv@ctCreg-3(\v@lX,\v@lY)\vecunit@{-3}{-3}%
+    \if@rrowratio\v@leur=#4pt\advance\v@leur-#3pt\maxim@m{\mili@u}{-\v@leur}{\v@leur}%
+    \mili@u=\degT@rd\mili@u\v@leur=\s@glen\mili@u\edef\s@glen{\repdecn@mb{\v@leur}}%
+    \mili@u=#2\mili@u\mili@u=\@rrowheadratio\mili@u\else\mili@u=\@rrowheadlength pt\fi%
+    \figpttraDD-6:=-5/\s@glen,-3/\v@leur=#2pt\v@leur=2\v@leur%
+    \invers@{\v@leur}{\v@leur}\c@rre=\repdecn@mb{\v@leur}\mili@u% = sin = L/(2R)
+    \mili@u=\c@rre\mili@u=\repdecn@mb{\c@rre}\mili@u%
+    \v@leur=\p@\advance\v@leur-\mili@u% \v@leur = cos*cos
+    \invers@{\mili@u}{2\v@leur}\delt@=\c@rre\delt@=\repdecn@mb{\mili@u}\delt@%
+    \xdef\sDcc@ngle{\repdecn@mb{\delt@}}% sin/(2*cos*cos) used in \ps@rrowhead
+    \sqrt@{\mili@u}{\v@leur}\arct@n\v@leur(\mili@u,\c@rre)%
+    \v@leur=\rdT@deg\v@leur% \cor@ngle = atan(L/sqrt(4R*R-L*L))
+    \ifdim#3pt<#4pt\v@leur=-\v@leur\fi%
+    \if@rrowhout\v@leur=-\v@leur\fi\edef\cor@ngle{\repdecn@mb{\v@leur}}%
+    \figptrotDD-6:=-6/-5,\cor@ngle/\psarrowheadDD[-6,-5]%
+    \psc@mment{End pscirc@rrowhead}}}
+\def\psarrowcircPDD#1;#2[#3,#4]{{\ifps@cri%
+    \psc@mment{psarrowcircPDD Center=#1; Radius=#2, [P1=#3,P2=#4]}%
+    \s@uvc@ntr@l\et@tpsarrowcircPDD\ps@ngleparam#1;#2[#3,#4]%
+    \ifdim\v@leur>\z@\ifdim\v@lmin>\v@lmax\advance\v@lmax\PI@deg\fi%
+    \else\ifdim\v@lmin<\v@lmax\advance\v@lmin\PI@deg\fi\fi%
+    \edef\@ngdeb{\repdecn@mb{\v@lmin}}\edef\@ngfin{\repdecn@mb{\v@lmax}}%
+    \psarrowcirc#1;\r@dius(\@ngdeb,\@ngfin)%
+    \psc@mment{End psarrowcircPDD}\resetc@ntr@l\et@tpsarrowcircPDD\fi}}
+\def\psarrowcircPTD#1;#2[#3,#4,#5]{{\ifps@cri\s@uvc@ntr@l\et@tpsarrowcircPTD%
+    \psc@mment{psarrowcircPTD Center=#1; Radius=#2, [P1=#3,P2=#4,P3=#5]}%
+    \figgetangleTD\@ngfin[#1,#3,#4,#5]\v@leur=#2pt%
+    \maxim@m{\mili@u}{-\v@leur}{\v@leur}\edef\r@dius{\repdecn@mb{\mili@u}}%
+    \ifdim\v@leur<\z@\v@lmax=\@ngfin pt\advance\v@lmax-\PI@deg%
+    \edef\@ngfin{\repdecn@mb{\v@lmax}}\fi\psarrowcircTD#1,#3,#5;\r@dius(0,\@ngfin)%
+    \psc@mment{End psarrowcircPTD}\resetc@ntr@l\et@tpsarrowcircPTD\fi}}
+\def\psbeginfig#1{\edef\psfilen@me{#1}\edef\auxfilen@me{\jobname.anx}%
+    \ifpstestm@de\ps@critrue\else\openin\frf@g=\psfilen@me\relax%
+    \ifeof\frf@g\ps@critrue\else\ps@crifalse\fi\closein\frf@g\fi%
+    \ifps@cri\initb@undb@x\initpss@ttings%
+    \immediate\openout\fwf@g=\auxfilen@me%
+    \pssetgray{0}\pssetwidth{\defaultwidth}\fi%
+    \curr@ntPStrue\c@ldefproj}
+\def\initpss@ttings{\pssetfillmode{no}\pssetupdate{no}%
+    \psresetarrowhead\pssetroundness{\defaultroundness}\pssetmeshdiag{\defaultmeshdiag}%
+    \def\curr@ntcolor{0}\def\curr@ntcolorc@md{setgray}%
+    \edef\curr@ntdash{\defaultdash}\edef\curr@ntwidth{\defaultwidth}%
+    \psresetsecondsettings\Use@llipsefalse}
+\def\B@zierBB@x#1#2(#3,#4,#5,#6){{\c@rre=\t@n\epsil@n% Do not reduce this value
+    \v@lmax=#4\advance\v@lmax-#5\v@lmax=\thr@@\v@lmax\advance\v@lmax#6\advance\v@lmax-#3%
+    \mili@u=#4\mili@u=-\tw@\mili@u\advance\mili@u#3\advance\mili@u#5%
+    \v@lmin=#4\advance\v@lmin-#3\maxim@m{\v@leur}{-\v@lmax}{\v@lmax}%
+    \maxim@m{\delt@}{-\mili@u}{\mili@u}\maxim@m{\v@leur}{\v@leur}{\delt@}%
+    \maxim@m{\delt@}{-\v@lmin}{\v@lmin}\maxim@m{\v@leur}{\v@leur}{\delt@}%
+    \ifdim\v@leur>\c@rre\invers@{\v@leur}{\v@leur}\edef\Uns@rM@x{\repdecn@mb{\v@leur}}%
+    \v@lmax=\Uns@rM@x\v@lmax\mili@u=\Uns@rM@x\mili@u\v@lmin=\Uns@rM@x\v@lmin%
+    \maxim@m{\v@leur}{-\v@lmax}{\v@lmax}\ifdim\v@leur<\c@rre%
+    \maxim@m{\v@leur}{-\mili@u}{\mili@u}\ifdim\v@leur<\c@rre\else%
+    \invers@{\mili@u}{\mili@u}\v@leur=-0.5\v@lmin%
+    \v@leur=\repdecn@mb{\mili@u}\v@leur\m@jBBB@x{\v@leur}{#1}{#2}(#3,#4,#5,#6)\fi%
+    \else\delt@=\repdecn@mb{\mili@u}\mili@u\v@leur=\repdecn@mb{\v@lmax}\v@lmin%
+    \advance\delt@-\v@leur\ifdim\delt@<\z@\else\invers@{\v@lmax}{\v@lmax}%
+    \edef\Uns@rAp{\repdecn@mb{\v@lmax}}\sqrt@{\delt@}{\delt@}%
+    \v@leur=-\mili@u\advance\v@leur\delt@\v@leur=\Uns@rAp\v@leur%
+    \m@jBBB@x{\v@leur}{#1}{#2}(#3,#4,#5,#6)%
+    \v@leur=-\mili@u\advance\v@leur-\delt@\v@leur=\Uns@rAp\v@leur%
+    \m@jBBB@x{\v@leur}{#1}{#2}(#3,#4,#5,#6)\fi\fi\fi}}
+\def\m@jBBB@x#1#2#3(#4,#5,#6,#7){{\relax\ifdim#1>\z@\ifdim#1<\p@%
+    \edef\T@{\repdecn@mb{#1}}\v@lX=\p@\advance\v@lX-#1\edef\UNmT@{\repdecn@mb{\v@lX}}%
+    \v@lX=#4\v@lY=#5\v@lZ=#6\v@lXa=#7\v@lX=\UNmT@\v@lX\advance\v@lX\T@\v@lY%
+    \v@lY=\UNmT@\v@lY\advance\v@lY\T@\v@lZ\v@lZ=\UNmT@\v@lZ\advance\v@lZ\T@\v@lXa%
+    \v@lX=\UNmT@\v@lX\advance\v@lX\T@\v@lY\v@lY=\UNmT@\v@lY\advance\v@lY\T@\v@lZ%
+    \v@lX=\UNmT@\v@lX\advance\v@lX\T@\v@lY%
+    \ifcase#2\or\v@lY=#3\or\v@lY=\v@lX\v@lX=#3\fi\b@undb@x{\v@lX}{\v@lY}\fi\fi}}
+\def\psB@zier#1[#2]{{\immediate\write\fwf@g{newpath}%
+    \s@mme=\z@\def\list@num{#2,0}%
+    \extrairelepremi@r\p@int\de\list@num\pswrit@cmdS{\p@int}{moveto}{\fwf@g}{\X@un}{\Y@un}%
+    \loop\ifnum\s@mme<#1\advance\s@mme\@ne\BdingB@xfalse%
+    \extrairelepremi@r\p@int\de\list@num\pswrit@cmdS{\p@int}{}{\fwf@g}{\X@de}{\Y@de}%
+    \extrairelepremi@r\p@int\de\list@num\pswrit@cmdS{\p@int}{}{\fwf@g}{\X@tr}{\Y@tr}%
+    \BdingB@xtrue%
+    \extrairelepremi@r\p@int\de\list@num\pswrit@cmdS{\p@int}{curveto}{\fwf@g}{\X@qu}{\Y@qu}%
+    \B@zierBB@x{1}{\Y@un}(\X@un,\X@de,\X@tr,\X@qu)%
+    \B@zierBB@x{2}{\X@un}(\Y@un,\Y@de,\Y@tr,\Y@qu)%
+    \edef\X@un{\X@qu}\edef\Y@un{\Y@qu}\repeat}}
+\def\psBezierDD#1[#2]{\ifps@cri\psc@mment{psBezierDD N arcs=#1, Control points=#2}%
+    \iffillm@de\immediate\write\fwf@g{currentrgbcolor}\psB@zier#1[#2]%
+    \immediate\write\fwf@g{\curr@ntcolor\setfillc@md\space setrgbcolor}%
+    \else\psB@zier#1[#2]\immediate\write\fwf@g{stroke}\fi%
+    \psc@mment{End psBezierDD}\fi}
+\def\psBezierTD#1[#2]{\ifps@cri\s@uvc@ntr@l\et@tpsBezierTD%
+    \psc@mment{psBezierTD N arcs=#1, Control points=#2}%
+    \iffillm@de\immediate\write\fwf@g{currentrgbcolor}\psB@zierTD#1[#2]%
+    \immediate\write\fwf@g{\curr@ntcolor\setfillc@md\space setrgbcolor}%
+    \else\psB@zierTD#1[#2]\immediate\write\fwf@g{stroke}\fi%
+    \psc@mment{End psBezierTD}\resetc@ntr@l\et@tpsBezierTD\fi}
+\def\psB@zierTD#1[#2]{\ifnum\curr@ntproj<\tw@\psB@zier#1[#2]\else\psB@zier@TD#1[#2]\fi}
+\def\psB@zier@TD#1[#2]{{\immediate\write\fwf@g{newpath}%
+    \s@mme=\z@\def\list@num{#2,0}\extrairelepremi@r\p@int\de\list@num%
+    \let\c@lprojSP=\relax\setc@ntr@l{2}\figptpr@j-7:/\p@int/%
+    \pswrit@cmd{-7}{moveto}{\fwf@g}%
+    \loop\ifnum\s@mme<#1\advance\s@mme\@ne\extrairelepremi@r\p@intun\de\list@num%
+    \extrairelepremi@r\p@intde\de\list@num\extrairelepremi@r\p@inttr\de\list@num%
+    \subB@zierTD\NBz@rcs[\p@int,\p@intun,\p@intde,\p@inttr]\edef\p@int{\p@inttr}\repeat}}
+\def\subB@zierTD#1[#2,#3,#4,#5]{\delt@=\p@\divide\delt@\NBz@rcs\v@lmin=\z@%
+    {\figg@tXY{-7}\edef\X@un{\the\v@lX}\edef\Y@un{\the\v@lY}%
+    \s@mme=\z@\loop\ifnum\s@mme<#1\advance\s@mme\@ne%
+    \v@leur=\v@lmin\advance\v@leur0.33333\delt@\edef\unti@rs{\repdecn@mb{\v@leur}}%
+    \v@leur=\v@lmin\advance\v@leur0.66666\delt@\edef\deti@rs{\repdecn@mb{\v@leur}}%
+    \advance\v@lmin\delt@\edef\trti@rs{\repdecn@mb{\v@lmin}}%
+    \figptBezierTD-8::\trti@rs[#2,#3,#4,#5]\figptpr@j-8:/-8/%
+    \c@lsubBzarc\unti@rs,\deti@rs[#2,#3,#4,#5]\BdingB@xfalse%
+    \pswrit@cmdS{-4}{}{\fwf@g}{\X@de}{\Y@de}\pswrit@cmdS{-3}{}{\fwf@g}{\X@tr}{\Y@tr}%
+    \BdingB@xtrue\pswrit@cmdS{-8}{curveto}{\fwf@g}{\X@qu}{\Y@qu}%
+    \B@zierBB@x{1}{\Y@un}(\X@un,\X@de,\X@tr,\X@qu)%
+    \B@zierBB@x{2}{\X@un}(\Y@un,\Y@de,\Y@tr,\Y@qu)%
+    \edef\X@un{\X@qu}\edef\Y@un{\Y@qu}\figptcopyDD-7:/-8/\repeat}}
+\def\NBz@rcs{2}
+\def\c@lsubBzarc#1,#2[#3,#4,#5,#6]{\figptBezierTD-5::#1[#3,#4,#5,#6]%
+    \figptBezierTD-6::#2[#3,#4,#5,#6]\figptpr@j-4:/-5/\figptpr@j-5:/-6/%
+    \figptscontrolDD-4[-7,-4,-5,-8]}
+\def\pscircDD#1(#2){\ifps@cri\psc@mment{pscircDD Center=#1 (Radius=#2)}%
+    \psarccircDD#1;#2(0,360)\psc@mment{End pscircDD}\fi}
+\def\pscircTD#1,#2,#3(#4){\ifps@cri%
+    \psc@mment{pscircTD Center=#1,P1=#2,P2=#3 (Radius=#4)}%
+    \psarccircTD#1,#2,#3;#4(0,360)\psc@mment{End pscircTD}\fi}
+{\catcode`\%=12\gdef\p@urcent{%}}
+\def\psc@mment#1{\ifpsdebugmode\immediate\write\fwf@g{\p@urcent\space#1}\fi}
+{\catcode`\[=1\catcode`\{=12\gdef\acc@louv[{}}
+{\catcode`\]=2\catcode`\}=12\gdef\acc@lfer{}]]
+\def\psdict@{\ifUse@llipse%
+    \immediate\write\fwf@g{/ellipsedict 9 dict def ellipsedict /mtrx matrix put}%
+    \immediate\write\fwf@g{/ellipse \acc@louv ellipsedict begin}%
+    \immediate\write\fwf@g{ /endangle exch def /startangle exch def}%
+    \immediate\write\fwf@g{ /yrad exch def /xrad exch def}%
+    \immediate\write\fwf@g{ /rotangle exch def /y exch def /x exch def}%
+    \immediate\write\fwf@g{ /savematrix mtrx currentmatrix def}%
+    \immediate\write\fwf@g{ x y translate rotangle rotate xrad yrad scale}%
+    \immediate\write\fwf@g{ 0 0 1 startangle endangle arc}%
+    \immediate\write\fwf@g{ savematrix setmatrix end\acc@lfer def}%
+    \fi\pshe@der{EndProlog}}
+\def\pssetroundness#1{\edef\curv@roundness{#1}}
+\def\defaultroundness{0.2}         % Valeur par defaut
+\def\pscurveDD[#1]{{\ifps@cri\psc@mment{pscurveDD Points=#1}\s@uvc@ntr@l\et@tpscurveDD%
+    \iffillm@de\immediate\write\fwf@g{currentrgbcolor}\psc@rveDD\curv@roundness[#1]%
+    \immediate\write\fwf@g{\curr@ntcolor\setfillc@md\space setrgbcolor}%
+    \else\psc@rveDD\curv@roundness[#1]\immediate\write\fwf@g{stroke}\fi%
+    \psc@mment{End pscurveDD}\resetc@ntr@l\et@tpscurveDD\fi}}
+\def\pscurveTD[#1]{{\ifps@cri%
+    \psc@mment{pscurveTD Points=#1}\s@uvc@ntr@l\et@tpscurveTD\let\c@lprojSP=\relax%
+    \iffillm@de\immediate\write\fwf@g{currentrgbcolor}\psc@rveTD\curv@roundness[#1]%
+    \immediate\write\fwf@g{\curr@ntcolor\setfillc@md\space setrgbcolor}%
+    \else\psc@rveTD\curv@roundness[#1]\immediate\write\fwf@g{stroke}\fi%
+    \psc@mment{End pscurveTD}\resetc@ntr@l\et@tpscurveTD\fi}}
+\def\psc@rveDD#1[#2]{%
+    \def\list@num{#2}\extrairelepremi@r\Ak@\de\list@num%
+    \extrairelepremi@r\Ai@\de\list@num\extrairelepremi@r\Aj@\de\list@num%
+    \immediate\write\fwf@g{newpath}\pswrit@cmdS{\Ai@}{moveto}{\fwf@g}{\X@un}{\Y@un}%
+    \setc@ntr@l{2}\figvectPDD -1[\Ak@,\Aj@]%
+    \@ecfor\Ak@:=\list@num\do{\figpttraDD-2:=\Ai@/#1,-1/\BdingB@xfalse%
+       \pswrit@cmdS{-2}{}{\fwf@g}{\X@de}{\Y@de}%
+       \figvectPDD -1[\Ai@,\Ak@]\figpttraDD-2:=\Aj@/-#1,-1/%
+       \pswrit@cmdS{-2}{}{\fwf@g}{\X@tr}{\Y@tr}\BdingB@xtrue%
+       \pswrit@cmdS{\Aj@}{curveto}{\fwf@g}{\X@qu}{\Y@qu}%
+       \B@zierBB@x{1}{\Y@un}(\X@un,\X@de,\X@tr,\X@qu)%
+       \B@zierBB@x{2}{\X@un}(\Y@un,\Y@de,\Y@tr,\Y@qu)%
+       \edef\X@un{\X@qu}\edef\Y@un{\Y@qu}\edef\Ai@{\Aj@}\edef\Aj@{\Ak@}}}
+\def\psc@rveTD#1[#2]{\setc@ntr@l{2}%
+    \def\list@num{#2}\extrairelepremi@r\Ak@\de\list@num\figptpr@j-5:/\Ak@/%
+    \extrairelepremi@r\Ai@\de\list@num\figptpr@j-3:/\Ai@/%
+    \extrairelepremi@r\Aj@\de\list@num\figptpr@j-4:/\Aj@/%
+    \immediate\write\fwf@g{newpath}\pswrit@cmdS{-3}{moveto}{\fwf@g}{\X@un}{\Y@un}%
+    \figvectPDD -1[-5,-4]%
+    \@ecfor\Ak@:=\list@num\do{\figptpr@j-5:/\Ak@/\figpttraDD-2:=-3/#1,-1/%
+       \BdingB@xfalse\pswrit@cmdS{-2}{}{\fwf@g}{\X@de}{\Y@de}%
+       \figvectPDD -1[-3,-5]\figpttraDD-2:=-4/-#1,-1/%
+       \pswrit@cmdS{-2}{}{\fwf@g}{\X@tr}{\Y@tr}\BdingB@xtrue%
+       \pswrit@cmdS{-4}{curveto}{\fwf@g}{\X@qu}{\Y@qu}%
+       \B@zierBB@x{1}{\Y@un}(\X@un,\X@de,\X@tr,\X@qu)%
+       \B@zierBB@x{2}{\X@un}(\Y@un,\Y@de,\Y@tr,\Y@qu)%
+       \edef\X@un{\X@qu}\edef\Y@un{\Y@qu}\figptcopyDD-3:/-4/\figptcopyDD-4:/-5/}}
+\def\psendfig{\ifps@cri\immediate\closeout\fwf@g%
+    \immediate\openout\fwf@g=\psfilen@me%
+    \immediate\write\fwf@g{\p@urcent\string!PS-Adobe-2.0 EPSF-2.0}%
+    \pshe@der{Creator\string: TeX (fig4tex.tex)}%
+    \pshe@der{Title\string: \psfilen@me}%
+    \pshe@der{CreationDate\string: \the\day/\the\month/\the\year}%
+    {\v@lX=\ptT@ptps\c@@rdXmin\v@lY=\ptT@ptps\c@@rdYmin%
+     \v@lXa=\ptT@ptps\c@@rdXmax\v@lYa=\ptT@ptps\c@@rdYmax%
+    \pshe@der{BoundingBox\string: \repdecn@mb{\v@lX}\space\repdecn@mb{\v@lY}%
+              \space\repdecn@mb{\v@lXa}\space\repdecn@mb{\v@lYa}}}%
+    \pshe@der{EndComments}\psdict@%
+    \immediate\write\fwf@g{currentrgbcolor}%
+    \openin\frf@g=\auxfilen@me\c@pypsfile\fwf@g\frf@g\closein\frf@g%
+    \immediate\write\fwf@g{setrgbcolor\space showpage}%
+    \psc@mment{End of file.}\immediate\closeout\fwf@g%
+    \immediate\openout\fwf@g=\auxfilen@me\immediate\closeout\fwf@g%
+    \immediate\write16{File \psfilen@me\space created.}\fi\curr@ntPSfalse\ps@critrue}
+\def\pshe@der#1{\immediate\write\fwf@g{\p@urcent\p@urcent#1}}
+\def\psline[#1]{{\ifps@cri\psc@mment{psline Points=#1}%
+    \let\pslign@=\pslign@P\pslin@{#1}\psc@mment{End psline}\fi}}
+\def\pslineF#1{{\ifps@cri\psc@mment{pslineF Filename=#1}%
+    \let\pslign@=\pslign@F\pslin@{#1}\psc@mment{End pslineF}\fi}}
+\def\pslin@#1{\iffillm@de\immediate\write\fwf@g{currentrgbcolor}\pslign@{#1}%
+    \immediate\write\fwf@g{\curr@ntcolor\setfillc@md\space setrgbcolor}%
+    \else\pslign@{#1}\ifx\derp@int\premp@int%
+    \immediate\write\fwf@g{closepath\space stroke}%
+    \else\immediate\write\fwf@g{stroke}\fi\fi}
+\def\pslign@P#1{\def\list@num{#1}\extrairelepremi@r\p@int\de\list@num%
+    \edef\premp@int{\p@int}\immediate\write\fwf@g{newpath}%
+    \pswrit@cmd{\p@int}{moveto}{\fwf@g}%
+    \@ecfor\p@int:=\list@num\do{\pswrit@cmd{\p@int}{lineto}{\fwf@g}%
+    \edef\derp@int{\p@int}}}
+\def\pslign@F#1{\s@uvc@ntr@l\et@tpslign@F\setc@ntr@l{2}\openin\frf@g=#1\relax%
+    \ifeof\frf@g\message{*** File #1 not found !}\end\else%
+    \read\frf@g to\tr@c\edef\premp@int{\tr@c}\expandafter\extr@ctCF\tr@c:%
+    \immediate\write\fwf@g{newpath}\pswrit@cmd{-1}{moveto}{\fwf@g}%
+    \loop\read\frf@g to\tr@c\ifeof\frf@g\mored@tafalse\else\mored@tatrue\fi%
+    \ifmored@ta\expandafter\extr@ctCF\tr@c:\pswrit@cmd{-1}{lineto}{\fwf@g}%
+    \edef\derp@int{\tr@c}\repeat\fi\closein\frf@g\resetc@ntr@l\et@tpslign@F}
+\def\extr@ctCFDD#1 #2:{\v@lX=#1\unit@\v@lY=#2\unit@\figp@intregDD-1:(\v@lX,\v@lY)}
+\def\extr@ctCFTD#1 #2 #3:{\v@lX=#1\unit@\v@lY=#2\unit@\v@lZ=#3\unit@%
+    \figp@intregTD-1:(\v@lX,\v@lY,\v@lZ)}
+\newcount\c@ntrolmesh
+\def\pssetmeshdiag#1{\c@ntrolmesh=#1}
+\def\defaultmeshdiag{0}          % Valeur par defaut
+\def\psmesh#1,#2[#3,#4,#5,#6]{{\ifps@cri%
+    \psc@mment{psmesh N1=#1, N2=#2, Quadrangle=[#3,#4,#5,#6]}%
+    \s@uvc@ntr@l\et@tpsmesh\pss@tsecondSt\setc@ntr@l{2}%
+    \ifnum#1>\@ne\psmeshp@rt#1[#3,#4,#5,#6]\fi%
+    \ifnum#2>\@ne\psmeshp@rt#2[#4,#5,#6,#3]\fi%
+    \ifnum\c@ntrolmesh>\z@\psmeshdi@g#1,#2[#3,#4,#5,#6]\fi%
+    \ifnum\c@ntrolmesh<\z@\psmeshdi@g#2,#1[#4,#5,#6,#3]\fi\psrest@reSt%
+    \psline[#3,#4,#5,#6,#3]\psc@mment{End psmesh}\resetc@ntr@l\et@tpsmesh\fi}}
+\def\psmeshp@rt#1[#2,#3,#4,#5]{{\l@mbd@un=\@ne\l@mbd@de=#1\loop%
+    \ifnum\l@mbd@un<#1\advance\l@mbd@de\m@ne\figptbary-1:[#2,#3;\l@mbd@de,\l@mbd@un]%
+    \figptbary-2:[#5,#4;\l@mbd@de,\l@mbd@un]\psline[-1,-2]\advance\l@mbd@un\@ne\repeat}}
+\def\psmeshdi@g#1,#2[#3,#4,#5,#6]{\figptcopy-2:/#3/\figptcopy-3:/#6/%
+    \l@mbd@un=\z@\l@mbd@de=#1\loop\ifnum\l@mbd@un<#1%
+    \advance\l@mbd@un\@ne\advance\l@mbd@de\m@ne\figptcopy-1:/-2/\figptcopy-4:/-3/%
+    \figptbary-2:[#3,#4;\l@mbd@de,\l@mbd@un]%
+    \figptbary-3:[#6,#5;\l@mbd@de,\l@mbd@un]\psmeshdi@gp@rt#2[-1,-2,-3,-4]\repeat}
+\def\psmeshdi@gp@rt#1[#2,#3,#4,#5]{{\l@mbd@un=\z@\l@mbd@de=#1\loop%
+    \ifnum\l@mbd@un<#1\figptbary-5:[#2,#5;\l@mbd@de,\l@mbd@un]%
+    \advance\l@mbd@de\m@ne\advance\l@mbd@un\@ne%
+    \figptbary-6:[#3,#4;\l@mbd@de,\l@mbd@un]\psline[-5,-6]\repeat}}
+\def\psnormalDD#1,#2[#3,#4]{{\ifps@cri%
+    \psc@mment{psnormal Length=#1, Lambda=#2 [Pt1,Pt2]=[#3,#4]}%
+    \s@uvc@ntr@l\et@tpsnormal\resetc@ntr@l{2}\figptendnormal-6::#1,#2[#3,#4]%
+    \figptcopyDD-5:/-1/\psarrow[-5,-6]%
+    \psc@mment{End psnormal}\resetc@ntr@l\et@tpsnormal\fi}}
+\def\pssetcmyk#1{\ifps@cri\psc@mment{pssetcmyk Color=#1}%
+    \def\curr@ntcolor{#1}\def\setfillc@md{\space setcmykcolor\space fill}%
+    \def\curr@ntcolorc@md{setcmykcolor}\pssetsecondcmyk{#1}%
+    \immediate\write\fwf@g{#1\space setcmykcolor}\fi}
+\def\pssetrgb#1{\ifps@cri\psc@mment{pssetrgb Color=#1}%
+    \def\curr@ntcolor{#1}\def\setfillc@md{\space setrgbcolor \space fill}%
+    \def\curr@ntcolorc@md{setrgbcolor}\pssetsecondrgb{#1}%
+    \immediate\write\fwf@g{#1\space setrgbcolor}\fi}
+\def\pssetgray#1{\ifps@cri\psc@mment{pssetgray Gray level=#1}%
+    \def\curr@ntcolor{#1}\def\setfillc@md{\space setgray\space fill}%
+    \def\curr@ntcolorc@md{setgray}\pssetsecondgray{#1}%
+    \immediate\write\fwf@g{#1\space setgray}\fi}
+\def\Blackcmyk{0 0 0 1}
+\def\Whitecmyk{0 0 0 0}
+\def\Cyancmyk{1 0 0 0}
+\def\Magentacmyk{0 1 0 0}
+\def\Yellowcmyk{0 0 1 0}
+\def\Redcmyk{0 1 1 0}
+\def\Greencmyk{1 0 1 0}
+\def\Bluecmyk{1 1 0 0}
+\def\Graycmyk{0 0 0 0.50}
+\def\BrickRedcmyk{0 0.89 0.94 0.28} % PANTONE 1805
+\def\Browncmyk{0 0.81 1 0.60} % PANTONE 1615
+\def\ForestGreencmyk{0.91 0 0.88 0.12} % PANTONE 349
+\def\Goldenrodcmyk{ 0 0.10 0.84 0} % PANTONE 109
+\def\Marooncmyk{0 0.87 0.68 0.32} % PANTONE 201
+\def\Orangecmyk{0 0.61 0.87 0} % PANTONE ORANGE-021
+\def\Purplecmyk{0.45 0.86 0 0} % PANTONE PURPLE
+\def\RoyalBluecmyk{1. 0.50 0 0} % No PANTONE match
+\def\Violetcmyk{0.79 0.88 0 0} % PANTONE VIOLET
+\def\Blackrgb{0 0 0}
+\def\Whitergb{1 1 1}
+\def\Redrgb{1 0 0}
+\def\Greenrgb{0 1 0}
+\def\Bluergb{0 0 1}
+\def\Cyanrgb{0 1 1}
+\def\Magentargb{1 0 1}
+\def\Yellowrgb{1 1 0}
+\def\Grayrgb{0.5 0.5 0.5}
+\def\Chocolatergb{0.824 0.412 0.118}
+\def\DarkGoldenrodrgb{0.722 0.525 0.043}
+\def\DarkOrangergb{1 0.549 0}
+\def\Firebrickrgb{0.698 0.133 0.133}
+\def\ForestGreenrgb{0.133 0.545 0.133}
+\def\Goldrgb{1 0.843 0}
+\def\HotPinkrgb{1 0.412 0.706}
+\def\Maroonrgb{0.690 0.188 0.376}
+\def\Pinkrgb{1 0.753 0.796}
+\def\RoyalBluergb{0.255 0.412 0.882}
+\def\s@uvdash#1{\edef#1{\curr@ntdash}}
+\def\defaultdash{1}             % Valeur par defaut
+\def\pssetdash#1{\ifps@cri\pssetd@sh#1 :\edef\curr@ntdash{#1}\fi}
+\def\pssetd@shI#1{\psc@mment{pssetdash Index=#1}\ifcase#1%
+    \or\immediate\write\fwf@g{[] 0 setdash}%         Index=1
+    \or\immediate\write\fwf@g{[6 2] 0 setdash}%      Index=2
+    \or\immediate\write\fwf@g{[4 2] 0 setdash}%      Index=3
+    \or\immediate\write\fwf@g{[2 2] 0 setdash}%      Index=4
+    \or\immediate\write\fwf@g{[1 2] 0 setdash}%      Index=5
+    \or\immediate\write\fwf@g{[2 4] 0 setdash}%      Index=6
+    \or\immediate\write\fwf@g{[3 5] 0 setdash}%      Index=7
+    \or\immediate\write\fwf@g{[3 3] 0 setdash}%      Index=8
+    \or\immediate\write\fwf@g{[3 5 1 5] 0 setdash}%  Index=9
+    \or\immediate\write\fwf@g{[6 4 2 4] 0 setdash}%  Index=10
+    \fi}
+\def\pssetd@sh#1 #2:{{\def\t@xt@{#1}\ifx\t@xt@\empty\pssetd@sh#2:% Discard leading spaces
+    \else\def\t@xt@{#2}\ifx\t@xt@\empty\pssetd@shI{#1}\else\s@mme=\@ne\def\debutp@t{#1}%
+    \an@lysd@sh#2:\ifodd\s@mme\edef\debutp@t{\debutp@t\space\finp@t}\def\finp@t{0}\fi%
+    \psc@mment{pssetdash Pattern=#1 #2}%
+    \immediate\write\fwf@g{[\debutp@t] \finp@t\space setdash}\fi\fi}}
+\def\an@lysd@sh#1 #2:{\def\t@xt@{#2}\ifx\t@xt@\empty\def\finp@t{#1}\else%
+    \edef\debutp@t{\debutp@t\space#1}\advance\s@mme\@ne\an@lysd@sh#2:\fi}
+\def\s@uvwidth#1{\edef#1{\curr@ntwidth}}
+\def\defaultwidth{0.4}            % Valeur par defaut
+\def\pssetwidth#1{\ifps@cri\psc@mment{pssetwidth Width=#1}%
+    \immediate\write\fwf@g{#1 setlinewidth}\edef\curr@ntwidth{#1}\fi}
+\def\pssetseconddash#1{\edef\curr@ntseconddash{#1}}
+\def\defaultseconddash{4} % Valeur par defaut
+\def\pssetsecondwidth#1{\edef\curr@ntsecondwidth{#1}}
+\edef\defaultsecondwidth{\defaultwidth} % Valeur par defaut
+\def\psresetsecondsettings{%
+    \pssetseconddash{\defaultseconddash}\pssetsecondwidth{\defaultsecondwidth}%
+    \def\sec@ndcolor{\curr@ntcolor}\def\sec@ndcolorc@md{\curr@ntcolorc@md}}
+\def\pssetsecondcmyk#1{\def\sec@ndcolor{#1}\def\sec@ndcolorc@md{setcmykcolor}}
+\def\pssetsecondrgb#1{\def\sec@ndcolor{#1}\def\sec@ndcolorc@md{setrgbcolor}}
+\def\pssetsecondgray#1{\def\sec@ndcolor{#1}\def\sec@ndcolorc@md{setgray}}
+\def\pss@tsecondSt{%
+    \s@uvdash{\typ@dash}\pssetdash{\curr@ntseconddash}%
+    \s@uvwidth{\typ@width}\pssetwidth{\curr@ntsecondwidth}%
+    \immediate\write\fwf@g{\sec@ndcolor\space\sec@ndcolorc@md}}
+\def\psrest@reSt{\pssetwidth{\typ@width}\pssetdash{\typ@dash}%
+    \immediate\write\fwf@g{\curr@ntcolor\space\curr@ntcolorc@md}}
+\def\pstrimesh#1[#2,#3,#4]{{\ifps@cri\psc@mment{pstrimesh Type=#1, Triangle=[#2,#3,#4]}%
+    \s@uvc@ntr@l\et@tpstrimesh\ifnum#1>\@ne\pss@tsecondSt\setc@ntr@l{2}%
+    \pstrimeshp@rt#1[#2,#3,#4]\pstrimeshp@rt#1[#3,#4,#2]%
+    \pstrimeshp@rt#1[#4,#2,#3]\psrest@reSt\fi\psline[#2,#3,#4,#2]%
+    \psc@mment{End pstrimesh}\resetc@ntr@l\et@tpstrimesh\fi}}
+\def\pstrimeshp@rt#1[#2,#3,#4]{{\l@mbd@un=\@ne\l@mbd@de=#1\loop\ifnum\l@mbd@de>\@ne%
+    \advance\l@mbd@de\m@ne\figptbary-1:[#2,#3;\l@mbd@de,\l@mbd@un]%
+    \figptbary-2:[#2,#4;\l@mbd@de,\l@mbd@un]\psline[-1,-2]%
+    \advance\l@mbd@un\@ne\repeat}}
+\def\pswrit@cmd#1#2#3{{\figg@tXY{#1}\c@lprojSP\b@undb@x{\v@lX}{\v@lY}%
+    \v@lX=\ptT@ptps\v@lX\v@lY=\ptT@ptps\v@lY%
+    \immediate\write#3{\repdecn@mb{\v@lX}\space\repdecn@mb{\v@lY}\space#2}}}
+\def\pswrit@cmdS#1#2#3#4#5{{\figg@tXY{#1}\c@lprojSP\b@undb@x{\v@lX}{\v@lY}%
+    \global\result@t=\v@lX\global\result@@t=\v@lY%
+    \v@lX=\ptT@ptps\v@lX\v@lY=\ptT@ptps\v@lY%
+    \immediate\write#3{\repdecn@mb{\v@lX}\space\repdecn@mb{\v@lY}\space#2}}%
+    \edef#4{\the\result@t}\edef#5{\the\result@@t}}
+\initpr@lim\initpss@ttings% Initialisation preliminaire
+\catcode`\@=12

@@ -1,0 +1,627 @@
+#LyX 1.1 created this file. For more info see http://www.lyx.org/
+\lyxformat 218
+\textclass article
+\begin_preamble
+%%%%%
+%%%%%
+%%%%%
+%% Welcome!
+%% if you have any question about this
+%% document, please get in touch with
+%% Daniel Lemire at lemire@ondelette.com
+%%
+%% Of course, this file was generated
+%% with LyX which means that the syntax
+%% might be weird at times, but I've found
+%% that LyX did an excellent job overall at
+%% generating clean LaTeX syntax.
+%% Why do I choose LyX? Because LyX
+%% doesn't come with its own LaTeX engine.
+%% LyX simply use whatever tex I have.
+%% There is no "proprietary gizmos" going
+%% on. Also, instead of waiting for support
+%% from some folk in California, I can find
+%% most of the answers I need on the web,
+%% for free! Oh! And LyX is free too! 
+%% Good old Open Source software!
+%%
+%% (Sorry for the propaganda!)
+%% 
+%% Thanks!
+%% Enjoy!
+%%
+%% Sept. 8th 2001
+%% Grand-Pré, NS
+%%
+%%%%%%%%%%
+%
+% Notice that this document requires quite
+% a bit of macros... 
+% Sorry about that!
+%%%%%%%%%%%%%%
+%%
+\usepackage{epsfig}
+\usepackage{amsmath,amssymb}
+\usepackage{pslatex}
+\usepackage{color}
+ 
+ \definecolor{veryblackblue}{rgb}{0.0,0.0,0.1}
+ \usepackage[pdftex,urlcolor=webblackblue,colorlinks=true,citecolor=blue]{hyperref}
+ \pdfinfo{
+            /Title      (Topics from Advanced Calculus)
+            /Author     (Daniel Lemire, Ph.D.)
+            /Subject    (Assignment 3.)
+            /Keywords   ( differential equations, Acadia)
+          }
+
+
+\topmargin  = 0pt
+\headheight = 0pt
+\headsep    = 0pt
+
+\voffset    = 0in
+\hoffset    = 0in
+\textheight = 230mm
+\textwidth  = 164mm
+
+\evensidemargin = 0pt
+\oddsidemargin  = 0pt
+
+\pagestyle{empty}
+\usepackage{float}
+
+%% Background of blue palette
+ \definecolor{webblackblue}{rgb}{0.0,0.0,0.2}
+ \definecolor{webblue}{rgb}{0.0, 0.0, 0.6}
+
+%% Background of red palette
+ \definecolor{webblackred}{rgb}{0.2,0.0,0.0}
+ \definecolor{webred}{rgb}{0.6,0.0,0.0}
+
+%% Background of green palette
+ \definecolor{webblackgreen}{rgb}{0.0,0.2,0.0}                                   
+ \definecolor{webgreen}{rgb}{0.0,0.6,0.0} 
+
+%% Background of magenta palette
+ \definecolor{webblackmagenta}{rgb}{0.14,0.0,0.14}                                   
+ \definecolor{webmagenta}{rgb}{0.42,0.0,0.42} 
+
+%% Background of cyan palette
+ \definecolor{webblackcyan}{rgb}{0.0,0.14,0.14}                                   
+ \definecolor{webcyan}{rgb}{0.0,0.42,0.42} 
+
+%% Background of yellow pallete
+ \definecolor{webblackyellow}{rgb}{0.14,0.14,0.0}                                   
+ \definecolor{webyellow}{rgb}{0.85,0.85,0.0} 
+
+ \definecolor{webdarkgray}{rgb}{0.2,0.2,0.2}
+
+ \definecolor{webgray}{rgb}{0.75,0.75,0.75}
+ \definecolor{weborange}{rgb}{1.0, 0.6, 0.0}
+
+\renewcommand\labelenumi{\textcolor{webdarkgray}{\arabic{enumi}.}}
+\newcommand{\setenumi}[1]{#1.\setcounter{enumi}{#1}}
+\usepackage{dsfont}
+
+
+%%
+%% You might need this next line... I don't for
+%% some reason... defined somewhere?
+%%
+%% \newcommand{\setenumi}[1]{#1.\setcounter{enumi}{#1}}
+%%
+%% Document should begin NOW!
+%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%
+\end_preamble
+\language american
+\inputencoding auto
+\fontscheme default
+\graphics default
+\paperfontsize 10
+\spacing single 
+\papersize Default
+\paperpackage a4
+\use_geometry 0
+\use_amsmath 0
+\paperorientation portrait
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\defskip medskip
+\quotes_language english
+\quotes_times 2
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+
+\layout Title
+
+Acadia University 
+\newline 
+
+\latex latex 
+
+\backslash 
+href{http://ace.acadiau.ca/math/}{Department of Mathematics and Statistics}
+\latex default 
+
+\newline 
+
+\latex latex 
+ 
+\backslash 
+vspace*{3mm}
+\latex default 
+ 
+\series bold 
+Topics from Advanced Calculus
+\series default 
+
+\newline 
+ (MATH 2023) 
+\newline 
+
+\latex latex 
+ 
+\backslash 
+vspace*{3mm}
+\latex default 
+ Assignment 4 - solutions
+\layout Author
+\added_space_bottom 0.3cm 
+
+\latex latex 
+
+\backslash 
+href{http://ondelette.com/acadia/}{Daniel Lemire}
+\latex default 
+, Ph.D.
+\layout Standard
+
+The marking has to reflect the fact that students were given the answers
+ (in the back of the book).
+ The answer alone is worth nothing.
+ Out of 130 marks.
+\layout Standard
+
+
+\latex latex 
+
+\backslash 
+setcounter{section}{5}
+\layout Section
+
+
+\latex latex 
+
+\backslash 
+texorpdfstring{
+\backslash 
+textcolor{webblackblue}{Applications of First-Order Differential Equations}}{App
+lications of First-Order Differential Equations}
+\layout Standard
+
+6.61.
+ [5 marks] The differential equation is 
+\begin_inset Formula \( 2v'=2g+50v \)
+\end_inset 
+
+ or 
+\begin_inset Formula \( v'=g+25v \)
+\end_inset 
+
+.
+ The limiting velocity is reached when 
+\begin_inset Formula \( v'=0 \)
+\end_inset 
+
+ or 
+\begin_inset Formula \( g+25v=0 \)
+\end_inset 
+
+ or when 
+\begin_inset Formula \( v=-g/25=-9.8/25=-0.392 \)
+\end_inset 
+
+ m/sec where we set 
+\begin_inset Formula \( g=9.8 \)
+\end_inset 
+
+ m/sec
+\begin_inset Formula \( ^{2} \)
+\end_inset 
+
+.
+ Alternatively, one could solve the full differential equation and find
+ the maximum velocity...
+\newline 
+6.71.
+ (a) [20 marks] The differential equation is 
+\begin_inset Formula \( \frac{dq}{dt}+\frac{1}{RC}q=\frac{E}{R} \)
+\end_inset 
+
+ or 
+\begin_inset Formula \( \frac{dq}{dt}+\frac{1}{10\times 10^{-2}}q=0.5 \)
+\end_inset 
+
+ or
+\begin_inset Formula \( \frac{dq}{dt}+10q=0.5 \)
+\end_inset 
+
+ The solution is 
+\begin_inset Formula \( q(t)=4.95\times e^{-10t}+0.05 \)
+\end_inset 
+
+.
+ The current is given by 
+\begin_inset Formula \( I(t)=\frac{dq}{dt}=-49.5e^{-10t} \)
+\end_inset 
+
+ .
+\newline 
+(b) [5 marks] When 
+\begin_inset Formula \( t \)
+\end_inset 
+
+ approaches 
+\begin_inset Formula \( \infty  \)
+\end_inset 
+
+, we get 
+\begin_inset Formula \( 0 \)
+\end_inset 
+
+.
+\newline 
+
+\layout Section
+
+
+\latex latex 
+
+\backslash 
+texorpdfstring{
+\backslash 
+textcolor{webblackblue}{Linear Differential Equations}}{Linear Differential
+ Equations}
+\layout Standard
+
+7.36.
+ [5 marks] 
+\begin_inset Formula \( W=\left| \begin{array}{cc}
+3x & 4x\\
+3 & 4
+\end{array}\right| =0 \)
+\end_inset 
+
+.
+ The set of functions is linearily dependent.
+\newline 
+7.45.
+ [5 marks] 
+\begin_inset Formula \( W=\left| \begin{array}{ccc}
+x & 1 & 2x-7\\
+1 & 0 & 2\\
+0 & 0 & 0
+\end{array}\right| =0 \)
+\end_inset 
+
+.
+ The set of functions is linearily dependent.
+\newline 
+7.48.
+ [10 marks] 
+\begin_inset Formula \begin{eqnarray*}
+W & = & \left| \begin{array}{ccc}
+e^{-x} & e^{x} & e^{2x}\\
+-e^{-x} & e^{x} & 2e^{2x}\\
+e^{-x} & e^{x} & 4e^{2x}
+\end{array}\right| \\
+ & = & e^{-x}\left| \begin{array}{cc}
+e^{x} & 2e^{2x}\\
+e^{x} & 4e^{2x}
+\end{array}\right| +e^{x}\left| \begin{array}{cc}
+2e^{2x} & -e^{-x}\\
+4e^{2x} & e^{-x}
+\end{array}\right| +e^{2x}\left| \begin{array}{cc}
+-e^{-x} & e^{x}\\
+e^{-x} & e^{x}
+\end{array}\right| \\
+ & = & 2e^{2x}+6e^{2x}-2e^{2x}\\
+ & = & 6e^{2x}.
+\end{eqnarray*}
+
+\end_inset 
+
+The set of functions is linearily independent.
+ (For full marks, the computation of the determinant must be explicit: it
+ is impossible to do such a computation in the air...)
+\layout Section
+
+
+\latex latex 
+
+\backslash 
+texorpdfstring{
+\backslash 
+textcolor{webblackblue}{Second-Order Linear Homogeneous Differential Equations}}
+{Second-Order Linear Homogeneous Differential Equations}
+\layout Standard
+
+8.17.
+ [10 marks] We substitute 
+\begin_inset Formula \( y(x)=e^{\lambda x} \)
+\end_inset 
+
+ to get the characteristic equation 
+\begin_inset Formula \( \lambda ^{2}-1=0 \)
+\end_inset 
+
+ hence 
+\begin_inset Formula \( \lambda =\pm 1 \)
+\end_inset 
+
+ and the solution is 
+\begin_inset Formula \( y=c_{1}e^{x}+c_{2}e^{-x} \)
+\end_inset 
+
+ .
+\newline 
+8.24.
+ [20 marks] We substitute 
+\begin_inset Formula \( y(x)=e^{\lambda x} \)
+\end_inset 
+
+ to get the characteristic equation 
+\begin_inset Formula \( \lambda ^{2}+2\lambda +3=0 \)
+\end_inset 
+
+ hence 
+\begin_inset Formula \( \lambda =\pm \sqrt{2}i-1 \)
+\end_inset 
+
+ and the solution is 
+\begin_inset Formula \( y=c_{1}e^{-x}\cos \sqrt{2}x+c_{2}e^{-x}\sin \sqrt{2}x \)
+\end_inset 
+
+.
+\newline 
+8.38.
+ [20 marks] We substitute 
+\begin_inset Formula \( y(t)=e^{\lambda t} \)
+\end_inset 
+
+ to get the characteristic equation 
+\begin_inset Formula \( \lambda ^{2}-5\lambda +7=0 \)
+\end_inset 
+
+ hence 
+\begin_inset Formula \( \lambda =\pm \frac{\sqrt{3}}{2}i+\frac{5}{2} \)
+\end_inset 
+
+ and the solution is 
+\begin_inset Formula \( Q=c_{1}e^{5t/2}\cos \frac{\sqrt{3}}{2}t+c_{2}e^{5t/2}\sin \frac{\sqrt{3}}{2}t \)
+\end_inset 
+
+.
+\layout Section
+
+
+\latex latex 
+
+\backslash 
+texorpdfstring{
+\backslash 
+textcolor{webblackblue}{
+\latex default 
+
+\begin_inset Formula \( n^{th} \)
+\end_inset 
+
+
+\latex latex 
+ order Linear Homogeneous Equations}}{nth order Linear Homogeneous Equations}
+\layout Standard
+
+9.16.
+ [20 marks] We substitute 
+\begin_inset Formula \( y(x)=e^{\lambda x} \)
+\end_inset 
+
+ to get the characteristic equation 
+\begin_inset Formula \( \lambda ^{3}-2\lambda ^{2}-\lambda +2=0 \)
+\end_inset 
+
+ hence 
+\begin_inset Formula \( \lambda =-1,1,2 \)
+\end_inset 
+
+ and the solution is 
+\begin_inset Formula \( y=c_{1}e^{-x}+c_{2}e^{x}+c_{3}e^{2x} \)
+\end_inset 
+
+.
+\newline 
+9.32.
+ [20 marks] We substitute 
+\begin_inset Formula \( y(x)=e^{\lambda x} \)
+\end_inset 
+
+ to get the characteristic equation 
+\begin_inset Formula \( \lambda ^{3}+\lambda ^{2}+2\lambda +3=0 \)
+\end_inset 
+
+ hence 
+\begin_inset Formula \( \lambda =\pm \sqrt{2}i-1 \)
+\end_inset 
+
+ and the solution is 
+\begin_inset Formula \( q=c_{1}e^{x}+c_{2}e^{-x}+c_{3}e^{\sqrt{2}x}+c_{4}e^{-\sqrt{2}x} \)
+\end_inset 
+
+.
+\layout Section
+\noindent 
+
+\latex latex 
+
+\backslash 
+texorpdfstring{
+\backslash 
+textcolor{webblue}{The Method of Undetermined Coefficients}}{The Method
+ of Undetermined Coefficients}
+\layout Standard
+
+10.44.
+ [20 marks] We substitute 
+\begin_inset Formula \( y(x)=e^{\lambda x} \)
+\end_inset 
+
+ in the corresponding homogeneous differential equation (setting the RHS
+ to zero, 
+\begin_inset Formula \( y''=2y'+y=0 \)
+\end_inset 
+
+).
+ The characteristic equation is 
+\begin_inset Formula \( \lambda ^{2}-2\lambda +1 \)
+\end_inset 
+
+ or 
+\begin_inset Formula \( (\lambda -1)^{2} \)
+\end_inset 
+
+, hence the solution to the homogeneous problem is 
+\begin_inset Formula \( y(x)=c_{1}e^{x}+c_{2}xe^{x} \)
+\end_inset 
+
+.
+ The inhomogeneous term is a polynomial, hence we guess a polynomial solution
+ of the form 
+\begin_inset Formula \( ax^{2}+bx+c \)
+\end_inset 
+
+.
+ Substituting and collecting the terms we get 
+\begin_inset Formula \( a=1 \)
+\end_inset 
+
+, 
+\begin_inset Formula \( b=4 \)
+\end_inset 
+
+, and 
+\begin_inset Formula \( c=5 \)
+\end_inset 
+
+.
+ Hence the general solution is 
+\begin_inset Formula \( y(x)=c_{1}e^{x}+c_{2}xe^{x}+x^{2}+4x+5 \)
+\end_inset 
+
+.
+ 
+\newline 
+10.46.
+ [20 marks] We substitute 
+\begin_inset Formula \( y(x)=e^{\lambda x} \)
+\end_inset 
+
+ in the corresponding homogeneous differential equation (setting the RHS
+ to zero, 
+\begin_inset Formula \( y''-2y'+y \)
+\end_inset 
+
+).
+ The characteristic equation is 
+\begin_inset Formula \( \lambda ^{2}-2\lambda +1 \)
+\end_inset 
+
+ or 
+\begin_inset Formula \( (\lambda -1)^{2} \)
+\end_inset 
+
+, hence the solution to the homogeneous problem is 
+\begin_inset Formula \( y(x)=c_{1}e^{x}+c_{2}xe^{x} \)
+\end_inset 
+
+ .
+ (This is all the same as in question 10.44.) The inhomogeneous term is a
+ trigonometric function, hence we guess a trigonometric solution of the
+ form 
+\begin_inset Formula \( A\cos x+B\sin x \)
+\end_inset 
+
+.
+ Substituting and collecting the terms we get 
+\begin_inset Formula \( A=0 \)
+\end_inset 
+
+ and 
+\begin_inset Formula \( B=-2 \)
+\end_inset 
+
+.
+ Hence the general solution is 
+\begin_inset Formula \( y=c_{1}e^{x}+c_{2}xe^{x}-2\sin x \)
+\end_inset 
+
+ .
+\newline 
+10.49.
+ [20 marks] We substitute 
+\begin_inset Formula \( y(x)=e^{\lambda x} \)
+\end_inset 
+
+ in the corresponding homogeneous differential equation (setting the RHS
+ to zero, 
+\begin_inset Formula \( y'-y \)
+\end_inset 
+
+).
+ The characteristic equation is 
+\begin_inset Formula \( \lambda -1 \)
+\end_inset 
+
+, hence the solution to the homogeneous problem is 
+\begin_inset Formula \( y(x)=c_{1}e^{x} \)
+\end_inset 
+
+.
+ The inhomogeneous term is an exponential, hence we guess an exponential
+ solution of the form 
+\begin_inset Formula \( e^{x} \)
+\end_inset 
+
+.
+ This first guess will fail since this is also the solution to the homogeneous
+ problem.
+ Therefore, we modifiy our guess by multiplying it by 
+\begin_inset Formula \( x \)
+\end_inset 
+
+.
+ We try 
+\begin_inset Formula \( Axe^{x} \)
+\end_inset 
+
+, substituting we get 
+\begin_inset Formula \( Ae^{x}+Axe^{x}-Axe^{x}=e^{x} \)
+\end_inset 
+
+ or 
+\begin_inset Formula \( Ae^{x}=e^{x} \)
+\end_inset 
+
+ or 
+\begin_inset Formula \( A=1 \)
+\end_inset 
+
+.
+ Hence the general solution is 
+\begin_inset Formula \( y=c_{1}e^{x}+xe^{x} \)
+\end_inset 
+
+.
+\the_end

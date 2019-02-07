@@ -1,0 +1,1132 @@
+#LyX 1.1 created this file. For more info see http://www.lyx.org/
+\lyxformat 218
+\textclass article
+\begin_preamble
+%%%%%
+%%%%%
+%%%%%
+%% Welcome!
+%% if you have any question about this
+%% document, please get in touch with
+%% Daniel Lemire at lemire@ondelette.com
+%%
+%% Of course, this file was generated
+%% with LyX which means that the syntax
+%% might be weird at times, but I've found
+%% that LyX did an excellent job overall at
+%% generating clean LaTeX syntax.
+%% Why do I choose LyX? Because LyX
+%% doesn't come with its own LaTeX engine.
+%% LyX simply use whatever tex I have.
+%% There is no "proprietary gizmos" going
+%% on. Also, instead of waiting for support
+%% from some folk in California, I can find
+%% most of the answers I need on the web,
+%% for free! Oh! And LyX is free too! 
+%% Good old Open Source software!
+%%
+%% (Sorry for the propaganda!)
+%% 
+%% Thanks!
+%% Enjoy!
+%%
+%% Sept. 8th 2001
+%% Grand-Pré, NS
+%%
+%%%%%%%%%%
+%
+% Notice that this document requires quite
+% a bit of macros... 
+% Sorry about that!
+%%%%%%%%%%%%%%
+%%
+\usepackage{epsfig}
+\usepackage{amsmath,amssymb}
+\usepackage{pslatex}
+\usepackage{color}
+ 
+ \definecolor{veryblackblue}{rgb}{0.0,0.0,0.1}
+ \usepackage[pdftex,urlcolor=webblackblue,colorlinks=true,citecolor=blue]{hyperref}
+ \pdfinfo{
+            /Title      (Introductory Calculus- Section 4.2 Solutions)
+            /Author     (Daniel Lemire, Ph.D.)
+            /Subject    (This is a set of solutions for section 4.2 in Stewart: calculus.)
+            /Keywords   (exponentials, tangents, Stewart, Solutions, limits, Acadia)
+          }
+
+
+\topmargin  = 0pt
+\headheight = 0pt
+\headsep    = 0pt
+
+\voffset    = 0in
+\hoffset    = 0in
+\textheight = 230mm
+\textwidth  = 164mm
+
+\evensidemargin = 0pt
+\oddsidemargin  = 0pt
+
+\pagestyle{empty}
+\usepackage{float}
+
+%% Background of blue palette
+ \definecolor{webblackblue}{rgb}{0.0,0.0,0.2}
+ \definecolor{webblue}{rgb}{0.0, 0.0, 0.6}
+
+%% Background of red palette
+ \definecolor{webblackred}{rgb}{0.2,0.0,0.0}
+ \definecolor{webred}{rgb}{0.6,0.0,0.0}
+
+%% Background of green palette
+ \definecolor{webblackgreen}{rgb}{0.0,0.2,0.0}                                   
+ \definecolor{webgreen}{rgb}{0.0,0.6,0.0} 
+
+%% Background of magenta palette
+ \definecolor{webblackmagenta}{rgb}{0.14,0.0,0.14}                                   
+ \definecolor{webmagenta}{rgb}{0.42,0.0,0.42} 
+
+%% Background of cyan palette
+ \definecolor{webblackcyan}{rgb}{0.0,0.14,0.14}                                   
+ \definecolor{webcyan}{rgb}{0.0,0.42,0.42} 
+
+%% Background of yellow pallete
+ \definecolor{webblackyellow}{rgb}{0.14,0.14,0.0}                                   
+ \definecolor{webyellow}{rgb}{0.85,0.85,0.0} 
+
+ \definecolor{webdarkgray}{rgb}{0.2,0.2,0.2}
+
+ \definecolor{webgray}{rgb}{0.75,0.75,0.75}
+ \definecolor{weborange}{rgb}{1.0, 0.6, 0.0}
+
+\renewcommand\labelenumi{\textcolor{webdarkgray}{\arabic{enumi}.}}
+\newcommand{\setenumi}[1]{#1.\setcounter{enumi}{#1}}
+\usepackage{dsfont}
+
+
+%%
+%% You might need this next line... I don't for
+%% some reason... defined somewhere?
+%%
+%% \newcommand{\setenumi}[1]{#1.\setcounter{enumi}{#1}}
+%%
+%% Document should begin NOW!
+%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%
+\end_preamble
+\language english
+\inputencoding auto
+\fontscheme default
+\graphics default
+\paperfontsize 12
+\spacing single 
+\papersize Default
+\paperpackage a4
+\use_geometry 0
+\use_amsmath 0
+\paperorientation portrait
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\defskip medskip
+\quotes_language english
+\quotes_times 2
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+
+\layout Title
+
+Acadia University 
+\newline 
+
+\latex latex 
+
+\backslash 
+href{http://ace.acadiau.ca/math/}{Department of Mathematics and Statistics}
+\latex default 
+
+\newline 
+
+\latex latex 
+ 
+\backslash 
+vspace*{3mm}
+\latex default 
+ 
+\series bold 
+INTRODUCTORY CALCULUS 1
+\series default 
+
+\newline 
+ (MATH 1013) 
+\newline 
+
+\latex latex 
+ 
+\backslash 
+vspace*{3mm}
+\latex default 
+ SECTION 4.2 Solutions
+\layout Author
+
+
+\latex latex 
+
+\backslash 
+href{http://ondelette.com/acadia/}{Daniel Lemire}
+\latex default 
+, Ph.D.
+\layout Standard
+
+
+\latex latex 
+
+\backslash 
+setcounter{section}{3}
+\layout Section
+
+
+\latex latex 
+
+\backslash 
+texorpdfstring{
+\backslash 
+textcolor{webblackblue}{Applications of Differentiation}}{Applications of
+ Differentiation}
+\layout Standard
+
+
+\latex latex 
+
+\backslash 
+setcounter{subsection}{1}
+\layout Subsection
+\noindent 
+
+\latex latex 
+
+\backslash 
+texorpdfstring{
+\backslash 
+textcolor{webblue}{Maximum and Minimum Values}}{Maximum and Minimum Values}
+\layout Enumerate
+
+
+\latex latex 
+[
+\backslash 
+setenumi{2}]
+\latex default 
+ 
+\series bold 
+[2 marks]
+\begin_deeper 
+\layout Enumerate
+
+The 
+\series bold 
+\shape italic 
+\color red
+Extreme Value Theorem
+\series default 
+\shape default 
+\color default
+ (
+\begin_inset LatexCommand \cite[Section 4.2, Theorem 3]{Steward}
+
+\end_inset 
+
+)guarantees the existence of absolute maximums and minimums for continuous
+ functions on closed intervals.
+\layout Enumerate
+
+The suggested steps to find the absolute maximum and the absolute minimum
+ of a continuous function 
+\begin_inset Formula \( f \)
+\end_inset 
+
+ over a closed interval 
+\begin_inset Formula \( [a,b] \)
+\end_inset 
+
+ are outlined as the 
+\series bold 
+\shape italic 
+\color red
+Closed Interval Method
+\series default 
+\shape default 
+\color default
+ (
+\begin_inset LatexCommand \cite[Section 4.2, p. 275]{Steward}
+
+\end_inset 
+
+).
+\begin_deeper 
+\layout Enumerate
+
+Find the values of 
+\begin_inset Formula \( f \)
+\end_inset 
+
+ at the critical numbers of 
+\begin_inset Formula \( f \)
+\end_inset 
+
+ in 
+\begin_inset Formula \( (a,b) \)
+\end_inset 
+
+.
+\layout Enumerate
+
+Find the values of 
+\begin_inset Formula \( f \)
+\end_inset 
+
+ at the end-points of the interval.
+\layout Enumerate
+
+The largest of the values from Steps 1 and 2 is the absolute maximum value;
+ the smallest of these values is the absolute minimum value.
+\end_deeper 
+\end_deeper 
+\layout Enumerate
+
+
+\latex latex 
+[
+\backslash 
+setenumi{4}]
+\latex default 
+ 
+\series bold 
+[2 marks]
+\series default 
+ We will be using definition 2 from Stewart (
+\begin_inset LatexCommand \cite[Section 4.2, Definition 2]{Steward}
+
+\end_inset 
+
+).
+ Specifically, we say that 
+\begin_inset Formula \( f \)
+\end_inset 
+
+ has a local maximum at 
+\begin_inset Formula \( c \)
+\end_inset 
+
+ if 
+\begin_inset Formula \( f(c)\geq f(x) \)
+\end_inset 
+
+ when 
+\begin_inset Formula \( x \)
+\end_inset 
+
+ is a neighborhood of 
+\begin_inset Formula \( c \)
+\end_inset 
+
+.
+ We say that 
+\begin_inset Formula \( f \)
+\end_inset 
+
+ has a local minimum at 
+\begin_inset Formula \( c \)
+\end_inset 
+
+ if 
+\begin_inset Formula \( f(c)\leq f(x) \)
+\end_inset 
+
+ when 
+\begin_inset Formula \( x \)
+\end_inset 
+
+ is a neighborhood of 
+\begin_inset Formula \( c \)
+\end_inset 
+
+.
+\newline 
+
+\begin_inset  Tabular
+<lyxtabular version="2" rows="9" columns="2">
+<features rotate="false" islongtable="false" endhead="0" endfirsthead="0" endfoot="0" endlastfoot="0">
+<column alignment="center" valignment="top" leftline="true" rightline="false" width="" special="">
+<column alignment="center" valignment="top" leftline="true" rightline="true" width="" special="">
+<row topline="true" bottomline="true" newpage="false">
+<cell multicolumn="0" alignment="center" valignment="top" topline="true" bottomline="false" leftline="true" rightline="false" rotate="false" usebox="none" width="" special="">
+\begin_inset Text
+
+\layout Standard
+
+
+\series bold 
+\color blue
+label
+\end_inset 
+</cell>
+<cell multicolumn="0" alignment="center" valignment="top" topline="true" bottomline="false" leftline="true" rightline="true" rotate="false" usebox="none" width="" special="">
+\begin_inset Text
+
+\layout Standard
+
+
+\series bold 
+\color blue
+description
+\end_inset 
+</cell>
+</row>
+<row topline="true" bottomline="false" newpage="false">
+<cell multicolumn="0" alignment="center" valignment="top" topline="true" bottomline="false" leftline="true" rightline="false" rotate="false" usebox="none" width="" special="">
+\begin_inset Text
+
+\layout Standard
+
+
+\shape italic 
+\color magenta
+a
+\end_inset 
+</cell>
+<cell multicolumn="0" alignment="center" valignment="top" topline="true" bottomline="false" leftline="true" rightline="true" rotate="false" usebox="none" width="" special="">
+\begin_inset Text
+
+\layout Standard
+
+
+\series bold 
+local maximum
+\series default 
+ but not an absolute maximum since 
+\begin_inset Formula \( f(e)>f(a) \)
+\end_inset 
+
+
+\end_inset 
+</cell>
+</row>
+<row topline="true" bottomline="false" newpage="false">
+<cell multicolumn="0" alignment="center" valignment="top" topline="true" bottomline="false" leftline="true" rightline="false" rotate="false" usebox="none" width="" special="">
+\begin_inset Text
+
+\layout Standard
+
+
+\shape italic 
+\color magenta
+b
+\end_inset 
+</cell>
+<cell multicolumn="0" alignment="center" valignment="top" topline="true" bottomline="false" leftline="true" rightline="true" rotate="false" usebox="none" width="" special="">
+\begin_inset Text
+
+\layout Standard
+
+
+\series bold 
+local mimimum
+\series default 
+ but not an absolute minimum since 
+\begin_inset Formula \( f(t)<f(b) \)
+\end_inset 
+
+
+\end_inset 
+</cell>
+</row>
+<row topline="true" bottomline="false" newpage="false">
+<cell multicolumn="0" alignment="center" valignment="top" topline="true" bottomline="false" leftline="true" rightline="false" rotate="false" usebox="none" width="" special="">
+\begin_inset Text
+
+\layout Standard
+
+
+\shape italic 
+\color magenta
+c
+\end_inset 
+</cell>
+<cell multicolumn="0" alignment="center" valignment="top" topline="true" bottomline="false" leftline="true" rightline="true" rotate="false" usebox="none" width="" special="">
+\begin_inset Text
+
+\layout Standard
+
+
+\series bold 
+local mimimum and minimum
+\series default 
+ but not an absolute extremum since 
+\begin_inset Formula \( f(t)<f(c)<f(e) \)
+\end_inset 
+
+ 
+\end_inset 
+</cell>
+</row>
+<row topline="true" bottomline="false" newpage="false">
+<cell multicolumn="0" alignment="center" valignment="top" topline="true" bottomline="false" leftline="true" rightline="false" rotate="false" usebox="none" width="" special="">
+\begin_inset Text
+
+\layout Standard
+
+
+\shape italic 
+\color magenta
+d
+\end_inset 
+</cell>
+<cell multicolumn="0" alignment="center" valignment="top" topline="true" bottomline="false" leftline="true" rightline="true" rotate="false" usebox="none" width="" special="">
+\begin_inset Text
+
+\layout Standard
+
+
+\series bold 
+local mimimum
+\series default 
+ but not an absolute minimum since 
+\begin_inset Formula \( f(t)<f(d) \)
+\end_inset 
+
+
+\end_inset 
+</cell>
+</row>
+<row topline="true" bottomline="false" newpage="false">
+<cell multicolumn="0" alignment="center" valignment="top" topline="true" bottomline="false" leftline="true" rightline="false" rotate="false" usebox="none" width="" special="">
+\begin_inset Text
+
+\layout Standard
+
+
+\shape italic 
+\color magenta
+e
+\end_inset 
+</cell>
+<cell multicolumn="0" alignment="center" valignment="top" topline="true" bottomline="false" leftline="true" rightline="true" rotate="false" usebox="none" width="" special="">
+\begin_inset Text
+
+\layout Standard
+
+
+\series bold 
+local maximum
+\series default 
+ and 
+\series bold 
+absolute maximum
+\end_inset 
+</cell>
+</row>
+<row topline="true" bottomline="false" newpage="false">
+<cell multicolumn="0" alignment="center" valignment="top" topline="true" bottomline="false" leftline="true" rightline="false" rotate="false" usebox="none" width="" special="">
+\begin_inset Text
+
+\layout Standard
+
+
+\shape italic 
+\color magenta
+r
+\end_inset 
+</cell>
+<cell multicolumn="0" alignment="center" valignment="top" topline="true" bottomline="false" leftline="true" rightline="true" rotate="false" usebox="none" width="" special="">
+\begin_inset Text
+
+\layout Standard
+
+
+\series bold 
+local mimimum
+\series default 
+ but not an absolute minimum since 
+\begin_inset Formula \( f(t)<f(r) \)
+\end_inset 
+
+
+\end_inset 
+</cell>
+</row>
+<row topline="true" bottomline="false" newpage="false">
+<cell multicolumn="0" alignment="center" valignment="top" topline="true" bottomline="false" leftline="true" rightline="false" rotate="false" usebox="none" width="" special="">
+\begin_inset Text
+
+\layout Standard
+
+
+\shape italic 
+\color magenta
+s
+\end_inset 
+</cell>
+<cell multicolumn="0" alignment="center" valignment="top" topline="true" bottomline="false" leftline="true" rightline="true" rotate="false" usebox="none" width="" special="">
+\begin_inset Text
+
+\layout Standard
+
+
+\series bold 
+local maximum
+\series default 
+ but not an absolute maximum since 
+\begin_inset Formula \( f(e)>f(s) \)
+\end_inset 
+
+
+\end_inset 
+</cell>
+</row>
+<row topline="true" bottomline="true" newpage="false">
+<cell multicolumn="0" alignment="center" valignment="top" topline="true" bottomline="false" leftline="true" rightline="false" rotate="false" usebox="none" width="" special="">
+\begin_inset Text
+
+\layout Standard
+
+
+\shape italic 
+\color magenta
+t
+\end_inset 
+</cell>
+<cell multicolumn="0" alignment="center" valignment="top" topline="true" bottomline="false" leftline="true" rightline="true" rotate="false" usebox="none" width="" special="">
+\begin_inset Text
+
+\layout Standard
+
+
+\series bold 
+local mimimum
+\series default 
+ and 
+\series bold 
+absolute minimum
+\end_inset 
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset 
+
+
+\layout Enumerate
+
+
+\latex latex 
+[
+\backslash 
+setenumi{28}]
+\latex default 
+ 
+\series bold 
+[2 marks]
+\series default 
+ A critical number is a number 
+\begin_inset Formula \( c \)
+\end_inset 
+
+ where either 
+\begin_inset Formula \( f'(c)=0 \)
+\end_inset 
+
+ or else 
+\begin_inset Formula \( f'(c)\, \nexists  \)
+\end_inset 
+
+.
+ Using the quotient rule, we have 
+\begin_inset Formula \begin{eqnarray*}
+f'(x) & = & \frac{x^{2}+x+1-(x+1)(2x+1)}{(x^{2}+x+1)^{2}}\\
+ & = & \frac{-x^{2}-2x}{(x^{2}+x+1)^{2}}.
+\end{eqnarray*}
+
+\end_inset 
+
+Clearly, 
+\begin_inset Formula \( f'(c)\, \nexists  \)
+\end_inset 
+
+ whenever 
+\begin_inset Formula \( x^{2}+x+1=0 \)
+\end_inset 
+
+ (and actually, it is true for 
+\begin_inset Formula \( f \)
+\end_inset 
+
+ itself!), but using the quadratic rule we notice that this equation has
+ no real solution since the discriminant is negative (
+\begin_inset Formula \( b^{2}-4ac=1-4=-3) \)
+\end_inset 
+
+.
+ We conclude that the derivative always exists.
+ However, the derivative is zero whenever 
+\begin_inset Formula \( -x^{2}-2x=0\Rightarrow x\in \{0,-2\} \)
+\end_inset 
+
+.
+ Therefore, we have found the two critical points: 
+\begin_inset Formula \( \{0,-2\} \)
+\end_inset 
+
+.
+\layout Enumerate
+
+
+\latex latex 
+[
+\backslash 
+setenumi{38}]
+\latex default 
+ 
+\series bold 
+[3 marks]
+\series default 
+ We first notice that 
+\begin_inset Formula \( f \)
+\end_inset 
+
+ is continuous and that we are considering a closed interval so that the
+ 
+\series bold 
+\shape italic 
+\color red
+Closed Interval Method
+\series default 
+\shape default 
+\color default
+ applies.
+\begin_deeper 
+\layout Enumerate
+
+The critical points of 
+\begin_inset Formula \( \sqrt{9-x^{2}} \)
+\end_inset 
+
+ are found by taking the derivative which is 
+\begin_inset Formula \[
+\frac{-x}{\sqrt{9-x^{2}}}.\]
+
+\end_inset 
+
+The derivative doesn't exist whenever 
+\begin_inset Formula \( 9-x^{2}\leq 0 \)
+\end_inset 
+
+ which happens whenever 
+\begin_inset Formula \( x\notin (-3,3) \)
+\end_inset 
+
+ but on the proposed interval (
+\begin_inset Formula \( [-1,2] \)
+\end_inset 
+
+), it isn't an issue.
+ However, the derivative is 
+\begin_inset Formula \( 0 \)
+\end_inset 
+
+ when 
+\begin_inset Formula \( x=0 \)
+\end_inset 
+
+ and thus we have one (and only one) critical point (
+\begin_inset Formula \( x=0 \)
+\end_inset 
+
+).
+ The value of the function at the critical point is
+\color blue
+ 
+\begin_inset Formula \( f(0)=3 \)
+\end_inset 
+
+
+\color default
+.
+\layout Enumerate
+
+We have to evaluate the function at the boundary of the closed interval.
+ We readily obtain 
+\color blue
+
+\begin_inset Formula \( f(-1)=2\sqrt{2} \)
+\end_inset 
+
+
+\color default
+ and 
+\color blue
+
+\begin_inset Formula \( f(2)=\sqrt{5} \)
+\end_inset 
+
+
+\color default
+.
+\layout Enumerate
+
+The absolute maximum is 
+\begin_inset Formula \( 3 \)
+\end_inset 
+
+ and it is reached at 
+\begin_inset Formula \( x=0 \)
+\end_inset 
+
+.
+ The absolute minimum is 
+\begin_inset Formula \( \sqrt{5} \)
+\end_inset 
+
+ and it is reached at 
+\begin_inset Formula \( x=2 \)
+\end_inset 
+
+.
+ The third critical point (
+\begin_inset Formula \( x=-1) \)
+\end_inset 
+
+ is a local minimum.
+\begin_float fig 
+\end_deeper 
+\layout Standard
+
+
+\latex latex 
+[h]
+\layout Standard
+\align center 
+
+\begin_inset Figure size 239 168
+file 4_2_38
+height 3 20
+angle 270
+flags 9
+
+\end_inset 
+
+
+\layout Caption
+
+
+\begin_inset Formula \( \sqrt{9-x^{2}} \)
+\end_inset 
+
+ 
+\end_float 
+\layout Enumerate
+
+
+\latex latex 
+[
+\backslash 
+setenumi{42}]
+\latex default 
+ 
+\series bold 
+[3 marks]
+\series default 
+ We first notice that 
+\begin_inset Formula \( f \)
+\end_inset 
+
+ is continuous and that we are considering a closed interval so the 
+\series bold 
+\shape italic 
+\color red
+Closed Interval Method
+\series default 
+\shape default 
+\color default
+ applies.
+\begin_deeper 
+\layout Enumerate
+
+The critical points of 
+\begin_inset Formula \( f(x)=x-2\cos x \)
+\end_inset 
+
+ are found through the derivative which is
+\begin_inset Formula \[
+f'(x)=1+2\sin x.\]
+
+\end_inset 
+
+Clearly, the derivative always exist.
+ It is zero whenever 
+\begin_inset Formula \( \sin x=\frac{-1}{2} \)
+\end_inset 
+
+ or when 
+\begin_inset Formula \( x=-\frac{\pi }{6}+2\pi k \)
+\end_inset 
+
+ or 
+\begin_inset Formula \( x=-\frac{5\pi }{6}+2\pi k \)
+\end_inset 
+
+ where 
+\begin_inset Formula \( k \)
+\end_inset 
+
+ is an integer.
+ There is two such critical point in the interval 
+\begin_inset Formula \( [-\pi ,\pi ] \)
+\end_inset 
+
+ and they are 
+\begin_inset Formula \( -\frac{\pi }{6} \)
+\end_inset 
+
+ and 
+\begin_inset Formula \( \frac{-5\pi }{6} \)
+\end_inset 
+
+.
+ We evaluate the function at these critical point 
+\color red
+
+\begin_inset Formula \( f\left( -\frac{\pi }{6}\right) =-\frac{\pi }{6}-\sqrt{3}\cong -2.26 \)
+\end_inset 
+
+
+\color black
+ and 
+\begin_inset Formula \( f\left( -\frac{5\pi }{6}\right) \cong -0.886. \)
+\end_inset 
+
+
+\layout Enumerate
+
+We evaluate the function at the boundary of the interval: 
+\color red
+
+\begin_inset Formula \( f(-\pi )=-\pi +2\cong -1.1 \)
+\end_inset 
+
+
+\color default
+ and 
+\color red
+
+\begin_inset Formula \( f(\pi )=\pi +2\cong 5.1 \)
+\end_inset 
+
+ 
+\color default
+.
+\layout Enumerate
+
+We see that the absolute maximum is reached at 
+\begin_inset Formula \( f(\pi )=\pi +2 \)
+\end_inset 
+
+ and the absolute minimum at 
+\begin_inset Formula \( f\left( -\frac{\pi }{6}\right) =-\frac{\pi }{6}-\sqrt{3} \)
+\end_inset 
+
+.
+ 
+\begin_inset Formula \( f(-\pi )=-\pi +2 \)
+\end_inset 
+
+ is a local minimum whereas 
+\begin_inset Formula \( f\left( -\frac{5\pi }{6}\right)  \)
+\end_inset 
+
+ is a local maximum.
+\begin_float fig 
+\end_deeper 
+\layout Standard
+
+
+\latex latex 
+[h]
+\layout Standard
+\align center 
+
+\begin_inset Figure size 239 168
+file 4_2_42
+height 3 20
+angle 270
+flags 9
+
+\end_inset 
+
+
+\layout Caption
+
+
+\begin_inset Formula \( x-2\cos x \)
+\end_inset 
+
+
+\end_float 
+\layout Enumerate
+
+
+\latex latex 
+[
+\backslash 
+setenumi{52}]
+\latex default 
+ 
+\series bold 
+[2 marks]
+\series default 
+ The independent variable is 
+\begin_inset Formula \( \theta  \)
+\end_inset 
+
+.
+ We can take the derivative either using the chain rule or else, using the
+ quotient rule.
+ We get 
+\begin_inset Formula \[
+F'(\theta )=\frac{\mu W\left( \sin \theta -\mu \cos \theta \right) }{\left( \mu \sin \theta +\cos \theta \right) ^{2}}.\]
+
+\end_inset 
+
+Setting 
+\begin_inset Formula \( F'(\theta _{min})=0 \)
+\end_inset 
+
+, we get 
+\begin_inset Formula \( \sin \theta _{min}-\mu \cos \theta _{min}=0 \)
+\end_inset 
+
+ or 
+\begin_inset Formula \( \mu =\tan \theta _{min} \)
+\end_inset 
+
+ (choosing 
+\begin_inset Formula \( \theta _{min} \)
+\end_inset 
+
+ so 
+\begin_inset Formula \( 0\leq \theta _{min}\leq \frac{\pi }{2} \)
+\end_inset 
+
+).
+ To verify it is a minimum, we use the 
+\series bold 
+\shape italic 
+\color red
+Closed Interval Method
+\series default 
+\shape default 
+\color default
+ since 
+\begin_inset Formula \( f \)
+\end_inset 
+
+ is continuous and we have a closed interval.
+ 
+\begin_inset Formula \begin{eqnarray*}
+F\left( \theta _{min}\right)  & = & \frac{\mu W}{\mu \sin \theta _{min}+\cos \theta _{min}}\\
+ & = & \frac{\mu W}{\tan \theta _{min}\sin \theta _{min}+\cos \theta _{min}}\\
+ & = & \frac{\mu W\cos \theta _{min}}{\sin ^{2}\theta _{min}+\cos ^{2}\theta _{min}}\\
+ & = & \mu W\cos \theta _{min}.
+\end{eqnarray*}
+
+\end_inset 
+
+Whereas we have 
+\begin_inset Formula \( F(0)=\mu W \)
+\end_inset 
+
+ and 
+\begin_inset Formula \( F\left( \frac{\pi }{2}\right) =W \)
+\end_inset 
+
+.
+ Clearly, 
+\begin_inset Formula \( F\left( \theta _{min}\right)  \)
+\end_inset 
+
+ is minimal.
+\newline 
+
+\series bold 
+Alternative:
+\series default 
+ We take the second derivative (using the quotient rule)
+\begin_inset Formula \[
+F''(\theta )=\frac{\mu W\left( 2\left( \sin \theta -\mu \cos \theta \right) ^{2}\left( \mu \sin \theta +\cos \theta \right) +\left( \mu \sin \theta +\cos \theta \right) ^{3}\right) }{\left( \mu \sin \theta +\cos \theta \right) ^{4}}.\]
+
+\end_inset 
+
+Since 
+\begin_inset Formula \( \sin \theta _{min}-\mu \cos \theta _{min}=0 \)
+\end_inset 
+
+,
+\begin_inset Formula \begin{eqnarray*}
+F''(\theta _{min}) & = & \frac{\mu W\left( \mu \sin \theta _{min}+\cos \theta _{min}\right) ^{3}}{\left( \mu \sin \theta _{min}+\cos \theta _{min}\right) ^{4}}\\
+ & = & \frac{\mu W}{\tan \theta \sin \theta _{min}+\cos \theta _{min}}\\
+ & = & \frac{\mu W\cos \theta _{min}}{\sin ^{2}\theta _{min}+\cos ^{2}\theta _{min}}\\
+ & = & \mu W\cos \theta _{min}.
+\end{eqnarray*}
+
+\end_inset 
+
+Since both 
+\begin_inset Formula \( \tan \theta _{min}=\mu  \)
+\end_inset 
+
+ and 
+\begin_inset Formula \( \cos \theta _{min} \)
+\end_inset 
+
+ are positive (recall that 
+\begin_inset Formula \( 0\leq \theta _{min}\leq \frac{\pi }{2} \)
+\end_inset 
+
+) and so is the weight 
+\begin_inset Formula \( W \)
+\end_inset 
+
+, we have 
+\begin_inset Formula \( F''(\theta _{min})>0 \)
+\end_inset 
+
+ and therefore, 
+\begin_inset Formula \( \theta =\theta _{min} \)
+\end_inset 
+
+ (
+\begin_inset Formula \( \mu =\tan \theta _{min}) \)
+\end_inset 
+
+ is a local minimum
+\begin_float footnote 
+\layout Standard
+
+We could also simplify further and write 
+\begin_inset Formula \( F''(\theta _{min})=W\sin \theta _{min} \)
+\end_inset 
+
+.
+\end_float 
+.
+ 
+\layout Bibliography
+\bibitem [Stewart]{Steward}
+
+James Stewart, 
+\shape italic 
+Calculus: Concepts and Contexts
+\shape default 
+ (Second Edition), Brooks/Cole, 2001.
+\the_end

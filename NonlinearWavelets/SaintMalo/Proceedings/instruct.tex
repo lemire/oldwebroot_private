@@ -1,0 +1,482 @@
+
+%************************* AT01 MACROS ******************************
+% FILE NAME: instruct.tex
+% Copyright: 10/15/97, updated 4/20/99, 6/1/02
+% CREATED BY: Larry Schumaker
+% EMAIL: s@mars.cas.vanderbilt.edu
+% WEB: http://www.math.vanderbilt.edu/~schumake/
+% ******************************************************************
+%
+%		For use in preparing papers for
+%
+%		     ST MALO Proceedings, 2002
+%
+%		 Larry Schumaker (s@mars.cas.vanderbilt.edu)
+
+%********************  INSTRUCTIONS  **********************************
+
+%1. REPLACE xxx by correct information
+%2. INSERT body of text in the sections
+%3. INSERT references
+%4. REMOVE all lines starting with %
+%5. RENAME this file "yourname.tex"
+
+%************************ INITIALIZATION ************************
+
+%	 In TEXing your file remember that TEX will be asking for the
+%	 file at01.tex, so have it available in the
+%	 same directory as this file.
+%
+
+\count100= 1
+\count101= 7
+   %replace 3 by the number of pages of your paper.
+\input malo2.tex
+
+\title{Instructions for Using the}
+  % Replace xxx by your title.
+\titwo{\conf \TeX{} Macros}
+   % If need two lines for title, replace xxx.
+\author{Larry L. Schumaker}
+   % Replace xxx by author names.
+%\autwo{xxx}
+   % If you need two lines for authors, replace xxx.
+
+\def\shorttitle{TEX Instructions}
+   % Replace xxx by a short title for the running head.
+\def\shortauthor{Larry L. Schumaker}
+   % Replace xxx by author names (initials only) for running head
+
+%   ********************** MACROS  ******************************
+
+\def\back{{\tt \char'134}}
+\def\co{{\cal O}}
+\def\cP{{\cal P}}
+\def\ct{{\cal T}}
+\def\ctil{\tilde{\cal T}}
+\def\lb{\char'173}
+\def\rb{\char'175}
+\def\oln{\co(n \log(n))}
+\def\tb#1{{\tt \back #1}}
+\def\Tex{{\TeX~}}
+
+%************************* ABSTRACT **********************************
+
+\abstract {This document is based on the \Tex file {\tt instruct.tex}.
+Here is a sample abstract.  It should consist of a single
+paragraph describing the main results of your paper.  It would be better
+not to put too many symbols in the abstract.}
+  % Replace xxx by your abstract
+
+%******************************* BODY *********************************
+
+\sect{1. Introduction}
+The purpose of this sample paper is to illustrate how to use the
+macro file {\tt \macname.tex} to create a \TeX{} file for your contribution
+to the \conf{}proceedings, and to give
+detailed instructions on style.
+This sample paper was created by
+filling in the blanks in the file {\tt paper.tex}.
+
+I recommend that you read through this document,
+even if you are an experienced \Tex  user
+and have used some of my macros before. And
+if you have not used plain \TeX{} macro files before,
+I think you will be able to learn almost everything you need
+to know by comparing
+what is in this document with the \Tex file {\tt instruct.tex}
+which generated it. If you don't read anything else, please
+look at Sect.~14 on things \eword{not} to do.
+
+For information on how to submit your paper, see the document
+{\it Submitting Papers to the \conf{}Proceedings}
+which you can create by processing the \Tex file {\tt submit.tex}.
+
+\sect{2. Organization}
+We recommend that you organize your paper into sections
+which should be numbered starting with 1.  To create section
+headings, use the \tb{sect} macro.  If your section heading
+does not fit on one line, use \tb{sectlong}.
+Do not leave a blank line between the section
+heading and the first line of text.
+Each major word (other than words like {\it a, and,
+the, to, with}, etc.) in the section title
+should be capitalized. Do not include a period at the end.
+
+Subsections can be created with \tb{subsect} and \tb{fsubsect}.
+The latter is for use immediately after the start of a section
+and simply leaves a little less space.
+
+\sect{3. Proclamations}
+Definitions, Lemmas, Theorems, and Propositions are examples
+of proclamations.  You create them using the macro
+\tb{proclaim}.	This sets the body of the object in a
+slanted font.
+
+\proclaim Definition 1.  A set ${\cal T} =
+\{(\alpha_i,\beta_i,\gamma_i)\}_1^{N}$
+of triples of integers chosen from $\{1,\ldots,n\}$ is called a
+\dword{triangulation} of $\cP$ provided that
+\sm
+\ritem{1)} for each $1 \le i \le N$, the points $P_{\alpha_i},
+P_{\beta_i},
+P_{\gamma_i}$ are the vertices of  $T_i$;
+\sm
+\ritem{2)} each triangle contains exactly three points of $\ct$, and
+these are precisely the vertices of the triangle.
+\nopf
+
+\proclaim Theorem 2.  Given any point set $\cal P$, there always
+exists at least one optimal triangulation.  Moreover, every optimal
+triangulation is locally optimal provided
+$$ n = \cases{3,& if $m$ is odd, \cr
+	      0,& otherwise. \cr}$$
+
+\pf
+Here we have used the \tb{proclaim} macro to state a theorem.
+If you are not giving a proof, end your theorem with \tb{nopf}.
+Otherwise, leave a blank line and use
+\tb{pf} to begin the proof.  We
+have also illustrated the use of the macro \tb{cases}.
+The end of the proof is marked with a square box by using the
+\tb{eop} macro. If you need to put a black box in a mathematical
+display, use \tb{meop}. \eop
+
+\sect{4. Lists}
+The usual \Tex macro for creating lists is called \tb{item}.
+However, if you are creating lists within a proclamation,
+as was done in Def.~1 above, it looks better to use the
+macro \tb{ritem} which is defined in {\tt \macname.tex}
+since it sets the numbers in roman rather than slant.
+We prefer that you use a right parenthesis
+after each number rather than a period.
+
+If you don't want to number the items in a list, you can
+use our macro \tb{bull} in place of \tb{item} or \tb{ritem}.
+For an example, see the list in Sect.~14 below.
+
+\sect{5. Open Face Letters}
+Use the macros \tb{RR} and \tb{CC} for the sets $\RR$ and $\CC$
+of real and complex numbers.
+You may also want to use the macros \tb{NN}, \tb{PP}, and \tb{ZZ} to get
+$\NN$, $\PP$,  and $\ZZ$.
+If you have to use $\RR$ in the title, use the macro \tb{RRt}.
+You may also use the macros
+\tb{Cbb},
+\tb{Dbb},
+\tb{Kbb},
+\tb{Nbb},
+\tb{Pbb},
+\tb{Qbb},
+\tb{Rbb},
+\tb{Tbb},
+and \tb{Zbb},
+to get $\Cbb, \Dbb, \Kbb,\Nbb,\Pbb,\Qbb,\Rbb,\Tbb,\Zbb$.
+
+
+\sect{6. Bold Faced Characters}
+To create bold-faced mathematical symbols, you can
+use \tb{bfm}.
+Thus to get $\bfm{n}$ you type 
+{\tt \back bfm\lb{}n\rb}.
+For non-mathematical letters, it is better to use the usual
+bold face command, i.e., to get {\bf n} you type
+{\tt\lb{}\back bf n\rb}.
+If you need a bold-faced symbol in a subscript or superscript,
+use \tb{bfs}.	For a subsubscript or supersuperscript,
+use \tb{bfss}. For example to get $n_\bfs{b}$ you type
+{\tt \$n\_\back{}bfs\lb{}b\rb\$}.
+
+\sect{7. Displayed Equations}
+Equations can be numbered or not numbered as you like.	However,
+if you use them,
+we want equation numbers to appear on the right. The appropriate
+macro is  \tb{eqno}. For these short papers, we suggest numbering
+sequentially starting with (1).
+
+If a sentence ends within a displayed formula,
+the period should be inserted in the formula after the last symbol.
+If the sentence continues, but a comma is appropriate at the
+end of the displayed formula, put it there.  {\it Do not} insert any
+extra space in front of such punctuation.
+
+To line up displayed equations you can use \tb{eqalign}
+or \tb{eqalignno}. Here is an example
+$$\eqalign{N& =  2n-\bfm{n}_b-2, \qquad 1 \le n \le 16, \cr
+	    e & =  3n-\bfm{n}_b-3, \qquad 1 \le n \le 4. \cr}\eqno(1)$$
+To see how this was achieved, study the \Tex file {\tt instruct.tex}
+which generated this document. The idea is simple -- you use
+the symbol $\&$ to mark the alignment points, and you end each
+line with \tb{cr}. This is one of the few things that
+La\TeX{} users have to learn to become plain \Tex users.
+
+To line up equations while
+giving each of them its own number, you use \tb{eqalignno}.
+Here is an example:
+$$\eqalignno{N& =  2n-\bfm{$n$}_b-2, \qquad 1 \le n \le 16, & (2), \cr
+	    e & =  3n-\bfm{$n$}_b-3, \qquad 1 \le n \le 4.& (3) \cr}$$
+
+\sect{8. Figures}
+Almost everyone these days creates figures in postscript.  These
+can be integrated into your manuscript by inserting some
+simple commands into your \Tex files.  For details, see the
+document {\sl Inserting Postscript Figures Using
+the \conf Macros}
+which corresponds to the \Tex file {\tt psfigures.tex} included
+with this macro package.
+
+All postscript files corresponding to figures should have names
+which end with the suffix
+{\tt fig}.  I suggest
+{\tt name1.fig}, {\tt name2a.fig}, {\tt name2b.fig},
+etc., where {\tt name}
+is your name or some abbreviation of it.
+
+We have no problem dealing with postscript files whose sizes
+are a few megabytes.  But if you are creating postscript
+files which are 10MB or more, you probably should be working with
+photographs.
+
+Figure captions should be created with the macro \tb{figcap}.
+If your caption does not fit on one line, use the
+macro \tb{figcaplong}.
+
+If you need to use hardcopy figures, contact us for instructions.
+
+\sect{9. Photos}
+Photographs can be included in the book, but
+due to exorbitant printing costs, they cannot be reproduced in
+color.  All photos will be reduced to black and white halftones.
+Photos can be submitted either as
+prints (any size is acceptable) or slides, and can be either
+color or black and white.
+If you have high-resolution images on a computer screen, it is
+usually better to photograph them as opposed to taking a digital screen
+snapshot.  This gives higher resolution, and avoids working with
+huge postscript files (often several megabytes).
+
+\sect{10. Tables}
+Tables can be created with standard \Tex commands.  If you prefer,
+you can also create your table with La\TeX, convert it to
+postscript, and then treat it like a figure.
+Table captions should be created with the macro  \tb{tabcap}.
+If your caption does not fit on one line, use
+the macro \tb{tabcaplong}.
+
+\sect{11. Using Labels and Automatic Numbering}
+Many people seem to think that \Tex is inferior to La\Tex because
+La\Tex can do automatic numbering.  Nothing could be further
+from the truth.  Automatic numbering and labelling of
+equations, formal statements (Lemmas, Theorems, etc.), figures,
+Tables, and references is easy to do in \Tex using
+the numbering macros (due to Carl de\thinspace{}Boor) which
+are included in the macro file {\tt lls00.tex}.
+For more details, see the document \eword{Automatic Numbering Using
+the \conf \Tex Macros} which corresponds to the \Tex file
+{\tt autonumber.tex}.
+
+\sect{12. Emphasizing Words}
+In order to make the book more useful, we are considering adding an
+index.  To make this work, we need your help.  When you prepare your
+paper, consider which words people are likely to want to find in the
+index (this would include all words which you are defining for the
+first time, but also other important concepts you may be making use of).
+These are the words you would most likely be emphasizing with a special
+font (people often use italic).  Thus, instead of writing
+{\tt \lb{}\tb{it} triangulation\rb}
+to distinguish the word being defined in Def.~1 above, please write
+{\tb{dword} \tt \lb{}triangulation\rb}. 
+
+The macro \tb{dword} should \eword{not} be used for words that you merely
+want to emphasize, such as the word ``not" in this sentence.
+For this we have another macro called \tb{eword}.  To emphasize the
+word not, you simply type \tb{eword}{\tt\lb{}not\rb}.
+Mnemonically, the d stands for ``define", and the e stands for
+``emphasize".
+
+\sect{13. A Few Other Macros}
+The macros in {\tt \macname.tex} are grouped according to function,
+and are in alphabetical order within the groups.
+Besides the ones mentioned above, I have included a few others
+which you may find useful.  For example, you may want to use
+\tb{sm} for \tb{smallskip}, \tb{ms} for \tb{medskip}, and \tb{bs}
+for \tb{bigskip}.  Also, \tb{noin} for \tb{noindent}.
+To get $\frac{a}{b}$,
+you can type \$\tb{frac\lb{}a\rb\lb{}b\rb\$}.
+I have added a macro \tb{boxit} which can be used to draw a box
+around some block of material.
+
+\sect{14. Some Things Not to Do}
+Here is a short list of some things you should {\bf not} do:
+\ms
+\bull Do not use La\Tex or AMS \Tex.
+\sm
+\bull Do not create a \Tex file by using some conversion software
+to change a ``word" document or TROFF document to \Tex.
+\sm
+\bull Do not type your \Tex file using any special characters
+you may have on your keyboard or in your editor.  This applies
+especially to editors that have keys for letters with diacritical
+marks like \"a, \"u, \'a, \`a, \~n, etc.
+\sm
+\bull Do not change any of the macro files.
+\sm
+\bull Do not redefine any of the standard macros of \Tex
+or any of the macros in {\tt \macname.tex} or {\tt lls00.tex}
+(\ie{} before you define a macro for yourself, 
+check to make sure that it has not already been defined).
+\sm
+\bull Do not try to squeeze more into your paper by changing
+\tb{hsize}, \tb{vsize}, \tb{baselineskip}, \tb{magstep},
+or by using different fonts.
+\sm
+\bull Do not add extra space between paragraphs.
+\sm
+\bull Do not add spaces before punctuation.  \Tex does a very
+  good job of spacing, and we just have to edit all such extra
+  space out.
+\sm
+\bull Do not use footnotes.  Simply put what you want to say in
+  the text at the appropriate place (possibly in parentheses).
+\sm
+\bull Do not put a colon before every displayed equation.  The
+  only correct time to use a colon there is if you are saying
+  something like {\sl ... the following equation:}
+\sm
+\bull Do not simply copy references from some file you may have
+  on hand.  We have a specific reference style which is spelled
+  out in Sect.~16 below. Please follow it.
+\sm
+\bull Do not use \tb{sl}, \tb{it}, or \tb{bf} to emphasize words.
+Instead, use \tb{dword} and \tb{eword} as explained in
+Sect.~12.
+\sm
+\bull Do not type long lines. \Tex doesn't care if you cut sentences
+up into short pieces (just look at the file {\tt submit.tex} which
+generated this document).  Many editors automatically break words
+at around 80 characters, and this means that if you have lines with
+more than 80 characters in them, my editor may break your words in
+a bad place.  Just hit the \eword{Return} or \eword{Enter} key
+whenever you reach 60 or 70 characters on a line.  I sometimes get
+files where whole paragraphs are typed on a single line -- they are
+extremely hard to edit.
+
+\sect{15. The de Boor/Schumaker Bibliography}
+I have been maintaining a bibliography of papers in approximation
+theory and CAGD (with emphasis on splines) for many years.
+Carl de\thinspace{}Boor joined
+in this effort several years ago, and has contributed greatly
+to making the bibliography a more useful tool.  Our idea is
+to have an (authenticated) file of references
+and a very flexible set of
+\Tex macros for inserting them into \Tex documents.
+The bibliography is available on the web at
+$$\hbox{\tt http://www.math.ohio-state.edu/JAT/DATA/TOC/toc.html}$$
+
+The macro file {\tt lls00.tex} includes macros which
+can be used to insert entries into your \Tex file. While
+at first glance the use of this bibliography may seem complicated,
+we believe it is quite easy to use -- for details, see [2].
+We would be very happy if you decide to use these macros
+for your paper, and even more pleased if you would help us
+with the bibliography by submitting additions and
+corrections (especially to your own work).
+
+\sect{16. References}
+As in all good books and journals,
+we would like to have a uniform way of listing references.
+We want different styles for journal papers, proceedings papers,
+books, unpublished reports or preprints, and dissertations.
+You can save us all a lot of trouble if you prepare your
+reference list carefully according to the following rules:
+\ms
+
+\bull  Arrange your references in alphabetical order.
+\sm
+\bull  Use the \tb{ref} macro; it
+automatically numbers your references.
+To see how to use it,
+look at the file {\tt instruct.tex} which generated this document).
+\sm
+\bull  For uniformity, please follow the style for journals,
+proceedings, books, and preprints illustrated in the references
+listed below.
+\sm
+\bull  Insert spaces between the initials of author
+names.	 Thus, you should type I. J. Schoenberg and not I.J. Schoenberg.
+\sm
+\bull The references below show how to handle multiple
+authors.
+\sm
+\bull  Capitalize each word in the title of a book, but
+only the first word in the titles of articles, etc.
+\sm
+\bull Use regular roman fonts for everything except for
+the titles of books, which should be set in slant font using \tb{sl}.
+\sm
+\bull Type two dashes between page numbers to get 55--89.
+\sm
+\bull We would like to have the volume numbers of journals typeset
+ in bold face as illustrated in the first item in the references below.
+\sm
+\bull  You can save typing while using the official AMS
+abbreviations for journals by using macros included in
+{\tt \macname.tex}.	For example, for the journal Computer Aided
+Geometric Design, you type \tb{CAGD}; see the first reference
+below.	Note, to insert a space after such a macro, type
+the symbol $\sim$.  Thus, the reference [1] below is typed as
+follows:
+$$ \hbox{\tt \back CAGD$\sim$\lb\back bf 4\rb~(1987), 105--123.} $$
+\sm
+\bull Similarly, we have included macros for several proceedings
+you might like to refer to. They are called  
+\tb{ulvik}, \tb{lillehammer}, \tb{osloII},
+\tb{chamonixI}, \tb{chamonixIIa}, \tb{chamonixIIb},
+\tb{chamonixIIIa}, \tb{chamonixIIIb}, 
+\tb{stmalod}, \tb{stmalof},
+\tb{texasI}, \tb{texasII}, \tb{texasIII}, \tb{texasIV}, \tb{texasV},
+\tb{texasVI}, \tb{texasVII}, \tb{texasVIIIa}, \tb{texasVIIIw},
+\tb{texasIXt}, \tb{texasIXc}, \tb{texasXa}, and \tb{texasXs}.
+As an example, reference [2] below was typed using \tb{oslo}.
+We have also created
+\tb{stmalotwo} to use for cross references to
+papers in this proceedings, see reference [3] below.
+\ms
+
+\noin To cite references listed in the References section,
+write their numbers in square brackets as [4] and
+[1,2,3].
+
+%******************************* REFERENCES *************************
+
+\References
+
+\ref Alfeld, P., B. Piper, and L. L. Schumaker, Minimally supported
+bases
+for spaces of bivariate piecewise polynomials of smoothness $r$ and degree
+$d \ge 4r+1$, \CAGD~{\bf 4} (1987), 105--123.
+
+\ref D{\ae}hlen, M., On the evaluation of box splines, in \oslo,
+167--179.
+
+\ref Author, A., and B. Author, Some paper to be cross-referenced
+in this proceedings, in \stmalotwo, xxx--xxx.
+
+\ref  Schumaker, L. L., {\sl Spline Functions: Basic Theory}, Wiley, New
+York, 1981.
+
+
+%******************************* ADDRESS *************************
+
+\Address{
+Larry L. Schumaker
+Dept. of Mathematics
+Vanderbilt University
+Nashville, TN 37240
+{\tt s@mars.cas.vanderbilt.edu
+http://www.math.vanderbilt.edu/$\sim$schumake/}
+}
+
+\bye
+%% END of file instruct.tex
+

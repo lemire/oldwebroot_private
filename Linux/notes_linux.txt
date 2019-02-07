@@ -1,0 +1,168 @@
+
+1) Le foutu clavier français sous RedHat Linux (7.x)
+
+1.1) hors de X
+
+configuration du clavier en console pour Redhat 7
+
+utiliser /usr/sbin/kbdconfig
+
+fournit par le paquetage du même nom.
+
+Note: Xmodmap.cf (voir paragraphe suivant), n'aide pas vraiment hors de 
+X... et oui, il y a des gens qui font des choses sans interface
+graphique!
+
+1.2) dans X
+
+/etc/X11/xinit/xinitrc vérifie la présence de
+
+.Xmodmap
+
+dans le répertoire de l'usager... bonne idée d'y mettre Xmodmap.cf fourni
+par les gens de Linux-quebec.org. L'avantage sur la méthode proposée par
+Linux-quebec.org c'est qu'on n'a pas besoin de faire un su.
+
+1.3) Gnome
+
+Pour une raison stupide, la variable "LANG" semble déconner et être fixée 
+à fr_FR@EURO (putain de merde!) chez RedHat quand on choisit le français.
+On fait export LANG=fr_CA dans .bashrc et ça règle le problème.
+
+Daniel Lemire 
+http://www.ondelette.com
+
+
+==============
+
+configuration du son
+
+/usr/sbin/sndconfig
+===============
+
+configuration du réseau
+
+/etc/hosts
+127.0.0.1 localhost.localdomain localhost
+192.168.0.1 www.mydomain.org <value of HOSTNAME>
+
+
+
+/etc/resolv.conf
+nameserver 192.168.0.3
+
+
+didn't work, try to upgrade kernel
+
+/sbin/mkbootdisk --device /dev/fd0 2.4.2-0.1.19smp
+
+
+ifup eth0
+3com 3905b NIC
+
+eth0 3c509 dans kernelcfg
+
+FTP didn't work, added
+
+			service ftp
+                   {
+                           socket_type = stream
+                           wait        = no
+                           user        = root
+                           server      = /usr/sbin/in.ftpd
+                           server_args = -l -a
+                   }
+
+to /etc/xinetd.conf
+
+Note: mauvaise idée, vaut mieux modifier les fichiers du répertoire
+xinetd.d et faire un kill sur le process xinetd.conf
+
+*) À cause de Xig, vaut mieux faire gunzip *.gz sur toutes les polices 
+sous X11R6, puis faire mkfontdir dans chaque répertoire
+*) Added 
+export NPX_PLUGIN_PATH=/usr/java/jdk1.3.0_02/jre/plugin/i386/ns4
+
+
+installed Dante
+
+
+*) Plusieurs applications ne fonctionnaient plus après avoir
+compiler KDE à partir des sources. 
+
+*) Il a fallu rajouter la
+ligne suivante à mon .bashrc:
+
+export LD_LIBRARY_PATH=/usr/local/kde/lib:$LD_LIBRARY_PATH
+
+*) J'ai pu ensuite utiliser printtool pour configurer mon imprimante.
+
+*) Bug dans Java sous Linux force à utiliser "ulimit -s 2000" pour 
+que ça fonctionne... Pour que IBM JDK1.3 fonctionne, il faut installer
+glibc pour 386 au lieu de 686 (glibc-2.2.2-5.i386 fonctionne). Je préfère
+nettement le IBM JDK1.3 parce qu'il est moins bogué. En particulier,
+le JDK1.3 de Sun ne supporte pas bien les claviers internationaux!
+
+*) Il semblerait que glibc-2.2.2 est bogué. Je recommande glibc-2.2.1.
+
+
+
+
+
+
+
+
+=================
+
+Réinstallation (RedHat 7.1)
+
+/sbin/ifup eth0 
+ne fonctionne pas!
+
+/sbin/modproble 3c509.o ne fonctionne pas!!!
+
+Arghhh
+
+J'obtiens "Can't load module" ou bien "Delaying eth0 initialization".
+
+Arghhhh
+
+lspci ne me sort pas l'info!!!
+
+ifconfig eth0 ne fonctionne pas!
+
+/sbin/modprobe 3c509 fonctionne!
+
+edit /etc/modules.conf
+
+alias eth0  3c509
+
+faire tail -f /var/log/messages
+ah ah
+
+
+StarOffice...
+
+Faut faire "export SAL_DO_NOT_USE_INVERT50=true" pour éviter le crash!
+
+Java...
+
+ulimit -s 2000
+export LD_ASSUME_KERNEL=2.2.5
+
+printconf
+
+j'ai utilisé "ljet4" Pour ma laserjet6l et ça règle le prob!
+
+/etc/xinetd
+
+faut débarrer ftp et telnet... colisse
+
+
+====================
+
+CD-RW
+
+Pour le voir, il faut faire "/sbin/insmod ide-scsi" suivi de "cdrecord -scanbus"
+
+Ensuite on utilise CDR Toaster

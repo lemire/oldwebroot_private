@@ -1,0 +1,10 @@
+kill(LABELS);
+p2(z):=1+9/16*(z+z^-1)-1/16*(z^3+z^-3);
+p4(z):=1+105/128*(z+z^-1)+9/16*(z^2+z^-2)+35/128*(z^3+z^-3)-7/128*(z^5+z^-5)-1/16
+*(z^6+z^-6)-5/128*(z^7+z^-7);
+Gamma2(z):=(p4(z)-p4(-z))/4 + (1-alpha) * (p4(z) + p4(-z))/4;
+Gamma1(z):=Gamma2(z)+alpha;
+stable(z):=Gamma1(z)+Gamma2(z);
+guesses(z):=Gamma1(z)-Gamma2(z);
+ratsimp(stable(z));
+ratsimp(guesses(z));

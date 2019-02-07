@@ -1,0 +1,649 @@
+#LyX 1.1 created this file. For more info see http://www.lyx.org/
+\lyxformat 218
+\textclass amsart
+\language english
+\inputencoding auto
+\fontscheme default
+\graphics default
+\paperfontsize default
+\spacing single 
+\papersize letterpaper
+\paperpackage a4
+\use_geometry 0
+\use_amsmath 0
+\paperorientation portrait
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\defskip medskip
+\quotes_language english
+\quotes_times 2
+\papercolumns 1
+\papersides 2
+\paperpagestyle default
+
+\layout Title
+
+Hermite Wavelets
+\layout Author
+
+Daniel Lemire
+\layout Date
+
+4/04/2001
+\layout Keywords
+
+Wavelet, Fourier Transform, Hermite Interpolation
+\layout Current Address
+
+D.
+ Lemire, Ondelette.com, 2059, rue Wurtele, Montréal (Québec), H2K 2P8 Canada,
+ email: lemire@ondelette.com
+\layout Section
+
+Introduction
+\layout Standard
+
+Our goal is to build wavelets to process Hermite data.
+ Specifically, we want to derive from some classes of Hermite interpolation
+ schemes 
+\begin_inset LatexCommand \cite{DuLeMe}
+
+\end_inset 
+
+ a wavelet basis.
+ This approach is similar to the way Daubechies derived its wavelets from
+ the Deslauriers-Dubuc interpolation scheme 
+\begin_inset LatexCommand \cite{Dau, DeDu}
+
+\end_inset 
+
+.
+ However, the theoritical foundation of the wavelet transform need to be
+ extended to encompass Hw
+\layout Section
+
+Multiple Scaling Functions And Hermite Interpolation
+\layout Subsection
+
+Multiple scaling functions
+\layout Standard
+
+Our goal is to generalize the classical scaling function theory to the case
+ where we have more than one scaling function and then extend to the case
+ where we take into account derivatives of some of the scaling functions
+ when defining duality.
+ Let 
+\begin_inset Formula \( m(\xi ) \)
+\end_inset 
+
+ and 
+\begin_inset Formula \( \widetilde{m}(\xi ) \)
+\end_inset 
+
+ be 
+\begin_inset Formula \( n\times n \)
+\end_inset 
+
+ matrices of trigonometric polynomials (
+\begin_inset Formula \( 2\pi  \)
+\end_inset 
+
+-periodic in 
+\begin_inset Formula \( \xi  \)
+\end_inset 
+
+).
+ Noting the Fourier transform of 
+\begin_inset Formula \( f \)
+\end_inset 
+
+ by 
+\begin_inset Formula \( \hat{f} \)
+\end_inset 
+
+, we want to find 
+\begin_inset Formula \( n \)
+\end_inset 
+
+-dimensional vectors 
+\begin_inset Formula \( \hat{\phi } \)
+\end_inset 
+
+ and 
+\begin_inset Formula \( \hat{\gamma } \)
+\end_inset 
+
+, 
+\begin_inset Formula \[
+\hat{\phi }=\left[ \begin{array}{c}
+\hat{\phi }_{1}\\
+\vdots \\
+\hat{\phi }_{n}
+\end{array}\right] ,\, \hat{\gamma }=\left[ \begin{array}{c}
+\hat{\gamma }_{1}\\
+\vdots \\
+\hat{\gamma }_{n}
+\end{array}\right] \]
+
+\end_inset 
+
+ such that 
+\begin_inset Formula \( \hat{\phi }(\xi )=m(\xi /2)\hat{\phi }(\xi /2) \)
+\end_inset 
+
+ and 
+\begin_inset Formula \( \hat{\gamma }(\xi )=\widetilde{m}(\xi /2)\hat{\gamma }(\xi /2) \)
+\end_inset 
+
+.
+ To see what these equations imply, we write 
+\begin_inset Formula \( m(\xi )=\sum _{k}c_{k}e^{ik\xi } \)
+\end_inset 
+
+, and then observe that 
+\begin_inset Formula \( \hat{\phi }(\xi )=m(\xi /2)\hat{\phi }(\xi /2)\Rightarrow \phi (x)=\sum _{k}c_{k}\phi (2x-k) \)
+\end_inset 
+
+ and similarly for 
+\begin_inset Formula \( \gamma  \)
+\end_inset 
+
+, so that if 
+\begin_inset Formula \( V_{j}=span_{k}\{\phi (2^{j}\cdot -k),\gamma (2^{j}\cdot -k)\} \)
+\end_inset 
+
+ then 
+\begin_inset Formula \( V_{j-1}\subset V_{j} \)
+\end_inset 
+
+ and 
+\begin_inset Formula \( f\in V_{j}\Rightarrow f(2\cdot )\in V_{j+1} \)
+\end_inset 
+
+.
+ 
+\layout Lemma
+
+Using the fact that 
+\begin_inset Formula \( m(\xi ) \)
+\end_inset 
+
+ and 
+\begin_inset Formula \( \widetilde{m}(\xi ) \)
+\end_inset 
+
+ are 
+\begin_inset Formula \( 2\pi  \)
+\end_inset 
+
+-periodic in 
+\begin_inset Formula \( \xi  \)
+\end_inset 
+
+, we have that 
+\begin_inset Formula \( \int \phi _{i}(x-l)\gamma _{j}(x-k)dx=\delta _{k,l}\delta _{i,j}\Leftrightarrow m(\xi /2+\pi )\overline{\widetilde{m}(\xi /2+\pi )^{T}}+m(\xi /2)\overline{\widetilde{m}(\xi /2)^{T}}=I\, a.e. \)
+\end_inset 
+
+ 
+\layout Proof
+
+**Something is wrong with my proof since 
+\begin_inset Formula \( \hat{\gamma }_{1}(\xi ) \)
+\end_inset 
+
+ should come out and not
+\begin_inset Formula \( \overline{\hat{\gamma }_{1}(\xi )} \)
+\end_inset 
+
+.** 
+\begin_inset Formula \begin{eqnarray*}
+I=\left( \begin{array}{ccc}
+\delta _{k,0} & \cdots  & 0\\
+\vdots  & \ddots  & \vdots \\
+0 & \cdots  & \delta _{k,0}
+\end{array}\right) = & \left( \begin{array}{ccc}
+\int \phi _{1}(x)\gamma _{1}(x-k)dx & \cdots  & \int \phi _{1}(x)\gamma _{n}(x-k)dx\\
+\vdots  & \ddots  & \vdots \\
+\int \phi _{n}(x)\gamma _{1}(x-k)dx & \cdots  & \int \phi _{n}(x)\gamma _{n}(x-k)dx
+\end{array}\right)  & \\
+= & \left( \begin{array}{ccc}
+\int \hat{\phi }_{1}(\xi )\overline{\hat{\gamma }_{1}(\xi )}e^{ik\xi }d\xi  & \cdots  & \int \hat{\phi }_{1}(\xi )\overline{\hat{\gamma }_{n}(\xi )}e^{ik\xi }d\xi \\
+\vdots  & \ddots  & \vdots \\
+\int \hat{\phi }_{n}(\xi )\overline{\hat{\gamma }_{1}(\xi )}e^{ik\xi }d\xi  & \cdots  & \int \hat{\phi }_{n}(\xi )\overline{\hat{\gamma }_{n}(\xi )}e^{ik\xi }d\xi 
+\end{array}\right)  & \\
+= & \int _{0}^{2\pi }\sum _{l}\hat{\phi }(\xi +2\pi l)\overline{\hat{\gamma }^{T}(\xi +2\pi l)}e^{ik\xi }d\xi  & 
+\end{eqnarray*}
+
+\end_inset 
+
+From this, we get that 
+\begin_inset Formula \( \sum _{l}\hat{\phi }(\xi +2\pi l)\overline{\hat{\gamma }^{T}(\xi +2\pi l)}=I/2\pi \, a.e. \)
+\end_inset 
+
+ and since 
+\begin_inset Formula \( \hat{\phi }(\xi )\hat{\gamma }^{T}(\xi )=m(\xi /2)\hat{\phi }(\xi /2)\overline{\hat{\gamma }(\xi /2)^{T}\widetilde{m}(\xi /2)^{T}} \)
+\end_inset 
+
+, we have 
+\begin_inset Formula \( \sum _{l}m(\xi /2+\pi l)\hat{\phi }(\xi /2+\pi l)\overline{\hat{\gamma }(\xi /2+\pi l)^{T}\widetilde{m}(\xi /2+\pi l)^{T}}=I/2\pi \, a.e. \)
+\end_inset 
+
+.
+ Now, splitting positive and negative 
+\begin_inset Formula \( l \)
+\end_inset 
+
+-values, we have 
+\begin_inset Formula \[
+\sum _{l}m(\xi /2+\pi )\hat{\phi }(\xi /2+\pi l)\overline{\hat{\gamma }(\xi /2+\pi l)^{T}\widetilde{m}(\xi /2+\pi )^{T}}+\sum _{l}m(\xi /2)\hat{\phi }(\xi /2+\pi l)\overline{\hat{\gamma }(\xi /2+\pi l)^{T}\widetilde{m}(\xi /2)^{T}}=I/2\pi \, a.e.\]
+
+\end_inset 
+
+or 
+\begin_inset Formula \( m(\xi /2+\pi )\overline{\widetilde{m}(\xi /2+\pi )^{T}}+m(\xi /2)\overline{\widetilde{m}(\xi /2)^{T}}=I\, a.e. \)
+\end_inset 
+
+.
+\layout Standard
+
+Using the fact that
+\begin_inset Formula \begin{eqnarray*}
+\delta _{k,0}= & \int \phi (x)\gamma '(x-k)dx & =\int \hat{\phi }(\xi )\widetilde{\hat{\gamma }(\xi )}i\xi e^{ik\xi }dx=\int _{0}^{2\pi }\sum _{l}i(\xi +2\pi l)\hat{\phi }(\xi )\widetilde{\hat{\gamma }(\xi )}e^{ik\xi }dx,
+\end{eqnarray*}
+
+\end_inset 
+
+we have the corresponding result that
+\begin_inset Formula \[
+I=\left( \begin{array}{ccc}
+\delta _{k,0} & \cdots  & 0\\
+\vdots  & \ddots  & \vdots \\
+0 & \cdots  & \delta _{k,0}
+\end{array}\right) =\left( \begin{array}{ccc}
+\int \phi _{1}(x)\gamma _{1}(x-k)dx & \cdots  & \int \phi _{1}(x)\gamma _{n}^{(n)}(x-k)dx\\
+\vdots  & \ddots  & \vdots \\
+\int \phi _{n}(x)\gamma _{1}(x-k)dx & \cdots  & \int \phi _{n}(x)\gamma _{n}^{(n)}(x-k)dx
+\end{array}\right) \]
+
+\end_inset 
+
+(where 
+\begin_inset Formula \( f^{(n)}=d^{n}f/dx^{n} \)
+\end_inset 
+
+) implies 
+\begin_inset Formula \[
+m(\xi /2+\pi )\overline{\widetilde{m}(\xi /2+\pi )^{T}}+m(\xi /2)\overline{\widetilde{m}(\xi /2)^{T}}=\left[ \begin{array}{ccc}
+1 & \cdots  & 0\\
+\vdots  & \ddots  & \vdots \\
+0 & \cdots  & 1/n
+\end{array}\right] \, a.e.\]
+
+\end_inset 
+
+
+\layout Lemma
+
+If we write 
+\begin_inset Formula \( I^{(n)}=\left[ \begin{array}{ccc}
+1 & \cdots  & 0\\
+\vdots  & \ddots  & \vdots \\
+0 & \cdots  & 1/n
+\end{array}\right]  \)
+\end_inset 
+
+, we have that 
+\begin_inset Formula \( \int \phi _{i}(x-l)\gamma _{j}^{(j)}(x-k)dx=\delta _{k,l}\delta _{i,j}\Leftrightarrow m(\xi /2+\pi )\overline{\widetilde{m}(\xi /2+\pi )^{T}}+m(\xi /2)\overline{\widetilde{m}(\xi /2)^{T}}=I^{(n)}\, a.e. \)
+\end_inset 
+
+ 
+\layout Subsection
+
+Hermite interpolation
+\layout Standard
+
+Let 
+\begin_inset Formula \( f \)
+\end_inset 
+
+ and 
+\begin_inset Formula \( p \)
+\end_inset 
+
+ be defined over the integers.
+ We want to extend 
+\begin_inset Formula \( f \)
+\end_inset 
+
+ and 
+\begin_inset Formula \( p \)
+\end_inset 
+
+ so that 
+\begin_inset Formula \( f'=p \)
+\end_inset 
+
+.
+ One iterative way of doing it is to apply the equations 
+\begin_inset Formula \[
+f(x+1/2^{n})=\frac{f(x)+f(x+1/2^{n-1})}{2}+\alpha \frac{(p(x+1/2^{n-1})-p(x))}{2^{n}}\]
+
+\end_inset 
+
+
+\begin_inset Formula \[
+p(x+1/2^{n})=(1-\beta )2^{n}(f(x+1/2^{n-1})-f(x))+\beta \frac{p(x+1/2^{n})+p(x)}{2}\]
+
+\end_inset 
+
+and of course, we could also work within irregular grids instead of dyadic
+ numbers.
+ This scheme depends on two parameters 
+\begin_inset Formula \( \alpha  \)
+\end_inset 
+
+ and 
+\begin_inset Formula \( \beta  \)
+\end_inset 
+
+ which must be specified (convenient values include 
+\begin_inset Formula \( \alpha =-1 \)
+\end_inset 
+
+ and 
+\begin_inset Formula \( \beta =-1 \)
+\end_inset 
+
+ or 
+\begin_inset Formula \( \beta =-1/2 \)
+\end_inset 
+
+ ).
+ We define the first fundamental distribution 
+\begin_inset Formula \( F_{0} \)
+\end_inset 
+
+ to be the interpolant we get from the Hermite data 
+\begin_inset Formula \( f(k)=\delta _{k,0},\: p(k)=0\: \forall k\in \mathbf{N} \)
+\end_inset 
+
+ and the second fundamental distribution 
+\begin_inset Formula \( F_{1} \)
+\end_inset 
+
+ to come from 
+\begin_inset Formula \( f(k)=0,\: p(k)=\delta _{k,0}\: \forall k\in \mathbf{N} \)
+\end_inset 
+
+.
+\layout Standard
+
+Using the Fourier transform, we can write 
+\begin_inset Formula \begin{eqnarray*}
+\left( \begin{array}{c}
+\hat{F}_{0}(\xi )\\
+\hat{F}_{1}(\xi )
+\end{array}\right) = & \left( \begin{array}{cc}
+\frac{1+\cos \xi /2}{2} & i\frac{1-\beta }{2}\sin \xi /2\\
+i\alpha \sin \xi /2 & \frac{1+\beta \cos \xi /2}{4}
+\end{array}\right) \left( \begin{array}{c}
+\hat{F}_{0}(\xi /2)\\
+\hat{F}_{1}(\xi /2)
+\end{array}\right)  & \\
+= & A(\xi /2)\left( \begin{array}{c}
+\hat{F}_{0}(\xi /2)\\
+\hat{F}_{1}(\xi /2)
+\end{array}\right) 
+\end{eqnarray*}
+
+\end_inset 
+
+which is much more convenient for what follows.
+\layout Subsection
+
+Hermite basis
+\layout Standard
+
+We want that 
+\begin_inset Formula \( \forall f\in \Lambda \subset C^{1} \)
+\end_inset 
+
+ a closed subspace, 
+\begin_inset Formula \( f=\sum _{\textrm{k}}\left\langle f,\Phi _{k}\right\rangle \phi _{k}+\left\langle f',\Gamma _{k}\right\rangle \eta _{k} \)
+\end_inset 
+
+.
+ We have 
+\begin_inset Formula \( \phi _{k},\eta _{k}\in \Lambda \: \forall k\in \mathbf{N} \)
+\end_inset 
+
+ 
+\begin_inset Formula \( \Leftrightarrow  \)
+\end_inset 
+
+ 
+\begin_inset Formula \( \phi _{l}=\sum _{\textrm{k}}\left\langle \phi _{l},\Phi _{k}\right\rangle \phi _{k}+\left\langle \phi _{l}',\Gamma _{k}\right\rangle \eta _{k} \)
+\end_inset 
+
+ and 
+\begin_inset Formula \( \eta _{l}=\sum _{\textrm{k}}\left\langle \eta _{l},\Phi _{k}\right\rangle \phi _{k}+\left\langle \eta _{l}',\Gamma _{k}\right\rangle \eta _{k} \)
+\end_inset 
+
+.
+ It suggests the following orthonormality condition (a sufficient condition)
+ 
+\begin_inset Formula \[
+\left[ \begin{array}{cc}
+\left\langle \phi _{l},\Phi _{k}\right\rangle  & \left\langle \phi _{l}',\Gamma _{k}\right\rangle \\
+\left\langle \eta _{l},\Phi _{k}\right\rangle  & \left\langle \eta _{l}',\Gamma _{k}\right\rangle 
+\end{array}\right] _{l,k,l',k'}=I.\]
+
+\end_inset 
+
+
+\layout Standard
+
+Assuming 
+\begin_inset Formula \( \left[ \begin{array}{c}
+\hat{\Phi }(\xi )\\
+\hat{\Gamma }(\xi )
+\end{array}\right] =m(\xi /2)\left[ \begin{array}{c}
+\hat{\Phi }(\xi /2)\\
+\hat{\Gamma }(\xi /2)
+\end{array}\right]  \)
+\end_inset 
+
+ and 
+\begin_inset Formula \( \left[ \begin{array}{c}
+\hat{\phi }(\xi )\\
+\hat{\eta }(\xi )
+\end{array}\right] =\widetilde{m}(\xi /2)\left[ \begin{array}{c}
+\hat{\phi }(\xi /2)\\
+\hat{\eta }(\xi /2)
+\end{array}\right]  \)
+\end_inset 
+
+ and using the corresponding lemme, we see that we need 
+\begin_inset Formula \( m(\xi /2+\pi )\overline{\widetilde{m}(\xi /2+\pi )^{T}}+m(\xi /2)\overline{\widetilde{m}(\xi /2)^{T}}=I^{(2)}\, a.e \)
+\end_inset 
+
+..
+\layout Standard
+
+We will suppose that 
+\begin_inset Formula \( \phi  \)
+\end_inset 
+
+ and 
+\begin_inset Formula \( \gamma  \)
+\end_inset 
+
+ are chosen to be the fundamental distribution of the Hermite scheme defined
+ previously, 
+\begin_inset Formula \( \phi _{l}=F_{0}(\cdot -l) \)
+\end_inset 
+
+ and 
+\begin_inset Formula \( \gamma _{l}=F_{1}(\cdot -l) \)
+\end_inset 
+
+ so that 
+\begin_inset Formula \( \left( \begin{array}{c}
+\hat{\phi }_{l}(\xi )\\
+\hat{\gamma }_{l}(\xi )
+\end{array}\right) =A(\xi /2)\left( \begin{array}{c}
+\hat{\phi }_{l}(\xi /2)\\
+\hat{\gamma }_{l}(\xi /2)
+\end{array}\right)  \)
+\end_inset 
+
+.
+ From our previous results, we know that we need to find 
+\begin_inset Formula \( m \)
+\end_inset 
+
+ such that 
+\begin_inset Formula \( m(\xi )A(\xi )+m(\xi +\pi )A(\xi +\pi )=\left( \begin{array}{cc}
+1 & 0\\
+0 & 1/2
+\end{array}\right) \, a.e. \)
+\end_inset 
+
+ One solution is to choose 
+\begin_inset Formula \( \widetilde{m}(\xi )=\left( \begin{array}{cc}
+1 & 0\\
+0 & 1
+\end{array}\right)  \)
+\end_inset 
+
+ since 
+\begin_inset Formula \( A(\xi )+A(\xi +\pi )=\left( \begin{array}{cc}
+1 & 0\\
+0 & 1/2
+\end{array}\right)  \)
+\end_inset 
+
+.
+ This solution amounts to choosing Dirac functions for 
+\begin_inset Formula \( \Phi  \)
+\end_inset 
+
+ and 
+\begin_inset Formula \( \Gamma  \)
+\end_inset 
+
+: 
+\begin_inset Formula \( \Phi _{k}=\delta _{k}=\Gamma _{k} \)
+\end_inset 
+
+.
+\layout Standard
+
+It does suggest however that an orthogonal solution is possible if we can
+ find 
+\begin_inset Formula \( B \)
+\end_inset 
+
+ such that 
+\begin_inset Formula \( B(\xi )\overline{B(\xi )^{T}}=A(\xi ) \)
+\end_inset 
+
+.
+ This means that 
+\begin_inset Formula \( A \)
+\end_inset 
+
+ has to be a positive matrix (eigenvalues are positive)? If we set 
+\begin_inset Formula \( B(\xi )=\left[ \begin{array}{cc}
+a\times (1+e^{i\xi /2}) & b\times (1+e^{i\xi /2})\\
+c\times (1-e^{i\xi /2}) & d\times (1-e^{i\xi /2})
+\end{array}\right]  \)
+\end_inset 
+
+ for some constants 
+\begin_inset Formula \( a,b,c,d \)
+\end_inset 
+
+, we have that 
+\begin_inset Formula \[
+B(\xi )\overline{B(\xi )^{T}}=2\left[ \begin{array}{cc}
+\left( \left| a\right| ^{2}+\left| b\right| ^{2}\right) (1+\cos (\xi /2)) & (a\overline{c}+b\overline{d})i\sin (\xi /2)\\
+-\overline{(a\overline{c}+b\overline{d})}i\sin (\xi /2) & \left( \left| c\right| ^{2}+\left| d\right| ^{2}\right) (1-\cos (\xi /2))
+\end{array}\right] .\]
+
+\end_inset 
+
+This solution is useful if 
+\begin_inset Formula \( \beta =-1 \)
+\end_inset 
+
+, we then have to satisfy 
+\begin_inset Formula \[
+\left[ \begin{array}{cc}
+\left| a\right| ^{2}+\left| b\right| ^{2} & a\overline{c}+b\overline{d}\\
+-\overline{(a\overline{c}+b\overline{d})} & \left| c\right| ^{2}+\left| d\right| ^{2}
+\end{array}\right] =\left( \begin{array}{cc}
+1/4 & 1/2\\
+1/2 & 1/8
+\end{array}\right) \]
+
+\end_inset 
+
+ However, it would appear that this equation has no solution...
+ so that even in a very simple case, 
+\layout Standard
+
+In the usual (Lagrange) case, we have the the polynomials are non-negative...
+ clearly, we need a similar requirement on A...
+ I think we need it to be 
+\begin_inset Quotes eld
+\end_inset 
+
+positive
+\begin_inset Quotes erd
+\end_inset 
+
+ as well...
+\layout Bibliography
+\bibitem [Dau]{Dau}
+
+I.
+ Daubechies, Ten Lectures on Wavelets, CBMS Conference Series in Applied
+ Mathematics, 
+\series bold 
+61
+\series default 
+, SIAM, Philadelphia, 1992.
+\layout Bibliography
+\bibitem [DeDu]{DeDu}
+
+G.
+ Deslauriers and S.
+ Dubuc, 
+\shape italic 
+Symmetric Iterative Interpolation Processes
+\shape default 
+, Constructive Approximation 
+\series bold 
+5
+\series default 
+ (1989), 49-68.
+\layout Bibliography
+\bibitem [DuLeMe]{DuLeMe}
+
+S.
+ Dubuc, D.
+ Lemire, and J.-L.
+ Merrien, 
+\shape italic 
+Fourier Transform of Hermite interpolation subdivision schemes
+\shape default 
+, J.
+ Four.
+ Anal., 
+\shape italic 
+to appear
+\shape default 
+.
+\the_end

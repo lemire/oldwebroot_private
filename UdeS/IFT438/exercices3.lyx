@@ -1,0 +1,74 @@
+#LyX 1.1 created this file. For more info see http://www.lyx.org/
+\lyxformat 218
+\textclass article
+\language english
+\inputencoding auto
+\fontscheme default
+\graphics default
+\paperfontsize default
+\spacing single 
+\papersize Default
+\paperpackage a4
+\use_geometry 0
+\use_amsmath 0
+\paperorientation portrait
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\defskip medskip
+\quotes_language english
+\quotes_times 2
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+
+\layout Title
+
+Troisième ensemble de problèmes
+\layout Date
+
+9 juin 2001
+\layout Author
+
+Daniel Lemire, Ph.D.
+\layout Address
+
+IFT438 Algorithmique (Université de Sherbrooke)
+\layout Standard
+
+Ces quelques problèmes visent à terminer la révision des récurrences pour
+ l'intra.
+\layout Enumerate
+
+Montrer que la solution de 
+\begin_inset Formula \( T(n)=9T(n/3)+n \)
+\end_inset 
+
+ est 
+\begin_inset Formula \( \Theta (n^{2}) \)
+\end_inset 
+
+.
+\layout Enumerate
+
+Montrer que la solution de 
+\begin_inset Formula \( T(n)=2T(n/2)+1 \)
+\end_inset 
+
+ est 
+\begin_inset Formula \( \Theta (\lg n) \)
+\end_inset 
+
+.
+\layout Enumerate
+
+Montrer que la solution de 
+\begin_inset Formula \( T(n)=3T(n/4)+n\lg n \)
+\end_inset 
+
+ est 
+\begin_inset Formula \( \Theta (n\lg n) \)
+\end_inset 
+
+.
+\the_end

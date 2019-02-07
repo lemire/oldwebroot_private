@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="alternate" type="text/xml" title="RSS .92"
+href="http://feeds.feedburner.com/DanielLemiresArticlesOnArxiv" />
+<meta http-equiv="Content-Script-Type"
+content="text/javascript" />
+<link rel="stylesheet" type="text/css" href="lemire.css"
+title="Expérimental" />
+<link rel="SHORTCUT ICON" href="/favicon.ico"
+type="image/x-icon" />
+<meta http-equiv="Content-Type"
+content="text/html; charset=utf-8" />
+<meta name="author" content="Daniel Lemire" />
+<title>Daniel Lemire, chercheur en informatique</title>
+<meta name="Keywords"
+content="séries temporelles, exploration de données, base de données multidimentionnelles, OLAP, Approximation Theory, MOLAP" />
+<meta name="Description"
+content="Daniel Lemire est un professeur et chercheur dont les travaux portent sur l'exploration de données et les bases de données multidimensionnelles" />
+<link rel="alternate"
+href="http://lemire.me/en/index.html" hreflang="en"
+lang="en" title="English version" />
+
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-25286235-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+</head>
+<body>
+<form  action="http://www.google.com/search"
+method="get" class="SEARCHBAR"><div><input size="12" name="q" />
+<input type="hidden" name="sitesearch"
+value="lemire.me" /><br />
+<input type="submit" value="Search" name="submit" /></div></form>
+
+<p class="MENU">ACCUEIL | 
+<a href="publications.html">PUBLICATIONS</a>  | <a
+href="http://lemire.me/en/"  rel="author">ENGLISH</a></p>
+<div id="maincontent" >
+<h1 itemprop="name">Daniel Lemire</h1>
+
+<div>
+<img style="border: 1px solid black; margin: 15px; float: right; width: 152px; height:152px;" src="http://lemire.me/fr/images/JPG/profile2011B_152.jpg" alt="Daniel Lemire's picture" itemprop="image"/>
+</div>
+
+
+
+<p>Bases de données et recherche d'informations.</p>
+
+<h2>Articles récemment parus</h2>
+
+<ul><li>Daniel Lemire, Owen Kaser, Eduardo Gutarra, <a href="http://arxiv.org/abs/1207.2189">Reordering Rows for Better Compression: Beyond the Lexicographic Order</a>, ACM Transactions on Database Systems 37 (3), 2012.</li>
+<li>Daniel Lemire, <a href="http://arxiv.org/abs/1008.1715">The universality of iterated hashing over variable-length strings</a>, Discrete Applied Mathematics 160 (4-5), 2012. </li>
+<li>Antonio Badia et Daniel Lemire, <a href="http://arxiv.org/abs/1105.6001">A Call to Arms: Revisiting Database Design</a>, SIGMOD Record 40 (3), 2011.</li>
+
+<li>Daniel Lemire et Owen Kaser, <a href="http://arxiv.org/abs/0909.1346">Reordering Columns for Smaller Indexes</a>, Information Sciences 181 (12), 2011.</li>
+</ul>
+
+<h2>Communications récemment  citées</h2>
+<ul>
+
+<li>Owen Kaser and Daniel Lemire, <a
+href="http://arxiv.org/abs/cs/0703109" >Tag-Cloud Drawing: Algorithms for Cloud Visualization</a>, Tagging and Metadata for Social Information Organization (WWW 2007), 2007.  (Citée au moins <a href="http://scholar.google.com/scholar?cites=14833392884129906405">148&nbsp;fois</a>.) </li>
+
+<li>Daniel Lemire and Anna Maclachlan, <a
+href="http://arxiv.org/abs/cs.DB/0702144" >Slope
+One Predictors for Online Rating-Based Collaborative
+Filtering</a>, SDM' 05, 2005. (Citée au moins <a href="http://scholar.google.com/scholar?cites=7373225641249685044">203&nbsp;fois</a>.)</li>
+</ul>
+
+<p><a href="publications.html">Vous voulez en savoir plus sur mes articles et communications?</a></p>
+
+
+<h2>Comités de lecture de conférences internationales récentes</h2>
+<ul class="TIGHT">
+<li>ACM Conference on Information and Knowledge Management (<a href="http://www.informatik.uni-trier.de/~ley/db/conf/cikm/">ACM CIKM</a>)</li>
+<li>ACM Conference on Web Search and Data Mining (<a href="http://www.informatik.uni-trier.de/~ley/db/conf/wsdm/">ACM WSDM</a>)</li>
+<li>ACM Conference on Recommender Systems (<a href="http://recsys.acm.org/">ACM RecSys</a>)</li>
+<li> ACM/IEEE Joint Conference on Digital Libraries (<a href="http://www.jcdl.org/">JCDL</a>)</li>
+<li>Business Information Systems (<a href="http://bis.kie.ae.poznan.pl/">BIS</a>)</li>
+<li>International Conference on Enterprise Information Systems (<a href="http://www.iceis.org/">ICEIS</a>)</li>
+<li>Conference on Web Information Systems and Technologies (<a href="http://www.webist.org/">WEBIST</a>)</li>
+<li>Database and Expert Systems Applications (<a href="http://www.dexa.org/dexa_cfp">DEXA</a>)</li>
+<li>International Conference on Web Intelligence, Mining and Semantics (<a href="http://wims.vestforsk.no/">WIMS</a>)</li>
+<li> International Conference on Logistics, Informatics and Service Science (<a href="http://liss.scitevents.org/">LISS</a>)</li>
+</ul>
+
+
+<!--
+<h2>Participation récente à des comités de lecture de revues</h2>
+<ul class="TIGHT">
+<li><a href="http://www.informatik.uni-trier.de/~ley/db/journals/jcp/index.html">Journal of Computers</a> </li>
+<li><a href="http://www.aejm.ca/online.htm">Atlantic Electronic Journal of Mathematics</a> </li>
+<li><a href="http://www.academypublisher.com/jetwi/">Journal of Emerging Technologies in Web Intelligence</a>  </li>
+<li><a href="http://www.iariajournals.org/intelligent_systems/index.html">International Journal On Advances in Intelligent Systems</a></li>
+</ul>-->
+
+
+<h2>Réseaux sociaux</h2>
+
+<ul class="TIGHT">
+<li><img
+src="http://lemire.me/fr/social/plus.png" alt="Google Plus" /><a
+href="https://plus.google.com/105888615414982242080/about" rel="me"> Google Plus</a></li>
+<li> <a
+href="http://www.facebook.com/profile.php?id=633613255" rel="me" ><img
+src="http://lemire.me/fr/social/facebook.png" alt="facebook" /> Facebook</a></li>
+<li>   <a
+href="http://www.linkedin.com/in/dlemire"  rel="me"><img
+src="http://lemire.me/fr/social/linkedin.png" alt="linkedin" /> LinkedIn</a></li>
+<li> <a
+href="http://www.twitter.com/lemire/"  rel="me"><img
+src="http://lemire.me/fr/social/twitter.png" alt="twitter" /> Twitter</a></li>
+</ul>
+
+<h2>Logiciel</h2>
+<p>J'adore programmer!</p>
+
+<ul >
+<li>
+<a href="https://github.com/lemire/FastPFor">FastPFOR</a>: C++ library for fast integer compression.
+</li>
+<li><a
+href="http://code.google.com/p/javaewah/" >JavaEWAH</a>:&nbsp;A compressed alternative to the Java BitSet class (<a href="https://github.com/lemire/javaewah">github</a>).</li>
+</ul>
+
+
+<h2>Me joindre</h2>
+
+
+<address itemprop="address" >
+Professeur Daniel Lemire,
+Centre de recherche LICEF, TÉLUQ
+5800, rue Saint-Denis
+Bureau 1105
+Montréal (Québec)
+H2S 3L5 Canada
+
+<br />
+<a
+href="https://maps.google.com/maps?q=5800+Rue+Saint+Denis,+Montreal,+QC,+Canada&hl=en&ll=45.530734,-73.597906&spn=0.007456,0.020106&sll=37.0625,-95.677068&sspn=34.259599,82.353516&oq=5800,+rue+Saint-Denis+mont&t=h&hnear=5800+Rue+St+Denis,+Montreal,+Quebec+H2S+3L4,+Canada&z=16">Carte (google)</a>
+<br />
+Local 12.166,
+Courriel&nbsp;: <span>lemire (arobas) gmail (point) com</span>
+</address>
+
+
+
+<p><a href="etudiants.html">Vous voulez venir travailler avec moi?</a></p>
+
+</div>
+<p class="MENU">ACCUEIL | 
+<a href="publications.html">PUBLICATIONS</a> | <a
+href="http://lemire.me/en/">ENGLISH</a></p>
+
+<p class="CENTER">© 2001-2013, Daniel Lemire (lemire at gmail dot
+com)</p>
+
+</body>
+</html>
+
+

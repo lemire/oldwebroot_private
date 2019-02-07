@@ -1,0 +1,334 @@
+#LyX 1.1 created this file. For more info see http://www.lyx.org/
+\lyxformat 218
+\textclass article
+\begin_preamble
+%%%%%
+%%%%%
+%%%%%
+%% Welcome!
+%% if you have any question about this
+%% document, please get in touch with
+%% Daniel Lemire at lemire@ondelette.com
+%%
+%% Of course, this file was generated
+%% with LyX which means that the syntax
+%% might be weird at times, but I've found
+%% that LyX did an excellent job overall at
+%% generating clean LaTeX syntax.
+%% Why do I choose LyX? Because LyX
+%% doesn't come with its own LaTeX engine.
+%% LyX simply use whatever tex I have.
+%% There is no "proprietary gizmos" going
+%% on. Also, instead of waiting for support
+%% from some folk in California, I can find
+%% most of the answers I need on the web,
+%% for free! Oh! And LyX is free too! 
+%% Good old Open Source software!
+%%
+%% (Sorry for the propaganda!)
+%% 
+%% Thanks!
+%% Enjoy!
+%%
+%% Sept. 8th 2001
+%% Grand-Pré, NS
+%%
+%%%%%%%%%%
+%
+% Notice that this document requires quite
+% a bit of macros... 
+% Sorry about that!
+%%%%%%%%%%%%%%
+%%
+\usepackage{epsfig}
+\usepackage{amsmath,amssymb}
+\usepackage{pslatex}
+\usepackage{color}
+ 
+ \definecolor{veryblackblue}{rgb}{0.0,0.0,0.1}
+ \usepackage[pdftex,urlcolor=webblackblue,colorlinks=true,citecolor=blue]{hyperref}
+ \pdfinfo{
+            /Title      (Topics from Advanced Calculus)
+            /Author     (Daniel Lemire, Ph.D.)
+            /Subject    (MidTerm.)
+            /Keywords   ( vector calculus, Acadia)
+          }
+
+
+\topmargin  = 0pt
+\headheight = 0pt
+\headsep    = 0pt
+
+\voffset    = 0in
+\hoffset    = 0in
+\textheight = 230mm
+\textwidth  = 164mm
+
+\evensidemargin = 0pt
+\oddsidemargin  = 0pt
+
+\pagestyle{empty}
+\usepackage{float}
+
+%% Background of blue palette
+ \definecolor{webblackblue}{rgb}{0.0,0.0,0.2}
+ \definecolor{webblue}{rgb}{0.0, 0.0, 0.6}
+
+%% Background of red palette
+ \definecolor{webblackred}{rgb}{0.2,0.0,0.0}
+ \definecolor{webred}{rgb}{0.6,0.0,0.0}
+
+%% Background of green palette
+ \definecolor{webblackgreen}{rgb}{0.0,0.2,0.0}                                   
+ \definecolor{webgreen}{rgb}{0.0,0.6,0.0} 
+
+%% Background of magenta palette
+ \definecolor{webblackmagenta}{rgb}{0.14,0.0,0.14}                                   
+ \definecolor{webmagenta}{rgb}{0.42,0.0,0.42} 
+
+%% Background of cyan palette
+ \definecolor{webblackcyan}{rgb}{0.0,0.14,0.14}                                   
+ \definecolor{webcyan}{rgb}{0.0,0.42,0.42} 
+
+%% Background of yellow pallete
+ \definecolor{webblackyellow}{rgb}{0.14,0.14,0.0}                                   
+ \definecolor{webyellow}{rgb}{0.85,0.85,0.0} 
+
+ \definecolor{webdarkgray}{rgb}{0.2,0.2,0.2}
+
+ \definecolor{webgray}{rgb}{0.75,0.75,0.75}
+ \definecolor{weborange}{rgb}{1.0, 0.6, 0.0}
+
+\renewcommand\labelenumi{\textcolor{webdarkgray}{\arabic{enumi}.}}
+\newcommand{\setenumi}[1]{#1.\setcounter{enumi}{#1}}
+\usepackage{dsfont}
+
+
+%%
+%% You might need this next line... I don't for
+%% some reason... defined somewhere?
+%%
+%% \newcommand{\setenumi}[1]{#1.\setcounter{enumi}{#1}}
+%%
+%% Document should begin NOW!
+%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%
+\end_preamble
+\language american
+\inputencoding auto
+\fontscheme default
+\graphics default
+\paperfontsize 12
+\spacing single 
+\papersize Default
+\paperpackage a4
+\use_geometry 0
+\use_amsmath 0
+\paperorientation portrait
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\defskip medskip
+\quotes_language english
+\quotes_times 2
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+
+\layout Standard
+
+
+\latex latex 
+\lang english
+
+\backslash 
+makeatother
+\newline 
+
+\backslash 
+thispagestyle{empty}
+\latex default 
+\lang american
+Advanced Calculus (MATH 2023) - MidTerm
+\newline 
+February 27th 2002
+\newline 
+
+\latex latex 
+\lang english
+
+\backslash 
+mbox{}
+\latex default 
+ 
+\hfill 
+NAME: 
+\latex latex 
+
+\backslash 
+rule{2in}{.1mm}
+\latex default 
+
+\newline 
+
+\latex latex 
+
+\backslash 
+mbox{}
+\latex default 
+ 
+\hfill 
+Please Print 
+\latex latex 
+
+\backslash 
+hspace{1in}
+\latex default 
+
+\newline 
+
+\layout Standard
+
+
+\latex latex 
+\lang english
+
+\backslash 
+mbox{}
+\latex default 
+ 
+\hfill 
+Id.
+ No.: 
+\latex latex 
+
+\backslash 
+rule{2in}{.1mm}
+\layout Standard
+
+Note: You are allowed to one sheet (both sides) with handwritten notes and
+ a calculator.
+ You have 50 minutes to write the test.
+\layout Enumerate
+
+A vector field is given by 
+\begin_inset Formula \( \vec{F}(x,y,z)=x^{3}y\vec{i}+\left( \frac{x^{4}}{4}+x\right) \vec{j}+\vec{k} \)
+\end_inset 
+
+ .
+\begin_deeper 
+\layout Enumerate
+
+[10 marks] Compute 
+\begin_inset Formula \( \bigtriangledown \cdot \vec{F} \)
+\end_inset 
+
+ (the divergence).
+ Show your work.
+\latex latex 
+
+\backslash 
+vspace{4cm}
+\layout Enumerate
+
+[10 marks] Compute 
+\begin_inset Formula \( \bigtriangledown \times \vec{F} \)
+\end_inset 
+
+ (the curl).
+ Show your work.
+\latex latex 
+
+\backslash 
+vspace{4cm}
+\layout Enumerate
+
+[20 marks] Compute the line integral 
+\begin_inset Formula \( \oint _{C}\vec{F}\cdot d\vec{r} \)
+\end_inset 
+
+ where 
+\begin_inset Formula \( C \)
+\end_inset 
+
+ is the unit square with edges going from (0,0) to (1,0), (1,0) to (1,1),
+ (1,1) to (0,1), and (0,1) to (0,0).
+ Evaluate it using Stoke's theorem.
+ State any assumption you make in integrating.
+\latex latex 
+
+\backslash 
+vspace{8cm}
+\end_deeper 
+\layout Enumerate
+
+Series and sequences
+\begin_deeper 
+\layout Enumerate
+
+[10 marks] Give an example of a bounded sequence that does not converge.
+\latex latex 
+
+\backslash 
+vspace{3cm}
+\layout Enumerate
+
+[10 marks] Does the series 
+\begin_inset Formula \( \sum _{k=1}^{\infty }\frac{2^{k}}{\left( k^{3}\right) !} \)
+\end_inset 
+
+converges? Does it converge absolutely? Prove your result.
+\latex latex 
+
+\backslash 
+vspace{3cm}
+\layout Enumerate
+
+[10 marks] Show that the series 
+\begin_inset Formula \( \sum _{k=1}^{\infty }\frac{(-1)^{k}}{\log _{4}k} \)
+\end_inset 
+
+converges.
+\latex latex 
+
+\backslash 
+vspace{3cm}
+\layout Enumerate
+
+[10 marks] Prove that the terms 
+\begin_inset Formula \( a_{k} \)
+\end_inset 
+
+ in a convergent series 
+\begin_inset Formula \( \sum _{k=1}^{\infty }a_{k} \)
+\end_inset 
+
+ satisfy 
+\begin_inset Formula \( a_{k}\rightarrow 0 \)
+\end_inset 
+
+.
+\latex latex 
+
+\backslash 
+vspace{3cm}
+\layout Enumerate
+
+[10 marks] Let 
+\begin_inset Formula \( S_{n}=\sum _{k=1}^{n}\frac{(-1)^{k}}{\log _{4}k} \)
+\end_inset 
+
+and 
+\begin_inset Formula \( L=\sum _{k=1}^{\infty }\frac{(-1)^{k}}{\sqrt{k}} \)
+\end_inset 
+
+, find 
+\begin_inset Formula \( N \)
+\end_inset 
+
+ such that 
+\begin_inset Formula \( \left| S_{N}-L\right| <\frac{1}{2} \)
+\end_inset 
+
+.
+\the_end

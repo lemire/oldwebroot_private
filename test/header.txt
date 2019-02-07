@@ -1,0 +1,9 @@
+
+<h1>This is the test site for the WebForum Servlet</h1>
+
+<p>We've setup this quick and dirty site so that people can test
+some of the features of WebForum. Yes, it is ugly, that's not the point.</p>
+
+<center>
+<table width=450 class='table0' cellspacing=0 cellpadding=10>
+<tr><td>

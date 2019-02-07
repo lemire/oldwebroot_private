@@ -1,0 +1,95 @@
+This is TeX, Version 3.14159 (Web2C 7.3.1) (format=tex 2002.9.6)  7 MAR 2003 15:43
+**paper.tex
+(paper.tex (malo2.tex
+\maboite=\box16
+\refnum=\count26
+) (epsf.tex
+\epsffilein=\read0
+\epsfxsize=\dimen16
+\epsfysize=\dimen17
+\epsftsize=\dimen18
+\epsfrsize=\dimen19
+\epsftmp=\dimen20
+\pspoints=\dimen21
+) (lls00.tex
+\blackmarks=\count27
+\eqnum=\count28
+\figurenum=\count29
+\proclaimnum=\count30
+\refnum=\count31
+\tablenum=\count32
+\testfl=\read1
+ (paper.aux)
+\aux=\write0
+\openout0 = `paper.aux'.
+
+\hour=\count33
+\minutes=\count34
+ (epsf.tex
+\epsffilein=\read2
+\epsfxsize=\dimen22
+\epsfysize=\dimen23
+\epsftsize=\dimen24
+\epsfrsize=\dimen25
+\epsftmp=\dimen26
+\pspoints=\dimen27
+)
+\lastname=\toks12
+\firstname=\toks13
+\au=\toks14
+\aut=\toks15
+\ti=\toks16
+\tit=\toks17
+\pb=\toks18
+\pub=\toks19
+\pl=\toks20
+\jr=\toks21
+\w=\write1
+\refnum=\count35
+) [1]
+[2] [3] [4]
+Overfull \hbox (8.41713pt too wide) in paragraph at lines 645--650
+[]\fc Suppose that for some $\teni j$\fc , $\teni y[] \fc = \teni p[] []$ \fc a
+nd $\teni y[] \fc = \teni p[] []  \tensy 8\teni k \tensy 2
+
+\hbox(7.5+2.86108)x320.15556, glue set - 1.0
+.\hbox(0.0+0.0)x20.0
+.\fc S
+.\fc u
+.\fc p
+.\fc p
+.etc.
+
+[5] [6] [7]
+Overfull \hbox (2.62pt too wide) in paragraph at lines 842--842
+\fc ^^@[](\teni z\fc )$\tensl , the HRS scheme de-fined by $\teni P[]\fc (\teni
+ z\fc ) = ^^@[](\teni z\fc )\teni P[] [] \fc + ^^@[](\teni z\fc )\teni P[] []$
+
+\hbox(8.50005+3.50006)x320.15556, glue set - 1.0
+.\fc ^^@
+.\hbox(4.51111+0.0)x4.48613, shifted 1.49998
+..\sfab 2
+.\fc (
+.\teni z
+.\kern0.4398
+.etc.
+
+[8]
+Overfull \hbox (13.74779pt too wide) in paragraph at lines 1022--1025
+[][]\fc F. Dubeau and R. Ger-vais, Proc^^Sedures lo-cale et non lo-cale d'inter
+polation
+
+\hbox(6.94444+1.94444)x320.15556, glue set - 1.0
+.\hbox(0.0+0.0)x20.0
+.\hbox(6.44444+0.0)x0.0, glue set - 12.7778fil
+..\glue 0.0 plus 1.0fil minus 1.0fil
+..\fc 4
+..\fc .
+..\kern 5.0
+.\fc F
+.\fc .
+.\glue 3.33333 plus 1.66666 minus 1.11111
+.etc.
+
+[9] [10] )
+Output written on paper.dvi (10 pages, 42464 bytes).

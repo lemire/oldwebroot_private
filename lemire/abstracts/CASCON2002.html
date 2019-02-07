@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="iso-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!-- DATE DE CREATION: 00-03-28 -->
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<head>
+<link rel="stylesheet" type="text/css" href="abstract.css"
+title="Scientic abstract" />
+<meta name="generator" content="HTML Tidy, see www.w3.org" />
+<title>Wavelet-Based Relative Prefix Sum Methods for Range Sum
+Queries in Data Cubes (Best Paper Award)</title>
+<meta name="Description" content=
+"Data mining and related applications often rely on extensive range sum queries and thus, it is important for these queries to scale well." />
+<meta name="Keywords" content=
+"B-adic wavelets, multidimensional databases, knowledge discovery, OLAP, MOLAP" />
+<meta name="Author" content="Daniel Lemire" />
+<meta http-equiv="Content-Language" content="en" />
+<meta name="MSSmartTagsPreventParsing" content="TRUE" />
+<link rel="up" href=
+"http://www.daniel-lemire.com/en/publications.html" title=
+"Papers by Daniel Lemire" />
+<link rel="home" href="http://www.daniel-lemire.com/en/" title="Daniel Lemire's home page" />
+<link rel="made" href="http://www.daniel-lemire.com/en/" />
+<link rel="SHORTCUT ICON" href="/favicon.ico"  type="image/x-icon" />
+</head>
+<body style="width:15cm;margin-left:auto;margin-right:auto;">
+<div id="maincontent">
+<h1>Wavelet-Based Relative Prefix Sum Methods for Range Sum
+Queries in Data Cubes</h1>
+
+<strong>This paper won the Best Paper Award!</strong> 
+
+<h2>Abstract</h2>
+
+<p>Data mining and related applications often rely on extensive
+range sum queries and thus, it is important for these queries to
+scale well. Range sum queries in data cubes can be achieved in
+time O(1) using prefix sum aggregates but prefix sum update costs
+are proportional to the size of the data cube O(n^d). Using the
+Relative Prefix Sum (RPS) method, the update costs can be reduced
+to the root of the size of the data cube O(n^d/2). We present a
+new family of base b wavelet algorithms further reducing the
+update costs to O(n^d/B) for B as large as we want while
+preserving constant-time queries. We also show that this approach
+leads to O(log^d n) query and update methods twice as fast as
+Haar-based methods. Moreover, since these new methods are
+pyramidal, they provide incrementally improving estimates.</p>
+
+<h3>Keywords</h3>
+
+<p>B-adic wavelets, multidimensional databases, knowledge
+discovery, OLAP, MOLAP, data cube, orthogonal range queries.</p>
+
+<h2>Reference</h2>
+
+<p>Daniel Lemire, Wavelet-Based Relative Prefix Sum Methods for
+Range Sum Queries in Data Cubes. Proceedings of CASCON 2002,
+Toronto, Canada, October 2002. (<abbr title=
+"National Research Council of Canada">NRC</abbr> 44967)</p>
+
+<h2>Download</h2>
+
+<ul>
+<li><a href=
+"http://www.daniel-lemire.com/fr/documents/publications/multihaar_final.pdf">Wavelet-Based Relative Prefix Sum Methods for Range Sum
+Queries in Data Cubes</a> (pdf)</li>
+</ul>
+
+<p>Hint&nbsp;: It is sometimes necessary to hold down shift while
+clicking in order to save a document.</p>
+
+<h2>ACM</h2>
+
+<p> This paper is available through the <a href="http://portal.acm.org/citation.cfm?id=782121&amp;coll=ACM&amp;dl=ACM&amp;CFID=11741945&amp;CFTOKEN=11765864">ACM Digital Library</a>.</p>
+
+<h2>Software</h2>
+
+<a href=
+"http://www.daniel-lemire.com/fr/documents/publications/CASCON2002_java.zip">
+Java source code (zip)</a> 
+
+<p><em>The software available here is the one used to generate the 
+data for the paper. Please note that a better, faster
+implementation in C++ called <b>Lemur OLAP</b> is available from the author
+(lemire arobas ondelette dot com) and might soon be released
+with an open source license.</em></p>
+
+<h2>Citeseer</h2>
+
+<p>This paper is listed on <a href="http://citeseer.nj.nec.com/535519.html">citeseer</a>.
+This can be useful to find quickly related papers.</p>
+ 
+
+<h2>BibTeX</h2>
+
+<pre>
+@inproceedings{LemireCASCON2002,
+   author    = {Daniel Lemire},
+   title     = {Wavelet-Based Relative Prefix Sum Methods for Range Sum Queries in Data Cubes},
+   booktitle = {Proceedings of CASCON 2002},
+   organization = {IBM},
+   month     = {October},
+   year      = {2002},
+   url = {http://www.daniel-lemire.com/fr/documents/publications/multihaar_final.pdf},
+}
+</pre>
+
+<h2>Author</h2>
+
+<ul>
+<li>Daniel Lemire: <a href=
+"mailto:lemireNNNO@SPAMMMacm.org">lemire at
+acm.org</a></li>
+</ul>
+
+<h2>Related work</h2>
+
+<ul>
+<li><a href=
+"http://www.daniel-lemire.com/en/publications.html">Daniel
+Lemire's publications</a></li>
+</ul>
+
+<h2>Cited by</h2>
+
+<p>This paper is cited by </p>
+
+<ul>
+<li>M. Jahangiri, D. Sacharidis, and C. Shahabi. <a href="http://portal.acm.org/citation.cfm?id=1066157.1066189#">SHIFT-SPLIT: I/O efficient maintenance of wavelet-transformed multidimensional data.</a> In Proceedings of the 2005 ACM SIGMOD international Conference on Management of Data, June 2005.</li>
+<li><p>Cyrus Shahabi, Mehrdad Jahangiri, Dimitris Sacharidis, <a href="http://www.igi-online.com/downloads/pdf/ITJ2783_h8AQIgOg5Y.pdf">Hybrid Query and Data Ordering for Fast and Progressive Range-Aggregate Query Answering</a>, International Journal of Data Warehousing and Mining, April 2005, Vol. 1, No.2, Pages 49-69, Idea Group Publishing.</p></li>
+<li><p>Francesco Buccafurri, Gianluca Lax, <a href="http://portal.acm.org/citation.cfm?id=1035798&amp;coll=Portal&amp;dl=GUIDE&amp;CFID=16435232&amp;CFTOKEN=63546238">Fast range query estimation by N-level tree histograms</a>, Data &amp; Knowledge Engineering, Volume 51 ,  Issue 2, pp. 257-275, 2004.
+</p></li>
+<li><p>Owen Kaser and Daniel Lemire, <a href="http://www.daniel-lemire.com/fr/abstracts/DOLAP2003.html">Attribute Value Reordering for Efficient Hybrid OLAP</a>, In DOLAP'03, New Orleans, Louisiana, November 7, 2003. NRC 46510.</p></li>
+</ul>
+
+<h2>Errata</h2>
+
+<p>The original paper submitted to CASCON 2002 had a typo pointed
+to my by professor C.K. Poon. The error was in the complexity analysis
+where instead of having updates in time log^d, the paper wrongly
+stated that updates where in time d log. Unfortunately, it is likely
+that version of this paper with the typo will remain on the web somewhere
+even though I did what I could to correct the typo throughout. Sorry.</p>
+</div>
+<p class="PUBICON"><a href=
+"http://validator.w3.org/check/referer"><img src=
+"http://validator.w3.org/images/vxhtml10" alt="Valid XHTML 1.0!"
+height="15" width="44" /></a> <a href=
+"http://jigsaw.w3.org/css-validator"><img src=
+"http://jigsaw.w3.org/css-validator/images/vcss.gif" alt=
+"Valid CSS!" width="44" height="15" /></a></p>
+</body>
+</html>
+
+

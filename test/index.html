@@ -1,0 +1,102 @@
+
+<HTML>
+<HEAD>
+<TITLE>Test WebForum: login page!</TITLE>
+<META NAME="Description" CONTENT="">
+<META NAME="Keywords" CONTENT="">
+<link rel=stylesheet type="text/css"
+ href="http://www.ondelette.com/acne/acne.css">
+</HEAD>
+<BODY>
+
+
+<h1>This is the test site for the WebForum Servlet</h1>
+
+<p>We've setup this quick and dirty site so that people can test
+some of the features of WebForum. Yes, it is ugly, that's not the point.</p>
+
+<center>
+<table width=450 class='table0' cellspacing=0 cellpadding=10>
+<tr><td>
+
+<H1>Welcome to the login page</H1>
+
+
+<b>The servlet has been deactivated. Thanks for visiting this page.
+We are currently looking for someone interested in hosting the test server.
+Please write <a href="mailto:webforumtestATondeletteDOTcom">to us</a>
+if you can offer this service to the community.</b>
+
+<p>The simplest thing to do is to go directly to the <A HREF="/servlet/com.ondelette.servlet.webforum.WebForumServlet?_FORUMFILE_=forumtest.properties" >forum</A>,
+no need for a password especially because it is a <b>test</b> site.</p>
+
+<P>If you have a password, just log in!</p>
+
+<form action="http://www.ondelette.com/servlet/com.ondelette.servlet.webforum.WebForumServlet" method="post">
+<input type="hidden" name="_FORUMFILE_" value="forumtest.properties">
+<table CLASS="LOGINFORM">
+<TR><TD CLASS="LOGIN">
+Nickname&nbsp;:
+</TD><TD>
+<input type="TEXT" value="" name="_LOGIN_" size="40" maxlength="80">
+</TD></TR>
+<TR><TD CLASS="MESSAGE">
+Password&nbsp;:
+</TD><TD>
+<input type="PASSWORD" value="" name="_PASSWORD_" size="40" maxlength="80">
+</TD></TR>
+</TABLE>
+<P CLASS="SUBMITBUTTONS">
+<input type="SUBMIT" value="Going to the forum" name="GoingIn">
+</P>
+</form>
+
+<P>You can also register for a password. This process is automatic, if your
+username is available, it will be allocated to you. Not all users are equal though:
+you won't have administrative privileges by default.</p>
+
+<form action="http://www.ondelette.com/servlet/com.ondelette.servlet.webforum.WebForumServlet" method="post">
+<input type="hidden" name="_FORUMFILE_" value="forumtest.properties">
+<table CLASS="LOGINFORM">
+<TR><TD CLASS="LOGIN">
+Desired Nickname&nbsp;:
+</TD><TD CLASS="LOGIN">
+<input type="TEXT" value="" name="_NEWUSERNAME_" size="40" maxlength="80">
+</TD></TR>
+<TR><TD CLASS="MESSAGE">
+Password&nbsp;:
+</TD><TD>
+<input type="PASSWORD" value="" name="_NEWUSERPASSWORD_" size="40" maxlength="80">
+</TD></TR>
+<TR><TD CLASS="MESSAGE">
+Password (confirm)&nbsp;:
+</TD><TD>
+<input type="PASSWORD" value="" name="_NEWUSERPASSWORD2_" size="40" maxlength="80">
+</TD></TR>
+<TR><TD CLASS="LOGIN">
+Courriel&nbsp;:
+</TD><TD>
+<input type="TEXT" value="" name="_NEWUSEREMAIL_" size="40" maxlength="80">
+</TD></TR>
+</TABLE>
+<P CLASS="SUBMITBUTTONS">
+<input type="SUBMIT" value="Going to the forum" name="_SUBSCRIBEUSER_">
+</P>
+</form>
+</td></tr></table>
+</center>
+<p style="text-align:center">
+
+<A HREF="http://www.ondelette.com/test/index.html" >login</A>
+|
+<A HREF="/servlet/com.ondelette.servlet.webforum.WebForumServlet?_FORUMFILE_=forumtest.properties" >Test Forum</A>
+|
+<A HREF="http://www.ondelette.com/test/test.zip" >Download the files for this example</A>
+|
+<A HREF="http://webforum.sourceforge.net" >WebForum site (Exit)</A>
+
+</p>
+
+</BODY>
+</HTML>
+

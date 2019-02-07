@@ -1,0 +1,139 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="generator" content="HTML Tidy, see www.w3.org" />
+<meta name="MSSmartTagsPreventParsing" content="TRUE" />
+<meta http-equiv="Content-Language" content="en" />
+<meta http-equiv="Content-Type"
+content="text/html; charset=iso-8859-1" />
+<title>Technical reports on geophysics by D. Lemire</title>
+<meta name="Copyright" content="1998-2002 Daniel Lemire" />
+<meta name="Keywords"
+content="baseline correction, wavelets, geophysics, splines, least square, multiscale, airborne EM" />
+<meta name="Description"
+content="Mathematical analysis of airborne EM data in geophysics" />
+</head>
+<body>
+<h1>Publications and software for THEM Geophysics Inc. and
+FalconBridge Inc.</h1>
+
+<h2><a
+href="http://www.ondelette.com/acadia/">Daniel Lemire, Ph.D.</a>.</h2>
+<p>Daniel Lemire is currently a <a href="http://www.ondelette.com/acadia/">professor at the University of Québec</a>,
+he was previously with the National Research Council of Canada,
+and before that, he was a professor at the University Acadia.</p>
+
+<p>Adobe Acrobat Reader is required to view some of these
+documents. See Adobe web site for details: <a
+href="http://www.adobe.com">www.adobe.com</a>. Some Open Source
+software can also do the trick, check out Ghostview for
+example.</p>
+
+<p><strong>Disclaimer</strong>: These files are made available to all for research
+and academic purposes only.</p>
+
+<pre>
+<strong>2001</strong>
+
+<a href="word/2001/THEM2001_02.pdf">THEM2001_02.pdf</a>
+Baseline asymmetry, Tau projection, B-field estimation and automatic half-cycle rejections
+Technical report THEM2001-02
+Daniel Lemire, Ph.D.
+Montreal, February-May 2001
+
+<em>Passage de Daniel Lemire à l'émission C'est mathématiques
+Présentation du système THEM et contribution des mathématiques</em>
+(Daniel Lemire appears on the TV show <em>C'est mathématiques</em>
+to present THEM and the mathematical work involved in the system.)
+Canal Z, http://www.ztele.com
+Daniel Lemire, Ph.D.
+Montreal, March 12th 2001
+
+<a
+href="Powerpoint/Toronto15jan2001/presentation.pdf">presentation.pdf</a>
+Recent mathematical advances in EM modeling for mineral exploration 
+Canadian Mining Industry Research Organization (CAMIRO)
+Daniel Lemire, Ph.D.
+Toronto, January 15th, 2001
+
+<a href="word/2001/THEM2001_01.pdf">THEM2001_01.pdf</a>
+Off-time denoising : is stacking the solution?
+Analysis and non-parametric denoising
+Technical report THEM2001-01
+Daniel Lemire, Ph.D.
+January 2001
+
+Software Release (source code only available upon request)
+Daniel Lemire, Ph.D.
+March 8th, 2001
+<a
+href="release8mar2001/documentation/mhelp.chm">mhelp.chm (documentation)</a>
+
+<strong>2000</strong>
+
+<strong>1999</strong>
+
+<a
+href="Powerpoint/1999/FalconBridgeTotal002.ppt">FalconBridgeTotal002.ppt</a>
+<em>Géophysique, traitement du signal et analyse numérique</em>
+(Geophysics, signal processing, and numeric analysis)
+<em>Congrès Géologie Québec 1999</em> (Quebec government)
+Alain Béliveau, Ph.D. and Daniel Lemire, Ph.D.
+Montreal, November 25th 1999
+
+<a href="word/whitepaper/whitepaper001.pdf">whitepaper001.pdf</a>
+THEM Geophysics Inc. DSP Technology
+For a more accurate and precise processing
+Daniel Lemire, Ph.D.
+Montreal, November 23rd 1999
+
+<a href="word/1999/THEM1999_01.pdf">THEM1999_01.pdf</a>
+Multiscale signal processing for THEM
+Technical report THEM1998-01
+Daniel Lemire, Ph.D.
+Montreal, April 21st, 1999 reviewed on April 27th, 1999
+
+<a href="word/1999/THEM1999_02.pdf">THEM1999_02.pdf</a>
+<em>Rapport sur un nouvel algorithme de correction de la ligne de base pour THEM Geophysics Inc.
+Splines, interpolation des moyennes et moindres carrés (SIM)</em>
+(A report on a new baseline correction scheme for THEM Geophysics Inc.
+Splines, average interpolation and least squares (SIM))
+Technical report THEM1999-02
+Daniel Lemire, Ph.D.
+Montreal, June 12th 1999
+
+<a href="word/1999/THEM1999_03.pdf">THEM1999_03.pdf</a>
+Channel computations : comparing current scheme to RMS
+Technical report THEM1999-03
+Daniel Lemire, Ph.D.
+Montreal, October 17th, 1999
+
+<a href="word/1999/THEM1999_04.pdf">THEM1999_04.pdf</a>
+<em>Analyse du système Unicoil pour THEM Geophysics Inc.</em>
+(Unicoil system analysis for THEM Geophysics Inc.)
+Technical report THEM1999-04
+Daniel Lemire, Ph.D.
+Montream, December 7th 1999
+
+<strong>1998</strong>
+
+<a href="word/1998/THEM1998_01.pdf">THEM1998_01.pdf</a>
+Rapport préliminaire sur les données transmises le 8 décembre 1998 par Richard Osmond (Falconbridge)
+Technical report THEM1998-01
+Daniel Lemire, Ph.D.
+Montreal, December 13th 1998
+
+<a href="word/1998/THEM1998_02.pdf">THEM1998_02.pdf</a>
+Rapport préliminaire sur la méthode de déconvolution
+Technical report THEM1998-02
+Daniel Lemire, Ph.D.
+Montreal, December 16th 1998
+</pre>
+<p>See <a href="http://www.ondelette.com/acadia/publications.html">http://www.ondelette.com/acadia/publications.html</a> for more publications
+by Daniel Lemire.</p>
+<p>© 2001, Daniel Lemire, Ph.D. (lemireAROBASondeletteSOMEDOTcom)</p>
+</body>
+</html>
+
+

@@ -1,0 +1,23 @@
+First without corrector!
+(0 , 1)
+(0.5 , 0.75)
+exact solution = 0.8
+(1.0 , 0.328125)
+exact solution = 0.5
+Wow!!! AB is actually fairly unaccurate!!!
+Now with corrector!
+(1.0 , 0.517639160156)
+We are now a lot more accurate!!!
+Adams-Moulton corrects the guess!!!
+What if we repeat the correction?
+(1.0 , 0.450854041614)
+(1.0 , 0.477804430484)
+(1.0 , 0.467376219254)
+(1.0 , 0.471483112365)
+(1.0 , 0.469876531148)
+(1.0 , 0.470506685615)
+(1.0 , 0.470259774496)
+(1.0 , 0.470356560204)
+(1.0 , 0.470318627614)
+(1.0 , 0.470333495217)
+Adams-Moulton eventually converges to a pretty good answer!

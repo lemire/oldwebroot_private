@@ -1,0 +1,105 @@
+%************************* SAINT-MALO MACROS **************************
+% FILE NAME: gridbox.tex
+% DATE: 4/20/99
+% CREATED BY: Carl deBoor
+% EMAIL: deboor@cs.wisc.edu
+% WEB: http://www.cs.wisc.edu/$\sim$deboor/
+% ******************************************************************
+
+% The macro
+%                         \gridbox#1/#2/#3
+% builds a box vertically to #1 truecm and horizontally to #2 truecm, 
+%overlays that box with gridlines exactly 1truecm apart (with every fifth 
+%line heavier).
+% Grid is turned off by saying \showgridfalse.  #3 should consist of 
+%one or more statements of the form
+%   \point(d,r){...}  or \cpoint(d,r){...} or  \ppoint ij(d,r){...}
+% which have the effect of putting the material {...} onto the page in such
+% a way that its upper left corner, respectively its center, respectively its
+% i,j-point (with, e.g., 1,0 the left midedge and 2,2 the lower right corner)
+% ends up  d truecm  down and  r truecm  to the right of the upper left
+% corner of the gridbox.
+%    Note that {...} might be the local way to include a picture file. E.g.,
+%         \point(#1,0){\special{ps: plotfile <name>.ps}}
+% would include the file <name>.ps (presumably a postscript file), giving it
+% the lower left corner of the gridbox as the  currentpoint  (and thus
+% controlling the placement of the figure in  <name>.ps  on the page).
+%
+% TeX should be in vertical mode when calling on \gridbox. E.g.,
+%    \centerline{\vbox{\gridbox3/4.4/{\cpoint(1,1){$0$}\ppoint21(2,1){$0$}}}}
+% would generate a centered gridbox and print a zero centered at the (1,1)
+% point of that box and also one centered atop the (2,1) point.
+%     See \gridbox uses in  \Figpls, \Figinbox, etc. in ./ps/figure.tex
+%
+% The macro
+%                         \ptgridbox#1/#2/#3
+% differs from gridbox only in that the units are pt rather than truecm and,
+% correspondingly, the spacing of gridlines is by 20 units rather than 1.
+% This macro is particularly useful in conjunction with recent versions of
+% ghostview which supply the current pointer position in pt (albeit as
+% (pt from left, pt from below) rather than the (pt from above, pt from left)
+% used here). Be sure to use \magnification1000 while checking placements.
+
+\def\gridunits{truecm}\newcount\tickskip\tickskip1\newcount\majortick\majortick5
+
+\def\ptgridbox#1/#2/#3{
+{\def\gridunits{pt}\tickskip20\multiply\majortick by\tickskip%
+ \gridbox#1/#2/{#3}}}
+
+\def\gridbox#1/#2/#3{
+\vbox to #1\gridunits{#3
+\ifshowgrid\tickcount=0
+  \loop\cgridw%
+   \vbox to 0pt{\kern\tickcount \gridunits\hrule width#2\gridunits
+height\gridwidth\vss}
+   \nointerlineskip \advance\tickcount by \tickskip
+   \ifdim\tickcount pt<#1pt\repeat % Note: #1, #2 need not be integers
+  \hbox to 0pt{\tickcount=0\hbox to 0pt{\tick#1/\hss}\advance\tickcount by
+\tickskip%
+ \loop\ifdim\tickcount pt<#2pt\nexttick\tickskip#1/\advance\tickcount by
+\tickskip \repeat\hss}
+\else \vbox to 0pt{\hrule width#2\gridunits height0pt\vss}
+\fi\vfil}\vfil}
+
+% The next macro is used in the macros for placing material within the grid.
+\def\dpoint(#1,#2)#3{\vbox to 0pt{\kern#1
+   \hbox{\kern#2{#3}}\vss}\nointerlineskip}
+
+% The following places the upper left corner of {#3} at gridpoint (#1,#2)
+\def\point(#1,#2)#3{\dpoint(#1\gridunits,#2\gridunits){#3}}
+% The following places the center of {#3} at gridpoint (#1,#2)
+\def\cpoint(#1,#2)#3{\ppoint11(#1,#2){#3}}
+% The following places the #1,#2-point of {#5} at gridpoint (#3,#4), with
+% 0,0 the upper left corner, 1,1 the center, and 2,2 the lower right corner,
+% and, correspondingly, 0,1 the center of the upper edge, etc.
+\def\ppoint#1#2(#3,#4)#5{\setbox0=\hbox{#5}
+   \dimen0=\ht0\advance\dimen0 by\dp0\divide\dimen0 by-2
+   \multiply\dimen0 by#1\advance\dimen0 by#3\gridunits
+   \dimen1=\wd0\divide\dimen1 by-2\multiply\dimen1 by#2
+   \advance\dimen1 by#4\gridunits\dpoint(\dimen0,\dimen1){#5}}
+
+% The next macros are used in generating the grid:
+\newcount\rmndr   % this macro returns the remainder of #1 mod #2
+\def\rem#1#2{\rmndr=#1{}\divide\rmndr by#2{}%
+\multiply\rmndr by-#2{}\advance\rmndr by #1}
+\def\cgridw{\gridwidth\finegridw{}\rem\tickcount\majortick% every fifth line,
+\ifnum\rmndr=0{}\gridwidth\roughgridw\fi}          % ... use double-thick line.
+
+\def\tick#1/{\cgridw\vrule width\gridwidth height0pt depth#1\gridunits}
+\def\nexttick#1#2/{\hbox to#1\gridunits{\hfil\tick#2/}}
+\newcount\tickcount
+\newdimen\finegridw\finegridw0.4pt\newdimen\roughgridw\roughgridw1.6pt
+\newdimen\gridwidth
+\newif\ifshowgrid \showgridtrue
+
+% %Test \gridbox with the following code (only the end crosses should show):
+% \newcount\hor\newcount\ver
+% \centerline{\vbox{\gridbox20/16/{
+% \hor0\loop\ver0
+% {\loop\cpoint(\hor,\ver){$+$}
+% \advance\ver by 1\relax\ifnum\ver<17\repeat}
+% \advance\hor by 1\relax\ifnum\hor<21\repeat
+% }}}
+
+%END of gridbox.tex
+

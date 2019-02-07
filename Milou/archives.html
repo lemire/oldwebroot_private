@@ -1,0 +1,307 @@
+<html>
+<head>
+<title>Page de Nathalie Lampron</title>
+<META NAME="Author" CONTENT="Nathalie Lampron">
+<META NAME="Description" CONTENT="Site de Nathalie Lampron, jeune traductrice tintinologue et amatrice de chats.">
+<META NAME="Keywords" CONTENT="Lampron, Nathalie Lampron, traduction, traducteur, traductrice, terminologie, Milou, Tintin, Haddock, chat, chats, Java, Javascript, Québécois, Québécoise, québécois, québécoise, Montréal, Montréalais, Montréalaise, Berthier, Berthierville, Joliette, Lanaudière, applet, Javascript, UQTR, Université du Québec à Trois-Rivières, cégep Joliette-de Lanaudière, photo, photos, animation, OTIAQ, stade olympique, langues, espagnol, allemand, anglais, fiche terminologique, gifs animés, animation">
+<script type="text/javascript">
+  if (top.frames.length >1) {
+  	top.location = self.location;
+  }
+</script>
+
+<SCRIPT LANGUAGE="JavaScript">
+<!-- debut du script
+function VersionNavigateur(Netscape, Explorer) {
+  if ((navigator.appVersion.substring(0,3) >= Netscape && navigator.appName == 'Netscape') ||      
+      (navigator.appVersion.substring(0,3) >= Explorer && navigator.appName.substring(0,9) == 'Microsoft'))
+    return true;
+else return false;
+}
+//  fin du script -->
+</SCRIPT>
+<SCRIPT LANGUAGE = "JavaScript">
+     <!--
+// DerniereModif JavaScript (C)1997 Cyril Pannetier - La Petite Boutique JavaScript -
+// web : http://www.mygale.org/08/pannetie
+// e-mail : pannetie@mygale.org
+// Ce script est librement utilisable. Merci de ne pas effacer ces commentaires.
+
+
+function browserID() {
+
+	var name = navigator.appName ;
+	var version = navigator.appVersion;
+
+	if (name == 'Netscape') {
+		name = 'Netscape Navigator';
+		version = navigator.appVersion.substring(0,5);
+	}
+	else {
+		if (name == 'Microsoft Internet Explorer') {
+			id = version.indexOf('MSIE');
+			version = version.substring(id+5,id+9);
+		}
+		else {
+			name = 'Navigateur inconnu';
+			version = '0.00';
+		}
+	}
+	ID = name + ' ' + version;
+
+	return ID;
+}
+<!-- maintenant désuet -->
+function DerniereModif(format) {
+
+	var modif = document.lastModified;
+	var heure = '';
+
+	
+
+	browser = browserID();
+	if ( (browser.indexOf('Netscape Navigator') > -1) || (browser.indexOf('Microsoft Internet Explorer 4') > -1) ){
+		mois = modif.substring(0,2);
+		jour = modif.substring(3,5);
+		annee = modif.substring(6,8);
+		heure = modif.substring(9,17);
+		modif = jour + '/' + mois + '/19' + annee;
+	}
+	else {
+		if (browser.indexOf('Microsoft Internet Explorer') > -1) {
+			p1 = modif.indexOf(' ');
+			jour = modif.substring(0,p1);
+			p2 = modif.indexOf(' ',p1+1);
+			mois = modif.substring(p1,p2);
+			p1 = p2;
+			p2 = modif.indexOf(' ',p1+1);
+			jour = jour + ' ' + modif.substring(p1,p2);
+			p1 = p2;
+			p2 = modif.indexOf(' ',p1+1);
+			heure = modif.substring(p1,p2);
+			annee = modif.substring(p2+1,p2+5);
+			modif = jour + ' ' + mois + ' ' + annee;
+		}
+	}
+	if (format == 'F') { 
+		document.write('Dernière modification le ',modif,' à ',heure,'.');
+	}
+	else {
+		if (format =='D') {
+			document.write('Dernière modification le ',modif);
+		}
+		else {
+			if (format =='H') {
+				document.write('Dernière modification à ',heure);
+			}
+		}
+	}
+}
+//-->
+
+     </SCRIPT>
+<SCRIPT LANGUAGE = "JavaScript">
+	 <!--
+// BrowserID JavaScript (C)1997 Cyril Pannetier - La Petite Boutique JavaScript -
+// web : http://www.mygale.org/08/pannetie
+// e-mail : pannetie@mygale.org
+// Ce script est librement utilisable. Merci de ne pas effacer ces commentaires.
+
+function browserID() {
+
+	var name = navigator.appName ;
+	var version = navigator.appVersion;
+
+	if (name == 'Netscape') {
+		name = 'Netscape Navigator';
+		version = navigator.appVersion.substring(0,5);
+	}
+	else {
+		if (name == 'Microsoft Internet Explorer') {
+			id = version.indexOf('MSIE');
+			version = version.substring(id+5,id+9);
+		}
+		else {
+			name = 'Navigateur inconnu';
+			version = '0.00';
+		}
+	}
+	ID = name + ' ' + version;
+
+	return ID;
+}
+//-->
+</SCRIPT>
+
+</head>
+<body background="fondgris.gif" text="#000000" link="#0000ee" vlink="#551a8b" alink="#ff0000" bgcolor="#ffffff">
+<script language="JavaScript">
+
+
+<!-- vor alten Browsern verstecken copyright Arnold Schiller http://homepages.muenchen.org/bm596269
+function msgopen() {
+  fenster = open("", "Welcome", "scrollbar=yes,width=250,height=250");
+  fenster.document.open();
+ with (fenster.document) {
+        write("<html><base target='Frame 0'><body onBlur='window.close()'>");//Frame0 is name of the display change it, if                                                                                                              //necessary
+write("<body background='fondgris.gif'>");
+
+               write("<center><b><h3>Je vous remercie</h3></b></center><BR>");
+           write("<center><b><h3>d'être venu visiter</h3></b></center><BR>");
+           write("<center><b><h3>cette page.</h3></b></center><BR>");
+
+        write("</body></HTML>");
+        }
+        fenster.document.close();
+} 
+
+
+// --></script>
+ 
+<script language="JavaScript">
+  <!-- Funny text script by Bart Jellema
+    var hellotext="Bienvenue sur ma page!"
+    var thetext=""
+    var started=false
+    var step=0
+    var times=1
+
+    function welcometext()
+    {
+      times--
+      if (times==0)
+      { 
+        if (started==false)
+        {
+          started = true;
+          window.status = hellotext;
+          setTimeout("anim()",1); 
+        }
+        thetext = hellotext;
+      }
+    }
+
+    function showstatustext(txt)
+    {
+      thetext = txt;
+      setTimeout("welcometext()",4000)
+      times++
+    }
+
+    function anim()
+    {
+      step++
+      if (step==7) {step=1}
+      if (step==1) {window.status='>==='+thetext+'===<'}
+      if (step==2) {window.status='=>=='+thetext+'==<='}
+      if (step==3) {window.status='>=>='+thetext+'=<=<'}
+      if (step==4) {window.status='=>=>'+thetext+'<=<='}
+      if (step==5) {window.status='==>='+thetext+'=<=='}
+      if (step==6) {window.status='===>'+thetext+'<==='}
+      setTimeout("anim()",200);
+    }
+  // Funny text script by Bart Jellema -->
+</script>
+<BODY BGCOLOR="#FFFFFF" onLoad="welcometext()">
+
+<p><META HTTP-EQUIV="Content-Type"
+CONTENT="text/html; charset=iso-8859-1">   <IMG SRC="milou_lisant.gif" BORDER=0 WIDTH=86 HEIGHT=102 align=left alt="Milou est heureux de vous souhaiter la bienvenue sur cette page"><IMG SRC="Photos_numerisees/Nathalie.jpg" BORDER=0 WIDTH=97 HEIGHT=107 align="right" alt="Nathalie Lampron"><br>
+&nbsp;
+<h2><center>Archives des photos du mois</h2>
+</center>
+<br>
+<CENTER><HR SIZE=5 NOSHADE WIDTH="100%"></CENTER>
+<!-- Septembre -->
+<p><DIV ALIGN="center"><FONT SIZE=+2>Septembre</FONT></DIV>
+<p><DIV ALIGN="center"><I><B>Pour la famille!</B></I></DIV>
+<DIV ALIGN="center"><p><IMG SRC="Archives_du_mois/ptcruiser2.jpg" BORDER=0 ></DIV>
+<DIV ALIGN="center">
+<p><B>Ok, les visiteurs qui ne me connaissent pas vont dire que je suis *plate* avec mes photos d'autos métissées entre un modèle ancien et les rondeurs modernes de nos bibittes à roues. Je suis loin d'être une fan du culte de l'auto (je suis en fait une parfaite ignorante dans ce domaine et fière de l'être!). :-) Cette photo, c'est juste pour prouver à tous que mon papa, IL EST VENU À MONTRÉAL AVEC SA BELLE PT CRUISER NEUVE QU'IL ADORE TANT, AU RISQUE DE LA BOSSER, QUE DIS-JE? DE LA BLESSER DANS NOS RUES CERTAINEMENT TROP PASSANTES À SON GOÛT. Mais l'amour de l'auto a vaincu tous les obstacles&nbsp;: cette petite PT (certains prononcent <I>piti</I>, d'autres, <I>pété</I>, enfin, c'est selon vos préférences) était tellement confortable qu'il n'a pu s'en passer le temps d'un voyage Berthier-Montréal (un gros 45&nbsp;minutes dans le meilleur des cas, s'il n'y a pas de construction, s'il n'y a pas de bouchon, si on appuie un peu sur le champignon, etc.). Alors, hein, personne ne me traitera de menteuse! IL EST EFFECTIVEMENT VENU ICI AVEC SA PT, ET EN VOICI LA PREUVE NUMÉRISÉE!</B>
+<!-- Fin de la photo du mois -->
+<BR>
+<BR>
+<BR>
+<BR>
+<!-- Août -->
+<p><DIV ALIGN="center"><FONT SIZE=+2>Août</FONT></DIV>
+<p><DIV ALIGN="center"><I><B>Pour rigoler un peu!</B></I></DIV>
+<DIV ALIGN="center"><p><IMG SRC="Archives_du_mois/Dan_avec_moustache.jpg" BORDER=0 WIDTH=320 HEIGHT=240></DIV>
+<DIV ALIGN="center">
+<p>Minuit, un samedi soir, comme en témoigne l'heure et la date sous la photo. Nous avions envie de rigoler un peu&nbsp;: nous voulions savoir à quoi <A HREF="http://www.ondelette.com/lemire/index.html">Daniel</A> aurait l'air avec une moustache. Voici. ... ... ... Eh oui, c'est encore plus réaliste avec la webcaméra! :-)
+<P>--> Vive le maquillage (eye-liner de Nathalie)!
+<P>J'en ai finalement conclu que je préfère l'homme de ma vie sans moustache...
+<!-- Fin de la photo du mois -->
+<BR>
+<BR>
+<BR>
+<BR>
+<!-- Juillet -->
+<p><DIV ALIGN="center"><FONT SIZE=+2>Juillet</FONT></DIV>
+<p><DIV ALIGN="center"><I><B>De belles vacances dans la région de Charlevoix</B></I></DIV>
+<DIV ALIGN="center"><p><IMG SRC="photo/DevantBaieStPaul.JPG" BORDER=0 WIDTH=407 HEIGHT=261></DIV>
+<DIV ALIGN="center">
+<p>Daniel et moi, et Baie St-Paul en arrière-plan. Les paysages étaient tout simplement impressionnant. Une épave est échouée sur la rivière (juste au centre).
+<BR><BR><BR><IMG SRC="Archives_du_mois/Maison_de_the.jpg" BORDER=0 WIDTH=408 HEIGHT=285>
+<BR><BR>Me voici devant la maison de thé dans le domaine Charlevoix. Nous étions seuls ou presque, parce qu'il pleuvait. *rires* Eh oui, nous n'avons pas été chanceux pour nos premiers jours de vacances, mais nous nous sommes tout de même débrouillés pour passer du bon temps.
+<BR><BR><BR><IMG SRC="Archives_du_mois/Nath_sur_bateau.jpg" BORDER=0 WIDTH=425 HEIGHT=245>
+<BR><BR>Me voici sur le bateau qui nous a permis d'aller voir les baleines (grand rorqual, rorqual commun, bélugas). C'était très bien. En arrière-plan, l'hôtel Tadoussac (non, ce n'est pas là que nous avons dormi. Nous avons séjourné à l'auberge <A HREF="http://quebecweb.com/lagrandemaison/">La Grande Maison</A>, et vraiment, je vous la recommande, surtout si vous êtes de nature romantique!). J'espère que vous me pardonnez pour la qualité de l'éclairage. ;-)
+<!-- Fin de la photo du mois -->
+<BR>
+<BR>
+<BR>
+<BR>
+<!-- Juin -->
+<p><DIV ALIGN="center"><FONT SIZE=+2>Juin</FONT></DIV>
+<p><DIV ALIGN="center"><I><B>Encore de la visite</B></I></DIV>
+<DIV ALIGN="center"><p><IMG SRC="Archives_du_mois/Fanny_juin.jpg" BORDER=0 WIDTH=320 HEIGHT=240>   </DIV>
+<DIV ALIGN="center">
+<p>Nous avons manqué une belle occasion de prendre une photo de Yahoo <I>mouillé</I> (après son bain). Dommage... Voici, pour vous consoler, une autre photo de notre visiteuse féline du mois de juin Fanny, la petite chatoune himalayenne d'<A HREF="http://pages.infinit.net/superbol/">Eric</A>. Notez bien la date sous la photo&nbsp;: elle prouve bien que la photo de juin n'avait pas été *tout à fait* oubliée, malgré les apparences (pour ceux qui ont visité mon site en juin et n'y ont vu qu'une photo de mai... eh oui, désolée pour le retard impardonnable).
+<br>
+<br>
+<br>
+<BR>
+<!-- Mai -->
+<p><DIV ALIGN="center"><FONT SIZE=+2>Mai</FONT></DIV>
+<p><DIV ALIGN="center"><I><B>Enfin, le beau temps s'en vient...</B></I></DIV>
+<DIV ALIGN="center"><p><IMG SRC="Archives_du_mois/Nat_et_Yahoo_sur_perron.jpg" BORDER=0 WIDTH=320 HEIGHT=240>   </DIV>
+<DIV ALIGN="center">
+<p>Une petite pause-santé avec Yahoo (qui regarde un oiseau faire son nid)...
+<!-- Fin de la photo du mois -->
+<br>
+<br>
+<BR>
+<br>
+<!-- Avril -->
+<p><DIV ALIGN="center"><FONT SIZE=+2>Avril</FONT></DIV>
+<p><DIV ALIGN="center"><I><B>En avril, ne te découvre pas d'un fil...</B></I></DIV>
+<DIV ALIGN="center"><p><IMG SRC="Archives_du_mois/webcam_neige.jpg" BORDER=0 WIDTH=320 HEIGHT=240>   <IMG SRC="Archives_du_mois/fanny1.jpg" BORDER=0 WIDTH=320 HEIGHT=240></DIV>
+<DIV ALIGN="center">
+<p><B>À gauche</B>, la super tempête du 9 avril... Nous croyions que le printemps était arrivé, mais nous nous étions trompés!. <B>À droite</B>... la nouvelle amie de Yahoo, Fanny... c'est la petite chatoune d'<A HREF="http://pages.infinit.net/superbol/">Eric Lacourse</A>... Il semble que la caméra l'intéresse beaucoup.
+<!-- Fin de la photo du mois -->
+<BR>
+<br>
+<br>
+<br>
+<!-- Mars -->
+<p><DIV ALIGN="center"><FONT SIZE=+2>Mars</FONT></DIV>
+<p><DIV ALIGN="center"><I><B>Deux photos récentes de notre bébé à fourrure!</B></I></DIV>
+<DIV ALIGN="center"><p><IMG SRC="Archives_du_mois/yahoo_obese.jpg" BORDER=0 WIDTH=320 HEIGHT=240>   <IMG SRC="Archives_du_mois/monsieur_Bunny.jpg" BORDER=0 WIDTH=320 HEIGHT=240></DIV>
+<DIV ALIGN="center">
+<p><B>À gauche</B>, Yahoo essayait de me faire comprendre, en grimpant sur mon bureau, que je suis donc ennuyante lorsque je passe toute la soirée devant mon moniteur. <B>À droite</B>... on voit que Pâques arrive bientôt, n'est-ce pas? Il a l'air particulièrement doux, sur cette photo (je trouve). Qui devinerait que ce chat a parfois plus que sa part de caractère? À propos, il est passé un autre bon 30 minutes dans cette position, sans bouger, après la prise de cette photo... Il faut croire que ça lui plaisait!
+
+<CENTER><HR SIZE=5 NOSHADE WIDTH="100%"></CENTER>
+<!-- Page de bienvenue-->
+<center><p><A HREF="nathalie.html" onMouseOver="if (VersionNavigateur(3.0,4.0))  img8.src='Boutons_Nathalie/BoutonPrecpr.gif' " onMouseOut="img8.src='Boutons_Nathalie/BoutonPrec.gif' ">
+<IMG NAME="img8" WIDTH=120 HEIGHT=40 BORDER=0 SRC="Boutons_Nathalie/BoutonPrec.gif" onLoad="tempImg=new Image(0,0); tempImg.src='Boutons_Nathalie/BoutonPrecpr.gif'"></A>
+</center>
+
+<center>
+
+
+
+</center>
+<!-- Courriel -->
+
+<p align="center"><a href="mailto:Nathalie.Lampron@videotron.ca" onMouseOver="window.status='Cliquez ici pour m\'écrire'; return true" onMouseOut="window.status=' '; return true">Courriel</a><P>
+</body>
+</HTML>

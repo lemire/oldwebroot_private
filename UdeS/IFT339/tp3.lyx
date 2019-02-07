@@ -1,0 +1,310 @@
+#LyX 1.1 created this file. For more info see http://www.lyx.org/
+\lyxformat 218
+\textclass amsart
+\language french
+\inputencoding auto
+\fontscheme default
+\graphics default
+\paperfontsize default
+\spacing single 
+\papersize Default
+\paperpackage a4
+\use_geometry 0
+\use_amsmath 0
+\paperorientation portrait
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\defskip medskip
+\quotes_language english
+\quotes_times 2
+\papercolumns 1
+\papersides 2
+\paperpagestyle default
+
+\layout Title
+
+IFT339: Structures de données (T.P.
+ 3) 
+\layout Author
+
+Daniel Lemire, Ph.D.
+\layout Date
+
+10 juillet 2001 (à remettre le 23 juillet 2001 à minuit)
+\layout Section
+
+Introduction et mise en contexte
+\layout Standard
+
+Une des applications scientifiques les plus courantes est le tracé de courbes
+ unidimensionnelles.
+ En effet, beaucoup d'information vient sous la forme d'un ensemble de valeurs
+ dans le temps: valeur d'un titre à la bourse, température prise à toutes
+ les heures, etc.
+ On dit qu'il s'agit d'une fonction discrète (quand on est matheux) ou d'un
+ signal (quand on est ingénieur).
+\layout Standard
+
+On n'est pas ici intéressé par le tracé des courbes (d'autres cours sont
+ là pour ça!), mais par leur stockage.
+ Imaginons que nous ayons, par exemple, la valeur du titre de Microsoft
+ à tous les jours pour les 10 dernières années.
+ Cette information est disponible sur un serveur et notre client désire
+ récupérer cette information...
+ mais pas toute cette information! En effet, notre client a un écran qui
+ fait 640 par 480 pixels.
+ Dans le meilleur des cas, il pourra afficher, en supposant que l'axe du
+ temps soit horizontal, 640 valeurs différentes.
+ Inutile donc de stocker les quelques 3650 valeurs du titre de Microsoft!
+ On ne va donc échantillonner qu'une valeur sur 10 pour n'en récupérer que
+ 365.
+ 
+\layout Standard
+
+Le client a cependant la possibilité de récupérer progressivement l'information
+ manquante.
+ S'il veut, par exemple, obtenir un échantillonnage d'une valeur sur 5,
+ on lui enverra les valeurs manquantes (environ 365 nouvelles valeurs).
+ Il faut alors placer les nouvelles valeurs au bon endroit dans notre structure
+ de données linéaire.
+\layout Section
+
+Théorie
+\layout Standard
+
+À l'aide d'une structure de données linéaire, on veut pouvoir stocker des
+ valeurs échantillonnées de manière à pouvoir raffiner par la suite l'échantillo
+nnage si nécessaire.
+ Nous connaissons au moins deux structures de données qui sont appropriées:
+ le tableau et la liste chaînée.
+ Dans ce qui suit, nous supposerons que nous avons au total 
+\begin_inset Formula \( M=2^{k} \)
+\end_inset 
+
+ valeurs disponibles, mais que nous n'en transmettons que 
+\begin_inset Formula \( N=2^{j} \)
+\end_inset 
+
+ (
+\begin_inset Formula \( j<k) \)
+\end_inset 
+
+ au départ, doublant à chaque fois l'échantillonnage par la suite.
+\layout Subsection
+
+La liste chaînée
+\layout Standard
+
+La liste chaînée (list en STL, voir t.p.
+ 2) peut être utilisée pour résoudre ce problème.
+ Il suffit dans un premier temps de remplir la liste avec les 
+\begin_inset Formula \( N \)
+\end_inset 
+
+ premières valeurs puis d'insérer les nouvelles valeurs avec un itérateur.
+\layout Subsection
+
+Le tableau dynamique
+\layout Standard
+
+Le tableau peut être utilisé pour stocker les 
+\begin_inset Formula \( N \)
+\end_inset 
+
+ premières valeurs, puis un nouveau tableau contenant 
+\begin_inset Formula \( 2N \)
+\end_inset 
+
+ valeurs peut être utilisé quand d'autres valeurs sont ajoutées et ainsi
+ de suite.
+\layout Subsection
+
+Le tableau statique
+\layout Standard
+
+L'algorithme avec tableau dynamique implique que l'on doive recopier à chaque
+ fois les valeurs.
+ Cette approche est clairement inefficace.
+ Une meilleure approche serait d'utiliser tout de suite le plus grand tableau
+ (de taille 
+\begin_inset Formula \( M \)
+\end_inset 
+
+) et de placer immédiatement les valeurs aux bons endroits et en laissant
+ indéfinies les valeurs intermédiaires.
+\layout Subsection
+
+Exemple
+\layout Standard
+
+Si nous avons les valeurs suivantes sur le serveur 
+\begin_inset Formula \( \{1,\, 1,\, 2,\, 3,\, 20,\, 400,\, 8000,\, 2\} \)
+\end_inset 
+
+ (symbolisant la valeur du titre de Nortel ou de votre point-com favorite),
+ on aura donc 
+\begin_inset Formula \( M=2^{3} \)
+\end_inset 
+
+ (
+\begin_inset Formula \( k=3 \)
+\end_inset 
+
+).
+ On peut choisir 
+\begin_inset Formula \( N=2^{1} \)
+\end_inset 
+
+ (
+\begin_inset Formula \( j=1 \)
+\end_inset 
+
+) et les valeurs de départ 
+\begin_inset Formula \( \{1,20\} \)
+\end_inset 
+
+, on enverra ensuite les valeurs 
+\begin_inset Formula \( \{2,8000\} \)
+\end_inset 
+
+ puis les valeurs 
+\begin_inset Formula \( \{1,3,400,2\} \)
+\end_inset 
+
+.
+ Le client pourra donc afficher progressivement de plus en plus d'information
+ en s'arrêtant au besoin.
+ Dans l'approche avec liste, nous aurons d'abord un liste contenant 
+\begin_inset Formula \( \{1,20\} \)
+\end_inset 
+
+, puis 
+\begin_inset Formula \( \{1,2,20,8000\} \)
+\end_inset 
+
+ et finalement 
+\begin_inset Formula \( \{1,\, 1,\, 2,\, 3,\, 20,\, 400,\, 8000,\, 2\} \)
+\end_inset 
+
+.
+ L'approche par tableau dynamique est similaire sauf que l'on doit faire
+ une copie à chaque fois.
+ 
+\layout Section
+
+Énoncé
+\layout Standard
+
+(60 points) Écrivez un programme capable de lire dans un fichier une suite
+ de nombre (entiers).
+ Les deux premiers nombres lus sont 
+\begin_inset Formula \( k \)
+\end_inset 
+
+ et 
+\begin_inset Formula \( j \)
+\end_inset 
+
+ respectivement et vous trouvez ensuite les valeurs.
+ Les valeurs doivent être organisées selon le format de transmission au
+ client.
+ Par exemple, dans l'exemple de la section précédente, le fichier contiendrait
+ les valeurs 
+\begin_inset Formula \( 3,1,1,20,2,8000,1,3,400,2 \)
+\end_inset 
+
+ parce que 
+\begin_inset Formula \( k=3 \)
+\end_inset 
+
+ et 
+\begin_inset Formula \( j=1 \)
+\end_inset 
+
+.
+\layout Standard
+
+Le programme doit ensuite écrire dans trois fichiers de destinations la
+ suite réelle des valeurs (soit 
+\begin_inset Formula \( 1,\, 1,\, 2,\, 3,\, 20,\, 400,\, 8000,\, 2 \)
+\end_inset 
+
+ dans notre exemple).
+ Le premier fichier contiendra la solution obtenue par la liste, le deuxième
+ fichier contiendra la solution obtenue avec les tableaux dynamiques et
+ le dernier contiendra la solution avec le tableau statique.
+ Vous devez aussi afficher à l'écran les temps de calcul respectif pour
+ chaque approche (omettant l'accès disque).
+\layout Standard
+
+La syntaxe de l'outil en console devra prendre la forme 
+\begin_inset Quotes eld
+\end_inset 
+
+PointCom fichierdedonnees.txt fichierliste.txt fichierdynamique.txt fichierstatique.
+txt
+\begin_inset Quotes erd
+\end_inset 
+
+.
+\layout Standard
+
+Vous pouvez utiliser le code qui suit pour mesure le temps de calcul.
+\layout Quote
+
+#include <time.h>
+\layout Quote
+
+//
+\layout Quote
+
+clock_t start = clock();
+\layout Quote
+
+//ma fonction
+\layout Quote
+
+clock_t finish = clock();
+\layout Quote
+
+double NombreDeSecondes = (double)(finish - start) / CLOCKS_PER_SEC;
+\layout Standard
+
+Question 1.
+ Vous devez comparer les trois approches de façon empirique.
+ Pour ce faire, créez un fichier de données avec au moins 5 valeurs de 
+\begin_inset Formula \( k \)
+\end_inset 
+
+ assez grandes pour que les résultats soient significatifs (à vous de juger!)
+ et mesurez le temps nécessaire au traitement selon les trois approches.
+ Vous aurez alors au moins 
+\begin_inset Formula \( 5\times 3 \)
+\end_inset 
+
+ valeurs que vous devrez mettre dans un tableau.
+ Vous devez commenter et expliquer vos résultats.
+ Il est recommandé de faire un graphique.
+ (30 points)
+\layout Standard
+
+Question 2.
+ Quel est l'inconvénient majeur de l'approche par tableau statique? Expliquez.
+ (10 points)
+\layout Standard
+
+Question 3.
+ (facultative) Pouvez-vous proposer une autre approche qui soit plus efficace?
+\layout Section
+
+Correction
+\layout Standard
+
+Le travail est sur 100 points.
+ Il est permis de travailler en équipe de deux (et de ne remettre qu'un
+ seul rapport par équipe).
+ Il est recommandé, mais pas obligatoire, d'utiliser STL.
+ Vous devez remettre un rapport, votre listing et une soumission électronique
+ sera demandée pour la correction.
+\the_end

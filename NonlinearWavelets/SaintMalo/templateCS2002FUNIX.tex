@@ -1,0 +1,272 @@
+%----------------------- Beginning of TeX file --------------------------
+%
+%                  Abstract for CURVES and SURFACES
+%                           SAINT-MALO 2002
+%
+%------------------------------------------------------------------------
+
+%------------------------------------------------------------------------
+% The modifiable part starts with the comment : "BEGIN HERE"
+%------------------------------------------------------------------------
+
+%------------------------------------------------------------------------
+% The following \input macro depends on the presence of a particular
+% file (namely 'epsf.tex') in your TeX distribution. 
+% If you don't have access to this file please download it from our site.
+%------------------------------------------------------------------------
+\input epsf.tex
+
+%------------------------------------------------------------------------
+% Macros to include figures (Encapsulated PostScript only)
+%------------------------------------------------------------------------
+
+%------------------------------------------------------------------------
+% \psone{}{} allows you to insert one eps figure
+%------------------------------------------------------------------------
+% #1 filename of the figure (must be in current directory)
+% #2 horizontal size for the figure in mm (0 to keep natural size)
+%------------------------------------------------------------------------
+
+\def\psone#1#2{\centerline{\epsfxsize=#2mm \epsfbox{#1}}}
+
+%------------------------------------------------------------------------
+% \pstwo{}{}{}{} allows you to insert side by side two eps figures
+%------------------------------------------------------------------------
+% #1 filename of the 1st figure (must be in current directory)
+% #2 horizontal size for the 1st figure in mm (0 to keep natural size)
+% #3 filename of the 2nd figure (must be in current directory)
+% #4 horizontal size for the 2nd figure in mm (0 to keep natural size)
+%------------------------------------------------------------------------
+
+\def\pstwo#1#2#3#4{\centerline{%
+\epsfxsize=#2mm \epsfbox{#1}\qquad
+\epsfxsize=#4mm \epsfbox{#3}
+}}%
+
+%------------------------------------------------------------------------
+% \psthree{}{}{}{}{}{} allows you to insert side by side 3 eps figures
+%------------------------------------------------------------------------
+% #1 filename of the 1st figure (must be in current directory)
+% #2 horizontal size for the 1st figure in mm (0 to keep natural size)
+% #3 filename of the 2nd figure (must be in current directory)
+% #4 horizontal size for the 2nd figure in mm (0 to keep natural size)
+% #5 filename of the 3rd figure (must be in current directory)
+% #6 horizontal size for the 3rd figure in mm (0 to keep natural size)
+%------------------------------------------------------------------------
+
+\def\psthree#1#2#3#4#5#6{\centerline{%
+\epsfxsize=#2mm \epsfbox{#1}\qquad
+\epsfxsize=#4mm \epsfbox{#3}\qquad
+\epsfxsize=#6mm \epsfbox{#5}
+}}%
+
+%------------------------------------------------------------------------
+% Macros to insert legends under figures
+%------------------------------------------------------------------------
+
+%------------------------------------------------------------------------
+% \figlegend{}{}{} allows you to put some text under a figure
+%------------------------------------------------------------------------
+% #1 : the number you want to associate to the figure
+% #2 : the text of your legend
+% #3 : the (possibly <0) vertical offset ( in mm) between fig. and text 
+%------------------------------------------------------------------------
+
+\def\figlegend#1#2#3{%
+\null\vskip 1pt\vskip #3mm
+{\centerline{{\bf Fig.~#1.} #2.}}%
+}
+
+%------------------------------------------------------------------------
+% use \figlonglegend{}{}{} when the legend doesn't fit in one line
+%------------------------------------------------------------------------
+% #1 : the number you want to associate to the figure
+% #2 : the text of your legend
+% #3 : the (possibly <0) vertical offset (in mm) between fig. and text 
+%------------------------------------------------------------------------
+
+\def\figlonglegend#1#2#3{%
+\null\vskip 1pt\vskip #3mm
+{{\narrower \noindent{\bf Fig.~#1.} #2.\smallskip}}%
+}
+
+%------------------------------------------------------------------------
+% Specific macros for Curves and Surfaces -- St-Malo 2002 abstracts
+%------------------------------------------------------------------------
+\font\fa=cmr17
+\font\fb=cmr12
+\newcount\refnum
+\refnum = 0
+
+\def\tit#1{\bigskip\bigskip\medskip\centerline{\fa#1}}
+\def\titwo#1{\medskip \centerline{\fa#1}}
+\def\tithree#1{\medskip \centerline{\fa#1}}
+\def\aut{\bigskip\bigskip\centerline{\fb\author} }
+\def\keys{\bigskip\noindent{\bf Keywords:\ }\keywords}
+\long\def\abstext{\bigskip\noindent {\bf Abstract:\ }\par\abstract\bigskip\medskip}
+\def\ref{\global\advance\refnum by 1 \item{\the\refnum .}}
+\def\addr{\medskip\name\par\affiliate\par\address\par\email\par}
+
+%------------------------------------------------------------------------
+% Just "convenient" macros
+%------------------------------------------------------------------------
+
+\def\NN{\hbox{I\kern-.2em\hbox{N}}} % positive integers
+\def\ZZ{{{\rm Z}\kern-.28em{\rm Z}}} % set of integers
+\def\RR{\mathop{{\rm I}\kern-.2em{\rm R}}\nolimits} % reals
+
+%------------------------------------------------------------------------
+%
+% BEGIN HERE
+%
+%------------------------------------------------------------------------
+% Please, complete the following items :
+%  1. title
+%  2. author(s)
+%  3. keyword(s)
+%  4. abstract text
+%  5. reference(s)
+%  6. address of each author
+%------------------------------------------------------------------------
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% 1. TITLE
+%    Please DO NOT insert any carriage return within your title.
+%	 If the title is too long to fit into one line,
+%	 split it and use titwo (and tithree if necessary).
+%	 Capitalize the first letter of each nontrivial word.
+%
+% Eg : \tit{Part one of your title (mandatory)}
+%      \titwo{Part two of your title if needed}
+%      \tithree{Part three of your title if needed}
+%
+\tit{} % <--- Insert your title inside the braces.
+%
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% 2. AUTHORS
+%    Please DO NOT insert any carriage return within the authors's list.
+%    If there are several, please supply a comma separated list and put 
+%    $^*$ after the speaker's name.
+%
+% Eg : \def\author{xxx} defines one author
+%      \def\author{x, y$^*$, z} defines 3 authors (y being the speaker)
+%
+\def\author{} % <--- Insert the list of author(s) inside the braces.
+%
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% 3. KEYWORDS
+%    Please supply the keyword(s) of your communication as a comma 
+%    separated list.
+%
+% Eg : \keywords{keyword1,keyword2,more,keywords} 
+%
+\def\keywords{} % <--- Insert the list of keyword(s) inside the braces.
+%
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% 4. ABSTRACT
+%    The whole document MUST fit inside one page, preferably half a page. 
+%    You may include here some of your favorite macros but, please, 
+%    avoid to do so if possible.
+%    If you want to include any eps figures, use the given set of macros 
+%    and please note that the final print will be done in black and white.
+%
+% Insert the text of your abstract inside the \def\abstract braces.
+%
+\def\abstract{
+
+} % End of \def\abstract (Do not edit this line)
+%
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% 5. REFERENCES
+%    1.  Arrange your references in alphabetical order.
+%    2.  Use the \ref macro. 
+%        This macro will automatically number your references.
+%    3.  Examples :
+%
+% Eg: \ref Cohen A.,
+%	  {\sl Wavelet Methods in Numerical Analysis},
+%	  Elsevier, Amsterdam, 2000.
+%
+%	  \ref Dubuc S. and J.-L. Merrien,
+%	  A 4-point Hermite subdivision scheme,
+%	  in {\sl Mathematical Methods in CAGD: Oslo 2000},
+%
+%	  \ref T. Lyche and L.L. Schumaker (eds),
+%	  Vanderbilt University Press, Nashville, 2001, xxx--yyy.
+%
+%	  \ref Laurent P.J., P. Sablonni\`ere, and L.L. Schumaker,
+%	  {\sl Curve and Surface Design: Saint-Malo 1999},
+%	  Vanderbilt University Press, Nashville, 2000.
+%
+%	  \ref Mazure M.-L., Blossoming: a geometrical approach,
+%	  {\sl Constructive Approximation} {\bf 15} (1999), 33--68.
+%
+%	  \ref Ramshaw, L., Blossoming: a connect-the-dots approach to splines,
+%	  techn. report, Digital Systems Research Center, Palo Alto, (1987).
+%
+% Insert your references between the \def\refs braces
+%
+\def\refs{
+
+} % End of \def\refs (Do not edit this line)
+%
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% 6. ADDRESS
+%    Give the address of each of the authors :
+%
+% Eg : \def\name(M-L. Mazure}
+%      \def\affiliate{Laboratoire LMC/IMAG}  
+%      \def\address{51, rue des Mathematiques - 38041 Grenoble Cedex 9}    
+%      \def\email{Marie-Laurence.Mazure@imag.fr}      
+%      \addr
+\def\adresses{
+%------------------------------------------------------------------------
+% First author
+% Uncomment the following FIVE (5) lines and fill in the braces 
+%\def\name{}       % Insert the name of one author
+%\def\affiliate{}  % Insert the name of his/her institution
+%\def\address{}    % Insert the address of his/her institution
+%\def\email{}      % Insert the author's E-mail address
+%\addr             % DON'T FORGET to uncomment this line.
+%
+%------------------------------------------------------------------------
+% Second author
+% if any, uncomment the following FIVE (5) lines and fill in the braces 
+%\def\name{}
+%\def\affiliate{}
+%\def\address{}
+%\def\email{}
+%\addr
+%
+%------------------------------------------------------------------------
+% Third author
+% if any, uncomment the following FIVE (5) lines and fill in the braces 
+%\def\name{}
+%\def\affiliate{}
+%\def\address{}
+%\def\email{}
+%\addr
+%
+% And so on...
+} % End of \def\adresses (Do not edit this line)
+%
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% DO NOT MODIFY ANYTHING BELOW THIS LINE.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Thanks for having completed all the needed information.
+% The remaining lines just print the whole document.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\aut
+\keys
+\abstext
+\refs
+\adresses
+\bye 
+%--------------------------- End of TeX file -----------------------------
+%-------------------------------------------------------------------------

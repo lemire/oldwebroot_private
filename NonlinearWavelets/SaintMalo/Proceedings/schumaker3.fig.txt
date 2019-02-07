@@ -1,0 +1,199 @@
+%!PS-Adobe-2.0 EPSF
+%%Title: /tmp/xfig-fig007135
+%%Creator: fig2dev
+%%CreationDate: Tue Mar  1 10:38:44 1994
+%%For: lbrunie@sake (Lionel Brunie)
+%%BoundingBox: 0 0 587 330
+%%Pages: 0
+%%EndComments
+/$F2psDict 200 dict def
+$F2psDict begin
+$F2psDict /mtrx matrix put
+/l {lineto} bind def
+/m {moveto} bind def
+/s {stroke} bind def
+/n {newpath} bind def
+/gs {gsave} bind def
+/gr {grestore} bind def
+/clp {closepath} bind def
+/graycol {dup dup currentrgbcolor 4 -2 roll mul 4 -2 roll mul
+4 -2 roll mul setrgbcolor} bind def
+/col-1 {} def
+/col0 {0 0 0 setrgbcolor} bind def
+/col1 {0 0 1 setrgbcolor} bind def
+/col2 {0 1 0 setrgbcolor} bind def
+/col3 {0 1 1 setrgbcolor} bind def
+/col4 {1 0 0 setrgbcolor} bind def
+/col5 {1 0 1 setrgbcolor} bind def
+/col6 {1 1 0 setrgbcolor} bind def
+/col7 {1 1 1 setrgbcolor} bind def
+ /DrawSplineSection {
+	/y3 exch def
+	/x3 exch def
+	/y2 exch def
+	/x2 exch def
+	/y1 exch def
+	/x1 exch def
+	/xa x1 x2 x1 sub 0.666667 mul add def
+	/ya y1 y2 y1 sub 0.666667 mul add def
+	/xb x3 x2 x3 sub 0.666667 mul add def
+	/yb y3 y2 y3 sub 0.666667 mul add def
+	x1 y1 lineto
+	xa ya xb yb x3 y3 curveto
+	} def
+
+	end
+/$F2psBegin {$F2psDict begin /$F2psEnteredState save def} def
+/$F2psEnd {$F2psEnteredState restore end} def
+%%EndProlog
+
+$F2psBegin
+0 setlinecap 0 setlinejoin
+-27.0 373.0 translate 0.900 -0.900 scale
+0.500 setlinewidth
+% Polyline
+n 114 179 m 114 379 l  204 284 l  204 99 l
+ 114 179 l  114 179 l  114 179 l  114 179 l  114 179 l gs col-1 s gr
+% Polyline
+n 114 379 m 484 379 l gs col-1 s gr
+% Polyline
+n 109 379 m 479 379 l gs col-1 s gr
+% Polyline
+n 109 379 m 479 379 l gs col-1 s gr
+% Polyline
+n 109 379 m 479 379 l gs col-1 s gr
+% Polyline
+n 204 284 m 574 284 l gs col-1 s gr
+% Polyline
+n 484 379 m 574 284 l gs col-1 s gr
+n 574 284 m 574 284 l gs col-1 s gr
+n 359 109 m 359 109 l gs col-1 s gr
+% Polyline
+n 254 64 m 374 159 l gs 0.00 setgray fill gr
+gs col0 s gr
+n 368.969 152.466 m 374.000 159.000 l 366.486 155.602 l gs 2 setlinejoin
+col0 s gr
+% Polyline
+n 99 124 m 149 194 l gs 0.00 setgray fill gr
+gs col0 s gr
+n 145.978 186.328 m 149.000 194.000 l 142.723 188.653 l gs 2 setlinejoin
+col0 s gr
+% Polyline
+n 539 371 m 424 356 l gs 0.00 setgray fill gr
+gs col0 s gr
+n 431.674 359.018 m 424.000 356.000 l 432.191 355.052 l gs 2 setlinejoin
+col0 s gr
+% Polyline
+n 364 114 m 364 104 l  354 104 l  354 114 l
+ clp gs 0.00 setgray fill gr
+gs col0 s gr
+1.000 setlinewidth
+% Polyline
+n 359 109 m 419 329 l gs col0 s gr
+% Polyline
+n 359 109 m 244 334 l gs col0 s gr
+0.500 setlinewidth
+% Polyline
+n 614 224 m 614 214 l  604 214 l  604 224 l
+ clp gs 0.00 setgray fill gr
+gs col0 s gr
+% Polyline
+n 254 64 m 274 194 l gs col-1 s gr
+n 274.760 185.789 m 274.000 194.000 l 270.807 186.397 l gs 2 setlinejoin
+col-1 s gr
+1.000 setlinewidth
+% Polyline
+n 174 189 m 604 219 l  169 289 l gs col0 s gr
+0.500 setlinewidth
+% Open spline
+n 161.000 193.000 m 147.500 197.500 l
+	147.500 197.500 134.000 202.000 129.500 211.000 DrawSplineSection
+	129.500 211.000 125.000 220.000 125.000 228.500 DrawSplineSection
+	125.000 228.500 125.000 237.000 125.000 248.500 DrawSplineSection
+	125.000 248.500 125.000 260.000 134.000 271.000 DrawSplineSection
+	134.000 271.000 143.000 282.000 154.000 286.500 DrawSplineSection
+	154.000 286.500 165.000 291.000 176.000 284.000 DrawSplineSection
+	176.000 284.000 187.000 277.000 191.500 264.000 DrawSplineSection
+	191.500 264.000 196.000 251.000 198.000 237.500 DrawSplineSection
+	198.000 237.500 200.000 224.000 200.000 210.500 DrawSplineSection
+	200.000 210.500 200.000 197.000 191.500 193.000 DrawSplineSection
+	191.500 193.000 183.000 189.000 176.000 189.000 DrawSplineSection
+	176.000 189.000 169.000 189.000 162.500 191.000 DrawSplineSection
+	156.000 193.000 l gs col-1 s gr
+% Interpolated spline
+n 285 315 m
+	270.387 318.091 264.137 319.841 260 322 curveto
+	255.321 324.442 245.636 330.415 243 336 curveto
+	240.966 340.311 242.053 348.987 243 353 curveto
+	243.872 356.695 246.310 364.340 250 367 curveto
+	256.669 371.806 271.146 371.670 278 371 curveto
+	283.135 370.498 293.390 365.451 298 364 curveto
+	303.648 362.223 317.009 357.823 323 357 curveto
+	326.923 356.461 336.062 356.381 340 357 curveto
+	347.545 358.187 363.707 365.316 371 367 curveto
+	377.333 368.463 391.873 372.300 399 371 curveto
+	404.752 369.951 415.464 365.980 419 360 curveto
+	420.549 357.380 419.000 352.278 419 350 curveto
+	419.000 345.216 422.422 334.537 419 329 curveto
+	415.356 323.104 403.735 320.961 399 319 curveto
+	394.313 317.058 382.930 313.225 378 312 curveto
+	372.581 310.654 359.569 308.461 354 308 curveto
+	347.591 307.470 332.379 308.000 326 308 curveto
+	321.216 308.000 309.877 307.171 305 308 curveto
+	301.309 308.627 296.309 310.377 285 315 curveto
+gs col-1 s gr
+% Interpolated spline
+n 359 204 m
+	335.903 204.961 325.903 206.211 319 209 curveto
+	313.292 211.306 301.788 216.702 299 224 curveto
+	296.157 231.443 299.203 243.233 304 249 curveto
+	309.066 255.090 322.714 257.790 329 259 curveto
+	332.502 259.674 340.537 259.485 344 259 curveto
+	352.404 257.823 371.301 253.530 379 249 curveto
+	383.487 246.360 393.455 241.666 394 234 curveto
+	394.642 224.965 383.655 217.885 379 214 curveto
+	375.877 211.394 370.877 208.894 359 204 curveto
+gs 0.85 setgray fill gr
+gs col-1 s gr
+n 365.635 208.897 m 359.000 204.000 l 367.159 205.199 l gs 2 setlinejoin
+col-1 s gr
+/Times-Roman findfont 12.00 scalefont setfont
+219 414 m
+gs 1 -1 scale (second projection plane) col-1 show gr
+/Times-Roman findfont 12.00 scalefont setfont
+29 254 m
+gs 1 -1 scale (first projection) col-1 show gr
+/Times-Roman findfont 12.00 scalefont setfont
+29 272 m
+gs 1 -1 scale (plane) col-1 show gr
+/Times-Roman findfont 12.00 scalefont setfont
+224 59 m
+gs 1 -1 scale (matching lines) col-1 show gr
+/Times-Roman findfont 12.00 scalefont setfont
+339 74 m
+gs 1 -1 scale (focal point) col-1 show gr
+/Times-Roman findfont 12.00 scalefont setfont
+324 87 m
+gs 1 -1 scale (\(second image\)) col-1 show gr
+/Times-Roman findfont 12.00 scalefont setfont
+539 364 m
+gs 1 -1 scale (contour of S in the) col-1 show gr
+/Times-Roman findfont 12.00 scalefont setfont
+549 382 m
+gs 1 -1 scale (second image) col-1 show gr
+/Times-Roman findfont 12.00 scalefont setfont
+39 109 m
+gs 1 -1 scale (contour of S in the first) col-1 show gr
+/Times-Roman findfont 12.00 scalefont setfont
+74 122 m
+gs 1 -1 scale (image) col-1 show gr
+/Times-Roman findfont 12.00 scalefont setfont
+619 232 m
+gs 1 -1 scale (\(first image\)) col-1 show gr
+/Times-Roman findfont 12.00 scalefont setfont
+624 214 m
+gs 1 -1 scale (focal point) col-1 show gr
+$F2psEnd
+showpage
+%%EOF
+%%     END of Schumaker3.fig

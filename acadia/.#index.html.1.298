@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type"
+content="text/html; charset=utf-8" />
+<link rel="alternate" type="text/xml" title="RSS .92"
+href="http://feeds.feedburner.com/DanielLemiresArticlesOnArxiv" />
+<title>Daniel Lemire, Computer Scientist and Open Scholar</title>
+<meta name="Keywords"
+content="Time Series, Data Mining , multidimensional databases, Fourier, OLAP, subdivision, Approximation Theory, MOLAP" />
+<meta name="Description"
+content="Daniel Lemire is a Computer Science professor and Open Scholar with interests in Data Mining, Approximation Theory, OLAP, and Collaborative Filtering." />
+<link rel="stylesheet" type="text/css" href="acadia.css" />
+<link rel="SHORTCUT ICON" href="/favicon.ico"
+type="image/x-icon" />
+<link rel="alternate"
+href="http://lemire.me/fr/index.html" hreflang="fr"
+lang="fr" title="Version française" />
+
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-25286235-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+
+</head>
+<body>
+<form action="http://www.google.com/search" method="get"
+class="SEARCHBAR">
+<div><input size="12" name="q" /> <input type="hidden"
+name="sitesearch" value="daniel-lemire.com" /><br />
+<input type="submit" value="Search" name="submit" /></div>
+</form>
+
+<p class="MENU">MAIN |  <a
+href="publications.html">PUBLICATIONS</a> | <a
+href="http://lemire.me/">BLOG</a></p>
+<div id="maincontent" itemscope itemtype="http://schema.org/Person">
+<h1  itemprop="name">Daniel Lemire</h1>
+
+<div>
+<img style="border: 1px solid black; margin: 5px; float: right; width: 152px; height:152px" src="http://lemire.me/fr/images/JPG/profile2011B_152.jpg" alt="Daniel Lemire's picture" itemprop="image"/>
+</div>
+
+<p>Data Warehousing and OLAP, Recommender Systems and Collaborative Filtering, Information Retrieval. </p>
+
+<h2>Recently cited papers</h2>
+<ul>
+
+<li   itemscope itemtype="http://schema.org/ScholarlyArticle">Owen Kaser and Daniel Lemire, <a
+href="http://arxiv.org/abs/cs/0703109"  itemprop="url">Tag-Cloud Drawing: Algorithms for Cloud Visualization</a>, Tagging and Metadata for Social Information Organization (WWW 2007), 2007. (Cited at least <a href="http://scholar.google.com/scholar?cites=14833392884129906405">112&nbsp;times</a>.) </li>
+
+<li   itemscope itemtype="http://schema.org/ScholarlyArticle"  itemprop="url">Daniel Lemire and Anna Maclachlan, <a
+href="http://arxiv.org/abs/cs.DB/0702144">Slope
+One Predictors for Online Rating-Based Collaborative
+Filtering</a>, SDM'05, 2005. (Cited at least <a href="http://scholar.google.com/scholar?cites=7373225641249685044">158&nbsp;times</a>.) </li>
+</ul>
+<p><a href="publications.html">Want to know more about my research papers?</a></p>
+
+
+
+<h2>Recent International Conference Program Committees</h2>
+<ul class="TIGHT">
+<li>Business Information Systems (<a href="http://bis.kie.ae.poznan.pl/">BIS</a>)</li>
+<li>International Conference on Enterprise Information Systems (<a href="http://www.iceis.org/">ICEIS</a>)</li>
+<li>Conference on Web Information Systems and Technologies (<a href="http://www.webist.org/">WEBIST</a>)</li>
+<li>Database and Expert Systems Applications (<a href="http://www.dexa.org/dexa_cfp">DEXA</a>)</li>
+<!--<li> Business Intelligence and Data Warehousing (<a href="http://www.bizintelligenceconf.org">BIDW</a>)&nbsp;2010</li>-->
+<li>ACM Conference on Recommender Systems (<a href="http://recsys.acm.org/">ACM RecSys</a>)</li>
+<li>International Conference on Web Intelligence, Mining and Semantics (<a href="http://wims.vestforsk.no/">WIMS</a>)</li>
+<li> ACM/IEEE Joint Conference on Digital Libraries (<a href="http://www.jcdl.org/">JCDL</a>)</li>
+<!--<li> International Conference on Logistics, Informatics and Service Science (<a href="http://liss.scitevents.org/">LISS</a>)</li>-->
+<!--<li>Journées francophones sur les Entrepôts de Données et l’Analyse en ligne
+(<a href="http://www.miracl.rnu.tn/eda10/">EDA</a>)</li>
+<li>North American Computing and Philosophy Conference (<a href="http://ia-cap.org/na-cap09/">NA-CAP</a>)</li>-->
+</ul>
+
+
+<h2>Recent Participation to Editorial boards</h2>
+<ul class="TIGHT">
+<li><a href="http://www.informatik.uni-trier.de/~ley/db/journals/jcp/index.html">Journal of Computers</a> </li>
+<li><a href="http://www.openresearchcomputation.com/">Open Research Computation</a>  </li>
+<li><a href="http://www.aejm.ca/online.htm">Atlantic Electronic Journal of Mathematics</a> </li>
+<li><a href="http://www.academypublisher.com/jetwi/">Journal of Emerging Technologies in Web Intelligence</a>  </li>
+
+</ul>
+
+<h2>Social networks</h2>
+
+<ul class="TIGHT">
+<li><img
+src="http://www.daniel-lemire.com/fr/social/plus.png" alt="Google Plus" /><a
+href="http://profiles.google.com/105888615414982242080/about" rel="me"> Google Plus</a></li>
+<li> <a
+href="http://www.facebook.com/profile.php?id=633613255"  ><img
+src="http://www.daniel-lemire.com/fr/social/facebook.png" alt="facebook" /> Facebook</a></li>
+<li>   <a
+href="http://www.linkedin.com/in/dlemire"  ><img
+src="http://www.daniel-lemire.com/fr/social/linkedin.png" alt="linkedin" /> LinkedIn</a></li>
+<li> <a
+href="http://www.twitter.com/lemire/"  ><img
+src="http://www.daniel-lemire.com/fr/social/twitter.png" alt="twitter" /> Twitter</a></li>
+</ul>
+
+
+<h2>Contact</h2>
+
+<address itemprop="address" itemscope itemtype="http://schema.org/PostalAddress">
+Daniel Lemire, professor,
+LICEF Research Center,
+Pavillon Saint-Urbain,
+Université du Québec à Montréal (UQAM),
+100 Sherbrooke West,
+<span itemprop="addressLocality">Montreal</span>  (<span itemprop="addressRegion">Quebec</span>),
+H2X 3P2 <span itemprop="addressCountry">Canada</span>
+<br />
+<a
+href="http://maps.google.com/maps?q=100,+rue+Sherbrooke+ouest,+Montr%C3%A9al,+QC,+Canada+H2X+3P2&amp;ll=45.510588,-73.569775&amp;spn=0.005871,0.020385&amp;t=h&amp;hl=fr">Google map</a>
+<br />
+Office SU-2605,
+Phone: (514) 987-3000 ext. 2835 (please use email),
+Email: <span itemprop="email">lemire (at) gmail (dot) com</span>
+</address>
+
+
+<p><a href="students.html">You want to come work with me?</a></p>
+
+
+</div>
+<p class="MENU">MAIN |  <a
+href="publications.html">PUBLICATIONS</a> 
+  | <a
+href="http://lemire.me/">BLOG</a>
+</p>
+
+<p class="CENTER">© 2001-2011, Daniel Lemire (lemire at gmail dot
+com)</p>
+
+
+</body>
+</html>
+
+

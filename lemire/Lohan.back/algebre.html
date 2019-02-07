@@ -1,0 +1,127 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<script type="text/javascript">
+window.onbeforeunload = function() {
+    return "Si tu quittes la page, ton travail sera perdu.";
+}
+
+function signtext(x) { return x >= 0 ? "+" : "-"; }
+
+function formatcoef(x) { 
+    if(x == 1) return "";
+    if(x == -1) return "-";
+    return x;
+}
+
+function formatconstterm(x) { 
+    if(x == 0) return "";
+    return signtext(x)+' '+Math.abs(x);
+}
+
+
+function getStarted() {
+    var out = document.getElementById("algebre");  
+    var letters = ['x','y','z','p','q','r','s','t'];
+    for (var i = 0; i < 10; i++) {
+        if(Math.floor(i/4)*4==i) {
+            var x = Math.floor(Math.random()*10)+1 ;
+            if(Math.random()<0.5) x = x * -1;
+            var y = Math.floor(Math.random()*10)+1 ;
+            if(Math.random()<0.5) y = y * -1;
+            var z = Math.floor(Math.random()*10)+1 ;
+            if(Math.random()<0.5) z = z * -1;
+            out.innerHTML= out.innerHTML + '<p> '+formatcoef(x)+' <em>'+letters[i%letters.length]+'</em> '+formatconstterm(z)+' = ' +(x*y+z)+ ' </p> ';
+            out.innerHTML= out.innerHTML + '<p>'+formatcoef(x)+' <em>'+letters[i%letters.length]+'</em>  = <input type="text" id="frep'+i+'" onkeypress="javascript:if(event.keyCode==13)checkvalfirst('+x*y+','+i+');"/> </p> ';
+            out.innerHTML= out.innerHTML + '<p id="prep'+i+'" style="visibility: hidden"> <em>'+letters[i%letters.length]+'</em>  = <input type="text" id="rep'+i+'" onkeypress="javascript:if(event.keyCode==13)checkvalsecond('+y+','+i+');"/> </p> ';
+            out.innerHTML= out.innerHTML + '<br />';
+        } else if(Math.floor(i/4)*4==i-1) {
+            var x = Math.floor(Math.random()*10)+1 ;
+            if(Math.random()<0.5) x = x * -1;
+            var y = Math.floor(Math.random()*10)+1 ;
+            if(Math.random()<0.5) y = y * -1;
+            var z = Math.floor(Math.random()*10)+1 ;
+            if(Math.random()<0.5) z = z * -1;
+            out.innerHTML= out.innerHTML + '<p> '+formatcoef(x)+' ( <em>'+letters[i%letters.length]+'</em> '+formatconstterm(z)+' ) = ' +(x*(y+z))+ ' </p> ';
+            out.innerHTML= out.innerHTML + '<p><em>'+letters[i%letters.length]+'</em> '+signtext(z)+' '+Math.abs(z)+'  = <input type="text" id="frep'+i+'" onkeypress="javascript:if(event.keyCode==13)checkvalfirst('+(y+z)+','+i+');"/> </p> ';
+            out.innerHTML= out.innerHTML + '<p id="prep'+i+'" style="visibility: hidden"> <em>'+letters[i%letters.length]+'</em>  = <input type="text" id="rep'+i+'" onkeypress="javascript:if(event.keyCode==13)checkvalsecond('+y+','+i+');"/> </p> ';
+            out.innerHTML= out.innerHTML + '<br />';
+        } else if(Math.floor(i/4)*4==i-2) {
+            var x = Math.floor(Math.random()*10)+1 ;
+            if(Math.random()<0.5) x = x * -1;
+            var xbis = Math.floor(Math.random()*10)+1 ;
+            if(Math.random()<0.5) xbis = xbis * -1;
+            if(xbis == x) xbis = xbis +1;
+
+            var y = Math.floor(Math.random()*10)+1 ;
+            if(Math.random()<0.5) y = y * -1;
+            var z = Math.floor(Math.random()*10)+1 ;
+            if(Math.random()<0.5) z = z * -1;
+            out.innerHTML= out.innerHTML + '<p> '+formatcoef(x-xbis)+' <em>'+letters[i%letters.length]+'</em> + '+formatcoef(xbis)+' <em>'+letters[i%letters.length]+'</em>  '+formatconstterm(z)+' = ' +(x*y+z)+ ' </p> ';
+            out.innerHTML= out.innerHTML + '<p>'+formatcoef(x)+' <em>'+letters[i%letters.length]+'</em>  = <input type="text" id="frep'+i+'" onkeypress="javascript:if(event.keyCode==13)checkvalfirst('+x*y+','+i+');"/> </p> ';
+            out.innerHTML= out.innerHTML + '<p id="prep'+i+'" style="visibility: hidden"> <em>'+letters[i%letters.length]+'</em>  = <input type="text" id="rep'+i+'" onkeypress="javascript:if(event.keyCode==13)checkvalsecond('+y+','+i+');"/> </p> ';
+            out.innerHTML= out.innerHTML + '<br />';
+        } else {
+            var x = Math.floor(Math.random()*10)+1 ;
+            if(Math.random()<0.5) x = x * -1;
+            
+            var xbis = Math.floor(Math.random()*10)+1 ;
+            if(Math.random()<0.5) xbis = xbis * -1;
+            if(xbis == x) xbis = xbis +1;
+            
+            var y = Math.floor(Math.random()*10)+1 ;
+            if(Math.random()<0.5) y = y * -1;
+            var z = Math.floor(Math.random()*11)+2 ;
+            if(Math.random()<0.5) z = z * -1;
+            out.innerHTML= out.innerHTML + '<p>'+formatcoef(x+xbis)+' <em>'+letters[i%letters.length]+'</em> '+signtext(z)+' '+Math.abs(z)+' = '+formatcoef(xbis)+' <em>'+letters[i%letters.length]+'</em> '+formatconstterm(x*y+z)+ ' </p> ';
+            out.innerHTML= out.innerHTML + '<p>'+formatcoef(x)+' <em>'+letters[i%letters.length]+'</em>  = <input type="text" id="frep'+i+'" onkeypress="javascript:if(event.keyCode==13)checkvalfirst('+x*y+','+i+');"/> </p> ';
+            out.innerHTML= out.innerHTML + '<p id="prep'+i+'" style="visibility: hidden"> <em>'+letters[i%letters.length]+'</em>  = <input type="text" id="rep'+i+'" onkeypress="javascript:if(event.keyCode==13)checkvalsecond('+y+','+i+');"/> </p> ';
+            out.innerHTML= out.innerHTML + '<br />';
+        }
+ 
+    }
+}    
+
+
+function checkvalfirst(expectedanswer, i) {
+  if(parseInt(document.getElementById("frep"+i).value.length==0)) return;
+  if(parseInt(document.getElementById("frep"+i).value)==expectedanswer) {
+    document.getElementById("frep"+i).disabled = true;
+    document.getElementById("prep"+i).style.visibility = 'visible';
+    document.getElementById("rep" + i).focus();    
+  } else {
+    document.getElementById("frep"+i).value="Oups! ";
+  }
+}
+
+
+function checkvalsecond(expectedanswer, i) {
+  if(parseInt(document.getElementById("rep"+i).value.length==0)) return;
+  if(parseInt(document.getElementById("rep"+i).value)==expectedanswer) {
+    document.getElementById("rep"+i).disabled = true;
+    document.getElementById("prep"+i).style.color = "blue";
+    if(document.getElementById("frep" + (i+1)))
+      document.getElementById("frep" + (i+1)).focus();    
+  } else {
+    document.getElementById("rep"+i).value="Oups! ";
+  }
+}
+
+</script>
+
+
+<title>Lohan le champion</title>
+
+<body  onload="getStarted()"  style="width:600px;margin-left:auto;margin-right:auto;">
+
+
+
+  
+<p  />
+<div id="algebre" />
+
+
+
+</body>
+
+</html>

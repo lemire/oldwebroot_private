@@ -1,0 +1,1777 @@
+#LyX 1.1 created this file. For more info see http://www.lyx.org/
+\lyxformat 218
+\textclass amsart
+\begin_preamble
+\newcommand{\R}{{\sf R\hspace*{-0.9ex}\rule{0.15ex}%
+       {1.3ex}\hspace*{0.9ex}}}
+\newcommand{\N}{{\sf N\hspace*{-1.0ex}\rule{0.15ex}%
+       {1.1ex}\hspace*{1.0ex}}}
+\newcommand{\Q}{{\sf Q\hspace*{-1ex}\rule{0.15ex}%
+       {1.3ex}\hspace*{1.1ex}}}
+\newcommand{\C}{{\sf C\hspace*{-0.9ex}\rule{0.15ex}%
+       {1.3ex}\hspace*{0.9ex}}}
+\usepackage{epsfig}
+\usepackage{amsmath,amssymb}
+\usepackage{pslatex}
+\usepackage{color}
+ 
+ \definecolor{veryblackblue}{rgb}{0.0,0.0,0.1}
+ \usepackage[pdftex,urlcolor=webblackblue,colorlinks=true]{hyperref}
+ \pdfinfo{
+            /Title      (A family of 4-points dyadic high resolution subdivision schemes)
+            /Author     (Daniel Lemire, Ph.D.)
+            /Subject 	(By using temporary placeholders on a dense grid, we generalize the 4-point dyadic cubic Deslauriers-Dubuc scheme. These generalized stationary linear interpolatory subdivision schemes are 4-point dyadic schemes and thus have the same support as the Deslauriers-Dubuc scheme; they also have the same computational complexity and memory requirements. However, interpolated values require 2 steps to stabilize in general as they are first interpolated on a coarse scale through a tetradic filter and then refined on a finer scale using a dyadic filter. Some of these generalized schemes have fundamental functions with fast decays and thus are more local and it also possible to reproduce polynomials of degree 4. This work has applications in CAGD and wavelet theory..)
+            /Keywords   (subdivision schemes, interpolation, CAGD, wavelets)
+          }
+
+
+\topmargin  = 0pt
+\headheight = 0pt
+\headsep    = 0pt
+
+\voffset    = 0in
+\hoffset    = 0in
+\textheight = 230mm
+\textwidth  = 164mm
+
+\evensidemargin = 0pt
+\oddsidemargin  = 0pt
+
+\pagestyle{empty}
+\usepackage{float}
+
+%% Background of blue palette
+ \definecolor{webblackblue}{rgb}{0.0,0.0,0.2}
+ \definecolor{webblue}{rgb}{0.0, 0.0, 0.6}
+
+%% Background of red palette
+ \definecolor{webblackred}{rgb}{0.2,0.0,0.0}
+ \definecolor{webred}{rgb}{0.6,0.0,0.0}
+
+%% Background of green palette
+ \definecolor{webblackgreen}{rgb}{0.0,0.2,0.0}                                   
+ \definecolor{webgreen}{rgb}{0.0,0.6,0.0} 
+
+%% Background of magenta palette
+ \definecolor{webblackmagenta}{rgb}{0.14,0.0,0.14}                                   
+ \definecolor{webmagenta}{rgb}{0.42,0.0,0.42} 
+
+%% Background of cyan palette
+ \definecolor{webblackcyan}{rgb}{0.0,0.14,0.14}                                   
+ \definecolor{webcyan}{rgb}{0.0,0.42,0.42} 
+
+%% Background of yellow pallete
+ \definecolor{webblackyellow}{rgb}{0.14,0.14,0.0}                                   
+ \definecolor{webyellow}{rgb}{0.85,0.85,0.0} 
+
+ \definecolor{webdarkgray}{rgb}{0.2,0.2,0.2}
+
+ \definecolor{webgray}{rgb}{0.75,0.75,0.75}
+ \definecolor{weborange}{rgb}{1.0, 0.6, 0.0}
+
+\renewcommand\labelenumi{\textcolor{webdarkgray}{\arabic{enumi}.}}
+\newcommand{\setenumi}[1]{#1.\setcounter{enumi}{#1}}
+\usepackage{dsfont}
+\end_preamble
+\language english
+\inputencoding auto
+\fontscheme default
+\graphics default
+\paperfontsize default
+\spacing single 
+\papersize Default
+\paperpackage a4
+\use_geometry 0
+\use_amsmath 0
+\paperorientation portrait
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\defskip medskip
+\quotes_language english
+\quotes_times 2
+\papercolumns 1
+\papersides 2
+\paperpagestyle default
+
+\layout Title
+
+A Family of 4-points Dyadic High Resolution Subdivision Schemes
+\layout Abstract
+
+By using temporary placeholders on a dense grid, we generalize the 4-point
+ dyadic cubic Deslauriers-Dubuc scheme.
+ Interpolated values require 2 steps to stabilize as they are first interpolated
+ on a coarse scale through a tetradic filter and then on a finer scale using
+ a dyadic filter.
+ The interpolants are 
+\begin_inset Formula \( C^{1} \)
+\end_inset 
+
+ and can be chosen to reproduce polynomials of degree 4.
+ These generalized interpolatory subdivision schemes have minimal support
+ and no additional memory requirement.
+ This work has applications in CAGD and wavelet theory.
+\layout Keywords
+
+Subdivision Schemes, Fourier transform, CAGD, Wavelets, Lagrange Interpolation
+\layout Section
+
+Introduction
+\layout Standard
+
+Interpolatory subdivision schemes interpolate a discrete set of data points
+ in a local manner, that is, the value of the interpolation function at
+ a given point depends on a small number of nearby data points.
+ The classical dyadic algorithm introduced by Deslauriers and Dubuc 
+\begin_inset LatexCommand \cite{Du,DeDu}
+
+\end_inset 
+
+ finds the midpoint values by fitting a Lagrange polynomial through the
+ 
+\begin_inset Formula \( 2N \)
+\end_inset 
+
+ closest data points.
+ By repeating this algorithm again and again, each time doubling the number
+ of data points or nodes, we eventually have a dense set of data points
+ and we can determine uniquely a smooth interpolation function.
+ They also inherit their order of approximation from the corresponding Lagrange
+ interpolation scheme.
+ Because interpolatory subdivision schemes relate data points from one scale
+ to the data points at another scale, it is not surprising that they are
+ a key ingredient in the construction of compactly supported wavelets 
+\begin_inset LatexCommand \cite{Dau,DeDuLe}
+
+\end_inset 
+
+.
+\layout Standard
+
+More recently, Merrien 
+\begin_inset LatexCommand \cite{Me92,Me99,DuLeMe}
+
+\end_inset 
+
+introduced Hermite subdivision schemes.
+ Since Merrien subdivision schemes use Hermite nodes, they have have twice
+ the approximation order and better regularity for a given support.
+ For example 
+\begin_inset Formula \( 2- \)
+\end_inset 
+
+points Hermite schemes are differentiable and can have up to cubic order
+ whereas the corresponding Deslauriers-Dubuc scheme (the linear spline)
+ isn't differentiable and only has linear order.
+ 
+\layout Standard
+
+Since Deslauriers-Dubuc schemes have important applications, it is tempting
+ to add extra nodes to Deslauriers and Dubuc schemes as an attempt to improve
+ them to get 
+\begin_inset Quotes eld
+\end_inset 
+
+high resolution
+\begin_inset Quotes erd
+\end_inset 
+
+ schemes.
+ One might hope to retain the useful properties such as the approximation
+ order and the regularity while making the scheme more local for example.
+ Doubling the number of nodes however is costly (effectively doubling the
+ memory requirements), however, since a dyadic subdivision scheme doubles
+ its memory usage at each step, we can choose to use right away this upcoming
+ extra storage space without any cost.
+ In effect, we can simply make use of the memory we will allocate later
+ in any case.
+ Therefore, we can double (or more) the number of nodes.
+ These new placeholders can then be used to record a first coarse scale
+ guess (using a tetradic filter) which we can later combine with a finer
+ scale interpolation (using a dyadic filter) .
+ As a special case, we may choose to ignore the coarse scale estimate, in
+ which case our approach amounts to a Deslauriers-Dubuc scheme; we can also
+ use this approach to reproduce polynomials of degree 
+\begin_inset Formula \( 4 \)
+\end_inset 
+
+ by a Richardson extrapolation approach.
+ This paper shows that by summing up the tetradic (coarse) interpolation
+ recorded in placeholders and dyadic (fine) interpolations, we get a range
+ of smooth (
+\begin_inset Formula \( C^{1} \)
+\end_inset 
+
+) high resolutions schemes reproducing cubic polynomials.
+\layout Section
+
+Subdivision schemes
+\layout Standard
+
+Interpolatory subdivision schemes where first introduced by Deslauriers
+ and Dubuc (quote).
+ Let 
+\begin_inset Formula \( b>1 \)
+\end_inset 
+
+ be an integer, given two integers 
+\begin_inset Formula \( k,j \)
+\end_inset 
+
+, the number 
+\begin_inset Formula \( x_{j,k}=k/b^{j} \)
+\end_inset 
+
+ is said to be 
+\begin_inset Formula \( b- \)
+\end_inset 
+
+adic (of depth 
+\begin_inset Formula \( j \)
+\end_inset 
+
+).
+ For a fixed 
+\begin_inset Formula \( j \)
+\end_inset 
+
+, the 
+\begin_inset Formula \( b- \)
+\end_inset 
+
+adic numbers form a regularly-spaced set of nodes.
+ Given some corresponding data 
+\begin_inset Formula \( \left\{ y_{J,k}\right\} _{k\in \N } \)
+\end_inset 
+
+ on the dyadic numbers of depth 
+\begin_inset Formula \( J \)
+\end_inset 
+
+, we want to build a smooth fonction 
+\begin_inset Formula \( f \)
+\end_inset 
+
+ such that 
+\begin_inset Formula \( f\left( x_{J,k}\right) =y_{J,k}\, \forall k\in \N  \)
+\end_inset 
+
+.
+ Starting with this initial data (
+\begin_inset Formula \( y_{J,k} \)
+\end_inset 
+
+) and using the linear formula 
+\begin_inset Formula \begin{equation}
+\label{basicsubdivision}
+y_{j+1,l}=\sum _{k\in \N }\gamma _{bk-l}y_{j,k}
+\end{equation}
+
+\end_inset 
+
+ for some constant array 
+\begin_inset Formula \( \gamma  \)
+\end_inset 
+
+, we get values 
+\begin_inset Formula \( y_{J,k} \)
+\end_inset 
+
+ for any 
+\begin_inset Formula \( j>J \)
+\end_inset 
+
+ and since 
+\begin_inset Formula \( b- \)
+\end_inset 
+
+adic numbers form a dense set of the real numbers, there is at most one
+ continuous function such that 
+\begin_inset Formula \( f\left( x_{j,k}\right) =y_{j,k} \)
+\end_inset 
+
+ for all 
+\begin_inset Formula \( k,j>J \)
+\end_inset 
+
+.
+ 
+\layout Standard
+
+A subdivision scheme is interpolatory and will satisfy 
+\begin_inset Formula \( f\left( x_{J,k}\right) =y_{J,k} \)
+\end_inset 
+
+ if 
+\begin_inset Formula \( \gamma _{bk}=0 \)
+\end_inset 
+
+ except when 
+\begin_inset Formula \( k=0 \)
+\end_inset 
+
+.
+ We say that a subdivision scheme is stationary if the array 
+\begin_inset Formula \( \gamma  \)
+\end_inset 
+
+ is constant (doesn't depend on 
+\begin_inset Formula \( j \)
+\end_inset 
+
+).
+ An interpolatory subdivision scheme is said to be 
+\begin_inset Formula \( 2N- \)
+\end_inset 
+
+points if 
+\begin_inset Formula \( \gamma _{l}=0 \)
+\end_inset 
+
+ for 
+\begin_inset Formula \( |l|>Nb \)
+\end_inset 
+
+.
+ The interpolation function 
+\begin_inset Formula \( f \)
+\end_inset 
+
+ computed from a 
+\begin_inset Formula \( 2N- \)
+\end_inset 
+
+points 
+\begin_inset Formula \( b- \)
+\end_inset 
+
+adic scheme with initial data 
+\begin_inset Formula \( y_{0,0}=1 \)
+\end_inset 
+
+ and 
+\begin_inset Formula \( y_{0,k}=0 \)
+\end_inset 
+
+ for all 
+\begin_inset Formula \( k\neq 0 \)
+\end_inset 
+
+ is said to be the fundamental function and has a compact support of 
+\begin_inset Formula \( [-(Nb-1)/(b-1),(Nb-1)/(b-1)] \)
+\end_inset 
+
+ or 
+\begin_inset Formula \( [1-2N,2N-1] \)
+\end_inset 
+
+ when 
+\begin_inset Formula \( b=2 \)
+\end_inset 
+
+.
+ Hence as 
+\begin_inset Formula \( N \)
+\end_inset 
+
+ increases the support of the fundamental function increases.
+\layout Standard
+
+For each 
+\begin_inset Formula \( N=1,2,3,... \)
+\end_inset 
+
+ there exists a corresponding an interpolatory Deslauriers-Dubuc subdivision
+ scheme and they are built from the midpoint evaluation of Lagrange polynomial
+ of degree 
+\begin_inset Formula \( 2N-1 \)
+\end_inset 
+
+ on 
+\begin_inset Formula \( 2N \)
+\end_inset 
+
+ points.
+ For 
+\begin_inset Formula \( b=2 \)
+\end_inset 
+
+ (dyadic case), the 
+\begin_inset Formula \( 4- \)
+\end_inset 
+
+points Deslauriers-Dubuc scheme can be defined by the array 
+\begin_inset Formula \( \gamma ^{DD2} \)
+\end_inset 
+
+ given by 
+\begin_inset Formula \( \gamma _{0}^{DD2}=1,\,  \)
+\end_inset 
+
+
+\begin_inset Formula \( \gamma _{1}^{DD2}=\gamma ^{DD2}_{-1}=-9/16,\,  \)
+\end_inset 
+
+
+\begin_inset Formula \( \gamma _{3}^{DD2}=\gamma _{-3}^{DD2}=-1/16 \)
+\end_inset 
+
+ with 
+\begin_inset Formula \( \gamma _{k}^{DD2}=0 \)
+\end_inset 
+
+ otherwise; for 
+\begin_inset Formula \( b=4 \)
+\end_inset 
+
+ (tetradic case), the scheme is defined by 
+\begin_inset Formula \( \gamma ^{DD4} \)
+\end_inset 
+
+ given by 
+\begin_inset Formula \( \gamma _{2k}^{DD4}=\gamma ^{DD2}_{k}\, \forall k\in \N ,\,  \)
+\end_inset 
+
+ 
+\begin_inset Formula \( \gamma _{-1}^{DD4}=\gamma _{1}^{DD4}=105/128,\,  \)
+\end_inset 
+
+
+\begin_inset Formula \( \gamma _{-3}^{DD4}=\gamma _{-3}^{DD4}=35/128,\,  \)
+\end_inset 
+
+
+\begin_inset Formula \( \gamma _{-5}^{DD4}=\gamma _{5}^{DD4}=-7/128,\,  \)
+\end_inset 
+
+
+\begin_inset Formula \( \gamma _{-7}^{DD4}=\gamma _{7}^{DD4}=-5/128,\,  \)
+\end_inset 
+
+with 
+\begin_inset Formula \( \gamma _{k}^{DD2}=0 \)
+\end_inset 
+
+ otherwise.
+ Because 
+\begin_inset Formula \( 4- \)
+\end_inset 
+
+points Deslauriers-Dubuc schemes are derived from cubic Lagrange polynomials,
+ they reproduces cubic polynomials, that is, if the initial data 
+\begin_inset Formula \( y_{j,k} \)
+\end_inset 
+
+ satisfies 
+\begin_inset Formula \( y_{j,k}=p\left( x_{j,k}\right) \, \forall k\in \N  \)
+\end_inset 
+
+ for some cubic polynomial 
+\begin_inset Formula \( p \)
+\end_inset 
+
+ then the interpolation function 
+\begin_inset Formula \( f \)
+\end_inset 
+
+ is this same cubic polynomial 
+\begin_inset Formula \( f=p \)
+\end_inset 
+
+.
+ Hence the two cases presented above (
+\begin_inset Formula \( \gamma ^{DD2} \)
+\end_inset 
+
+ and 
+\begin_inset Formula \( \gamma ^{DD4} \)
+\end_inset 
+
+) reproduce cubic polynomials.
+ It can also be shown also that they both give differentiable (
+\begin_inset Formula \( C^{1} \)
+\end_inset 
+
+) interpolation functions.
+\layout Standard
+
+We are interested in measuring how well a given subdivsion scheme can approximat
+ion functions.
+ One such measure is given by the approximation order of the scheme
+\begin_inset LatexCommand \cite[definition 2]{KuVD98}
+
+\end_inset 
+
+.
+ We say that a subdivision scheme has approximation order 
+\begin_inset Formula \( p \)
+\end_inset 
+
+ if given given any smooth function 
+\begin_inset Formula \( g\in C^{p}\left( \left[ 0,1\right] \right)  \)
+\end_inset 
+
+, the interpolation function 
+\begin_inset Formula \( f \)
+\end_inset 
+
+ satisfying 
+\begin_inset Formula \( f\left( x_{j,k}\right) =g\left( x_{j,k}\right) \, \forall k\in \N  \)
+\end_inset 
+
+ is such that 
+\begin_inset Formula \( \left\Vert f-g\right\Vert _{L^{\infty }\left( \left[ 0,1\right] \right) }\leq C/2^{jp} \)
+\end_inset 
+
+ for a constant 
+\begin_inset Formula \( C \)
+\end_inset 
+
+ independent of 
+\begin_inset Formula \( j \)
+\end_inset 
+
+.
+\layout Standard
+
+For a continuous subdivision scheme reproducing polynomials of degree 
+\begin_inset Formula \( p \)
+\end_inset 
+
+, it is sufficient for the scheme to converge to a continous function to
+ have approximation order 
+\begin_inset Formula \( p+1 \)
+\end_inset 
+
+ 
+\begin_inset LatexCommand \cite{KuVD98}
+
+\end_inset 
+
+.
+ Specifically, this means that 
+\begin_inset Formula \( 4- \)
+\end_inset 
+
+points Deslauriers-Dubuc schemes have approximation order 
+\begin_inset Formula \( 4 \)
+\end_inset 
+
+.
+\layout Section
+
+High resolution subdivsion schemes
+\layout Subsection
+
+Definitions
+\layout Standard
+
+An more general alternative to equation 
+\begin_inset LatexCommand \ref{basicsubdivision}
+
+\end_inset 
+
+ is given by the linear equation
+\begin_inset Formula \[
+y_{j+1,l}=\sum _{m=1}^{M}\sum _{k\in \N }\gamma _{Nbk+m-1-l}^{(m)}y_{j,Nk+m-1}\]
+
+\end_inset 
+
+where 
+\begin_inset Formula \( \gamma ^{(1)},...,\gamma ^{(M)} \)
+\end_inset 
+
+ are constant arrays (independent from 
+\begin_inset Formula \( j \)
+\end_inset 
+
+).
+ Because this new formula uses 
+\begin_inset Formula \( M \)
+\end_inset 
+
+ times the usual number of nodes (see equation 
+\begin_inset LatexCommand \ref{basicsubdivision}
+
+\end_inset 
+
+), we say that it is a 
+\begin_inset Quotes eld
+\end_inset 
+
+high resolution subdivision scheme
+\begin_inset Quotes erd
+\end_inset 
+
+ however it can still be said to be 
+\begin_inset Formula \( b- \)
+\end_inset 
+
+adic because the number of nodes is increasing by 
+\begin_inset Formula \( b \)
+\end_inset 
+
+.
+ As a special case, when 
+\begin_inset Formula \( M=1 \)
+\end_inset 
+
+, we have a usual subdivision scheme.
+ 
+\layout Standard
+
+In what follows, we set 
+\begin_inset Formula \( b=N=2 \)
+\end_inset 
+
+ and consider the equation
+\begin_inset Formula \begin{equation}
+\label{N2highres}
+y_{j+1,l}=\sum _{k\in \N }\gamma _{4k-l}^{(1)}y_{j,2k}+\gamma _{4k+1-l}^{(2)}y_{j,2k+1}
+\end{equation}
+
+\end_inset 
+
+with 
+\begin_inset Formula \begin{eqnarray}
+\gamma ^{(1)}_{k} & = & \gamma ^{DD4}_{k}-\alpha \frac{\left( (-1)^{k}+1\right) }{2}\gamma ^{DD2}_{k/2}+\alpha \delta _{k,0}\, \forall k\in \N \label{N2highres_1} \\
+\gamma ^{(2)}_{0} & = & \alpha ,\, \gamma ^{(2)}_{k}=0\, otherwise\label{N2highres_2} 
+\end{eqnarray}
+
+\end_inset 
+
+ for some parameter 
+\begin_inset Formula \( \alpha \in \R  \)
+\end_inset 
+
+.
+ As we will see, this choice is made so that the scheme can reproduce cubic
+ polynomials for all 
+\begin_inset Formula \( \alpha  \)
+\end_inset 
+
+.
+ The odd terms 
+\begin_inset Formula \( \left\{ y_{j,2k+1}\right\} _{k\in \N } \)
+\end_inset 
+
+will be referred as placeholders because their assigned value will change
+ in general.
+ In the simplest case, 
+\begin_inset Formula \( \alpha =0 \)
+\end_inset 
+
+, equation 
+\begin_inset LatexCommand \ref{N2highres}
+
+\end_inset 
+
+becomes
+\begin_inset Formula \begin{equation}
+\label{N2highresalpha0}
+y_{j+1,l}=\sum _{k\in \N }\gamma ^{DD4}_{4k-l}y_{j,2k}.
+\end{equation}
+
+\end_inset 
+
+Because 
+\begin_inset Formula \( \gamma ^{(2)}=0 \)
+\end_inset 
+
+ in this case, we can see that the placeholders are effectively ignored.
+ Indeed, we observe that this last equation discards odd terms at each step:
+ 
+\begin_inset Formula \( y_{j+1,l} \)
+\end_inset 
+
+ depends only on terms of the form 
+\begin_inset Formula \( y_{j,2k} \)
+\end_inset 
+
+ (even terms) and not at all on the odd terms 
+\begin_inset Formula \( y_{j,2k+1} \)
+\end_inset 
+
+.
+ Hence, we can replace equation 
+\begin_inset LatexCommand \ref{N2highresalpha0}
+
+\end_inset 
+
+ by 
+\begin_inset Formula \[
+y_{j+1,2l}=\sum _{k\in \N }\gamma ^{DD4}_{4k-2l}y_{j,2k}\]
+
+\end_inset 
+
+but because 
+\begin_inset Formula \( \gamma _{2k}^{DD4}=\gamma ^{DD2}_{k} \)
+\end_inset 
+
+ , this last equation becomes 
+\begin_inset Formula \( y_{j+1,2l}=\gamma ^{DD2}_{2k-l}y_{j,2k} \)
+\end_inset 
+
+ and if we define 
+\begin_inset Formula \( \widetilde{y}_{j,k}=y_{j,2k} \)
+\end_inset 
+
+ then 
+\begin_inset Formula \begin{equation}
+\label{DD2}
+\widetilde{y}_{j+1,2l}=\sum _{k\in \N }\gamma ^{DD2}_{2k-l}\widetilde{y}_{j,2k}
+\end{equation}
+
+\end_inset 
+
+which we recognize as the cubic Deslauriers-Dubuc scheme.
+ 
+\layout Proposition
+
+
+\begin_inset LatexCommand \label{propDesDuequiv}
+
+\end_inset 
+
+For 
+\begin_inset Formula \( \alpha =0 \)
+\end_inset 
+
+, the high resolution scheme given by equations 
+\begin_inset LatexCommand \ref{N2highres}
+
+\end_inset 
+
+, 
+\begin_inset LatexCommand \ref{N2highres_1}
+
+\end_inset 
+
+, and 
+\begin_inset LatexCommand \ref{N2highres_2}
+
+\end_inset 
+
+ is equivalent to the 
+\begin_inset Formula \( 4- \)
+\end_inset 
+
+points dyadic Deslauriers-Dubuc subdivision scheme (discarding the odd nodes
+ or placeholders in the first iteration).
+\layout Standard
+
+In general, since 
+\begin_inset Formula \( \gamma _{2k}^{DD4}=\gamma ^{DD2}_{k} \)
+\end_inset 
+
+, we can rewrite equation 
+\begin_inset LatexCommand \ref{N2highres}
+
+\end_inset 
+
+ for even and odd terms.
+ Firstly, setting 
+\begin_inset Formula \( l=2s \)
+\end_inset 
+
+ (
+\begin_inset Formula \( l \)
+\end_inset 
+
+ even), we have 
+\begin_inset Formula \begin{eqnarray*}
+y_{j+1,2s} & =\sum _{k\in \N } & \gamma _{4k-2s}^{(1)}y_{j,2k}+\gamma _{4k+1-2s}^{(2)}y_{j,2k+1}\\
+ & =\sum _{k\in \N } & \left( \gamma ^{DD4}_{4k-2s}-\alpha \gamma ^{DD2}_{2k-s}+\alpha \delta _{4k,2s}\right) y_{j,2k}+\alpha \delta _{4k+1,s}y_{j,2k+1}\\
+ & =\sum _{k\in \N } & \left( (1-\alpha )\gamma ^{DD2}_{2k-s}+\alpha \delta _{2k,s}\right) y_{j,2k}+\delta _{2k+1,s+1}\alpha y_{j,2k+1}
+\end{eqnarray*}
+
+\end_inset 
+
+so that when 
+\begin_inset Formula \( s \)
+\end_inset 
+
+ is even (
+\begin_inset Formula \( l=2s=4r \)
+\end_inset 
+
+), we have the interpolatory condition 
+\begin_inset Formula \begin{equation}
+\label{hrsinterpole}
+y_{j+1,4r}=y_{j,2r}
+\end{equation}
+
+\end_inset 
+
+otherwise, when 
+\begin_inset Formula \( s \)
+\end_inset 
+
+ is odd 
+\begin_inset Formula \( (l=2s=4r+2) \)
+\end_inset 
+
+
+\begin_inset Formula \begin{equation}
+\label{hrsricharson}
+y_{j+1,4r+2}=\alpha y_{j,2r+1}+(1-\alpha )\sum _{k\in \N }\gamma ^{DD2}_{2k-2r-1}y_{j,2k}.
+\end{equation}
+
+\end_inset 
+
+Secondly, if 
+\begin_inset Formula \( l \)
+\end_inset 
+
+ is odd (
+\begin_inset Formula \( l=2s+1 \)
+\end_inset 
+
+), we have
+\begin_inset Formula \begin{eqnarray}
+y_{j+1,2s+1} & = & \sum _{k\in \N }\gamma _{4k-2s-1}^{(1)}y_{j,2k}+\gamma _{4k-2s-1}^{(2)}y_{j,2k+1}\nonumber \\
+ & = & \sum _{k\in \N }\gamma ^{DD4}_{4k-2s-1}y_{j,2k}.\label{hrswidguess} 
+\end{eqnarray}
+
+\end_inset 
+
+Equations 
+\begin_inset LatexCommand \ref{hrsinterpole}
+
+\end_inset 
+
+, 
+\begin_inset LatexCommand \ref{hrsricharson}
+
+\end_inset 
+
+, and 
+\begin_inset LatexCommand \ref{hrswidguess}
+
+\end_inset 
+
+ can be used to describe the chosen high resolution schemes: while qquation
+ 
+\begin_inset LatexCommand \ref{hrsinterpole}
+
+\end_inset 
+
+ is the interpolatory condition, equation 
+\begin_inset LatexCommand \ref{hrswidguess}
+
+\end_inset 
+
+ fills the placeholders with tetradic (coarse scale) interpolated values
+ whereas equation 
+\begin_inset LatexCommand \ref{hrsricharson}
+
+\end_inset 
+
+ combines the value stored in the placeholder with the newly available interpola
+ted value (fine scale) given by the summation term which we recognize from
+ the dyadic Deslauriers-Dubuc interpolation.
+ 
+\layout Subsection
+
+Reproduced polynomials
+\layout Standard
+
+Assume that for some 
+\begin_inset Formula \( j \)
+\end_inset 
+
+, 
+\begin_inset Formula \( y_{j,k}=p_{3}\left( x_{j,k}\right)  \)
+\end_inset 
+
+ for some cubic polynomial 
+\begin_inset Formula \( p_{3} \)
+\end_inset 
+
+.
+ We then have that 
+\begin_inset Formula \[
+\sum _{k\in \N }\gamma ^{DD2}_{2k-2r-1}y_{j,2k}=y_{j,2r+1}=p_{3}\left( x_{j,2r+1}\right) \]
+
+\end_inset 
+
+and thus equation 
+\begin_inset LatexCommand \ref{hrsricharson}
+
+\end_inset 
+
+ becomes 
+\begin_inset Formula \( y_{j+1,4r+2}=p_{3}\left( x_{j,2r+1}\right)  \)
+\end_inset 
+
+ .
+ Moreover, equation 
+\begin_inset LatexCommand \ref{hrswidguess}
+
+\end_inset 
+
+ implies 
+\begin_inset Formula \( y_{j+1,2s+1}=p_{3}\left( x_{j+1,2s+1}\right)  \)
+\end_inset 
+
+.
+ We can conclude that 
+\begin_inset Formula \( y_{j+1,k}=p_{3}\left( x_{j+1,k}\right)  \)
+\end_inset 
+
+ if 
+\begin_inset Formula \( y_{j,k}=p_{3}\left( x_{j,k}\right)  \)
+\end_inset 
+
+.
+ For practical implementations of a high subdivision scheme, it is necessary
+ to first apply a one-step subdivision scheme since in general, we don't
+ have placeholder values precomputed.
+ This can be achieved with a dyadic Deslauriers-Dubuc filter.
+ Let 
+\begin_inset Formula \( \left\{ y_{j,k}\right\} _{k} \)
+\end_inset 
+
+ be some initial data.
+ As a first step, we apply equation
+\begin_inset Formula \begin{equation}
+\label{DD2_2}
+y_{j+1,2l}=\sum _{k\in \N }\gamma ^{DD2}_{2k-l}y_{j,2k}
+\end{equation}
+
+\end_inset 
+
+ followed by equation 
+\begin_inset LatexCommand \ref{N2highres}
+
+\end_inset 
+
+ with 
+\begin_inset Formula \( j=j+1 \)
+\end_inset 
+
+, and so on.
+ By induction, we get the following lemma.
+\layout Lemma
+
+The high resolution scheme given by equations 
+\begin_inset LatexCommand \ref{N2highres}
+
+\end_inset 
+
+, 
+\begin_inset LatexCommand \ref{N2highres_1}
+
+\end_inset 
+
+, and 
+\begin_inset LatexCommand \ref{N2highres_2}
+
+\end_inset 
+
+ (using 
+\begin_inset LatexCommand \ref{DD2_2}
+
+\end_inset 
+
+ as an initialization step) reproduces cubic polynomials.
+\layout Standard
+
+We can also get a stronger result by choosing 
+\begin_inset Formula \( \alpha  \)
+\end_inset 
+
+.
+ Let 
+\begin_inset Formula \( p_{4}(x)=a_{4}x^{4}+p_{3}(x) \)
+\end_inset 
+
+ where 
+\begin_inset Formula \( p_{3} \)
+\end_inset 
+
+ is some cubic polynomial.
+ Suppose that for some 
+\begin_inset Formula \( j \)
+\end_inset 
+
+, 
+\begin_inset Formula \( y_{j,2k}=p_{4}\left( x_{j,2k}\right)  \)
+\end_inset 
+
+ (and accordingly 
+\begin_inset Formula \( y_{j-1,2k}=p_{4}\left( x_{j-1,2k}\right)  \)
+\end_inset 
+
+).
+ Substituting equation 
+\begin_inset LatexCommand \ref{hrswidguess}
+
+\end_inset 
+
+ into 
+\begin_inset LatexCommand \ref{hrsricharson}
+
+\end_inset 
+
+, we get 
+\begin_inset Formula \begin{eqnarray}
+y_{j+1,4r+2} & = & \alpha y_{j,2r+1}+(1-\alpha )\sum _{k\in \N }\gamma ^{DD2}_{2k-2r-1}y_{j,2k}\nonumber \\
+ & = & \alpha \sum _{k\in \N }\gamma ^{DD4}_{4k-2r-1}y_{j-1,2k}+(1-\alpha )\sum _{k\in \N }\gamma ^{DD2}_{2k-2r-1}y_{j,2k}.\label{upcomingrichardson} 
+\end{eqnarray}
+
+\end_inset 
+
+We can compute each of the sums explicitely 
+\begin_inset Formula \begin{eqnarray*}
+\sum _{k\in \N }\gamma ^{DD2}_{2k-2r-1}y_{j,2k} & = & p_{3}\left( x_{j,2r+1}\right) +a_{4}\sum _{k\in \N }\gamma ^{DD2}_{2k-2r-1}\left( x_{j,2k}\right) ^{4}\\
+ & = & p_{4}\left( x_{j,2r+1}\right) -\frac{9a_{4}}{16\times 2^{4j}}
+\end{eqnarray*}
+
+\end_inset 
+
+and 
+\begin_inset Formula \begin{eqnarray*}
+\sum _{k\in \N }\gamma ^{DD4}_{4k-2r-1}y_{j-1,2k} & = & p_{3}\left( x_{j,2r+1}\right) +a_{4}\sum _{k\in \N }\gamma ^{DD4}_{4k-2s-1}\left( x_{j-1,2k}\right) ^{4}\\
+ & = & p_{4}\left( x_{j,2r+1}\right) -\frac{105a_{4}}{16\times 2^{4j}}.
+\end{eqnarray*}
+
+\end_inset 
+
+Hence, by substituting these two results (fine and coarse scales interpolation)
+ and setting 
+\begin_inset Formula \( \alpha =-3/35 \)
+\end_inset 
+
+, we get 
+\begin_inset Formula \[
+y_{j+1,4r+2}=p_{4}\left( x_{j,2r+1}\right) =p_{4}\left( x_{j+1,4r+2}\right) \]
+
+\end_inset 
+
+since for 
+\begin_inset Formula \( \alpha =-3/35 \)
+\end_inset 
+
+, 
+\begin_inset Formula \( 105\alpha +9\alpha =0 \)
+\end_inset 
+
+.
+ Therefore, the scheme reproduces polynomials of degree 
+\begin_inset Formula \( 4 \)
+\end_inset 
+
+.
+ Of course, this result assumes that we initialize the data so that 
+\begin_inset Formula \( y_{j,2k+1}=p_{4}\left( x_{j,2k+1}\right) -\frac{105a_{4}}{16\times 2^{4j}} \)
+\end_inset 
+
+ and 
+\begin_inset Formula \( y_{j,2k}=p_{4}\left( x_{j,2k}\right)  \)
+\end_inset 
+
+ for all 
+\begin_inset Formula \( k\in \N  \)
+\end_inset 
+
+.
+ We can get this result naturally by having 
+\begin_inset Formula \( y_{j-1,k}=p_{4}\left( x_{j,k}\right)  \)
+\end_inset 
+
+ and applying first the high resolution scheme (equation 
+\begin_inset LatexCommand \ref{N2highres}
+
+\end_inset 
+
+) with 
+\begin_inset Formula \( \alpha =1 \)
+\end_inset 
+
+ so that equations 
+\begin_inset LatexCommand \ref{hrsinterpole}
+
+\end_inset 
+
+ and 
+\begin_inset LatexCommand \ref{hrsricharson}
+
+\end_inset 
+
+ will guarantee 
+\begin_inset Formula \( y_{j,2k}=p_{4}\left( x_{j,k}\right)  \)
+\end_inset 
+
+ whereas equation 
+\begin_inset LatexCommand \ref{hrswidguess}
+
+\end_inset 
+
+ will initialize the placeholders properly.
+\layout Proposition
+
+For any given 
+\begin_inset Formula \( j \)
+\end_inset 
+
+, if 
+\begin_inset Formula \( y_{j-1,k}=p_{4}\left( x_{j-1,k}\right)  \)
+\end_inset 
+
+ where 
+\begin_inset Formula \( p_{4} \)
+\end_inset 
+
+ is a polynomial of degree 
+\begin_inset Formula \( 4 \)
+\end_inset 
+
+ then applying the high resolution scheme given by equations 
+\begin_inset LatexCommand \ref{N2highres}
+
+\end_inset 
+
+, 
+\begin_inset LatexCommand \ref{N2highres_1}
+
+\end_inset 
+
+, and 
+\begin_inset LatexCommand \ref{N2highres_2}
+
+\end_inset 
+
+ first with 
+\begin_inset Formula \( \alpha =1 \)
+\end_inset 
+
+ as an initialization step and then with 
+\begin_inset Formula \( \alpha =-3/35 \)
+\end_inset 
+
+ will guarantee that 
+\begin_inset Formula \( y_{j',2k}=p_{4}\left( x_{j',2k}\right)  \)
+\end_inset 
+
+ for 
+\begin_inset Formula \( \forall k\in \N  \)
+\end_inset 
+
+ and all 
+\begin_inset Formula \( j'\geq j-1 \)
+\end_inset 
+
+.
+\layout Subsection
+
+Sufficient conditions for regularity
+\layout Standard
+
+To study the regularity of high resolution schemes, it is convenient rewrite
+ formula 
+\begin_inset LatexCommand \ref{N2highres}
+
+\end_inset 
+
+ in terms of (trigonometric) polynomials.
+ Given some data 
+\begin_inset Formula \( y_{j,k} \)
+\end_inset 
+
+, define 
+\begin_inset Formula \( P^{j}(z)=\sum _{k\in \N }y_{j,k}z^{k} \)
+\end_inset 
+
+.
+ If 
+\begin_inset Formula \( P_{2}(z)=\sum _{k\in \N }\gamma _{k}^{DD2}z^{k} \)
+\end_inset 
+
+, then equation 
+\begin_inset LatexCommand \ref{DD2_2}
+
+\end_inset 
+
+, can be rewritten 
+\begin_inset Formula \( P^{j+1}(z)=P_{2}(z)P^{j}(z^{2}) \)
+\end_inset 
+
+.
+ Similarly, if 
+\begin_inset Formula \( P_{4}(z)=\sum _{k\in \N }\gamma _{k}^{DD4}z^{k} \)
+\end_inset 
+
+, then the tetradic subdivision scheme is given by 
+\begin_inset Formula \( P^{j+1}(z)=P_{4}(z)P^{j}(z^{2}) \)
+\end_inset 
+
+.
+ 
+\begin_inset Formula \( \mathrm{I} \)
+\end_inset 
+
+t can be shown that we can rewrite the general equation for high resolution
+ subdivision schemes as 
+\begin_inset Formula \[
+P^{j+1}(z)=\sum _{i=1}^{M}\Gamma _{i}(z)P^{j}\left( e^{2\pi i/b}z^{b}\right) .\]
+
+\end_inset 
+
+where 
+\begin_inset Formula \( \Gamma _{i} \)
+\end_inset 
+
+ must be Laurent polynomials.
+ Using symbols, equation 
+\begin_inset LatexCommand \ref{N2highres}
+
+\end_inset 
+
+ becomes
+\begin_inset Formula \begin{eqnarray}
+P^{j+1}(z) & = & \left\{ P_{4}\left( z\right) -\alpha P_{2}\left( z^{2}\right) +\alpha \right\} \left( \frac{P^{j}\left( z^{2}\right) +P^{j}\left( -z^{2}\right) }{2}\right) +\alpha \left( \frac{P^{j}\left( z^{2}\right) -P^{j}\left( -z^{2}\right) }{2}\right) \nonumber \\
+ & = & \left\{ \frac{P_{4}\left( z\right) -\alpha P_{2}\left( z^{2}\right) }{2}+\alpha \right\} P^{j}\left( z^{2}\right) +\frac{P_{4}\left( z\right) -\alpha P_{2}\left( z^{2}\right) }{2}P^{j}\left( -z^{2}\right) \nonumber \\
+ & = & \Gamma _{1}(z)P^{j}\left( z^{2}\right) +\Gamma _{2}(z)P^{j}\left( -z^{2}\right) \label{gammas} 
+\end{eqnarray}
+
+\end_inset 
+
+Because 
+\begin_inset Formula \( \gamma _{2k}^{DD4}=\gamma ^{DD2}_{k}\, \forall k\in \N  \)
+\end_inset 
+
+, we observe that 
+\begin_inset Formula \[
+P_{4}\left( z\right) -\alpha P_{2}\left( z^{2}\right) =\frac{P_{4}\left( z\right) -P_{4}\left( -z\right) }{2}+(1-\alpha )\frac{P_{4}\left( z\right) +P_{4}\left( -z\right) }{2}\]
+
+\end_inset 
+
+and thus
+\begin_inset Formula \begin{eqnarray*}
+\Gamma _{1}(z) & = & \Gamma _{2}(z)+\alpha \\
+\Gamma _{2}(z) & = & \frac{P_{4}\left( z\right) -P_{4}\left( -z\right) }{4}+(1-\alpha )\frac{P_{4}\left( z\right) +P_{4}\left( -z\right) }{4}.
+\end{eqnarray*}
+
+\end_inset 
+
+When 
+\begin_inset Formula \( \alpha =0 \)
+\end_inset 
+
+, 
+\begin_inset Formula \( \Gamma _{1}(z)=\Gamma _{2}(z)=\frac{P_{4}\left( z\right) }{2} \)
+\end_inset 
+
+ and equation 
+\begin_inset LatexCommand \ref{N2highres}
+
+\end_inset 
+
+ becomes
+\begin_inset Formula \[
+P^{j+1}(z)=P_{4}\left( z\right) \left( \frac{P^{j}\left( z^{2}\right) +P^{j}\left( -z^{2}\right) }{2}\right) \]
+
+\end_inset 
+
+and it can be shown to be equivalent to the Deslauriers-Dubuc dyadic scheme
+ by writing
+\begin_inset Formula \begin{eqnarray*}
+\frac{P^{j+1}(z)+P^{j+1}(-z)}{2} & = & \left( \frac{P_{4}\left( z\right) -P_{4}\left( -z\right) }{2}\right) \left( \frac{P^{j}\left( z^{2}\right) +P^{j}\left( -z^{2}\right) }{2}\right) \\
+ & = & P_{2}\left( z^{2}\right) \left( \frac{P^{j}\left( z^{2}\right) +P^{j}\left( -z^{2}\right) }{2}\right) .
+\end{eqnarray*}
+
+\end_inset 
+
+which gives an alternate proof for proposition 
+\begin_inset LatexCommand \ref{propDesDuequiv}
+
+\end_inset 
+
+.
+\layout Standard
+
+In order to study the regularity and stability of the chosen high resolution
+ schemes, we need to find corresponding schemes for the (forward) finite
+ differences 
+\begin_inset Formula \[
+\frac{dy_{j,k}}{dx_{j,k}}=\frac{y_{j,k+1}-y_{j,k}}{1/2^{j}}\]
+
+\end_inset 
+
+and of the correspondin higher order finite differences which can be defined
+ recursively 
+\begin_inset Formula \( d^{(n)}y_{j,k}=d\left( d^{(n-1)}y_{j,k}\right) /(dx_{j,k})^{n} \)
+\end_inset 
+
+.
+ Let 
+\begin_inset Formula \begin{eqnarray*}
+H_{1}^{j}(z) & = & \sum _{k\in \N }2^{j}\left( y_{j,k+1}-y_{j,k}\right) z^{k}\\
+ & = & \sum _{k\in \N }2^{j}y_{j,k}z^{k-1}-\sum _{k\in \N }2^{j}y_{j,k}z^{k}\\
+ & = & 2(1/z-1)P^{j}(z)=2(1-z)P^{j}(z)/z,
+\end{eqnarray*}
+
+\end_inset 
+
+ then 
+\begin_inset Formula \( P^{j}\left( z^{2}\right) =z^{2}2^{j}H_{1}^{j}\left( z^{2}\right) /(1-z^{2}) \)
+\end_inset 
+
+, 
+\begin_inset Formula \( P^{j}\left( -z^{2}\right) =-z^{2}2^{j}H_{1}^{j}\left( -z^{2}\right) /(1+z^{2}) \)
+\end_inset 
+
+, and 
+\begin_inset Formula \( P^{j+1}(z)=z2^{j+1}H_{1}^{j+1}(z)/(1-z) \)
+\end_inset 
+
+.
+ Substituting these equations into 
+\begin_inset LatexCommand \ref{gammas}
+
+\end_inset 
+
+ gives
+\begin_inset Formula \[
+H_{1}^{j+1}(z)=\frac{2z(1-z)}{(1-z^{2})}\Gamma _{1}(z)H_{1}^{j}\left( z^{2}\right) -\frac{2z(1-z)}{(1+z^{2})}\Gamma _{2}(z)H_{1}^{j}\left( -z^{2}\right) .\]
+
+\end_inset 
+
+ The higher order finite differences are given by
+\begin_inset Formula \[
+H_{n}^{j}(z)=\frac{2(1-z)}{z}H_{n-1}^{j}(z)=\left( \frac{2(1-z)}{z}\right) ^{n}P^{j}(z)\]
+
+\end_inset 
+
+where we let 
+\begin_inset Formula \( H_{0}(z)=P(z) \)
+\end_inset 
+
+ and it can be seen that higher order finite differences are related through
+ 
+\begin_inset Formula \begin{equation}
+\label{genh}
+H_{n}^{j+1}(z)=\left( \frac{2z}{1+z}\right) ^{n}\Gamma _{1}(z)H_{n}^{j}\left( z^{2}\right) +\left( \frac{-2z(1-z)}{1+z^{2}}\right) ^{n}\Gamma _{2}(z)H_{n}^{j}\left( -z^{2}\right) .
+\end{equation}
+
+\end_inset 
+
+
+\begin_inset Formula \( H_{n} \)
+\end_inset 
+
+ is said to be equivalent to a high resolution subdivision scheme if 
+\begin_inset Formula \( \Gamma _{1}(z)/(1+z) \)
+\end_inset 
+
+ and 
+\begin_inset Formula \( \Gamma _{2}(z)/(1+z^{2}) \)
+\end_inset 
+
+ are Laurent polynomials.
+ However, we have
+\begin_inset Formula \[
+P_{4}(z)=\frac{-\left( 1+z\right) ^{4}\left( 1+z^{2}\right) ^{4}\left( 5z^{2}-12z+5\right) }{128z^{7}}\]
+
+\end_inset 
+
+and therefore 
+\begin_inset Formula \( \Gamma _{2}(z)/(1+z^{2})^{n} \)
+\end_inset 
+
+ is a Laurent polynomial for 
+\begin_inset Formula \( \textrm{n}=1,2,3,4 \)
+\end_inset 
+
+.
+ On the other hand, we can also show that 
+\begin_inset Formula \( \Gamma _{1}(z)/(1+z)^{n} \)
+\end_inset 
+
+ is a Laurent polynomial for 
+\begin_inset Formula \( n=1,2,3,4 \)
+\end_inset 
+
+.
+ Therefore, 
+\begin_inset Formula \( H_{n} \)
+\end_inset 
+
+ is the symbol of a high resolution subdivision scheme if 
+\begin_inset Formula \( n=1,2,3,4 \)
+\end_inset 
+
+.
+ While 
+\begin_inset Formula \( H_{n} \)
+\end_inset 
+
+ is equivalent to the subdivision scheme of 
+\begin_inset Formula \( d^{(n)}y_{j,k}/(dx_{j,k})^{n}=2^{jn}d^{(n)}y_{j,k} \)
+\end_inset 
+
+, we can define 
+\begin_inset Formula \( dH_{n}^{j} \)
+\end_inset 
+
+ based on 
+\begin_inset Formula \( d\left( 2^{j(n-1)}d^{(n-1)}y_{j,k}\right)  \)
+\end_inset 
+
+ with, for example, 
+\begin_inset Formula \( dH_{1}^{j}(z)=(1-z)P^{j}(z)/z \)
+\end_inset 
+
+ and more generally 
+\begin_inset Formula \begin{equation}
+\label{dHdef}
+dH_{n-1}^{j}(z)=\frac{(1-z)}{z}H_{n-1}^{j}(z)=\frac{2^{j(n-1)}(1-z)^{n}}{z^{n}}P^{j}(z).
+\end{equation}
+
+\end_inset 
+
+Replacing 
+\begin_inset Formula \( H_{n-1} \)
+\end_inset 
+
+ by 
+\begin_inset Formula \( dH_{n-1} \)
+\end_inset 
+
+ in equation 
+\begin_inset LatexCommand \ref{genh}
+
+\end_inset 
+
+, we find
+\begin_inset Formula \begin{equation}
+\label{dH}
+2dH_{n-1}^{j+1}(z)=\left( \frac{2z}{1+z}\right) ^{n}\Gamma _{1}(z)dH_{n-1}^{j}\left( z^{2}\right) +\left( \frac{-2z(1-z)}{1+z^{2}}\right) ^{n}\Gamma _{2}(z)dH_{n-1}^{j}\left( -z^{2}\right) .
+\end{equation}
+
+\end_inset 
+
+
+\begin_inset Formula \( dH_{n-1} \)
+\end_inset 
+
+ is said to be equivalent to a high resolution subdivision scheme if 
+\begin_inset Formula \( \Gamma _{1}(z)/(1+z)^{n} \)
+\end_inset 
+
+ and 
+\begin_inset Formula \( \Gamma _{2}(z)/\left( 1+z^{2}\right) ^{n} \)
+\end_inset 
+
+ are Laurent polynomials or if 
+\begin_inset Formula \( H_{n} \)
+\end_inset 
+
+ is equivalent to a high resolution subdivision scheme which is true for
+ 
+\begin_inset Formula \( n=1,2,3,4 \)
+\end_inset 
+
+.
+\layout Standard
+
+Using results from Dyn 
+\begin_inset LatexCommand \cite{Dyn}
+
+\end_inset 
+
+, we have the following theorem.
+\layout Theorem
+
+(Dyn) If 
+\begin_inset Formula \( dH_{n} \)
+\end_inset 
+
+ as in equations
+\begin_inset LatexCommand \ref{dHdef}
+
+\end_inset 
+
+ and 
+\begin_inset LatexCommand \ref{dH}
+
+\end_inset 
+
+ is equivalent to a high resolution subdivision scheme converging uniformly
+ to zero for all initial data, then the corresponding scheme 
+\begin_inset Formula \( P \)
+\end_inset 
+
+ as in equation 
+\begin_inset LatexCommand \ref{gammas}
+
+\end_inset 
+
+ is 
+\begin_inset Formula \( C^{n} \)
+\end_inset 
+
+, that is, all interpolation functions f are 
+\begin_inset Formula \( C^{n} \)
+\end_inset 
+
+ 
+\layout Proof
+
+See theorems 4.2 and 4.4 in 
+\begin_inset LatexCommand \cite{Dyn}
+
+\end_inset 
+
+ as they apply to this high resolution subdivision schemes as well.
+\layout Standard
+
+A sufficient condition for 
+\begin_inset Formula \( y_{j,k}\rightarrow 0 \)
+\end_inset 
+
+ uniformly as 
+\begin_inset Formula \( j\rightarrow \infty  \)
+\end_inset 
+
+ is that 
+\begin_inset Formula \( \max _{l=0,1}\left\{ \sum _{k\in \N }\left| \gamma _{2k-l}\right| \right\} <1 \)
+\end_inset 
+
+ when 
+\begin_inset Formula \( y_{j+1,l}=\sum _{k\in \N }\gamma _{2k-l}y_{j,k} \)
+\end_inset 
+
+.
+ Indeed, let 
+\begin_inset Formula \[
+I_{j,l}=\left[ 2^{j+1}-2+2^{j}(l-1)+l,2^{j}(l+1)-2^{j+1}+2\right] \]
+
+\end_inset 
+
+writing 
+\begin_inset Formula \[
+M_{j,l}=\max \left\{ \left| y_{j,k}\right| :k\in I_{j,l}\right\} \]
+
+\end_inset 
+
+ then 
+\begin_inset Formula \( M_{j+1}\leq \max _{l=0,1}\left\{ \sum _{k\in \N }\left| \gamma _{2k-l}\right| \right\} M_{j} \)
+\end_inset 
+
+.
+ 
+\layout Theorem
+
+For 
+\begin_inset Formula \( -7<32\alpha <6 \)
+\end_inset 
+
+, the high resolution subdivision scheme given by equation
+\begin_inset LatexCommand \ref{gammas}
+
+\end_inset 
+
+ are 
+\begin_inset Formula \( C^{1} \)
+\end_inset 
+
+.
+\layout Proof
+
+We need to consider 
+\begin_inset Formula \( dH_{1} \)
+\end_inset 
+
+ given by 
+\begin_inset Formula \[
+\frac{dH_{1}^{j+1}(z)}{2}=\left( \frac{z}{1+z}\right) ^{2}\Gamma _{1}(z)dH_{1}^{j}\left( z^{2}\right) +\left( \frac{-z(1-z)}{1+z^{2}}\right) ^{2}\Gamma _{2}(z)dH_{1}^{j}\left( -z^{2}\right) .\]
+
+\end_inset 
+
+Let 
+\begin_inset Formula \[
+dh1(z)=\left( \frac{z}{1+z}\right) ^{2}\Gamma _{1}(z)+\left( \frac{-z(1-z)}{1+z^{2}}\right) ^{2}\Gamma _{2}(z),\]
+
+\end_inset 
+
+to show that the high resolution subdivision scheme corresponding to 
+\begin_inset Formula \( dH_{1} \)
+\end_inset 
+
+ converges uniformly to zero, it is enough to show that the sum of the absolute
+ values of the coefficients of the odds and even terms, 
+\begin_inset Formula \( dh1_{even}(z)=\frac{dh1(z)+dh1(-z)}{2} \)
+\end_inset 
+
+ and 
+\begin_inset Formula \( dh1_{odd}(z)=\frac{dh1(z)-dh1(-z)}{2} \)
+\end_inset 
+
+, are smaller that 
+\begin_inset Formula \( 1/2 \)
+\end_inset 
+
+.
+ This is effectively equivalent to requiring that 
+\begin_inset Formula \( 2^{j}\left| \left( y_{j,k+2}-y_{j,k+1}\right) -\left( y_{j,k+1}-y_{j,k}\right) \right| =\lambda ^{j}M\rightarrow 0\,  \)
+\end_inset 
+
+
+\begin_inset Formula \( \forall k\in \N  \)
+\end_inset 
+
+ as 
+\begin_inset Formula \( j\rightarrow \infty  \)
+\end_inset 
+
+ (
+\begin_inset Formula \( j>J \)
+\end_inset 
+
+) where 
+\begin_inset Formula \( 0\leq \lambda <1 \)
+\end_inset 
+
+ and 
+\begin_inset Formula \( M \)
+\end_inset 
+
+ can be chosen to be 
+\begin_inset Formula \( 2^{J}\max \left\{ \left| \left( y_{J,k+2}-y_{J,k+1}\right) -\left( y_{J,k+1}-y_{J,k}\right) \right| \right\}  \)
+\end_inset 
+
+.
+\layout Standard
+
+Proposition: cubic order of approx.
+ for any 
+\begin_inset Formula \( \alpha  \)
+\end_inset 
+
+
+\layout Standard
+
+Proposition: For 
+\begin_inset Formula \( \alpha  \)
+\end_inset 
+
+, the fundamental function of the high resolution scheme has values of amplitude
+ <fds for 
+\begin_inset Formula \( |x|>1 \)
+\end_inset 
+
+ whereas the cubic Deslauriers-Dubuc scheme reaches a maximum of .
+\layout Bibliography
+\bibitem {Dau}
+
+
+\begin_inset Info
+
+
+References A. Cohen, N. Dyn, B. Matei, Quasilinear subdivision schemes with applications to ENO interpolation
+\end_inset 
+
+I.
+ Daubechies, Orthonormal bases of compactly supported wavelets, Comm.
+ Pure & Appl.
+ Math.
+ 41, pp.
+ 909--996, 1988.
+\layout Bibliography
+\bibitem {DeDu}
+
+G.
+ Deslauriers and S.
+ Dubuc, Symmetric iterative interpolation processes, Constr.
+ Approx., 5:49-68, 1989.
+\layout Bibliography
+\bibitem {DeDuLe}
+
+G.
+ Deslauriers, S.
+ Dubuc et D.
+ Lemire, Une famille d'ondelettes biorthogonales sur l'intervalle obtenue
+ par un schéma d'interpolation itérative, Ann.
+ Sci.
+ Math.
+ Québec 23 (1999), no.
+ 1, 37-48.
+\layout Bibliography
+\bibitem {Du}
+
+S.
+ Dubuc, Interpolation through an iterative scheme, J.
+ Math.
+ Anal.
+ Appl., 114:185-204,1986.
+\layout Bibliography
+\bibitem {DuLeMe}
+
+S.
+ Dubuc, D.
+ Lemire, J.-L.
+ Merrien, Fourier analysis of 2-point Hermite interpolatory subdivision
+ schemes, Journal of Fourier Analysis and Applications, to appear
+\layout Bibliography
+\bibitem {Dyn}
+
+N.
+ Dyn, Subdivision schemes in computer-aided geometric design, Advances in
+ numerical analysis (W.
+ Light, ed.), vol.
+ 2, Clarendon Press, 1992, pp.
+ 36-104.
+\layout Bibliography
+\bibitem {DyGrLe}
+
+N.
+ Dyn, J.A.
+ Gregory, and D.
+ Levin, A 4-point interpolatory subdivision scheme for curve design.
+ Comput.
+ Aided Geom.
+ Design, 4:257-268, 1987.
+\layout Bibliography
+\bibitem {KuVD98}
+
+F.
+ Kuijt and R.M.J.
+ Van Damme, 
+\emph on 
+Stability of subdivision schemes
+\emph default 
+, Memorandum No.
+ 1469, Faculty of Mathematical Sciences, University of Twente, November
+ 1998.
+\begin_inset Info
+
+
+References F. Kuijt and R.M.J. Van Damme, Shape preserving interpolatory subdivision schemes for nonuniform data, Accepted for publication in Journal of Approximation Theory, 2001.
+\end_inset 
+
+
+\layout Bibliography
+\bibitem {Me92}
+
+J.-L.
+ Merrien, A family of Hermite interpolants by bissection algorithms.
+ Numer.
+ Algorithms 2 (1992) 187-200.
+\layout Bibliography
+\bibitem {Me99}
+
+J.-L.
+ Merrien, Interpolants d'Hermite 
+\begin_inset Formula \( C^{2} \)
+\end_inset 
+
+ obtenus par subdivision.
+ M2An Math.
+ Model.
+ Numer.
+ Anal.
+ 33 (1999) 55-65.
+\the_end

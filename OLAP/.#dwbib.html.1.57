@@ -1,0 +1,19 @@
+
+    <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+    <html>
+    <head>
+      <title>
+        Data Warehousing and OLAP Bibliography
+      </title>
+<script language="JavaScript" src="http://www.ondelette.com/OLAP/rss.js" ></script>
+
+</head>
+    <body>
+
+<div id="rss"></div>
+<script language="JavaScript">displayRSS("http://www.daniel-lemire.com/blog/archives/category/information-technology/data-warehousing-and-olap/rss2")</script>
+
+
+      </body>
+    </html>

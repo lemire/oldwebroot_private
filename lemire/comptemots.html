@@ -1,0 +1,158 @@
+<html>
+<head>
+<meta charset="utf-8"/>
+<title>Compteur de mots</title>
+
+</head>
+<body onload="getStarted()">
+
+<p>Compteur de mots</p>
+
+<script type="text/javascript" charset="utf-8">
+
+
+//nouveaux mots (regroupe W et ​​75%-85%)
+
+//85%-100% (regroupe ​85%-95%, ​95%-100%, ​100%, ​Fuz Rep)
+
+//répétitions (regroupe Rep)
+
+/* (152 W, 2 100%)
+
+(41 ​​75%-85%, 48 85%-95%, 142 W, 95 100%)
+
+(29 75%-85%, 17 ​​85%-95%, 1261 W, 29 ​​Fuz Rep, 92 Rep, 103 100%)
+
+(22 75%-85%, 21 85%-95%, 137 W)
+
+(65 85%-95%, 326 W, 27 Rep, 84 100%)
+
+(22 75%-85%, 607 W, 4 Fuz Rep, 2 ​​100%)
+
+(30 75%-85%, 110 85%-95%, 26 ​​95%-100%, 246 W, 1010 100%)*/
+var motw = /(\d*\.?\d+)[^a-zA-Z0-9-]+W/ig;
+var mot7585 = /(\d*\.?\d+)[^a-zA-Z0-9-]+75%-85%/ig;
+var mot8595 = /(\d*\.?\d+)[^a-zA-Z0-9-]+85%-95%/ig;
+var mot95100 = /(\d*\.?\d+)[^a-zA-Z0-9-]+95%-100%/ig;
+var mot100 = /(\d*\.?\d+)[^a-zA-Z0-9-]+100%/ig;
+var motfuzrep = /(\d*\.?\d+)[^a-zA-Z0-9-]+Fuz Rep/ig;
+var motrep = /(\d*\.?\d+)[^a-zA-Z0-9-]+Rep/ig;
+
+
+function getStarted() {
+     if('speechSynthesis' in window) {
+        var voicesAvailable = speechSynthesis.getVoices();
+    }
+}
+
+
+// Create a new utterance for the specified text and add it to
+// the queue.
+function speak(txt) {
+    if('speechSynthesis' in window) {
+     try {
+        window.speechSynthesis.cancel();
+      // Create a new instance of SpeechSynthesisUtterance.
+    	var msg = new SpeechSynthesisUtterance();
+    	msg.text = txt;
+
+      // Set the attributes.
+    	msg.volume = 1.0;
+    	msg.lang = 'fr';
+    	msg.rate = 0.9;
+    	var frenchvoice = getFrenchVoice();
+    	if(frenchvoice) {
+    	   msg.voice = frenchvoice;
+    	}
+      // Queue this utterance.
+    	window.speechSynthesis.speak(msg);
+     } catch (e) {
+        console.log(e);
+     }
+   }
+}
+
+function getFrenchVoice() {
+          var voices = window.speechSynthesis.getVoices();
+          if(voices.length == 0) return; // not ready yet
+    	  var frenchvoices = voices.filter(function(voice) {
+    	   return voice.lang.lastIndexOf('fr',0) === 0; });
+    	  if(frenchvoices.length > 0) {
+    	    return frenchvoices[0];
+    	  } else {
+    	    document.getElementById('msg').innerHTML = "Sorry: I do not speak French!";
+    	  }
+}
+function convertit() {
+    var el = document.getElementById('comptetxt');
+    var el1 = document.getElementById('rendu');
+    var el2 = document.getElementById('report');
+    var txt = el.value;
+    var nouveaux = 0;
+    var partiel = 0;
+    var repet = 0;
+    if(x = motw.exec(txt)) {
+      nouveaux += parseInt(x[1]);
+    }
+    if (x = mot7585.exec(txt)) {
+      nouveaux += parseInt(x[1]);
+    }
+
+    if (x = mot8595.exec(txt)) {
+        partiel += parseInt(x[1]);
+    }
+    if (x = mot95100.exec(txt)) {
+        partiel += parseInt(x[1]);
+    }
+    if (x = mot100.exec(txt)) {
+        partiel += parseInt(x[1]);
+    }
+    if (x = motfuzrep.exec(txt)) {
+        nouveaux += parseInt(x[1]);
+    }
+    if (x = motrep.exec(txt)) {
+        repet += parseInt(x[1]);
+    }
+
+    var colortxt = txt;
+    var bluetext = "<span style='color:blue'>$&</span>";
+    colortxt = colortxt.replace(motw,bluetext);
+    colortxt = colortxt.replace(mot7585,bluetext);
+    colortxt = colortxt.replace(motfuzrep,bluetext);
+    var greentext = "<span style='color:green'>$&</span>";
+    colortxt = colortxt.replace(mot8595,greentext);
+    colortxt = colortxt.replace(mot95100,greentext);
+    colortxt = colortxt.replace(mot100,greentext);
+
+    var redtext = "<span style='color:red'>$&</span>";
+    colortxt = colortxt.replace(motrep,redtext);
+
+    el1.innerHTML = colortxt;
+
+    var total = nouveaux + partiel + repet;
+
+    if(nouveaux + partiel + repet > 0) {
+    el2.innerHTML = "<span style='color:blue'>nouveaux</span>  : "+("     " + nouveaux).slice(-5) + "<br/> <span style='color:green'>85%-100%</span> : "
+    + ("     " + partiel).slice(-5) + " <br/><span style='color:red'>rep.</span>      : "+ ("     " + repet).slice(-5)
++ " <br />----------|------"
+    + " <br />total     : "+ ("     " + total).slice(-5);
+   // speak("Vous avez "+nouveaux+" nouveaux mots, "+partiel+ " mots de correspondance floue et "+ repet+" mots répétés pour un total de "+total+" mots. Vous savez chère Danielle, votre magnifique frère Pierre est le plus adorable au monde.");
+  } else {
+    el2.innerHTML = "aucun mot";
+  }
+
+
+
+
+}
+
+</script>
+<p>Saisissez un compte de mot (par ex. 30 75%-85%, 110 85%-95%, 26 95%-100%, 246 W, 1010 100%) :</p>
+<input type="text" size="100" oninput="convertit()" id="comptetxt"></input>
+
+<p id="rendu"></pre>
+
+<pre id="report">aucun mot</pre>
+
+</body>
+</html>

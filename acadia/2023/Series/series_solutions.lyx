@@ -1,0 +1,359 @@
+#LyX 1.1 created this file. For more info see http://www.lyx.org/
+\lyxformat 218
+\textclass amsart
+\begin_preamble
+\usepackage {graphicx}
+
+
+\usepackage{epsfig}
+\usepackage{amsmath,amssymb}
+\usepackage{pslatex}
+\usepackage{color}
+
+ 
+ \definecolor{veryblackblue}{rgb}{0.0,0.0,0.1}
+ \usepackage[pdftex,urlcolor=webblackblue,colorlinks=true,citecolor=blue,linkcolor=webblackblue]{hyperref}
+ \pdfinfo{
+            /Title      (Mathematics 2023 - Infinite Series I)
+            /Author     (Daniel Lemire)
+            /Subject    (A document on series for the course topics from advanced calculs offered at Acadia University.)
+            /Keywords   ( series, convergence, Taylor, ratio test, cauchy sequences)
+          }
+
+
+\topmargin  = 0pt
+\headheight = 0pt
+\headsep    = 0pt
+
+\voffset    = 0in
+\hoffset    = 0in
+\textheight = 230mm
+\textwidth  = 164mm
+
+\evensidemargin = 0pt
+\oddsidemargin  = 0pt
+
+\pagestyle{empty}
+\usepackage{float}
+
+%% Background of blue palette
+ \definecolor{webblackblue}{rgb}{0.0,0.0,0.2}
+ \definecolor{webblue}{rgb}{0.0, 0.0, 0.6}
+
+%% Background of red palette
+ \definecolor{webblackred}{rgb}{0.2,0.0,0.0}
+ \definecolor{webred}{rgb}{0.6,0.0,0.0}
+
+%% Background of green palette
+ \definecolor{webblackgreen}{rgb}{0.0,0.2,0.0}                                   
+ \definecolor{webgreen}{rgb}{0.0,0.6,0.0} 
+
+%% Background of magenta palette
+ \definecolor{webblackmagenta}{rgb}{0.14,0.0,0.14}                                   
+ \definecolor{webmagenta}{rgb}{0.42,0.0,0.42} 
+
+%% Background of cyan palette
+ \definecolor{webblackcyan}{rgb}{0.0,0.14,0.14}                                   
+ \definecolor{webcyan}{rgb}{0.0,0.42,0.42} 
+
+%% Background of yellow pallete
+ \definecolor{webblackyellow}{rgb}{0.14,0.14,0.0}                                   
+ \definecolor{webyellow}{rgb}{0.85,0.85,0.0} 
+
+ \definecolor{webdarkgray}{rgb}{0.2,0.2,0.2}
+
+ \definecolor{webgray}{rgb}{0.75,0.75,0.75}
+ \definecolor{weborange}{rgb}{1.0, 0.6, 0.0}
+
+\renewcommand\labelenumi{\textcolor{webdarkgray}{\arabic{enumi}.}}
+\newcommand{\setenumi}[1]{#1.\setcounter{enumi}{#1}}
+\usepackage{dsfont}
+\end_preamble
+\language english
+\inputencoding auto
+\fontscheme default
+\graphics default
+\paperfontsize 12
+\spacing single 
+\papersize Default
+\paperpackage a4
+\use_geometry 0
+\use_amsmath 0
+\paperorientation portrait
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\defskip medskip
+\quotes_language english
+\quotes_times 2
+\papercolumns 1
+\papersides 2
+\paperpagestyle fancy
+
+\layout Title
+
+Mathematics 2023 - Infinite Series I
+\newline 
+Acadia University
+\layout Address
+
+2002 D.
+ Lemire
+\layout Section
+
+Exercises
+\layout Enumerate
+
+Find the first 5 terms of the Taylor series
+\begin_inset LatexCommand \index{Taylor series}
+
+\end_inset 
+
+ for 
+\begin_inset Formula \( f(x)=\ln (x) \)
+\end_inset 
+
+ expanded about the point 
+\begin_inset Formula \( x=e \)
+\end_inset 
+
+.
+ From these terms predict what the 
+\begin_inset Formula \( n^{th} \)
+\end_inset 
+
+ term will be and use the ratio test to determine the open interval on which
+ the series converges.
+\layout Enumerate
+
+Suppose we approximate 
+\begin_inset Formula \( e^{x}\cong 1+x+\frac{x^{2}}{2\, !}+\frac{x^{3}}{3\, !}+\frac{x^{4}}{4\, !}+\frac{x^{5}}{5\, !}=P_{5}(x) \)
+\end_inset 
+
+
+\begin_deeper 
+\layout Enumerate
+
+Use the Taylor remainder term to bound the error 
+\begin_inset Formula \( |\, e^{x}-P_{5}(x)| \)
+\end_inset 
+
+ in this estimate if we restrict 
+\begin_inset Formula \( -2\leq x\leq 2. \)
+\end_inset 
+
+
+\layout Enumerate
+
+If we take 
+\begin_inset Formula \( x=1 \)
+\end_inset 
+
+, then we have 
+\begin_inset Formula \( e\cong 1+1+\frac{1^{2}}{2\, !}+\frac{1^{3}}{3\, !}+\frac{1^{4}}{4\, !}+\frac{1^{5}}{5\, !}=\frac{163}{60} \)
+\end_inset 
+
+.
+ Use the Taylor remainder term to bound the error in this approximation.
+\layout Enumerate
+
+Use your calculator to calculate the error in 
+\begin_inset Formula \( e\cong \frac{163}{60} \)
+\end_inset 
+
+ and compare it with the bound found in part (b).
+\end_deeper 
+\layout Enumerate
+
+To find the Taylor series for 
+\begin_inset Formula \( \arctan (x) \)
+\end_inset 
+
+ expanded about the point 
+\begin_inset Formula \( x=0 \)
+\end_inset 
+
+ you could proceed to differentiate 
+\begin_inset Formula \( \arctan (x) \)
+\end_inset 
+
+many times, but the derivatives quickly become cumbersome.
+ (Try a few and see!) An alternate way to find this series is to note that
+\begin_inset Formula \[
+\int _{0}^{x}{\frac{1}{1+z^{2}}dz=\arctan (x)}.\]
+
+\end_inset 
+
+But we can expand 
+\begin_inset Formula \( \frac{1}{1+z^{2}} \)
+\end_inset 
+
+in a geometric series
+\begin_inset LatexCommand \index{geometric series}
+
+\end_inset 
+
+
+\begin_inset Formula \[
+\frac{1}{1+z^{2}}=1-z^{2}+z^{4}-z^{6}+\cdots \]
+
+\end_inset 
+
+Now integrate this series from 0 to 
+\begin_inset Formula \( x \)
+\end_inset 
+
+ term by term, to arrive at the series for arctan(
+\begin_inset Formula \( x) \)
+\end_inset 
+
+ given 
+\begin_inset LatexCommand \vpageref{arctanexpansion}
+
+\end_inset 
+
+.
+\layout Enumerate
+
+
+\begin_inset LatexCommand \label{cauchysequencebounded}
+
+\end_inset 
+
+Using only the definition, prove that a Cauchy sequence is bounded.
+\layout Enumerate
+
+Use the ratio test to determine the radius of convergence and open interval
+ on which the following series converge:
+\begin_deeper 
+\layout Enumerate
+
+
+\begin_inset Formula \( \sum _{n=0}^{\infty }{\frac{x^{n}}{2^{n}}}=1+\frac{x}{2}+\frac{x^{2}}{2^{2}}+\frac{x^{3}}{2^{3}}+\cdot \cdot \cdot \cdot  \)
+\end_inset 
+
+
+\layout Enumerate
+
+
+\begin_inset Formula \( \sum _{n=1}^{\infty }{\frac{x^{n}}{n^{2}}}=x+\frac{x^{2}}{2^{2}}+\frac{x^{3}}{3^{2}}+\frac{x^{4}}{4^{2}}\cdot \cdot \cdot \cdot  \)
+\end_inset 
+
+
+\layout Enumerate
+
+
+\begin_inset Formula \( \sum _{n=0}^{\infty }{\frac{(3x)^{n}}{n!}}=1+\frac{3x}{1!}+\frac{9x^{2}}{2!}+\frac{27x^{3}}{3!}+\cdot \cdot \cdot \cdot  \)
+\end_inset 
+
+
+\layout Enumerate
+
+
+\begin_inset Formula \( \sum _{n=1}^{\infty }{\frac{(2x-1)^{n}}{2n^{3}}}=\frac{(2x-1)}{2\cdot 1^{3}}+\frac{(2x-1)^{2}}{2\cdot 2^{3}}+\frac{(2x-1)^{3}}{2\cdot 3^{3}}+\frac{(2x-1)^{4}}{2\cdot 4^{3}}\cdot \cdot \cdot \cdot  \)
+\end_inset 
+
+
+\layout Enumerate
+
+
+\begin_inset Formula \( \sum _{n=0}^{\infty }{\frac{n!x^{n}}{2^{n}}}=1+\frac{1!x}{2}+\frac{2!x^{2}}{2^{2}}+\frac{3!x^{3}}{2^{3}}+\cdot \cdot \cdot \cdot  \)
+\end_inset 
+
+
+\end_deeper 
+\layout Enumerate
+
+Consider the series 4 - 4/3 + 4/5 - 4/7 + 4/9 + .
+ .
+ .
+ =
+\begin_inset Formula \( \sum\limits _{n=0}^{\infty }{\frac{(-1)^{n}4}{2n+1}} \)
+\end_inset 
+
+.
+ Show that the conditions of the alternating series test are satisfied and
+ hence the series converges.
+ It is known that this series converges to the value of 
+\begin_inset Formula \( \pi  \)
+\end_inset 
+
+.
+ Suppose we wanted to approximate 
+\begin_inset Formula \( \pi  \)
+\end_inset 
+
+ by using the 
+\begin_inset Formula \( n^{th} \)
+\end_inset 
+
+ partial sum of the series.
+ If we wanted the error to be less than 0.001, how many terms of the series
+ do we need to use?
+\layout Enumerate
+
+The function 
+\shape italic 
+si(x)
+\shape default 
+ = 
+\begin_inset Formula \( \int\limits _{0}^{x}\frac{\sin (t)}{t}dt \)
+\end_inset 
+
+ is called the "sine integral" function.
+ Since the anti-derivative of 
+\begin_inset Formula \( \frac{\sin (t)}{t} \)
+\end_inset 
+
+ is not expressible in terms of elementary functions, we can't use the fundament
+al theorem of integral calculus to evaluate the definite integral.
+ To find the Taylor series for 
+\begin_inset Formula \( si(x) \)
+\end_inset 
+
+ proceed as follows:
+\begin_deeper 
+\layout Enumerate
+
+Using the series for 
+\begin_inset Formula \( \sin (t) \)
+\end_inset 
+
+, divide it by 
+\begin_inset Formula \( t \)
+\end_inset 
+
+ to get the series for 
+\begin_inset Formula \( \frac{\sin (t)}{t} \)
+\end_inset 
+
+.
+ 
+\layout Enumerate
+
+Integrate the series for 
+\begin_inset Formula \( \frac{\sin (t)}{t} \)
+\end_inset 
+
+ to evaluate the definite integral in the definition of 
+\begin_inset Formula \( si(x) \)
+\end_inset 
+
+.
+\layout Enumerate
+
+What is the radius of convergence of the series for 
+\shape italic 
+si(x)
+\shape default 
+?
+\end_deeper 
+\layout Standard
+
+
+\begin_inset LatexCommand \printindex{}
+
+\end_inset 
+
+
+\the_end

@@ -1,0 +1,5 @@
+"we are going to need a pretty big poly for this";
+f(x):=a10*x^10+a9*x^9+a8*x^8+a7*x^7+a6*x^6+a5*x^5+a4*x^4+a3*x^3+a2*x^2+a1*x+a0;
+"now, we have several conditions on f(x)";
+solve(
+

@@ -1,0 +1,207 @@
+%% LyX 1.2 created this file.  For more info, see http://www.lyx.org/.
+%% Do not edit unless you really know what you are doing.
+\documentclass[25pt,english,landscape]{foils}
+\usepackage[T1]{fontenc}
+\usepackage[latin1]{inputenc}
+\usepackage{a4wide}
+\usepackage{geometry}
+\geometry{verbose,landscape,letterpaper,lmargin=1cm,rmargin=1cm}
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\setcounter{secnumdepth}{5}
+\setcounter{tocdepth}{5}
+\setlength\parskip{\smallskipamount}
+\setlength\parindent{0pt}
+\usepackage{graphicx}
+\usepackage{setspace}
+\onehalfspacing
+\usepackage{amssymb}
+
+\makeatletter
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% LyX specific LaTeX commands.
+\providecommand{\LyX}{L\kern-.1667em\lower.25em\hbox{Y}\kern-.125emX\@}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% User specified LaTeX commands.
+ \usepackage{color}
+ \usepackage{pslatex}
+ \usepackage{background}
+ \usepackage[colorlinks=true]{hyperref}
+ \newcommand{\pagetransition}[1]{%
+     \hypersetup{pdfpagetransition={#1}}
+ }                                                                               
+ \usepackage{pause}
+ \usepackage{backref}
+ \usepackage{pp4slide}
+%% \pagestyle{fancy}
+ \usepackage{lastpage}     
+
+%% Background of blue palette
+ \definecolor{webblackblue}{rgb}{0.0,0.0,0.2}
+ \definecolor{webblue}{rgb}{0.0, 0.0, 0.6}
+
+%% Background of red palette
+ \definecolor{webblackred}{rgb}{0.2,0.0,0.0}
+ \definecolor{webred}{rgb}{0.6,0.0,0.0}
+
+%% Background of green palette
+ \definecolor{webblackgreen}{rgb}{0.0,0.2,0.0}                                   
+ \definecolor{webgreen}{rgb}{0.0,0.6,0.0} 
+
+%% Background of magenta palette
+ \definecolor{webblackmagenta}{rgb}{0.14,0.0,0.14}                                   
+ \definecolor{webmagenta}{rgb}{0.42,0.0,0.42} 
+
+%% Background of cyan palette
+ \definecolor{webblackcyan}{rgb}{0.0,0.14,0.14}                                   
+ \definecolor{webcyan}{rgb}{0.0,0.42,0.42} 
+
+%% Background of yellow pallete
+ \definecolor{webblackyellow}{rgb}{0.14,0.14,0.0}                                   
+ \definecolor{webyellow}{rgb}{0.85,0.85,0.0} 
+
+ \definecolor{webgray}{rgb}{0.75,0.75,0.75}
+ \definecolor{weborange}{rgb}{1.0, 0.6, 0.0}
+ \usepackage{ae}
+ \usepackage{colortbl}
+ \usepackage{amsmath}
+ \usepackage{amssymb}
+ \usepackage{amsfonts}
+ \usepackage{mathrsfs}
+ \usepackage{amsthm}
+ \usepackage{amscd}
+ \usepackage{bbm}
+ \usepackage{stmaryrd}
+ \theoremstyle{plain}    
+ \newtheorem{thm}{Theorem}
+\usepackage{multicol}
+\usepackage{pp4link}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+%\hypersetup{pdfpagemode={FullScreen}} 
+%\usepackage[transition={Replace}]{foliage}
+\usepackage{foliage}
+\makeatother
+\AtBeginDocument{
+  \renewcommand{\labelitemi}{\textcolor{yellow}{\P}}
+  \renewcommand{\labelitemii}{\textcolor{yellow}{\S}}
+  \renewcommand{\labelitemiii}{\textcolor{yellow}{\(\sharp\)}}
+}
+
+\usepackage{babel}
+\begin{document}
+\vpagecolor{webblue}
+
+\color{yellow}
+
+
+\foilhead{A Family of 4-point Dyadic High Resolution Subdivision Schemes}
+
+\begin{center}\textbf{\large \href{mailto:lemire@ondelette.com}{Daniel Lemire}}\end{center}{\large \par}
+
+\begin{center}Research Officer, National Research Council of Canada
+(NRC) \end{center}
+
+\begin{center}email: lemire@ondelette.com\end{center}
+
+\begin{flushright}Curves and Surfaces\end{flushright}
+
+\begin{flushright}Saint-Malo, France\end{flushright}
+
+\begin{flushright}June-July 2002\end{flushright}
+
+
+\foilhead{Subdivision: why care?}
+
+\hypertarget{the_start}{}
+
+\begin{multicols}{2}
+
+\begin{itemize}
+\item \textcolor{yellow}{\toplink{ITEMIZE}{Itemize}}
+\item \textcolor{yellow}{\toplink{MATHED}{Mathed}}
+\item \toplink{REFERENCES}{REFERENCES}
+\end{itemize}
+\end{multicols}
+
+\cfoot{\hyperlink{the_start}{Index}}
+
+
+\foilhead{ITEMIZE}
+
+\toptarget{ITEMIZE}
+
+This an example of itemize environment with pause:
+
+\begin{itemize}
+\item Primer itemize \pause
+\item Segundo itemize \pause
+\end{itemize}
+270
+
+
+\foilhead{MATHED}
+
+\toptarget{MATHED}
+
+Another example showing the capabilities of pause in one equation\begin{equation}
+\int _{a}^{b}\, f(x)dx=\pause F(b)-F(b)\label{ec:first}\end{equation}
+
+
+\hpagecolor[webblue]{white} 
+
+
+\foilhead{CHANGING COLOR OF THE BACKGROUND}
+
+In this slide one variation in the color degradation is done, the
+gradient of color is horizontal
+
+
+\foilhead{{\color{weborange}BLUE COLOUR}}
+
+\color{white}
+
+The basic references are \cite{1}, \cite{2}, 
+
+\begin{enumerate}
+\item This an example of enumerated environment with pause\pause
+\item One equation is showed \pause\[
+x=y+1\pause \]
+
+\item The font has been changed to white
+\end{enumerate}
+\begin{itemize}
+\item \textbf{An example of equation (\ref{ec:first}) with hyperref \hyperref[ec:first]{equation~\ref*{ec:first}}}
+\item An another example of reference, \textbf{\autoref{ec:first}}
+\newpage
+\item We can use figures with links, click the figure below to return to
+the index \pause
+\end{itemize}
+\vspace{0.375cm}
+\begin{center}\hyperlink{the_start}{fds}\includegraphics[  width=0.25\paperwidth,bb = 0 0 200 100, draft, type=eps]{icon not found!}\end{center}
+\vspace{0.375cm}
+
+
+\foilhead{\color{weborange}RED COLOUR}
+
+\vpagecolor[webred]{red}
+
+\color{webyellow}
+
+The basic references are \cite{1}, \cite{2}, this is an example
+of bibliographic references.
+
+90
+
+\hypertarget{the_end}{}
+
+\toptarget{REFERENCES}
+
+Of course you can use bibtex possibilities. 
+
+\begin{thebibliography}{1}
+\bibitem{1}First reference
+\bibitem{2}Second refernce\end{thebibliography}
+
+\end{document}
+

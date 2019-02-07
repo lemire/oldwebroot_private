@@ -1,0 +1,475 @@
+%*****************  STMALO2 MACROS ******************
+% FILE NAME: splinebib.tex
+% COPYRIGHT: 6/9/96 -- updated 6/1/2002
+% CREATED BY: Carl de Boor and Larry Schumaker
+% EMAIL: s@mars.cas.vanderbilt.edu
+% WEB: http://www.math.vanderbilt.edu/~schumake/
+
+\count100= 1
+\count101= 7
+\input malo2
+\input lls00
+
+\title{Using the de\thinspace{}Boor/Schumaker}
+\titwo{Spline Bibliography}
+\author{Carl de\thinspace{}Boor and Larry L. Schumaker}
+\def\shorttitle{Using the Spline Bibliography}
+\def\shortauthor{C. de\thinspace{}Boor and L. L. Schumaker}
+
+\def\back{{\tt\char'134}}
+\def\lb{\char'173}
+\def\lc{$\{$}
+\def\rb{\char'175}
+\def\rc{$\}$}
+\def\tb#1{{\tt\back #1}}
+\def\Tex{{\TeX~}}
+\def\per{\kern .03em \% \kern .02em}
+
+\abstract{In this note we explain how to access and
+use the spline bibliography
+of de\thinspace{}Boor/Schumaker. We also discuss how to
+use the macro file {\tt lls00.tex} contained in the \eword{\conf
+Macro Package} to
+incorporate bibliographic entries into your \Tex file.}
+
+\sect{1. Introduction}
+The second author has
+been maintaining a bibliography of papers in approximation
+theory and CAGD (with emphasis on splines) for many years.
+The first author joined in this effort several years ago,
+and recently the entire project has been made public domain.
+The idea is to maintain an (authenticated) set of references
+along with a very flexible set of
+\Tex macros for inserting them into \Tex documents.
+The bibliography is available on the world wide web at
+$$ \eqalign{
+& \hbox{\tt http://www.cs.wisc.edu/$\sim$deboor/bib}\cr
+&\hbox{\tt http://www.math.ohio-state.edu/JAT/DATA/SPECIALS/sbd.html} \cr
+&\hbox{\tt http://www.math.technion.ac.il/JAT/DATA/SPECIALS/sbd.html} \cr}$$
+All sites include search engines which allow you to search
+the bibliography in various ways.
+
+This document is divided into several sections.
+Sect.~2 is meant for the casual user who simply wants to find
+references.  Sect.~3 is meant for the user who wants to
+copy references from the bibliography into a \Tex file.
+In Sect.~4 we discuss how users can contribute
+to this project by submitting additions and corrections.
+Labelling and some examples are discussed in Sects.~5 and 6.
+\eject
+
+\sect{2. Organization of the Bibliography}
+Entries in the bibliography are stored in 26 files, one for
+each letter of the alphabet. Here is a typical entry in
+the file A.
+\ms {\narrower \obeylines \tt
+\%AhlbergNilson66
+\per{} carl
+\back{}refJ Ahlberg,  J. H., Nilson, E. N.;
+The approximation of linear functionals;
+\back{}SJNA; 3; 1966; 173--182;
+\medskip}
+
+Within each file, the entries are
+sorted alphabetically according to a \dword{handle} which has been
+assigned to each paper.  The handle appears in the first
+line of each entry, and is
+derived from the last names of the authors, plus the year of
+publication, followed optionally by a letter if needed to make the
+handle unique.  The handle assigned to the above paper
+is {\tt AhlbergNilson66}.
+
+Many (but unfortunately not all)
+entries in the bibliography have been
+authenticated. This means that one of us (or
+one of our graduate students or relatives) has actually checked the
+entry by looking at a physical copy of the article.
+If an entry has been
+authenticated, the person who did it is identified in
+the second line of the entry with a line starting with {\tt \%}
+followed by at least one blank.
+The example entry above was authenticated by Carl.
+If this line is missing in an entry, that means that the
+entry has not been authenticated. However, the user should be
+aware that there are still some errors
+even in the authenticated entries.
+
+The forms of the entries vary according to their nature.  We
+have classified entries as 5 different types:
+\sm
+\ritem{1)} articles in proceedings
+\ritem{2)} books
+\ritem{3)} dissertations
+\ritem{4)} journal articles
+\ritem{5)} preprints and reports.
+\ms
+The type of an entry is distinguished by the \Tex macro name which
+introduces the entry.  It can be \tb{refB} (books),
+\tb{refD}  (dissertations), \tb{refP} (articles in a proceedings listed
+in \tb{proceed.tex}),
+\tb{refQ} (articles in a proceedings not listed in \tb{proceed.tex}),
+\tb{refR} (reports), or \tb{refJ} (journal articles).
+
+The body of each entry contains the usual pieces of information:
+author(s), title, place and date of publication, and page
+numbers.  Each of the different types of entries requires slightly
+different information --- for a more detailed explanation, see
+Sect.~4. For a complete formal description, see the last part of the file
+{\tt journal.tex} which is available at the web site.
+
+In creating the forms for these entries, we had two goals in mind.
+First, we wanted to partition the information about a reference
+into identifiable pieces for access by \Tex macros.
+The idea is to achieve enough flexibility so that with
+properly designed \Tex macros, one can match
+the reference style of any given journal or proceedings volume.
+The second goal was to minimize the amount of typing needed to
+create an entry in the bibliography.
+
+\sect{3. Inserting the Entries Directly in Your \Tex File}
+One of our purposes in creating this spline bibliography was to
+simplify the process of adding references to a \Tex document.
+To add a given reference to a paper (assuming that you
+are using the {\tt lls00.tex} macros), proceed as follows:
+\sm
+\ritem{1)} Insert the command \tb{startbib} in front of your
+first reference.
+\sm
+\ritem{2)} Copy each reference into your \Tex file.
+\sm
+\ritem{3)} If an entry contains any \Tex commands (i.e.,
+anything starting with a backslash), insert the word
+\tb{noexpand} in front of the backslash.
+\sm
+\ritem{4)} Make sure that you have a copy of {\tt proceed.tex}
+in the directory.
+\sm
+\ritem{5)} If a given reference causes an overfull hbox, you
+need to find a good place to break the line, and insert the
+macro \tb{noexpand}\tb{break}.
+\sm
+\ritem{6)} If you want to insert references which are not
+contained in our bibliography, you have two choices.  Ideally,
+you should prepare your references in our style,
+following the instructions in the next two sections,
+and using the appropriate macro \tb{refB}, \tb{refD}, \tb{refJ},
+\tb{refP}, \tb{refQ}, or \tb{refR}.
+As an alternative, you can
+write your reference in the way that you would if you did
+not use these macros. In this case you should begin your
+reference with \tb{refnew} and end it with a semicolon.
+\sm
+\ritem{7)} If you want to label the reference, add a line
+as described in Sect.~5 below.
+\ritem{8)} Insert the command \tb{endbib} after your last
+reference.
+\ms
+
+Without going into details, here is what happens when you
+\Tex your file.   When \Tex encounters the command \tb{startbib},
+it opens a file called {\tt jobname.bib}, where {\tt jobname.tex}
+is the name of your \Tex file.	As your references are processed,
+the entries are automatically translated into plain \Tex commands
+for typesetting the entries in the \conf style.
+Then the file {\tt jobname.bib} is read back in
+to actually create the entries in your \Tex file.
+To see how this works in practice, take a look at the file
+{\tt splinebib.tex} which generates this document.
+
+Reference [\cit{S1}] is a case where we	had to insert
+a \tb{noexpand}.  The use of the macro \tb{refnew}
+is also illustrated in reference [\cit{S1}].
+
+If you decide to use the bibliography with other \Tex files
+which do not input the macro file {\tt lls00.tex},
+you will need to get copies of
+{\tt refmac.tex}, {\tt journal.tex}, and {\tt proceed.tex}
+from the web site. To use them, you input {\tt refmac.tex}
+into your \Tex file with the command \tb{input refmac}.
+This file is set up for a certain default style of references, but
+there are instructions in the file on how to achieve other styles.
+
+\sect{4. Creating New Entries for the Bibliography}
+We would be very pleased if you would not only use
+the bibliography, but would also contribute to the project
+by pointing out corrections and by submitting new entries
+for it.  To make this an orderly process, we are keeping
+one master copy of the bibliography (from which the version on JAT's home
+page is generated automatically, thanks to Paul Nevai).
+It can be modified only by us. This means that to
+suggest changes, you need to send a message to one of us
+with your changes, or else make use of the convenient form created and
+maintained by Shayne Waldron for submitting such information;
+click on the appropriate word on any of the web pages listed in
+Sect.~1.
+
+To assist you in correcting existing entries and in
+creating new ones, we now discuss the form
+of each type of entry.	Each entry consists of from 4 to 6
+main pieces of information.  Each such piece of information
+is terminated with a semicolon followed by a blank in case there
+is more on the same line.  (This means that we
+do not allow semicolons to be part of the text of the entries.
+If you need a semicolon, use the macro \tb{semicolon}, included in
+{\tt lls00.tex}.)
+
+Basically, each entry includes 1) author name(s), 2) title,
+3) publication information (journal, proceedings, etc.),
+4) year, 5) page numbers (if appropriate).  To see what
+is required for each of the entry types, look at the
+examples in Sect.~6. For a complete formal description, see the last part
+of the file {\tt journal.tex} which is available at the web site.
+
+\ms
+\noin {\bf Author Names:} If there is just one author,	the list
+has the form {\tt lastname, firstname}.
+The first name could be replaced by  an initial or initials.
+If there are two or more authors,
+this pattern is repeated, using commas to separate the
+various authors. Terminate the whole thing with one semicolon.
+The above example entry of {\tt AhlbergNilson66} illustrates
+the algorithm.
+\bs
+
+\noin {\bf Titles:} We follow the following convention for titles:
+\sm
+\ritem{1)} Each `nontrivial' word in the title of a book is capitalized
+\sm
+\ritem{2)} For all other entries, only the first word in
+the title is capitalized (except for proper names).
+\sm
+\ritem{3)} Mathematics enclosed in dollar signs is allowed.
+\bs
+
+\noin {\bf Journals:} Names of journals are written in abbreviated
+form following the conventions of the AMS. Thus, for example,
+\eword{Journal of Approximation Theory} is written as \eword{J.~Approx.~Th.}.
+The macro file {\tt lls00.tex} includes the macros for journal
+names. You can simply look at this
+file to see what the macro names are for various journals.
+The general rule is that the macro name consists of the
+capital letters which begin each major word of the name of the journal, with
+additional lower case letters only used when needed to get a unique label.
+Thus, the macro for \eword{J.~Approx.~Th.} is \tb{JAT}.
+\bs
+
+%\eject
+\noin {\bf Proceedings:} Information on proceedings consists of several
+parts, including
+\sm
+\ritem{1)} title of the proceedings
+\sm
+\ritem{2)} editors
+\sm
+\ritem{3)} publisher name and location
+\sm
+\ritem{4)} year of publication.
+\ms
+\noin As with journals, we have created a special file
+{\tt proceed.tex} which contains macros for most of the proceedings
+appearing in the bibliography.	Again, the user should look
+at this file to see the names of the various proceedings macros.
+Here the general rule is that the name reflects the \eword{place}
+where the corresponding conference took place.	Thus, for example,
+there are macros entitled \tb{Oslo}, \tb{Biri}, \tb{Ulvik}, \tb{Lillehammer},
+\tb{ChamonixI}, \tb{ChamonixIIa},
+\tb{ChamonixIIb}, \tb{ChamonixIIIa}, and \tb{ChamonixIIIb}.
+Using the macro \tb{refP} in {\tt lls00.tex},
+the macro \tb{Ulvik} expands out to
+\ms
+\noin {\sl Mathematical Methods for Curves and Surfaces},
+Morten D{\ae}hlen, Tom Lyche, Larry L. Schumaker (eds.),
+Vanderbilt University Press, Nashville, 1995
+\ms
+
+If you want to refer to a paper which you expect to appear in
+the proceedings of this conference, use
+the macro \tb{Stmalotwo}. The information in that macro may be
+currently incomplete, but will be updated later when
+the final camera-ready copy is prepared.
+
+If you want to refer to a proceedings for which
+there is no macro in {\tt proceed.tex}, you should use
+\tb{refQ} instead of \tb{refP}.  In this case you must supply
+the various parts of the information as illustrated in the
+\tb{refQ} example in Sect.~5.
+
+\sect{5. Labelling References}
+To label your references (so that you can refer to
+them by label), use the macro \tb{rhl}.
+To create a label for a reference, simply
+insert a line of the form {\tt \back{}rhl\lb{}name\rb{}},
+where ``name" is the name you want to assign
+to that particular reference.  This line should be inserted after
+the handle and authentication lines, but before the \tb{ref..}
+or \tb{refnew} macros.
+
+The assigned labels can then be
+used to cite references as described in \cite{S2}.
+In particular, To cite the reference which is
+labelled {\tt S1}, simply type \tb{cite}{\tt \lb{}S1\rb}.
+This gives \cite{S1}. Note that the macro \tb{cite} automatically
+creates brackets around the number of the cited article.
+To cite several papers at one time, use the macro \tb{cit} which
+does not automatically create the brackets.  For example,
+you type {\tt [\back{}cit\lb{}S1\rb{},\back{}cit\lb{}S2\rb{}]} to get
+[\cit{S1},\cit{S2}].
+
+
+\sect{6. Examples}
+In this section we list one example of each type of entry.
+These entries are included in the set of references
+below as references [1--7].
+
+{\obeylines \tt
+\ms
+\%AhlbergNilson66
+\% carl
+\back{}rhl\lb{}A\rb{}
+\back{}refJ Ahlberg,  J. H., Nilson, E. N.;
+The approximation of linear functionals;
+\back{}SJNA; 3; 1966; 173--182;
+\ms
+
+\%Bartels94
+\% larry
+\back{}rhl\lb{}B\rb{}
+\back{}refP Bartels, R.;
+Object oriented spline software;
+\back{}ChamonixIIa; 27--34;
+\ms
+
+\%Cheney66
+\back{}rhl\lb{}C\rb{}
+\back{}refB Cheney,  E. W.;
+Introduction to Approximation Theory;
+McGraw-Hill, (New York); 1966;
+\ms
+
+\%DeRose85
+\back{}rhl\lb{}D\rb{}
+\back{}refD DeRose,  T.;
+Continuity issues in computer-aided geometric design;
+Univ. Cal. Berkeley; 1985;
+\ms
+
+\%McPherson82
+\back{}rhl\lb{}M\rb{}
+\back{}refQ McPherson,	R. D.;
+Optimum interpolation\back{}semicolon practical aspects of
+operational application;
+(The Interaction Between Objective Analysis
+and Initialization),
+D. Williamson (ed.),  NCAR (Boulder); 1982; 7--12;
+\ms
+
+\%Resnikoff90
+\back{}rhl\lb{}R\rb{}
+\back{}refR Resnikoff,	H. L.;
+Weierstrass functions and compactly supported wavelets;
+Aware, Inc Report AD900513; 1990;
+\ms
+
+\back{}rhl\lb{}S1\rb{}
+\back{}refnew Schumaker, L.,
+Instructions for using the \conf \back{}noexpand\back{}Tex Macros,
+see the \back{}noexpand\back{}Tex file
+\lb{}\back{}noexpand\back{}tt instruct.tex\rb{} included in the
+\conf{}Macro Package available on the conference
+home page;
+\ms
+
+\back{}rhl\lb{}S2\rb{}
+\back{}refnew Schumaker, L.,
+Automatic numbering with the \conf macros,
+see the \back{}noexpand\back{}Tex file
+\lb{}\back{}noexpand\back{}tt autonumber.tex\rb{} included in the
+\conf{}Macro Package available on the conference
+home page;
+\ms
+}
+
+\Acknowledgments{Supported in part by NSF Grant DMS-9500643.}
+
+%******************************* REFERENCES *************************
+
+\References
+\startbib
+
+%AhlbergNilson66
+% carl
+\rhl{A}
+\refJ Ahlberg,	J. H., Nilson, E. N.;
+The approximation of linear functionals;
+\SJNA; 3; 1966; 173--182;
+
+%Bartels94
+% larry
+\rhl{B}
+\refP Bartels, R.;
+Object oriented spline software;
+\ChamonixIIa; 27--34;
+
+%Cheney66
+\rhl{C}
+\refB Cheney,  E. W.;
+Introduction to Approximation Theory;
+McGraw-Hill (New York); 1966;
+
+%DeRose85
+\rhl{D}
+\refD DeRose,  T.;
+Continuity issues in computer-aided geometric design;
+Univ.~Cal.~Berkeley; 1985;
+
+%McPherson82
+\rhl{M}
+\refQ McPherson,  R. D.;
+Optimum interpolation\semicolon practical aspects of
+operational application;
+(The Interaction Between Objective Analysis and Initialization),
+D. Williamson (ed.),  NCAR (Boulder); 1982; 7--12;
+
+%Resnikoff90
+\rhl{R}
+\refR Resnikoff,  H. L.;
+Weierstrass functions and compactly supported wavelets;
+Aware, Inc Report AD900513; 1990;
+
+\rhl{S1}
+\refnew Schumaker, L.,
+Instructions for using the \conf \noexpand\Tex macros,
+see the \noexpand\Tex \noexpand\break file {\noexpand\tt instruct.tex}
+included in the \conf Macro Package
+available on the conference home page;
+
+\rhl{S2}
+\refnew  Schumaker, L. L.,
+Automatic numbering with the \conf macros,
+see the \noexpand\Tex file {\noexpand\tt autonumber.tex}
+included in the \conf Macro Package
+available on the conference home page;
+
+\endbib
+
+\Address{
+Carl de\thinspace{}Boor
+Computer Sciences Dept.
+1210 West Dayton St.
+University of Wisconsin
+Madison, WI 53706
+{\tt deboor@cs.wisc.edu
+http://www.cs.wisc.edu/$\sim$deboor/}}
+
+\Address{
+Larry L. Schumaker
+Dept. of Mathematics
+Vanderbilt University
+Nashville, TN 37240
+{\tt s@mars.cas.vanderbilt.edu
+http://www.math.vanderbilt.edu/$\sim$schumake/}
+}
+
+\bye
+
+%%%%%%%  END of splinebib.tex

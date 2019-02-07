@@ -1,0 +1,333 @@
+%***************** STMALO2 MACROS ******************
+% FILE NAME: psfigures.tex
+% COPYRIGHT: 10/15/97, updated 6/1/2002
+% BY: Larry Schumaker
+% EMAIL: s@mars.cas.vanderbilt.edu
+% WEB: http://www.math.vanderbilt.edu/~schumake/
+
+\count100= 1
+\count101= 7
+\input malo2
+\input lls00
+%\draft
+
+\title{Inserting Postscript Figures Using}
+\titwo{the \conf Macros}
+\author{Larry L. Schumaker}
+\def\shorttitle{Inserting Postscript Figures}
+\def\shortauthor{L. L. Schumaker}
+
+\def\back{{\tt\char'134}}
+\def\lc{$\{$}
+\def\rc{$\}$}
+\def\tb#1{{\tt\back #1}}
+\def\Tex{{\TeX~}}
+
+\abstract{The purpose of this note (which corresponds to the \Tex
+file {\tt psfigures.tex}) is to explain how to use the macro file
+{\tt epsf.tex} along with the macro files {\tt\macname.tex} and
+ {\tt lls00.tex} to insert postscript figures into a \Tex document.
+Macintosh users may want to use {\tt epsfmac.tex} instead.}
+
+\sect{1. Introduction}
+There are a number of public domain \Tex macros which can be used
+to insert postscript files into a \Tex document. I have found
+the macro file {\tt epsf.tex} to be particularly easy to use.
+To use this macro file, you need three things:
+\ms
+\item{1)} a copy of {\tt epsf.tex}
+\sm
+\item{2)} a dvi driver which is capable of working with {\tt epsf.tex}.
+One which works on unix machines is {\tt dvips}.
+\sm
+\item{3)} postscript files of the figures you wish to insert.  These
+can be created using any convenient software.
+\ms
+
+To use the macro file {\tt epsf.tex}, you have to input it with
+the command \tb{input epsf.tex} at the beginning of your \Tex
+file.  This command is already included
+in the {\tt lls00.tex} macro file.
+You should put {\tt epsf.tex} in the same directory
+as the \TeX{} file you are processing.
+
+The macros in {\tt epsf.tex} allow for considerable control over the size
+and position of the figures to be inserted.  It is not my aim here to
+explain {\tt epsf} in detail. In order to simplify matters,
+I assume that you are also using the macro files
+{\tt \macname.tex} and  {\tt lls00.tex} which were
+created for the \conf proceedings.
+The latter  file includes three special macros which can be used along
+with {\tt epsf} to insert figures.
+
+\sect{2. Inserting a Single Figure}
+The basic  macro for inserting a figure is called
+\tb{psone}. It has two parameters.  The
+first parameter gives the name of the file containing the figure, and
+the second parameter sets the size of the figure in inches
+(1 inch = 2.5 cm).
+
+To illustrate the use of \tb{psone}, I will now insert a figure
+called {\tt schumaker1.fig}.  This is a postscript file, but instead of
+calling it {\tt schumaker1.ps} I have named it {\tt schumaker1.fig}.  This
+helps me remember that it is a figure, and prevents me from deleting it
+accidently when removing all postscript files in a directory.
+Here is the \Tex code for inserting my figure:
+\medskip
+{\obeylines \tt
+\back topinsert
+\back psone\lc schumaker1.fig\rc \lc 1.5\rc
+\back figcap\lc 1\rc \lc A circle\rc\lc 0\rc
+\back endinsert
+}
+\ms
+
+In inserting this figure, I have also made use of a macro in
+{\tt \macname.tex}
+called \tb{figcap} which is used to create a caption.
+It has three parameters.
+The first gives the figure number, the second gives the actual caption,
+and the third gives the number of inches of space which you wish to insert
+between the figure and the caption. When inserting postscript figures
+with proper bounding boxes, this would
+generally be 0. If you use \tb{figcap} to insert space for a figure
+to be pasted in, this parameter would be the amount of space to
+leave for the figure.
+
+\topinsert
+\psone{schumaker1.fig}{1.5}
+\figcap {1} {A circle}{0}
+\endinsert
+
+To get a smaller version of the same figure, I simply change the
+second parameter in \tb{psone} from 1.5 to 1:
+\ms
+{\obeylines \tt
+\back topinsert
+\back vskip .2 in
+\back psone\lc schumaker1.fig\rc \lc 1\rc
+\back figcap\lc 2\rc \lc A smaller circle\rc\lc{.2}\rc
+\back endinsert
+}
+\medskip
+
+\midinsert
+\vskip .2 in
+\psone{schumaker1.fig}{1}
+\figcap {2} {A smaller circle}{.2}
+\endinsert
+
+The size of the first figure is set to 1.5 inch while the
+size of the second one is set to 1 inch.  Unfortunately, these
+numbers may not always give the actual size of the figure --- it depends on
+how the postscript file was created. Thus,
+it may take some experimentation to find the setting for this parameter
+which will give a figure of the desired size.
+
+In Fig.~2, I have  used \tb{vskip .2 in} to
+insert an extra .2 in of space above the figure.
+In addition, by choosing .2 as the third parameter in\break \tb{figcap},
+I have inserted .2 inches of space between the figure and the caption.
+It is also possible to skip by a negative number of inches to take
+space out.
+
+\sect{3. Inserting Figures Side by Side}
+To insert two figures side by side, I have written a macro called
+\tb{pstwo}. Its use is
+completely analogous to the use of \tb{psone}:
+\medskip
+{\obeylines \tt
+\back midinsert
+\back pstwo\lc schumaker1.fig\rc \lc 1.4\rc \lc schumaker3.fig\rc \lc 2.8\rc
+\back figcap\lc 3\rc \lc Two figures side by side\rc\lc 0\rc
+\back endinsert
+}
+\medskip
+
+\midinsert
+\pstwo{schumaker1.fig}{1.4}{schumaker3.fig}{2.8}%
+\figcap {3} {Two figures side by side}{0}
+\endinsert
+
+Because the sizes of these two figures in the postscript files
+were not the same,
+to get them to match in vertical size, I had to set the
+parameter controlling the size of  {\tt schumaker1.fig}
+to 1.4, and the parameter controlling the size of {\tt schumaker3.fig}
+to 2.8. In practice some experimentation is usually required to size
+the figures correctly.
+
+The right-hand figure in Fig.~3 includes some writing which is really
+too small to read.  If you want to include words on your figure,
+be sure they are written large enough so that they can be read
+at the final size.
+
+The same idea can be used to put three or more figures side by side.
+Here is an example with three figures:
+\medskip
+{\obeylines \tt
+\back midinsert
+\back psthree\lc schumaker1.fig\rc\lc 1\rc
+  \lc schumaker1.fig\rc\lc 1\rc
+  \lc schumaker1.fig\rc\lc 1\rc
+  \back figcap\lc 4\rc\lc Three figures side by side\rc\lc 0\rc
+  \back  endinsert
+}
+
+\midinsert
+\psthree{schumaker1.fig}{1}
+     {schumaker1.fig}{1}
+     {schumaker1.fig}{1}
+\figcap{4}{Three figures side by side}{0}
+\endinsert
+
+%\eject
+\sect{4. Creating the Postscript Files}
+A postscript file is identified by its first line which should
+begin with the two symbols {\tt \%!}.  These symbols may be followed by a
+comment identifying the software which produced the file.  If these two symbols
+are not present and you send the file to a laser printer, you will
+probably get a line-by-line print-out of the entire file (which can
+be huge). Here is the first line of the file {\tt schumaker1.fig}:
+\ms
+$$\hbox{\tt \%!PS-Adobe-2.0 EPSF-2.0} $$
+\ms
+
+\noindent Postscript files describing figures can be created by a variety of
+software. These include
+\sm
+\item{1)} La\TeX
+\item{2)} Pic\TeX
+\item{3)} Mathematica
+\item{4)} SGI ShowCase
+\item{5)} MATLAB.
+\sm
+
+\noin
+It is also possible to create your own postscript files directly,
+see the manuals [1,2]. In any case, if you do use postscript,
+make sure that you give us a complete file which prints correctly
+on a standard laser printer, and if possible verify that it can
+be inserted into your \TeX{} file correctly.
+
+\sect{5. Bounding Boxes}
+The macros in {\tt epsf.tex}  will work with most postscript files,
+provided that the file includes
+a line which describes the size of a \dword{bounding box} enclosing
+the figure. Here is the line for the file {\tt schumaker1.fig}:
+\medskip
+$$\hbox{\tt \%\%BoundingBox: 18 679 104 765} $$
+\medskip
+\noindent The four numbers here are in \dword{postscript units}.
+	There are
+exactly 72 postscript units per inch.  The first pair of numbers describe
+the location of the lower-left corner of the bounding box relative
+to the \eword{origin}, which is taken to be the
+lower-left corner of the page.	In this case the lower-left corner of the
+bounding box is 18 units
+to the right and 679 units up from the origin.
+The second pair of numbers describes
+where the upper-right-hand corner of the bounding box lies.  In this case
+it is 104 units to the right and 765 units up from the origin.
+
+Some drawing packages will furnish a precise bounding box, but I have seen
+others which don't give any bounding box at all, and others which
+give an incorrect one (often the whole page).
+Our next figure illustrates what happens with a file where the bounding
+box is not properly set. It
+ was inserted using the code
+\medskip
+
+{\obeylines \tt
+\back midinsert
+\back psone \lc schumaker2.fig\rc \lc 4\rc
+\back figcap \lc 5\rc \lc A circle surrounded by too much space\rc\lc 0\rc
+\back endinsert
+}
+\medskip
+
+\midinsert
+\psone{schumaker2.fig}{4}
+\figcap {5} {A circle surrounded by too much space}{0}
+\endinsert
+
+%\eject
+If you compare the files {\tt schumaker.fig1} and {\tt schumaker2.fig}, you
+will see that the only difference is in their second lines where the size
+of\break the \dword{bounding box} is described. In particular,
+the line setting the bounding box\break in  {\tt schumaker2.fig} is
+$$\hbox{\tt \%\%BoundingBox: 0 0 612 792} $$
+\noindent This describes a full ($8.5 \times 11$ inch) page. The
+circle only occupies a small part of the page.	But now because of
+the bounding box, the entire page is inserted, explaining all the white
+space in Fig.~5.
+
+If you have a file with no bounding box or an incorrectly sized
+one, you can fix it with your editor.  First print the file on
+a laser printer, then take a ruler and physically measure the
+location of the lower-left and upper-right corners of an appropriate
+bounding box.  If there is already a statement defining the
+bounding box, just edit
+the file to set the correct dimensions. Remember that 1 inch is
+equal to 72 units.  If there is no
+such statement, insert one in the file.
+(I would put it as the second line in the file, after the first
+line which identifies the file as a postscript file).
+
+\eject
+\sect{6. Remarks}
+In case you are wondering, if you
+use {\tt epsf} to insert figures and later decide to
+change the magnification of your document, everything (including
+the figures) is automatically rescaled.
+
+Another set of macros which I have seen is called {\tt psfig.tex}.
+They work in much the same way as {\tt epsf.tex}. With some dvi drivers,
+it is possible to insert postscript figures using a {\tt \back special}
+command. It would be nice if there were a standard way to create and handle
+postscript files -- but unfortunately (analogous to the La\TeX, AMS\Tex
+mess), this is not the case.
+
+The postscript files for the figures included in this
+document are relatively small (on the order of 5K each).  If you create
+postscript files by some bitmapping process (for example using
+``snapshot" to capture a screen on an SGI), you can get postscript files which
+are on the order of several megabytes. It is better to avoid such
+huge figure files if possible.
+If you are working with such
+huge files, don't be surprised if your laser printer takes 10 to 20
+minutes or more to print a page.
+I suggest that you take a photo of your screen in such cases.
+
+Finally, I would like to mention that the macro file {\tt gridbox.tex}
+contains macros created by Carl de\thinspace{}Boor
+which are very handy for putting text into figures (and can also be
+used to arrange figures side-by-side, etc.)  Instructions on how to
+use these macro are contained in the file.
+To see how they work, try the file {\tt gridtest.tex}.
+
+\References
+
+\ref {\sl Postscript Language, Reference Manual}, Addison-Wesley,
+Reading, MA, 1985.
+
+\ref {\sl Postscript Language, Tutorial and Cookbook}, Addison-Wesley,
+Reading, MA, 1985.
+
+\ref Schumaker, L. L., Instructions for using the \conf \TeX{} Macros,
+see the \Tex file {\tt instruct.tex}
+included in the \conf  Macro Package
+available on the conference home page.
+
+\Address{
+Larry L. Schumaker
+Dept. of Mathematics
+Vanderbilt University
+Nashville, TN 37240
+{\tt s@mars.cas.vanderbilt.edu
+http://www.math.vanderbilt.edu/$\sim$schumake/}
+}
+
+\bye
+
+%%  END of psfigures.tex

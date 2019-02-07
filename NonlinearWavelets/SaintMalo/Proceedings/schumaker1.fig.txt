@@ -1,0 +1,18 @@
+%!PS-Adobe-2.0 EPSF-2.0
+%%BoundingBox: 18 679 104 765
+%%Title:
+%%CreationDate: 27 May 1997
+%%Pages: 1 +1
+%%EndComments
+%%EndProlog
+%%Page: label 1
+gsave
+0 0 0 setrgbcolor
+gsave
+1 setlinewidth
+newpath
+61 722 43 0 360 arc
+closepath stroke
+grestore
+grestore
+showpage

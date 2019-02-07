@@ -1,0 +1,95 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<script type="text/javascript">
+function getRandomKey(o) {
+    var tmpList = Object.keys(o);
+    return tmpList[Math.floor(Math.random() * tmpList.length)];
+}
+
+
+function getStarted() {
+    var donnees = {
+        "savoir": {
+            "présent": ["sais", "sais", "sait", "savons", "savez", "savent"],
+            "imparfait": ["savais", "savais", "savait", "savions", "saviez", "savaient"],
+            "futur simple": ["saurai", "sauras", "saura", "saurons", "saurez", "sauront"],
+            "conditionnel": ["saurais", "saurais", "saurait", "saurions", "sauriez", "sauraient"],
+            "passé simple": {
+                "2": "sut",
+                "5": "surent"
+            },
+            "passé composé": ["ai su", "as su", "a su", "avons su", "avez su", "ont su"],
+            "futur proche": ["vais savoir", "vas savoir", "va savoir", "allons savoir", "allez savoir", "vont savoir"],
+            "futur antérieur": ["aurai su", "auras su", "aura su", "aurons su", "aurez su", "auront su"],
+            "plus-que-parfait": ["avais su", "avais su", "avait su", "avions su", "aviez su", "avaient su"],
+            "impératif":  {
+                "1": "sache",
+                "3": "sachons",
+                "4": "sachez"
+            },
+            "subjonctif présent": ["sache", "saches", "sache", "sachions", "sachiez", "sachent"],
+        }
+    };
+
+    var personnenames = ["première personne du singulier", "deuxième personne du singulier", "troisième personne du singulier", "première personne du pluriel", "deuxième personne du pluriel", "troisième personne du pluriel"];
+
+    var pronom = ["je (ou j')", "tu", "il", "nous", "vous", "ils"];
+    var i;
+    var out = document.getElementById("verbes");
+    out.innerHTML = "";
+    var mycontent ='<table border="0" style="border-spacing: 10px 10px;"> ';
+    for (i = 0; i < 20; i++) {
+        var v = getRandomKey(donnees);
+        var dv = donnees[v];
+        var t = getRandomKey(dv);
+        var tv = dv[t];
+        var personne = getRandomKey(tv);
+        var pname = personnenames[personne];
+        var answer = tv[personne];
+        mycontent = mycontent + '<tr><td><strong> ' + v + '</strong></td><td>' + t + '</td><td> '+pronom[personne]+' </td><td><input type="text" autocorrect="off" autocomplete="off" spellcheck="false"  name="lname" id="rep' + i + '" onkeypress="javascript:if(event.keyCode==13){checkval(\'' + answer + '\',' + i + ');}"/> <input type="submit" id="but' + i + '" value="Soumettre" onclick="javascript:checkval(\'' + answer + '\',' + i + ');" /></td></tr>';
+    }
+    mycontent = mycontent + '</table> ';
+    out.innerHTML = mycontent;
+}
+
+function compare(str1, str2) {
+    return str1.trim().replace(/\s+/g, " ") === str2.trim().replace(/\s+/g, " ");
+}
+
+function checkval(answer, i) {
+    if (parseInt(document.getElementById("rep" + i).value.trim().length === 0)) {
+        return;
+    }
+    if (compare(document.getElementById("rep" + i).value, answer)) {
+        document.getElementById("rep" + i).value = "C'est bon: " + document.getElementById("rep" + i).value;
+        document.getElementById("rep" + i).disabled = true;
+        document.getElementById("but" + i).disabled = true;
+        if(document.getElementById("rep" + (i+1))) {
+            document.getElementById("rep" + (i+1)).focus();
+        }
+    } else {
+        document.getElementById("rep" + i).value = "Ce n'est pas " + document.getElementById("rep" + i).value;
+    }
+}
+
+window.onbeforeunload = function() {
+    return "Si tu quittes la page, ton travail sera perdu.";
+};
+</script>
+
+
+<title>Lohan le champion des verbes</title>
+
+<body  onload="getStarted()" style="width:600px;margin-left:auto;margin-right:auto;">
+
+
+<h1>Conjugue les verbes suivants</h1>
+  
+<div id="verbes" />
+
+
+
+</body>
+
+</html>

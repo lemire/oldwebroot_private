@@ -1,0 +1,26 @@
+<html>
+<body>
+<h1>How to get your fresh RSS feed every morning delivered by Linux?</h1>
+
+<pre>
+First get jnews. It is free and fairly easy to setup.
+
+You need to create a template for jnews, but that's easy (see sample file).
+Mine is called <i>lemire</i>.
+
+Then, I put the following in a script called script.sh with the following content.
+
+cd /home/lemire/Downloads/RSS/jnews.py-1.2
+/usr/bin/python2 jnews.py -i lemire -o lemire.html
+/usr/bin/metasend -b -t lemireATondeletteSOMEDOTcom -s "RSS Feed" -m text/html -f lemire.html
+
+You then run crontab -e and add the following line...
+
+-0 1 * * *  /home/lemire/Downloads/RSS/jnews.py-1.2/script.sh /dev/null
+
+That's it.
+
+</pre>
+
+</body>
+</html>

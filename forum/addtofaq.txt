@@ -1,0 +1,8 @@
+
+
+
+Particular attention is drawn to the use within the standard of selected technology or algorithms which are claimed to be protected by national and/or international patents. In the case of technology submitted for consideration by JPEG for incorporation in Part 1 of the standard, the JPEG committee believes that the individual organisations concerned will make available licences to use this intellectual property, on a royalty- and fee-free basis, under specified conditions which may apply only to conforming implementations of the standard. These conditions are available on application to the organisations concerned, which are listed in an Annex to the document.
+
+It is of course still possible that other organisations or individuals may claim intellectual property rights that affect implementation of the standard, and any implementors are urged to carry out their own searches and investigations in this area. The JPEG committee requests any organisations or individuals claiming (or being aware of claims) that any of the committee drafts available for download here infringes other intellectual property rights to provide information and/or evidence to substantiate their claim to the JPEG Convener in the first instance.
+
+Reference:  http://www.jpeg.org/CDs15444.htm

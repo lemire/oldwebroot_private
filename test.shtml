@@ -1,0 +1,9 @@
+<html>
+<body>
+<SERVLET CODE="com.ondelette.servlets.LanguageRedirect.class" NAME="/servlet/com.ondelette.servlets.LanguageRedirect">
+<PARAM name="key" value="webcam">
+<PARAM name="html" value="off">
+<PARAM name="cnt" value="20">
+</SERVLET>
+</body>
+</html>

@@ -1,0 +1,51 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<script type="text/javascript">
+
+window.onbeforeunload = function() {
+    return "Si tu quittes la page, ton travail sera perdu.";
+}
+
+
+function getStarted() {
+    var out = document.getElementById("divisions");  
+    for (var i = 0; i < 50; i++) {
+        var y = Math.floor(Math.random()*11)+1 ;
+        var x = Math.floor(Math.random()*11)+1 ;
+        out.innerHTML= out.innerHTML + '<p>'+(y+x)+' moins ' +x+ ' = <input type="text" name="lname" id="rep'+i+'" onkeypress="javascript:if(event.keyCode==13)checkval('+x+','+y+','+i+');"/> <input type="submit" id="but'+i+'" value="Soumettre" onclick="javascript:checkval('+x+','+y+','+i+');" /></p>';
+    }
+}    
+
+
+function checkval(x, y, i) {
+  if(parseInt(document.getElementById("rep"+i).value.length==0)) return;
+  if(parseInt(document.getElementById("rep"+i).value)==y) {
+    document.getElementById("rep"+i).value="C'est bon: "+document.getElementById("rep"+i).value;
+    document.getElementById("rep"+i).disabled = true;
+    document.getElementById("but"+i).disabled = true;
+    if(document.getElementById("rep" + (i+1))) {
+            document.getElementById("rep" + (i+1)).focus();
+    }
+  } else {
+    document.getElementById("rep"+i).value="Ce n'est pas "+document.getElementById("rep"+i).value;
+  }
+}
+</script>
+
+
+<title>Louka le champion</title>
+
+<body  onload="getStarted()">
+
+
+
+  
+<p  />
+<div id="divisions" />
+
+
+
+</body>
+
+</html>

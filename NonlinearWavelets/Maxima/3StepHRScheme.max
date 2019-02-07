@@ -1,0 +1,100 @@
+/*
+*
+* 3 step HR schemes
+* 
+* March 12th 2002
+* Daniel Lemire
+*
+*/
+/* clean up! */
+kill(LABELS);
+/*************************************************************
+* Begin by deriving the 4-points 8-adic scheme
+* See file 4pointsschmes.max
+*************************************************************/
+p(x):=a*x^3+b*x^2+c*x+d;
+coefs: solve([p(-1)=y0,p(0)=y1,p(1)=y2,p(2)=y3],[a,b,c,d]);
+half:string(rat(subst(coefs,p(1/2))));
+quarter:string(rat(subst(coefs,p(1/4))));
+eigth:string(rat(subst(coefs,p(1/8))));
+three_eigth:string(rat(subst(coefs,p(3/8))));
+/*
+* (C14) half;
+* 
+* (D14)                        -(Y3-9*Y2-9*Y1+y0)/16
+* (C15) quarter;
+* 
+* (D15)                    -(5*Y3-35*Y2-105*Y1+7*y0)/128
+* (C16) eigth;
+* 
+* (D16)                  -(21*Y3-135*Y2-945*Y1+35*y0)/1024
+* (C17) three_eigth;
+* 
+* (D17)                  -(55*Y3-429*Y2-715*Y1+65*y0)/1024
+*/
+/****************************************************************
+* Next we have to compute optimal settings for epsilon 1 and 
+* epsilon2.
+****************************************************************/
+/*
+* for epsilon1, we'd like to get order 4 accuracy
+*/
+kill(p);
+kill(p4);
+kill(p5);
+p5(x):=a5*x^5+a4*x^4+a*x^3+b*x^2+c*x+d;
+/*p4(x):=a4*x^4+a*x^3+b*x^2+c*x+d;*/
+/* primary placeholder*/
+x0coarse : (index - 4)/2^j;
+x1coarse : index /2^j;
+x2coarse : (index + 4)/2^j;
+x3coarse : (index + 8)/2^j;
+coarse:ratexpand((- 35 * p5(x0coarse) +945 * p5(x1coarse) + 135 * p5(x2coarse) -21 * p5(x3coarse))/1024);
+/* secondary placeholder */
+x0fine : (index - 2)/2^j;
+x1fine : index /2^j;
+x2fine : (index + 2)/2^j;
+x3fine : (index + 4)/2^j;
+fine:ratexpand((-7 * p5(x0fine) + 105 * p5(x1fine) + 35 * p5(x2fine) - 5 * p5(x3fine))/128);
+/* they should both agree for cubic, not order 4 though. */
+epsilon1:ratsimp(solve(alpha*coarse+(1-alpha)*fine=p4((index+1/2)/2^j),alpha));
+/* we get epsilon1 is -1/8 */
+/********
+* for epsilon2, it is a bit more complicated it seems.
+* In the placeholder, we've got something that's accute up to fourth order
+* and we want to improve it to fifth order...
+*/
+/*fine:p4((index+1/2)/2^j);*/
+x0extrafine : (index - 1)/2^j;
+x1extrafine : index /2^j;
+x2extrafine : (index + 1)/2^j;
+x3extrafine : (index + 2)/2^j;
+extrafine: (-1 * p5(x0extrafine) + 9 * p5(x1extrafine) + 9 * p5(x2extrafine) -1 * p5(x3extrafine) ) /16;
+/*epsilon2:ratsimp(solve(alpha*fine+(1-alpha)*extrafine=p5((index+1/2)/2^j),alpha));*/ 
+/* 
+* this doesn't seem to be the way to go!
+*/
+/*
+* Let's try something else!!!
+*/
+ solve(alpha1*coarse+alpha2*fine+(1-alpha1-alpha2)*extrafine=p5((index+1/2)/2^j),[alpha1,alpha2]);
+ solve((300*r+15)/5340=(320*r+30)/3120,r);
+ sust(r=-27/184,(320*r+30)/3120);
+ratexpand((1*coarse-27*fine+210*extrafine)/184-p5((index+1/2)/2^j));
+/* on a donc que alpha1 = 1/184 alors que alpha2 = -27/184 */
+/* sauf que ce ne sont pas les valeurs nécessaires pour l'algo!*/
+solve([epsilon2*(1-epsilon1)=-27/184,epsilone2*epsilon1=1/184,1-epsilon2=210/184],[epsilon1,epsilon2]);
+/*
+*
+*                                      1                13
+*  (D7)                 [[epsilon1 = - --, epsilon2 = - --]]
+*                                      26               92
+*/
+epsilon1:-1/26;
+epsilon2:-13/92;
+/*next line evaluates to zero!!!*/
+ratexpand(epsilon2*((1-epsilon1)*fine+epsilon1*coarse)+(1-epsilon2)*extrafine-p5((index+1/2)/2^j));
+
+
+
+

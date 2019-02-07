@@ -1,0 +1,401 @@
+#LyX 1.1 created this file. For more info see http://www.lyx.org/
+\lyxformat 218
+\textclass article
+\begin_preamble
+ \usepackage{epsfig}
+\usepackage{amsmath,amssymb}
+\usepackage{pslatex}
+\usepackage{color}
+ 
+ \definecolor{veryblackblue}{rgb}{0.0,0.0,0.1}
+ \usepackage[pdftex,urlcolor=webblackblue,colorlinks=true]{hyperref}
+ \pdfinfo{
+            /Title      (Assignment 4 for Math 3423 - Numerical Methods 2)
+            /Author     (Daniel Lemire, Ph.D.)
+            /Subject    (note to myself: add description)
+            /Keywords   (Runge-Kutta, Multistep and all.)
+          }
+
+
+\topmargin  = 0pt
+\headheight = 0pt
+\headsep    = 0pt
+
+\voffset    = 0in
+\hoffset    = 0in
+\textheight = 230mm
+\textwidth  = 164mm
+
+\evensidemargin = 0pt
+\oddsidemargin  = 0pt
+
+\pagestyle{empty}
+\usepackage{float}
+
+%% Background of blue palette
+ \definecolor{webblackblue}{rgb}{0.0,0.0,0.2}
+ \definecolor{webblue}{rgb}{0.0, 0.0, 0.6}
+
+%% Background of red palette
+ \definecolor{webblackred}{rgb}{0.2,0.0,0.0}
+ \definecolor{webred}{rgb}{0.6,0.0,0.0}
+
+%% Background of green palette
+ \definecolor{webblackgreen}{rgb}{0.0,0.2,0.0}                                   
+ \definecolor{webgreen}{rgb}{0.0,0.6,0.0} 
+
+%% Background of magenta palette
+ \definecolor{webblackmagenta}{rgb}{0.14,0.0,0.14}                                   
+ \definecolor{webmagenta}{rgb}{0.42,0.0,0.42} 
+
+%% Background of cyan palette
+ \definecolor{webblackcyan}{rgb}{0.0,0.14,0.14}                                   
+ \definecolor{webcyan}{rgb}{0.0,0.42,0.42} 
+
+%% Background of yellow pallete
+ \definecolor{webblackyellow}{rgb}{0.14,0.14,0.0}                                   
+ \definecolor{webyellow}{rgb}{0.85,0.85,0.0} 
+
+ \definecolor{webdarkgray}{rgb}{0.2,0.2,0.2}
+
+ \definecolor{webgray}{rgb}{0.75,0.75,0.75}
+ \definecolor{weborange}{rgb}{1.0, 0.6, 0.0}
+
+\renewcommand\labelenumi{\textcolor{webdarkgray}{\arabic{enumi}.}}
+\newcommand{\setenumi}[1]{#1.\setcounter{enumi}{#1}}
+\usepackage{dsfont}
+\end_preamble
+\language american
+\inputencoding auto
+\fontscheme default
+\graphics default
+\paperfontsize 12
+\spacing single 
+\papersize Default
+\paperpackage a4
+\use_geometry 0
+\use_amsmath 0
+\paperorientation portrait
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\defskip medskip
+\quotes_language english
+\quotes_times 2
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+
+\layout Title
+
+Assignment 4
+\newline 
+MATH 3423 - Numerical Methods 2
+\newline 
+Acadia University
+\layout Author
+
+
+\latex latex 
+
+\backslash 
+href{http://www.ondelette.com/acadia/}{Daniel Lemire}
+\latex default 
+, Ph.D.
+ 
+\layout Date
+
+Winter 2002
+\newline 
+Due April 3rd 2002
+\layout Section
+
+
+\latex latex 
+
+\backslash 
+texorpdfstring{
+\backslash 
+textcolor{webblackblue}{Requirements}}{Requirements}
+\layout Standard
+
+You can do this assignment in teams of two or alone.
+ 5% of the mark will be based on presentation.
+ All required plots should be computer-generated.
+ A title page is required.
+ All computer code must be properly commented and should be computationally
+ efficient.
+ Feel free to use the computer language you prefer.
+ Maple and Java are both fine choices.
+ You are expected to reuse the same routines as you go from one problem
+ to the next.
+\layout Section
+
+
+\latex latex 
+
+\backslash 
+texorpdfstring{
+\backslash 
+textcolor{webblackblue}{Solving Differential Equations}}{Solving Differential
+ Equations}
+\layout Subsection
+
+
+\latex latex 
+
+\backslash 
+texorpdfstring{
+\backslash 
+textcolor{webblue}{Runge-Kutta Method}}{Runge-Kutta Method}
+\layout Enumerate
+
+Using a Computer Algebra System (Maple, Maxima, Mathematica...), solve 
+\begin_inset Formula \( u'=e^{x}u+\ln x \)
+\end_inset 
+
+.
+ Only give the command you used to solve the differential equation (not
+ the answer) and specify which tool you used.
+\begin_inset Info
+ y(x) := EXP(FLOAT(EXP(x))) ROMBERG(EXP(- EXP(s)), s, 1, x)
+\end_inset 
+
+ You may try to evaluate 
+\begin_inset Formula \( u(2) \)
+\end_inset 
+
+ if 
+\begin_inset Formula \( u(1)=0 \)
+\end_inset 
+
+.
+\layout Enumerate
+
+Write a Runge-Kutta routine that solves 
+\begin_inset Formula \( u'=e^{x}u+\ln x \)
+\end_inset 
+
+, 
+\begin_inset Formula \( u(1)=0 \)
+\end_inset 
+
+ numerically over the interval 
+\begin_inset Formula \( [1,2] \)
+\end_inset 
+
+ starting at 1 and going up to 
+\begin_inset Formula \( 2 \)
+\end_inset 
+
+ with step size 
+\begin_inset Formula \( h \)
+\end_inset 
+
+.
+ Give 
+\begin_inset Formula \( u(2) \)
+\end_inset 
+
+ for 
+\begin_inset Formula \( h=1,0.5,0.25,0.125... \)
+\end_inset 
+
+ until the value appears to stabilize.
+ Plot your answer as 
+\begin_inset Formula \( u(2) \)
+\end_inset 
+
+ versus 
+\begin_inset Formula \( h \)
+\end_inset 
+
+, Runge-Kutta is a fourth order method, does the result reflect that? Does
+ the problem appear stable? Explain.
+ (Don't do a full stability analysis, but try to determine if for all 
+\begin_inset Formula \( h \)
+\end_inset 
+
+, the answer is reasonable.
+ If your solution blows up for 
+\begin_inset Formula \( h \)
+\end_inset 
+
+ above a threshold, then it is not stable.)
+\layout Enumerate
+
+Explain why we chose the interval 
+\begin_inset Formula \( [1,2] \)
+\end_inset 
+
+ instead of 
+\begin_inset Formula \( [0,1] \)
+\end_inset 
+
+.
+ What would you do if you were asked to solve the problem over 
+\begin_inset Formula \( [0,1] \)
+\end_inset 
+
+? Assume your boss doesn't know anything about mathematics and you need
+ to find a way to make it work.
+\layout Subsection
+
+
+\latex latex 
+
+\backslash 
+texorpdfstring{
+\backslash 
+textcolor{webblue}{Multistep Method}}{Multistep Method}
+\layout Enumerate
+
+Replace the full Runge-Kutta solution by a multistep 
+\begin_inset Formula \( 4^{th} \)
+\end_inset 
+
+ order Adams-Bashforth method.
+ Solve 
+\begin_inset Formula \( u'=e^{x}u+\ln x \)
+\end_inset 
+
+, 
+\begin_inset Formula \( u(1)=0 \)
+\end_inset 
+
+ numerically over the interval 
+\begin_inset Formula \( [1,2] \)
+\end_inset 
+
+ starting at 0 and going up to 
+\begin_inset Formula \( 1 \)
+\end_inset 
+
+ with step size 
+\begin_inset Formula \( h \)
+\end_inset 
+
+.
+ Initialize your problem with Runge-Kutta.
+ Give 
+\begin_inset Formula \( u(2) \)
+\end_inset 
+
+ for 
+\begin_inset Formula \( h=1/8,1/16... \)
+\end_inset 
+
+ until the value appears to stabilize.
+ Plot your answer as 
+\begin_inset Formula \( u(2) \)
+\end_inset 
+
+ versus 
+\begin_inset Formula \( h \)
+\end_inset 
+
+, Your approach is 
+\begin_inset Formula \( 4^{th} \)
+\end_inset 
+
+ order method, does the result reflect that? Does the problem appear stable?
+ Is Adams-Bashforth better or worse than Runge-Kutta? Which one would you
+ choose in practice?
+\layout Enumerate
+
+Improve the Adams-Bashforth method by adding a 
+\begin_inset Formula \( 5^{th} \)
+\end_inset 
+
+ order corrector (Adams-Moulton).
+ Solve 
+\begin_inset Formula \( u'=e^{x}u+\ln x \)
+\end_inset 
+
+, 
+\begin_inset Formula \( u(1)=0 \)
+\end_inset 
+
+ numerically over the interval 
+\begin_inset Formula \( [1,2] \)
+\end_inset 
+
+ starting at 0 and going up to 
+\begin_inset Formula \( 1 \)
+\end_inset 
+
+ with step size 
+\begin_inset Formula \( h \)
+\end_inset 
+
+.
+ Initialize your problem with Runge-Kutta and use both Adams-Bashforth and
+ Adams-Moulton according to the predictor-corrector routine.
+ Give 
+\begin_inset Formula \( u(2) \)
+\end_inset 
+
+ for 
+\begin_inset Formula \( h=1/8,1/16... \)
+\end_inset 
+
+ until the value appears to stabilize.
+ Plot your answer as 
+\begin_inset Formula \( u(2) \)
+\end_inset 
+
+ versus 
+\begin_inset Formula \( h \)
+\end_inset 
+
+.
+ Does the problem appear stable? How does the corrector-predictor method
+ compares to the other two approaches in terms of accuracy and computational
+ cost (roughly)?
+\layout Subsection
+
+
+\latex latex 
+
+\backslash 
+texorpdfstring{
+\backslash 
+textcolor{webblue}{Shooting}}{Shooting}
+\layout Standard
+
+Solve the linear second-order differential equation 
+\begin_inset Formula \( y''=e^{x}y+\ln x \)
+\end_inset 
+
+ with boundary conditions 
+\begin_inset Formula \( y(1)=0 \)
+\end_inset 
+
+, 
+\begin_inset Formula \( y(2)=\pi  \)
+\end_inset 
+
+.
+ For 
+\begin_inset Formula \( h=1/8,1/16,... \)
+\end_inset 
+
+, give the values of 
+\begin_inset Formula \( y(1.25),y(1.5), \)
+\end_inset 
+
+ and 
+\begin_inset Formula \( y(1.75) \)
+\end_inset 
+
+ on three separate plots.
+ Show all of your derivations and verify numerically that 
+\begin_inset Formula \( y(2)=\pi  \)
+\end_inset 
+
+ (
+\begin_inset Formula \( \pi = \)
+\end_inset 
+
+3.141592653589793).
+\the_end

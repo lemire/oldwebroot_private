@@ -1,0 +1,63 @@
+<html>
+<body>
+
+<p>Cette page web fait son possible pour fusionner plusieurs fichiers TMX.</p>
+
+<script>
+
+function generateTMX(newdoc) {    
+    var serializer = new XMLSerializer();
+    var resultatTexte = '<?xml version="1.0" encoding="utf-8"?>\n'+serializer.serializeToString(newdoc);
+    var blob = new Blob([resultatTexte], {encoding:"UTF-8",type:"text/xml;charset=UTF-8"});
+    var el = document.getElementById('enregistre');
+    el.innerHTML = '<a href ="'+window.URL.createObjectURL(blob)+'" download="monfichierfusion.tmx">monfichierfusion.tmx</a> ('+blob.size+' octets)';
+}
+
+function readfile(F) {
+    var newdoc = document.implementation.createDocument(null, "tmx", null);
+    newdoc.characterSet = "UTF-8";
+    newdoc.documentElement.setAttribute('version','1.4')
+    var howmanyfiles = F.length;
+    var body = newdoc.createElement('body');
+    body.appendChild(newdoc.createTextNode("\n"));
+    var out = document.getElementById("report");   
+    out.innerHTML = " Traitement de " +howmanyfiles+ " fichiers.\n" ;
+    var el = document.getElementById('enregistre');
+    el.innerHTML = '';
+    var howmanyprocessed = 0;
+    var howmanyconcord = 0;
+    for (var i = 0; i < howmanyfiles; i++) {
+        var f = F[i];
+        var fileReader = new FileReader();
+        fileReader.onload = function(evt) {
+           var doc = new DOMParser().parseFromString(this.result, 'application/xml');
+           var alltus = doc.getElementsByTagName("tu");
+           out.innerHTML += " Le fichier " +f.name+ "  contient "+ alltus.length + " concordances. \n";
+           for(var j = 0; j < alltus.length; ++j) {
+              body.appendChild(newdoc.importNode(alltus[j],true));
+              body.appendChild(newdoc.createTextNode("\n"));
+              howmanyconcord = howmanyconcord + 1;
+           }
+           howmanyprocessed = howmanyprocessed + 1;
+           if(howmanyprocessed == howmanyfiles) {
+              newdoc.documentElement.appendChild(newdoc.createTextNode("\n"));
+              newdoc.documentElement.appendChild(newdoc.importNode(doc.getElementsByTagName("header")[0]));
+              newdoc.documentElement.appendChild(newdoc.createTextNode("\n"));
+              newdoc.documentElement.appendChild(body);
+              newdoc.documentElement.appendChild(newdoc.createTextNode("\n"));
+              generateTMX(newdoc);
+           }
+        }
+        fileReader.readAsText(f)
+    }
+ }
+</script>
+Choisissez les fichiers TMX:
+<input type="file" onchange="readfile(this.files)" multiple="true"></input>
+
+<p id="enregistre">
+
+<pre id="report">Vous devez charger vos fichiers TMX...</pre>
+
+</body>
+</html>

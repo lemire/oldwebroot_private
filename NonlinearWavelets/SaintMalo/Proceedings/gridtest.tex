@@ -1,0 +1,65 @@
+%***************** MALO2 MACROS  ******************
+% FILE NAME: gridtest.tex
+% COPYRIGHT: 5/1/97 -- updated 6/1/2003
+% BY: Larry Schumaker +
+% EMAIL: s@mars.cas.vanderbilt.edu
+% WEB: http://www.math.vanderbilt.edu/~schumake/
+% ******************************************************************
+\magnification\magstep1
+\hsize 4.66in
+\vsize 7.66in
+\def\tb#1{{\tt \char'134#1}}
+\input gridbox
+\input epsf
+%\showgridfalse   %Uncomment this to remove the grid lines
+
+\centerline{\bf A Test of Gridbox}
+\bigskip
+This file shows how to use the macros \tb{gridbox}, \tb{point},
+\tb{cpoint}, and \tb{ppoint}, which are contained in the file {\tt
+gridbox.tex}, to precisely place figures and label them.
+For example, you can use \tb{centerline} and \tb{vbox}
+to create a centered box:
+\bigskip
+
+\centerline{\vbox{
+\gridbox6/7/{
+\cpoint(3,3){\epsfxsize4truecm\epsfbox{schumaker1.fig}}
+\ppoint11(3,3){$o$}
+\point(1,4.1){\hbox{This is a circle}}
+}}}
+
+\bigskip
+You can use \tb{midinsert} to create a left-justified box (and turn off the
+grid
+by using \tb{showgridfalse}):
+
+\midinsert
+\showgridfalse
+\gridbox6/7/{
+\ppoint11(3,3){\epsfxsize4truecm\epsfbox{schumaker1.fig}}
+\cpoint(3,3){$o$}
+\ppoint00(1,4.1){\hbox{This is a circle}}
+}
+\endinsert
+In figuring out where to place things, it is very helpful to
+use a viewer which shows cursor position.
+{\tt ghostview} does this, but it shows position in
+{\tt truept} rather than {\tt truecm}.  In this case,
+you can use \tb{ptgridbox} instead of \tb{gridbox}. In using
+\tb{ptgridbox} you specify locations in points -- {\tt ghostview}
+translates this to true points. Thus,
+in the following example we have specified
+gridlines to be 20 points apart, but since
+this document is at magnification  \tb{magstep1},
+{\tt ghostview} will show them to be 24 points apart.
+\smallskip
+
+\centerline{\vbox{\ptgridbox40/80/{
+\ppoint10(20,10){\epsfxsize40pt\epsfbox{schumaker1.fig}}
+\ppoint12(20,70){\epsfxsize40pt\epsfbox{schumaker1.fig}}
+\cpoint(20,40){o}
+}}}
+\bye
+
+%END of gridtest.tex

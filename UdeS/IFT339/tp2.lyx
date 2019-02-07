@@ -1,0 +1,461 @@
+#LyX 1.1 created this file. For more info see http://www.lyx.org/
+\lyxformat 218
+\textclass amsart
+\language french
+\inputencoding auto
+\fontscheme default
+\graphics default
+\paperfontsize default
+\spacing single 
+\papersize Default
+\paperpackage a4
+\use_geometry 0
+\use_amsmath 0
+\paperorientation portrait
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\defskip medskip
+\quotes_language english
+\quotes_times 2
+\papercolumns 1
+\papersides 2
+\paperpagestyle default
+
+\layout Title
+
+IFT339: Structures de données (T.P.
+ 2) 
+\layout Author
+
+Daniel Lemire, Ph.D.
+\layout Date
+
+26 mai 2001 (à remettre le 13 juin 2001 à minuit)
+\layout Section
+
+Introduction
+\layout Standard
+
+Un des objectifs du cours IFT339 est de faire en sorte que les étudiants
+ puissent programmer plus facilement et plus rapidement des applications
+ solides.
+ On pourrait croire que d'étudier des théories abstraites comme les structures
+ de données ne nous aide pas concrètement, mais ce deuxième t.p.
+ vise à prouver le contraire.
+ Dans le premier t.p., nous avons résolu un problème simple en utilisant une
+ approche difficile (les piles, les files...).
+ Nous allons maintenant faire l'inverse, soit résoudre un problème difficile
+ en toute simplicité.
+ L'objectif de ce t.p.
+ est de renforcer votre compréhension des flots et de la méthodologie orientée-o
+bjet tout en continuant d'utiliser des structures de données importantes.
+ Une solide compréhension des gabarits est encouragée par ce t.p.
+\layout Section
+
+Théorie
+\layout Standard
+
+On dit qu'un ensemble S est ordonné s'il existe une relation 
+\begin_inset Formula \( \leq :S\times S\rightarrow \{vrai,faux\} \)
+\end_inset 
+
+ telle que 
+\layout Itemize
+
+
+\begin_inset Formula \( a\leq a\, \forall a\in S \)
+\end_inset 
+
+ 
+\layout Itemize
+
+
+\begin_inset Formula \( a\leq b \)
+\end_inset 
+
+ et 
+\begin_inset Formula \( b\leq c \)
+\end_inset 
+
+ alors 
+\begin_inset Formula \( a\leq c \)
+\end_inset 
+
+
+\layout Itemize
+
+si 
+\begin_inset Formula \( a\leq b \)
+\end_inset 
+
+ et 
+\begin_inset Formula \( b\leq a \)
+\end_inset 
+
+ alors 
+\begin_inset Formula \( a=b \)
+\end_inset 
+
+
+\layout Standard
+
+et on dit que S est totalement ordonné si tout sous-ensemble non-vide de
+ S contient un minimum (élément plus petit ou égal à tous les autres).
+ On se rappelera aussi qu'un ensemble ne peut pas contenir deux fois le
+ même élément.
+ 
+\layout Standard
+
+On a vu dans le cours que l'on devait souvent définir notre propre relation
+ de d'ordre entre des objets.
+ Il est généralement préférable de s'assurer que notre relation d'ordre
+ va créer un ensemble ordonné.
+ (Pourquoi?)
+\layout Section
+
+Énoncé
+\layout Standard
+
+Vous devez créer une classe Individu qui puisse contenir le nom, le prénom,
+ le nom de la ville, l'âge, et la province d'un individu (on peut supposer
+ qu'il n'y a pas d'espaces dans les noms).
+ Votre classe doit être doté d'un constructeur par défaut et des opérateurs
+ 
+\begin_inset Quotes eld
+\end_inset 
+
+<
+\begin_inset Quotes erd
+\end_inset 
+
+ et 
+\begin_inset Quotes eld
+\end_inset 
+
+==
+\begin_inset Quotes erd
+\end_inset 
+
+.
+ Pour les fins de ce travail, on dira qu'un individu est 
+\begin_inset Quotes eld
+\end_inset 
+
+inférieur
+\begin_inset Quotes erd
+\end_inset 
+
+ à un autre, s'il est plus jeune.
+ On dira qu'ils sont égaux si et seulement s'ils contiennent exactement
+ les mêmes informations (nom, prénom, etc.).
+ Vous devez aussi surcharger les opérateurs >> et << pour que l'on puisse
+ lire et écrire des 
+\begin_inset Quotes eld
+\end_inset 
+
+Individu
+\begin_inset Quotes erd
+\end_inset 
+
+ dans un istream et ostream respectivement selon le format 
+\begin_inset Quotes eld
+\end_inset 
+
+nom prenom nomdelaville province age
+\begin_inset Quotes erd
+\end_inset 
+
+.
+ Vous pouvez supposer que chaque chaîne de caractères ne dépasse pas 255
+ caractères (on ne travaille pas pour la NASA).
+\layout Standard
+
+Vous devez lire un nombre inconnu d'Individus dans un fichier, les mettre
+ dans un liste et les trier pour ensuite les écrire dans un autre fichier
+ (triés).
+ La syntaxe doit prendre la forme 
+\begin_inset Quotes eld
+\end_inset 
+
+tri fichierentrée.txt fichiersortie.txt
+\begin_inset Quotes erd
+\end_inset 
+
+.
+\layout Subsection
+
+Directives concernant le STL
+\layout Standard
+
+Il est suggéré d'utiliser la classe 
+\begin_inset Quotes eld
+\end_inset 
+
+list
+\begin_inset Quotes erd
+\end_inset 
+
+ de la librairie STL.
+ Cela n'est pas obligatoire, mais dans tous les cas, vous devrez utiliser
+ une structure de donnée appropriée et discutée dans le cours.
+ Nous avons vu en classe des rudiments de STL.
+ Sans exiger ici que vous connaissiez bien cette librairie importante, nous
+ allons néanmoins l'utiliser pour se simplifier la vie.
+ Il est important de préciser qu'il n'est pas nécessaire de connaître ou
+ d'étudier STL pour réussir ce t.p.
+ et que les informations pertinentes seront données librement en ce qui
+ concerne STL.
+ N'hésitez pas à poser des questions! Pour utiliser la classe 
+\begin_inset Quotes eld
+\end_inset 
+
+list
+\begin_inset Quotes erd
+\end_inset 
+
+, il suffit de commencer votre code par 
+\begin_inset Quotes eld
+\end_inset 
+
+#include <list>
+\begin_inset Quotes erd
+\end_inset 
+
+ suivi de 
+\begin_inset Quotes eld
+\end_inset 
+
+using namespace std;
+\begin_inset Quotes erd
+\end_inset 
+
+.
+ Par la suite, si vous voulez créer une classe 
+\begin_inset Quotes eld
+\end_inset 
+
+list
+\begin_inset Quotes erd
+\end_inset 
+
+ qui puisse contenir des 
+\begin_inset Quotes eld
+\end_inset 
+
+Individus
+\begin_inset Quotes erd
+\end_inset 
+
+, vous pouvez le faire avec la syntaxe 
+\begin_inset Quotes eld
+\end_inset 
+
+list<Individu> maliste;
+\begin_inset Quotes erd
+\end_inset 
+
+ ce qui a pour effet de créer une liste vide.
+ Vous pouvez ensuite utiliser les fonctions-membres suivantes (VOUS N'AVEZ
+ PAS BESOIN DE TOUT ÇA!):
+\layout Itemize
+
+maliste.push_back(ind); // ajoute l'objet 
+\begin_inset Quotes eld
+\end_inset 
+
+ind
+\begin_inset Quotes erd
+\end_inset 
+
+ à la fin de la liste, donne 
+\begin_inset Quotes eld
+\end_inset 
+
+void
+\begin_inset Quotes erd
+\end_inset 
+
+
+\layout Itemize
+
+maliste.pop_back(ind); // retire l'objet 
+\begin_inset Quotes eld
+\end_inset 
+
+ind
+\begin_inset Quotes erd
+\end_inset 
+
+ de la fin de la liste, donne 
+\begin_inset Quotes eld
+\end_inset 
+
+void
+\begin_inset Quotes erd
+\end_inset 
+
+
+\layout Itemize
+
+maliste.push_front(ind);// ajoute l'objet 
+\begin_inset Quotes eld
+\end_inset 
+
+ind
+\begin_inset Quotes erd
+\end_inset 
+
+ de la fin de la liste, donne 
+\begin_inset Quotes eld
+\end_inset 
+
+void
+\begin_inset Quotes erd
+\end_inset 
+
+
+\layout Itemize
+
+maliste.pop_front(ind);// retire l'objet 
+\begin_inset Quotes eld
+\end_inset 
+
+ind
+\begin_inset Quotes erd
+\end_inset 
+
+ du début de liste, donne 
+\begin_inset Quotes eld
+\end_inset 
+
+void
+\begin_inset Quotes erd
+\end_inset 
+
+
+\layout Itemize
+
+maliste.sort(); // effectue un tri sur la liste (note: on peut passer une
+ fonction-objet en paramètre, ex.
+ sort(greater<Individu>())...
+ attention cependant aux opérateurs que vous avez définis!)
+\layout Itemize
+
+maliste.size(); //donne le nombre d'éléments dans la liste
+\layout Itemize
+
+maliste.clear(); // met à zéro la liste, donne 
+\begin_inset Quotes eld
+\end_inset 
+
+void
+\begin_inset Quotes erd
+\end_inset 
+
+
+\layout Itemize
+
+maliste.empty(); // est-ce que la vide est vide? donne un bool
+\layout Itemize
+
+maliste.begin(); // donne un itérateur bidirectionnel de classe 
+\begin_inset Quotes eld
+\end_inset 
+
+list<Individu>::iterator
+\begin_inset Quotes erd
+\end_inset 
+
+ pointant sur le début de la liste
+\layout Itemize
+
+maliste.end(); // donne un itérateur bidirectionnel de classe 
+\begin_inset Quotes eld
+\end_inset 
+
+list<Individu>::iterator
+\begin_inset Quotes erd
+\end_inset 
+
+ pointant sur la fin de la liste (+1)
+\layout Itemize
+
+maliste.erase(it);// supprime l'élément pointé par l'itérateur (donne un
+ itérateur pointant après)
+\layout Itemize
+
+maliste.insert(it, ind);// insère un élément après la position indiquée par
+ l'itérateur (donne un itérateur pointant sur le nouvel élément)
+\layout Standard
+
+On se rappelle qu'un itérateur bidirectionnel peut être incrémenté (it++)
+ et décrémenté (it--) à volonté.
+\layout Section
+
+À Remettre
+\layout Standard
+
+Le travail sera évalué sur 100 points.
+ Vous devez remettre un rapport qui répond aux questions suivantes:
+\layout Enumerate
+
+Donner un exemple illustrant la nécessité de ne pas choisir une relation
+ d'ordre arbitrairement.
+ Indice: définissez un objet avec une surcharge de l'opération 
+\begin_inset Formula \( \leq  \)
+\end_inset 
+
+telle que l'algorithme de tri-fusion ou le quicksort (au choix) donne un
+ résultat aberrant.
+ Expliquez ensuite pourquoi le résultat aberrant obtenu avec votre exemple
+ ne serait pas possible si votre relation menait à un ensemble ordonné.
+ (10 points)
+\layout Enumerate
+
+Si on traite des chaînes de caractères sous la forme de pointeurs (char*),
+ pourquoi est-il important de faire attention à l'opération d'égalité 
+\begin_inset Quotes eld
+\end_inset 
+
+==
+\begin_inset Quotes erd
+\end_inset 
+
+, donnez un exemple.
+ Est-ce que vous pouvez proposer une solution? (10 points)
+\layout Enumerate
+
+Si on considère pour les fins de cette question que 
+\begin_inset Formula \( a\leq b\Leftrightarrow (a<b)|(a==b) \)
+\end_inset 
+
+, est-ce que la relation d'ordre qu'on vous demande d'utiliser pour ce t.p.
+ donne un ensemble ordonné? Expliquez.
+ (10 points)
+\layout Enumerate
+
+Le tri se fait uniquement sur l'âge.
+ On a vu qu'on pouvait passer en paramètre une fonction-objet aux méthodes
+ du STL pour modifier dynamiquement la relation 
+\begin_inset Quotes eld
+\end_inset 
+
+<
+\begin_inset Quotes erd
+\end_inset 
+
+ qui est utilisée par défaut.
+ Pourquoi est-ce que je ne pourrais obtenir le même résultat par héritage.
+ (Aucun point accordé pour cette question, mais essayez d'y répondre pour
+ la forme!)
+\layout Standard
+
+Vous devez aussi remettre les sources qui répondent à l'énoncé plus haut
+ électroniquement et sur papier.
+ D'autres instructions seront données en classe.
+ Vous devez vous assurer que vos sources compilent sous GCC pour les Sun
+ du département (20 points) et que le tri s'effectue correctement.
+ (50 points) Il est permis de travailler en équipe de deux (et de ne remettre
+ qu'un seul rapport par équipe).
+\the_end

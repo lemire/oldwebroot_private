@@ -1,0 +1,236 @@
+/*
+Copyright par Daniel Lemire
+*/
+
+SMALL {
+   font-size : 0.7em;
+}
+
+PRE {
+   font-size : 0.8em;
+}
+
+P.HIDDEN {
+   font-size: 0.1em;
+}
+
+P.PUBICON {
+   text-align : center;
+}
+img.JAVA {
+	margin-left:0.2em;
+}
+
+div.ONDELETTEICON {
+   text-align: center;
+   margin-left:auto;
+   margin-right:auto;
+}
+
+
+ul.LISTOFADDRESSES{
+	border-left:solid #0863AD;
+	margin-left: 1em;
+	padding-left: 0.5em;
+}
+li.LISTOFADDRESSES{
+	margin-left: 0.1em;
+	padding-left: 0em;
+}
+P.LONGTITLE {
+	margin-top:1em;
+	margin-bottom:1em;
+	font-style: italic;
+	font-weight: bold;
+	font-size: large;
+	text-align: center;
+	background: white;
+    	color: #0863AD;
+    	text-shadow: black 0px 0px 5px;
+}
+
+A.WHITEPAPER {
+font-weight: bold;
+}
+
+
+P.INDENTE {
+   text-align : left;
+   margin-left : 3em;
+}
+
+td.TEAM {
+	border-bottom: 1em;
+}
+
+
+
+A.STANDARD:visited {
+   font-style : normal;
+   font-weight : normal;
+   font-family : Arial, Helvetica, sans-serif;
+   color : white;
+   background : transparent;
+}
+
+A.STANDARD:hover {
+   font-style : normal;
+   font-weight : normal;
+   font-family : Arial, Helvetica, sans-serif;
+   color : black;
+   background-color : white; 
+}
+
+A.STANDARD:link {
+   font-style : normal; 
+   font-weight : normal; 
+   font-family : Arial, Helvetica, sans-serif; 
+   color : white; 
+   background : transparent; 
+}
+
+.MAINTEXT {
+   color : black; 
+   background-color : white; 
+   background-image : none; 
+}
+
+.LOGO {
+   color : white; 
+   background-color : #0863AD;
+   /*white-space: pre;*/
+}
+
+ADDRESS, P.ADRESSE {
+   text-align : left;  
+   font-family : monospace;
+   background-color: #7BBDDE;
+   color: black;
+   margin-top : 3em;
+   margin-bottom : 3em;
+   margin-left:3em;
+   margin-right:5em;
+}	
+
+.DETAILADROITE {
+   font-style : italic; 
+   font-size : 0.7em; 
+   font-family : Arial, Helvetica, sans-serif; 
+   text-align : right; 
+}
+
+.DETAIL {
+   font-style : italic; 
+   font-size : 0.8em; 
+   font-family : Arial, Helvetica, sans-serif; 
+   text-align : left; 
+}
+
+
+
+
+a:link {
+color: black;
+background-color: #7BBDDE;
+}
+
+a:visited {
+color: black;
+background-color: #7BBDDE;
+font-style: italic;
+}
+
+A:hover {
+color:#0863AD;
+background-color: #7BBDDE;
+
+}
+
+form 
+{
+} 
+
+BODY
+{
+font-family:Arial,Helvetica,sans-serif;
+color: black;
+text-align: justify;
+background-color: white;
+
+}
+
+
+
+h1
+{
+font-family:Arial,Helvetica,sans-serif;
+text-transform:uppercase;
+color:black;
+background-color: transparent;
+font-size:x-large;
+font-weight:bold;
+text-align:center;
+}
+
+
+
+H3 {
+font-family:Arial,Helvetica,sans-serif;
+   text-align : center;
+}
+
+H4 {
+font-family:Arial,Helvetica,sans-serif;
+}
+
+li {
+   /*display:block;*/
+   /*padding-top : 1em;*/
+   margin-top : 1em;
+   font-family:Arial,Helvetica,sans-serif;
+
+}
+
+p.DOWNLOADITEM{
+   	/*display:block;
+   	margin-top : 1em;
+   	font-family:Arial,Helvetica,sans-serif;
+   	list-style-type: none;*/
+        border-style: solid;
+        border-width: medium;        /* sets border width on all sides */
+        border-color: #0863AD;
+	margin: 1em;
+	padding: 1em;
+}
+
+h2
+{
+font-family:Arial,Helvetica,sans-serif;
+color:black;
+font-size:x-large;
+font-weight:bold;
+text-align:center;
+background:transparent;
+}
+
+p,div,ul
+{
+font-family:Arial,Helvetica,sans-serif;
+color: black;
+background:transparent;
+}
+
+div.WEBMASTER { 
+text-align: right
+}
+SUP {
+	font-size: 70%;
+	vertical-align: super;
+} 
+
+@media print {
+BODY {
+background-color: white;
+color:#000000;
+}
+}

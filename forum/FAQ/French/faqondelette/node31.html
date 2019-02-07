@@ -1,0 +1,190 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with jLaTeX2HTML 2002 (1.62) JA patch-1.4
+patched version by:  Kenshi Muto, Debian Project.
+LaTeX2HTML 2002 (1.62),
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>Qu'est-ce que le nombre de moments nuls et quel lien fait-on avec
+la régularité?</TITLE>
+<META NAME="description" CONTENT="Qu'est-ce que le nombre de moments nuls et quel lien fait-on avec
+la régularité?">
+<META NAME="keywords" CONTENT="faqondelette">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<META NAME="Generator" CONTENT="jLaTeX2HTML v2002 JA patch-1.4">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="faqondelette.css">
+
+<LINK REL="next" HREF="node32.html">
+<LINK REL="previous" HREF="node30.html">
+<LINK REL="up" HREF="node20.html">
+<LINK REL="next" HREF="node32.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html526"
+  HREF="node32.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html522"
+  HREF="node20.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html516"
+  HREF="node30.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
+<A NAME="tex2html524"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html527"
+  HREF="node32.html">Pourquoi la transformée de</A>
+<B> Up:</B> <A NAME="tex2html523"
+  HREF="node20.html">Un peu de théorie</A>
+<B> Previous:</B> <A NAME="tex2html517"
+  HREF="node30.html">Quel est l'importance d'avoir</A>
+ &nbsp <B>  <A NAME="tex2html525"
+  HREF="node1.html">Contents</A></B> 
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+
+<H2><A NAME="SECTION00041100000000000000000"></A><A NAME="momentsnuls"></A>
+<BR>
+Qu'est-ce que le nombre de moments nuls et quel lien fait-on avec
+la r&#233;gularit&#233;?
+</H2>
+
+<P>
+On dit qu'une ondelette a <IMG
+ WIDTH="19" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
+ SRC="img29.png"
+ ALT="$ N $"> moments nuls si pour <!-- MATH
+ $i=0,...,N-1$
+ -->
+<IMG
+ WIDTH="108" HEIGHT="29" ALIGN="MIDDLE" BORDER="0"
+ SRC="img62.png"
+ ALT="$ i=0,...,N-1 $">,
+<!-- MATH
+ $\int x^{i}\psi_{j,i}(x)dx=0$
+ -->
+<IMG
+ WIDTH="124" HEIGHT="34" ALIGN="MIDDLE" BORDER="0"
+ SRC="img63.png"
+ ALT="$ \int x^{i}\psi _{j,i}(x)dx=0 $">. En particulier, toute ondelette se
+doit d'avoir au moins un moment nul. 
+
+<P>
+Bri&#232;vement, on peut expliquer l'utilit&#233; pratique d'avoir un bon nombre
+de moments nuls, supposons qu'on prend la transform&#233;e par ondelettes
+de <IMG
+ WIDTH="14" HEIGHT="29" ALIGN="MIDDLE" BORDER="0"
+ SRC="img48.png"
+ ALT="$ f $"> avec des ondelettes ayant un support compact et <IMG
+ WIDTH="19" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
+ SRC="img29.png"
+ ALT="$ N $"> moments
+nuls, localement, nous supposons que <IMG
+ WIDTH="14" HEIGHT="29" ALIGN="MIDDLE" BORDER="0"
+ SRC="img48.png"
+ ALT="$ f $"> a l'expansion de Taylor
+<!-- MATH
+ \begin{displaymath}
+f(x)=f(a)+f'(a)(x-a)+...+f^{(N-1)}(a)(x-a)^{N-1}/(N-1)!+erreur(x)
+\end{displaymath}
+ -->
+<P></P>
+<DIV ALIGN="CENTER">
+<IMG
+ WIDTH="543" HEIGHT="37" ALIGN="MIDDLE" BORDER="0"
+ SRC="img64.png"
+ ALT="$\displaystyle f(x)=f(a)+f'(a)(x-a)+...+f^{(N-1)}(a)(x-a)^{N-1}/(N-1)!+erreur(x)$">
+</DIV><P></P>
+Nous avons alors <!-- MATH
+ \begin{displaymath}
+\int f(x)\psi_{j,i}(x)dx=\int erreur(x)\psi_{j,i}(x)dx
+\end{displaymath}
+ -->
+<P></P>
+<DIV ALIGN="CENTER">
+<IMG
+ WIDTH="289" HEIGHT="51" ALIGN="MIDDLE" BORDER="0"
+ SRC="img65.png"
+ ALT="$\displaystyle \int f(x)\psi _{j,i}(x)dx=\int erreur(x)\psi _{j,i}(x)dx$">
+</DIV><P></P>
+o&#249; l'int&#233;grale n'est prise que dans la voisinage de <IMG
+ WIDTH="14" HEIGHT="29" ALIGN="MIDDLE" BORDER="0"
+ SRC="img48.png"
+ ALT="$ f $"> sujet &#224; l'expansion
+de Taylor. On suppose ici implicitement que le support de l'ondelette
+est comprise dans ce voisinage, mais pour une fonction partout r&#233;guli&#232;re,
+on peut faire l'expansion de Taylor pour n'importe quel <IMG
+ WIDTH="12" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img66.png"
+ ALT="$ a $"> et on
+peut donc centrer l'expansion dans le support de l'ondelette. Comme
+on peut le voir, un grand nombre de moments nuls nous permet d'affirmer
+que pour une fonction tr&#232;s r&#233;guli&#232;re, les coefficients d'ondelettes
+seront petits. Ce d&#233;tail est important pour les applications. Comme
+la fonction d'erreur prend localement la forme <!-- MATH
+ $f^{(N)}(\xi)(x-a)^{N}/N!$
+ -->
+<IMG
+ WIDTH="143" HEIGHT="36" ALIGN="MIDDLE" BORDER="0"
+ SRC="img67.png"
+ ALT="$ f^{(N)}(\xi )(x-a)^{N}/N! $">
+(th&#233;or&#232;me de Taylor), on voit que plus les ondelettes auront un petit
+support, plus les coefficients d'ondelette seront petits. En prenant
+donc le ratio des coefficients d'ondelettes correspondant &#224; des &#233;chelles
+diff&#233;rentes, on peut donc esp&#233;rer mesurer la r&#233;gularit&#233; de <IMG
+ WIDTH="14" HEIGHT="29" ALIGN="MIDDLE" BORDER="0"
+ SRC="img48.png"
+ ALT="$ f $">.
+
+<P>
+En r&#233;sum&#233;, pour une fonction <IMG
+ WIDTH="14" HEIGHT="29" ALIGN="MIDDLE" BORDER="0"
+ SRC="img48.png"
+ ALT="$ f $"> tr&#232;s r&#233;guli&#232;re, les coefficients
+d'ondelette seront petits, et cela est d'autant plus vrai pour les
+ondelettes tr&#232;s localis&#233;es (&#233;chelles fines).
+
+<P>
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html526"
+  HREF="node32.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html522"
+  HREF="node20.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html516"
+  HREF="node30.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
+<A NAME="tex2html524"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html527"
+  HREF="node32.html">Pourquoi la transformée de</A>
+<B> Up:</B> <A NAME="tex2html523"
+  HREF="node20.html">Un peu de théorie</A>
+<B> Previous:</B> <A NAME="tex2html517"
+  HREF="node30.html">Quel est l'importance d'avoir</A>
+ &nbsp <B>  <A NAME="tex2html525"
+  HREF="node1.html">Contents</A></B> 
+<!--End of Navigation Panel-->
+<ADDRESS>
+Daniel Lemire
+2004-02-02
+</ADDRESS>
+</BODY>
+</HTML>

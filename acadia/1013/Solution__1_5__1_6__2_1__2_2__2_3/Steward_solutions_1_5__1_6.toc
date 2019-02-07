@@ -1,0 +1,4 @@
+\select@language {english}
+\contentsline {section}{\numberline {1}\leavevmode {\color {webblackblue}Functions and Models}}{1}{section.1}
+\contentsline {subsection}{\numberline {1.5}\noindent \leavevmode {\color {webblue}Exponential Functions}}{1}{subsection.1.5}
+\contentsline {subsection}{\numberline {1.6}\leavevmode {\color {webblue}Inverse Functions and Logarithms}}{4}{subsection.1.6}

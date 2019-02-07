@@ -1,0 +1,1261 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%  proceed.tex
+% copyright 1995-2001 Carl de Boor and Larry Schumaker
+% contains TeX abbreviations for Proceedings used in the spline bib.
+%
+% Companion files:  journal.tex  refmac.tex
+
+% latest change: 06 dec 01 : add \OsloII, \TexasXa,s
+% latest change: 30 mar 01 : add \DuisburgII
+% latest change: 20 oct 00 : add \Schumakerfest
+% latest change: 17 apr 00 : add \Stmalof, \Stmalod
+% latest change: 21 dec 99 : hyphenate Nash\-ville, correct gleichnungen
+% latest change: 09 sep 99 : change \TexasIXa --> \TexasIXt
+% latest change: 17 jun 99 : make \Memphis  work (still needs publisher)
+% latest change: 03 mar 99 : add \Graphicsgems; correct \TexasIXa
+% latest change: 15 jan 99 : correct spelling of LeM\'ehaut\'e
+% latest change: 30 dec 98 : add Powellfest
+% latest change: 03 dec 98 : add Zaragoza
+% latest change: 19 oct 98 : add TexasIXa and TexasIXc
+% latest change: 26 aug 98 : add Mannheimnisi, correct Sahney
+% latest change: 14 oct 97 : add Lillehammer
+% latest change: 06 feb 97 : add ChamonixIIIa,b
+% latest change: 21 nov 96 : add SinghIII, edit MvatIII
+% latest change: 15 may 96 : change ChamonixII,III to ChamonixIIa,IIb
+% latest change: 10 may 96 : add IDoMATnifi, Montecatini
+% latest change: 30 nov 95 : add Tampaseminar, Openproblems
+% latest change: 31 oct 95 : add TNAII and Ulvik
+% latest change:  2 aug 95 : split TexasVIII into a and w.
+% latest change: 22 may 95 : correct Neworleans (to handle \pl properly)
+%                       remove \EdmontonII (it's actually the journal \CMSCP
+% latest change: 29 mar 95 : add TexasVIII
+% latest change: 05 oct 94 : add Siggrapheisi
+% latest change: 16 sep 94 (larry): add Taormina
+% latest change: 1 sep 94(larry): repair Antaloczy,
+%      add NmatVI, change Griffithseifi to a date of 1986 
+%      and the handle to ....sesi, add VarnaCF, change Szabados to 1987
+% latest change: 20 apr 94: add ChamonixII,III, correct Neworleans, Ruskai,
+%                           ChileII
+% latest change: 15 mar 94: add ChileII
+% latest change: 30 jan 94: add SinghII
+% latest change: 30 dec 93: renamed Nat --> NmatVIII and corrected it
+% latest change:  7 dec 93: correct Havana
+% latest change: 26 nov 93: change LycheGoldman to GoldmanLyche, also add
+%    CollatzMeinardus71, CollatzMeinardus75, ButzerNagyGorlich81, Watson78, 
+%    ButzerNagy74, Hammerlin82, Hennart82, CollatzMeinardusUnger68
+%    Also, add empty separating line (to make sorting easier), then sort
+%    Also, renamed ButzerV --> II, II --> III, III --> V
+%    Also, renamed Hammerlin --> HammerlinI
+% latest change: 31 oct 93: correct VarnaIII (can't use \ in fields to be
+%                           further processed by other macros)
+% latest change: 16 aug 93: edit Schempp, add Piegl, amend Generalmotors
+% latest change:  2 apr 93: edit Teneriffe, Aziz, BoehmerII, NmatIII, TexasII,
+%                            MvatIII, MvatIV, . --> .\ 
+% latest change: 15 mar 93: add Hagennitwa,b, HagenRoller, Farinnion,
+%                           Barnhillnion, change Chamonix to ChamonixI
+% latest change: 31 dec 92; (correct BonnI vol. no.)
+% latest change: 28 nov 92; (introduce use of  \refproc and  \decodeproc)
+% latest change: 25 aug 92; (update Lin, add ChuiWave, Ruskai)
+% latest change: 8 jul 92; (update Nmatnion)
+% latest change: 5-23 june 92; (update Havana, add Kaluga)
+% latest change: 14-25 may 92; (add Prolla79, TexasVII, Hagen, VarnaIII)
+% latest change: 18 apr 92; (add Griffiths87, Griffiths89, NevaiPinkus91)
+% latest change: 4 mar 92  (correct coxmason89)
+% latest change: 12 feb 92
+% the proceedings file decodes the references there with the help of
+% the macros \refproc  and  \decodeproc defined in  journal.tex as follows:
+% \def\refproc #1(#2; #3; {\decodeproc#2; \xdef\yr{#3}}
+% \def\decodeproc#1), #2 (#3.),#4; {%
+% This particular splitting helps in the decoding of nonstandard proceedings 
+% (in \refQ[a-c]).  
+
+%Antaloczy78
+\ifx\Antaloczy\undefined\else{
+\refproc (Modern Electrocardiology),
+Z. Antaloczy (ed.),
+Akademiai Klado (Budapest);
+1978;
+}\fi
+
+%Aziz75
+\ifx\Aziz\undefined\else{
+\refproc (Numerical Solutions of Boundary Value Problems for Ordinary 
+Differential Equations), 
+A. Aziz (ed.), Academic Press (New York);
+1975;
+}\fi
+
+%Barnett81
+\ifx\Barnett\undefined\else{
+\refproc (Interpreting Multivariate Data),
+D. V. Barnett (ed.),
+Wiley (New York);
+1981;
+}\fi
+
+%Barnhill91
+\ifx\Barnhillnion\undefined\else{
+\refproc (Geometry Processing for Design and Manufacturing),
+R. E. Barnhill (ed.),
+SIAM (Philadelphia);
+1991;
+}\fi
+
+%BarnhillBoehm83
+\ifx\CagdI\undefined\else{
+\refproc (Surfaces in Computer Aided Geometric Design),
+R. E. Barnhill and W. Boehm (eds.),
+North Holland (Amsterdam);
+1983;
+}\fi
+
+%BarnhillBoehm84
+\ifx\CagdII\undefined\else{
+\refproc (Surfaces in CAGD '84),
+R. Barnhill and W. Boehm (eds.),
+North Holland (Amsterdam);
+1985;
+}\fi
+
+%BarnhillBoehmHoschek90
+\ifx\CagdVI\undefined\else{
+\refproc{(Curves and surfaces in CAGD '89),
+R. Barnhill, W. Boehm, and J. Hoschek (eds.),
+North-Holland (Amsterdam);
+1990;
+}\fi
+
+%BarnhillRiesenfeld74
+\ifx\Barnhill\undefined\else{
+\refproc (Computer Aided Geometric Design),
+R. E. Barnhill and R. F. Riesenfeld (eds.),
+Academic Press (New York);
+1974;
+}\fi
+
+%BoehmerMeinardusSchempp74
+\ifx\BoehmerI\undefined\else{
+\refproc (Spline-Funktionen),
+K. B\"ohmer, G. Meinardus, and W. Schempp (eds.),
+Bibliographisches Institut (Mannheim);
+1974;
+}\fi
+
+%BoehmerMeinardusSchempp75
+\ifx\BoehmerII\undefined\else{
+\refproc (Spline Functions, Karls\-ruhe 1975),
+K. B\"ohmer, G. Meinardus,  and W. Schempp (eds.),
+Lecture Notes in Math.\ 501, Springer (Heidelberg);
+1976;
+}\fi
+
+%Bojanov94
+\ifx\Openproblems\undefined\else{
+\refproc (Open Problems in Approximation Theory), B. Bojanov (ed.),
+Science Culture Technology Publishing (Singapore);
+1994;
+}\fi
+
+%BraessSchumaker92
+\ifx\Nmatnion\undefined\else{
+\refproc (Numerical Methods in Approximation Theory, ISNM 105),
+D. Braess, L.L. Schumaker (ed.),
+Birk\-h\"auser (Basel);
+1992;
+}\fi
+
+%Brodlie80
+% Conference on Mathematical Methods in Computer Graphics and Design
+% (1978 : University of Leiscester)
+\ifx\Brodlie\undefined\else{
+\refproc (Mathematical Methods in Computer Graphics and Design),
+K. W. Brodlie (ed.),
+Academic Press (New York);
+1980;
+}\fi
+
+%BrosowskiDeutsch85
+\ifx\Brosowski\undefined\else{
+\refproc (Parametric Optimization and Approximation),
+B. Brosowski and F. Deutsch (eds.),
+Birkh\"auser (Basel);
+1985;
+}\fi
+
+%BuhmannIserles97
+\ifx\Powellfest\undefined\else{
+\refproc (Approximation Theory and Optimization),
+M. D. Buhmann and A. Iserles (eds.),
+Cambridge University Press (Cambridge, England);
+1997;
+}\fi
+
+%ButzerKahaneNagy72
+\ifx\ButzerI\undefined\else{
+\refproc (Linear Operators and Approximation, ISNM 20),
+P. L. Butzer, J. P. Kahane and  B. Sz.-Nagy (eds.),
+Birk\-h\"auser (Basel);
+1972;
+}\fi
+
+%ButzerNagy74
+\ifx\ButzerV\undefined\else{
+\refproc (Linear Operators and Approximation II),
+P. L. Butzer and B. Sz.-Nagy (eds.),
+Birkh\"auser (Basel);
+1974;
+}\fi
+
+%ButzerNagy78
+\ifx\ButzerII\undefined\else{
+\refproc (xxxx, ISNM 25),
+P. L. Butzer and  B. Sz.-Nagy (eds.),
+Birkh\"auser (Basel);
+1978;
+}\fi
+
+%ButzerNagyGorlich81
+\ifx\ButzerIV\undefined\else{
+\refproc (Functional Analysis and Approximation),
+P. L. Butzer, B. Sz.-Nagy, and E. G\"orlich (eds.),
+Birkh\"auser (Basel);
+1981;
+}\fi
+
+%ButzerNagyStens84
+\ifx\ButzerIII\undefined\else{
+\refproc (Linear Spaces and Approximation, ISNM 40),
+P. L. Butzer, B. Sz.-Nagy and R. L. Stens (eds.),
+Birk\-h\"auser (Basel);
+1984;
+}\fi
+
+%Cheney80
+\ifx\TexasIII\undefined\else{
+\refproc (Approximation Theory III),
+E. W. Cheney (ed.),
+Academic Press (New York);
+1980;
+}\fi
+
+%CheneyChuiSchumaker92
+\ifx\TexasVII\undefined\else{
+\refproc (Approximation Theory VII),
+E. W. Cheney, C. Chui,  and  L. Schumaker (eds.),
+Academic Press (New York);
+1992;
+}\fi
+
+%ChuiSchumaker95a
+\ifx\TexasVIIIa\undefined\else{
+\refproc (Approximation Theory VIII, Vol.\ 1: Approximation and Interpolation),
+Charles K. Chui  and  Larry L. Schumaker (eds.),
+World Scientific Publishing Co., Inc.{} (Singapore);
+1995;
+}\fi
+
+%ChuiSchumaker95w
+\ifx\TexasVIIIw\undefined\else{
+\refproc (Approximation Theory VIII, Vol.\ 2: Wavelets),
+Charles K. Chui  and  Larry L. Schumaker (eds.),
+World Scientific Publishing Co., Inc.{} (Singapore);
+1995;
+}\fi
+
+%ChuiSchumaker98t
+\ifx\TexasIXt\undefined\else{
+\refproc (Approximation Theory IX, Vol.~1: Theoretical Aspects),
+Charles K. Chui  and  Larry L. Schumaker (eds.),
+Vanderbilt University Press (Nash\-ville TN);
+1998;
+}\fi
+
+%ChuiSchumaker98c
+\ifx\TexasIXc\undefined\else{
+\refproc (Approximation Theory IX, Vol.~2: Computational Aspects),
+Charles K. Chui  and  Larry L. Schumaker (eds.),
+Vanderbilt University Press (Nash\-ville TN);
+1998;
+}\fi
+
+%ChuiSchumakerStockler02a
+\ifx\TexasXa\undefined\else{
+\refproc (Approximation Theory X:
+Abstract and Classical Analysis),
+C. K. Chui,  L. L. Schumaker, and J. St\"ockler (eds.),
+Vanderbilt University Press (Nash\-ville);
+2002;
+}\fi
+
+%ChuiSchumakerStockler02b
+\ifx\TexasXs\undefined\else{
+\refproc (Approximation Theory X:
+Splines, Wavelets, and Applications),
+C. K. Chui, L. L. Schumaker, and J. St\"ockler (eds.),
+Vanderbilt University Press (Nash\-ville);
+2002;
+}\fi
+
+%Chui91
+\ifx\ChuiforLorentz\undefined\else{
+\refproc (Approximation Theory and Functional Analysis),
+C.K. Chui (ed.),
+Academic Press (New York);
+1991;
+}\fi
+
+%ChuiMontefuscoPuccio94
+\ifx\Taormina\undefined\else{
+\refproc (Wavelets: Theory, Algorithms, and Applications),
+C. Chui, L. Montefusco, and L. Puccio (eds.),
+Academic Press (New York);
+1994;
+}\fi
+
+%ChuiSchemppZeller89
+\ifx\MvatIV\undefined\else{
+\refproc (Multivariate Approximation Theory IV, ISNM 90),
+C. Chui, W. Schempp, and K. Zeller (eds.),
+Birk\-h\"auser Verlag (Basel);
+1989;
+}\fi
+
+%ChuiSchumakerUtreras87
+\ifx\Chile\undefined\else{
+\refproc (Topics in Multivariate Approximation),
+C. K. Chui, L. L. Schumaker, and F. Utreras (eds.),
+Academic Press (New York);
+1987;
+}\fi
+
+%CohenRabutSchumaker00
+\ifx\Stmalof\undefined\else{
+\refproc (Curve and Surface Fitting: Saint-Malo 99),
+A. Cohen, C. Rabut,
+and L.~L. Schumaker (eds.),
+Vanderbilt University Press (Nashville TN);
+2000;
+}\fi
+
+
+%JetterUtreras93
+\ifx\ChileII\undefined\else{
+\refproc (Multivariate Approximation: From CAGD to Wavelets),
+Kurt Jetter and Florencio Utreras (eds.),
+World Scientific Publishing (Singapore);
+1993; %ISBN 981-02-1442-1
+}\fi
+
+%ChuiSchumakerWard83
+\ifx\TexasIV\undefined\else{
+\refproc (Approximation Theory IV),
+C. Chui, L. Schumaker, and J. Ward (eds.),
+Academic Press (New York);
+1983;
+}\fi
+
+%ChuiSchumakerWard86
+\ifx\TexasV\undefined\else{
+\refproc (Approximation Theory V),
+C. Chui,  L. Schumaker, and J. Ward (eds.),
+Academic Press (New York);
+1986;
+}\fi
+
+%ChuiSchumakerWard89
+\ifx\TexasVI\undefined\else{
+\refproc (Approximation Theory VI),
+C. Chui,  L. Schumaker, and J. Ward (eds.),
+Academic Press (New York);
+1989;
+}\fi
+
+%ChuiWave92
+\ifx\ChuiWave\undefined\else{
+\refproc (Wavelets:  A Tutorial In Theory and Applications),
+C. K.  Chui (ed.),
+Academic Press (Cambridge MA);
+1992;
+}\fi
+
+%Ciesielski81
+\ifx\CiesielskiII\undefined\else{
+\refproc (Approximation and Function Spaces),
+C. Ciesielski (ed.),
+North Holland (Amsterdam);
+1981;
+}\fi
+
+%CiesielskiMusielak75
+\ifx\CiesielskiI\undefined\else{
+\refproc (Approximation Theory),
+C. Ciesielski and J. Musielak (eds.),
+Reidel (Dordrecht);
+1975;
+}\fi
+
+%CollatzMeinardus71
+\ifx\NmatI\undefined\else{
+\refproc (Numerische Methoden der Approximationstheorie Vol.\ 1),
+L. Collatz and G. Meinardus (eds.),
+Birkh\"auser (Basel);
+1971;
+}\fi
+
+%CollatzMeinardus75
+\ifx\NmatII\undefined\else{
+\refproc (Numerische Methoden der Approximationstheorie Vol.\ 2),
+L. Collatz and G. Meinardus (eds.),
+ISMN 26, Birkh\"auser (Basel);
+1975;
+}\fi
+
+%NurnbergerSchmidtWalz96
+\ifx\Mannheimnisi\undefined\else{
+\refproc (Multivariate Approximation and Splines, ISNM 125),
+G. N\"urnberger, J. W. Schmidt and G. Walz (eds.),
+Birkh\"auser (Basel);
+1997;
+}\fi
+
+%CollatzMeinardusNurnberger87
+\ifx\NmatVIII\undefined\else{
+\refproc (Numerical Methods in Approximation Theory Vol.\ 8, ISNM 81),
+L. Collatz, G. Meinardus and G. N\"urnberger (eds.),
+Birkh\"auser (Basel);
+1987;
+}\fi
+
+%CollatzMeinardusUnger68
+\ifx\Collatz\undefined\else{
+\refproc (Numerische Mathematik, Differentialgleichungen,
+Approximationstheorie, ISNM 9),
+L. Collatz, G. Meinardus and H. Unger (eds.),
+Birkh\"auser (Basel);
+1968;
+}\fi
+
+%CollatzMeinardusWerner76
+\ifx\NmatIII\undefined\else{
+\refproc (Numerische Methoden der Approximationstheorie Vol.\ 3, ISNM 30),
+L. Collatz, G. Meinardus and H. Werner (eds.),
+Birk\-h\"auser Verlag (Basel);
+1976;
+}\fi
+
+%CollatzMeinardusWerner78
+\ifx\NmatIV\undefined\else{
+\refproc (Numerische Methoden der Approximationstheorie Vol.\ 4),
+L. Collatz, G. Meinardus and H. Werner (eds.),
+Birk\-h\"auser Verlag (Basel);
+1978;
+}\fi
+
+%CollatzMeinardusWerner80
+\ifx\NmatV\undefined\else{
+\refproc (Numerical Methods of Approximation Theory Vol.\ 5),
+L. Collatz, G. Meinardus and H. Werner (eds.),
+Birk\-h\"auser Verlag (Basel);
+1980;
+}\fi
+
+%CollatzMeinardusWerner82
+\ifx\NmatVI\undefined\else{
+\refproc (Numerical Methods of Approximation Theory Vol.\ 6, ISNM 59),
+L. Collatz, G. Meinardus and H. Werner (eds.),
+Birk\-h\"auser Verlag (Basel);
+1980;
+}\fi
+
+%CoxMason90
+\ifx\ShrivenhamII\undefined\else{
+\refproc (Algorithms for Approximation II),
+J. C. Mason and M. G. Cox (eds.),
+Chapman \& Hall (London);
+1990;
+}\fi
+
+%DahmenGascaMichelli90
+\ifx\Teneriffe\undefined\else{
+\refproc (Computation of Curves and Surfaces),
+W. Dahmen, M. Gasca and C. Micchelli (eds.),
+Kluwer (Dordrecht, Netherlands);
+1990;
+}\fi
+
+%DaehlenLycheSchumaker95
+\ifx\Ulvik\undefined\else{
+\refproc (Mathematical Methods for Curves and Surfaces),
+Morten D{\ae}hlen, Tom Lyche, Larry L. Schumaker (eds.),
+Vanderbilt University Press (Nash\-ville \& London);
+1995;
+}\fi
+
+%DaehlenLycheSchumaker98
+\ifx\Lillehammer\undefined\else{
+\refproc (Mathematical Methods for Curves and Surfaces II),
+Morten D{\ae}hlen, Tom Lyche, Larry L. Schumaker (eds.),
+Vanderbilt University Press (Nash\-ville \& London);
+1998;
+}\fi
+
+%DeVoreScherer80
+\ifx\BonnII\undefined\else{
+\refproc (Quantitative Approximation),
+R. DeVore and K. Scherer (eds.),
+Academic Press (New York);
+1980;
+}\fi
+
+%%DitzianMeirRiemenschneiderSharma83
+%\ifx\EdmontonII\undefined\else{
+%\refproc (Second Edmonton Conference on Approximation Theory),
+%Z. Ditzian, A. Meir, S. Riemenschneider, and A. Sharma (eds.),
+%American Mathematical Society (Providence);
+%1983;
+%}\fi
+
+%Evans74
+\ifx\Evans\undefined\else{
+\refproc (Software for Numerical Mathematics),
+D. J. Evans (ed.),
+Academic Press (London);
+1974;
+}\fi
+
+%Farin87
+\ifx\Troy\undefined\else{
+\refproc (Geometric Modeling: Algorithms and New Trends),
+G. E.  Farin (ed.),
+SIAM Publications (Philadelphia);
+1987;
+}\fi
+
+%Farin91
+\ifx\Farinnion\undefined\else{
+\refproc (Nurbs for Curve and Surface Design),
+G. E.  Farin (ed.),
+SIAM Publications (Philadelphia);
+1991;
+}\fi
+
+%FontanellaJetterLaurent96
+\ifx\Montecatini\undefined\else{
+\refproc (Advanced Topics in Multivariate Approximation),
+F. Fontanella, K. Jetter, and P.-J. Laurent (eds.),
+World Scientific Publishing Co.{} (Singapore);
+1996;
+}\fi
+
+%Garabedian65
+\ifx\Generalmotors\undefined\else{
+\refproc (Approximation of Functions),
+H. L. Garabedian (ed.),
+Elsevier (New York);
+1965;
+}\fi
+
+%GascaMicchelli96
+\ifx\Zaragoza\undefined\else{
+\refproc(Total Positivity and its Applications),
+M. Gasca, C. A. Micchelli (eds.),
+Kluwer (Dordrecht);
+1996;
+}\fi
+
+%GoldmanLyche93
+\ifx\GoldmanLyche\undefined\else{
+\refproc (Knot Insertion and Deletion Algorithms for B-spline Modeling),
+R. N. Goldman and T. Lyche (eds.),
+SIAM (Philadelphia);
+1993;
+}
+\fi
+
+%Gregory86
+\ifx\SurfacesI\undefined\else{
+\refproc (The Mathematics of Surfaces),
+J.A. Gregory (ed.),
+Clarendon Press (Oxford);
+1986;
+}\fi
+
+%Greville69
+\ifx\MadisonI\undefined\else{
+\refproc (Theory and Applications of Spline Functions),
+T. N. E. Greville (ed.),
+Academic  Press (New York);
+1969;
+}\fi
+
+%Griffiths86
+\ifx\Griffithseisi\undefined\else{
+\refproc (Numerical Analysis 1985),
+D. F. Griffiths and G. A. Watson (eds.),
+Longman Scientific and Technical (Essex);
+1986;
+}\fi
+
+%Griffiths87
+\ifx\Griffithseise\undefined\else{
+\refproc (Numerical Analysis 1987),
+D. F. Griffiths and G. A. Watson (eds.),
+Longman Scientific and Technical (Essex);
+1987;
+}\fi
+
+%Griffiths89
+\ifx\Griffithseini\undefined\else{
+\refproc (Numerical Analysis 1989),
+D. F. Griffiths and G. A. Watson (eds.),
+Longman Scientific and Technical (Essex);
+1989;
+}\fi
+
+%Hagen92a
+\ifx\Hagennitwa\undefined\else{
+\refproc (Curve and Surface Design),
+H. Hagen (ed.),
+SIAM Publications, SIAM (Philadelphia PA);
+1992;
+}\fi
+
+%Hagen92b
+\ifx\Hagennitwb\undefined\else{
+\refproc (Topics in Surface Modelling),
+H. Hagen (ed.),
+SIAM Publications, SIAM (Philadelphia PA);
+1992;
+}\fi
+
+%HagenRoller91
+\ifx\HagenRoller\undefined\else{
+\refproc (Geometric Modeling, Methods and Applications),
+H. Hagen and D. Roller (eds.),
+Springer Verlag (Berlin);
+1991;
+}\fi
+
+%Hammerlin79
+% presumably the proceedings for (Tagung im Mathematischen 
+% Forschungsinstitut Oberwolfach vom 1. bis 7.  Oktober 1978)
+\ifx\HammerlinI\undefined\else{
+\refproc (Numerische Integration),
+G. H\"ammerlin (ed.),
+Birkh\"auser (Basel);
+1979;
+}\fi
+
+%Hammerlin82
+% presumably the proceedings for (Numerical Integration -- Proceedings of
+% the conference held at the Mathematisches Forschungsinstitut Oberwolfach, 
+% October 4-10, 1981),
+\ifx\HammerlinII\undefined\else{
+\refproc (Numerical Integration),
+G. H\"ammerlin (ed.),
+Birkh\"auser (Basel);
+1982;
+}\fi
+
+%Handscomb66
+\ifx\HandscombI\undefined\else{
+\refproc (Methods of Numerical Approximation),
+D. C. Handscomb (ed.),
+Pergamon Press (Oxford);
+1966;
+}\fi
+
+%Handscomb78
+\ifx\HandscombII\undefined\else{
+\refproc (Multivariate Approximation),
+D. C. Handscomb (ed.),
+Academic Press (London);
+1978;
+}\fi
+
+%Handscomb89
+\ifx\HandscombIII\undefined\else{
+\refproc (Mathematics of Surfaces III),
+D. C. Handscomb (ed.),
+Clarendon Press (Oxford);
+1989;
+}\fi
+
+%HaussmannJetter90
+\ifx\Duisburg\undefined\else{
+\refproc (Multivariate Approximation and Interpolation, ISNM 94),
+W. Haussmann and K. Jetter (eds.),
+Birkh\"auser (Basel);
+1990;
+}\fi
+
+%HaussmannJetterReimer90
+\ifx\DuisburgII\undefined\else{
+\refproc (Multivariate Approximation: Recent Trends and Results),
+W. Haussmann, K. Jetter, M. Reimer (eds.),
+Academie Verlag -- Wiley VCH (Berlin);
+1997;
+}\fi
+
+%Havana89
+\ifx\Havana\undefined\else{
+\refproc (Approximation and Optimization, Lecture Notes in Mathematics {\bf
+ 1354}), A. Gomez, F. Guerra, M.A. Jimenez, G. Lopez (eds.),
+Springer-Verlag (New York);
+1989;
+}\fi
+
+%Hayes70
+% carl
+\ifx\Hayes\undefined\else{
+\refproc (Numerical Approximation to Functions and Data),
+J. G. Hayes (ed.),
+Athlone Press (London);
+1970;
+}\fi
+
+%Hennart82
+\ifx\Hennart\undefined\else{
+\refproc (Numerical Analysis),
+Lecture Notes in Math. 909, J. P. Hennart (ed.),
+Springer-Verlag (Heidelberg);
+1982;
+}\fi
+
+%Ivanov91
+\ifx\VarnaIII\undefined\else{
+\refproc (Constructive Theory of Functions '91),
+K. Ivanov et al{.} (ed.),
+Bulgarian Academy of Sciences (Sofia);
+1991;
+}\fi
+
+%Kaluga75
+\ifx\Kaluga\undefined\else{
+\refproc (Theory of Approximation of Functions),
+S.B. Ste\v ckin and S.A. Teliakovskii (eds.),
+Nauka (Moscow);
+1977;
+}\fi
+
+%KarlinMicchelliPinkusSchoenberg76
+\ifx\Karlin\undefined\else{
+\refproc (Studies in Spline  Functions and Approximation Theory),
+S. Karlin, C. Micchelli, A. Pinkus, and I. Schoenberg (eds.),
+Academic Press (New York);
+1976;
+}\fi
+
+%Klinger77
+\ifx\Klinger\undefined\else{
+\refproc (Data Structures, Computer Graphics, and Pattern Recognition),
+A. Klinger, K. Fu, \and T. Kunii (ed.),
+Academic Press (New York);
+1977;
+}\fi
+
+%KopotunLycheNeamtu01
+\ifx\Schumakerfest\undefined\else{
+\refproc (Trends in Approximation Theory),
+Kirill Kopotun, Tom Lyche, and Mike Neamtu (eds.),
+Vanderbilt University Press (Nashville TN);
+ 2001;
+}\fi
+
+%Langer59
+\ifx\Langer\undefined\else{
+\refproc (On Numerical Approximation),
+R. E. Langer (ed.),
+U. Wis.\ Press (Madison);
+1959;
+}\fi
+
+%LaurentLeMehauteSchumaker91
+\ifx\ChamonixI\undefined\else{
+\refproc (Curves and Surfaces),
+P.-J. Laurent, A. LeM\'ehaut\'e, and L. L. Schumaker (eds.),
+Academic Press (New York);
+1991;
+}\fi
+
+%LaurentLeMehauteSchumaker94a
+\ifx\ChamonixIIa\undefined\else{
+\refproc (Curves and Surfaces in Geometric Design),
+P.-J. Laurent, A. LeM\'ehaut\'e, and L. L. Schumaker (eds.),
+A. K. Peters (Wellesley MA);
+1994;
+}\fi
+
+%LaurentLeMehauteSchumaker94b
+\ifx\ChamonixIIb\undefined\else{
+\refproc (Wavelets, Images, and Surface Fitting),
+P.-J. Laurent, A. LeM\'ehaut\'e, and L. L. Schumaker (eds.),
+A. K. Peters (Wellesley MA);
+1994;
+}\fi
+
+%LaurentSablonniereSchumaker00
+\ifx\Stmalod\undefined\else{
+\refproc (Curve and Surface Design: Saint-Malo 99),
+P.-J. Laurent, P. Sablonni\`ere,
+and L.~L. Schumaker (eds.),
+Vanderbilt University Press (Nashville TN);
+2000;
+}\fi
+
+%LawSahney76
+\ifx\Law\undefined\else{
+\refproc (Theory of Approximation with Applications),
+A. G. Law and N. B. Sahney (eds.),
+Academic Press (New York);
+1976;
+}\fi
+
+%LeMehauteRabutSchumaker97a
+\ifx\ChamonixIIIa\undefined\else{
+\refproc (Curves and Surfaces in Geometric Design),
+A. LeM\'ehaut\'e, C. Rabut, and L. L. Schumaker (eds.),
+Vanderbilt University Press (Nash\-ville TN);
+1997;
+}\fi
+
+%LeMehauteRabutSchumaker97b
+\ifx\ChamonixIIIb\undefined\else{
+\refproc (Surface Fitting and Multiresolution Methods),
+A. LeM\'ehaut\'e, C. Rabut, and L. L. Schumaker (eds.),
+Vanderbilt University Press (Nash\-ville TN);
+1997;
+}\fi
+
+
+%Lin87
+\ifx\Lin\undefined\else{
+\refproc (Nonlinear and Convex Analysis),
+B. L. Lin and S. Simons  (eds.),
+Marcel Dekker (New York);
+1987;
+}\fi%1988??
+
+%Lorentz73
+\ifx\TexasI\undefined\else{
+\refproc (Approximation Theory),
+G. G. Lorentz {\it et al.} (eds.),
+Academic Press (New York);
+1973;
+}\fi
+
+%LorentzChuiSchumaker76
+\ifx\TexasII\undefined\else{
+\refproc (Approximation Theory, II),
+G. G. Lorentz, C. K. Chui,  and L. L. Schumaker (eds.),
+Academic Press (New York);
+1976;
+}\fi
+
+%LubinskiSaff87
+\ifx\Tampaseminar\undefined\else{
+\refproc(Approximation Theory, Tampa), E. B. Saff (ed.),
+Springer Lecture Notes in Mathematics 1287, Springer-Verlag (Berlin);
+1987;
+}\fi
+
+%LycheSchumaker89
+\ifx\Oslo\undefined\else{
+\refproc (Mathematical Methods in Computer Aided Geometric Design),
+T. Lyche and L. Schumaker (eds.),
+Academic Press (New York);
+1989;
+}\fi
+
+%LycheSchumaker92
+\ifx\Biri\undefined\else{
+\refproc (Mathematical Methods in Computer Aided Geometric Design II),
+T. Lyche and L. Schumaker (eds.),
+Academic Press (New York);
+1992;
+}\fi
+
+%LycheSchumaker00
+\ifx\OsloII\undefined\else{
+\refproc (Mathematical Methods for Curves and Surfaces III,
+Oslo, 2000),
+T. Lyche and L. L. Schumaker (eds.),
+Vanderbilt University Press (Nash\-ville);
+2000;
+}\fi
+
+%Martin87
+\ifx\SurfacesII\undefined\else{
+\refproc (The Mathematics of Surfaces II),
+R. R. Martin (ed.),
+Clarendon Press (Oxford);
+1987;
+}\fi
+
+%MasonCox87
+\ifx\ShrivenhamI\undefined\else{
+\refproc (Algorithms for the Approximation of Functions and Data),
+J. C. Mason and M. G. Cox (eds.),
+Oxford Univ.\ Press (Oxford);
+1987;
+}\fi
+
+%MeinardusNurnberger85
+\ifx\Meinardus\undefined\else{
+\refproc (Delay Equations, Approximation and Application),
+G. Meinardus \& G. N\"urnberger (eds.),
+Birkh\"auser (Basel);
+1985;
+}\fi
+
+%MeirSharma73
+\ifx\EdmontonI\undefined\else{
+\refproc (Spline Functions and Approximation Theory, ISNM 21),
+A. Meir and A. Sharma (eds.),
+Birk\-h\"auser Verlag (Basel);
+1973;
+}\fi
+
+%Memphis91
+\ifx\Memphis\undefined\else{
+\refproc (Proc.\ Sixth Southeastern Approximation Theory Conference),
+George Anastassiou (ed.),
+Lecture Notes in Pure and Applied Mathematics Vol.\ 138 (xxx);
+1991;
+}\fi
+
+%MicchelliPaiLimaye86
+\ifx\IndiaI\undefined\else{
+\refproc (Functional Analytic Methods in Approximation Theory),
+C. A. Micchelli, D. V. Pai, and X. Limaye (eds.),
+Birkh\"auser (Basel);
+1986;
+}\fi
+
+%MicchelliRivlin77
+\ifx\Micchelli\undefined\else{
+\refproc (Optimal Estimation in Approximation Theory),
+C. Micchelli and T. Rivlin (eds.),
+Plenum (New York);
+1977;
+}\fi
+
+%Miller75
+\ifx\TNAII\undefined\else{
+\refproc (Topics in Numerical Analysis II),
+J. J. H. Miller (ed.),
+Academic Press (London-New York);
+1975;
+}\fi
+
+%MullerFeltenMache95
+\ifx\IDoMATnifi\undefined\else{
+\refproc (Approximation Theory, Proc.\ IDoMAT 95),
+Manfred W. M\"uller, Michael Felten, and Detlef H. Mache (eds.),
+Mathematical Research vol.\ 86, Akademie Verlag (Berlin);
+1995;
+}\fi
+
+%NevaiPinkus91
+\ifx\Progress\undefined\else{
+\refproc (Progress in Approximation Theory),
+P. Nevai and A. Pinkus (eds.),
+Academic Press (New York);
+1991;
+}\fi
+
+%Neworleans86
+\ifx\Neworleans\undefined\else{
+ \refproc (Approximation Theory, Proc.\ Symp.\ Appl.\ Math.\ {\bf36}),
+C. de Boor (ed.),
+Amer.Math.Soc.{} (Providence);
+1986;
+}\fi
+
+%Paeth95
+\ifx\GraphicsgemsV\undefined\else{
+\refproc (Graphics Gems, Vol.~V),
+Alan W. Paeth (ed.),
+Academic Press (NY);
+1995;
+}\fi
+
+%PenkovVacov72
+\ifx\VarnaCF\undefined\else{
+\refproc (Constructive Function Theory),
+B. Penkov and D. Vacov (eds.),
+Bulgarian Academy of Sciences (Sofia);
+1972;
+}\fi
+
+%Piegl93
+\ifx\Piegl\undefined\else{
+\refproc (Fundamental Developments of Computer-Aided Geometric Modeling),
+Les Piegl (ed.),
+Academic Press (London);
+1993;
+}\fi
+
+%Prolla79
+\ifx\BrazilI\undefined\else{
+\refproc (Approximation Theory and Functional Analysis),
+J. B. Prolla (ed.),
+North Holland (Amsterdam);
+1979;
+}\fi
+
+%Rice77
+\ifx\MsoftIII\undefined\else{
+\refproc (Mathematical Software III),
+J. R. Rice (ed.),
+Academic Press (New York);
+1977;
+}\fi
+
+%Ruskai92
+\ifx\Ruskai\undefined\else{
+\refproc (Wavelets and Their Applications),
+ M. B.  Ruskai, G. Beylkin, R.  Coifman,
+	   I.~Daubechies, S.  Mallat, Y.  Meyer, and L.  Raphael (eds.),
+Jones and Bartlett (Boston);
+1992;
+}\fi
+
+%Sahney79
+\ifx\Sahney\undefined\else{
+\refproc (Polynomial and Spline Approximation),
+Badri N. Sahney (ed.),
+D. Reidel (Dordrecht);
+1979;
+}\fi
+
+%SchabackScherer76
+\ifx\BonnI\undefined\else{
+\refproc (Quantitative Approximation),
+R. Schaback \& K. Scherer (eds.),
+Lecture Notes 556, Springer (Berlin);
+1976;
+}\fi
+
+%SchemppZeller77
+\ifx\Schempp\undefined\else{
+\refproc (Constructive Theory of Functions of Several Variables, Oberwolfach
+1976),
+W. Schempp and K. Zeller (eds.),
+Springer Lecture Notes in Math.\ 571, Springer-Verlag (Berlin);
+1977;
+}\fi
+
+%SchemppZeller79
+\ifx\MvatI\undefined\else{
+\refproc (Multivariate Approximation Theory),
+W. Schempp and K. Zeller (eds.),
+Birk\-h\"auser (Basel);
+1979;
+}\fi
+
+%SchemppZeller82
+\ifx\MvatII\undefined\else{
+\refproc (Multivariate Approximation Theory II),
+W. Schempp and K. Zeller (eds.),
+Birkh\"auser (Basel);
+1982;
+}\fi
+
+%SchemppZeller85
+\ifx\MvatIII\undefined\else{
+\refproc (Multivariate Approximation Theory III, ISNM 75),
+W. Schempp and K. Zeller (eds.),
+Birk\-h\"auser (Basel);
+1985;
+}\fi  % volume number changed, from 73, on Hogan's testimony
+
+%SchmidtSpath89
+\ifx\Schmidt\undefined\else{
+\refproc (Splines in Numerical Analysis),
+J. W. Schmidt and H. Sp\"ath (eds.),
+Akademie Verlag (Berlin);
+1989;
+}\fi
+
+%Schoenberg69
+\ifx\MadisonII\undefined\else{
+\refproc (Approximation with Special Emphasis on Spline Functions),
+I. J. Schoenberg (ed.),
+Academic Press (New York);
+1969;
+}\fi
+
+%SendovPetrushevIvanovMaleev87
+\ifx\VarnaII\undefined\else{
+\refproc (Constructive Theory of Functions '87),
+B. Sendov, P. Petrushev, K. Ivanov, and R. Maleev (eds.),
+Bulgarian Academy of Sciences (Sofia);
+1987;
+}\fi
+
+%SendovPetrushevMaleevTashev84
+\ifx\VarnaI\undefined\else{
+\refproc (Constructive Theory of Functions '84),
+B. Sendov, P. Petrushev, R.  Maleev, and S. Tashev (eds.),
+Bulgarian Academy of Sciences (Sofia);
+1984;
+}\fi
+
+%Shisha67
+\ifx\Shisha\undefined\else{
+\refproc (Inequalities),
+O. Shisha (ed.),
+Academic Press (New York);
+1967;
+}\fi
+
+%Siggraph86
+\ifx\Siggrapheisi\undefined\else{
+\refproc (Extension of B-sline Curve Algorithms to Surfaces),
+C. de Boor (ed.),
+Course \#5, ACM SIGGRAPH 86, 18--22 Aug '86 (Dallas TX);
+1986;
+}\fi
+
+%Singh84
+\ifx\Singh\undefined\else{
+\refproc (Approximation Theory and Spline Functions),
+S. P. Singh, J. H. W. Burry, and B. Watson (eds.),
+Reidel (Dordrecht);
+1984;
+}\fi
+
+%Singh92
+\ifx\SinghII\undefined\else{
+\refproc (Approximation Theory, Spline Functions and Applications),
+S. P. Singh (ed.), Kluwer (Dordrecht, Netherlands);
+1992;
+}\fi
+
+%Singh95
+\ifx\SinghIII\undefined\else{
+\refproc (Approximation Theory, Wavelets and Applications),
+S. P. Singh, Antonio Carbone, and B. Watson (eds.),
+Kluwer (Dordrecht, Netherlands);
+1995;
+}\fi
+
+%SzabadosTandori87
+\ifx\Szabados\undefined\else{
+\refproc (Alfred Haar Memorial Conference),
+J. Szabados and K. Tandori (eds.),
+North-Holland (Amsterdam);
+1987;
+}\fi
+
+%Talbot70
+\ifx\Talbot\undefined\else{
+\refproc (Approximation Theory),
+A. Talbot (ed.),
+Academic Press (London);
+1970;
+}\fi
+
+%Watson74
+\ifx\DundeeI\undefined\else{
+\refproc (Numerical Solution of Differential Equations),
+G. A. Watson (ed.),
+Springer (Berlin);
+1974;
+}\fi
+
+%Watson76
+\ifx\DundeeII\undefined\else{
+\refproc (Numerical Analysis),
+G. A. Watson (ed.),
+Springer (Berlin);
+1976;
+}\fi
+
+%Watson78
+\ifx\DundeeIII\undefined\else{
+\refproc (Numerical Analysis, Dundee 1977),
+Lecture Notes in Math.\ 630, G. A. Watson (ed.),
+Springer-Verlag (New York);
+1978;
+}\fi
+
+%Watson82
+\ifx\DundeeV\undefined\else{
+\refproc (Numerical Analysis Dundee, 1981),
+G. A. Watson (ed.),
+Springer Lecture Notes 912 (Berlin);
+1982;
+}\fi
+
+%Whiteman75
+\ifx\BrunelI\undefined\else{
+\refproc (Mathematics of Finite Elements and Applications),
+J. Whiteman (ed.),
+Academic Press (London);
+1975;
+}\fi
+
+%Whiteman76
+\ifx\BrunelII\undefined\else{
+\refproc (Mathematics of Finite Elements and Applications II),
+J. Whiteman (ed.),
+Academic Press (London);
+1976;
+}\fi
+
+%Whiteman79
+\ifx\BrunelIII\undefined\else{
+\refproc (Mathematics of Finite Elements and Applications III),
+J. Whiteman (ed.),
+Academic Press (London);
+1979;
+}\fi
+
+%Whiteman82
+\ifx\BrunelIV\undefined\else{
+\refproc (Mathematics of Finite Elements and Applications IV),
+J. Whiteman (ed.),
+Academic Press (London);
+1982;
+}\fi
+
+%Whiteman85
+\ifx\BrunelV\undefined\else{
+\refproc (Mathematics of Finite Elements and Applications V),
+J. Whiteman (ed.),
+Academic Press (London);
+1985;
+}\fi
+
+%Whiteman88
+\ifx\BrunelVI\undefined\else{
+\refproc (Mathematics of Finite Elements and Applications VI),
+J. Whiteman (ed.),
+Academic Press (London);
+1988;
+}\fi
+
+%Whiteman91
+\ifx\BrunelVII\undefined\else{
+\refproc (Mathematics of Finite Elements and Applications VII),
+J. Whiteman (ed.),
+Academic Press (London);
+1991;
+}\fi
+
+%Ziegler81
+\ifx\Haifa\undefined\else{
+\refproc (Approximation Theory and Applications),
+Z. Ziegler (ed.),
+Academic Press (New York);
+1981;
+}\fi
+
+\ifx\Stmalotwo\undefined\else{
+\refproc (Curve and Surface Fitting: Saint-Malo 2002),
+XXX (eds.),
+XXX Press (Nashville);
+2003;
+}\fi
+

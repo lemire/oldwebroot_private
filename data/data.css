@@ -1,0 +1,42 @@
+/*
+Copyright Daniel Lemire, Ph.D.
+License: GPL
+*/
+
+#maincontent {
+  width:550px;
+margin-left : auto;
+margin-right : auto;
+text-align: justify;
+}
+body {
+  font-family:sans serif;
+font-size:11pt;
+color: black;
+text-align: center; /*ugly IE hack*/
+background-color: white;
+}
+
+
+ h1 {text-align:center; font-family:Arial,Helvetica,"sans serif";color:black;
+font-size:large;
+font-weight:bold;
+
+}
+
+ h2 {text-align:left; font-family:Arial,Helvetica,"sans serif";color:black;
+font-size:1em;
+font-weight:bold;
+text-decoration: underline;
+
+
+}
+
+
+pre {
+  font-size:8pt;
+}
+
+#PUBICON {
+  margin:5cm;
+}

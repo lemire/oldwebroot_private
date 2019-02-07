@@ -1,0 +1,29 @@
+dx = 0.5 error = 0.00048828125
+dx = 0.25 error = -0.00481062558153
+estimated error without a priori knowledge = 0.00176630227718
+dx = 0.125 error = -0.0014093889442
+estimated error without a priori knowledge = -0.00113374554578
+dx = 0.0625 error = -0.000366924525136
+estimated error without a priori knowledge = -0.000347488139688
+dx = 0.03125 error = -9.31249352309e-05
+estimated error without a priori knowledge = -9.12665299684e-05
+dx = 0.015625 error = -2.34351266838e-05
+estimated error without a priori knowledge = -2.32299361824e-05
+dx = 0.0078125 error = -5.87691925336e-06
+estimated error without a priori knowledge = -5.85273581014e-06
+dx = 0.00390625 error = -1.47143327245e-06
+estimated error without a priori knowledge = -1.46849532697e-06
+dx = 0.001953125 error = -3.68129914996e-07
+estimated error without a priori knowledge = -3.67767785818e-07
+dx = 0.0009765625 error = -9.20661940018e-08
+estimated error without a priori knowledge = -9.20212403314e-08
+dx = 0.00048828125 error = -2.30207456431e-08
+estimated error without a priori knowledge = -2.30151494529e-08
+dx = 0.000244140625 error = -5.75571368344e-09
+estimated error without a priori knowledge = -5.75501065322e-09
+You observe that our estimate of the error
+which doesn't assume we know the solution
+is very good, especially when dx is small.
+In practice, this allows you to compute the
+error you are making and judge if it is
+acceptable!

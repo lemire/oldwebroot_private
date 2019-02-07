@@ -1,0 +1,167 @@
+Small (incomplete) Linux howto for Acadia
+Daniel Lemire, Ph.D. 
+(version 1.2 -- April 12th 2002)
+
+Disclaimer: some of these tricks are not really great ideas. Don't
+show them to user support or they may scream! Seriously, this howto
+has most certainly not been approved by Acadia University. Use at
+your own risks.
+
+0. Introduction
+
+Whenever I write "mypass" and "myuser", please replace it by your 
+username or password. My username at acadia is "dlemire" or 
+"dlemire.academic.acadia" (the latter being necessary when
+ connecting to axe).
+
+This howto was written with RedHat in mind. It is assumed that
+you've done the reasonable things: put the CD in the Desktop PC,
+clicked on "install" and chosen the reasonable options. As for
+myself, I always install Linux with everything enabled and
+low security settings.
+
+Warning: trying this on a laptop is risky business. Linux works
+better on Desktop because the hardware is more standard, generic.
+
+
+1. Getting your network working
+
+RedHat comes with a tool called "Network Configurator" which you will
+find easily. I've entered the following...
+
+Under "Names"
+
+Hostname: dlemire.acadiau.ca
+Domain: acadiau.ca
+
+Nameservers: 131.162.2.90 and 131.162.2.45
+
+Under "Hosts"
+
+I put one host there, IP = 127.0.0.1, Name = dlemire.acadiau.ca,
+Nicknames ="dlemire localhost"
+
+Under "interfaces"
+
+Interface eth0, IP 131.162.174.31 (I chose this arbitrarily because DHCP
+wasn't working for me!), proto = static, atboot = yes and it is active.
+You might want to make sure that your netmask is set to 255.255.248.0.
+
+Under "routing"
+
+Default gateway : 131.162.168.1
+
+Default gateway device: eth0
+
+
+That's all. If you choose an arbitrary IP (please not mine), it should work.
+It is not very ethical however! It won't work with all IPs so you need to
+choose one "close" to one you know works. You can use "winipcfg"
+under Windows to find out what your IP is.
+
+Troubleshooting: try to ping some known IPs. For example, if winipcfg
+on your laptop says that your laptop IP is 111.111.111.111, go to the
+desktop and type "ping 111.111.111.111".
+
+2. Getting novell working.
+
+That's actually very easy. Logon as root ("su").
+
+Make sure eth0 is running...
+
+ /sbin/ifconfig eth0 up
+
+Configure Novell...
+
+ /sbin/ipx_configure --auto_interface=on --auto_primary=on
+
+If you don't have ipx_configure , then you have to install them
+from RPMs (they are are on you cd). You need at least
+ipxutils (do rpm -Uvh ipxutils* on the RedHat CD). You 
+might also need ncpfs-2.2.0.18-3.
+
+Create some convenient directories (mkdir /mnt/plato, mkdir /mnt/ace,
+mkdir /mnt/axe) and then run the following...
+
+ ncpmount -S PLATO /mnt/plato -U myuser -P mypass
+ ncpmount -S ACE /mnt/ace  -U myuser -P mypass
+ ncpmount -S AXE /mnt/axe -U myuser -P mypass
+
+You can also browse the printers...
+
+pqlist -S ACE -U myuser -P mypass
+pqlist -S AXE -U myuser -P mypass
+
+That's it! You have now full access to plato, ace and axe!
+
+In order for these things to happen at boot, you can add the following
+lines at the end of /etc/rc.d/rc.local :
+
+ /sbin/ipx_configure --auto_interface=on --auto_primary=on
+ ncpmount -S PLATO /mnt/plato -U myuser -P mypass
+ ncpmount -S ACE /mnt/ace  -U myuser -P mypass
+ ncpmount -S AXE /mnt/axe -U myuser -P mypass
+
+3. Printing
+
+Redhat comes with a convenient tool called "printconf" also easily found.
+
+Add a new printer,  make sure it is a Novell Printer (NCP) and choose "AXE"
+as your server "MATH129-LASER" as your queue and enter you full
+username and password. Choose the appropriate driver. 
+I chose "Lexmark Optra S 1855" and it seems to work fine. (That's specific
+to the Math&Stat Department, of course.)
+
+In order for NCP to work, you'll need Novell to be enabled (see above).
+
+Update (October 31st 2001): you now need to add MATH-OFFICE-Q on server ACE, but the process
+is the same. Please make sure you save your changes in printconf before trying to
+print.
+
+If you've chosen KDE, you should also go configure KDE to use
+generic LPD for printing. (See KDE documentation.)
+
+That's all!
+
+You should now have you machine fully configured. We are only missing the
+samba part...
+
+4.  Samba
+
+Under KDE, go to configure your windows shares under network
+and enter your username and password. Use "acadia" as your
+workgroup.
+
+The rest is optional and might not help you at all!
+
+Go to http://127.0.0.1:901/ under your browser (type konqueror or netscape).
+Enter as root with your password...
+
+Go to globals... enter acadia as the workgroup, enter something
+convenient for your netbios name (dlemire for me), make sure
+you encrypt passwords (yes), and you can enter 131.162.200.230
+as the wins server (not that it will help). Don't forget to commit
+your changes.
+
+Go to password and add all of the users you want (generally just
+one user will do).
+
+Go to status and make sure that both smbd and nmbd are running.
+
+
+That's it!
+
+
+5. Firewall issues
+
+It can happen that while installing Linux, you've chosen to setup the
+firewall. This can cause all sorts of problems. If you can't connect
+to some machines, or can't connect to your machine from outside, try this...
+
+/sbin/ipchains --flush
+
+You have to log on as root first ("su"). Of course, this disables
+security on your machine and is very much unsafe.But then again, you can
+always put the security back on later. 
+
+

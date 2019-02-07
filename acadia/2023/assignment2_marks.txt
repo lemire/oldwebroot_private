@@ -1,0 +1,46 @@
+
+> Assignment #		1	2
+> Value		99	91
+> Abeysirigunawardena, Sanwada	100049389	68
+> Alami, Razan Mousa	100048190	88
+> Authedi, Bevan Maclean	100045848	89	87
+> Ayoub, Jehad Rajah	100044983	93	76
+> Bacon, Mark Michael	100045262	77	60
+> Boudreau, Cory Joseph	100044906	66.5	83
+> Cooper, Erin Frances	100046381	97	88
+> Cross, Wayne Anthony	100045099	96.5	66
+> Daniels, Tanya	100041792	80	71.5
+> Day, Xephyr	100043363	93.5	79.5
+> Dooley, Mary Elizabeth	100046455	64.5	90.5
+> Duffield, Katherine Margaret	100044518	83.5	70
+> Dunbar, Kimberlea S	100048253	81	70
+> Evans, Genevieve Laura	100045612	77	80.5
+> Ewing, Jeremy Evans	100046871	96	91
+> Fang, Zhe	100047506
+> Feener, Shanna Claire	100043444	83.5	78->80
+> Gould, Joshua Michael	100045797	95	86
+> Hildebrand, Rebecca Lynn	100046517	80.5	88
+> Hughes, Michael John	100046097	83	61.5
+> Jackson, Sarah Marie	100044401	84	70.5
+> Jeliazkova, Diana Valtcheva	100046270	28.5	89
+> Jreige, Chadia	100048807	86.5	56
+> Kennedy, Ryan Qilliam	100043758	84.5	73
+> Lam, Ting-Him Johnson	100043903	89	80
+> MacKenzie, Angela Cheryl	100044915	96.5	89
+> MacLeod, Shannon Arlene	100041050	93	85
+> Noel, David Donald	100046250	97	86
+> Oliver, Eric Curtis John	100046365	96	86.5
+> Pardy, Christine Elizabeth	100045673	96	63
+> Prelevic, Vuk Marcus	100042262	81.5	86.5
+> Raisanen, Tuukka Ilari	100046014	88	84
+> Russell, Glen Francis	100043503	89.5	83.5
+> Smith, Sean Terry	100044845	97	80
+> Stafford, Randall Brooke	100040731	80.5	71
+> Stewart, Joseph Frank Glen	100045914	90.5	83
+> Vaughan, Alice Katherine	100044918	95.5	85
+> Veinot, Melissa Sue	100046614	88	84
+> Walsh, Ryan Christopher	100039157	74.5	74
+> Wamboldt, Cathy Ann	100044958	96	91
+> Wilson, Craig David	100046008	97.5	80
+> Zhao, Jin	100055087	86.5	90
+

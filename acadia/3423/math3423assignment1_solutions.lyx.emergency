@@ -1,0 +1,220 @@
+#LyX 1.1 created this file. For more info see http://www.lyx.org/
+\lyxformat 218
+\textclass article
+\language american
+\inputencoding auto
+\fontscheme default
+\graphics default
+\paperfontsize default
+\spacing single 
+\papersize Default
+\paperpackage a4
+\use_geometry 0
+\use_amsmath 0
+\paperorientation portrait
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\defskip medskip
+\quotes_language english
+\quotes_times 2
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+
+\layout Standard
+
+Use the definition of the Legendre polynomial 
+\begin_inset Formula \( P_{n}(x)=\frac{(-1)^{n}}{2^{n}n!}\frac{d^{n}}{dx^{n}}[(1-x^{2})^{n}] \)
+\end_inset 
+
+, 
+\begin_inset Formula \( n\geq 1 \)
+\end_inset 
+
+ to find a relationship between 
+\begin_inset Formula \( P_{n}'(x) \)
+\end_inset 
+
+ and 
+\begin_inset Formula \( P_{n+1}(x) \)
+\end_inset 
+
+, and then show the equivalence of the following expressions for the coefficient
+s for Gaussian quadrature: 
+\begin_inset Formula \( c_{i}=\frac{-2}{(n+1)P_{n}'\left( x_{i}\right) P_{n+1}\left( x_{i}\right) } \)
+\end_inset 
+
+ and 
+\begin_inset Formula \( c_{i}=\frac{2\left( 1-x_{i}^{2}\right) }{(n+1)^{2}P_{n+1}^{2}\left( x_{i}\right) } \)
+\end_inset 
+
+.
+\newline 
+HINTS:
+\layout Enumerate
+
+The 
+\begin_inset Formula \( x_{i} \)
+\end_inset 
+
+'s are the roots of 
+\begin_inset Formula \( P_{n} \)
+\end_inset 
+
+ and thus 
+\begin_inset Formula \( P_{n}\left( x_{i}\right) =0 \)
+\end_inset 
+
+, however, 
+\begin_inset Formula \( P_{n}'\left( x_{i}\right)  \)
+\end_inset 
+
+ is not zero in general, nor is 
+\begin_inset Formula \( P_{n+1}\left( x_{i}\right)  \)
+\end_inset 
+
+.
+ (Why?)
+\layout Enumerate
+
+You might want to use Leibnitz' rule which says that
+\begin_inset Formula \[
+\frac{d^{n}}{dx^{n}}uv=\sum _{k=0}^{n}\frac{n!}{(n-k)!k!}\frac{d^{k}}{dx^{k}}u\frac{d^{n-k}}{dx^{n-k}}u.\]
+
+\end_inset 
+
+You don't have to prove Leibnitz' rule, but you should be clever enough
+ to know how to prove it if your life depended on it!
+\layout Standard
+
+Solution: In order to show that 
+\begin_inset Formula \( c_{i}=\frac{-2}{(n+1)P_{n}'\left( x_{i}\right) P_{n+1}\left( x_{i}\right) } \)
+\end_inset 
+
+ and 
+\begin_inset Formula \( c_{i}=\frac{2\left( 1-x_{i}^{2}\right) }{(n+1)^{2}P_{n+1}^{2}\left( x_{i}\right) } \)
+\end_inset 
+
+ are equivalent formulas, you need to show that 
+\begin_inset Formula \[
+\frac{-2}{(n+1)P_{n}'\left( x_{i}\right) P_{n+1}\left( x_{i}\right) }=\frac{2\left( 1-x_{i}^{2}\right) }{(n+1)^{2}P_{n+1}^{2}\left( x_{i}\right) }\]
+
+\end_inset 
+
+or else,
+\begin_inset Formula \begin{equation}
+\label{havetoprove}
+-(n+1)P_{n+1}^{}\left( x_{i}\right) =\left( 1-x_{i}^{2}\right) P_{n}'\left( x_{i}\right) .
+\end{equation}
+
+\end_inset 
+
+Using the formula given to us 
+\begin_inset Formula \( P_{n}(x)=\frac{(-1)^{n}}{2^{n}n!}\frac{d^{n}}{dx^{n}}[(1-x^{2})^{n}] \)
+\end_inset 
+
+, after simplication equation 
+\begin_inset LatexCommand \ref{havetoprove}
+
+\end_inset 
+
+ becomes
+\begin_inset Formula \[
+\frac{d^{n+1}}{dx^{n+1}}[(1-x^{2}_{i})^{n+1}]=2\left( 1-x_{i}^{2}\right) \frac{d^{n+1}}{dx^{n+1}}[(1-x^{2}_{i})^{n}]\]
+
+\end_inset 
+
+subject to 
+\begin_inset Formula \[
+\frac{d^{n}}{dx^{n}}[(1-x_{i}^{2})^{n}]=0.\]
+
+\end_inset 
+
+Using Leibnitz' rule, we have
+\begin_inset Formula \[
+\frac{d^{n+1}}{dx^{n+1}}[(1-x^{2}_{i})^{n+1}]=(1-x^{2}_{i})\frac{d^{n+1}}{dx^{n+1}}[(1-x^{2}_{i})^{n}]-2(n+1)x_{i}\frac{d^{n}}{dx^{n}}[(1-x^{2}_{i})^{n}]-2(n+2)(n+1)\frac{d^{n-1}}{dx^{n-1}}[(1-x^{2}_{i})^{n}]\]
+
+\end_inset 
+
+
+\layout Standard
+
+
+\begin_inset Formula \[
+2(n+2)(n+1)\frac{d^{n}}{dx^{n}}[(1-x^{2}_{i})^{n}]=\frac{d^{n+2}}{dx^{n+2}}[(1-x^{2}_{i})^{n+1}]-(1-x^{2}_{i})\frac{d^{n+2}}{dx^{n+2}}[(1-x^{2}_{i})^{n}]+2x_{i}\frac{d^{n+1}}{dx^{n+1}}[(1-x^{2}_{i})^{n}]+2(n+1)x_{i}\frac{d^{n+1}}{dx^{n+1}}[(1-x^{2}_{i})^{n}]+2(n+1)\frac{d^{n}}{dx^{n}}[(1-x^{2}_{i})^{n}]\]
+
+\end_inset 
+
+
+\begin_inset Formula \begin{eqnarray*}
+ & \\
+ & 
+\end{eqnarray*}
+
+\end_inset 
+
+We got that far in class.
+ What next?
+\begin_inset Formula \begin{eqnarray*}
+\frac{d^{n}}{dx^{n}}[(1-x^{2}_{i})^{n+1}] & = & (1-x^{2}_{i})\frac{d^{n+2}}{dx^{n+2}}[(1-x^{2}_{i})^{n}]-2(n+1)x_{i}\frac{d^{n+1}}{dx^{n+1}}[(1-x^{2}_{i})^{n}]-2(n+2)(n+1)\frac{d^{n}}{dx^{n}}[(1-x^{2}_{i})^{n}]\\
+ & = & (1-x^{2}_{i})\frac{d^{n+1}}{dx^{n+1}}[(1-x^{2}_{i})^{n}]-2(n+2)(n+1)\frac{d^{n-1}}{dx^{n-1}}[(1-x^{2}_{i})^{n}].
+\end{eqnarray*}
+
+\end_inset 
+
+
+\begin_inset Formula \begin{eqnarray*}
+\frac{d^{n+1}}{dx^{n+1}}[(1-x^{2}_{i})^{n+1}] & = & (1-x^{}_{i})\frac{d^{n+1}}{dx^{n+1}}[(1+x)(1-x^{2}_{i})^{n}]-(n+1)\frac{d^{n}}{dx^{n}}[(1+x)(1-x^{2}_{i})^{n}]
+\end{eqnarray*}
+
+\end_inset 
+
+
+\layout Standard
+
+
+\begin_inset Formula \begin{eqnarray*}
+\frac{d^{n+1}}{dx^{n+1}}[(1-x^{2}_{i})^{n+1}] & = & (1+x^{}_{i})\frac{d^{n+1}}{dx^{n+1}}[(1-x)(1-x^{2}_{i})^{n}]+(n+1)\frac{d^{n}}{dx^{n}}[(1-x)(1-x^{2}_{i})^{n}]
+\end{eqnarray*}
+
+\end_inset 
+
+
+\layout Standard
+
+Substracting these two equations, we get 
+\begin_inset Formula \begin{eqnarray*}
+0=-2(n+1)\frac{d^{n}}{dx^{n}}[(1-x^{2}_{i})^{n}]+\frac{d^{n+1}}{dx^{n+1}}[(1+x_{i})(1-x^{2}_{i})^{n}]-x_{i}\frac{d^{n+1}}{dx^{n+1}}[(1+x_{i})(1-x^{2}_{i})^{n}]] &  & \\
+-\frac{d^{n+1}}{dx^{n+1}}[(1-x_{i})(1-x^{2}_{i})^{n}]-x_{i}\frac{d^{n+1}}{dx^{n+1}}[(1-x_{i})(1-x^{2}_{i})^{n} &  & 
+\end{eqnarray*}
+
+\end_inset 
+
+After simplifcations, we get
+\begin_inset Formula \[
+2(n+1)\frac{d^{n}}{dx^{n}}[(1-x^{2}_{i})^{n}]=\frac{d^{n+1}}{dx^{n+1}}[2x_{i}(1-x^{2}_{i})^{n}]-2x_{i}\frac{d^{n+1}}{dx^{n+1}}[(1-x^{2}_{i})^{n}]]\]
+
+\end_inset 
+
+However, by Leibnitz' rule 
+\begin_inset Formula \[
+\frac{d^{n+1}}{dx^{n+1}}[2x_{i}(1-x^{2}_{i})^{n}]=2x_{i}\frac{d^{n+1}}{dx^{n+1}}[(1-x^{2}_{i})^{n}]+2(n+1)\frac{d^{n+1}}{dx^{n+1}}[(1-x^{2}_{i})^{n}]\]
+
+\end_inset 
+
+We'll look at the first few cases...
+ let 
+\begin_inset Formula \( n=1 \)
+\end_inset 
+
+ for example...
+ then...
+\begin_inset Formula \begin{eqnarray*}
+\frac{d^{2}}{dx^{2}}[(1-x^{2}_{i})^{2}] & = & (1-x^{2}_{i})\frac{d^{2}}{dx^{2}}[(1-x^{2}_{i})]-4(1-x^{2}_{i}).
+\end{eqnarray*}
+
+\end_inset 
+
+
+\the_end

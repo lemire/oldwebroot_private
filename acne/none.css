@@ -1,0 +1,216 @@
+BODY {
+   color : white ! important; 
+   background-color : black;
+}
+
+TABLE {
+   color : white ! important; 
+}
+TD {
+   color : white ! important; 
+}
+
+.POSTS {
+	background-color: black;
+	color : #33CC00; 
+}
+
+.REPLIES {
+	background-color: black;
+	color : #33CC00; 
+}
+
+H1.TITLE {
+	text-align : center;
+   font-weight : bold; 
+   font-size : x-large;
+
+   color : #CCFFCC; 
+   background-color : black;
+}
+
+TD.INREPLYTOID {
+	background-color: black;
+   color : #CCFFCC; 
+
+}
+
+.MESSAGE {
+	background-color: black;
+   color : #CCFFCC; 
+}
+.DISPLAYMESSAGE {
+	background-color: black;
+   color : #CCFFCC; 
+}
+
+.SUBJECT {
+	font-weight : bold  ! important;
+	background-color: black;
+   	color : #CCFFCC; 
+}
+.DISPLAYSUBJECT {
+	font-weight : bold  ! important;
+	background-color: black;
+   	color : #CCFFCC; 
+}
+
+.EMAIL {
+	background-color: black;
+   	color : #CCFFCC; 
+}
+.AUTHOR {
+	background-color: black;
+   	color : #CCFFCC; 
+}
+
+
+P.MENU {	
+	text-align : center;
+	font-style : italic;  
+}
+
+
+B.EXECUTIVEMEMBERAUTHOR {
+	color : red;
+	font-weight : bold; 
+	background-color : white;
+}
+
+
+B.VIPMEMBER {
+	color : red;
+	background-color : white;
+}
+
+TD.AUTHORNAME {
+  	font-weight : normal;
+	color : white; 
+   	background-color : black;
+}
+
+A.AUTHORNAME {
+  	font-weight : bold  ! important;
+	color : white  ! important; 
+   	background-color : black;
+}
+
+B.AUTHORNAME {
+  	font-weight : bold;
+   	background-color : black;
+}
+
+.ADMINAUTHOR {
+	color : yellow; 
+  	font-weight : bold;
+   	background-color : black;
+}
+
+A.ADMINAUTHOR {
+	color : yellow  ! important; 
+  	font-weight : bold  ! important;
+   	background-color : black  ! important;
+}
+
+B.ADMINAUTHOR {
+	color : yellow  ! important; 
+  	font-weight : bold  ! important;
+   	background-color : black  ! important;
+}
+
+
+
+A.EXECUTIVEMEMBERAUTHOR {
+	color : red  ! important;
+	font-weight : normal  ! important;
+	background-color : white  ! important;
+}
+
+A.VIPMEMBER {
+	color : red  ! important;
+	font-weight : normal  ! important;
+	background-color : white  ! important;
+}
+
+
+
+TD.EXECUTIVEMEMBERAUTHOR {
+	color : red;
+	font-weight : bold; 
+	background-color : white;
+}
+
+TD.VIPMEMBER {
+	color : red;
+	background-color : white;
+}
+
+A:link {
+	color: #00FF80;
+	background-color: black;
+}
+
+A:visited {
+	color: green;
+	background-color: black;
+}
+
+
+A.SHOWLINK:link {
+	color: #00FF80  ! important;
+	background-color: black;
+}
+
+A.SHOWLINK:visited {
+	color: #009000  ! important;
+	background-color: black;
+}
+
+A.SHOWLINK:hover {
+
+	color:#FFFFCC  ! important;
+	background-color: black;
+}
+
+P.BACKTOFORUM {
+	text-align : center  ! important;
+	background-color: #FFFF99  ! important;
+	color: black;
+}
+
+.REPLIES {
+  color : #33CC00;  
+}
+
+
+.REPLY{
+  color : white;  
+}
+
+
+.POSTMESSAGEFORM {
+	text-align : center;
+	color : white;	
+	background-color: black;
+}
+
+.SUBMITBUTTONS {
+	text-align : center;
+	color : white;	
+	background-color: black;
+}
+
+.RESET {
+	text-align : center;
+}
+
+.USERLIST {
+	text-align : center;
+}
+.DELETEMESSAGE {
+	text-align : left;
+}
+
+.CONFIRMDELETEMESSAGE{
+	text-align : center;
+}

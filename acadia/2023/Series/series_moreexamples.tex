@@ -1,0 +1,167 @@
+%% LyX 1.1 created this file.  For more info, see http://www.lyx.org/.
+%% Do not edit unless you really know what you are doing.
+\documentclass[12pt,english]{amsart}
+\usepackage[T1]{fontenc}
+\usepackage[latin1]{inputenc}
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\usepackage{babel}
+
+\makeatletter
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% LyX specific LaTeX commands.
+\providecommand{\LyX}{L\kern-.1667em\lower.25em\hbox{Y}\kern-.125emX\@}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Textclass specific LaTeX commands.
+ \theoremstyle{plain}    
+ \newtheorem{thm}{Theorem}[section]
+ \numberwithin{equation}{section} %% Comment out for sequentially-numbered
+ \numberwithin{figure}{section} %% Comment out for sequentially-numbered
+ \theoremstyle{definition}
+  \newtheorem*{example*}{Example}
+ \theoremstyle{definition}
+  \newtheorem{xca}[section]{Exercise}%%Delete [section] for sequential numbering
+ \newcommand{\lyxaddress}[1]{
+   \par {\raggedright #1 
+   \vspace{1.4em}
+   \noindent\par}
+ }
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% User specified LaTeX commands.
+\usepackage {graphicx}
+
+
+\usepackage{epsfig}
+\usepackage{amsmath,amssymb}
+\usepackage{pslatex}
+\usepackage{color}
+
+ 
+ \definecolor{veryblackblue}{rgb}{0.0,0.0,0.1}
+ \usepackage[pdftex,urlcolor=webblackblue,colorlinks=true,citecolor=blue,linkcolor=webblackblue]{hyperref}
+ \pdfinfo{
+            /Title      (Mathematics 2023 - Infinite Series I)
+            /Author     (Daniel Lemire)
+            /Subject    (A document on series for the course topics from advanced calculs offered at Acadia University.)
+            /Keywords   ( series, convergence, Taylor, ratio test, cauchy sequences)
+          }
+
+
+\topmargin  = 0pt
+\headheight = 0pt
+\headsep    = 0pt
+
+\voffset    = 0in
+\hoffset    = 0in
+\textheight = 230mm
+\textwidth  = 164mm
+
+\evensidemargin = 0pt
+\oddsidemargin  = 0pt
+
+\pagestyle{empty}
+\usepackage{float}
+
+%% Background of blue palette
+ \definecolor{webblackblue}{rgb}{0.0,0.0,0.2}
+ \definecolor{webblue}{rgb}{0.0, 0.0, 0.6}
+
+%% Background of red palette
+ \definecolor{webblackred}{rgb}{0.2,0.0,0.0}
+ \definecolor{webred}{rgb}{0.6,0.0,0.0}
+
+%% Background of green palette
+ \definecolor{webblackgreen}{rgb}{0.0,0.2,0.0}                                   
+ \definecolor{webgreen}{rgb}{0.0,0.6,0.0} 
+
+%% Background of magenta palette
+ \definecolor{webblackmagenta}{rgb}{0.14,0.0,0.14}                                   
+ \definecolor{webmagenta}{rgb}{0.42,0.0,0.42} 
+
+%% Background of cyan palette
+ \definecolor{webblackcyan}{rgb}{0.0,0.14,0.14}                                   
+ \definecolor{webcyan}{rgb}{0.0,0.42,0.42} 
+
+%% Background of yellow pallete
+ \definecolor{webblackyellow}{rgb}{0.14,0.14,0.0}                                   
+ \definecolor{webyellow}{rgb}{0.85,0.85,0.0} 
+
+ \definecolor{webdarkgray}{rgb}{0.2,0.2,0.2}
+
+ \definecolor{webgray}{rgb}{0.75,0.75,0.75}
+ \definecolor{weborange}{rgb}{1.0, 0.6, 0.0}
+
+\renewcommand\labelenumi{\textcolor{webdarkgray}{\arabic{enumi}.}}
+\newcommand{\setenumi}[1]{#1.\setcounter{enumi}{#1}}
+\usepackage{dsfont}
+
+
+
+
+
+\makeatother
+\begin{document}
+
+\title{Mathematics 2023 - Infinite Series I (Examples)\\
+Acadia University}
+
+
+\lyxaddress{Copyright 2002 D. Lemire}
+
+\maketitle
+
+\section{Questions}
+
+\begin{xca}
+Compute the Taylor expansion of \( 1/x \) about \( 1 \). Find the
+radius of convergence. Using Taylor Theorem, find a bound on \( |1/x-S_{2}(x)| \)
+where \( S_{2} \) is the sum of the first two terms over the interval
+\( [1,2) \). Can you bound the error over \( [1,2) \) using another
+theorem? What result do you get?
+\end{xca}
+~\vspace{3cm}
+
+\begin{xca}
+Will \( \sum _{k=0}^{\infty }\frac{e^{k}}{k!} \) converge???
+\end{xca}
+~\vspace{3cm}
+
+\begin{xca}
+Will \( \sum _{k=0}^{\infty }\frac{k!}{(2k)!} \) converge???
+\end{xca}
+~\vspace{3cm}
+
+\begin{xca}
+Will \( \sum _{k=2}^{\infty }\frac{(-1)^{k}}{\ln k} \) converge?\newpage
+\end{xca}
+
+\section{Solutions}
+
+\begin{example*}
+\( 1/x=1-(x-1)+(x-1)^{2}-(x-1)^{3}+... \). The ratio test gives us
+\( R=|x-1| \) and thus the ratio of convergence is 1. Taylor Theorem
+bounds the error after two terms by \( \frac{\frac{2}{\xi }(x-1)^{2}}{2}=\frac{(x-1)^{2}}{\xi }<\frac{(1)^{2}}{1}=1 \).
+Using AST, we check that this is an alternating series (assuming \( 1>(x-1)>0 \)
+makes this easy), hence the error after two terms is given by \( (x-1)^{2}<1 \).
+\end{example*}
+~
+
+\begin{example*}
+We apply the ratio test, \( \frac{e^{k+1}}{(k+1)!}\frac{k!}{e^{k}}=\frac{e}{k+1} \)
+which goes to zero when \( k \) becomes big.
+\end{example*}
+~
+
+\begin{example*}
+Again, we apply the ratio test, \( \frac{(k+1)!}{(2k+2)!}\frac{(2k)!}{k!}=\frac{k+1}{(2k+2)(2k+1)} \)
+which clearly goes to zero as \( k \) becomes big.
+\end{example*}
+~
+
+\begin{example*}
+Applying the ratio test, we get \( \frac{\ln k}{\ln (k+1)} \) which
+tends to \( 1 \) as \( k \) becomes big (just use l'Hospital rule!)
+However, since \( \frac{1}{\ln (k+1)}<\frac{1}{\ln k} \) (\( \ln  \)
+is monotone increasing!) the series is alternating and thus, it converges!\end{example*}
+
+\end{document}

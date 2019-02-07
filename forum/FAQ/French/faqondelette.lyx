@@ -1,0 +1,1756 @@
+#LyX 1.3 created this file. For more info see http://www.lyx.org/
+\lyxformat 221
+\textclass amsart
+\begin_preamble
+\usepackage{html}
+
+ \usepackage{url}
+\usepackage{pslatex}
+\usepackage{amsmath,amssymb}
+%\hbadness=10000
+%\emergencystretch=\hsize
+%\tolerance=9999
+%\def\@arrayparboxrestore{%
+ % \let\par\@@par
+  %\let\-\@dischyph
+ % \let\'\@acci\let\`\@accii\let\=\@acciii
+ % \parindent\z@ \parskip\z@skip
+ % \everypar{}%
+ % \linewidth\hsize
+ % \@totalleftmargin\z@ 
+ % \leftskip\z@skip \rightskip\@rightskip
+ % \parfillskip\@flushglue \lineskip\normallineskip
+ % \baselineskip\normalbaselineskip
+ % \sloppy}
+\end_preamble
+\language french
+\inputencoding default
+\fontscheme default
+\graphics default
+\paperfontsize 10
+\spacing single 
+\papersize Default
+\paperpackage a4
+\use_geometry 0
+\use_amsmath 0
+\use_natbib 0
+\use_numerical_citations 0
+\paperorientation portrait
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\defskip medskip
+\quotes_language french
+\quotes_times 2
+\papercolumns 1
+\papersides 2
+\paperpagestyle default
+
+\layout Title
+
+FAQ sur les ondelettes
+\layout Author
+
+D.
+ Lemire, G.
+ Pau
+\layout Abstract
+
+Ce document vise à répondre aux questions posées le plus fréquemment sur
+ les ondelettes et les technologies similaires.
+ Il est le compagnon idéal du forum sur les ondelettes (
+\begin_inset ERT
+status Collapsed
+
+\layout Standard
+
+\backslash 
+htmladdnormallink{http://www.ondelette.com/}{http://www.ondelette.com/}
+\end_inset 
+
+).
+ Il n'est pas destiné à être un document définif, mais plutôt un document
+ en constante révision.
+\layout Standard
+
+
+\begin_inset LatexCommand \tableofcontents{}
+
+\end_inset 
+
+
+\layout Section
+
+Au sujet de cette FAQ
+\layout Subsection
+
+Où est-ce que je peux trouver la plus récente version de cette FAQ?
+\layout Standard
+
+Le forum sur les ondelettes 
+\begin_inset ERT
+status Collapsed
+
+\layout Standard
+
+\backslash 
+htmladdnormallink{http://www.ondelette.com/}{http://www.ondelette.com/}
+\end_inset 
+
+ contient un lien vers la plus récente version.
+\layout Subsection
+
+Est-ce que je peux reproduire cette FAQ sur mon site? 
+\layout Standard
+
+Absolument.
+ La FAQ est sous 
+\begin_inset ERT
+status Collapsed
+
+\layout Standard
+
+\backslash 
+htmladdnormallink{GPL}{http://www.fsf.org}
+\end_inset 
+
+.
+\layout Subsection
+
+J'ai trouvé une erreur ou une imprécision dans la FAQ, ou bien alors, j'ai
+ une question que j'aimerais voir dans la FAQ, que dois-je faire?
+\layout Standard
+
+Il suffit de soumettre votre commentaire sur le 
+\begin_inset ERT
+status Collapsed
+
+\layout Standard
+
+\backslash 
+htmladdnormallink{forum sur les ondelettes}{http://www.ondelette.com/}
+\end_inset 
+
+.
+\layout Subsection
+
+Si j'utilise cette FAQ pour un travail, un article ou un rapport, est-ce
+ que je peux citer la FAQ?
+\layout Standard
+
+Absolument.
+ Vous pouvez citer la FAQ de cette manière: 
+\begin_inset Quotes fld
+\end_inset 
+
+\SpecialChar ~
+D.
+ Lemire et G.
+ Pau, FAQ sur les ondelettes, http://ondelette.com.\SpecialChar ~
+
+\begin_inset Quotes frd
+\end_inset 
+
+.
+\layout Subsection
+
+Est-ce qu'il existe une version PDF de ce document?
+\layout Standard
+
+Oui.Une 
+\begin_inset ERT
+status Open
+
+\layout Standard
+
+\backslash 
+htmladdnormallink{version PDF de la FAQ}{http://www.ondelette.com/forum/FAQ/French/faqondelette.pdf}
+\end_inset 
+
+ est disponible à l'adresse 
+\newline 
+
+\begin_inset ERT
+status Open
+
+\layout Standard
+
+\backslash 
+htmladdnormallink{http://www.ondelette.com/forum/FAQ/French/faqondelette.pdf}{http://www.ondelette.com/forum/FAQ/French/faqondelette.pdf}
+\end_inset 
+
+.
+\layout Section
+
+Qu'est-ce que les ondelettes?
+\layout Subsection
+
+Qu'est-ce qu'une ondelette?
+\layout Standard
+
+Malheureusement, il n'y a pas de réponse définitive à cette question.
+ Tout en sachant que nous n'arriverons pas à satisfaire tout le monde, essayons
+ tout de même.
+ Il est à noter que cette définition est rarement utilisée parce que d'une
+ part, on ne traite pas toujours avec des fonctions et d'autre part, on
+ ne travaille pas toujours avec des espaces de Hilbert.
+\layout Standard
+
+Condition 1.
+ Une base d'ondelettes doit inclure des bases de Riesz pour une famille
+ de sous-espaces de Hilbert 
+\begin_inset Formula $W_{j}$
+\end_inset 
+
+ d'un espace de Hilbert 
+\begin_inset Formula $H$
+\end_inset 
+
+, on note ces bases de Riesz (
+\begin_inset LatexCommand \ref{basederiez}
+
+\end_inset 
+
+) 
+\begin_inset Formula $\left(\psi_{j,i}\right)_{i}\in W_{j}$
+\end_inset 
+
+ et on doit pouvoir écrire 
+\begin_inset Formula $H=...\oplus W_{-1}\oplus W_{0}\oplus W_{1}\oplus...$
+\end_inset 
+
+.
+ Par la condition de Riesz, nous avons 
+\begin_inset Formula $A_{j}\sum_{i}|c_{i}|^{2}\leq\left\Vert \sum_{i}c_{i}\psi_{j,i}\right\Vert ^{2}\leq B_{j}\sum_{i}|c_{i}|^{2}$
+\end_inset 
+
+.
+ On dira que la base est stable si 
+\begin_inset Formula $A_{j}$
+\end_inset 
+
+ et 
+\begin_inset Formula $B_{j}$
+\end_inset 
+
+ sont constants (indépendant de 
+\begin_inset Formula $j$
+\end_inset 
+
+).
+\layout Standard
+
+Condition 2.
+ Toutes les ondelettes doivent avoir une masse nulle 
+\begin_inset Formula $\int\psi_{j,i}(x)dx=0$
+\end_inset 
+
+ (voir 
+\begin_inset LatexCommand \ref{momentsnuls}
+
+\end_inset 
+
+).
+\layout Standard
+
+Condition 3.
+ Il doit y avoir une condition d'échelle, c'est à dire qu'il existe 
+\begin_inset Formula $b>1$
+\end_inset 
+
+ tel que 
+\begin_inset Formula $f\in W_{j}$
+\end_inset 
+
+ implique 
+\begin_inset Formula $f(b\cdot)\in W_{j-1}$
+\end_inset 
+
+.
+ On choisit normalement 
+\begin_inset Formula $a=2$
+\end_inset 
+
+ (cas dyadique).
+ En d'autres terms, dans le cas dyadique, on exige que si 
+\begin_inset Formula $f(x)\in W_{j}$
+\end_inset 
+
+ alors 
+\begin_inset Formula $f(2x)\in W_{j-1}$
+\end_inset 
+
+.
+\layout Standard
+
+La condition 1 peut être réduite à exiger que les ondelettes forment un
+ repère (
+\begin_inset LatexCommand \ref{repere}
+
+\end_inset 
+
+).
+\layout Subsection
+
+Qu'est-ce qu'une ondelette discrète?
+\layout Standard
+
+La définition est la même que pour les fonctions exception faite de la propriété
+ d'échelle.
+ Prenons pour exemple 
+\begin_inset Formula $\mathbb{R}^{n}$
+\end_inset 
+
+, alors les ondelettes doivent être des vecteurs 
+\begin_inset Formula $\psi_{j,i}$
+\end_inset 
+
+ formant des bases de Riesz et ayant une masse nulle.
+ Pour des raisons pratiques, on requiert que les ondelettes soient locales.
+\layout Standard
+
+Condition 1.
+ Une base d'ondelette doit inclure des bases de Riesz pour une famille de
+ sous-espaces 
+\begin_inset Formula $W_{j}$
+\end_inset 
+
+ dans 
+\begin_inset Formula $\mathbb{R}^{n}$
+\end_inset 
+
+, on note ces bases de Riesz (
+\begin_inset LatexCommand \ref{basederiez}
+
+\end_inset 
+
+) 
+\begin_inset Formula $\left(\psi_{j,i}\right)_{i}\in W_{j}$
+\end_inset 
+
+ et on doit pouvoir écrire 
+\begin_inset Formula $\mathbb{R}^{n}=V_{0}\oplus W_{0}\oplus W_{1}\oplus...\oplus W_{K}$
+\end_inset 
+
+ où 
+\begin_inset Formula $K$
+\end_inset 
+
+ est le nombre de sous-espaces.
+ Par la condition de Riesz, nous avons que 
+\begin_inset Formula $A_{j}\sum_{i}|c_{i}|^{2}\leq\left\Vert \sum_{i}c_{i}\psi_{j,i}\right\Vert ^{2}\leq B_{j}\sum_{i}|c_{i}|^{2}$
+\end_inset 
+
+.
+ Le sous-espace restant 
+\begin_inset Formula $V_{0}$
+\end_inset 
+
+ ne peut pas être représenté en utilisant les vecteurs 
+\begin_inset Formula $\psi_{j,i}$
+\end_inset 
+
+ et est parfois appelé le sous-espace d'échelle.
+\layout Standard
+
+Condition 2.
+ Toutes les ondelettes doivent avoir une masse nulle 
+\begin_inset Formula $\left\langle \psi_{j,i},1\right\rangle =0$
+\end_inset 
+
+ .
+\layout Standard
+
+Condition 3.
+ Les ondelettes doivent être locales.
+ Définissons la taille du support d'un vecteur 
+\begin_inset Formula $v$
+\end_inset 
+
+ comment étant le plus petit entier 
+\begin_inset Formula $N$
+\end_inset 
+
+ tel qu'il existe 
+\begin_inset Formula $K$
+\end_inset 
+
+ avec la propriété que 
+\begin_inset Formula $v_{K+k}=0$
+\end_inset 
+
+ ou est hors plage pour tous les 
+\begin_inset Formula $|k|>N$
+\end_inset 
+
+.
+ Il doit exister 
+\begin_inset Formula $N$
+\end_inset 
+
+ et un entier 
+\begin_inset Formula $b>1$
+\end_inset 
+
+ telle que le taille du support de 
+\begin_inset Formula $\psi_{j,i}$
+\end_inset 
+
+ est plus petite ou égale à 
+\begin_inset Formula $b^{j}N$
+\end_inset 
+
+ et tel que 
+\begin_inset Formula $b^{K}N\leq n$
+\end_inset 
+
+.
+\layout Standard
+
+On peut réduire le première condition en remplaçant 
+\begin_inset Quotes fld
+\end_inset 
+
+base de Riesz
+\begin_inset Quotes frd
+\end_inset 
+
+ par 
+\begin_inset Quotes fld
+\end_inset 
+
+repère
+\begin_inset Quotes frd
+\end_inset 
+
+ (
+\begin_inset LatexCommand \ref{repere}
+
+\end_inset 
+
+).
+\layout Subsection
+
+Quel est le lien entre les ondelettes discrètes et les ondelettes continues?
+\layout Standard
+
+Cette FAQ se préoccupe surtout des ondelettes discrètes parce que ce sont
+ les ondelettes que l'on retrouve le plus dans les applications.
+ Les ondelettes continues sont à distinguer des ondelettes discrètes.
+ Il est faux de croire qu'étant donné une ondelette continue, on peut construire
+ l'ondelettes discrète correspondante.
+ On peut donc considérer qu'il s'agit de deux théories mathématiques différentes.
+ Alors que les ondelettes continues sont fortement influencées par l'analyse
+ mathématique classique (Morlet, Meyer), les ondelettes discrètes relèvent
+ davantage de la théorie de l'approximation et des schémas de subdivision
+ (Dubuc, Deslauriers, Daubechies).
+\layout Subsection
+
+Qu'elles sont les ondelettes disponibles?
+\layout Standard
+
+On s'en doute bien, il y en a un nombre infini.
+ Il faut aussi savoir qu'on peut construire ses ondelettes soit en utilisant
+ des schémas de subdivision, soit par relèvement.
+\layout Subsection
+
+Comment puis-je trouver la forme analytique d'une ondelette?
+\layout Standard
+
+En général, les ondelettes à support compact n'ont pas de forme analytique.
+ En particulier, les ondelettes de Daubechies n'ont pas de forme analytique:
+ on sait comment calculer la fonction, mais on ne peut pas l'exprimer avec
+ une formule.
+\layout Subsection
+
+Comment traduit-on 
+\begin_inset Quotes fld
+\end_inset 
+
+\SpecialChar ~
+frame\SpecialChar ~
+
+\begin_inset Quotes frd
+\end_inset 
+
+?
+\layout Standard
+
+Il semblerait que la traduction appropriée soit 
+\begin_inset Quotes eld
+\end_inset 
+
+repère
+\begin_inset Quotes erd
+\end_inset 
+
+ (voir 
+\begin_inset LatexCommand \ref{repere}
+
+\end_inset 
+
+).
+\layout Subsection
+
+Quelle est la meilleure ondelette?
+\layout Standard
+
+Il n'y a pas une ondelette qui soit meilleure que les autres, malheureusement.
+ Tout dépend de votre application en fait.
+ Dans certains cas, l'ondelette la plus simple (Haar) sera optimale.
+ Pour d'autres applications, ce sera le pire des choix possibles.
+ Il arrive souvent aussi en pratique que le problème de la meilleure ondelette
+ soit un problème mal posé et sans réponse.
+ En pratique, il semblerait que l'élément le plus important soit le nombre
+ de moments nuls 
+\begin_inset LatexCommand \ref{momentsnuls}
+
+\end_inset 
+
+.
+ Pour la plupart des applications, il est désirable d'avoir le plus de coefficie
+nts d'ondelettes nuls et donc plus de moments nuls implique une meilleure
+ transformation.
+ Cependant, les ondelettes ayant un plus grand nombre de moments ont aussi
+ un support plus grand ce qui signifie que si votre fonction ou signal a
+ des discontinuités brusques, elle sera plus sujettes aux phénomènes de
+ Gibbs.
+ En bref, si la fonction à analyser était analytique, il serait idéal d'avoir
+ un trèès grand nombre de moments nuls, mais comme la plupart des fonctions
+ ne sont pas analytiques, un compromis est désirable.
+ C'est particulièrement vrai dans les applications industrielles.
+ En imagerie, par exemple, on opte souvent pour des ondelettes ayant de
+ 8 à 12 moments nuls.
+\layout Subsection
+
+Est-ce que les ondelettes sont meilleures que la transformation de Fourier?
+\layout Standard
+
+Non, en fait, les ondelettes ont une résolution en fréquence qui est inférieure
+ à la transformée de Fourier.
+ Ainsi donc, si on veut caractériser la contenu en fréquence d'un signal
+ (par exemple, trouver la fréquence exacte d'une note), la transformée par
+ ondelette n'est pas appropriée.
+ Une alternative est d'utiliser un algorithme plus coûteux comme le Matching
+ Pursuit.
+ 
+\layout Subsection
+
+Comment est-ce que les ondelettes (FWT, DWT) se comparent à la transformée
+ de Fourier par fenêtres (Short Time Fourier Transform, STFT)?
+\layout Standard
+
+Avec la STFT, on doit imposer une taille de fenêtre le plus souvent arbitraireme
+nt ce qui revient à fixer la résolution en temps et fréquence de façon unique
+ et définitive.
+ JPEG, par exemple, utilise des blocs de 8
+\begin_inset Formula $\times$
+\end_inset 
+
+8.
+ Avec les ondelettes, on utilise un gamme variée de résolutions ce qui permet
+ un traitement plus robuste et efficace dans de nombreuses applications.
+ L'avantage est d'autant plus important avec les signaux très longs.
+ En même temps, pour des signaux très longs, la transformée par ondelette
+ risque d'être plus coûteuse en temps de calcul et la gestion de la mémoire
+ peut être plus délicate avec certaines applications.
+\layout Subsection
+
+Je veux faire de l'analyse fréquencielle par ondelettes, comment faire?
+\layout Standard
+
+La fréquence est un concept qui se définit par la transformée de Fourier.
+ Les ondelettes fournissent une carte échelle-temps et non pas une représentatio
+n fréquentielle du signal.
+\layout Subsection
+
+Concernant le problème de la régularité des ondelettes, est-ce que les splines
+ ne sont pas la solution idéale?
+\layout Standard
+
+Les b-splines permettent d'obtenir une régularité optimale pour une certaine
+ longueur de filtre (ou taille de support compact).
+ Elles sont donc des ondelettes privilégiées lorsqu'il la régularité est
+ importante.
+ Cependant, les b-splines ne sont pas orthogonales.
+\layout Section
+
+Un peu de théorie solide
+\layout Subsection
+
+Qu'est-ce que les ondelettes orthogonales, biorthogonales?
+\layout Standard
+
+À compléter.
+\layout Subsection
+
+Pourquoi utiliser les ondelettes biorthogonales?
+\layout Standard
+
+À compléter.
+\layout Subsection
+
+Qu'est-ce qu'une base de Riez?
+\begin_inset LatexCommand \label{basederiez}
+
+\end_inset 
+
+
+\layout Standard
+
+Une base de Riesz 
+\begin_inset Formula $\left\{ \psi_{k}\right\} _{k}$
+\end_inset 
+
+ est une famille de fonctions dans un espace de Hilbert telle que 
+\begin_inset Formula $A\sum_{i}|c_{i}|^{2}\leq\left\Vert \sum_{i}c_{i}\psi_{i}\right\Vert ^{2}\leq B\sum_{i}|c_{i}|^{2}$
+\end_inset 
+
+ with 
+\begin_inset Formula $0<A\leq B<\infty$
+\end_inset 
+
+ peu importe les 
+\begin_inset Formula $c_{i}$
+\end_inset 
+
+ choisis.
+ Les ondelettes orthogonales et biorthogonales forment des bases de Riez.
+ La grande majorité des ondelettes sont dans cette catégorie.
+ Dans le cas d'une base orthonormale, nous avons 
+\begin_inset Formula $A=B=1$
+\end_inset 
+
+ et 
+\begin_inset Formula $\left\Vert \sum_{i}c_{i}\psi_{i}\right\Vert ^{2}=\sum_{i}\left|c_{i}\right|^{2}$
+\end_inset 
+
+.
+\layout Subsection
+
+Est-ce qu'il y a une autre définition pour les bases de Riesz? (contribuée
+ par F.
+ Lenardon)
+\layout Standard
+
+Rappelons qu'un espace de Hilbert 
+\begin_inset Formula $H$
+\end_inset 
+
+ est séparable s'il existe une suite de fonction 
+\begin_inset Formula $S=\left\{ \psi_{k}\right\} _{k}$
+\end_inset 
+
+ telle que 
+\begin_inset Formula $\overline{span(S)}=H$
+\end_inset 
+
+.
+ Soit 
+\begin_inset Formula $H$
+\end_inset 
+
+ un espace séparable de Hilbert.
+ Alors les deux affirmations suivantes sont équivalentes: 
+\layout Enumerate
+
+La séquence 
+\begin_inset Formula $\left\{ \psi_{k}\right\} _{k}$
+\end_inset 
+
+ forme une base de Riesz pour H.
+\layout Enumerate
+
+Il existe un produit scalaire équivalent sur 
+\begin_inset Formula $H$
+\end_inset 
+
+, par rapport auquel la séquence 
+\begin_inset Formula $\left\{ \psi_{k}\right\} _{k}$
+\end_inset 
+
+ devient une base orthogonale pour 
+\begin_inset Formula $H$
+\end_inset 
+
+.
+\layout Standard
+
+En d'autres termes, une base de Riesz est une base orthormale à un change
+ de produit scalaire près.
+ Cela explique le principe derrière les ondelettes de Battle-Lemariée: comme
+ les B-splines forment des bases de Riesz, il est possible de les orthonormalise
+r.
+\layout Subsection
+
+Qu'est-ce qu'un repère?
+\begin_inset LatexCommand \label{repere}
+
+\end_inset 
+
+
+\layout Standard
+
+Un repère 
+\begin_inset Formula $\left\{ \psi_{k}\right\} _{k}$
+\end_inset 
+
+ est une famille de fonctions dans un espace de Hilbert telle que 
+\begin_inset Formula $A\left\Vert f\right\Vert ^{2}\leq\sum_{k}\left|\left\langle f,\psi_{k}\right\rangle \right|^{2}\leq B\left\Vert f\right\Vert ^{2}$
+\end_inset 
+
+ with 
+\begin_inset Formula $0<A\leq B<\infty$
+\end_inset 
+
+ peu importe la fonction 
+\begin_inset Formula $f$
+\end_inset 
+
+ choisie.
+ Il est généralement accepté que les ondelettes sont nécessairement des
+ repères.
+\layout Subsection
+
+Qu'est-ce qu'un repère étroit (tight frame)?
+\layout Standard
+
+Lorsque nous avons un repère avec 
+\begin_inset Formula $A=B$
+\end_inset 
+
+, on dit que le repère est étroit.
+ Dans le cas 
+\begin_inset Formula $A=B=1$
+\end_inset 
+
+ et 
+\begin_inset Formula $\left\Vert \psi_{k}\right\Vert =1\,\forall k$
+\end_inset 
+
+, on peut montrer que l'on a une base orthonormale.
+ Ce qui est intéressant avec les repères étroits, c'est que l'on une corresponda
+nce précise des normes.
+ Les bases d'ondelettes non décimées ou invariantes par translation sont
+ souvent utilisées pour construire des repères étroits.
+ 
+\layout Subsection
+
+Est-ce qu'un repère est une base de Riesz?
+\layout Standard
+
+Non, un repère n'est pas nécessairement une base de Riesz: par exemple les
+ vecteurs 
+\begin_inset Formula $(2,1),(0,-1),(0,1)$
+\end_inset 
+
+ forment un repère dans le plan, mais pas une base de Riesz.
+ Plus simplement,
+\layout Subsection
+
+Est-ce qu'un repère étroit est une base de Riesz?
+\layout Standard
+
+Non, un repère étroit ne forme pas nécessairement une base de Riesz.
+ C'est toujours le cas si 
+\begin_inset Formula $A=B\neq1$
+\end_inset 
+
+.
+ Les vecteurs 
+\begin_inset Formula $(1)$
+\end_inset 
+
+ et 
+\begin_inset Formula $(-1)$
+\end_inset 
+
+ forme un repère (étroit) dans 
+\begin_inset Formula $\mathbb{R}$
+\end_inset 
+
+, mais il est facile de vérifier que ce n'est pas une base de Riesz.
+ Par contre, si 
+\begin_inset Formula $A=B=1$
+\end_inset 
+
+ et que les éléments du repère ont une norme de 
+\begin_inset Formula $1$
+\end_inset 
+
+, alors il s'agit bien d'une base de Riesz, et en fait, d'une base orthonormée.
+\layout Subsection
+
+Est-ce qu'une base de Riesz est un repère?
+\layout Standard
+
+Oui.
+ On définit parfois les bases de Riesz comme étant des repères où tous les
+ éléments sont linéairement indépendants.
+ 
+\layout Subsection
+
+Quel est l'importance d'avoir un repère?
+\layout Standard
+
+Il y a deux raisons.
+ La première est qu'un repère est toujours doté d'un repère dual c'est-à-dire
+ qu'étant donné un repère 
+\begin_inset Formula $\psi_{k}$
+\end_inset 
+
+, il existe un repère dual 
+\begin_inset Formula $\widetilde{\psi_{k}}$
+\end_inset 
+
+ tel que 
+\begin_inset Formula $f=\sum\left\langle f,\psi_{k}\right\rangle \widetilde{\psi_{k}}$
+\end_inset 
+
+ ou 
+\begin_inset Formula $f=\sum\left\langle f,\widetilde{\psi_{k}}\right\rangle \psi_{k}$
+\end_inset 
+
+ selon le cas.
+ La deuxième raison est que la propriété qui définit un repère nous permet
+ d'affirmer que si deux signaux sont proches, alors leur transformation
+ (
+\begin_inset Formula $\left\langle f,\psi_{k}\right\rangle $
+\end_inset 
+
+) sera proche, et aussi que si deux transformations sont proches, alors
+ les signaux doivent être proches.
+ Cette dernière propriété est essentiellement parce qu'elle signifie que
+ tant que l'on ne modifie que légèrement les coefficients d'ondelette, le
+ signal équivalent ne sera que légèrement modifié (stabilité algorithmique).
+\layout Subsection
+
+Qu'est-ce que le nombre de moments nuls et quel lien fait-on avec la régularité?
+\begin_inset LatexCommand \label{momentsnuls}
+
+\end_inset 
+
+
+\layout Standard
+
+On dit qu'une ondelette a 
+\begin_inset Formula $N$
+\end_inset 
+
+ moments nuls si pour 
+\begin_inset Formula $i=0,...,N-1$
+\end_inset 
+
+, 
+\begin_inset Formula $\int x^{i}\psi_{j,i}(x)dx=0$
+\end_inset 
+
+.
+ En particulier, toute ondelette se doit d'avoir au moins un moment nul.
+ 
+\layout Standard
+
+Brièvement, on peut expliquer l'utilité pratique d'avoir un bon nombre de
+ moments nuls, supposons qu'on prend la transformée par ondelettes de 
+\begin_inset Formula $f$
+\end_inset 
+
+ avec des ondelettes ayant un support compact et 
+\begin_inset Formula $N$
+\end_inset 
+
+ moments nuls, localement, nous supposons que 
+\begin_inset Formula $f$
+\end_inset 
+
+ a l'expansion de Taylor 
+\begin_inset Formula \[
+f(x)=f(a)+f'(a)(x-a)+...+f^{(N-1)}(a)(x-a)^{N-1}/(N-1)!+erreur(x)\]
+
+\end_inset 
+
+Nous avons alors 
+\begin_inset Formula \[
+\int f(x)\psi_{j,i}(x)dx=\int erreur(x)\psi_{j,i}(x)dx\]
+
+\end_inset 
+
+où l'intégrale n'est prise que dans la voisinage de 
+\begin_inset Formula $f$
+\end_inset 
+
+ sujet à l'expansion de Taylor.
+ On suppose ici implicitement que le support de l'ondelette est comprise
+ dans ce voisinage, mais pour une fonction partout régulière, on peut faire
+ l'expansion de Taylor pour n'importe quel 
+\begin_inset Formula $a$
+\end_inset 
+
+ et on peut donc centrer l'expansion dans le support de l'ondelette.
+ Comme on peut le voir, un grand nombre de moments nuls nous permet d'affirmer
+ que pour une fonction très régulière, les coefficients d'ondelettes seront
+ petits.
+ Ce détail est important pour les applications.
+ Comme la fonction d'erreur prend localement la forme 
+\begin_inset Formula $f^{(N)}(\xi)(x-a)^{N}/N!$
+\end_inset 
+
+ (théorème de Taylor), on voit que plus les ondelettes auront un petit support,
+ plus les coefficients d'ondelette seront petits.
+ En prenant donc le ratio des coefficients d'ondelettes correspondant à
+ des échelles différentes, on peut donc espérer mesurer la régularité de
+ 
+\begin_inset Formula $f$
+\end_inset 
+
+.
+\layout Standard
+
+En résumé, pour une fonction 
+\begin_inset Formula $f$
+\end_inset 
+
+ très régulière, les coefficients d'ondelette seront petits, et cela est
+ d'autant plus vrai pour les ondelettes très localisées (échelles fines).
+\layout Subsection
+
+Pourquoi la transformée de Fourier 
+\begin_inset Formula $F(w)$
+\end_inset 
+
+ d'une fonction 
+\begin_inset Formula $L^{1}$
+\end_inset 
+
+, 
+\begin_inset Formula $f(x)$
+\end_inset 
+
+, tend vers zéro quand 
+\begin_inset Formula $w$
+\end_inset 
+
+ devient grand.
+\layout Standard
+
+Par définition, 
+\begin_inset Formula $F(w)=\int f(x)e^{-ixw}dx$
+\end_inset 
+
+.
+ De cette équation, nous savons que 
+\begin_inset Formula $|F(w)|$
+\end_inset 
+
+ satisfait 
+\begin_inset Formula $|F(w)|\leq\int|f(x)|dx<\infty$
+\end_inset 
+
+|.
+ Si on teste la continuité, on obtient tout d'abord 
+\begin_inset Formula \[
+F(w+\varepsilon)=\int f(x)e^{-ixw}\left(1-e^{-ix\varepsilon}\right)dx.\]
+
+\end_inset 
+
+Puisque 
+\begin_inset Formula $\left(1-e^{-ix\varepsilon}\right)$
+\end_inset 
+
+ sera petit pour 
+\begin_inset Formula $x$
+\end_inset 
+
+ borné, et que 
+\begin_inset Formula $\left|1-e^{-ix\varepsilon}\right|\leq2$
+\end_inset 
+
+, il suffit donc d'avoir que 
+\begin_inset Formula $\int_{N}^{\infty}|f(x)|dx\rightarrow0$
+\end_inset 
+
+ lorsque 
+\begin_inset Formula $N$
+\end_inset 
+
+ devient grand, mais ce résultat est certainement vrai puisque 
+\begin_inset Formula $f$
+\end_inset 
+
+ est Lebesgue...
+\layout Standard
+
+On se résume: 
+\begin_inset Formula $F$
+\end_inset 
+
+ est bornée et continue...
+ reste à montrer que 
+\begin_inset Formula $F(w)$
+\end_inset 
+
+ décroît lorsque 
+\begin_inset Formula $w$
+\end_inset 
+
+ augmente...ce théorème porte un nom...
+ Riemann-Lebesgue...
+\layout Standard
+
+Preuve du théorème (en gros) :
+\layout Standard
+
+On sait que les fonctions de Lebesgue peuvent être générées (i.e.
+ c'est un ensemble "dense") par les fonctions "caractéristiques", c'est-à-dire
+ les fonctions 
+\begin_inset Formula $f_{X}(x)=1$
+\end_inset 
+
+ si 
+\begin_inset Formula $x\in X$
+\end_inset 
+
+ et 
+\begin_inset Formula $0$
+\end_inset 
+
+ sinon.
+ On peut voir que la transformée de Fourier de 
+\begin_inset Formula $f_{X}(x)$
+\end_inset 
+
+, 
+\begin_inset Formula $\hat{f}_{X}(w)$
+\end_inset 
+
+, ira en 
+\begin_inset Formula $1/w$
+\end_inset 
+
+ (pour s'en convaincre, choisir 
+\begin_inset Formula $X=[0,1]$
+\end_inset 
+
+).
+ Ensuite, il suffit de vérifier que l'ensemble des fonctions 
+\begin_inset Formula $f$
+\end_inset 
+
+ dans 
+\begin_inset Formula $L^{1}$
+\end_inset 
+
+ telles que 
+\begin_inset Formula $\hat{f}$
+\end_inset 
+
+ tend vers zéro à l'infini est fermé dans la norme 
+\begin_inset Formula $L^{1}$
+\end_inset 
+
+.
+ Mais c'est pas bien compliqué puisque les 
+\begin_inset Formula $\hat{f}$
+\end_inset 
+
+ sont bornées par la norme 
+\begin_inset Formula $L^{1}$
+\end_inset 
+
+.
+ En effet, soit 
+\begin_inset Formula $f$
+\end_inset 
+
+ une fonction telle qu'elle peut être approchée aussi près qu'on veut par
+ des fonctions 
+\begin_inset Formula $g$
+\end_inset 
+
+ telles que leur transformée de Fourier tend vers zéro...
+ En norme 
+\begin_inset Formula $L^{1}$
+\end_inset 
+
+, 
+\begin_inset Formula $|f-g|_{L^{1}}\rightarrow0$
+\end_inset 
+
+, donc 
+\begin_inset Formula $|\hat{f}-\hat{g}|_{L^{\infty}}\rightarrow0$
+\end_inset 
+
+.
+ Fin de la preuve!
+\layout Subsection
+
+Comment calculer la fréquence instantanée d'un signal non stationaire avec
+ les ondelettes?
+\layout Standard
+
+La "fréquence" est un concept mal défini en dehors de Fourier, et c'est
+ là le véritable problème.
+ Bien qu'il puisse sembler évident qu'étant donné un signal, il doit y avoir
+ une fréquence associée à chaque instant dans le temps, ce n'est pas vrai
+ en pratique.
+ Pour s'en convaincre, il suffit de considérer 
+\begin_inset Formula $f(t)=\sin t+\sin t^{2}$
+\end_inset 
+
+: quelle est la fréquence de cette fonction 
+\begin_inset Formula $f(t)$
+\end_inset 
+
+ au temps 
+\begin_inset Formula $t=t_{0}$
+\end_inset 
+
+?
+\layout Standard
+
+La vraie solution est de rechercher une représentation temps-fréquence du
+ signal.
+ Cela peut-être accompli avec le Matching Pursuit, les atomes de Gabor,
+ etc.
+ Ce ne sont plus des ondelettes cependant.
+ Bien que les transformations demeurent linéaires, elles ne sont plus "orthogona
+les"...
+ en d'autre termes, elles comportent beaucoup plus de calculs que Fourier
+ et sont beaucoup, beaucoup plus lentes, même si leur complexité peut (parfois)
+ être similaire.
+\layout Subsection
+
+Est-ce qu'il existe des ondelettes respectant la causalité?
+\layout Standard
+
+Un filtre est causal s'il peut s'écrire 
+\begin_inset Formula $y_{i}=f(x_{i},x_{i-1},\ldots)$
+\end_inset 
+
+ de telle manière à ce que la valeur 
+\begin_inset Formula $y_{i}$
+\end_inset 
+
+ ne dépend que du passé et non de l'avenir.
+ Ce concept n'a malheureusement du sens que pour les transformations ou
+ filtrages dans le temps.
+ La transformation par ondelettes étant une transformation temps-fréquence,
+ le concept n'a plus de sens.
+ Par exemple, il est facile de vérifier que la transformation de Haar ne
+ correspond pas à aucun concept de causalité, par contre, on peut écrire
+ les filtres d'échelle et d'ondelettes avec les formules 
+\begin_inset Formula $y_{i}=(x_{i}+x_{i-1})/\sqrt{2}$
+\end_inset 
+
+ et 
+\begin_inset Formula $z_{i}=(x_{i}-x_{i-1})/\sqrt{2}$
+\end_inset 
+
+ ce qui 
+\shape italic 
+semble
+\shape default 
+ être causal.
+ L'exemple de Haar nous ramène au problème fondamental que les coefficients
+ d'ondelettes ont un indice de temps et un indice d'échelle, alors que la
+ causalité n'est définie qu'entre deux séries ayant une dimension commune
+ (le temps).
+ Étant donné 
+\begin_inset Formula $x=(0,1)$
+\end_inset 
+
+ ou 
+\begin_inset Formula $x=(1,0)$
+\end_inset 
+
+, la transformation par ondelettes de Haar me donne 
+\begin_inset Formula $1/\sqrt{2}$
+\end_inset 
+
+ comme coefficient d'échelle et 
+\begin_inset Formula $\pm1/\sqrt{2}$
+\end_inset 
+
+ comme coefficient d'ondelettes...
+ est-ce causal? La question n'a pas de sens.
+\layout Section
+
+Logiciel
+\layout Subsection
+
+J'utilise Matlab et je veux faire des ondelettes sans payer?
+\layout Standard
+
+David Donoho et ses collaborateurs rendent disponible 
+\begin_inset ERT
+status Collapsed
+
+\layout Standard
+
+\backslash 
+htmladdnormallink{WaveLab}{http://www-stat.stanford.edu/~wavelab/}
+\end_inset 
+
+.
+ C'est gratuit.
+\layout Subsection
+
+Où est-ce que je peux trouver du code Java?
+\layout Standard
+
+Une implémentation en Java, facile à convertir en C/C++ est disponible avec
+ 
+\begin_inset ERT
+status Collapsed
+
+\layout Standard
+
+\backslash 
+htmladdnormallink{une table de filtres}{http://www.ondelette.com/lemire/documents/filtres.txt}
+\end_inset 
+
+, et il y a aussi une 
+\begin_inset ERT
+status Open
+
+\layout Standard
+
+\backslash 
+htmladdnormallink{classe java}{http://www.ondelette.com/lemire/code/java/FastCDF2
+\backslash 
+_4.java}
+\end_inset 
+
+ toute prête.
+ On doit aussi mentionner une librairie scientifique puissante en Java 
+\begin_inset ERT
+status Collapsed
+
+\layout Standard
+
+\backslash 
+htmladdnormallink{JSci}{http://fourier.dur.ac.uk:8000/~dma3mjh/jsci/index.html}
+\end_inset 
+
+.
+ 
+\layout Subsection
+
+Où est-ce que je peux trouver du code C/C++?
+\layout Standard
+
+Il y a une implémentation de l'ondelette 
+\begin_inset ERT
+status Collapsed
+
+\layout Standard
+
+\backslash 
+htmladdnormallink{Symmlet8 en C++}{http://www.ondelette.com/lemire/code/C/FastSymmlet8.C}
+\end_inset 
+
+.
+\layout Subsection
+
+Je veux faire de la compression d'images ou de la compression vidéo par
+ ondelettes! Veuillez m'envoyer du code!
+\layout Standard
+
+Il faut savoir que ce type d'applications est sujets à des brevets et autres
+ contraintes commerciales.
+ Il n'est pas clair pour l'instant qu'il existe une librairie gratuite pouvant
+ être utilisée en toute liberté.
+ Il y a un 
+\begin_inset ERT
+status Collapsed
+
+\layout Standard
+
+\backslash 
+htmladdnormallink{white paper générique}{http://www.ondelette.com/CIRA/whitepaperCIRA_(Francais)_2_2.pdf}
+\end_inset 
+
+ sur la compression d'images par ondelettes écrit pour la société CIRA.
+\layout Standard
+
+En général, il faut avoir un solide budget de développement pour entreprendre
+ un projet en compression d'images ou en compression vidéo surtout si l'on
+ compte sur les applications commerciales.
+\layout Subsection
+
+Qu'est-ce que JPEG2000?
+\layout Standard
+
+Il s'agit d'une norme ISO établie par un ensemble d'industriels et de centres
+ de recherche pour la compression d'images.
+ La norme doit remplacer JPEG à terme.
+ Cependant, comme j'écris ces lignes en 2002 et que JPEG2000 demeure encore
+ virtuellement inutilisé par le grand public, on peut s'attendre à ce que
+ le bon vieux JPEG (basé sur la transformée de Fourier) ait la vie dure!
+ 
+\layout Standard
+
+Voici quelques liens: 
+\begin_inset ERT
+status Collapsed
+
+\layout Standard
+
+\backslash 
+htmladdnormallink{une page nous venant du Japon par Okumura}{http://www.matsusaka-u.ac.jp/~okumura/compression.html}
+\end_inset 
+
+ (
+\begin_inset ERT
+status Collapsed
+
+\layout Standard
+
+\backslash 
+htmladdnormallink{http://www.matsusaka-u.ac.jp/~okumura/compression.html}{http://www.matsusaka-u.ac.jp/~okumura/compression.html}
+\end_inset 
+
+),
+\begin_inset ERT
+status Open
+
+\layout Standard
+ 
+\backslash 
+htmladdnormallink{http://DataCompression.info/JPEG2000.shtml}{http://DataCompression.info/JPEG2000.shtml}
+\end_inset 
+
+, 
+\begin_inset ERT
+status Collapsed
+
+\layout Standard
+
+\backslash 
+htmladdnormallink{http://maestro.ee.unsw.edu.au/~taubman/kakadu/}{http://maestro.ee.unsw.edu.au/~taubman/kakadu/}.
+\end_inset 
+
+
+\layout Standard
+
+Il existe une librairie Java disponible facilement appelée 
+\begin_inset ERT
+status Collapsed
+
+\layout Standard
+
+\backslash 
+htmladdnormallink{JJ2000}{http://jj2000.epfl.ch/}
+\end_inset 
+
+ (
+\begin_inset ERT
+status Collapsed
+
+\layout Standard
+
+\backslash 
+htmladdnormallink{http://jj2000.epfl.ch/}{http://jj2000.epfl.ch/}
+\end_inset 
+
+).
+ On peut télécharger la librairie gratuitement, mais je n'ai pas pu vérifier
+ les droits.
+ Il est probable que vous puissiez utiliser cette librairie à des fins académiqu
+es.
+ De la même façon, il y a une librairie open source en C/C++ 
+\begin_inset ERT
+status Collapsed
+
+\layout Standard
+
+\backslash 
+htmladdnormallink{J2000}{http://www.j2000.org}
+\end_inset 
+
+(
+\begin_inset ERT
+status Collapsed
+
+\layout Standard
+
+\backslash 
+htmladdnormallink{http://www.j2000.org}{http://www.j2000.org}
+\end_inset 
+
+).
+\layout Standard
+
+Est-ce que vous devriez utiliser JPEG 2000? Voici 
+\begin_inset ERT
+status Collapsed
+
+\layout Standard
+
+\backslash 
+htmladdnormallink{un article en anglais sur la question}{http://www.advogato.org/article/327.html}
+\end_inset 
+
+ (
+\begin_inset ERT
+status Collapsed
+
+\layout Standard
+
+\backslash 
+htmladdnormallink{http://www.advogato.org/article/327.html}{http://www.advogato.org/article/327.html}
+\end_inset 
+
+).
+ En terminant, voici 
+\begin_inset ERT
+status Collapsed
+
+\layout Standard
+
+\backslash 
+htmladdnormallink{un avertissement du président du comité ISO/JPEG2000}{http://www.jpeg.org/CDs15444.htm}
+\end_inset 
+
+sur l'aspect légal de l'utilisation de la norme JPEG2000:
+\layout Quotation
+
+
+\shape italic 
+Particular attention is drawn to the use within the standard of selected
+ technology or algorithms which are claimed to be protected by national
+ and/or international patents.
+ In the case of technology submitted for consideration by JPEG for incorporation
+ in Part 1 of the standard, the JPEG committee believes that the individual
+ organisations concerned will make available licences to use this intellectual
+ property, on a royalty- and fee-free basis, under specified conditions
+ which may apply only to conforming implementations of the standard.
+ These conditions are available on application to the organisations concerned,
+ which are listed in an Annex to the document.
+\layout Quotation
+
+
+\shape italic 
+It is of course still possible that other organisations or individuals may
+ claim intellectual property rights that affect implementation of the standard,
+ and any implementors are urged to carry out their own searches and investigatio
+ns in this area.
+ The JPEG committee requests any organisations or individuals claiming (or
+ being aware of claims) that any of the committee drafts available for download
+ here infringes other intellectual property rights to provide information
+ and/or evidence to substantiate their claim to the JPEG Convener in the
+ first instance.
+\layout Subsection
+
+Je veux faire du développement MPEG, où est-ce que je peux trouver le code?
+\layout Standard
+
+Les normes MPEG sont brevetés.
+ Il faut donc normalement une entente légale avec les détenteurs des brevets
+ pour leur utilisation.
+ Par exemple, pour MPEG-4, les coûts d'utilisation sont determinés en partie
+ par le temps d'utilisation du CODEC selon une facturation à la minute.
+ Pratiquement toutes les grandes boîtes faisant de le multimédia ont des
+ implémentations MPEG incluant, par exemple, Texas Instrument.
+\layout Section
+
+Applications
+\layout Subsection
+
+Quelles sont les principales applications des ondelettes?
+\layout Standard
+
+On utilise surtout les ondelettes pour la compression d'images et pour le
+ débruitage non paramétrique des signaux.
+ Il faut noter cependant que les ondelettes sont aussi utilisées en analyse
+ numériques pour simuler des phénomènes physiques et récemment, les ondelettes
+ ont été utilisées avec succès pour l'accélération des bases de données.
+\layout Subsection
+
+J'ai bien compris comment faire la transformation par ondelettes sur un
+ signal 1D, comment faire pour transformer une image?
+\layout Standard
+
+La méthode la plus simple consiste à transformer les colonnes puis les rangées
+ en faisant une transformation unidimensionnelle.
+ Il existe cependant des ondelettes non séparables qui ne peuvent utilisé
+ de cette façon, mais elles sont peu utilisées en pratique.
+\layout Subsection
+
+La transformée par ondelettes ne s'applique que pour des matrices de taille
+ 
+\begin_inset Formula $2^{p}$
+\end_inset 
+
+, donc pour des images de 
+\begin_inset Formula $2^{p}$
+\end_inset 
+
+ pixels fois 
+\begin_inset Formula $2^{p}$
+\end_inset 
+
+ pixels ? Alors comment faire pour des images non carrées et/ou de coté
+ différent d'une puissance de 2 (par exemple 800*600 ou 1024*768) .
+\layout Standard
+
+Ce n'est pas vrai que l'algorithme ne s'applique qu'aux matrices de taille
+ 
+\begin_inset Formula $2^{p}$
+\end_inset 
+
+.
+ Chaque fois que vous appliquez la transformée par ondelettes (une itération),
+ vous divisez par deux la taille de l'image.
+ Cependant, cela ne signifie pas que vous deviez (ou pouviez) poursuivre
+ jusqu'à ce que vous ayiez des matrices 2 par 2.
+ Vous pouvez très bien faire...800
+\begin_inset Formula $\times$
+\end_inset 
+
+600 -> 400
+\begin_inset Formula $\times$
+\end_inset 
+
+300 -> 200
+\begin_inset Formula $\times$
+\end_inset 
+
+150 -> 100
+\begin_inset Formula $\times$
+\end_inset 
+
+75.
+ Autrement, si vous devez absolument poursuivre au delà de 100
+\begin_inset Formula $\times$
+\end_inset 
+
+75, vous pouvez appliquer du remplissage pour compléter la dernière matrice
+ à 100
+\begin_inset Formula $\times$
+\end_inset 
+
+76 par exemple.
+\layout Subsection
+
+Qu'est-ce que le débruitage par ondelettes?
+\layout Standard
+
+Les ondelettes permettent un débruitage statistique non paramétrique des
+ signaux.
+ Un des chercheurs les plus réputés dans le domaine est 
+\begin_inset ERT
+status Collapsed
+
+\layout Standard
+
+\backslash 
+htmladdnormallink{David Donoho}{http://playfair.stanford.edu/~donoho/}
+\end_inset 
+
+.
+ Le principe est assez simple: on applique la transformation par ondelettes,
+ on applique ensuite un seuillage sur les coefficients pour ne garder que
+ les coefficients les plus significatifs.
+ En effet, comme le bruit tend à se répartir sur tous les coefficients d'ondelet
+tes, on sait que le ratio signal/bruit sera plus grand sur les coefficients
+ les plus importants en amplitude et en ne gardant que ceux là, on augmente
+ généralement le ratio signal/bruit de notre signal.
+ (Voir les articles de Donoho et al.
+ pour les détails.)
+\layout Standard
+
+On peut aussi, dans une certaine mesure, faire le travail inverse et retrouver
+ de l'information perdue par un filtre passe-bas en utilisant les ondelettes
+ à condition d'avoir un bon modèle.
+ Il s'agit simplement d'amplifier certains coefficients d'ondelettes (les
+ plus significatifs) au lieu de faire un seuillage.
+\layout Subsection
+
+L' algorithme par ondelettes prend une image 
+\begin_inset Formula $M\times N$
+\end_inset 
+
+ et va en faire un tableau de 
+\begin_inset Formula $M\times N$
+\end_inset 
+
+ coefficients, où est la compression? 
+\layout Standard
+
+
+\series bold 
+Première réponse.
+
+\series default 
+ La transformation par ondelettes ne compresse absolument rien.
+ La compression par ondelettes est une transformation 1-1 et pire, en pratique,
+ c'est plutôt 4-1, car on traite des pixels 8bits en utilisant un stockage
+ 32 bits.
+ La compression vient plus tard, en utilisant d'autres procédés de codage
+ d'entropie.
+\layout Standard
+
+
+\series bold 
+Deuxième réponse.
+
+\series default 
+ Nulle part, pour l'instant.
+ Par contre, si la tranformation est bien faite et si l'ondelette est bien
+ choisie, la variance du tableau résultant de la transformation va être
+ très faible (en gros, il y aura beaucoup de zéros, et de valeurs proches
+ dans le tableau de sortie).
+ La variance étant directement liée à l'entropie d'un signal, la matrice,
+ après discrétisation, pourra être codée efficacement par un codeur entropique.
+\layout Subsection
+
+Qu'est-ce que le codage entropique ou codage d'entropie?
+\layout Standard
+
+L'entropie est une mesure statistique de la quantité d'informations contenue
+ dans un signal, introduite par Shannon.
+ En présence d'un signal connu qui prend ses valeurs dans un ensemble fini
+ de symboles, on peut calculer aisément cette mesure, qui s'exprime en bits/symb
+ole.
+\layout Standard
+
+Le codage entropique consiste à coder ces symboles, sur un nombre de bits
+ variable, en fonction de la fréquence d'apparition de ces symboles : "plus
+ le symbole est fréquent, plus son code sera court" : Il existe plusieurs
+ algorithmes réalisant ce codage entropique : Huffman, Shannon-Fano, le
+ codage artithmétique...
+\layout Standard
+
+On montre que n'importe quel algorithme de codage entropique appliqué à
+ un signal produira un nombre de bits moyens toujours supérieur à l'entropie
+ de ce signal.
+ Le codage arithmétique est un algorithme performant qui atteint asymptotiquemen
+t l'entropie (mais il est breveté par IBM).
+\layout Standard
+
+On remarquera que la plupart des codeurs actuels (d'image, de son ou de
+ fichiers) réalisent une transformation du signal originel, le discrétise
+ si nécessaire et applique ensuite un codage entropique.
+ En effet, la transformation est choisie en fonction du type de signal d'entrée
+ et de telle manière à obtenir un signal intermédiaire qui possèdera une
+ entropie faible.
+\layout Standard
+
+Dans le cas de JPEG, la transformation en cosinus discret par blocs (DCT)
+ et la quantification qui en suit, permet d'obtenir un grand nombre de zéros
+ dans le signal intermédiaire (plus précisement, son histogramme présentera
+ un pic très raide) qui possèdera ainsi une entropie très faible.
+ Un codeur d'Huffman, integré à JPEG, permet alors un encodage efficace
+ de l'image.
+\layout Standard
+
+GZip encode à la volée les chaînes de caractères présente dans un flux de
+ données par réference à une même chaîne précedemment observée.
+ GZip encode alors un ensemble de couples (distance, taille de la chaîne)
+ qui est alors encodé par deux codeurs d'Huffman.
+ Ainsi, en présence d'un fichier présentant de nombreuses répétitions (c'est
+ le cas des fichiers textes ou exécutables), l'entropie du signal de couples
+ (distance, taille) sera très faible et GZip sera performant.
+\layout Subsection
+
+L'image couleur résulte de la superposition de 3 matrices (1 codant chaque
+ couleur primaire : rouge vert bleu).
+ Applique-ton l'agorithme pour chaque matrice ? 
+\layout Standard
+
+
+\series bold 
+Première réponse.
+
+\series default 
+ On pourrait le faire mais en pratique, on ne le fait pas, car les résultats
+ ne sont pas très bons (la quantité d'information compressée est triplée).
+\layout Standard
+
+Une méthode très utilisée (dans MPEG, JPEG et JPEG-2000) consiste à utiliser
+ une propriété de l'oeil : celui-ci perçoit de manière très sensible les
+ variations d'intensité lumineuse mais est peu sensible aux variations de
+ couleurs.
+ 
+\layout Standard
+
+La méthode consiste ainsi à transformer l'espace de couleurs RGB en un autre
+ espace nommé YUV, où Y represente la partie noire et blanc de l'image (la
+ luminance, comme si l'image originale était convertie en "niveaux de gris").
+ U et V comporteront l'information de chrominance bleue et rouge, respectivement.
+ 
+\layout Standard
+
+Cette transformation est linéaire, très simple, et permet d'obtenir à partir
+ des trois matrices R, G et B, trois nouvelles matrices : Y, U et V.
+ La matrice Y est alors codée comme une image en niveaux de gris classique,
+ et les matrices U et V seront codées avec une résolution 4 fois plus faible
+ (leur hauteur et leur largeur sont divisées par 2) ; l'oeil ne sera pas
+ sensible à ce prétraitement destructif.
+\layout Standard
+
+
+\series bold 
+Deuxième réponse.
+
+\series default 
+ Tout dépend en fait de votre choix algorithmique.
+ Il y a des transformation scalaires et vectorielles.
+ En effet, on peut traiter les 3 canaux comme un champ vectoriel, ou bien
+ alors comme trois fonctions scalaires.
+\layout Standard
+
+L'intuition nous dit que l'approche vectorielle devrait être supérieure,
+ mais ce n'est pas évident.
+ D'abord parce que l'on va recoder l'image, non pas en RGB, mais en YIQ
+ ou un autre format.
+ Dans ce nouveau format, il se trouve que l'on peut traitement chaque canal
+ en fonction de son importance.
+ Par exemple, on peut sous-échantillonner les canaux I et Q sans grande
+ perte de qualité visuelle.
+ Cette approche est courante et date des premiers jours de la télévision
+ (couleur).
+\layout Subsection
+
+En compression vidéo, on peut faire mieux que Fourier avec les ondelettes?
+\layout Standard
+
+Ce n'est pas nécessairement vrai.
+ Il faut comprendre qu'en compression vidéo, le gros du gain provient de
+ la compression entre les images successives.
+ Bien que les ondelettes compressent très bien les images une à une, ce
+ n'est pas là un gain important pour les spécialistes de la vidéo.
+\layout Subsection
+
+Quelle est la différence entre la compression par ondelettes pour la vidéo
+ (MPEG) et pour les images statiques (JPEG2000)?
+\layout Standard
+
+La compression vidéo de type MPEG compresse des images une à une tout comme
+ la compression d'images traditionnelle (JPEG).
+ Cependant, la compression d'images doit relever ses propres défis.
+ En fait, de nombreux problèmes se posent en compression statique qui ne
+ se posent que rarement en compression vidéo.
+ D'abord, il est assez rare que l'on va exiger un compression (sans perte)
+ en vidéo alors que c'est très courant en compression d'images statiques
+ (pour des raisons légales surtout d'ailleurs).
+ D'autre part, la compression d'images statiques doit souvent permettre
+ le traitement d'images énormes (faisant 4000 par 4000 pixels par exemple)
+ et l'accès dynamique par région (ROI - Region Of Interest).
+ Il y a aussi parfois la nécessité d'avoir plus de 8 bits par canal, en
+ particulier pour l'impression d'images (images en 8/10/12 bits par canal).
+ Ainsi donc, l'algorithmie des images statiques doit pouvoir résoudre des
+ problèmes difficiles que l'on ne rencontre pas en compression vidéo (et
+ inversement).
+\layout Subsection
+
+Où est-ce que je peux trouver les références concernant les formats MPEG?
+\layout Standard
+
+MPEG est un consortium d'industriels et d'universitaires issu d'un comité
+ joint de l'ISO et de l'IEC.
+ Les normes MPEG sont la propriété de l'ISO et sont payantes.
+ De surcroît, les algorithmes utilisés dans les normes MPEG sont souvent
+ brevetés, et donc soumis à la propriété intellectuelle de leurs inventeurs.
+\the_end

@@ -1,0 +1,755 @@
+#LyX 1.1 created this file. For more info see http://www.lyx.org/
+\lyxformat 218
+\textclass article
+\begin_preamble
+%%%%%
+%%%%%
+%%%%%
+%% Welcome!
+%% if you have any question about this
+%% document, please get in touch with
+%% Daniel Lemire at lemire@ondelette.com
+%%
+%% Of course, this file was generated
+%% with LyX which means that the syntax
+%% might be weird at times, but I've found
+%% that LyX did an excellent job overall at
+%% generating clean LaTeX syntax.
+%% Why do I choose LyX? Because LyX
+%% doesn't come with its own LaTeX engine.
+%% LyX simply use whatever tex I have.
+%% There is no "proprietary gizmos" going
+%% on. Also, instead of waiting for support
+%% from some folk in California, I can find
+%% most of the answers I need on the web,
+%% for free! Oh! And LyX is free too! 
+%% Good old Open Source software!
+%%
+%% (Sorry for the propaganda!)
+%% 
+%% Thanks!
+%% Enjoy!
+%%
+%% Sept. 8th 2001
+%% Grand-Pré, NS
+%%
+%%%%%%%%%%
+%
+% Notice that this document requires quite
+% a bit of macros... 
+% Sorry about that!
+%%%%%%%%%%%%%%
+%%
+\usepackage{epsfig}
+\usepackage{amsmath,amssymb}
+\usepackage{pslatex}
+\usepackage{color}
+ 
+ \definecolor{veryblackblue}{rgb}{0.0,0.0,0.1}
+ \usepackage[pdftex,urlcolor=webblackblue,colorlinks=true,citecolor=blue]{hyperref}
+ \pdfinfo{
+            /Title      (Numerical Methods 2)
+            /Author     (Daniel Lemire, Ph.D.)
+            /Subject    (Final.)
+            /Keywords   ( Numerical Analysis, Acadia)
+          }
+
+
+\topmargin  = 0pt
+\headheight = 0pt
+\headsep    = 0pt
+
+\voffset    = 0in
+\hoffset    = 0in
+\textheight = 230mm
+\textwidth  = 164mm
+
+\evensidemargin = 0pt
+\oddsidemargin  = 0pt
+
+%\pagestyle{empty}
+\usepackage{float}
+
+%% Background of blue palette
+ \definecolor{webblackblue}{rgb}{0.0,0.0,0.2}
+ \definecolor{webblue}{rgb}{0.0, 0.0, 0.6}
+
+%% Background of red palette
+ \definecolor{webblackred}{rgb}{0.2,0.0,0.0}
+ \definecolor{webred}{rgb}{0.6,0.0,0.0}
+
+%% Background of green palette
+ \definecolor{webblackgreen}{rgb}{0.0,0.2,0.0}                                   
+ \definecolor{webgreen}{rgb}{0.0,0.6,0.0} 
+
+%% Background of magenta palette
+ \definecolor{webblackmagenta}{rgb}{0.14,0.0,0.14}                                   
+ \definecolor{webmagenta}{rgb}{0.42,0.0,0.42} 
+
+%% Background of cyan palette
+ \definecolor{webblackcyan}{rgb}{0.0,0.14,0.14}                                   
+ \definecolor{webcyan}{rgb}{0.0,0.42,0.42} 
+
+%% Background of yellow pallete
+ \definecolor{webblackyellow}{rgb}{0.14,0.14,0.0}                                   
+ \definecolor{webyellow}{rgb}{0.85,0.85,0.0} 
+
+ \definecolor{webdarkgray}{rgb}{0.2,0.2,0.2}
+
+ \definecolor{webgray}{rgb}{0.75,0.75,0.75}
+ \definecolor{weborange}{rgb}{1.0, 0.6, 0.0}
+
+\renewcommand\labelenumi{\textcolor{webdarkgray}{\arabic{enumi}.}}
+\newcommand{\setenumi}[1]{#1.\setcounter{enumi}{#1}}
+\usepackage{dsfont}
+
+
+%%
+%% You might need this next line... I don't for
+%% some reason... defined somewhere?
+%%
+%% \newcommand{\setenumi}[1]{#1.\setcounter{enumi}{#1}}
+%%
+%% Document should begin NOW!
+%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%
+\end_preamble
+\language american
+\inputencoding auto
+\fontscheme default
+\graphics default
+\paperfontsize 12
+\spacing single 
+\papersize Default
+\paperpackage a4
+\use_geometry 0
+\use_amsmath 0
+\paperorientation portrait
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\defskip medskip
+\quotes_language english
+\quotes_times 2
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+
+\layout Standard
+
+
+\latex latex 
+
+\backslash 
+thispagestyle{empty}
+\layout Title
+
+Numerical Methods 2 (MATH 3423) - Final
+\newline 
+Acadia University
+\newline 
+Spring 2002
+\layout Author
+
+Instructor: Daniel Lemire, Ph.D.
+\layout Date
+
+Take home exam,
+\layout Date
+
+Due April 23rd 2002 - 4pm (Math & Stat.
+ Secretary)
+\layout Standard
+
+
+\hfill 
+Name: ___________________________________
+\layout Standard
+
+
+\hfill 
+Student Number:___________________________
+\layout Standard
+
+
+\latex latex 
+
+\backslash 
+vspace{2cm}
+\layout Standard
+
+The exam is due on April 23rd 2002 at the Mathematics and Statistics secretary
+ before 4pm (Huggins Science Hall, Room 130).
+ While you can use all available documentation to write this exam including
+ textbooks, web sites and lecture notes, you are to write this exam on your
+ own.
+ Specifically, you are not allowed to discuss this exam with other students
+ or professors.
+ While you can use a calculator or a computer, they are not required.
+ The exam is designed to take about 3 hours of your time.
+ You must show your work.
+\latex latex 
+
+\backslash 
+vspace{1cm}
+\layout Standard
+
+Question 1.
+ ____ / 15
+\layout Standard
+
+Question 2.
+ ____ / 20
+\layout Standard
+
+Question 3.
+ ____ / 25
+\layout Standard
+
+Question 4.
+ ____ / 20
+\layout Standard
+
+Question 5.
+ ____ / 20
+\layout Standard
+
+
+\hfill 
+____ /100
+\layout Standard
+
+
+\latex latex 
+
+\backslash 
+pagebreak{}
+\layout Enumerate
+
+[15 marks] (Numerical Derivative) An elevator is moving with a variable
+ velocity 
+\begin_inset Formula \( v \)
+\end_inset 
+
+.
+ Estimate the velocity at time 
+\begin_inset Formula \( t=0 \)
+\end_inset 
+
+ if the following data is available (give one velocity per case) using 
+\series bold 
+Taylor series expansions
+\series default 
+.
+ 
+\begin_deeper 
+\layout Enumerate
+
+The elevator is at height 
+\begin_inset Formula \( p=10 \)
+\end_inset 
+
+
+\latex latex 
+ 
+\latex default 
+m at 
+\begin_inset Formula \( t=-1 \)
+\end_inset 
+
+ s and at height 
+\begin_inset Formula \( p=15 \)
+\end_inset 
+
+ m at 
+\begin_inset Formula \( t=1 \)
+\end_inset 
+
+ s.
+\latex latex 
+
+\backslash 
+vspace{12cm}
+\layout Enumerate
+
+The elevator is at height 
+\begin_inset Formula \( p=10 \)
+\end_inset 
+
+ m at 
+\begin_inset Formula \( t=-1 \)
+\end_inset 
+
+ s and at height 
+\begin_inset Formula \( p=15 \)
+\end_inset 
+
+ m at 
+\begin_inset Formula \( t=2 \)
+\end_inset 
+
+ s.
+\latex latex 
+
+\backslash 
+vspace{12cm}
+\layout Enumerate
+
+The elevator is at height 
+\begin_inset Formula \( p=10 \)
+\end_inset 
+
+ m at 
+\begin_inset Formula \( t=-1 \)
+\end_inset 
+
+ s, at height 
+\begin_inset Formula \( p=12 \)
+\end_inset 
+
+ m at 
+\begin_inset Formula \( t=-0.1 \)
+\end_inset 
+
+, and at height 
+\begin_inset Formula \( p=15 \)
+\end_inset 
+
+ m at 
+\begin_inset Formula \( t=2 \)
+\end_inset 
+
+ s.
+\latex latex 
+
+\backslash 
+vspace{12cm}
+\backslash 
+pagebreak{}
+\end_deeper 
+\layout Enumerate
+
+[20 marks] (Numerical Integration) Suppose we want to compute integrals
+ like 
+\begin_inset Formula \( I(f)=\int _{0}^{1}f(x)e^{x}dx \)
+\end_inset 
+
+ numerically using an approach similar to Gaussian Quadrature.
+ 
+\begin_deeper 
+\layout Enumerate
+
+Solve for 
+\begin_inset Formula \( c_{1} \)
+\end_inset 
+
+, 
+\begin_inset Formula \( x_{1} \)
+\end_inset 
+
+, 
+\begin_inset Formula \( c_{2} \)
+\end_inset 
+
+, and 
+\begin_inset Formula \( x_{2} \)
+\end_inset 
+
+ in the quadrature formula 
+\begin_inset Formula \( I(f)=\int _{0}^{1}f(x)e^{x}dx=c_{1}f\left( x_{1}\right) +c_{2}f\left( x_{2}\right)  \)
+\end_inset 
+
+ assuming that the quadrature formula must be exact for polynomials of order
+ 
+\begin_inset Formula \( 3 \)
+\end_inset 
+
+ (example 
+\begin_inset Formula \( f(x)=x^{3} \)
+\end_inset 
+
+).
+ 
+\latex latex 
+
+\backslash 
+vspace{20cm}
+\layout Enumerate
+
+Using the quadrature formula in part (a) (with the same 
+\begin_inset Formula \( c_{1} \)
+\end_inset 
+
+, 
+\begin_inset Formula \( x_{1} \)
+\end_inset 
+
+, 
+\begin_inset Formula \( c_{2} \)
+\end_inset 
+
+, and 
+\begin_inset Formula \( x_{2} \)
+\end_inset 
+
+), show how you could integrate numerically 
+\begin_inset Formula \( \int _{-1}^{0}g(x)e^{x}dx \)
+\end_inset 
+
+ for a given 
+\begin_inset Formula \( g \)
+\end_inset 
+
+.
+ 
+\series bold 
+Prove
+\series default 
+ that your solution is exact for polynomials of order 
+\begin_inset Formula \( 3 \)
+\end_inset 
+
+ (example 
+\begin_inset Formula \( g(x)=x^{3} \)
+\end_inset 
+
+).
+\latex latex 
+
+\backslash 
+vspace{8cm}
+\layout Enumerate
+
+Find three polynomials 
+\begin_inset Formula \( p_{0}(x) \)
+\end_inset 
+
+, 
+\begin_inset Formula \( p_{1}(x) \)
+\end_inset 
+
+, and 
+\begin_inset Formula \( p_{2}(x) \)
+\end_inset 
+
+ of degree 0, 
+\begin_inset Formula \( 1 \)
+\end_inset 
+
+ and 
+\begin_inset Formula \( 2 \)
+\end_inset 
+
+ respectively such that 
+\begin_inset Formula \( \int _{0}^{1}p_{i}(x)p_{j}(x)e^{x}dx=0 \)
+\end_inset 
+
+ whenever 
+\begin_inset Formula \( i\neq j \)
+\end_inset 
+
+.
+\latex latex 
+
+\backslash 
+vspace{16cm}
+\layout Enumerate
+
+Explain how you could compute 
+\begin_inset Formula \( c_{1} \)
+\end_inset 
+
+, 
+\begin_inset Formula \( x_{1} \)
+\end_inset 
+
+, 
+\begin_inset Formula \( c_{2} \)
+\end_inset 
+
+, and 
+\begin_inset Formula \( x_{2} \)
+\end_inset 
+
+ in the quadrature formula 
+\begin_inset Formula \( I(f)=\int _{0}^{1}f(x)e^{x}dx=c_{1}f\left( x_{1}\right) +c_{2}f\left( x_{2}\right)  \)
+\end_inset 
+
+ (see part a) using the polynomials in part (c).
+ Specifically, 
+\series bold 
+explain
+\series default 
+ how the roots of 
+\begin_inset Formula \( p_{2} \)
+\end_inset 
+
+ relate to 
+\begin_inset Formula \( x_{1} \)
+\end_inset 
+
+ and 
+\begin_inset Formula \( x_{2} \)
+\end_inset 
+
+.
+\latex latex 
+
+\backslash 
+vspace{16cm}
+\backslash 
+pagebreak{}
+\end_deeper 
+\layout Enumerate
+
+[25 marks] (Interpolation) 
+\begin_deeper 
+\layout Enumerate
+
+Using Newton's pyramidal approach and showing all of your work, find the
+ Newton polynomial interpolating the points 
+\begin_inset Formula \( \left( x_{1},y_{1}\right) =\left( 1,2\right)  \)
+\end_inset 
+
+, 
+\begin_inset Formula \( \left( x_{2},y_{2}\right) =\left( 4,-1\right)  \)
+\end_inset 
+
+, and 
+\begin_inset Formula \( \left( x_{3},y_{3}\right) =\left( -2,1\right)  \)
+\end_inset 
+
+.
+
+\latex latex 
+ 
+\backslash 
+vspace{8cm}
+\layout Enumerate
+
+Find the Lagrange polynomial interpolating the points 
+\begin_inset Formula \( \left( x_{1},y_{1}\right) =\left( 1,2\right)  \)
+\end_inset 
+
+, 
+\begin_inset Formula \( \left( x_{2},y_{2}\right) =\left( 4,-1\right)  \)
+\end_inset 
+
+, and 
+\begin_inset Formula \( \left( x_{3},y_{3}\right) =\left( -2,1\right)  \)
+\end_inset 
+
+.
+\latex latex 
+
+\backslash 
+vspace{8cm}
+\layout Enumerate
+
+
+\series bold 
+Compare
+\series default 
+ your answers in part (a) and (b).
+ 
+\series bold 
+Explain
+\series default 
+.
+\latex latex 
+
+\backslash 
+vspace{8cm}
+\layout Enumerate
+
+Explain how you can efficiently add new data nodes to an existing Newton
+ polynomial as long as you still have the Newton's pyramid.
+ That is, explain how you are able to add new nodes 
+\series bold 
+without recomputing Newton's pyramid entirely
+\series default 
+ each time.
+\latex latex 
+
+\backslash 
+vspace{8cm}
+\backslash 
+pagebreak{}
+\layout Enumerate
+
+Using the approach described in part (d), modify the polynomial in part
+ (a) to interpolate the points 
+\begin_inset Formula \( \left( x_{1},y_{1}\right) =\left( 1,2\right)  \)
+\end_inset 
+
+, 
+\begin_inset Formula \( \left( x_{2},y_{2}\right) =\left( 4,-1\right)  \)
+\end_inset 
+
+, 
+\begin_inset Formula \( \left( x_{3},y_{3}\right) =\left( -2,1\right)  \)
+\end_inset 
+
+,
+\latex latex 
+ 
+\latex default 
+
+\begin_inset Formula \( \left( x_{4},y_{4}\right) =\left( 6,12\right)  \)
+\end_inset 
+
+, and
+\latex latex 
+ 
+\latex default 
+
+\begin_inset Formula \( \left( x_{5},y_{5}\right) =\left( 9,1\right)  \)
+\end_inset 
+
+.
+
+\latex latex 
+ 
+\backslash 
+vspace{16cm}
+\backslash 
+pagebreak{}
+\end_deeper 
+\layout Enumerate
+
+[20 marks]
+\latex latex 
+ 
+\latex default 
+(Numerical Solutions to ODEs)
+\begin_deeper 
+\layout Enumerate
+
+Solve 
+\begin_inset Formula \( y'=x^{2}+y \)
+\end_inset 
+
+ over the interval 
+\begin_inset Formula \( \left[ 0,1\right]  \)
+\end_inset 
+
+ using Euler's method with initial condition 
+\begin_inset Formula \( y(0)=0 \)
+\end_inset 
+
+ and a step size of 
+\begin_inset Formula \( 1/2 \)
+\end_inset 
+
+.
+\latex latex 
+
+\backslash 
+vspace{8cm}
+\layout Enumerate
+
+What is the order of accuracy of Euler's method in this case? Derive your
+ answer from Taylor's theorem.
+ 
+\latex latex 
+
+\backslash 
+vspace{8cm}
+\layout Enumerate
+
+Is Euler method stable when solving 
+\begin_inset Formula \( y'=x^{2}+y \)
+\end_inset 
+
+ over the interval 
+\begin_inset Formula \( \left[ 0,1\right]  \)
+\end_inset 
+
+ with initial condition 
+\begin_inset Formula \( y(0)=0 \)
+\end_inset 
+
+ ? Explain.
+\latex latex 
+
+\backslash 
+vspace{8cm}
+\layout Enumerate
+
+Solve 
+\begin_inset Formula \( y''=x^{2}+y \)
+\end_inset 
+
+ over the interval 
+\begin_inset Formula \( \left[ 0,1\right]  \)
+\end_inset 
+
+ with boundary conditions 
+\begin_inset Formula \( y(0)=0 \)
+\end_inset 
+
+ and 
+\begin_inset Formula \( y(1)=0 \)
+\end_inset 
+
+ using a step size of 
+\begin_inset Formula \( 1/2 \)
+\end_inset 
+
+ by shooting (hint: the differential equation is linear).
+\latex latex 
+
+\backslash 
+pagebreak{}
+\end_deeper 
+\layout Enumerate
+
+[20 marks] (Finite-Difference Methods) Consider the linear differential
+ equation 
+\begin_inset Formula \( y''-y'+y=0 \)
+\end_inset 
+
+ with boundary values 
+\begin_inset Formula \( y(0)=y(1)=0 \)
+\end_inset 
+
+.
+\begin_deeper 
+\layout Enumerate
+
+Write the finite difference approximation to the differential equation using
+ central-difference formulas.
+\latex latex 
+
+\backslash 
+vspace{8cm}
+\layout Enumerate
+
+Assuming a step size of 
+\begin_inset Formula \( 1/4 \)
+\end_inset 
+
+ write the finite difference system.
+\latex latex 
+
+\backslash 
+vspace{8cm}
+\layout Enumerate
+
+Write the system as a matrix equation.
+\latex latex 
+
+\backslash 
+vspace{8cm}
+\layout Enumerate
+
+Rewrite the system with general boundary values 
+\begin_inset Formula \( y(0)=a,\, y(1)=b \)
+\end_inset 
+
+.
+\latex latex 
+
+\backslash 
+vspace{8cm}
+\the_end

@@ -1,0 +1,144 @@
+#LyX 1.1 created this file. For more info see http://www.lyx.org/
+\lyxformat 218
+\textclass article
+\language english
+\inputencoding auto
+\fontscheme default
+\graphics default
+\paperfontsize default
+\spacing single 
+\papersize Default
+\paperpackage a4
+\use_geometry 0
+\use_amsmath 0
+\paperorientation portrait
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\defskip medskip
+\quotes_language english
+\quotes_times 2
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+
+\layout Standard
+
+Question 1.
+ (First-Order Differential Equations) The equation governing for the current
+ (
+\begin_inset Formula \( I \)
+\end_inset 
+
+) going through a simple RL circuit with electromotive force 
+\begin_inset Formula \( E \)
+\end_inset 
+
+ is given by 
+\begin_inset Formula \( \frac{dI}{dt}+\frac{R}{L}I=\frac{E}{L} \)
+\end_inset 
+
+.
+ Suppose that the electromotive force is given by 
+\begin_inset Formula \( E(t)=\cos mt \)
+\end_inset 
+
+ where 
+\begin_inset Formula \( m \)
+\end_inset 
+
+ is non-zero.
+ 
+\begin_inset Formula \( R \)
+\end_inset 
+
+ and 
+\begin_inset Formula \( L \)
+\end_inset 
+
+ are unknown non-zero parameters.
+ 
+\newline 
+(a) True of False, this differential equation is linear?
+\newline 
+(b) State the corresponding homogeneous differential equation.
+\newline 
+(c) How many linearily independent solutions must the corresponding homogeneous
+ problem have?
+\newline 
+(d) Find all such solutions.
+ 
+\newline 
+(e) Show that your solutions are linearily independent.
+\newline 
+(f) Give the general solution to 
+\begin_inset Formula \( \frac{dI}{dt}+\frac{R}{L}I=\frac{E}{L} \)
+\end_inset 
+
+ with 
+\begin_inset Formula \( E(t)=\cos mt \)
+\end_inset 
+
+.
+\newline 
+(g) Solve the differential equation with the initial condition 
+\begin_inset Formula \( I(0)=0 \)
+\end_inset 
+
+.
+\layout Standard
+
+Solution: The solution to the homogeneous problem is 
+\begin_inset Formula \( e^{-Rt/L} \)
+\end_inset 
+
+ whereas the solution to the inhomogeneous problem is 
+\begin_inset Formula \( A\sin mt+B\cos mt \)
+\end_inset 
+
+, after substitution, we get 
+\begin_inset Formula \[
+Am\cos mt-Bm\sin mt+\frac{AR}{L}\sin mt+\frac{RB}{L}\cos mt=\frac{\cos mt}{L}\]
+
+\end_inset 
+
+hence 
+\begin_inset Formula \( Am+RB/L=1/L \)
+\end_inset 
+
+ and 
+\begin_inset Formula \( AR/L=Bm \)
+\end_inset 
+
+.
+ We can easily solve this system of equations to get 
+\begin_inset Formula \( A=\frac{Lm}{R^{2}+L^{2}m^{2}} \)
+\end_inset 
+
+ and 
+\begin_inset Formula \( B=\frac{R}{R^{2}+L^{2}m^{2}} \)
+\end_inset 
+
+.
+ We get 
+\begin_inset Formula \( I(t)=\frac{Lm}{R^{2}+L^{2}m^{2}}\sin mt+\frac{R}{R^{2}+L^{2}m^{2}}\cos mt+c_{1}e^{-Rt/L} \)
+\end_inset 
+
+ to get 
+\begin_inset Formula \( I(0)=0 \)
+\end_inset 
+
+, we need 
+\begin_inset Formula \( I(0)=\frac{R}{R^{2}+L^{2}m^{2}}+c_{1}=0 \)
+\end_inset 
+
+.
+ Finally, the solution is 
+\begin_inset Formula \( I(t)=\frac{Lm}{R^{2}+L^{2}m^{2}}\sin mt+\frac{R}{R^{2}+L^{2}m^{2}}\cos mt-\frac{R}{R^{2}+L^{2}m^{2}}e^{-Rt/L} \)
+\end_inset 
+
+
+\layout Standard
+
+Question 2 (Higher-Order Differential Equations)
+\the_end

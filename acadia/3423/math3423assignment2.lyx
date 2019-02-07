@@ -1,0 +1,665 @@
+#LyX 1.1 created this file. For more info see http://www.lyx.org/
+\lyxformat 218
+\textclass article
+\begin_preamble
+ \usepackage{epsfig}
+\usepackage{amsmath,amssymb}
+\usepackage{pslatex}
+\usepackage{color}
+ 
+ \definecolor{veryblackblue}{rgb}{0.0,0.0,0.1}
+ \usepackage[pdftex,urlcolor=webblackblue,colorlinks=true]{hyperref}
+ \pdfinfo{
+            /Title      (Assignment 1 for Math 3423 - Numerical Methods 2)
+            /Author     (Daniel Lemire, Ph.D.)
+            /Subject    (This is the first assignment for Math 3423.)
+            /Keywords   (Numerical differentiation and integration.)
+          }
+
+
+\topmargin  = 0pt
+\headheight = 0pt
+\headsep    = 0pt
+
+\voffset    = 0in
+\hoffset    = 0in
+\textheight = 230mm
+\textwidth  = 164mm
+
+\evensidemargin = 0pt
+\oddsidemargin  = 0pt
+
+\pagestyle{empty}
+\usepackage{float}
+
+%% Background of blue palette
+ \definecolor{webblackblue}{rgb}{0.0,0.0,0.2}
+ \definecolor{webblue}{rgb}{0.0, 0.0, 0.6}
+
+%% Background of red palette
+ \definecolor{webblackred}{rgb}{0.2,0.0,0.0}
+ \definecolor{webred}{rgb}{0.6,0.0,0.0}
+
+%% Background of green palette
+ \definecolor{webblackgreen}{rgb}{0.0,0.2,0.0}                                   
+ \definecolor{webgreen}{rgb}{0.0,0.6,0.0} 
+
+%% Background of magenta palette
+ \definecolor{webblackmagenta}{rgb}{0.14,0.0,0.14}                                   
+ \definecolor{webmagenta}{rgb}{0.42,0.0,0.42} 
+
+%% Background of cyan palette
+ \definecolor{webblackcyan}{rgb}{0.0,0.14,0.14}                                   
+ \definecolor{webcyan}{rgb}{0.0,0.42,0.42} 
+
+%% Background of yellow pallete
+ \definecolor{webblackyellow}{rgb}{0.14,0.14,0.0}                                   
+ \definecolor{webyellow}{rgb}{0.85,0.85,0.0} 
+
+ \definecolor{webdarkgray}{rgb}{0.2,0.2,0.2}
+
+ \definecolor{webgray}{rgb}{0.75,0.75,0.75}
+ \definecolor{weborange}{rgb}{1.0, 0.6, 0.0}
+
+\renewcommand\labelenumi{\textcolor{webdarkgray}{\arabic{enumi}.}}
+\newcommand{\setenumi}[1]{#1.\setcounter{enumi}{#1}}
+\usepackage{dsfont}
+\end_preamble
+\language american
+\inputencoding auto
+\fontscheme default
+\graphics default
+\paperfontsize default
+\spacing single 
+\papersize Default
+\paperpackage a4
+\use_geometry 0
+\use_amsmath 0
+\paperorientation portrait
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\defskip medskip
+\quotes_language english
+\quotes_times 2
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+
+\layout Title
+
+Assignment 2
+\newline 
+MATH 3423 - Numerical Methods 2
+\newline 
+Acadia University
+\layout Author
+
+
+\latex latex 
+
+\backslash 
+href{http://www.ondelette.com/acadia/}{Daniel Lemire}
+\latex default 
+, Ph.D.
+ 
+\layout Date
+
+Winter 2002
+\newline 
+Due February 25th 2002
+\layout Section
+
+
+\latex latex 
+
+\backslash 
+texorpdfstring{
+\backslash 
+textcolor{webblackblue}{Requirements}}{Requirements}
+\layout Standard
+
+You can do this assignment in teams of two or alone.
+ 5% of the mark will be based on presentation.
+ All required plots should be computer-generated.
+ A title page is required.
+ All computer code must be properly commented and should be computationally
+ efficient.
+ 
+\series bold 
+For this one assignment, you are required to use Matlab.
+\layout Section
+
+
+\latex latex 
+
+\backslash 
+texorpdfstring{
+\backslash 
+textcolor{webblackblue}{Linear Splines}}{Linear Splines}
+\layout Subsection
+
+
+\latex latex 
+
+\backslash 
+texorpdfstring{
+\backslash 
+textcolor{webblue}{Approximation Order in 1D}}{Approximation Order in 1D}
+\layout Enumerate
+
+Given 
+\begin_inset Formula \( f \)
+\end_inset 
+
+ is a smooth function, let 
+\begin_inset Formula \( Sf \)
+\end_inset 
+
+ be the linear spline (a function piecewise linear and continuous) interpolating
+ the values 
+\begin_inset Formula \( y_{k}=f(k\Delta x) \)
+\end_inset 
+
+ over the nodes 
+\begin_inset Formula \( x_{k}=k\Delta x \)
+\end_inset 
+
+ .
+\begin_deeper 
+\layout Enumerate
+
+If 
+\begin_inset Formula \( f(x)=x \)
+\end_inset 
+
+ and 
+\begin_inset Formula \( \Delta x=1 \)
+\end_inset 
+
+, find 
+\begin_inset Formula \( \left\Vert Sf-f\right\Vert _{L^{\infty }([0,10])}=\max \left\{ |Sf(x)-f(x)|:x\in [0,10]\right\}  \)
+\end_inset 
+
+.
+\layout Enumerate
+
+If 
+\begin_inset Formula \( f(x)=\sqrt{x} \)
+\end_inset 
+
+ and 
+\begin_inset Formula \( \Delta x=1 \)
+\end_inset 
+
+, find 
+\begin_inset Formula \( \left\Vert Sf-f\right\Vert _{L^{\infty }([1,2])}=\max \left\{ |Sf(x)-f(x)|:x\in [1,2]\right\}  \)
+\end_inset 
+
+.
+\layout Enumerate
+
+If 
+\begin_inset Formula \( f(x)=\sqrt{x} \)
+\end_inset 
+
+ and 
+\begin_inset Formula \( \Delta x=1/2 \)
+\end_inset 
+
+, find 
+\begin_inset Formula \( \left\Vert Sf-f\right\Vert _{L^{\infty }([1/2,1])}=\max \left\{ |Sf(x)-f(x)|:x\in [1/2,1]\right\}  \)
+\end_inset 
+
+.
+\layout Enumerate
+
+If 
+\begin_inset Formula \( f(x)=\sqrt{x} \)
+\end_inset 
+
+ and 
+\begin_inset Formula \( \Delta x=1/4 \)
+\end_inset 
+
+, find 
+\begin_inset Formula \( \left\Vert Sf-f\right\Vert _{L^{\infty }([1/4,1/2])}=\max \left\{ |Sf(x)-f(x)|:x\in [1/4,1/2]\right\}  \)
+\end_inset 
+
+.
+\layout Enumerate
+
+If 
+\begin_inset Formula \( f(x)=x^{2} \)
+\end_inset 
+
+ and 
+\begin_inset Formula \( \Delta x=1 \)
+\end_inset 
+
+, find 
+\begin_inset Formula \( \left\Vert Sf-f\right\Vert _{L^{\infty }([0,1])}=\max \left\{ |Sf(x)-f(x)|:x\in [0,1]\right\}  \)
+\end_inset 
+
+.
+\layout Enumerate
+
+If 
+\begin_inset Formula \( f(x)=x^{2} \)
+\end_inset 
+
+ and 
+\begin_inset Formula \( \Delta x=1 \)
+\end_inset 
+
+, find 
+\begin_inset Formula \( \left\Vert Sf-f\right\Vert _{L^{\infty }([0,10])}=\max \left\{ |Sf(x)-f(x)|:x\in [0,10]\right\}  \)
+\end_inset 
+
+.
+\end_deeper 
+\layout Enumerate
+
+Given 
+\begin_inset Formula \( f \)
+\end_inset 
+
+ is a smooth function, let 
+\begin_inset Formula \( Sf \)
+\end_inset 
+
+ be the linear spline (a function piecewise linear and continuous) interpolating
+ the values 
+\begin_inset Formula \( y_{k}=f(k\Delta x) \)
+\end_inset 
+
+ over the nodes 
+\begin_inset Formula \( x_{k}=k\Delta x \)
+\end_inset 
+
+ .
+\begin_deeper 
+\layout Enumerate
+
+The function 
+\begin_inset Formula \[
+\Phi (t)=f(t)-Sf(t)-\frac{\left( t-x_{k}\right) \left( t-x_{k+1}\right) }{\left( x-x_{k}\right) \left( x-x_{k+1}\right) }\left( f(x)-Sf(x)\right) \]
+
+\end_inset 
+
+for any 
+\begin_inset Formula \( x \)
+\end_inset 
+
+ in 
+\begin_inset Formula \( (x_{k},x_{k+1}) \)
+\end_inset 
+
+ has at least 3 distinct roots in 
+\begin_inset Formula \( [x_{k},x_{k+1}] \)
+\end_inset 
+
+, hence its second derivative has at least one zero by Rolle's theorem.
+ Use this fact to estimate 
+\begin_inset Formula \( \left\Vert Sf-f\right\Vert _{L^{\infty }([x_{k},x_{k+1}])}=\max \left\{ |Sf(x)-f(x)|:x\in [x_{k},x_{k+1}]\right\}  \)
+\end_inset 
+
+ in terms of the second derivative of 
+\begin_inset Formula \( f \)
+\end_inset 
+
+.
+\layout Enumerate
+
+Let 
+\begin_inset Formula \( f(x)=\sqrt{x} \)
+\end_inset 
+
+ and 
+\begin_inset Formula \( \Delta x=1/2^{n+1} \)
+\end_inset 
+
+, using part (a) find a good upper bound for 
+\begin_inset Formula \( \left\Vert Sf-f\right\Vert _{L^{\infty }([1/2^{n+1},1/2^{n}])}=\max \left\{ |Sf(x)-f(x)|:x\in [1/2^{n+1},1/2^{n}]\right\}  \)
+\end_inset 
+
+.
+ What do you expect will be 
+\begin_inset Formula \( \lim _{n\rightarrow \infty }\left\Vert Sf-f\right\Vert _{L^{\infty }([1/2^{n+1},1/2^{n}])} \)
+\end_inset 
+
+?
+\layout Enumerate
+
+Generalize your result from part (a) for 
+\begin_inset Formula \( \left\Vert Sf-f\right\Vert _{L^{\infty }((-\infty ,\infty ))}=\max \left\{ |Sf(x)-f(x)|:x\in (-\infty ,\infty )\right\}  \)
+\end_inset 
+
+ with any 
+\begin_inset Formula \( \Delta x \)
+\end_inset 
+
+.
+\layout Enumerate
+
+If 
+\begin_inset Formula \( f(x)=x^{2} \)
+\end_inset 
+
+ and 
+\begin_inset Formula \( \Delta x=1 \)
+\end_inset 
+
+, can you easily give an upper bound for 
+\begin_inset Formula \( \left\Vert Sf-f\right\Vert _{L^{\infty }((-\infty ,\infty ))}=\max \left\{ |Sf(x)-f(x)|:x\in (-\infty ,\infty )\right\}  \)
+\end_inset 
+
+? Explain.
+\end_deeper 
+\layout Subsection
+
+
+\latex latex 
+
+\backslash 
+texorpdfstring{
+\backslash 
+textcolor{webblue}{Splines in the plane}}{Splines in the plane}
+\layout Enumerate
+
+Given three points in the plane 
+\begin_inset Formula \( \underline{x_{1}},\underline{x_{2}},\underline{x_{3}} \)
+\end_inset 
+
+ with corresponding 
+\begin_inset Formula \( z \)
+\end_inset 
+
+ values 
+\begin_inset Formula \( z_{1},z_{2},z_{3} \)
+\end_inset 
+
+ find a linear interpolation of these values 
+\begin_inset Formula \( z(x,y)=a+bx+cy \)
+\end_inset 
+
+.
+ Hint: you need to generalize Lagrange or Newton interpolation.
+ Use Maple/Matlab/...
+ to check your answer!
+\layout Enumerate
+
+Assume that 
+\begin_inset Formula \( f(x,y)=1+2x+2y+xy+x^{2}+y^{2} \)
+\end_inset 
+
+.
+ Let 
+\begin_inset Formula \( \underline{x_{1}}=(0,0),\underline{x_{2}}=(1,0),\underline{x_{3}}=(0,1) \)
+\end_inset 
+
+.
+ Find 
+\begin_inset Formula \[
+\varepsilon =\max \left\{ |z(\underline{x})-f(\underline{x})|:\underline{x}\in \triangle \underline{x_{1}},\underline{x_{2}},\underline{x_{3}}\right\} .\]
+
+\end_inset 
+
+
+\layout Subsection
+
+
+\latex latex 
+
+\backslash 
+texorpdfstring{
+\backslash 
+textcolor{webblue}{Pratical Problem}}{Practical Problem}
+\layout Standard
+
+The problem submitted to us by Richard Karsten is a somewhat open problem.
+ I don't know what the best way of solving it is.
+ Richard doesn't and you probably don't.
+ We will try to find the best way.
+ Feel free to share your ideas, since what we want to do most is learn.
+ Credit will be granted for shared ideas.
+ Obviously, you are still somewhat 
+\begin_inset Quotes eld
+\end_inset 
+
+competing
+\begin_inset Quotes erd
+\end_inset 
+
+ to get the best solution since we have to select the best code at the end.
+\layout Standard
+
+Your function takes as its input a range of 
+\begin_inset Formula \( N \)
+\end_inset 
+
+ latitudes, 
+\begin_inset Formula \( N \)
+\end_inset 
+
+ longitudes, 
+\begin_inset Formula \( N \)
+\end_inset 
+
+ data points, and some target latitudes and longitudes.
+ One way to look at the problem (admittedly not the most efficient!) is
+ to pick up each target point and search 4 neighbours.
+ This can be done relatively efficiently (meaning 
+\begin_inset Formula \( O(N) \)
+\end_inset 
+
+) since you can simply go through all data points and search for the closest
+ data point with latitude 
+\begin_inset Formula \( \leq  \)
+\end_inset 
+
+ and longitude 
+\begin_inset Formula \( \leq  \)
+\end_inset 
+
+, for the closest data point with latitude 
+\begin_inset Formula \( \geq  \)
+\end_inset 
+
+ and longitude 
+\begin_inset Formula \( \leq  \)
+\end_inset 
+
+, and so on.
+ At that point we have some problems to handle.
+\layout Enumerate
+
+You must assume that the data is periodic along the y axis (longitude).
+ It implies that longitude should always be manipulated with 
+\begin_inset Quotes eld
+\end_inset 
+
+modulo
+\begin_inset Quotes erd
+\end_inset 
+
+.
+ Hence the distance function must be 
+\begin_inset Quotes eld
+\end_inset 
+
+smart
+\begin_inset Quotes erd
+\end_inset 
+
+.
+ Given 
+\begin_inset Formula \( x \)
+\end_inset 
+
+ and 
+\begin_inset Formula \( y \)
+\end_inset 
+
+, one distance function modulo 
+\begin_inset Formula \( n \)
+\end_inset 
+
+ is given by 
+\begin_inset Formula \( d(x,y)=\min \left\{ |x-y|,|x-y-n|,|x-y+n|\right\}  \)
+\end_inset 
+
+.
+ You have a similar distance function for your problem (in 2D).
+\layout Enumerate
+
+Latitude-wise, there might not be any data point above, or below the current
+ target.
+ Hence, the search might fail.
+ One way to solve this problem is to 
+\begin_inset Quotes eld
+\end_inset 
+
+reflect
+\begin_inset Quotes erd
+\end_inset 
+
+ the data points.
+ That is, if you don't find a neighbour with latitude 
+\begin_inset Formula \( \leq  \)
+\end_inset 
+
+ and longitude 
+\begin_inset Formula \( \leq  \)
+\end_inset 
+
+, then use the value of the neighbour with latitude 
+\begin_inset Formula \( \geq  \)
+\end_inset 
+
+ and longitude 
+\begin_inset Formula \( \leq  \)
+\end_inset 
+
+.
+ (More sophisticated routines could be made up.)
+\layout Enumerate
+
+Your target might be such that the 4 neighbours are not necessarily distinct.
+ For example, your target might right on a data point and so all 4 neighbours
+ are the same.
+\layout Standard
+
+How do you compute the interpolated value given the 
+\begin_inset Formula \( 4 \)
+\end_inset 
+
+ closest points 
+\begin_inset Formula \( n_{0},n_{1},n_{2},n_{3} \)
+\end_inset 
+
+? Let 
+\begin_inset Formula \( y_{0},y_{1},y_{2},y_{3} \)
+\end_inset 
+
+ be the values for each neighbour and let 
+\begin_inset Formula \( x \)
+\end_inset 
+
+ be the position of our target and 
+\begin_inset Formula \( t \)
+\end_inset 
+
+ its (unknown) value.
+\layout List
+\labelwidthstring 00.00.0000
+
+Only\SpecialChar ~
+one\SpecialChar ~
+distinct\SpecialChar ~
+neighbour\SpecialChar ~
+
+\begin_inset Formula \( n_{0} \)
+\end_inset 
+
+ interpolate to the value of this neighbour : 
+\begin_inset Formula \( t=y_{0} \)
+\end_inset 
+
+
+\layout List
+\labelwidthstring 00.00.0000
+
+Only\SpecialChar ~
+two\SpecialChar ~
+distinct\SpecialChar ~
+neighbour\SpecialChar ~
+
+\begin_inset Formula \( n_{0} \)
+\end_inset 
+
+,
+\begin_inset Formula \( n_{1} \)
+\end_inset 
+
+ interpolate using linear interpolation given a distance function 
+\begin_inset Formula \( d \)
+\end_inset 
+
+: 
+\begin_inset Formula \( t=\frac{d(n_{0},x)y_{0}+d(n_{1},x)y_{1}}{d(n_{0},n_{1})} \)
+\end_inset 
+
+.
+\layout List
+\labelwidthstring 00.00.0000
+
+Three\SpecialChar ~
+distinct\SpecialChar ~
+neighbour\SpecialChar ~
+
+\begin_inset Formula \( n_{0} \)
+\end_inset 
+
+,
+\begin_inset Formula \( n_{1},n_{2} \)
+\end_inset 
+
+ Use your result from question 1 in the previous section.
+ You must interpolate using a linear polynomial.
+\layout List
+\labelwidthstring 00.00.0000
+
+Four\SpecialChar ~
+distinct\SpecialChar ~
+neighbour\SpecialChar ~
+
+\begin_inset Formula \( n_{0} \)
+\end_inset 
+
+,
+\begin_inset Formula \( n_{1},n_{2},n_{3} \)
+\end_inset 
+
+ In general, we can't interpolate 4 points a linear polynomial.
+ At most, we can handle 3 points.
+ Therefore, we want to reject one of the points if possible.
+ You could try to reject the farthest neighbour.
+ If that doesn't work (two or more neighbours are a the farthest distance),
+ try interpolating using more than one triangle and taking the average.
+\layout Standard
+
+Finally, you must not spread 
+\begin_inset Quotes eld
+\end_inset 
+
+land
+\begin_inset Quotes erd
+\end_inset 
+
+.
+ This means that when interpolating, if only one of your neighbor is land,
+ you should consider rejecting the value.
+ If more than one neighboor is land, then make the interpolated value land.
+ That's one algorithm you might use.
+\the_end

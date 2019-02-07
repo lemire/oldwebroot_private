@@ -1,0 +1,618 @@
+%******************** ST MALO2 MACROS  ******************
+% FILE NAME: malo2.tex
+% COPYRIGHT: 10/21/97, updated 06/1/02
+% BY: Larry Schumaker
+% EMAIL: s@mars.cas.vanderbilt.edu
+% WEB: http://www.math.vanderbilt.edu/~schumake/
+
+\overfullrule 0pt
+\def\conf{{StMalo2\ }}
+\def\macname{{malo2}}
+
+%******************** PAGE SIZE ************************************
+\magnification\magstep1
+%\hsize 4.66in
+%\vsize 7.66in
+\hsize 4.43in
+\vsize 7.28in
+
+%********************* OFFSET FOR PRINTER ***************************
+% You may have to adjust the offset for your printer. A typical
+% command looks like
+% \voffset .5 in
+% \hoffset 1 in
+
+%  ************************ FONTS ***********************************
+% If you don't have some of these fonts, replace them by size 10
+% For example, if you don't have cmmi6, replace it by cmmi10
+
+\font\cmsc=cmcsc10 %%%% small caps font
+\font\bfab = cmbx9
+\font\fa=cmr17
+\font\fb=cmr12
+\font\fc=cmr10
+\font\fab=cmr9
+\font\sfab=cmr7
+\font\fs=cmr6
+\font\fd=cmr5
+\font\slab=cmsl9
+\font\tab= cmmi9
+\font\sab= cmmi7
+\font\ssab= cmmi6
+\font\abst= cmsy9
+\font\sabs= cmsy7
+\font\ssabs= cmsy6
+\font\itab= cmti9
+\font\dfont=cmss10
+\font\efont=cmti10
+\font\Bbb=msbm10
+
+
+\def\figfont{
+    \textfont0 = \fab
+    \scriptfont0 = \sfab
+    \scriptscriptfont0 = \fs
+    \textfont1 = \tab
+    \scriptfont1 = \sab
+    \scriptscriptfont1 = \ssab
+    \textfont2 = \abst
+    \scriptfont2 = \sabs
+    \scriptscriptfont2 = \ssabs
+    \let \sl = \slab
+    \let \bf = \bfab
+    \let \it = \itab
+    \baselineskip 9pt
+    \fab}
+
+%********************* OPEN FACE LETTERS **********************
+
+\def\CC{{\rm C\kern-.18cm\vrule width.6pt height 6pt depth-.2pt
+\kern.18cm}}
+
+\def\NN{{\mathop{{\rm I}\kern-.2em{\rm N}}\nolimits}}
+
+\def\PP{{\mathop{{\rm I}\kern-.2em{\rm P}}\nolimits}}
+
+\def\RR{{\mathop{{\rm I}\kern-.2em{\rm R}}\nolimits}}
+
+\def\RRt{{\fa I}\kern-.2em{\fa R}}
+  %% This version of \RR can be used in the title of the paper
+
+%\def\TT{{\mathop{{\rm I}\kern-.42em{\rm T}}\nolimits}}
+\def\TT{\hbox{{\Bbb{T}}}}
+
+\def\ZZ{{\mathop{{\rm Z}\kern-.28em{\rm Z}}\nolimits}}
+
+\def\Cbb{\hbox{{\Bbb{C}}}}
+\def\Dbb{\hbox{{\Bbb{D}}}}
+\def\Kbb{\hbox{{\Bbb{K}}}}
+\def\Nbb{\hbox{{\Bbb{N}}}}
+\def\Pbb{\hbox{{\Bbb{P}}}}
+\def\Qbb{\hbox{{\Bbb{Q}}}}
+\def\Rbb{\hbox{{\Bbb{R}}}}
+\def\Tbb{\hbox{{\Bbb{T}}}}
+\def\Zbb{\hbox{{\Bbb{Z}}}}
+
+
+%******************* BOLDFACE ************************************
+
+% Boldface math
+\def\bfm#1{{\dimen0=.01em\dimen1=.009em\makebold{$#1$}}}
+
+% Boldface subscript
+\def\bfs#1{{\dimen0=.008em\dimen1=.0073em
+  \makebold{$\scriptstyle#1$}}}
+
+% Boldface subsubscript
+\def\bfss#1{{\dimen0=.006em\dimen1=.0057em
+   \makebold{$\scriptscriptstyle#1$}}}
+
+\def\makebold#1{\mathord{\setbox0=\hbox{#1}%
+       \copy0\kern-\wd0%
+       \raise\dimen1\copy0\kern-\wd0%
+       {\advance\dimen1 by \dimen1\raise\dimen1\copy0}\kern-\wd0%
+       \kern\dimen0\raise\dimen1\copy0\kern-\wd0%
+       {\advance\dimen1 by \dimen1\raise\dimen1\copy0}\kern-\wd0%
+       \kern\dimen0\raise\dimen1\copy0\kern-\wd0%
+       {\advance\dimen1 by \dimen1\raise\dimen1\copy0}\kern-\wd0%
+       \kern\dimen0\raise\dimen1\copy0\kern-\wd0%
+       \kern\dimen0\box0}}
+
+%********************** BOXIT ******************************
+%  This macro was written by Yvon Lafranche
+
+\newbox\maboite
+
+\def\boxit#1#2{\setbox\maboite=\hbox{\kern#1{#2}\kern#1}%
+    \dimen1=\ht\maboite \advance\dimen1 by #1 \dimen2=\dp\maboite
+\advance\dimen2 by #1%
+    \setbox\maboite=\hbox{\vrule height\dimen1
+depth\dimen2\box\maboite\vrule}%
+    \setbox\maboite=\vbox{\hrule\box\maboite\hrule}%
+    \advance\dimen1 by .4truept \ht\maboite=\dimen1%
+    \advance\dimen2 by .4truept \dp\maboite=\dimen2 \box\maboite\relax}
+
+%*********************** USEFUL MACROS ************************
+
+\def\bs{\bigskip}
+
+\def\bull{\item{$\bullet$}}
+
+\def\cro{\cr \noalign{\vskip 4pt}}
+  %%  Use in place of \cr for extra space between cases
+
+\def\croo{\cr \noalign{\vskip 6pt}}
+  %%  Use in place of \cr for extra space between cases
+
+\def \dword#1{{\dfont #1}}
+
+\def \eword#1{{\efont #1}}
+
+\def\eg{{\it e.g.}}%
+
+\def\frac#1#2{{#1 \over #2}}
+   % #1 = numerator
+   % #2 = denominator
+
+\def\ie{{\it i.e.},}    % includes the comma
+
+\def \lrm {{\rm (}}
+\def \rrm {{\rm )}}
+
+\def\ms{\medskip}
+
+\def\noin{\noindent}
+
+\def\ritem#1{\item{\rm #1}}
+
+\def\ritemitem#1{\itemitem{\rm #1}}
+
+\def\sm{\smallskip}
+
+\def\st{\/:\ }
+ %%  Use \st for "such that" in definitions of sets
+
+\def\thc{{$\thinspace$:}}
+
+%********************** FIGURE MACROS ************************
+
+\def\Fig#1{Fig.\thinspace#1}
+\def\Figs#1{Figs.\thinspace#1}
+
+\def\figcap#1#2#3{\null\vskip 1pt \vskip  #3in {\vfill}
+  {\figfont \centerline{{\bf Fig.~#1.} #2.}}}
+   %% #1 = figure number
+   %% #2 = figure caption
+   %% #3 = number of inches of space (1 inch = 2.5 cm)
+
+\def\figcaplong#1#2#3{\null\vskip 1pt \vskip #3in \figfont    
+ \centerline{\hbox{\noindent{\bf Fig.~#1.}
+ \vtop{\hsize 4in \noin #2.\smallskip}}}
+}
+   %% #1 = figure number
+   %% #2 = figure caption
+   %% #3 = number of inches of space (1 inch = 2.5 cm)
+
+%********************** TABLE MACROS ************************
+
+\def\tabcap#1#2#3{\null\vskip 1pt \vbox to #3in {\vfill}
+  {\figfont \centerline{{\bf Tab.~#1.} #2.}}}
+   %% #1 = figure number
+   %% #2 = figure caption
+   %% #3 = number of inches of space (1 inch = 2.5 cm)
+
+\def\tabcaplong#1#2#3{\null\vskip 1pt \vbox to #3in {\vfill}
+  {\figfont {\narrower \noindent{\bf Tab.~#1.} #2.\smallskip}}}
+   %% #1 = figure number
+   %% #2 = figure caption
+   %% #3 = number of inches of space (1 inch = 2.5 cm)
+
+%********************* PROOF and end OF PROOF ******************
+
+\def\nopf{\medskip}
+  %% If there is no proof, use this to insert space
+
+\def\pf{\noindent{\bf Proof: }}
+
+\def\eop{\makeblanksquare6{.4}\ms}
+  %% Mark the end of a proof
+
+\def\makeblanksquare#1#2{
+\dimen0=#1pt\advance\dimen0 by -#2pt
+      \vrule height#1pt width#2pt depth0pt\kern-#2pt
+      \vrule height#1pt width#1pt depth-\dimen0 \kern-#1pt
+      \vrule height#2pt width#1pt depth0pt \kern-#2pt
+      \vrule height#1pt width#2pt depth0pt
+}
+
+\def\meop{~~\makeblanksquare6{.4}}
+ %%  Use this inside of displayed equations instead of \eop
+
+\def\dis{\noindent{\bf Discussion: }}
+
+%********************* FIRST PAGE  ******************************
+
+\def\abstract#1{\bigskip\bigskip\medskip%
+    {\narrower \baselineskip 9pt \fab \noindent {\bf Abstract.~~}%
+    \textfont0 = \fab
+    \scriptfont0 = \sfab
+    \scriptscriptfont0 = \fs
+    \textfont1 = \tab
+    \scriptfont1 = \sab
+    \scriptscriptfont1 = \ssab
+    \textfont2 = \abst
+    \scriptfont2 = \sabs
+    \scriptscriptfont2 = \ssabs
+    \let \it = \itab
+    \let \sl = \slab
+    #1\bigskip}\medskip}
+\def\author#1{\bigskip\bigskip\centerline{\fb #1}}
+\def\autwo#1{\smallskip \centerline {\fb #1}}
+\def\copyright{\hbox{{\fb o}\kern-.61em \raise .46ex \hbox{\fd c}}}
+\def\footnoterule{\kern -3pt \hrule width 0truein \kern 2.6pt}
+\def\leftheadline{\ifnum\pageno=\count100 \hfill%
+  \else\rm\folio\hfil\it\shortauthor\fi}
+\def\rightheadline{\ifnum\pageno=\count100 \hfill%
+  \else\it\shorttitle\hfil\rm\folio\fi}
+\def\title#1{\centerline {\fa #1}}
+\def\titwo#1{\medskip \centerline {\fa #1}}
+\def\tithree#1{\medskip \centerline {\fa #1}}
+\def\titexp#1#2{\hbox{{\fa #1} \kern-.25em \raise .90ex \hbox{\fb #2}}\/}
+  %% Use to create superscripts in the title
+\def\titsub#1#2{\hbox{{\fa #1} \kern-.25em \lower .60ex \hbox{\fb #2}}\/}
+  %% Use to create subscripts in the title
+
+\nopagenumbers
+\headline{\ifodd\pageno\rightheadline \else\leftheadline\fi}
+\footline{\hfil}
+\null\vskip 18pt
+\centerline{}
+\pageno=\count100
+\count102=\count100
+\advance\count102 by -1
+\advance\count102 by \count101
+
+%********************* FOOTNOTE on FIRST PAGE  ********************
+
+\insert\footins{\fs
+\medskip
+\baselineskip 8pt
+\leftline{Curve and Surface Fitting: Saint-Malo 2002
+  \hfill {\fab \the\pageno}}
+\leftline{XXX (eds.),
+    pp. \the\pageno--\the\count102.}
+\leftline{Copyright \copyright\ 2002 by Nashboro Press,
+Nashville, TN.}
+\leftline{ISBN XXX.}
+\leftline{All rights of reproduction in any form reserved.}
+\smallskip
+\par\allowbreak}
+
+%********************* SECTIONS  ******************************
+
+\def\sect#1{\goodbreak\bigskip\smallskip\centerline{\bf\S #1}\medskip
+    \noindent\ignorespaces}
+  %% DEFINE SECTION HEADING
+
+\def\sectlong#1#2{\goodbreak\bigskip\smallskip\leftline{\bf\S #1}
+   {\bf #2}\medskip \noindent\ignorespaces}
+   % LONG SECTION
+   % #1 = First part of title
+   % #2 = Second part of title
+
+\def\subsect#1{\goodbreak\bigskip\leftline{\bf#1}\medskip
+  \noindent\ignorespaces}
+  %% DEFINE SUBSECTION HEADING
+
+\def\subsectlong#1#2{\goodbreak\bigskip\leftline{\bf#1}
+  {\bf #2} \medskip \noindent\ignorespaces}
+  %% DEFINE SUBSECTION HEADING
+
+\def\fsubsect#1{\goodbreak\leftline{\bf#1}\medskip
+   \noindent\ignorespaces}
+  %% USE in place of \subsect if it immediately follows \sect
+
+%********************** end MATTER ****************************
+
+\def\Acknowledgments{\goodbreak\bigskip\noindent{\bf
+   Acknowledgments.\ }}
+
+\def\Address{\nonfrenchspacing\goodbreak\bigskip\obeylines}
+
+\def\Remark#1.{\goodbreak\medskip\noin {\bf Remark#1.}}
+\def\Example#1.{\goodbreak\medskip\noin {\bf Example#1.}}
+
+%************************ REFERENCES *********************
+
+\def\ref{\smallskip\global\advance\refnum by 1 \item{\the\refnum.}}
+\newcount\refnum \refnum = 0
+
+\def\References{\goodbreak\bigskip\centerline{\bf References}\bigskip
+   \frenchspacing}
+
+%***************************** JOURNALS **************************
+
+\def\AAM{\AiAM}
+\def\ApA{Appl.\ Anal.}
+\def\ACHA{Appl.\ Comput.\ Harmonic Anal.}
+\def\ACJ{Australian Comput.\ J.}
+\def\ACMTMS{ACM Trans.\ Math.\ Software}
+\def\ACMTG{ACM Trans.\ on Graphics}
+\def\AC{Adv.\ Comput.}
+\def\AJM{Amer.\ J. Math.}
+\def\AMASH{Acta Math.\ Acad.\ Sci.\ Hungar.}
+\def\AMC{Appl.\ Math.\ Comp.}
+\def\AMM{Appl.\ Math.\ Mech.}
+\def\AMMo{Amer.\ Math.\ Monthly}
+\def\AMS{Acta Math.\ Sinica}
+\def\AM{Aequationes Math.}
+\def\AN{Acta Numerica}
+\def\AoNM{Annals of Numerical Mathematics}
+\def\ANM{Appl.\ Numer.\ Math.}
+\def\ANTA{Anal.\ Num\'er.\ Th\'eor.\ Approx.}
+\def\ATA{Approx.\ Theory Appl.}
+\def\AiM{Advances in Math.}
+\def\AiAM{Advances in Appl.\ Math.}
+\def\AiCM{Advances in Comp.\ Math.}
+\def\AfM{Arkiv for Matematik}
+\def\BAMS{Bull.\ Amer.\ Math.\ Soc.}
+\def\BIT{BIT}
+\def\C{Computing}
+\def\CACM{Commun.\ ACM}
+\def\CAD{Computer-Aided Design}
+\def\CAGD{Comput.\ Aided Geom.\ Design}
+\def\CA{Constr.\ Approx.}
+\def\CGA{Comp.\ Graphics and Applics.}
+\def\CGIP{Comp.\ Graphics and Image Proc.}
+\def\CJM{Canad.\ J. Math.}
+\def\CJ{Computer J.}
+\def\CM{Contemp.\ Math.}
+\def\CMA{Comput.\ Math.\ Appl.}
+\def\CMB{Canad.\ Math.\ Bull.}
+\def\CMP{Comm.\ Math.\ Phys.}
+\def\CMSCP{Canad.\ Math.\ Soc.\ Conf.\ Proceedings}
+\def\CRABS{C. R. Acad.\ Bulgare Sci.}
+\def\CRASP{C. R. Acad.\ Sci.\ Paris}
+\def\CVGIP{Computer Vision, Graphics, and Image Processing}
+\def\DMJ{Duke Math.\ J.}
+\def\EJA{East J. Approx.}
+\def\IBMJRD{IBM J. Res.\ Dev.}
+\def\IBMJR{IBM J. Res.}
+\def\ICGA{IEEE Comp.\ Graph.\ Appl.}
+\def\IJM{Illinois J. Math.}
+\def\IJNME{Intern.\ J. Numer.\ Methods Eng.}
+\def\IMAJNA{IMA J. Numer.\ Anal.}
+\def\IPL{Inform.\ Process.\ Lett.}
+\def\ITBE{IEEE Trans.\ Biomedical Engrg.}
+\def\ITC{IEEE Trans.\ Computers}
+\def\ITMI{IEEE Trans.\ Medical Imaging}
+\def\ITPAMI{IEEE Trans.\ Pattern Anal.\ and Machine Intelligence}
+\def\ITPASSP{IEEE Trans.\ Acoustic, Speech, and Signal Processing}
+\def\ITSE{IEEE Trans.\ Software Engrg.}
+\def\IUMJ{Indiana Univ.\ Math.\ J.}
+\def\IsJM{Israel J. Math.}
+\def\JACM{J. Assoc.\ Comput.\ Mach.}
+\def\JAMP{J. Appl.\ Math.\ Phys.}
+\def\JAMSA{J. Austral.\ Math.\ Soc.\ Ser.\ A}
+\def\JAMSB{J. Austral.\ Math.\ Soc.\ Ser.\ B}
+\def\JAM{J. Analyse Math.}
+\def\JATA{\ATA}
+\def\JAT{J. Approx.\ Theory}
+\def\JCAM{J. Comput.\ Appl.\ Math.}
+\def\JCP{J. Comput.\ Phys.}
+\def\JFA{J. Funct.\ Anal.}
+\def\JFAA{J. Fourier Anal.\ Appl.}
+\def\JIMA{J. Inst.\ Math.\ Applics.}
+\def\JLMS{J. London Math.\ Soc.}
+\def\JMAA{J. Math.\ Anal.\ Appl.}
+\def\JMM{J. Math.\ Mech.}
+\def\JMP{J. Math.\ Phys.}
+\def\JNMCA{J. Numer.\ Methods Comput.\ Appl.}
+\def\JSC{J. Sci.\ Comput.}
+\def\JSIAM{J. SIAM}
+\def\LAA{Linear Algebra Appl.}
+\def\LMJ{London Math.\ J.}
+\def\MA{Math.\ Ann.}
+\def\MAA{Math.\ Anal.\ Appl.}
+\def\MCAD{Math.\ CAD}
+\def\MC{Math.\ Comp.}
+\def\MM{Manuscripta Math.}
+\def\MN{Math.\ Notes}
+\def\MNa{Math.\ Nachrichten}
+\def\MUSSRS{Math.\ USSR-Sb.}
+\def\MZ{Math.\ Z.}
+\def\MaZ{Mat.\ Zametki}
+\def\NA{Numer.\ Algorithms}
+\def\NFAO{Numer.\  Func.\ Anal.\ Optim.}
+\def\NM{Numer.\ Math.}
+\def\PAMS{Proc.\ Amer.\ Math.\ Soc.}
+\def\PEMS{Proc.\ Edinburgh Math.\ Soc.}
+\def\PLMS{Proc.\ London Math.\ Soc.}
+\def\PJM{Pacific J. Math.}
+\def\PNAS{Proc.\ Nat.\ Acad.\ Sci.}
+\def\PR{Pattern Recognition}
+\def\PRSEA{Proc.\ Roy.\ Soc.\ Edinburgh Sect.\ A}
+\def\RAIROAN{Rev.\ Fran\c caise Automat.\ Informat.\
+     Rech.\ Op\'er., Anal.\ Numer.}
+\def\RMA{Rev.\ Math.\ Apl.}
+\def\RAN{\RAIROAN}
+\def\RM{Resultate Math.}
+\def\RMJM{Rocky Mountain J. Math.}
+\def\SAM{Studies in Appl.\ Math.}
+\def\SJAM{SIAM J. Appl.\ Math.}
+\def\SJADM{SIAM J. Alg.\ Disc.\ Methods}
+\def\SJDM{SIAM J. Discrete Math.}
+\def\SJC{SIAM J. Comput.}
+\def\SJMA{SIAM J. Math.\ Anal.}
+\def\SJNA{SIAM J. Numer.\ Anal.}
+\def\SJSC{SIAM J. Scient.\ Computing}
+\def\SJSSC{SIAM J. Sci.\ Statist.\ Comput.}
+\def\SM{Studia Math.}
+\def\SMD{Soviet Math.\ Dokl.}
+\def\SR{SIAM Review}
+\def\SSMH{Stud.\ Sci.\ Math.\ Hung.}
+\def\TAMS{Trans.\ Amer.\ Math.\ Soc.}
+\def\TOG{\ACMTG}
+\def\ZAMM{Z. Angew.\ Math.\ Mech.}
+\def\ZAMP{Z. Angew.\ Math.\ Phys.}
+\def\ZMAM{ZMAM}
+
+%***************************** PROCEEDINGS **************************
+
+\def\biri{%
+{\sl Mathematical Methods in Computer Aided Geometric Design II},
+T. Lyche and L.~L. Schumaker (eds.), Academic Press, New York, 1992}
+
+\def\chamonixI{%
+{\sl Curves and Surfaces},
+P.-J. Laurent, A. Le M\'ehaut\'e, and L. L. Schumaker (eds.),
+Academic Press, New York, 1991}
+
+\def\chamonixIIa{%
+{\sl Curves and Surfaces in Geometric Design},
+P.-J. Laurent, A. Le M\'ehaut\'e, and L. L. Schumaker (eds.),
+A. K. Peters, Wellesley MA, 1994}
+
+\def\chamonixIIb{%
+{\sl Wavelets, Images, and Surface Fitting},
+P.-J. Laurent, A. Le M\'ehaut\'e, and L. L. Schumaker (eds.),
+A. K. Peters, Wellesley MA, 1994}
+
+\def\chamonixIIIa{%
+{\sl Curves and Surfaces with Applications in CAGD},
+A. Le M\'ehaut\'e, C. Rabut, and L. L. Schumaker (eds.),
+Vanderbilt University Press, Nashville, 1997}
+
+\def\chamonixIIIb{%
+{\sl Surface Fitting and Multiresolution Methods},
+A. Le M\'ehaut\'e, C. Rabut, and L. L. Schumaker (eds.),
+Vanderbilt University Press, Nashville, 1997}
+
+\def\lillehammer{%
+{\sl Mathematical Methods for Curves and Surfaces II},
+M. D{\ae}\-hlen, T. Lyche, and L. L. Schumaker (eds.),
+Vanderbilt University Press, Nashville, 1998}
+
+\def\oslo{%
+{\sl Mathematical Methods in Computer Aided Geometric Design},
+T. Lyche and L. L. Schumaker (eds.), Academic Press, New York, 1989}
+
+\def\osloII{%
+{\sl Mathematical Methods in CAGD: Oslo 2000},
+T. Lyche and L. L. Schumaker (eds.), Vanderbilt University
+Press, Nashville, 2001}
+
+\def\stmalod{%
+{\sl Curve and Surface Design: Saint-Malo 1999},
+Pierre-Jean Laurent, Paul Sablonni\`ere,
+and Larry L. Schumaker (eds.),
+Vanderbilt University Press, Nashville, 2000}
+
+\def\stmalof{%
+{\sl Curve and Surface Fitting: Saint-Malo 1999},
+Albert Cohen, Chris\-tophe Rabut,
+and Larry L. Schumaker (eds.),
+Vanderbilt University Press, Nashville, 2000}
+
+\def\stmalotwo{%
+{\sl Curve and Surface Fitting: Saint-Malo 2002},
+XXX (eds.),
+XXX Press, Nashville, 2003}
+
+\def\texasI{%
+{\sl Approximation Theory},
+G. G. Lorentz {\it et al.} (eds.),
+Academic Press, New York, 1973}
+
+\def\texasII{%
+{\sl Approximation Theory, II},
+G. G. Lorentz, C. K. Chui,  and L. L. Schumaker (eds.),
+Academic Press, New York, 1976}
+
+\def\texasIII{%
+{\sl Approximation Theory III},
+E. W. Cheney (ed.),
+Academic Press, New York, 1980}
+
+\def\texasIV{%
+{\sl Approximation Theory IV},
+C. Chui, L. Schumaker, and J. Ward (eds.),
+Academic Press, New York, 1983}
+
+\def\texasV{%
+{\sl Approximation Theory V},
+C. Chui,  L. Schumaker, and J. Ward (eds.),
+Academic Press, New York, 1986}
+
+\def\texasVI{%
+{\sl Approximation Theory VI},
+C. Chui,  L. Schumaker, and J. Ward (eds.),
+Academic Press, New York, 1989}
+
+\def\texasVII{%
+{\sl Approximation Theory VII},
+E. W. Cheney, C. Chui,  and  L. Schumaker (eds.),
+Academic Press, New York, 1992}
+
+\def\texasVIIIa{%
+{\sl Approximation Theory VIII, Vol.\ 1: Approximation and
+Interpolation},
+Charles K. Chui  and  Larry L. Schumaker (eds.),
+World Scientific Publishing Co., Inc.{}, Singapore, 1995}
+
+\def\texasVIIIw{%
+{\sl Approximation Theory VIII, Vol.\ 2: Wavelets},
+Charles K. Chui  and  Larry L. Schumaker (eds.),
+World Scientific Publishing Co., Inc.{}, Singapore, 1995}
+
+\def\texasIXt{%
+{\sl Approximation Theory IX, Vol.~1: Theoretical Aspects},
+Charles K. Chui  and  Larry L. Schumaker (eds.),
+Vanderbilt University Press,  Nashville, 1998}
+
+\def\texasIXc{%
+{\sl Approximation Theory IX, Vol.~2: Computational Aspects},
+Charles K. Chui  and  Larry L. Schumaker (eds.),
+Vanderbilt University Press,  Nashville, 1998}
+
+\def\texasXa{%
+{\sl Approximation Theory X:
+Abstract and Classical Analysis},
+C. K. Chui,  L. L. Schumaker, and J. St\"ockler (eds.),
+Vanderbilt University Press, Nash\-ville, 2002}
+
+\def\texasXs{%
+{\sl Approximation Theory X: Splines, Wavelets, and Applications},
+C. K. Chui,  L. L. Schumaker, and J. St\"ockler (eds.),
+Vanderbilt University Press, Nash\-ville, 2002}
+
+\def\ulvik{%
+{\sl Mathematical Methods for Curves and Surfaces},
+M. D{\ae}\-hlen, T. Lyche, and L. L. Schumaker (eds.),
+Vanderbilt University Press, Nashville, 1995}
+
+\def\trends{%
+{\sl Trends in Approximation Theory},
+K.~Kopotun, T.~Lyche, and M.~Neamtu (eds.),
+Vanderbilt University Press, Nashville, 2001}
+
+\def\taormina{%
+{\sl Wavelets: Theory, Algorithms, and Applications},
+C. Chui, L. Montefusco, and L. Puccio (eds.),
+Academic Press, New York, 1994}
+
+\def\karlin{%
+{\sl Studies in Spline  Functions and Approximation Theory},
+S. Karlin, C. Micchelli, A. Pinkus, and I. Schoenberg (eds.),
+Academic Press, New York, 1976}
+
+\def\npaper{\nonfrenchspacing\vfill\eject}
+
+\def\bpage{
+\def\leftheadline{\hfill}%
+\def\rightheadline{\hfill}%
+\null\centerline{}
+\supereject}
+
+
+%%%%% END of at01.tex

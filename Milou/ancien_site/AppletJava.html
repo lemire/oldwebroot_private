@@ -1,0 +1,234 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<HTML>
+<HEAD>
+<TITLE>Java et les chats</TITLE>
+<META NAME="Author" CONTENT="Nathalie Lampron">
+<META NAME="Description" CONTENT="Une applet vague de Daniel Lemire appliquée des photos de chat.">
+<META NAME="Keywords" CONTENT="applet, vague, chat, chats, gif, animation, photo, Java, Javascript, Jérémias, La Cachouteba, chatterie, Norvégien, Somali, Netty Webby, Daniel Lemire">
+<script type="text/javascript">
+  if (top.frames.length >1) {
+  	top.location = self.location;
+  }
+</script>
+
+<SCRIPT LANGUAGE="JavaScript">
+<!-- debut du script
+function VersionNavigateur(Netscape, Explorer) {
+  if ((navigator.appVersion.substring(0,3) >= Netscape && navigator.appName == 'Netscape') ||      
+      (navigator.appVersion.substring(0,3) >= Explorer && navigator.appName.substring(0,9) == 'Microsoft'))
+    return true;
+else return false;
+}
+//  fin du script -->
+</SCRIPT>
+<SCRIPT LANGUAGE = "JavaScript">
+     <!--
+// DerniereModif JavaScript (C)1997 Cyril Pannetier - La Petite Boutique JavaScript -
+// web : http://www.mygale.org/08/pannetie
+// e-mail : pannetie@mygale.org
+// Ce script est librement utilisable. Merci de ne pas effacer ces commentaires.
+
+
+function browserID() {
+
+	var name = navigator.appName ;
+	var version = navigator.appVersion;
+
+	if (name == 'Netscape') {
+		name = 'Netscape Navigator';
+		version = navigator.appVersion.substring(0,5);
+	}
+	else {
+		if (name == 'Microsoft Internet Explorer') {
+			id = version.indexOf('MSIE');
+			version = version.substring(id+5,id+9);
+		}
+		else {
+			name = 'Navigateur inconnu';
+			version = '0.00';
+		}
+	}
+	ID = name + ' ' + version;
+
+	return ID;
+}
+
+function DerniereModif(format) {
+
+	var modif = document.lastModified;
+	var heure = '';
+	
+
+	browser = browserID();
+	if ( (browser.indexOf('Netscape Navigator') > -1) || (browser.indexOf('Microsoft Internet Explorer 4') > -1) ){
+		mois = modif.substring(0,2);
+		jour = modif.substring(3,5);
+		annee = modif.substring(6,8);
+		heure = modif.substring(9,17);
+		modif = jour + '/' + mois + '/19' + annee;
+	}
+	else {
+		if (browser.indexOf('Microsoft Internet Explorer') > -1) {
+			p1 = modif.indexOf(' ');
+			jour = modif.substring(0,p1);
+			p2 = modif.indexOf(' ',p1+1);
+			mois = modif.substring(p1,p2);
+			p1 = p2;
+			p2 = modif.indexOf(' ',p1+1);
+			jour = jour + ' ' + modif.substring(p1,p2);
+			p1 = p2;
+			p2 = modif.indexOf(' ',p1+1);
+			heure = modif.substring(p1,p2);
+			annee = modif.substring(p2+1,p2+5);
+			modif = jour + ' ' + mois + ' ' + annee;
+		}
+	}
+	if (format == 'F') {
+		document.write('Dernière modification le ',modif,' à ',heure,'.');
+	}
+	else {
+		if (format =='D') {
+			document.write('Dernière modification le ',modif);
+		}
+		else {
+			if (format =='H') {
+				document.write('Dernière modification à ',heure);
+			}
+		}
+	}
+}
+//-->
+
+     </SCRIPT>
+<SCRIPT LANGUAGE = "JavaScript">
+	 <!--
+// BrowserID JavaScript (C)1997 Cyril Pannetier - La Petite Boutique JavaScript -
+// web : http://www.mygale.org/08/pannetie
+// e-mail : pannetie@mygale.org
+// Ce script est librement utilisable. Merci de ne pas effacer ces commentaires.
+
+function browserID() {
+
+	var name = navigator.appName ;
+	var version = navigator.appVersion;
+
+	if (name == 'Netscape') {
+		name = 'Netscape Navigator';
+		version = navigator.appVersion.substring(0,5);
+	}
+	else {
+		if (name == 'Microsoft Internet Explorer') {
+			id = version.indexOf('MSIE');
+			version = version.substring(id+5,id+9);
+		}
+		else {
+			name = 'Navigateur inconnu';
+			version = '0.00';
+		}
+	}
+	ID = name + ' ' + version;
+
+	return ID;
+}
+//-->
+</SCRIPT>
+</HEAD>
+<body background="fondgris.gif">
+<FONT COLOR="#000080">
+<CENTER><table><tr><td width=90%><h2><FONT COLOR="#000080"><CENTER>Les chats aiment l'eau... et le Java!</CENTER></font></h2></td><td><center><IMG SRC="Java.gif" BORDER=0 WIDTH=57 HEIGHT=88 alt="Java"></center></td></tr></table>
+
+<HR SIZE=3 COLOR="#000080">
+<!-- Dali et Minoune -->
+<P>
+<FONT SIZE=4><B>Les chats de la famille Lampron</B></FONT>
+<P>
+<TABLE BORDER=0>
+  <TR>
+    <TD><A HREF="DaliJava.html" onMouseOver="if (VersionNavigateur(3.0,4.0))  img7.src='Boutons_Nathalie/BoutonDaliAquarellepr.jpg' " onMouseOut="img7.src='Boutons_Nathalie/BoutonDaliAquarelle.jpg' ">
+<IMG NAME="img7" WIDTH=82 HEIGHT=90 BORDER=0 SRC="Boutons_Nathalie/BoutonDaliAquarelle.jpg" onLoad="tempImg=new Image(0,0); tempImg.src='Boutons_Nathalie/BoutonDaliAquarellepr.jpg'"></A>
+
+</TD>
+    <TD><FONT COLOR="#000080">La belle Dali</font></TD>
+  </TR>
+  <TR>
+    <TD><A HREF="MinouneJava.html" onMouseOver="if (VersionNavigateur(3.0,4.0))  img8.src='Boutons_Nathalie/BoutonMinouneAquarellepr.jpg' " onMouseOut="img8.src='Boutons_Nathalie/BoutonMinouneAquarelle.jpg' ">
+<IMG NAME="img8" WIDTH=82 HEIGHT=90 BORDER=0 SRC="Boutons_Nathalie/BoutonMinouneAquarelle.jpg" onLoad="tempImg=new Image(0,0); tempImg.src='Boutons_Nathalie/BoutonMinouneAquarellepr.jpg'"></A>
+
+</TD>
+    <TD><FONT COLOR="#000080">La vieille Minoune</font></TD>
+  </TR>
+</TABLE>
+
+
+<!-- Autres chats -->
+<p>&nbsp;
+<p><B><FONT SIZE=4>Autres chats internautes</FONT></B>
+<p>
+<TABLE BORDER=0>
+  <TR>
+    <TD><A HREF="tiksin.html" onMouseOver="if (VersionNavigateur(3.0,4.0))  img2.src='Boutons_Nathalie/BoutonTiksinAquarellepr.jpg' " onMouseOut="img2.src='Boutons_Nathalie/BoutonTiksinAquarelle.jpg' ">
+<IMG NAME="img2" WIDTH=82 HEIGHT=90 BORDER=0 SRC="Boutons_Nathalie/BoutonTiksinAquarelle.jpg" onLoad="tempImg=new Image(0,0); tempImg.src='Boutons_Nathalie/BoutonTiksinAquarellepr.jpg'"></A>
+
+</TD>
+    <TD><FONT COLOR="#000080">Ti-Ksin sur son île déserte...</font></TD>
+  </TR>
+<TR>
+    <TD><A HREF="Netty.html" onMouseOver="if (VersionNavigateur(3.0,4.0))  img3.src='Boutons_Nathalie/BoutonNettyAquarellepr.jpg' " onMouseOut="img3.src='Boutons_Nathalie/BoutonNettyAquarelle.jpg' ">
+<IMG NAME="img3" WIDTH=82 HEIGHT=90 BORDER=0 SRC="Boutons_Nathalie/BoutonNettyAquarelle.jpg" onLoad="tempImg=new Image(0,0); tempImg.src='Boutons_Nathalie/BoutonNettyAquarellepr.jpg'"></A>
+</TD>
+    <TD><FONT COLOR="#000080">Netty ne veut pas se mouiller!</font></TD>
+  </TR>
+</TABLE>
+<p><FONT SIZE=2>Avertissement&nbsp;: l'applet ne fonctionne pas avec Netscape&nbsp;4.07
+<br> en raison d'un bogue présent dans cette version du navigateur.
+<BR><!-- On utilise la commande javascript "document.write" pour écrire dans un
+     page HTML, la fonction browserID affiche le nom du navigateur utilisé. -->
+     <SCRIPT LANGUAGE = "JavaScript">
+     <!--
+     document.write('Vous utilisez <B>',browserID(),'.</B>');
+     //-->
+     </SCRIPT>
+</FONT>
+<P><HR COLOR="#000080"></P>
+<P><FONT SIZE=4>Attention! Vous quittez mon site!</FONT></P>
+<P>Eh oui! Il y a aussi d'autres sites où l'on peut trouver des chats qui aiment l'eau et le Java. En voici un bon exemple.</P>
+<TABLE>
+  <COL SPAN="2">
+    <TR>
+      <TD><A HREF="http://www.m2b.com/lezoonet/vagues.htm" onMouseOver="if (VersionNavigateur(3.0,4.0))  img4.src='Boutons_Nathalie/BoutonLezoonetAquarellepr.jpg' " onMouseOut="img4.src='Boutons_Nathalie/BoutonLezoonetAquarelle.jpg' ">
+<IMG NAME="img4" WIDTH=82 HEIGHT=90 BORDER=0 SRC="Boutons_Nathalie/BoutonLezoonetAquarelle.jpg" onLoad="tempImg=new Image(0,0); tempImg.src='Boutons_Nathalie/BoutonLezoonetAquarellepr.jpg'"></A>
+
+</TD>
+      <TD><FONT COLOR="#000080">Lezoonet, un chat tout ce qu'il y a de plus siamois.</FONT></TD>
+    </TR>
+</TABLE>
+
+<p>L'applet vague (version 0.4) utilisée dans les pages qui suivent a été conçue par 
+<br>l'homme de ma vie, <a href="http://technopole.le-village.com/lemire/" onMouseOver="window.status='Cliquez ici pour visiter le site de mon copain Daniel Lemire'; return true" onMouseOut="window.status=' '; return true">Daniel Lemire</a>.
+<br>Il offre gratuitement son code et un guide d'utilisation dans sa 
+<br><a href="http://technopole.le-village.com/lemire/vague.html" onMouseOver="window.status='Cliquez ici pour obtenir le code de cette applet'; return true" onMouseOut="window.status=' '; return true">page consacrée à cette applet</a>.
+<br>Avis aux intéressés!
+<P><A HREF="http://technopole.le-village.com/lemire/java_applet_divers.html"><IMG SRC="Bannieres/logo_java.gif" BORDER=0 WIDTH=400 HEIGHT=60></A></P>
+</center>
+<p><FONT SIZE=2>
+<BR><!-- On execute la fonction "DerniereModif" qui va afficher la date de dernière modification du fichier (option 'D') -->
+     <SCRIPT LANGUAGE="JavaScript">
+     <!--
+     DerniereModif('D');
+     //-->
+     </SCRIPT></FONT>
+
+<HR SIZE=3 COLOR="#000080">
+<center>
+<BR>
+<!-- Bouton menu -->
+<A HREF="nathalie.html" onMouseOver="if (VersionNavigateur(3.0,4.0))  img1.src='Boutons_Nathalie/BoutonMenupr.gif' " onMouseOut="img1.src='Boutons_Nathalie/BoutonMenu.gif' ">
+<IMG NAME="img1" WIDTH=120 HEIGHT=40 BORDER=0 SRC="Boutons_Nathalie/BoutonMenu.gif" onLoad="tempImg=new Image(0,0); tempImg.src='Boutons_Nathalie/BoutonMenupr.gif'" alt="Menu principal"></A>
+<!-- Courriel -->
+<br><a href="mailto:Nathalie.Lampron@videotron.ca" 
+onMouseOver="window.status='Cliquez ici pour m\'écrire'; return true" 
+onMouseOut="window.status=' '; return true">Nathalie Lampron</a>
+
+</CENTER>
+</BODY>
+</HTML><SCRIPT LANGUAGE="newlanguage"><FONT COLOR="#C0C0C0"><SMALL><!--
