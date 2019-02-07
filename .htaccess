@@ -1,0 +1,14 @@
+Options -Indexes
+redirect permanent /en/publications.rss http://feeds.feedburner.com/DanielLemiresArticlesOnArxiv
+redirect permanent /THEM/ http://www.daniel-lemire.com/blog/
+redirect permanent /olap/dwbib.html http://www.daniel-lemire.com/OLAP/index.html
+redirect permanent /index.html http://www.daniel-lemire.com/blog/
+redirect permanent /THEM/ http://www.daniel-lemire.com/
+redirect permanent /indexen.html http://www.daniel-lemire.com/blog/
+redirect permanent /images/java/Properties16.gif  http://www.ibm.com/i/v14/t/ibm-logo.gif
+redirect permanent /images/java/Add16.gif http://www.ibm.com/i/v14/t/ibm-logo.gif
+redirect permanent /forum/FAQ/French/faqondelette/faqondelette.html http://www.ondelette.com/forum/FAQ/French/faqondelette.pdf
+redirect permanent /lemire/Frames.html http://www.daniel-lemire.com/fr/
+redirect permanent /lemire http://www.daniel-lemire.com/fr
+redirect permanent /OLAP/dwbib.html http://www.daniel-lemire.com/OLAP/index.html
+redirect permanent /acadia http://www.daniel-lemire.com/en
